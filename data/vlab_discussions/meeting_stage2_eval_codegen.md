@@ -3,34 +3,12 @@
 现在开始会议。请先由 PI 审阅任务并提出明确要求，然后由代码工程师给出最终完整代码。
 
 会议任务如下：
-围绕以下从记忆库提取的预测模型：AmpNet，编写自动化代码。
-请严格遵守以下共享基础要求：
-
-1. 【历史数据清理机制】：
-   在执行模型预测前，必须执行以下清理逻辑：
-   - `shutil.rmtree('data/AmpNet_out', ignore_errors=True)` 或清理对应的结果文件
-
-
-2. 【强校验命令执行（极度重要）】：
-   必须严格照抄以下代码块来执行预测（切勿自行添加 try-except 吞咽错误）：
-
-   # AmpNet 调用代码模板
-   print("开始运行 AmpNet...")
-   AmpNet_cmd = 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_ampnet && python inference.py -i data/combined_test.fasta -o data/AmpNet_out"'
-   res_AmpNet = subprocess.run(AmpNet_cmd, shell=True, capture_output=True, text=True)
-   if res_AmpNet.returncode != 0:
-       print(f"!!! AmpNet 真实报错日志:\n{res_AmpNet.stderr}")
-       raise RuntimeError("AmpNet 预测执行失败，已阻断程序！")
-
-
-3. 【代码完整性要求】：
-   - Python 代码必须是单一、完整、可运行的脚本
-   - 必须包含完整 import，包含 `def main():` 并以 `if __name__ == '__main__':` 为入口
+当前需要评测的计算生物学模型清单：Macrel, AMP-Scanner-v2。
 
 
 【这次是第二次会议（利用评测阶段），请严格执行以下要求】：
 1. PI 请先阅读下方【第一阶段超算传回的勘探报告】，明确第一次会议实际生成的文件名和数据结构。
-2. 工程师必须根据勘探报告揭示的“真实文件路径和列名”编写 pandas 解析代码。绝对禁止重新运行任何模型命令！
+2. 工程师必须根据勘探报告揭示的“真实文件路径和列名”编写 pandas 解析代码。绝对禁止重新运行任何模型！
 3. 【数据清洗与合并（必须严格遵守）】：
    - 严禁解析 FASTA 获取标签：必须且只能读取 `data/ground_truth.csv` 获取真实标签。
    - 强清洗 ID：在 merge 之前，必须对所有表的 ID 列转换为字符串，剔除 '>' 符号，并使用 `apply(lambda x: str(x).split()[0].strip())` 只保留干净 ID。
@@ -38,423 +16,571 @@
    - 统一使用浮点数概率值（`prob > 0.5`）生成最终的 0 和 1 预测标签。
 4. 必须使用 sklearn 计算 ACC, Recall, MCC, AUROC, AUPRC，并将结果保存为嵌套字典结构的 `eval_result.json`。
 5. 必须保存 `evaluation_curves.png`（需声明 `import matplotlib; matplotlib.use('Agg')`）和 `final_results_with_predictions.csv`。
-6. 🚫 你的执行环境是 Python 3.11+。绝对禁止使用 `from scipy import interp`！必须使用 `numpy.interp`！
-7. 制图必须满足顶刊级别要求，全面对比出每个模型在各个指标上的差异。
+6. 🚫【代码兼容性极速警告】：执行环境是 Python 3.11+。绝对禁止使用 `from scipy import interp`！绘制 ROC/PR 曲线插值必须使用 `numpy.interp`！
+7. 要求做的图表要极具专业性并且全面，满足能在顶刊顶会发表的要求。全面对比出每个模型在每个指标上的表现差异。
+
+【🔴 极度重要的数据嗅探与 Pandas 提取纪律 (Dynamic Data Extraction)】
+当你编写读取模型输出的 Python 脚本时，必须具备“极客级”的解析能力：
+1. **多格式兼容**：使用 `glob.glob` 寻找输出目录下最大的 `.csv`, `.tsv`, `.txt`, `.out`, 甚至 `.gz` 文件！
+2. **解压与注释跳过（终极死纪律）**：
+   - 🚨 **防崩溃死命令**：绝对禁止在 `pd.read_csv` 中使用 `low_memory=False` 或 `engine='python'`！这会引发致命的引擎冲突！默认使用 C 引擎即可！
+   - 如果文件是 `.gz` 结尾（如 Macrel），你必须严格使用这套代码去读，千万不要乱改：`pd.read_csv(filepath, sep='\t', comment='#', compression='gzip')`
+   - 如果文件是 `.csv` 结尾（如 AMP-Scanner），你必须严格使用这套代码去读：`pd.read_csv(filepath, sep=',')`
+3. **模糊列名锁定**：读取文件后，使用类似 `[col for col in df.columns if 'prob' in col.lower() or 'score' in col.lower()]` 的逻辑锁定概率列。如果找到了正确的概率列，必须用 `pd.to_numeric(..., errors='coerce')` 将其强转为浮点数。
+4. **优雅降级**：只有当所有读取方式都失败时，才赋值为 `None`。
 
 以下是第一阶段传回的勘探报告：
 --------------------------------
-=== Stage 1 Observation Report ===
-Generated at: stage1_observation.txt
-==================================================
+Pipeline Start Time: 2026-03-17 19:06:19
 
-[Directory Scan] data/macrel_out
-File Path: data/macrel_out/README.md
-Head Content (Top 10 lines):
-If you find Macrel useful, please cite:
+=== Model Execution: Macrel ===
+Time: 2026-03-17 19:06:19
+[SUCCESS] Model Macrel completed successfully.
 
-> Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
-> genomes and metagenomes. The PeerJ 8:e10555
-> https://doi.org/10.7717/peerj.10555
 
-For more information, please read [the macrel
-documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
-list](https://groups.google.com/g/ampsphere-users) for questions.
+=== Model Execution: AMP-Scanner-v2 ===
+Time: 2026-03-17 19:06:24
+[SUCCESS] Model AMP-Scanner-v2 completed successfully.
 
+
+=== Stage 1 Exploration Report ===
+
+Exploration Time: 2026-03-17 19:06:35
+
+[INFO] Found 3 output files.
+
+File Path: data/Macrel_out/README.md
+File Size: 1506 bytes
+Header Content (First 10 lines):
+  If you find Macrel useful, please cite:
+  
+  > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
+  > genomes and metagenomes. The PeerJ 8:e10555
+  > https://doi.org/10.7717/peerj.10555
+  
+  For more information, please read [the macrel
+  documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
+  list](https://groups.google.com/g/ampsphere-users) for questions.
+  
 --------------------------------------------------
-
-File Path: data/macrel_out/macrel.out.prediction.gz
-Head Content (Top 10 lines):
-# Prediction from macrel v1.6.0
-Access	Sequence	AMP_family	AMP_probability	Hemolytic	Hemolytic_probability
-AP01235	FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY	CDP	0.653	Hemo	0.743
-AP02150	YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF	CDP	0.693	NonHemo	0.426
-AP00314	VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR	CDP	0.891	Hemo	0.644
-AP01183	ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR	CDP	0.772	NonHemo	0.376
-AP01372	SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE	CDP	0.703	NonHemo	0.485
-AP02103	GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT	CDP	0.960	Hemo	0.743
-AP01558	LGAWLAGKVAGTVATYAWNRYV	CLP	0.802	Hemo	0.703
-AP02266	GFWDSVKEGLKNAAVTILNKIKCKISECPPA	CDP	0.861	NonHemo	0.228
+File Path: data/Macrel_out/macrel.out.prediction.gz
+File Size: 18552 bytes
+Header Content (First 10 lines):
+  # Prediction from macrel v1.6.0
+  Access	Sequence	AMP_family	AMP_probability	Hemolytic	Hemolytic_probability
+  AP01235	FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY	CDP	0.653	Hemo	0.743
+  AP02150	YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF	CDP	0.693	NonHemo	0.426
+  AP00314	VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR	CDP	0.891	Hemo	0.644
+  AP01183	ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR	CDP	0.772	NonHemo	0.376
+  AP01372	SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE	CDP	0.703	NonHemo	0.485
+  AP02103	GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT	CDP	0.960	Hemo	0.743
+  AP00842	TKYYGNGVYCNSKKCWVDWGQASGCIGQTVVGGWLGGAIPGKC	CDP	0.792	Hemo	0.634
+  AP01558	LGAWLAGKVAGTVATYAWNRYV	CLP	0.802	Hemo	0.703
 --------------------------------------------------
-
-[Directory Scan] data
-File Path: data/ground_truth.csv
-Head Content (Top 10 lines):
-id,sequence,label
-AP01235,FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY,1
-AP02387,RLGTALPALLKTLLAGLNG,1
-AP02150,YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF,1
-AP00314,VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR,1
-AP01183,ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR,1
-AP01372,SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE,1
-AP02103,GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT,1
-AP02230,PKRKAEGDAKGDKAKVKDEPQRRSARLSAKPAPPKPEPKPKKAPAKKGEKVPKGKKGKADAGKEGNNPAENGDAKTDQAQKAEGAGDAK,1
-AP01558,LGAWLAGKVAGTVATYAWNRYV,1
+File Path: data/AMP-Scanner-v2_out/ampscanner_out.csv
+File Size: 85721 bytes
+Header Content (First 10 lines):
+  SeqID,Prediction_Class,Prediction_Probability,Sequence
+  AP01235,AMP,1.0000,FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY
+  AP02387,AMP,0.9983,RLGTALPALLKTLLAGLNG
+  AP02150,AMP,1.0000,YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF
+  AP00314,AMP,1.0000,VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR
+  AP01183,AMP,1.0000,ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR
+  AP01372,AMP,0.9968,SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE
+  AP02103,AMP,1.0000,GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT
+  AP00842,AMP,1.0000,TKYYGNGVYCNSKKCWVDWGQASGCIGQTVVGGWLGGAIPGKC
+  AP02230,AMP,0.9957,PKRKAEGDAKGDKAKVKDEPQRRSARLSAKPAPPKPEPKPKKAPAKKGEKVPKGKKGKADAGKEGNNPAENGDAKTDQAQKAEGAGDAK
 --------------------------------------------------
-
-File Path: data/ampscanner_out.csv
-Head Content (Top 10 lines):
-SeqID,Prediction_Class,Prediction_Probability,Sequence
-AP01235,AMP,1.0000,FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY
-AP02387,AMP,0.9983,RLGTALPALLKTLLAGLNG
-AP02150,AMP,1.0000,YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF
-AP00314,AMP,1.0000,VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR
-AP01183,AMP,1.0000,ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR
-AP01372,AMP,0.9968,SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE
-AP02103,AMP,1.0000,GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT
-AP02230,AMP,0.9957,PKRKAEGDAKGDKAKVKDEPQRRSARLSAKPAPPKPEPKPKKAPAKKGEKVPKGKKGKADAGKEGNNPAENGDAKTDQAQKAEGAGDAK
-AP01558,AMP,0.9993,LGAWLAGKVAGTVATYAWNRYV
---------------------------------------------------
-
-File Path: data/combined_test.fasta
-Head Content (Top 10 lines):
->AP01235
-FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY
->AP02387
-RLGTALPALLKTLLAGLNG
->AP02150
-YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF
->AP00314
-VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR
->AP01183
-ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR
---------------------------------------------------
+Pipeline End Time: 2026-03-17 19:06:35
 --------------------------------
 
 ## PI
 
-# PI 审阅与任务明确要求
+# PI 审阅与任务指令 (PI Review & Task Instructions)
 
-## 1. 勘探报告确认与路径锁定
-根据第一阶段超算传回的勘探报告，我已确认以下关键数据路径与结构，代码必须严格基于此编写，**严禁硬编码不存在的路径**：
-- **Ground Truth**: `data/ground_truth.csv` (列：`id`, `sequence`, `label`)
-- **Macrel 结果**: `data/macrel_out/macrel.out.prediction.gz` (列：`Access`, `AMP_probability`, 需处理 gzip)
-- **AmpScanner 结果**: `data/ampscanner_out.csv` (列：`SeqID`, `Prediction_Probability`)
-- **AmpNet 输出**: 本次任务生成目标为 `data/AmpNet_out`。由于报告未包含其输出格式，代码需具备鲁棒性，假设生成 `predictions.csv` 或自动检索目录下唯一的 CSV 文件，列名假设为 `ID`, `Probability`（代码中需做列名映射标准化）。
+**致代码工程师：**
 
-## 2. 核心执行约束（红线）
-- **清理机制**：脚本启动第一行必须执行 `shutil.rmtree('data/AmpNet_out', ignore_errors=True)`。
-- **命令执行**：AmpNet 的调用必须**逐字复制**提供的 subprocess 代码块，禁止包裹 try-except 吞噬报错，禁止修改命令字符串。
-- **数据清洗**：
-  - 禁止从 FASTA 解析标签，必须仅依赖 `ground_truth.csv`。
-  - **ID 标准化**：所有表合并前，ID 列必须执行 `str(x).split()[0].strip()` 并去除 `>` 符号。
-  - **合并策略**：必须以 `ground_truth` 为左表 (`how='left'`)。
-  - **缺失值处理**：概率列缺失必须强制填补为 `0.0` (`pd.to_numeric(..., errors='coerce').fillna(0.0)`)。
-- **评估指标**：必须计算 ACC, Recall, MCC, AUROC, AUPRC。
-- **绘图要求**：`matplotlib.use('Agg')`，使用 `numpy.interp` 插值，禁止 `scipy.interp`。图表需包含 ROC 和 PR 曲线，对比所有模型。
-- **输出文件**：`eval_result.json`, `evaluation_curves.png`, `final_results_with_predictions.csv`。
+我已详细审阅了【第一阶段超算传回的勘探报告】。基于报告揭示的文件结构，本次评测任务的核心在于**数据解析的准确性**与**评估流程的标准化**。我们不再执行模型预测，而是对已有的输出进行严格的后处理与评估。
 
-## 3. 代码工程要求
-- 单一 Python 脚本，Python 3.11+ 兼容。
-- 包含完整 `import`，`def main():` 结构，`if __name__ == '__main__':` 入口。
-- 逻辑清晰，异常处理得当（除 AmpNet 启动命令外）。
+以下是基于勘探报告确认的**关键文件路径与数据结构**，以及你必须严格执行的**硬性要求**：
+
+### 1. 确认文件路径与格式 (基于勘探报告)
+*   **Macrel**:
+    *   路径模式：`data/Macrel_out/*.gz` (具体为 `macrel.out.prediction.gz`)
+    *   格式：TSV, Gzip 压缩，含 `#` 注释行。
+    *   关键列：`Access` (ID), `AMP_probability` (概率)。
+*   **AMP-Scanner-v2**:
+    *   路径模式：`data/AMP-Scanner-v2_out/*.csv` (具体为 `ampscanner_out.csv`)
+    *   格式：CSV, 纯文本。
+    *   关键列：`SeqID` (ID), `Prediction_Probability` (概率)。
+*   **Ground Truth**:
+    *   路径：`data/ground_truth.csv`
+    *   要求：这是标签的唯一来源，严禁从 FASTA 或其他文件推断标签。
+
+### 2. 数据清洗与合并铁律 (Data Cleaning & Merging Iron Rules)
+*   **ID 标准化**：所有 ID 必须经过 `str(x).split()[0].strip().lstrip('>')` 处理，确保 `AP01235` 与 `>AP01235` 被视为相同。
+*   **合并策略**：必须以 `ground_truth` 为左表 (`how='left'`)。这确保了评估集的一致性。
+*   **缺失值处理**：模型未预测到的样本，其概率值必须填补为 `0.0` (`fillna(0.0)`)。
+*   **二值化阈值**：统一使用 `prob > 0.5` 生成最终预测标签 (0/1)。
+
+### 3. 技术约束与兼容性 (Technical Constraints)
+*   **🚫 禁止项**：
+    *   严禁重新运行模型脚本。
+    *   严禁在 `pd.read_csv` 中使用 `low_memory=False` 或 `engine='python'`。
+    *   严禁使用 `from scipy import interp` (必须使用 `numpy.interp`)。
+*   **✅ 必须项**：
+    *   绘图后端必须声明 `matplotlib.use('Agg')`。
+    *   指标必须包含：ACC, Recall, MCC, AUROC, AUPRC。
+    *   输出文件：`eval_result.json` (嵌套字典), `evaluation_curves.png`, `final_results_with_predictions.csv`。
+    *   图表质量必须达到顶刊发表标准 (高分辨率，清晰图例，专业配色)。
+
+### 4. 动态数据提取纪律 (Dynamic Data Extraction)
+*   使用 `glob` 匹配文件，但需兼容勘探报告中的具体扩展名 (`.gz` vs `.csv`)。
+*   读取 `.gz` 文件必须指定 `compression='gzip'` 和 `comment='#'`。
+*   概率列必须通过模糊匹配 (`prob` 或 `score`) 锁定，并强制转换为 numeric。
+
+请严格按照上述要求编写代码。确保代码在 Python 3.11+ 环境下一次性运行成功。
 
 ---
 
-# 代码工程师最终完整代码
+# 工程师最终代码 (Engineer Final Code)
 
 ```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+AMP Model Evaluation Pipeline (Stage 2)
+Based on Stage 1 Exploration Report.
+Strictly follows PI constraints regarding data cleaning, merging, and visualization.
+"""
+
 import os
 import sys
-import shutil
-import subprocess
-import json
-import gzip
 import glob
-
+import json
+import warnings
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use('Agg')  # Must declare before importing pyplot
 import matplotlib.pyplot as plt
-
 from sklearn.metrics import (
     accuracy_score, recall_score, matthews_corrcoef,
-    roc_auc_score, average_precision_score,
-    roc_curve, precision_recall_curve
+    roc_curve, auc, precision_recall_curve, average_precision_score
 )
 
-# ==============================================================================
-# 配置与路径常量
-# ==============================================================================
-DATA_DIR = 'data'
-GT_PATH = os.path.join(DATA_DIR, 'ground_truth.csv')
-MACREL_PATH = os.path.join(DATA_DIR, 'macrel_out', 'macrel.out.prediction.gz')
-AMPSCANNER_PATH = os.path.join(DATA_DIR, 'ampscanner_out.csv')
-AMPNET_OUT_DIR = os.path.join(DATA_DIR, 'AmpNet_out')
-AMPNET_CMD = 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_ampnet && python inference.py -i data/combined_test.fasta -o data/AmpNet_out"'
-
-OUTPUT_JSON = 'eval_result.json'
-OUTPUT_PNG = 'evaluation_curves.png'
-OUTPUT_CSV = 'final_results_with_predictions.csv'
+# Suppress specific warnings to keep output clean, but not errors
+warnings.filterwarnings('ignore', category=FutureWarning)
+warnings.filterwarnings('ignore', category=UserWarning)
 
 # ==============================================================================
-# 辅助函数
+# 1. Configuration & Paths
 # ==============================================================================
 
-def clean_id_series(series):
+DATA_DIR = "data"
+GT_PATH = os.path.join(DATA_DIR, "ground_truth.csv")
+OUTPUT_DIR = "."  # Save results in current directory
+
+# Expected patterns based on Exploration Report
+MACREL_PATTERN = os.path.join(DATA_DIR, "Macrel_out", "*.gz")
+AMPSCANNER_PATTERN = os.path.join(DATA_DIR, "AMP-Scanner-v2_out", "*.csv")
+
+# ==============================================================================
+# 2. Helper Functions
+# ==============================================================================
+
+def clean_id(x):
     """
-    强制清洗 ID 列：转字符串，去 '>'，取空格前第一部分，去首尾空白。
+    Strict ID cleaning as per PI requirements:
+    - Convert to string
+    - Remove '>'
+    - Split by space and take first part
+    - Strip whitespace
     """
-    return series.astype(str).apply(lambda x: x.replace('>', '').split()[0].strip())
+    if pd.isna(x):
+        return ""
+    s = str(x).strip()
+    if s.startswith('>'):
+        s = s[1:]
+    return s.split()[0].strip()
+
+def find_probability_column(df):
+    """
+    Fuzzy lock probability column based on discipline.
+    """
+    candidates = [col for col in df.columns if 'prob' in col.lower() or 'score' in col.lower()]
+    # Prioritize columns explicitly named with probability
+    for col in candidates:
+        if 'prob' in col.lower():
+            return col
+    if candidates:
+        return candidates[0]
+    return None
+
+def find_label_column(df):
+    """
+    Identify ground truth label column.
+    """
+    # Look for common names
+    possible_names = ['label', 'true_label', 'class', 'target', 'y']
+    for col in df.columns:
+        if any(name in col.lower() for name in possible_names):
+            return col
+    # Fallback: find binary column (0/1) that isn't ID
+    for col in df.columns:
+        if df[col].dtype in [np.int64, np.float64, int, float]:
+            unique_vals = df[col].unique()
+            if len(unique_vals) <= 2 and all(v in [0, 1, 0.0, 1.0] for v in unique_vals):
+                return col
+    # Last resort: assume second column
+    return df.columns[1] if len(df.columns) > 1 else df.columns[0]
+
+def find_id_column(df, model_name=None):
+    """
+    Identify ID column based on model specifics or general heuristics.
+    """
+    if model_name == 'Macrel':
+        if 'Access' in df.columns:
+            return 'Access'
+    if model_name == 'AMP-Scanner':
+        if 'SeqID' in df.columns:
+            return 'SeqID'
+    
+    # General heuristics
+    possible_names = ['id', 'seqid', 'access', 'name', 'sequence_id']
+    for col in df.columns:
+        if any(name in col.lower() for name in possible_names):
+            return col
+    # Fallback: first column
+    return df.columns[0]
+
+# ==============================================================================
+# 3. Data Loading (Strict Discipline)
+# ==============================================================================
 
 def load_ground_truth():
-    """加载 ground truth，仅保留 id 和 label"""
+    """
+    Load ground truth. Must be the source of truth for labels.
+    """
     if not os.path.exists(GT_PATH):
-        raise FileNotFoundError(f"Ground Truth not found at {GT_PATH}")
+        raise FileNotFoundError(f"Ground Truth file not found at {GT_PATH}")
+    
+    # Default CSV reading, no low_memory=False
     df = pd.read_csv(GT_PATH)
-    # 确保列名小写标准化
-    df.columns = [c.strip().lower() for c in df.columns]
-    df['id'] = clean_id_series(df['id'])
-    return df[['id', 'label']]
+    
+    id_col = find_id_column(df)
+    label_col = find_label_column(df)
+    
+    df = df.rename(columns={id_col: 'ID', label_col: 'True_Label'})
+    df['ID'] = df['ID'].apply(clean_id)
+    df['True_Label'] = pd.to_numeric(df['True_Label'], errors='coerce').fillna(0).astype(int)
+    
+    return df[['ID', 'True_Label']].drop_duplicates(subset=['ID'])
 
 def load_macrel():
-    """加载 Macrel 结果 (gzip)"""
-    if not os.path.exists(MACREL_PATH):
-        raise FileNotFoundError(f"Macrel output not found at {MACREL_PATH}")
-    # 根据勘探报告，Macrel 输出为 gzipped csv
-    df = pd.read_csv(MACREL_PATH, compression='gzip', sep='\t')
-    # 标准化列名
-    df.columns = [c.strip() for c in df.columns]
-    # 映射到标准列名
-    # 报告头：Access	Sequence	AMP_family	AMP_probability ...
-    if 'Access' not in df.columns or 'AMP_probability' not in df.columns:
-        raise ValueError("Macrel output columns mismatch")
+    """
+    Load Macrel output based on Exploration Report (.gz, tab-separated, comments).
+    """
+    files = glob.glob(MACREL_PATTERN)
+    if not files:
+        # Fallback to exact path from report if glob fails
+        exact_path = os.path.join(DATA_DIR, "Macrel_out", "macrel.out.prediction.gz")
+        if os.path.exists(exact_path):
+            files = [exact_path]
+        else:
+            return None
+            
+    filepath = files[0] # Take the first match
     
-    res = pd.DataFrame()
-    res['id'] = clean_id_series(df['Access'])
-    res['prob'] = pd.to_numeric(df['AMP_probability'], errors='coerce')
-    return res
+    # STRICT READ COMMAND FOR .gz
+    df = pd.read_csv(filepath, sep='\t', comment='#', compression='gzip')
+    
+    id_col = find_id_column(df, model_name='Macrel')
+    prob_col = find_probability_column(df)
+    
+    if not prob_col:
+        return None
+        
+    df = df.rename(columns={id_col: 'ID', prob_col: 'Macrel_Prob'})
+    df['ID'] = df['ID'].apply(clean_id)
+    df['Macrel_Prob'] = pd.to_numeric(df['Macrel_Prob'], errors='coerce')
+    
+    return df[['ID', 'Macrel_Prob']]
 
 def load_ampscanner():
-    """加载 AmpScanner 结果"""
-    if not os.path.exists(AMPSCANNER_PATH):
-        raise FileNotFoundError(f"AmpScanner output not found at {AMPSCANNER_PATH}")
-    df = pd.read_csv(AMPSCANNER_PATH)
-    df.columns = [c.strip() for c in df.columns]
-    # 报告头：SeqID,Prediction_Class,Prediction_Probability,Sequence
-    if 'SeqID' not in df.columns or 'Prediction_Probability' not in df.columns:
-        raise ValueError("AmpScanner output columns mismatch")
-    
-    res = pd.DataFrame()
-    res['id'] = clean_id_series(df['SeqID'])
-    res['prob'] = pd.to_numeric(df['Prediction_Probability'], errors='coerce')
-    return res
-
-def load_ampnet():
-    """加载 AmpNet 结果 (本次运行生成)"""
-    if not os.path.exists(AMPNET_OUT_DIR):
-        raise FileNotFoundError(f"AmpNet output directory not found at {AMPNET_OUT_DIR}")
-    
-    # 查找目录下的 CSV 文件
-    csv_files = glob.glob(os.path.join(AMPNET_OUT_DIR, '*.csv'))
-    if not csv_files:
-        # 尝试查找 txt 或其他常见格式，但根据常规推断为 csv
-        raise FileNotFoundError(f"No CSV files found in {AMPNET_OUT_DIR}")
-    
-    # 假设取第一个找到的 CSV，通常 inference 输出单一结果文件
-    file_path = csv_files[0]
-    df = pd.read_csv(file_path)
-    df.columns = [c.strip() for c in df.columns]
-    
-    # 假设列名为 ID, Probability 或 seq_id, prob 等，需做模糊匹配或标准化
-    # 这里为了代码健壮性，尝试匹配常见列名
-    id_col = None
-    prob_col = None
-    
-    for c in df.columns:
-        cl = c.lower()
-        if 'id' in cl or 'seq' in cl or 'access' in cl:
-            id_col = c
-        if 'prob' in cl or 'score' in cl:
-            prob_col = c
+    """
+    Load AMP-Scanner-v2 output based on Exploration Report (.csv, comma-separated).
+    """
+    files = glob.glob(AMPSCANNER_PATTERN)
+    if not files:
+        # Fallback to exact path from report if glob fails
+        exact_path = os.path.join(DATA_DIR, "AMP-Scanner-v2_out", "ampscanner_out.csv")
+        if os.path.exists(exact_path):
+            files = [exact_path]
+        else:
+            return None
             
-    if not id_col or not prob_col:
-        #  fallback 假设前两列
-        id_col = df.columns[0]
-        prob_col = df.columns[1]
+    filepath = files[0]
+    
+    # STRICT READ COMMAND FOR .csv
+    df = pd.read_csv(filepath, sep=',')
+    
+    id_col = find_id_column(df, model_name='AMP-Scanner')
+    prob_col = find_probability_column(df)
+    
+    if not prob_col:
+        return None
         
-    res = pd.DataFrame()
-    res['id'] = clean_id_series(df[id_col])
-    res['prob'] = pd.to_numeric(df[prob_col], errors='coerce')
-    return res
+    df = df.rename(columns={id_col: 'ID', prob_col: 'AMPScanner_Prob'})
+    df['ID'] = df['ID'].apply(clean_id)
+    df['AMPScanner_Prob'] = pd.to_numeric(df['AMPScanner_Prob'], errors='coerce')
+    
+    return df[['ID', 'AMPScanner_Prob']]
 
-def merge_data(gt_df, model_df, model_name):
+# ==============================================================================
+# 4. Merging & Cleaning
+# ==============================================================================
+
+def merge_data(gt_df, macrel_df, amp_df):
     """
-    以 GT 为左表合并，填充缺失概率为 0.0
+    Merge all dataframes based on Ground Truth (Left Join).
+    Fill missing probabilities with 0.0.
     """
-    merged = gt_df.merge(model_df, on='id', how='left')
-    # 重命名概率列以便区分
-    merged = merged.rename(columns={'prob': f'{model_name}_prob'})
-    # 强制数值化并填充 0.0
-    merged[f'{model_name}_prob'] = pd.to_numeric(merged[f'{model_name}_prob'], errors='coerce').fillna(0.0)
+    # Start with Ground Truth
+    merged = gt_df.copy()
+    
+    # Merge Macrel
+    if macrel_df is not None:
+        merged = merged.merge(macrel_df, on='ID', how='left')
+    else:
+        merged['Macrel_Prob'] = np.nan
+        
+    # Merge AMP-Scanner
+    if amp_df is not None:
+        merged = merged.merge(amp_df, on='ID', how='left')
+    else:
+        merged['AMPScanner_Prob'] = np.nan
+        
+    # Fill Missing Probs with 0.0 (PI Requirement)
+    prob_cols = ['Macrel_Prob', 'AMPScanner_Prob']
+    for col in prob_cols:
+        if col in merged.columns:
+            merged[col] = pd.to_numeric(merged[col], errors='coerce').fillna(0.0)
+            
+    # Generate Binary Predictions (Threshold 0.5)
+    for col in prob_cols:
+        if col in merged.columns:
+            pred_col = col.replace('_Prob', '_Pred')
+            merged[pred_col] = (merged[col] > 0.5).astype(int)
+            
     return merged
 
-def calculate_metrics(y_true, y_prob):
-    """计算 sklearn 指标"""
-    y_pred = (y_prob > 0.5).astype(int)
-    
-    # 处理边缘情况：如果只有一类，某些指标可能报错，但 AMP 评估通常正负样本都有
-    try:
-        acc = accuracy_score(y_true, y_pred)
-        recall = recall_score(y_true, y_pred, zero_division=0)
-        mcc = matthews_corrcoef(y_true, y_pred)
-        auroc = roc_auc_score(y_true, y_prob)
-        auprc = average_precision_score(y_true, y_prob)
-    except ValueError as e:
-        # 如果样本单一导致无法计算
-        acc = 0.0
-        recall = 0.0
-        mcc = 0.0
-        auroc = 0.0
-        auprc = 0.0
-        print(f"Warning: Metric calculation issue - {e}")
-        
-    return {
-        'ACC': float(acc),
-        'Recall': float(recall),
-        'MCC': float(mcc),
-        'AUROC': float(auroc),
-        'AUPRC': float(auprc)
-    }
+# ==============================================================================
+# 5. Evaluation Metrics
+# ==============================================================================
 
-def plot_curves(results_dict, gt_labels):
+def calculate_metrics(y_true, y_prob, y_pred):
     """
-    绘制 ROC 和 PR 曲线，使用 numpy.interp
+    Calculate ACC, Recall, MCC, AUROC, AUPRC.
     """
-    models = list(results_dict.keys())
-    colors = plt.cm.tab10(np.linspace(0, 1, len(models)))
+    metrics = {}
+    
+    # ACC
+    metrics['ACC'] = float(accuracy_score(y_true, y_pred))
+    
+    # Recall
+    metrics['Recall'] = float(recall_score(y_true, y_pred, zero_division=0))
+    
+    # MCC
+    try:
+        metrics['MCC'] = float(matthews_corrcoef(y_true, y_pred))
+    except ValueError:
+        metrics['MCC'] = 0.0
+        
+    # AUROC
+    fpr, tpr, _ = roc_curve(y_true, y_prob)
+    metrics['AUROC'] = float(auc(fpr, tpr))
+    
+    # AUPRC
+    metrics['AUPRC'] = float(average_precision_score(y_true, y_prob))
+    
+    return metrics, fpr, tpr
+
+def evaluate_models(merged_df):
+    """
+    Evaluate all models and return results + curve data.
+    """
+    results = {}
+    curve_data = {}
+    
+    y_true = merged_df['True_Label'].values
+    
+    models = {
+        'Macrel': 'Macrel_Prob',
+        'AMP-Scanner-v2': 'AMPScanner_Prob'
+    }
+    
+    for model_name, prob_col in models.items():
+        if prob_col not in merged_df.columns:
+            continue
+            
+        y_prob = merged_df[prob_col].values
+        pred_col = prob_col.replace('_Prob', '_Pred')
+        y_pred = merged_df[pred_col].values
+        
+        metrics, fpr, tpr = calculate_metrics(y_true, y_prob, y_pred)
+        results[model_name] = metrics
+        
+        # Store curve data for plotting
+        curve_data[model_name] = {
+            'fpr': fpr,
+            'tpr': tpr,
+            'prob': y_prob
+        }
+        
+    return results, curve_data
+
+# ==============================================================================
+# 6. Visualization (Publication Quality)
+# ==============================================================================
+
+def plot_curves(merged_df, curve_data, output_path):
+    """
+    Plot ROC and PR curves using numpy.interp for smoothing/alignment.
+    High quality settings for publication.
+    """
+    plt.style.use('seaborn-v0_8-whitegrid') # Professional style
     
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
     
-    # 统一 FPR 网格用于 ROC 插值
-    fpr_grid = np.linspace(0, 1, 100)
+    # Color map for models
+    colors = {'Macrel': '#E63946', 'AMP-Scanner-v2': '#457B9D'}
+    linestyles = {'Macrel': '-', 'AMP-Scanner-v2': '--'}
+    
+    y_true = merged_df['True_Label'].values
     
     # --- ROC Curve ---
     ax = axes[0]
-    for i, model in enumerate(models):
-        y_prob = results_dict[model]['prob']
-        y_true = gt_labels
-        fpr, tpr, _ = roc_curve(y_true, y_prob)
+    # Standard grid for interpolation
+    mean_fpr = np.linspace(0, 1, 100)
+    
+    for model_name, data in curve_data.items():
+        fpr = data['fpr']
+        tpr = data['tpr']
+        auc_val = auc(fpr, tpr)
         
-        # 使用 numpy.interp 进行插值 (严禁 scipy.interp)
-        tpr_interp = np.interp(fpr_grid, fpr, tpr)
+        # Interpolate TPR to mean FPR using numpy.interp (PI Requirement)
+        tpr_interp = np.interp(mean_fpr, fpr, tpr)
         tpr_interp[0] = 0.0
         
-        ax.plot(fpr_grid, tpr_interp, color=colors[i], label=f"{model} (AUROC={results_dict[model]['metrics']['AUROC']:.3f})")
+        ax.plot(mean_fpr, tpr_interp, color=colors.get(model_name, 'gray'), 
+                linestyle=linestyles.get(model_name, '-'), linewidth=2.5,
+                label=f'{model_name} (AUC = {auc_val:.3f})')
     
-    ax.plot([0, 1], [0, 1], 'k--', lw=1)
+    ax.plot([0, 1], [0, 1], 'k--', linewidth=1.5, label='Random Chance')
     ax.set_xlim([0.0, 1.0])
     ax.set_ylim([0.0, 1.05])
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
-    ax.set_title('ROC Curve Comparison')
-    ax.legend(loc="lower right")
-    ax.grid(True, linestyle='--', alpha=0.6)
+    ax.set_xlabel('False Positive Rate', fontsize=12, fontweight='bold')
+    ax.set_ylabel('True Positive Rate', fontsize=12, fontweight='bold')
+    ax.set_title('ROC Curve Comparison', fontsize=14, fontweight='bold')
+    ax.legend(loc="lower right", fontsize=10)
+    ax.grid(True, linestyle='--', alpha=0.7)
     
     # --- PR Curve ---
     ax = axes[1]
-    for i, model in enumerate(models):
-        y_prob = results_dict[model]['prob']
-        y_true = gt_labels
+    # For PR curve, we interpolate Precision over Recall
+    mean_recall = np.linspace(0, 1, 100)
+    
+    for model_name, data in curve_data.items():
+        y_prob = data['prob']
         precision, recall, _ = precision_recall_curve(y_true, y_prob)
+        ap = average_precision_score(y_true, y_prob)
         
-        ax.plot(recall, precision, color=colors[i], label=f"{model} (AUPRC={results_dict[model]['metrics']['AUPRC']:.3f})")
+        # Interpolate Precision to mean Recall using numpy.interp (PI Requirement)
+        # Note: precision_recall_curve returns decreasing recall, so we sort for interp
+        # But np.interp expects increasing x. 
+        # Standard practice: interpolate precision at specific recall points
+        # To avoid complexity, we plot raw steps but ensure numpy.interp is used for smoothing if needed.
+        # Here we use np.interp to align recall points for smooth visualization.
+        precision_interp = np.interp(mean_recall, recall[::-1], precision[::-1])
+        
+        ax.plot(mean_recall, precision_interp, color=colors.get(model_name, 'gray'), 
+                linestyle=linestyles.get(model_name, '-'), linewidth=2.5,
+                label=f'{model_name} (AP = {ap:.3f})')
     
     ax.set_xlim([0.0, 1.0])
     ax.set_ylim([0.0, 1.05])
-    ax.set_xlabel('Recall')
-    ax.set_ylabel('Precision')
-    ax.set_title('Precision-Recall Curve Comparison')
-    ax.legend(loc="lower left")
-    ax.grid(True, linestyle='--', alpha=0.6)
+    ax.set_xlabel('Recall', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Precision', fontsize=12, fontweight='bold')
+    ax.set_title('Precision-Recall Curve Comparison', fontsize=14, fontweight='bold')
+    ax.legend(loc="lower left", fontsize=10)
+    ax.grid(True, linestyle='--', alpha=0.7)
     
     plt.tight_layout()
-    plt.savefig(OUTPUT_PNG, dpi=300)
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
 
-def main():
-    print("=" * 50)
-    print("AMP Evaluation Pipeline Started")
-    print("=" * 50)
-    
-    # 1. 历史数据清理机制 (强制要求)
-    print(f"Cleaning existing AmpNet output at {AMPNET_OUT_DIR}...")
-    shutil.rmtree(AMPNET_OUT_DIR, ignore_errors=True)
-    
-    # 2. 强校验命令执行 (强制要求，逐字复制)
-    print("开始运行 AmpNet...")
-    # 确保目录存在以便后续写入，虽然 subprocess 可能会创建，但以防万一
-    os.makedirs(DATA_DIR, exist_ok=True)
-    
-    res_AmpNet = subprocess.run(AMPNET_CMD, shell=True, capture_output=True, text=True)
-    if res_AmpNet.returncode != 0:
-        print(f"!!! AmpNet 真实报错日志:\n{res_AmpNet.stderr}")
-        raise RuntimeError("AmpNet 预测执行失败，已阻断程序！")
-    print("AmpNet 执行成功。")
-    
-    # 3. 数据加载与清洗
-    print("Loading Ground Truth...")
-    gt_df = load_ground_truth()
-    
-    print("Loading Macrel...")
-    macrel_df = load_macrel()
-    
-    print("Loading AmpScanner...")
-    ampscanner_df = load_ampscanner()
-    
-    print("Loading AmpNet...")
-    ampnet_df = load_ampnet()
-    
-    # 4. 数据合并 (左连接兜底)
-    print("Merging data...")
-    # 以 GT 为基准
-    merged_df = gt_df.copy()
-    merged_df = merge_data(merged_df, macrel_df, 'Macrel')
-    merged_df = merge_data(merged_df, ampscanner_df, 'AmpScanner')
-    merged_df = merge_data(merged_df, ampnet_df, 'AmpNet')
-    
-    # 5. 评估计算
-    print("Calculating metrics...")
-    y_true = merged_df['label'].values
-    models_data = {}
-    eval_result = {}
-    
-    for model in ['Macrel', 'AmpScanner', 'AmpNet']:
-        prob_col = f'{model}_prob'
-        probs = merged_df[prob_col].values
-        metrics = calculate_metrics(y_true, probs)
-        
-        models_data[model] = {
-            'prob': probs,
-            'metrics': metrics
-        }
-        eval_result[model] = metrics
-        print(f"{model}: ACC={metrics['ACC']:.4f}, AUROC={metrics['AUROC']:.4f}")
-    
-    # 6. 保存结果
-    # 6.1 JSON
-    with open(OUTPUT_JSON, 'w') as f:
-        json.dump(eval_result, f, indent=4)
-    print(f"Saved metrics to {OUTPUT_JSON}")
-    
-    # 6.2 CSV (包含预测概率)
-    # 生成二值预测列
-    for model in ['Macrel', 'AmpScanner', 'AmpNet']:
-        merged_df[f'{model}_pred'] = (merged_df[f'{model}_prob'] > 0.5).astype(int)
-    
-    merged_df.to_csv(OUTPUT_CSV, index=False)
-    print(f"Saved predictions to {OUTPUT_CSV}")
-    
-    # 6.3 绘图
-    print("Plotting curves...")
-    plot_curves(models_data, y_true)
-    print(f"Saved curves to {OUTPUT_PNG}")
-    
-    print("=" * 50)
-    print("Pipeline Completed Successfully")
-    print("=" * 50)
+# ==============================================================================
+# 7. Main Execution
+# ==============================================================================
 
-if __name__ == '__main__':
+def main():
+    print("[INFO] Starting Evaluation Pipeline...")
+    
+    # 1. Load Data
+    print("[INFO] Loading Ground Truth...")
+    gt_df = load_ground_truth()
+    print(f"[INFO] Ground Truth loaded: {len(gt_df)} samples.")
+    
+    print("[INFO] Loading Macrel...")
+    macrel_df = load_macrel()
+    if macrel_df is not None:
+        print(f"[INFO] Macrel loaded: {len(macrel_df)} samples.")
+    else:
+        print("[WARNING] Macrel output not found.")
+        
+    print("[INFO] Loading AMP-Scanner-v2...")
+    amp_df = load_ampscanner()
+    if amp_df is not None:
+        print(f"[INFO] AMP-Scanner-v2 loaded: {len(amp_df)} samples.")
+    else:
+        print("[WARNING] AMP-Scanner-v2 output not found.")
+    
+    # 2. Merge Data
+    print("[INFO] Merging datasets (Left Join on Ground Truth)...")
+    merged_df = merge_data(gt_df, macrel_df, amp_df)
+    print(f"[INFO] Merged dataset size: {len(merged_df)} samples.")
+    
+    # 3. Evaluate
+    print("[INFO] Calculating metrics...")
+    eval_results, curve_data = evaluate_models(merged_df)
+    
+    # 4. Save Results (JSON)
+    json_path = os.path.join(OUTPUT_DIR, "eval_result.json")
+    with open(json_path, 'w') as f:
+        json.dump(eval_results, f, indent=4)
+    print(f"[SUCCESS] Metrics saved to {json_path}")
+    
+    # 5. Save Predictions (CSV)
+    csv_path = os.path.join(OUTPUT_DIR, "final_results_with_predictions.csv")
+    merged_df.to_csv(csv_path, index=False)
+    print(f"[SUCCESS] Predictions saved to {csv_path}")
+    
+    # 6. Plot Curves
+    png_path = os.path.join(OUTPUT_DIR, "evaluation_curves.png")
+    plot_curves(merged_df, curve_data, png_path)
+    print(f"[SUCCESS] Curves saved to {png_path}")
+    
+    # 7. Print Summary
+    print("\n=== Evaluation Summary ===")
+    for model, metrics in eval_results.items():
+        print(f"\n{model}:")
+        for k, v in metrics.items():
+            print(f"  {k}: {v:.4f}")
+            
+    print("\n[INFO] Pipeline completed successfully.")
+
+if __name__ == "__main__":
     main()
 ```
 
@@ -478,24 +604,26 @@ if __name__ == '__main__':
 5. 评测脚本必须是一个完整可运行的 Python 脚本，而不能只有片段。
 
 【CODER_PROMPT 原文】
-你是一位精通超算的 MLOps 工程师。根据 PI 的要求编写代码。
+你是一位精通超算的 MLOps 工程师。根据 PI 的要求编写评测代码。
 
 【代码输出的格式底线（极其重要）】：
-1. 你提供的 Python 代码必须是一个**单一的、完全完整的脚本**，全部包含在一个 ` ```python ... ``` ` 代码块中！绝对不允许把代码切分成多个小块（比如仅输出清理逻辑，或者仅输出计算逻辑）。
-2. 脚本必须包含所有的 `import`，必须有明确定义的 `def main():` 函数，并以 `if __name__ == '__main__':` 作为程序入口去调用 `main()`。如果缺少 `main()` 函数，我们的系统验证器会直接报错阻断！
+1. 你提供的 Python 代码必须是一个**单一的、完全完整的脚本**，全部包含在一个 ` ```python ... ``` ` 代码块中！绝对不允许把代码切分成多个小块。
+2. 脚本必须包含所有的 `import`，必须有明确定义的 `def main():` 函数，并以 `if __name__ == '__main__':` 作为程序入口去调用 `main()`。
+3. 🚨 **基础语法死纪律**：**绝对不允许在定义变量名时包含空格！** 例如 `PATH Ground Truth = ...` 是极其低级的致命语法错误！所有的变量名必须使用下划线连接（如 `PATH_GROUND_TRUTH`）。
 
-【运行与评测要求】：
-1. 必须提供 `run_eval.sh`，Bash 脚本必须写在单独的 ` ```bash ... ``` ` 块中，并参考以下模板：
+【评测功能要求】：
+1. 必须保存严格嵌套结构的 `eval_result.json`，以及 `evaluation_curves.png` 和 `final_results_with_predictions.csv`。
+2. 必须提供 `run_eval.sh`，Bash 脚本必须写在单独的 ` ```bash ... ``` ` 块中，并参考以下模板：
    ```bash
    #!/bin/bash
-   #SBATCH -J amp_vlab_eval
+   #SBATCH -J amp_eval
    #SBATCH -N 1
    #SBATCH --ntasks=1
    #SBATCH --cpus-per-task=4
    #SBATCH --gres=gpu:1
    #SBATCH -p gpu
-   #SBATCH -o eval_job.%j.out
-   #SBATCH -e eval_job.%j.err
+   #SBATCH -o amp_eval.%j.out
+   #SBATCH -e amp_eval.%j.err
 
    cd /share/home/zhangss/vlab_workspace
    source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
@@ -506,341 +634,393 @@ if __name__ == '__main__':
 
 ## Code Engineer
 
-# PI 审阅与任务明确要求
-
-## 1. 任务阶段确认
-本次为**第二阶段（评测阶段）**。核心目标是**基于已有的预测结果进行标准化评估**，严禁重新运行模型推理命令。
-- **输入源**：直接读取第一阶段生成的标准化文件（`ground_truth.csv`, `macrel.out.prediction.gz`, `ampscanner_out.csv`, `AmpNet_out/*.csv`）。
-- **禁止项**：绝对禁止包含 `subprocess.run` 调用模型推理的代码，禁止从 FASTA 解析标签。
-
-## 2. 数据清洗与合并红线
-- **ID 清洗**：所有 ID 列必须执行 `str(x).split()[0].strip()`，确保无 `>` 符号且无多余空格。
-- **合并策略**：必须以 `ground_truth` 为左表 (`how='left'`)，确保评估样本集一致。
-- **缺失值兜底**：合并后的概率列缺失值必须强制 `fillna(0.0)`。
-- **类型安全**：概率列必须确保为 `float` 类型，防止字符串污染。
-
-## 3. 输出与格式规范
-- **指标计算**：ACC, Recall, MCC, AUROC, AUPRC。
-- **JSON 结构**：双层嵌套字典 `{ModelName: {Metric: float_value}}`，所有数值必须转为 Python 原生 `float`。
-- **绘图要求**：`matplotlib.use('Agg')`，使用 `numpy.interp` 进行 ROC 插值，保存为 `evaluation_curves.png`。
-- **结果表**：保存 `final_results_with_predictions.csv`，包含真实标签及各模型预测概率/标签。
-- **代码结构**：单一完整 Python 脚本，包含 `def main():` 及入口判断；Slurm 脚本独立成块。
-
----
-
-# 代码工程师最终完整代码
-
 ```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+AMP Model Evaluation Pipeline (Stage 2)
+Strictly follows PI constraints regarding data cleaning, merging, and visualization.
+Based on Stage 1 Exploration Report.
+"""
+
 import os
 import sys
-import json
 import glob
-import gzip
-
+import json
+import warnings
 import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
 from sklearn.metrics import (
     accuracy_score, recall_score, matthews_corrcoef,
-    roc_auc_score, average_precision_score,
-    roc_curve, precision_recall_curve
+    roc_curve, auc, precision_recall_curve, average_precision_score
 )
 
-# ==============================================================================
-# 配置与路径常量
-# ==============================================================================
-DATA_DIR = 'data'
-GT_PATH = os.path.join(DATA_DIR, 'ground_truth.csv')
-MACREL_PATH = os.path.join(DATA_DIR, 'macrel_out', 'macrel.out.prediction.gz')
-AMPSCANNER_PATH = os.path.join(DATA_DIR, 'ampscanner_out.csv')
-AMPNET_OUT_DIR = os.path.join(DATA_DIR, 'AmpNet_out')
-
-OUTPUT_JSON = 'eval_result.json'
-OUTPUT_PNG = 'evaluation_curves.png'
-OUTPUT_CSV = 'final_results_with_predictions.csv'
+warnings.filterwarnings('ignore')
 
 # ==============================================================================
-# 辅助函数
+# 1. Configuration & Paths
 # ==============================================================================
 
-def clean_id_series(series):
+DATA_DIR = "data"
+GT_PATH = os.path.join(DATA_DIR, "ground_truth.csv")
+OUTPUT_DIR = "."
+
+MACREL_PATTERN = os.path.join(DATA_DIR, "Macrel_out", "*.gz")
+AMPSCANNER_PATTERN = os.path.join(DATA_DIR, "AMP-Scanner-v2_out", "*.csv")
+
+# ==============================================================================
+# 2. Helper Functions
+# ==============================================================================
+
+def clean_id(x):
     """
-    强制清洗 ID 列：转字符串，去 '>'，取空格前第一部分，去首尾空白。
-    严格遵守 PI 要求：split()[0].strip()
+    Strict ID cleaning:
+    - Convert to string
+    - Remove '>'
+    - Split by space and take first part
+    - Strip whitespace
     """
-    return series.astype(str).apply(lambda x: x.replace('>', '').split()[0].strip())
+    if pd.isna(x):
+        return ""
+    s = str(x).strip()
+    if s.startswith('>'):
+        s = s[1:]
+    return s.split()[0].strip()
+
+def find_probability_column(df):
+    """
+    Fuzzy lock probability column.
+    """
+    candidates = [col for col in df.columns if 'prob' in col.lower() or 'score' in col.lower()]
+    for col in candidates:
+        if 'prob' in col.lower():
+            return col
+    if candidates:
+        return candidates[0]
+    return None
+
+def find_label_column(df):
+    """
+    Identify ground truth label column.
+    """
+    possible_names = ['label', 'true_label', 'class', 'target', 'y']
+    for col in df.columns:
+        if any(name in col.lower() for name in possible_names):
+            return col
+    for col in df.columns:
+        if df[col].dtype in [np.int64, np.float64, int, float]:
+            unique_vals = df[col].unique()
+            if len(unique_vals) <= 2 and all(v in [0, 1, 0.0, 1.0] for v in unique_vals):
+                return col
+    return df.columns[1] if len(df.columns) > 1 else df.columns[0]
+
+def find_id_column(df, model_name=None):
+    """
+    Identify ID column.
+    """
+    if model_name == 'Macrel':
+        if 'Access' in df.columns:
+            return 'Access'
+    if model_name == 'AMP-Scanner':
+        if 'SeqID' in df.columns:
+            return 'SeqID'
+    
+    possible_names = ['id', 'seqid', 'access', 'name', 'sequence_id']
+    for col in df.columns:
+        if any(name in col.lower() for name in possible_names):
+            return col
+    return df.columns[0]
+
+# ==============================================================================
+# 3. Data Loading (Strict Discipline)
+# ==============================================================================
 
 def load_ground_truth():
-    """加载 ground truth，仅保留 id 和 label"""
+    """
+    Load ground truth. Must be the source of truth for labels.
+    """
     if not os.path.exists(GT_PATH):
-        raise FileNotFoundError(f"Ground Truth not found at {GT_PATH}")
+        raise FileNotFoundError(f"Ground Truth file not found at {GT_PATH}")
+    
     df = pd.read_csv(GT_PATH)
-    # 确保列名小写标准化
-    df.columns = [c.strip().lower() for c in df.columns]
-    df['id'] = clean_id_series(df['id'])
-    # 确保 label 是整数
-    df['label'] = pd.to_numeric(df['label'], errors='coerce').fillna(0).astype(int)
-    return df[['id', 'label']]
+    
+    id_col = find_id_column(df)
+    label_col = find_label_column(df)
+    
+    df = df.rename(columns={id_col: 'ID', label_col: 'True_Label'})
+    df['ID'] = df['ID'].apply(clean_id)
+    df['True_Label'] = pd.to_numeric(df['True_Label'], errors='coerce').fillna(0).astype(int)
+    
+    return df[['ID', 'True_Label']].drop_duplicates(subset=['ID'])
 
 def load_macrel():
-    """加载 Macrel 结果 (gzip)"""
-    if not os.path.exists(MACREL_PATH):
-        raise FileNotFoundError(f"Macrel output not found at {MACREL_PATH}")
-    # 根据勘探报告，Macrel 输出为 gzipped csv
-    df = pd.read_csv(MACREL_PATH, compression='gzip', sep='\t')
-    # 标准化列名
-    df.columns = [c.strip() for c in df.columns]
-    # 映射到标准列名 (Access, AMP_probability)
-    if 'Access' not in df.columns or 'AMP_probability' not in df.columns:
-        raise ValueError("Macrel output columns mismatch")
+    """
+    Load Macrel output based on Exploration Report (.gz, tab-separated, comments).
+    """
+    files = glob.glob(MACREL_PATTERN)
+    if not files:
+        exact_path = os.path.join(DATA_DIR, "Macrel_out", "macrel.out.prediction.gz")
+        if os.path.exists(exact_path):
+            files = [exact_path]
+        else:
+            return None
+            
+    filepath = files[0]
     
-    res = pd.DataFrame()
-    res['id'] = clean_id_series(df['Access'])
-    # 校验 dtype == float
-    res['prob'] = pd.to_numeric(df['AMP_probability'], errors='coerce')
-    if not np.issubdtype(res['prob'].dtype, np.floating):
-        res['prob'] = res['prob'].astype(float)
-    return res
+    df = pd.read_csv(filepath, sep='\t', comment='#', compression='gzip')
+    
+    id_col = find_id_column(df, model_name='Macrel')
+    prob_col = find_probability_column(df)
+    
+    if not prob_col:
+        return None
+        
+    df = df.rename(columns={id_col: 'ID', prob_col: 'Macrel_Prob'})
+    df['ID'] = df['ID'].apply(clean_id)
+    df['Macrel_Prob'] = pd.to_numeric(df['Macrel_Prob'], errors='coerce')
+    
+    return df[['ID', 'Macrel_Prob']]
 
 def load_ampscanner():
-    """加载 AmpScanner 结果"""
-    if not os.path.exists(AMPSCANNER_PATH):
-        raise FileNotFoundError(f"AmpScanner output not found at {AMPSCANNER_PATH}")
-    df = pd.read_csv(AMPSCANNER_PATH)
-    df.columns = [c.strip() for c in df.columns]
-    # 报告头：SeqID, Prediction_Probability
-    if 'SeqID' not in df.columns or 'Prediction_Probability' not in df.columns:
-        raise ValueError("AmpScanner output columns mismatch")
-    
-    res = pd.DataFrame()
-    res['id'] = clean_id_series(df['SeqID'])
-    # 校验 dtype == float
-    res['prob'] = pd.to_numeric(df['Prediction_Probability'], errors='coerce')
-    if not np.issubdtype(res['prob'].dtype, np.floating):
-        res['prob'] = res['prob'].astype(float)
-    return res
-
-def load_ampnet():
-    """加载 AmpNet 结果 (从现有文件读取，禁止运行模型)"""
-    if not os.path.exists(AMPNET_OUT_DIR):
-        raise FileNotFoundError(f"AmpNet output directory not found at {AMPNET_OUT_DIR}")
-    
-    # 查找目录下的 CSV 文件
-    csv_files = glob.glob(os.path.join(AMPNET_OUT_DIR, '*.csv'))
-    if not csv_files:
-        # 尝试查找 txt
-        txt_files = glob.glob(os.path.join(AMPNET_OUT_DIR, '*.txt'))
-        if not txt_files:
-            raise FileNotFoundError(f"No CSV or TXT files found in {AMPNET_OUT_DIR}")
-        file_path = txt_files[0]
-    else:
-        file_path = csv_files[0]
-        
-    df = pd.read_csv(file_path)
-    df.columns = [c.strip() for c in df.columns]
-    
-    # 模糊匹配列名
-    id_col = None
-    prob_col = None
-    
-    for c in df.columns:
-        cl = c.lower()
-        if 'id' in cl or 'seq' in cl or 'access' in cl or 'name' in cl:
-            id_col = c
-        if 'prob' in cl or 'score' in cl or 'prediction' in cl:
-            prob_col = c
+    """
+    Load AMP-Scanner-v2 output based on Exploration Report (.csv, comma-separated).
+    """
+    files = glob.glob(AMPSCANNER_PATTERN)
+    if not files:
+        exact_path = os.path.join(DATA_DIR, "AMP-Scanner-v2_out", "ampscanner_out.csv")
+        if os.path.exists(exact_path):
+            files = [exact_path]
+        else:
+            return None
             
-    if not id_col or not prob_col:
-        # fallback 假设前两列
-        id_col = df.columns[0]
-        prob_col = df.columns[1]
+    filepath = files[0]
+    
+    df = pd.read_csv(filepath, sep=',')
+    
+    id_col = find_id_column(df, model_name='AMP-Scanner')
+    prob_col = find_probability_column(df)
+    
+    if not prob_col:
+        return None
         
-    res = pd.DataFrame()
-    res['id'] = clean_id_series(df[id_col])
-    # 校验 dtype == float
-    res['prob'] = pd.to_numeric(df[prob_col], errors='coerce')
-    if not np.issubdtype(res['prob'].dtype, np.floating):
-        res['prob'] = res['prob'].astype(float)
-    return res
+    df = df.rename(columns={id_col: 'ID', prob_col: 'AMPScanner_Prob'})
+    df['ID'] = df['ID'].apply(clean_id)
+    df['AMPScanner_Prob'] = pd.to_numeric(df['AMPScanner_Prob'], errors='coerce')
+    
+    return df[['ID', 'AMPScanner_Prob']]
 
-def merge_data(gt_df, model_df, model_name):
+# ==============================================================================
+# 4. Merging & Cleaning
+# ==============================================================================
+
+def merge_data(gt_df, macrel_df, amp_df):
     """
-    以 GT 为左表合并，填充缺失概率为 0.0
-    严格遵守 PI 要求：how='left', fillna(0.0)
+    Merge all dataframes based on Ground Truth (Left Join).
+    Fill missing probabilities with 0.0.
     """
-    merged = gt_df.merge(model_df, on='id', how='left')
-    # 重命名概率列以便区分
-    merged = merged.rename(columns={'prob': f'{model_name}_prob'})
-    # 强制数值化并填充 0.0
-    merged[f'{model_name}_prob'] = pd.to_numeric(merged[f'{model_name}_prob'], errors='coerce').fillna(0.0)
+    merged = gt_df.copy()
+    
+    if macrel_df is not None:
+        merged = merged.merge(macrel_df, on='ID', how='left')
+    else:
+        merged['Macrel_Prob'] = np.nan
+        
+    if amp_df is not None:
+        merged = merged.merge(amp_df, on='ID', how='left')
+    else:
+        merged['AMPScanner_Prob'] = np.nan
+        
+    prob_cols = ['Macrel_Prob', 'AMPScanner_Prob']
+    for col in prob_cols:
+        if col in merged.columns:
+            merged[col] = pd.to_numeric(merged[col], errors='coerce').fillna(0.0)
+            
+    for col in prob_cols:
+        if col in merged.columns:
+            pred_col = col.replace('_Prob', '_Pred')
+            merged[pred_col] = (merged[col] > 0.5).astype(int)
+            
     return merged
 
-def calculate_metrics(y_true, y_prob):
-    """计算 sklearn 指标，并转为 Python 原生 float"""
-    y_pred = (y_prob > 0.5).astype(int)
+# ==============================================================================
+# 5. Evaluation Metrics
+# ==============================================================================
+
+def calculate_metrics(y_true, y_prob, y_pred):
+    """
+    Calculate ACC, Recall, MCC, AUROC, AUPRC.
+    """
+    metrics = {}
+    
+    metrics['ACC'] = float(accuracy_score(y_true, y_pred))
+    metrics['Recall'] = float(recall_score(y_true, y_pred, zero_division=0))
     
     try:
-        acc = accuracy_score(y_true, y_pred)
-        recall = recall_score(y_true, y_pred, zero_division=0)
-        mcc = matthews_corrcoef(y_true, y_pred)
-        auroc = roc_auc_score(y_true, y_prob)
-        auprc = average_precision_score(y_true, y_prob)
-    except ValueError as e:
-        # 如果样本单一导致无法计算
-        acc = 0.0
-        recall = 0.0
-        mcc = 0.0
-        auroc = 0.0
-        auprc = 0.0
-        print(f"Warning: Metric calculation issue - {e}")
+        metrics['MCC'] = float(matthews_corrcoef(y_true, y_pred))
+    except ValueError:
+        metrics['MCC'] = 0.0
         
-    # 严格遵守 PI 要求：将所有指标通过 float(val) 转为 Python 原生类型
-    return {
-        'ACC': float(acc),
-        'Recall': float(recall),
-        'MCC': float(mcc),
-        'AUROC': float(auroc),
-        'AUPRC': float(auprc)
+    fpr, tpr, _ = roc_curve(y_true, y_prob)
+    metrics['AUROC'] = float(auc(fpr, tpr))
+    metrics['AUPRC'] = float(average_precision_score(y_true, y_prob))
+    
+    return metrics, fpr, tpr
+
+def evaluate_models(merged_df):
+    """
+    Evaluate all models and return results + curve data.
+    """
+    results = {}
+    curve_data = {}
+    
+    y_true = merged_df['True_Label'].values
+    
+    models = {
+        'Macrel': 'Macrel_Prob',
+        'AMP-Scanner-v2': 'AMPScanner_Prob'
     }
+    
+    for model_name, prob_col in models.items():
+        if prob_col not in merged_df.columns:
+            continue
+            
+        y_prob = merged_df[prob_col].values
+        pred_col = prob_col.replace('_Prob', '_Pred')
+        y_pred = merged_df[pred_col].values
+        
+        metrics, fpr, tpr = calculate_metrics(y_true, y_prob, y_pred)
+        results[model_name] = metrics
+        
+        curve_data[model_name] = {
+            'fpr': fpr,
+            'tpr': tpr,
+            'prob': y_prob
+        }
+        
+    return results, curve_data
 
-def plot_curves(results_dict, gt_labels):
-    """
-    绘制 ROC 和 PR 曲线，使用 numpy.interp (严禁 scipy.interp)
-    """
-    models = list(results_dict.keys())
-    if not models:
-        print("No models to plot.")
-        return
+# ==============================================================================
+# 6. Visualization (Publication Quality)
+# ==============================================================================
 
-    colors = plt.cm.tab10(np.linspace(0, 1, len(models)))
+def plot_curves(merged_df, curve_data, output_path):
+    """
+    Plot ROC and PR curves using numpy.interp for smoothing/alignment.
+    """
+    plt.style.use('seaborn-v0_8-whitegrid')
     
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
     
-    # 统一 FPR 网格用于 ROC 插值
-    fpr_grid = np.linspace(0, 1, 100)
+    colors = {'Macrel': '#E63946', 'AMP-Scanner-v2': '#457B9D'}
+    linestyles = {'Macrel': '-', 'AMP-Scanner-v2': '--'}
     
-    # --- ROC Curve ---
+    y_true = merged_df['True_Label'].values
+    
     ax = axes[0]
-    for i, model in enumerate(models):
-        y_prob = results_dict[model]['prob']
-        y_true = gt_labels
-        fpr, tpr, _ = roc_curve(y_true, y_prob)
+    mean_fpr = np.linspace(0, 1, 100)
+    
+    for model_name, data in curve_data.items():
+        fpr = data['fpr']
+        tpr = data['tpr']
+        auc_val = auc(fpr, tpr)
         
-        # 使用 numpy.interp 进行插值 (严禁 scipy.interp)
-        tpr_interp = np.interp(fpr_grid, fpr, tpr)
+        tpr_interp = np.interp(mean_fpr, fpr, tpr)
         tpr_interp[0] = 0.0
         
-        ax.plot(fpr_grid, tpr_interp, color=colors[i], label=f"{model} (AUROC={results_dict[model]['metrics']['AUROC']:.3f})")
+        ax.plot(mean_fpr, tpr_interp, color=colors.get(model_name, 'gray'), 
+                linestyle=linestyles.get(model_name, '-'), linewidth=2.5,
+                label=f'{model_name} (AUC = {auc_val:.3f})')
     
-    ax.plot([0, 1], [0, 1], 'k--', lw=1)
+    ax.plot([0, 1], [0, 1], 'k--', linewidth=1.5, label='Random Chance')
     ax.set_xlim([0.0, 1.0])
     ax.set_ylim([0.0, 1.05])
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
-    ax.set_title('ROC Curve Comparison')
-    ax.legend(loc="lower right")
-    ax.grid(True, linestyle='--', alpha=0.6)
+    ax.set_xlabel('False Positive Rate', fontsize=12, fontweight='bold')
+    ax.set_ylabel('True Positive Rate', fontsize=12, fontweight='bold')
+    ax.set_title('ROC Curve Comparison', fontsize=14, fontweight='bold')
+    ax.legend(loc="lower right", fontsize=10)
+    ax.grid(True, linestyle='--', alpha=0.7)
     
-    # --- PR Curve ---
     ax = axes[1]
-    for i, model in enumerate(models):
-        y_prob = results_dict[model]['prob']
-        y_true = gt_labels
+    mean_recall = np.linspace(0, 1, 100)
+    
+    for model_name, data in curve_data.items():
+        y_prob = data['prob']
         precision, recall, _ = precision_recall_curve(y_true, y_prob)
+        ap = average_precision_score(y_true, y_prob)
         
-        ax.plot(recall, precision, color=colors[i], label=f"{model} (AUPRC={results_dict[model]['metrics']['AUPRC']:.3f})")
+        precision_interp = np.interp(mean_recall, recall[::-1], precision[::-1])
+        
+        ax.plot(mean_recall, precision_interp, color=colors.get(model_name, 'gray'), 
+                linestyle=linestyles.get(model_name, '-'), linewidth=2.5,
+                label=f'{model_name} (AP = {ap:.3f})')
     
     ax.set_xlim([0.0, 1.0])
     ax.set_ylim([0.0, 1.05])
-    ax.set_xlabel('Recall')
-    ax.set_ylabel('Precision')
-    ax.set_title('Precision-Recall Curve Comparison')
-    ax.legend(loc="lower left")
-    ax.grid(True, linestyle='--', alpha=0.6)
+    ax.set_xlabel('Recall', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Precision', fontsize=12, fontweight='bold')
+    ax.set_title('Precision-Recall Curve Comparison', fontsize=14, fontweight='bold')
+    ax.legend(loc="lower left", fontsize=10)
+    ax.grid(True, linestyle='--', alpha=0.7)
     
     plt.tight_layout()
-    plt.savefig(OUTPUT_PNG, dpi=300)
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
 
+# ==============================================================================
+# 7. Main Execution
+# ==============================================================================
+
 def main():
-    print("=" * 50)
-    print("AMP Evaluation Pipeline Started (Stage 2)")
-    print("=" * 50)
+    print("[INFO] Starting Evaluation Pipeline...")
     
-    # 1. 数据加载与清洗
-    print("Loading Ground Truth...")
+    print("[INFO] Loading Ground Truth...")
     gt_df = load_ground_truth()
+    print(f"[INFO] Ground Truth loaded: {len(gt_df)} samples.")
     
-    # 存储所有模型数据的字典
-    models_to_load = {
-        'Macrel': load_macrel,
-        'AmpScanner': load_ampscanner,
-        'AmpNet': load_ampnet
-    }
-    
-    loaded_models = {}
-    for name, loader in models_to_load.items():
-        try:
-            print(f"Loading {name}...")
-            loaded_models[name] = loader()
-        except FileNotFoundError as e:
-            print(f"Warning: {e} - Skipping {name}")
-        except Exception as e:
-            print(f"Error loading {name}: {e} - Skipping {name}")
-            
-    if not loaded_models:
-        raise RuntimeError("No model predictions loaded. Cannot proceed with evaluation.")
-    
-    # 2. 数据合并 (左连接兜底)
-    print("Merging data...")
-    # 以 GT 为基准
-    merged_df = gt_df.copy()
-    for name, df in loaded_models.items():
-        merged_df = merge_data(merged_df, df, name)
-    
-    # 3. 评估计算
-    print("Calculating metrics...")
-    y_true = merged_df['label'].values
-    models_data = {}
-    eval_result = {}
-    
-    for model in loaded_models.keys():
-        prob_col = f'{model}_prob'
-        probs = merged_df[prob_col].values
-        metrics = calculate_metrics(y_true, probs)
+    print("[INFO] Loading Macrel...")
+    macrel_df = load_macrel()
+    if macrel_df is not None:
+        print(f"[INFO] Macrel loaded: {len(macrel_df)} samples.")
+    else:
+        print("[WARNING] Macrel output not found.")
         
-        models_data[model] = {
-            'prob': probs,
-            'metrics': metrics
-        }
-        eval_result[model] = metrics
-        print(f"{model}: ACC={metrics['ACC']:.4f}, AUROC={metrics['AUROC']:.4f}")
+    print("[INFO] Loading AMP-Scanner-v2...")
+    amp_df = load_ampscanner()
+    if amp_df is not None:
+        print(f"[INFO] AMP-Scanner-v2 loaded: {len(amp_df)} samples.")
+    else:
+        print("[WARNING] AMP-Scanner-v2 output not found.")
     
-    # 4. 保存结果
-    # 4.1 JSON (严格遵守双层字典嵌套结构)
-    with open(OUTPUT_JSON, 'w') as f:
-        json.dump(eval_result, f, indent=4)
-    print(f"Saved metrics to {OUTPUT_JSON}")
+    print("[INFO] Merging datasets (Left Join on Ground Truth)...")
+    merged_df = merge_data(gt_df, macrel_df, amp_df)
+    print(f"[INFO] Merged dataset size: {len(merged_df)} samples.")
     
-    # 4.2 CSV (包含预测概率)
-    # 生成二值预测列
-    for model in loaded_models.keys():
-        merged_df[f'{model}_pred'] = (merged_df[f'{model}_prob'] > 0.5).astype(int)
+    print("[INFO] Calculating metrics...")
+    eval_results, curve_data = evaluate_models(merged_df)
     
-    merged_df.to_csv(OUTPUT_CSV, index=False)
-    print(f"Saved predictions to {OUTPUT_CSV}")
+    json_path = os.path.join(OUTPUT_DIR, "eval_result.json")
+    with open(json_path, 'w') as f:
+        json.dump(eval_results, f, indent=4)
+    print(f"[SUCCESS] Metrics saved to {json_path}")
     
-    # 4.3 绘图
-    print("Plotting curves...")
-    plot_curves(models_data, y_true)
-    print(f"Saved curves to {OUTPUT_PNG}")
+    csv_path = os.path.join(OUTPUT_DIR, "final_results_with_predictions.csv")
+    merged_df.to_csv(csv_path, index=False)
+    print(f"[SUCCESS] Predictions saved to {csv_path}")
     
-    print("=" * 50)
-    print("Pipeline Completed Successfully")
-    print("=" * 50)
+    png_path = os.path.join(OUTPUT_DIR, "evaluation_curves.png")
+    plot_curves(merged_df, curve_data, png_path)
+    print(f"[SUCCESS] Curves saved to {png_path}")
+    
+    print("\n=== Evaluation Summary ===")
+    for model, metrics in eval_results.items():
+        print(f"\n{model}:")
+        for k, v in metrics.items():
+            print(f"  {k}: {v:.4f}")
+            
+    print("\n[INFO] Pipeline completed successfully.")
 
 if __name__ == '__main__':
     main()
@@ -848,14 +1028,14 @@ if __name__ == '__main__':
 
 ```bash
 #!/bin/bash
-#SBATCH -J amp_vlab_eval
+#SBATCH -J amp_eval
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
 #SBATCH -p gpu
-#SBATCH -o eval_job.%j.out
-#SBATCH -e eval_job.%j.err
+#SBATCH -o amp_eval.%j.out
+#SBATCH -e amp_eval.%j.err
 
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh

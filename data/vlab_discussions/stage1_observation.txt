@@ -1,0 +1,61 @@
+Pipeline Start Time: 2026-03-17 19:06:19
+
+=== Model Execution: Macrel ===
+Time: 2026-03-17 19:06:19
+[SUCCESS] Model Macrel completed successfully.
+
+
+=== Model Execution: AMP-Scanner-v2 ===
+Time: 2026-03-17 19:06:24
+[SUCCESS] Model AMP-Scanner-v2 completed successfully.
+
+
+=== Stage 1 Exploration Report ===
+
+Exploration Time: 2026-03-17 19:06:35
+
+[INFO] Found 3 output files.
+
+File Path: data/Macrel_out/README.md
+File Size: 1506 bytes
+Header Content (First 10 lines):
+  If you find Macrel useful, please cite:
+  
+  > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
+  > genomes and metagenomes. The PeerJ 8:e10555
+  > https://doi.org/10.7717/peerj.10555
+  
+  For more information, please read [the macrel
+  documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
+  list](https://groups.google.com/g/ampsphere-users) for questions.
+  
+--------------------------------------------------
+File Path: data/Macrel_out/macrel.out.prediction.gz
+File Size: 18552 bytes
+Header Content (First 10 lines):
+  # Prediction from macrel v1.6.0
+  Access	Sequence	AMP_family	AMP_probability	Hemolytic	Hemolytic_probability
+  AP01235	FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY	CDP	0.653	Hemo	0.743
+  AP02150	YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF	CDP	0.693	NonHemo	0.426
+  AP00314	VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR	CDP	0.891	Hemo	0.644
+  AP01183	ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR	CDP	0.772	NonHemo	0.376
+  AP01372	SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE	CDP	0.703	NonHemo	0.485
+  AP02103	GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT	CDP	0.960	Hemo	0.743
+  AP00842	TKYYGNGVYCNSKKCWVDWGQASGCIGQTVVGGWLGGAIPGKC	CDP	0.792	Hemo	0.634
+  AP01558	LGAWLAGKVAGTVATYAWNRYV	CLP	0.802	Hemo	0.703
+--------------------------------------------------
+File Path: data/AMP-Scanner-v2_out/ampscanner_out.csv
+File Size: 85721 bytes
+Header Content (First 10 lines):
+  SeqID,Prediction_Class,Prediction_Probability,Sequence
+  AP01235,AMP,1.0000,FNKLKQGSSKRTCAKCFRKIMPSVHELDERRRGANRWAAGFRKCVSSICRY
+  AP02387,AMP,0.9983,RLGTALPALLKTLLAGLNG
+  AP02150,AMP,1.0000,YEALVTSILGKLTGLWHNDSVDFMGHICYFRRRPKIRRFKLYHEGKFWCPGWAPFEGRCKYCVVF
+  AP00314,AMP,1.0000,VFCTCRGFLCGSGERASGSCTINGVRHTLCCRR
+  AP01183,AMP,1.0000,ATYYGNGLYCNKEKCWVDWNQAKGEIGKIIVNGWVNHGPWAPRR
+  AP01372,AMP,0.9968,SKCKCSRKGPKIRYSDVKKLEMKPKYPHCEEKMVIITTKSVSRYRGQEHCLHPKLQSTKRFIKWYNAWNEKRRVYEE
+  AP02103,AMP,1.0000,GLWDTIKQAGKKFFLNVLDKIRCKVAGGCRT
+  AP00842,AMP,1.0000,TKYYGNGVYCNSKKCWVDWGQASGCIGQTVVGGWLGGAIPGKC
+  AP02230,AMP,0.9957,PKRKAEGDAKGDKAKVKDEPQRRSARLSAKPAPPKPEPKPKKAPAKKGEKVPKGKKGKADAGKEGNNPAENGDAKTDQAQKAEGAGDAK
+--------------------------------------------------
+Pipeline End Time: 2026-03-17 19:06:35

@@ -1,30 +1,61 @@
 {
-  "stage1": {
-    "python_path": "data\\vlab_discussions\\stage1_model_runner.py",
-    "bash_path": "data\\vlab_discussions\\stage1_run_model.sh",
-    "fetched_outputs": {
-      "data/stage1_observation.txt": "data\\vlab_discussions\\stage1_observation.txt"
-    }
-  },
-  "stage2": {
-    "python_path": "data\\vlab_discussions\\stage2_eval_script.py",
-    "bash_path": "data\\vlab_discussions\\stage2_run_eval.sh"
-  },
-  "final_outputs": {
-    "Macrel": {
-      "ACC": 0.9354437379043407,
-      "Recall": 0.5333080999242997,
-      "MCC": 0.5398484235436479,
-      "AUROC": 0.7573295034668963,
-      "AUPRC": 0.5092288040917702
+  "datasets_results": {
+    "Dataset_1_test1": {
+      "outputs": {
+        "Macrel": {
+          "ACC": 0.9339887640449438,
+          "Recall": 0.9058988764044944,
+          "MCC": 0.8693505200710013,
+          "AUROC": 0.9493316816058579,
+          "AUPRC": 0.9505882167367545
+        },
+        "AMP-Scanner-v2": {
+          "ACC": 0.9627808988764045,
+          "Recall": 0.9859550561797753,
+          "MCC": 0.9265575326092487,
+          "AUROC": 0.9918156640575685,
+          "AUPRC": 0.9897446386415575
+        }
+      },
+      "critic_md": "data\\results\\Dataset_1_test1\\critic_individual.md"
     },
-    "AMP-Scanner-v2": {
-      "ACC": 0.7764568549749639,
-      "Recall": 0.8487887963663892,
-      "MCC": 0.37632284191975524,
-      "AUROC": 0.8808898837431691,
-      "AUPRC": 0.4967175632426253
+    "Dataset_2_test2": {
+      "outputs": {
+        "Macrel": {
+          "ACC": 0.9673421904504991,
+          "Recall": 0.74373795761079,
+          "MCC": 0.47182496418690445,
+          "AUROC": 0.8668235578741925,
+          "AUPRC": 0.6815417276651835
+        },
+        "AMP-Scanner-v2": {
+          "ACC": 0.770147693552738,
+          "Recall": 0.8978805394990366,
+          "MCC": 0.20332198892290648,
+          "AUROC": 0.9127657872717837,
+          "AUPRC": 0.27169723735864837
+        }
+      },
+      "critic_md": "data\\results\\Dataset_2_test2\\critic_individual.md"
+    },
+    "Dataset_3_test3": {
+      "outputs": {
+        "Macrel": {
+          "ACC": 0.738584217257203,
+          "Recall": 0.49475524475524474,
+          "MCC": 0.5173562059456933,
+          "AUROC": 0.7229900428355843,
+          "AUPRC": 0.6665640733876625
+        },
+        "AMP-Scanner-v2": {
+          "ACC": 0.758895659369593,
+          "Recall": 0.8235855054036872,
+          "MCC": 0.5259680796633767,
+          "AUROC": 0.8262351813695128,
+          "AUPRC": 0.7899589438121759
+        }
+      },
+      "critic_md": "data\\results\\Dataset_3_test3\\critic_individual.md"
     }
-  },
-  "critic_md": "data\\vlab_discussions\\critic_individual.md"
+  }
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=stage1_exploration
-#SBATCH --partition=cpu
+#SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
@@ -9,18 +9,26 @@
 #SBATCH --output=logs/stage1_%j.out
 #SBATCH --error=logs/stage1_%j.err
 
-# 创建日志目录
-mkdir -p logs
-
-# 加载必要的模块 (根据集群实际情况调整，此处假设基础环境已就绪)
+# Load necessary modules if required by your cluster
 # module load python/3.8
 
-echo "Start Time: $(date)"
-echo "Running Stage 1 Exploration Script..."
+# Ensure log directory exists
+mkdir -p logs
+mkdir -p data
 
-# 执行 Python 脚本
-# 确保脚本路径正确，此处假设脚本在当前目录
-python stage1_exploration.py
+# Change to the directory where the script is submitted
+cd $SLURM_SUBMIT_DIR
 
-echo "End Time: $(date)"
-echo "Job Finished."
+echo "Starting Stage 1 Exploration at $(date)"
+
+# Run the Python script
+# Ensure the python environment has access to necessary system paths
+/usr/bin/python3 stage1_exploration.py
+
+# Check exit status
+if [ $? -eq 0 ]; then
+    echo "Stage 1 Pipeline completed successfully at $(date)"
+else
+    echo "Stage 1 Pipeline failed with exit code $? at $(date)"
+    exit 1
+fi

@@ -450,6 +450,9 @@ def setup_model_environments(ssh, models_info: list[dict]) -> None:
 
     print("\n>>> [Auto-Env] 开始为提取到的模型动态构建专属 Conda 环境和代码库...")
     for model in models_info:
+        if model.get("skip_env_setup"):
+            print(f"    -> [预设免检] 模型 [{model['model_name']}] 标记为本地已有环境 ({model.get('env_name')})，跳过一切环境构建步骤！")
+            continue
         env_name = model.get("env_name")
         if not env_name:
             continue
@@ -461,6 +464,8 @@ def setup_model_environments(ssh, models_info: list[dict]) -> None:
         dependencies = model.get("dependencies") or []
 
         pip_install_cmd = ""
+        deps_str = ""
+
         if dependencies:
             deps_str = " ".join(dependencies)
             pip_install_cmd = f"pip install -i {PIP_INDEX_URL} --extra-index-url {PIP_EXTRA_INDEX_URL} {deps_str}"
@@ -670,7 +675,8 @@ def run_on_hpc_and_fetch(
     py_code: str,
     sh_code: str,
     fetch_targets: dict[str, str] | None = None,
-    models_info: list[dict] = None,  # <--- 新增这行
+    models_info: list[dict] = None,  
+    local_data_dir: str = "data",
 ):
     print("\n>>> [SSH] 正在连接物理超算节点...")
     ssh = paramiko.SSHClient()
@@ -692,9 +698,15 @@ def run_on_hpc_and_fetch(
         
         read_remote_text(ssh, f"mkdir -p {HPC_TARGET_DIR}/data")
 
-        print(">>> [SSH] 正在将统一处理好的数据推送至超算...")
-        sftp.put("data/combined_test.fasta", f"{HPC_TARGET_DIR}/data/combined_test.fasta")
-        sftp.put("data/ground_truth.csv", f"{HPC_TARGET_DIR}/data/ground_truth.csv")
+        # ====== 强制核弹级清理！防止跑循环时上一轮的数据干扰 ======
+        read_remote_text(ssh, f"rm -rf {HPC_TARGET_DIR}/data/*")
+        read_remote_text(ssh, f"mkdir -p {HPC_TARGET_DIR}/data")
+        
+        print(f">>> [SSH] 正在将本地 {local_data_dir} 中的数据推送至超算...")
+        # ================= 核心修改处：使用动态的 local_data_dir =================
+        sftp.put(f"{local_data_dir}/combined_test.fasta", f"{HPC_TARGET_DIR}/data/combined_test.fasta")
+        sftp.put(f"{local_data_dir}/ground_truth.csv", f"{HPC_TARGET_DIR}/data/ground_truth.csv")
+        # ========================================================================
         # ====== 核心新增：自动根据记忆库组装底层环境 ======
         if models_info:
             setup_model_environments(ssh, models_info)
