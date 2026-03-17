@@ -1,0 +1,30 @@
+{
+  "stage1": {
+    "python_path": "data\\vlab_discussions\\stage1_model_runner.py",
+    "bash_path": "data\\vlab_discussions\\stage1_run_model.sh",
+    "fetched_outputs": {
+      "data/stage1_observation.txt": "data\\vlab_discussions\\stage1_observation.txt"
+    }
+  },
+  "stage2": {
+    "python_path": "data\\vlab_discussions\\stage2_eval_script.py",
+    "bash_path": "data\\vlab_discussions\\stage2_run_eval.sh"
+  },
+  "final_outputs": {
+    "Macrel": {
+      "ACC": 0.9354437379043407,
+      "Recall": 0.5333080999242997,
+      "MCC": 0.5398484235436479,
+      "AUROC": 0.7573295034668963,
+      "AUPRC": 0.5092288040917702
+    },
+    "AMP-Scanner-v2": {
+      "ACC": 0.7764568549749639,
+      "Recall": 0.8487887963663892,
+      "MCC": 0.37632284191975524,
+      "AUROC": 0.8808898837431691,
+      "AUPRC": 0.4967175632426253
+    }
+  },
+  "critic_md": "data\\vlab_discussions\\critic_individual.md"
+}
