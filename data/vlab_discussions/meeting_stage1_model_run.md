@@ -10,7 +10,7 @@
 1. 【模型执行参数矩阵】：
 你需要通过代码依次执行以下模型：
 - 【模型名称】: Macrel
-  【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out"
+  【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
   【输出目录】: data/Macrel_out
 
 - 【模型名称】: AMP-Scanner-v2
@@ -18,6 +18,7 @@
   【输出目录】: data/AMP-Scanner-v2_out
 
 
+🚨 注意：如果【预设运行命令】中执行的 Python 脚本已经是以 `/` 开头的绝对路径，你绝对不允许擅自去修改或拼接它！直接原样使用！只有当它使用的是相对路径，并且我为你提供了【真实源码目录树】时，你才需要结合目录树，以 `/share/home/zhangss/[模型名称]` 作为基准路径去修正它！
 
 2. 【智能生命周期与动态自愈机制 (Self-Healing - 极度重要)】：
    生物信息学软件的脾气各不相同（有的不会自己建目录，有的讨厌目录已存在）。你必须为每个模型的执行编写极其强壮的容错逻辑：
@@ -56,42 +57,37 @@
 
 ## PI
 
-### PI 审阅与任务重申
+# 🧬 计算生物学模型自动化评估会议记录 (Stage 1: 探索勘探)
 
-各位好，会议正式开始。我是本次项目的 PI。
+## 1. PI 任务审阅与要求重申 (Principal Investigator Review)
 
-在代码工程师提交最终脚本之前，我必须再次强调本次**探索勘探阶段（Stage 1）**的核心纪律。这不是普通的脚本编写，这是为了后续大规模评测建立稳定的基础设施。任何细微的容错疏忽都会导致后续流水线崩溃。
+各位工程师，大家好。针对本次 **AMP 模型自动化评估 (Stage 1: 探索勘探)** 任务，我代表项目组审阅了技术需求。生物信息学流程的稳定性至关重要，尤其是涉及外部依赖复杂的模型（如 Macrel, AMP-Scanner）。为了确保本次勘探任务的成功执行及后续流程的可靠性，我再次重申以下 **硬性约束 (Hard Requirements)**，请在代码实现中严格落地：
 
-请工程师注意以下**不可妥协的硬约束**：
+1.  **命令完整性保护 (Command Integrity)**：
+    *   提供的【预设运行命令】中包含绝对路径（如 `/share/home/zhangss/...`）。**绝对禁止**修改、拼接或相对化这些路径。必须原样嵌入脚本。
+    *   任何对命令字符串的篡改都可能导致环境加载失败，这是不可接受的低级错误。
 
-1.  **执行隔离性（Isolation）**：
-    *   每个模型的执行必须被独立的 `try...except` 块包裹。
-    *   **严禁**因为一个模型失败而导致整个脚本退出。捕获异常后，必须记录错误并继续下一个模型。
-    *   **严禁**使用 `raise` 阻断主程序。
+2.  **智能自愈机制 (Self-Healing Protocol)**：
+    *   生物软件常因目录状态（存在/不存在）而崩溃。你必须实现 **双重防御**：
+        *   **执行前**：强制清理旧目录 (`rmtree`) 并预建目录 (`makedirs`)。
+        *   **失败后**：根据 `stdout/stderr` 关键词动态调整策略（报 "exists" 则删目录重试；报 "No such file" 则建目录重试）。
+    *   **隔离性**：每个模型必须包裹在独立的 `try...except` 块中。Macrel 崩溃绝不能影响 AMP-Scanner 的运行。
 
-2.  **智能自愈机制（Self-Healing）**：
-    *   这是本次任务的核心。生物信息学工具对文件系统的状态极其敏感。
-    *   你必须实现**双重检查**：执行前预建目录，执行后若报错，必须解析 `stdout` 和 `stderr` 的具体内容。
-    *   针对 "No such file" 类错误，必须尝试 `makedirs` 后重试。
-    *   针对 "already exists" 类错误，必须尝试 `rmtree` 后重试。
-    *   只有重试依然失败，才写入最终错误日志。
+3.  **勘探报告规范 (Exploration Report)**：
+    *   本次任务 **仅限勘探**。禁止使用 `pandas`，禁止数据清洗，禁止计算指标。
+    *   所有模型运行结束后，必须遍历 `data/` 下的输出文件，读取文件头（支持 `.gz` 解压），并将 **文件路径 + 内容摘要** 写入 `data/stage1_observation.txt`。
+    *   模型运行的错误日志也必须追加到同一文件中，以便追溯。
 
-3.  **勘探报告规范（Observation）**：
-    *   脚本运行结束后，必须自动遍历 `data/` 下的输出。
-    *   必须能识别并读取 `.gz` 压缩文件（使用 `gzip` 模块）。
-    *   报告内容必须包含：文件路径 + 文件头部内容（5-10 行）。
-    *   报告统一保存为 `data/stage1_observation.txt`。
+4.  **工程纪律 (Engineering Discipline)**：
+    *   脚本必须是单一、可独立运行的 Python 文件。
+    *   必须包含 `if __name__ == '__main__':` 入口。
+    *   确保 `data/` 目录在执行任何写入操作前已存在。
 
-4.  **代码禁令**：
-    *   **绝对禁止**引入 `pandas`。
-    *   **绝对禁止**在此阶段进行任何数据清洗或指标计算。
-    *   代码必须是单文件，包含 `if __name__ == '__main__':`。
-
-请工程师严格按照上述规范，编写完整的 Python 自动化评估脚本。现在开始 coding。
+请代码工程师根据以上要求，输出最终的可执行代码。
 
 ---
 
-### 代码工程师最终完整代码
+## 2. 代码工程师最终实现 (Engineer Implementation)
 
 ```python
 import os
@@ -100,15 +96,22 @@ import shutil
 import glob
 import gzip
 
-# 配置常量
-DATA_DIR = "data"
-OBSERVATION_LOG = os.path.join(DATA_DIR, "stage1_observation.txt")
+# ==============================================================================
+# 配置区域 (Configuration)
+# ==============================================================================
+
+# 确保基础数据目录存在
+os.makedirs('data', exist_ok=True)
+
+# 观察报告路径
+OBSERVATION_FILE = 'data/stage1_observation.txt'
 
 # 模型执行配置清单
+# 注意：命令中的绝对路径严禁修改
 MODELS = [
     {
         "name": "Macrel",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out"',
+        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"',
         "output_dir": "data/Macrel_out"
     },
     {
@@ -118,204 +121,198 @@ MODELS = [
     }
 ]
 
-def ensure_data_dir():
-    """确保数据目录存在"""
-    if not os.path.exists(DATA_DIR):
-        os.makedirs(DATA_DIR, exist_ok=True)
+# ==============================================================================
+# 工具函数 (Utility Functions)
+# ==============================================================================
 
-def log_message(message, mode='a'):
-    """将消息写入观察日志"""
-    ensure_data_dir()
-    with open(OBSERVATION_LOG, mode, encoding='utf-8') as f:
-        f.write(message + "\n")
+def log_observation(message):
+    """
+    将消息追加写入到观察报告文件中。
+    """
+    try:
+        with open(OBSERVATION_FILE, 'a', encoding='utf-8') as f:
+            f.write(message + '\n')
+    except Exception as e:
+        print(f"[CRITICAL] Failed to write to observation log: {e}")
 
-def read_file_head(file_path, lines=10):
-    """读取文件头部内容，支持 .gz 压缩文件"""
-    content_lines = []
+def read_file_header(file_path, lines=10):
+    """
+    读取文件头部内容，自动处理 .gz 压缩文件。
+    """
+    content_summary = []
     try:
         if file_path.endswith('.gz'):
             with gzip.open(file_path, 'rt', encoding='utf-8', errors='ignore') as f:
                 for i, line in enumerate(f):
                     if i >= lines:
                         break
-                    content_lines.append(line.strip())
+                    content_summary.append(line.strip())
         else:
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 for i, line in enumerate(f):
                     if i >= lines:
                         break
-                    content_lines.append(line.strip())
+                    content_summary.append(line.strip())
     except Exception as e:
-        return [f"Error reading file: {str(e)}"]
-    return content_lines
+        content_summary.append(f"[Error reading file: {str(e)}]")
+    
+    return content_summary
 
-def execute_model(model_config):
+def execute_model_with_healing(model_config):
     """
-    执行单个模型，包含智能自愈机制
+    执行单个模型，包含智能自愈机制和异常隔离。
     """
     name = model_config["name"]
     cmd = model_config["cmd"]
     out_dir = model_config["output_dir"]
     
-    print(f"[INFO] Starting execution of model: {name}")
-    log_message(f"--- Model Execution: {name} ---")
-    
+    log_observation(f"\n{'='*60}")
+    log_observation(f"[START] Model: {name}")
+    log_observation(f"[CMD] {cmd}")
+    log_observation(f"[OUT] {out_dir}")
+    print(f"[INFO] Starting {name}...")
+
     try:
-        # 第一步：清理 (Clean)
-        # 即使目录不存在，ignore_errors=True 也不会报错
-        shutil.rmtree(out_dir, ignore_errors=True)
+        # --- 第一步：清理 (Clean) ---
+        # 无论之前状态如何，先清理脏数据
+        if os.path.exists(out_dir):
+            shutil.rmtree(out_dir, ignore_errors=True)
         
-        # 第二步：执行前兜底 (Pre-mkdir)
-        # 根据 Fatal Error Prevention 规范，执行前必须建好房子
+        # --- 第二步：执行前兜底 (Pre-flooring) ---
+        # 根据防御性编程规范，执行前先建好目录
         os.makedirs(out_dir, exist_ok=True)
-        
-        # 第三步：盲测 (Blind Test)
+
+        # --- 第三步：盲测 (Blind Test) ---
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         
-        # 第四步：动态自愈 (Self-Healing)
+        # --- 第四步：动态自愈 (Self-Healing) ---
         if res.returncode != 0:
-            # 联合检查 stdout 和 stderr
-            combined_output = res.stdout + res.stderr
-            print(f"[WARN] {name} initial execution failed. Analyzing error...")
-            log_message(f"[ERROR] Initial execution failed for {name}. Returncode: {res.returncode}")
-            log_message(f"[DEBUG] Stdout/Stderr snippet: {combined_output[:500]}")
+            error_output = res.stdout + res.stderr
+            log_observation(f"[WARN] Initial execution failed (Return Code: {res.returncode})")
+            log_observation(f"[DEBUG] Error Output Snippet: {error_output[:500]}")
             
             retry_success = False
             
-            # 情况 A: 缺少目录 (No such file or directory / Failed to save)
-            if "No such file or directory" in combined_output or "Failed to save" in combined_output:
-                print(f"[HEALING] {name} detected missing directory error. Attempting to recreate directory...")
-                log_message(f"[HEALING] Detected 'No such file' error. Recreating {out_dir}...")
-                try:
-                    shutil.rmtree(out_dir, ignore_errors=True) # 先清理确保干净
-                    os.makedirs(out_dir, exist_ok=True)
-                    # 重试
-                    res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-                    if res_retry.returncode == 0:
-                        retry_success = True
-                        print(f"[SUCCESS] {name} healed successfully after mkdir retry.")
-                        log_message(f"[SUCCESS] {name} healed successfully after mkdir retry.")
-                except Exception as heal_e:
-                    log_message(f"[ERROR] Healing process failed for {name}: {str(heal_e)}")
+            # 策略 A: 处理 "already exists" 冲突
+            # 如果报错包含 exists，说明模型讨厌预存在的目录。我们需要删掉刚才建的空目录，然后重试（不再预建）
+            if "already exists" in error_output or "exists" in error_output:
+                log_observation("[HEALING] Detected 'exists' error. Removing directory and retrying without pre-mkdir...")
+                shutil.rmtree(out_dir, ignore_errors=True)
+                # 重试时不再执行 makedirs，让模型自己创建或处理
+                res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                if res_retry.returncode == 0:
+                    retry_success = True
+                    res = res_retry
             
-            # 情况 B: 目录已存在冲突 (already exists / exists)
-            elif "already exists" in combined_output or "exists" in combined_output:
-                print(f"[HEALING] {name} detected existing directory conflict. Attempting to remove and retry...")
-                log_message(f"[HEALING] Detected 'exists' error. Removing {out_dir} and retrying...")
-                try:
-                    shutil.rmtree(out_dir, ignore_errors=True)
-                    # 注意：这里不再预先 makedirs，让工具自己创建，或者重试前再建
-                    # 根据规范：删掉然后再次重试执行 subprocess.run
-                    # 但为了安全，我们让工具自己处理目录，或者再次确保父目录存在
-                    os.makedirs(os.path.dirname(out_dir), exist_ok=True) 
-                    
-                    res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-                    if res_retry.returncode == 0:
-                        retry_success = True
-                        print(f"[SUCCESS] {name} healed successfully after rmtree retry.")
-                        log_message(f"[SUCCESS] {name} healed successfully after rmtree retry.")
-                except Exception as heal_e:
-                    log_message(f"[ERROR] Healing process failed for {name}: {str(heal_e)}")
+            # 策略 B: 处理 "No such file" 冲突
+            # 如果报错包含 No such file，说明模型需要目录存在但我们可能清理得太干净或路径有误
+            elif "No such file or directory" in error_output or "Failed to save" in error_output:
+                log_observation("[HEALING] Detected 'No such file' error. Ensuring directory exists and retrying...")
+                os.makedirs(out_dir, exist_ok=True)
+                res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                if res_retry.returncode == 0:
+                    retry_success = True
+                    res = res_retry
             
-            # 如果重试依然失败，记录终极日志
+            # 记录最终状态
             if not retry_success:
-                error_msg = f"[FATAL] Model {name} failed after healing attempts.\nStdout: {res.stdout}\nStderr: {res.stderr}"
-                print(f"[FATAL] {name} execution failed permanently.")
-                log_message(error_msg)
-                # 不 raise，继续执行
-                return False
+                log_observation(f"[FAIL] Model {name} failed after healing attempts.")
+                log_observation(f"[STDERR] {res.stderr}")
+                log_observation(f"[STDOUT] {res.stdout}")
+                print(f"[ERROR] {name} failed. Check observation log.")
             else:
-                return True
+                log_observation(f"[SUCCESS] Model {name} recovered and completed successfully.")
+                print(f"[SUCCESS] {name} completed (after healing).")
         else:
-            print(f"[SUCCESS] {name} executed successfully.")
-            log_message(f"[SUCCESS] {name} executed successfully.")
-            return True
-            
+            log_observation(f"[SUCCESS] Model {name} completed successfully.")
+            print(f"[SUCCESS] {name} completed.")
+
     except Exception as e:
-        # 绝对隔离，捕获所有未预料的异常
-        error_msg = f"[CRITICAL] Unexpected exception during {name} execution: {str(e)}"
+        # 捕获 Python 层面的异常（如权限错误、命令格式错误等）
+        error_msg = f"[CRITICAL EXCEPTION] Model {name} crashed with exception: {str(e)}"
+        log_observation(error_msg)
         print(error_msg)
-        log_message(error_msg)
-        return False
 
 def explore_outputs():
     """
-    勘探输出文件结构并生成报告
+    勘探 data/ 目录下所有 *_out 目录及文件，生成报告。
     """
-    print("[INFO] Starting output exploration...")
-    log_message("\n--- Stage 1 Exploration Report ---\n")
+    log_observation(f"\n{'='*60}")
+    log_observation("[STAGE 1 EXPLORATION REPORT]")
+    log_observation(f"{'='*60}\n")
     
-    ensure_data_dir()
+    # 查找所有包含 _out 的目录
+    # 使用 glob 查找 data/ 下的直接子目录，匹配 *_out
+    out_dirs = glob.glob('data/*_out')
     
-    # 查找所有带有 _out 后缀的目录
-    # 使用 glob 查找 data/ 下的目录
-    out_dirs = glob.glob(os.path.join(DATA_DIR, "*_out"))
     # 同时也查找 data/ 下可能直接生成的文件 (以防万一)
-    all_files = glob.glob(os.path.join(DATA_DIR, "*"))
-    
-    found_files = []
-    
-    # 收集目录内的文件
-    for d in out_dirs:
-        if os.path.isdir(d):
-            for root, dirs, files in os.walk(d):
-                for file in files:
-                    found_files.append(os.path.join(root, file))
-    
-    # 收集 data 目录下直接的文件 (排除目录本身)
-    for f in all_files:
-        if os.path.isfile(f) and f not in found_files:
-            # 排除日志文件本身以免递归
-            if f != OBSERVATION_LOG:
-                found_files.append(f)
-    
-    if not found_files:
-        log_message("No output files found in data/ directory.")
-        print("[WARN] No output files found.")
+    # 但主要关注 *_out 目录
+    if not out_dirs:
+        log_observation("[INFO] No directories matching 'data/*_out' found.")
+        # 尝试查找 data 目录下所有文件
+        all_files = glob.glob('data/*')
+        for f in all_files:
+            if os.path.isfile(f):
+                log_observation(f"[FILE] {os.path.abspath(f)}")
+                headers = read_file_header(f)
+                log_observation("[HEADER CONTENT]:")
+                for line in headers:
+                    log_observation(f"  {line}")
+                log_observation("")
         return
 
-    log_message(f"Total files found: {len(found_files)}\n")
-    
-    for file_path in found_files:
-        log_message(f"File Path: {file_path}")
-        try:
-            head_content = read_file_head(file_path, lines=10)
-            log_message("Head Content (first 10 lines):")
-            for line in head_content:
-                log_message(f"  {line}")
-            log_message("-" * 50)
-        except Exception as e:
-            log_message(f"Error reading content: {str(e)}")
-            log_message("-" * 50)
+    for out_dir in sorted(out_dirs):
+        log_observation(f"[DIR] {os.path.abspath(out_dir)}")
+        
+        # 遍历目录内所有文件
+        found_files = False
+        for root, dirs, files in os.walk(out_dir):
+            for file in files:
+                found_files = True
+                file_path = os.path.join(root, file)
+                log_observation(f"  [FILE] {os.path.abspath(file_path)}")
+                
+                # 读取头部内容
+                headers = read_file_header(file_path)
+                log_observation("  [HEADER CONTENT]:")
+                for line in headers:
+                    # 替换制表符以便日志阅读，限制长度防止日志过大
+                    safe_line = line.replace('\t', ' | ').replace('\n', '')
+                    if len(safe_line) > 200:
+                        safe_line = safe_line[:200] + "..."
+                    log_observation(f"    {safe_line}")
+                log_observation("")
+        
+        if not found_files:
+            log_observation("  [WARNING] Directory is empty.")
+        log_observation("-" * 40 + "\n")
+
+    print("[INFO] Exploration report saved to", os.path.abspath(OBSERVATION_FILE))
+
+# ==============================================================================
+# 主程序入口 (Main Entry)
+# ==============================================================================
 
 def main():
-    """
-    主程序入口
-    """
-    print("=" * 60)
-    print("Starting AMP Model Evaluation Stage 1 (Exploration)")
-    print("=" * 60)
+    print("="*60)
+    print("AMP Model Evaluation - Stage 1: Exploration")
+    print("="*60)
     
-    # 初始化日志
-    ensure_data_dir()
-    # 清空或创建日志文件头 (使用 'w' 模式开始新的一次运行记录，或者用 'a' 追加)
-    # 根据规范 "追加写入"，但为了每次运行清晰，这里选择覆盖写入头部，后续错误追加
-    # 为了严格遵守 "追加写入错误流"，我们初始化时写一个 header
-    with open(OBSERVATION_LOG, 'w', encoding='utf-8') as f:
-        f.write("=== Stage 1 Observation Log ===\n")
-        f.write(f"Start Time: {subprocess.run('date', shell=True, capture_output=True, text=True).stdout.strip()}\n\n")
-    
-    # 1. 执行模型
+    # 初始化日志文件（清空或创建）
+    # 为了保留错误日志，我们使用追加模式，但为了报告清晰，可以在开头加个分隔符
+    # 这里为了符合“追加写入错误流”的要求，我们不在这里清空文件，而是直接开始记录
+    log_observation(f"\n### NEW SESSION STARTED: {os.path.basename(__file__)} ###\n")
+
+    # 1. 执行模型评估
     for model in MODELS:
-        execute_model(model)
-        print("-" * 30)
+        execute_model_with_healing(model)
     
-    # 2. 勘探输出
+    # 2. 执行输出勘探
     explore_outputs()
     
-    print("=" * 60)
-    print("Stage 1 Complete. Check data/stage1_observation.txt for details.")
-    print("=" * 60)
+    print("="*60)
+    print("Stage 1 Complete. Check data/stage1_observation.txt")
+    print("="*60)
 
 if __name__ == '__main__':
     main()
@@ -342,25 +339,43 @@ if __name__ == '__main__':
 
 ## Code Engineer
 
-### 1. Python 自动化评估脚本 (`stage1_exploration.py`)
+# 🧬 计算生物学模型自动化评估 (Stage 1: 探索勘探)
+
+## 1. 最终 Python 评估脚本 (`stage1_exploration.py`)
 
 ```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Stage 1: Model Exploration & Execution Script
+Target: Macrel, AMP-Scanner-v2
+Goal: Run models, explore output structure, save observation report.
+Constraints: No pandas, no metrics, no merging. Strict self-healing.
+"""
+
 import os
 import subprocess
 import shutil
 import glob
 import gzip
-import sys
+import datetime
 
-# ================= 配置区域 =================
-DATA_DIR = "data"
-OBSERVATION_LOG = os.path.join(DATA_DIR, "stage1_observation.txt")
+# ==============================================================================
+# 配置区域 (Configuration)
+# ==============================================================================
+
+# 确保基础数据目录存在
+os.makedirs('data', exist_ok=True)
+
+# 观察报告路径
+OBSERVATION_FILE = 'data/stage1_observation.txt'
 
 # 模型执行配置清单
+# 🚨 注意：命令中的绝对路径严禁修改，必须原样使用
 MODELS = [
     {
         "name": "Macrel",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out"',
+        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"',
         "output_dir": "data/Macrel_out"
     },
     {
@@ -369,247 +384,231 @@ MODELS = [
         "output_dir": "data/AMP-Scanner-v2_out"
     }
 ]
-# ===========================================
 
-def ensure_data_dir():
-    """确保数据目录存在"""
-    if not os.path.exists(DATA_DIR):
-        os.makedirs(DATA_DIR, exist_ok=True)
+# ==============================================================================
+# 工具函数 (Utility Functions)
+# ==============================================================================
 
-def log_message(message, mode='a'):
-    """将消息写入观察日志"""
-    ensure_data_dir()
+def log_observation(message):
+    """
+    将消息追加写入到观察报告文件中。
+    """
     try:
-        with open(OBSERVATION_LOG, mode, encoding='utf-8') as f:
-            f.write(message + "\n")
+        with open(OBSERVATION_FILE, 'a', encoding='utf-8') as f:
+            f.write(message + '\n')
     except Exception as e:
-        print(f"[CRITICAL] Failed to write log: {e}")
+        print(f"[CRITICAL] Failed to write to observation log: {e}")
 
-def read_file_head(file_path, lines=10):
+def read_file_header(file_path, lines=10):
     """
-    读取文件头部内容，支持 .gz 压缩文件
-    严格遵守 Stage 1 约束：不使用 pandas，直接读取文本
+    读取文件头部内容，自动处理 .gz 压缩文件。
     """
-    content_lines = []
+    content_summary = []
     try:
         if file_path.endswith('.gz'):
             with gzip.open(file_path, 'rt', encoding='utf-8', errors='ignore') as f:
                 for i, line in enumerate(f):
                     if i >= lines:
                         break
-                    content_lines.append(line.strip())
+                    content_summary.append(line.strip())
         else:
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 for i, line in enumerate(f):
                     if i >= lines:
                         break
-                    content_lines.append(line.strip())
+                    content_summary.append(line.strip())
     except Exception as e:
-        return [f"Error reading file: {str(e)}"]
-    return content_lines
+        content_summary.append(f"[Error reading file: {str(e)}]")
+    
+    return content_summary
 
-def execute_model(model_config):
+def execute_model_with_healing(model_config):
     """
-    执行单个模型，包含智能自愈机制 (Self-Healing)
-    严格遵守防御性编程规范：绝对隔离，永不连坐
+    执行单个模型，包含智能自愈机制和异常隔离。
+    严格遵守防御性编程规范：绝对隔离，永不连坐。
     """
     name = model_config["name"]
     cmd = model_config["cmd"]
     out_dir = model_config["output_dir"]
     
-    print(f"[INFO] Starting execution of model: {name}")
-    log_message(f"--- Model Execution: {name} ---")
-    
+    log_observation(f"\n{'='*60}")
+    log_observation(f"[START] Model: {name}")
+    log_observation(f"[TIME] {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log_observation(f"[CMD] {cmd}")
+    log_observation(f"[OUT] {out_dir}")
+    print(f"[INFO] Starting {name}...")
+
     try:
-        # 第一步：清理 (Clean)
-        # 即使目录不存在，ignore_errors=True 也不会报错
-        shutil.rmtree(out_dir, ignore_errors=True)
+        # --- 第一步：清理 (Clean) ---
+        # 无论之前状态如何，先清理脏数据
+        if os.path.exists(out_dir):
+            shutil.rmtree(out_dir, ignore_errors=True)
         
-        # 第二步：执行前兜底 (Pre-mkdir)
-        # 根据规范，执行前必须建好房子
+        # --- 第二步：执行前兜底 (Pre-flooring) ---
+        # 根据防御性编程规范，执行前先建好目录
         os.makedirs(out_dir, exist_ok=True)
-        
-        # 第三步：盲测 (Blind Test)
+
+        # --- 第三步：盲测 (Blind Test) ---
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         
-        # 第四步：动态自愈 (Self-Healing)
+        # --- 第四步：动态自愈 (Self-Healing) ---
         if res.returncode != 0:
-            # 联合检查 stdout 和 stderr
-            combined_output = res.stdout + res.stderr
-            print(f"[WARN] {name} initial execution failed. Analyzing error...")
-            log_message(f"[ERROR] Initial execution failed for {name}. Returncode: {res.returncode}")
-            log_message(f"[DEBUG] Stdout/Stderr snippet: {combined_output[:500]}")
+            error_output = res.stdout + res.stderr
+            log_observation(f"[WARN] Initial execution failed (Return Code: {res.returncode})")
+            log_observation(f"[DEBUG] Error Output Snippet: {error_output[:500]}")
             
             retry_success = False
             
-            # 情况 A: 缺少目录 (No such file or directory / Failed to save)
-            if "No such file or directory" in combined_output or "Failed to save" in combined_output:
-                print(f"[HEALING] {name} detected missing directory error. Attempting to recreate directory...")
-                log_message(f"[HEALING] Detected 'No such file' error. Recreating {out_dir}...")
-                try:
-                    shutil.rmtree(out_dir, ignore_errors=True) # 先清理确保干净
-                    os.makedirs(out_dir, exist_ok=True)
-                    # 重试
-                    res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-                    if res_retry.returncode == 0:
-                        retry_success = True
-                        print(f"[SUCCESS] {name} healed successfully after mkdir retry.")
-                        log_message(f"[SUCCESS] {name} healed successfully after mkdir retry.")
-                except Exception as heal_e:
-                    log_message(f"[ERROR] Healing process failed for {name}: {str(heal_e)}")
+            # 策略 A: 处理 "already exists" 冲突
+            # 如果报错包含 exists，说明模型讨厌预存在的目录。我们需要删掉刚才建的空目录，然后重试
+            if "already exists" in error_output or "exists" in error_output:
+                log_observation("[HEALING] Detected 'exists' error. Removing directory and retrying...")
+                shutil.rmtree(out_dir, ignore_errors=True)
+                # 重试时不再执行 makedirs，让模型自己创建或处理
+                res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                if res_retry.returncode == 0:
+                    retry_success = True
+                    res = res_retry
             
-            # 情况 B: 目录已存在冲突 (already exists / exists)
-            elif "already exists" in combined_output or "exists" in combined_output:
-                print(f"[HEALING] {name} detected existing directory conflict. Attempting to remove and retry...")
-                log_message(f"[HEALING] Detected 'exists' error. Removing {out_dir} and retrying...")
-                try:
-                    shutil.rmtree(out_dir, ignore_errors=True)
-                    # 注意：这里不再预先 makedirs，让工具自己创建，或者重试前再建
-                    # 根据规范：删掉然后再次重试执行 subprocess.run
-                    os.makedirs(os.path.dirname(out_dir), exist_ok=True) 
-                    
-                    res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-                    if res_retry.returncode == 0:
-                        retry_success = True
-                        print(f"[SUCCESS] {name} healed successfully after rmtree retry.")
-                        log_message(f"[SUCCESS] {name} healed successfully after rmtree retry.")
-                except Exception as heal_e:
-                    log_message(f"[ERROR] Healing process failed for {name}: {str(heal_e)}")
+            # 策略 B: 处理 "No such file" 冲突
+            # 如果报错包含 No such file，说明模型需要目录存在但我们可能清理得太干净或路径有误
+            elif "No such file or directory" in error_output or "Failed to save" in error_output:
+                log_observation("[HEALING] Detected 'No such file' error. Ensuring directory exists and retrying...")
+                os.makedirs(out_dir, exist_ok=True)
+                res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                if res_retry.returncode == 0:
+                    retry_success = True
+                    res = res_retry
             
-            # 如果重试依然失败，记录终极日志
+            # 记录最终状态
             if not retry_success:
-                error_msg = f"[FATAL] Model {name} failed after healing attempts.\nStdout: {res.stdout}\nStderr: {res.stderr}"
-                print(f"[FATAL] {name} execution failed permanently.")
-                log_message(error_msg)
-                # 不 raise，继续执行 (绝对隔离)
-                return False
+                log_observation(f"[FAIL] Model {name} failed after healing attempts.")
+                log_observation(f"[STDERR] {res.stderr}")
+                log_observation(f"[STDOUT] {res.stdout}")
+                print(f"[ERROR] {name} failed. Check observation log.")
             else:
-                return True
+                log_observation(f"[SUCCESS] Model {name} recovered and completed successfully.")
+                print(f"[SUCCESS] {name} completed (after healing).")
         else:
-            print(f"[SUCCESS] {name} executed successfully.")
-            log_message(f"[SUCCESS] {name} executed successfully.")
-            return True
-            
+            log_observation(f"[SUCCESS] Model {name} completed successfully.")
+            print(f"[SUCCESS] {name} completed.")
+
     except Exception as e:
-        # 绝对隔离，捕获所有未预料的异常
-        error_msg = f"[CRITICAL] Unexpected exception during {name} execution: {str(e)}"
+        # 捕获 Python 层面的异常（如权限错误、命令格式错误等）
+        error_msg = f"[CRITICAL EXCEPTION] Model {name} crashed with exception: {str(e)}"
+        log_observation(error_msg)
         print(error_msg)
-        log_message(error_msg)
-        return False
 
 def explore_outputs():
     """
-    勘探输出文件结构并生成报告
-    严格遵守 Stage 1 约束：不许 merge，不许计算指标，只记录文件结构和头部内容
+    勘探 data/ 目录下所有 *_out 目录及文件，生成报告。
+    本次禁止使用 pandas，仅进行文件结构勘探。
     """
-    print("[INFO] Starting output exploration...")
-    log_message("\n--- Stage 1 Exploration Report ---\n")
+    log_observation(f"\n{'='*60}")
+    log_observation("[STAGE 1 EXPLORATION REPORT]")
+    log_observation(f"[TIME] {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log_observation(f"{'='*60}\n")
     
-    ensure_data_dir()
+    # 查找所有包含 _out 的目录
+    out_dirs = glob.glob('data/*_out')
     
-    # 查找所有带有 _out 后缀的目录
-    out_dirs = glob.glob(os.path.join(DATA_DIR, "*_out"))
-    # 同时也查找 data/ 下可能直接生成的文件
-    all_files = glob.glob(os.path.join(DATA_DIR, "*"))
-    
-    found_files = []
-    
-    # 收集目录内的文件
-    for d in out_dirs:
-        if os.path.isdir(d):
-            for root, dirs, files in os.walk(d):
-                for file in files:
-                    found_files.append(os.path.join(root, file))
-    
-    # 收集 data 目录下直接的文件 (排除目录本身)
-    for f in all_files:
-        if os.path.isfile(f) and f not in found_files:
-            # 排除日志文件本身以免递归
-            if f != OBSERVATION_LOG:
-                found_files.append(f)
-    
-    if not found_files:
-        log_message("No output files found in data/ directory.")
-        print("[WARN] No output files found.")
+    if not out_dirs:
+        log_observation("[INFO] No directories matching 'data/*_out' found.")
+        # 尝试查找 data 目录下所有文件以防万一
+        all_files = glob.glob('data/*')
+        for f in all_files:
+            if os.path.isfile(f) and not f.endswith('.txt'):
+                log_observation(f"[FILE] {os.path.abspath(f)}")
+                headers = read_file_header(f)
+                log_observation("[HEADER CONTENT]:")
+                for line in headers:
+                    log_observation(f"  {line}")
+                log_observation("")
         return
 
-    log_message(f"Total files found: {len(found_files)}\n")
-    
-    for file_path in found_files:
-        log_message(f"File Path: {file_path}")
-        try:
-            head_content = read_file_head(file_path, lines=10)
-            log_message("Head Content (first 10 lines):")
-            for line in head_content:
-                log_message(f"  {line}")
-            log_message("-" * 50)
-        except Exception as e:
-            log_message(f"Error reading content: {str(e)}")
-            log_message("-" * 50)
+    for out_dir in sorted(out_dirs):
+        log_observation(f"[DIR] {os.path.abspath(out_dir)}")
+        
+        # 遍历目录内所有文件
+        found_files = False
+        for root, dirs, files in os.walk(out_dir):
+            for file in files:
+                found_files = True
+                file_path = os.path.join(root, file)
+                log_observation(f"  [FILE] {os.path.abspath(file_path)}")
+                
+                # 读取头部内容
+                headers = read_file_header(file_path)
+                log_observation("  [HEADER CONTENT]:")
+                for line in headers:
+                    # 替换制表符以便日志阅读，限制长度防止日志过大
+                    safe_line = line.replace('\t', ' | ').replace('\n', '')
+                    if len(safe_line) > 200:
+                        safe_line = safe_line[:200] + "..."
+                    log_observation(f"    {safe_line}")
+                log_observation("")
+        
+        if not found_files:
+            log_observation("  [WARNING] Directory is empty.")
+        log_observation("-" * 40 + "\n")
+
+    print("[INFO] Exploration report saved to", os.path.abspath(OBSERVATION_FILE))
+
+# ==============================================================================
+# 主程序入口 (Main Entry)
+# ==============================================================================
 
 def main():
-    """
-    主程序入口
-    严格遵守代码结构规范：单一脚本，完整 import，def main
-    """
-    print("=" * 60)
-    print("Starting AMP Model Evaluation Stage 1 (Exploration)")
-    print("=" * 60)
+    print("="*60)
+    print("AMP Model Evaluation - Stage 1: Exploration")
+    print("="*60)
     
-    # 初始化日志
-    ensure_data_dir()
-    # 初始化日志文件
-    with open(OBSERVATION_LOG, 'w', encoding='utf-8') as f:
-        f.write("=== Stage 1 Observation Log ===\n")
-        try:
-            date_res = subprocess.run('date', shell=True, capture_output=True, text=True)
-            f.write(f"Start Time: {date_res.stdout.strip()}\n\n")
-        except:
-            f.write("Start Time: Unknown\n\n")
-    
-    # 1. 执行模型 (严格隔离)
+    # 初始化日志文件（添加 session 头）
+    log_observation(f"\n### NEW SESSION STARTED: {os.path.basename(__file__)} ###\n")
+
+    # 1. 执行模型评估
     for model in MODELS:
-        execute_model(model)
-        print("-" * 30)
+        execute_model_with_healing(model)
     
-    # 2. 勘探输出 (禁止 pandas merge/metrics)
+    # 2. 执行输出勘探
     explore_outputs()
     
-    print("=" * 60)
-    print("Stage 1 Complete. Check data/stage1_observation.txt for details.")
-    print("=" * 60)
+    print("="*60)
+    print("Stage 1 Complete. Check data/stage1_observation.txt")
+    print("="*60)
 
 if __name__ == '__main__':
     main()
 ```
 
-### 2. Slurm 提交脚本 (`submit_stage1.slurm`)
+## 2. Slurm 提交脚本 (`submit_stage1.slurm`)
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=amp_stage1
+#SBATCH --output=logs/stage1_%j.out
+#SBATCH --error=logs/stage1_%j.err
 #SBATCH --partition=cpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
-#SBATCH --time=24:00:00
-#SBATCH --output=logs/stage1_%j.out
-#SBATCH --error=logs/stage1_%j.err
+#SBATCH --mem=16G
+#SBATCH --time=02:00:00
 
-# 加载必要的模块或环境 (根据集群实际情况调整)
-module load anaconda3/2023.09  # 示例模块，请根据实际集群调整
+# 加载必要的模块 (如果需要)
+# module load python/3.8
 
-# 创建日志目录
+# 确保日志目录存在
 mkdir -p logs
 mkdir -p data
 
 # 打印开始时间
 echo "Job started at: $(date)"
+echo "Working directory: $(pwd)"
 
-# 执行 Python 脚本
-# 确保脚本路径正确，这里假设脚本在当前目录
-python stage1_exploration.py
+# 运行 Python 评估脚本
+# 确保当前环境下 python 可用，或者使用绝对路径 /usr/bin/python3
+python3 stage1_exploration.py
 
 # 打印结束时间
 echo "Job finished at: $(date)"

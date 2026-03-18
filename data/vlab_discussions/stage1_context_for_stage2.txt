@@ -1,81 +1,69 @@
-=== Stage 1 Observation Log ===
-Start Time: Wed Mar 18 13:38:22 CST 2026
 
---- Model Execution: Macrel ---
-[ERROR] Initial execution failed for Macrel. Returncode: 1
-[DEBUG] Stdout/Stderr snippet: Output folder [data/Macrel_out] already exists
+### NEW SESSION STARTED: eval_script.py ###
 
-[HEALING] Detected 'exists' error. Removing data/Macrel_out and retrying...
-[SUCCESS] Macrel healed successfully after rmtree retry.
---- Model Execution: AMP-Scanner-v2 ---
-[SUCCESS] AMP-Scanner-v2 executed successfully.
 
---- Stage 1 Exploration Report ---
+============================================================
+[START] Model: Macrel
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
+[OUT] data/Macrel_out
+[WARN] Initial execution failed (Return Code: 1)
+[DEBUG] Error Output Snippet: Output folder [data/Macrel_out] already exists
 
-Total files found: 5
+[HEALING] Detected 'exists' error. Removing directory and retrying without pre-mkdir...
+[SUCCESS] Model Macrel recovered and completed successfully.
 
-File Path: data/Macrel_out/README.md
-Head Content (first 10 lines):
-  If you find Macrel useful, please cite:
-  
-  > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
-  > genomes and metagenomes. The PeerJ 8:e10555
-  > https://doi.org/10.7717/peerj.10555
-  
-  For more information, please read [the macrel
-  documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
-  list](https://groups.google.com/g/ampsphere-users) for questions.
-  
---------------------------------------------------
-File Path: data/Macrel_out/macrel.out.prediction.gz
-Head Content (first 10 lines):
-  # Prediction from macrel v1.6.0
-  Access	Sequence	AMP_family	AMP_probability	Hemolytic	Hemolytic_probability
-  93	IIIQYEGHKH	CLP	0.812	NonHemo	0.119
-  94	AAGMGFFGAR	CLP	0.693	Hemo	0.515
-  97	GILDAITGLL	ALP	0.941	NonHemo	0.436
-  98	LRPAILVRIK	CLP	0.693	Hemo	0.772
-  99	GLLKRIKTLL	CLP	0.941	Hemo	0.970
-  101	SRSELIVHQR	CLP	0.743	NonHemo	0.020
-  102	LLGGLLQSLL	CLP	0.802	NonHemo	0.396
-  103	CTHPLDCSN	CDP	0.644	NonHemo	0.000
---------------------------------------------------
-File Path: data/AMP-Scanner-v2_out/ampscanner_out.csv
-Head Content (first 10 lines):
-  SeqID,Prediction_Class,Prediction_Probability,Sequence
-  93,Non-AMP,0.0389,IIIQYEGHKH
-  94,AMP,0.5786,AAGMGFFGAR
-  95,Non-AMP,0.0126,KQTENLADTY
-  96,AMP,0.9189,FIMDLLGKIF
-  97,AMP,0.9534,GILDAITGLL
-  98,AMP,0.7697,LRPAILVRIK
-  99,AMP,0.9972,GLLKRIKTLL
-  100,AMP,0.8792,NAGSLLSGWG
-  101,Non-AMP,0.0092,SRSELIVHQR
---------------------------------------------------
-File Path: data/ground_truth.csv
-Head Content (first 10 lines):
-  Sequence,label
-  IIIQYEGHKH,1
-  AAGMGFFGAR,1
-  KQTENLADTY,1
-  FIMDLLGKIF,1
-  GILDAITGLL,1
-  LRPAILVRIK,1
-  GLLKRIKTLL,1
-  NAGSLLSGWG,1
-  SRSELIVHQR,1
---------------------------------------------------
-File Path: data/combined_test.fasta
-Head Content (first 10 lines):
-  >93
-  IIIQYEGHKH
-  >94
-  AAGMGFFGAR
-  >95
-  KQTENLADTY
-  >96
-  FIMDLLGKIF
-  >97
-  GILDAITGLL
---------------------------------------------------
+============================================================
+[START] Model: AMP-Scanner-v2
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
+[OUT] data/AMP-Scanner-v2_out
+[SUCCESS] Model AMP-Scanner-v2 completed successfully.
+
+============================================================
+[STAGE 1 EXPLORATION REPORT]
+============================================================
+
+[DIR] /share/home/zhangss/vlab_workspace/data/AMP-Scanner-v2_out
+  [FILE] /share/home/zhangss/vlab_workspace/data/AMP-Scanner-v2_out/ampscanner_out.csv
+  [HEADER CONTENT]:
+    SeqID,Prediction_Class,Prediction_Probability,Sequence
+    93,Non-AMP,0.0389,IIIQYEGHKH
+    94,AMP,0.5786,AAGMGFFGAR
+    95,Non-AMP,0.0126,KQTENLADTY
+    96,AMP,0.9189,FIMDLLGKIF
+    97,AMP,0.9534,GILDAITGLL
+    98,AMP,0.7697,LRPAILVRIK
+    99,AMP,0.9972,GLLKRIKTLL
+    100,AMP,0.8792,NAGSLLSGWG
+    101,Non-AMP,0.0092,SRSELIVHQR
+
+----------------------------------------
+
+[DIR] /share/home/zhangss/vlab_workspace/data/Macrel_out
+  [FILE] /share/home/zhangss/vlab_workspace/data/Macrel_out/README.md
+  [HEADER CONTENT]:
+    If you find Macrel useful, please cite:
+    
+    > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
+    > genomes and metagenomes. The PeerJ 8:e10555
+    > https://doi.org/10.7717/peerj.10555
+    
+    For more information, please read [the macrel
+    documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
+    list](https://groups.google.com/g/ampsphere-users) for questions.
+    
+
+  [FILE] /share/home/zhangss/vlab_workspace/data/Macrel_out/macrel.out.prediction.gz
+  [HEADER CONTENT]:
+    # Prediction from macrel v1.6.0
+    Access | Sequence | AMP_family | is_AMP | AMP_probability | Hemolytic | Hemolytic_probability
+    93 | IIIQYEGHKH | CLP | True | 0.812 | NonHemo | 0.119
+    94 | AAGMGFFGAR | CLP | True | 0.693 | Hemo | 0.515
+    95 | KQTENLADTY | ALP | False | 0.178 | NonHemo | 0.000
+    96 | FIMDLLGKIF | CLP | False | 0.337 | NonHemo | 0.396
+    97 | GILDAITGLL | ALP | True | 0.941 | NonHemo | 0.436
+    98 | LRPAILVRIK | CLP | True | 0.693 | Hemo | 0.772
+    99 | GLLKRIKTLL | CLP | True | 0.941 | Hemo | 0.970
+    100 | NAGSLLSGWG | CLP | False | 0.228 | NonHemo | 0.208
+
+----------------------------------------
+

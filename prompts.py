@@ -75,6 +75,7 @@ def build_base_task_desc(models_info: list[dict]) -> str:
 1. 【模型执行参数矩阵】：
 你需要通过代码依次执行以下模型：
 {model_execution_details}
+🚨 注意：如果【预设运行命令】中执行的 Python 脚本已经是以 `/` 开头的绝对路径，你绝对不允许擅自去修改或拼接它！直接原样使用！只有当它使用的是相对路径，并且我为你提供了【真实源码目录树】时，你才需要结合目录树，以 `/share/home/zhangss/[模型名称]` 作为基准路径去修正它！
 
 2. 【智能生命周期与动态自愈机制 (Self-Healing - 极度重要)】：
    生物信息学软件的脾气各不相同（有的不会自己建目录，有的讨厌目录已存在）。你必须为每个模型的执行编写极其强壮的容错逻辑：
@@ -173,13 +174,16 @@ SECOND_MEETING_APPENDIX_TEMPLATE = """
 2. 工程师必须根据勘探报告揭示的“真实文件路径和列名”编写 pandas 解析代码。绝对禁止重新运行任何模型！
 3. 【数据清洗与合并（必须严格遵守）】：
    - 严禁解析 FASTA 获取标签：必须且只能读取 `data/ground_truth.csv` 获取真实标签。
-   - 强清洗 ID：在 merge 之前，必须对所有表的 ID 列转换为字符串，剔除 '>' 符号，并使用 `apply(lambda x: str(x).split()[0].strip())` 只保留干净 ID。
+   - 🚨【动态嗅探真实列名（防崩溃纪律）】：绝对禁止在代码里写死 ground truth 的列名！你必须写一段模糊匹配代码，动态寻找 ID 列（列名包含 'id', 'name', 'seq', 'sequence'）和真实标签列（列名包含 'label', 'class', 'target'），找到后统一重命名为 'ID' 和 'True_Label'。
+   - 🚨【致命的 ID 与序列错位陷阱 (FASTA Mapping 必杀技)】：
+     注意！`ground_truth.csv` 里的 ID 列很可能是**真实的氨基酸序列**（如 `IIIQYEGHKH`），而模型输出的标识符是 FASTA header（如 `seq_1`）。如果直接 merge 绝对全部失败！
+     你【必须】写一个单独的函数读取 `data/combined_test.fasta`，构建一个字典 `fasta_id_to_seq`（键是清洗掉 `>` 符号的 FASTA ID，值是下一行的真实氨基酸序列）。
+     在读取每个模型的输出 df 后，你【必须】将 df 里的 FASTA ID 映射替换为真实的序列字符串！只有把两边的键都统一成【氨基酸序列文本】后，才能和 `ground_truth.csv` 进行 merge！
    - 🚨【安全合并与算分纪律 (防 Key 报错)】：
      1. 遍历每个模型时，只提取该模型的 ['ID', 'Pred_Prob'] 两列与 `ground_truth` 进行 `how='left'` 的 merge。
      2. merge 后，立即使用 `pd.to_numeric(..., errors='coerce').fillna(0.0)` 将 `Pred_Prob` 里的空值填为 0.0。
-     3. 接着，基于 `Pred_Prob` 动态寻找最优阈值生成预测标签，并计算出所有 metrics 字典！**必须先算分！**
-     4. 算完分之后，你**再**把当前模型的 `Pred_Prob` 和标签列重命名为带有模型前缀的名字（如 `Macrel_Prob`, `Macrel_Pred`），然后合并到那个最终的用于保存 CSV 的 `final_results` 大表里！绝对不允许先重命名再去算分，会导致 Key 找不到！
-   - 统一使用浮点数概率值（`prob > 0.5`）生成最终的 0 和 1 预测标签。
+     3. 接着，基于 `Pred_Prob` 生成标签，并计算出所有 metrics 字典！**必须先算分！**
+     4. 算完分之后，你**再**把当前模型的 `Pred_Prob` 和标签列重命名为带有模型前缀的名字（如 `Macrel_Prob`, `Macrel_Pred`），然后合并到最终保存 CSV 的 `final_results` 大表里。
 4. 必须使用 sklearn 计算 ACC, Recall, MCC, AUROC, AUPRC，并将结果保存为嵌套字典结构的 `eval_result.json`。
 5. 必须保存 `evaluation_curves.png`（需声明 `import matplotlib; matplotlib.use('Agg')`）和 `final_results_with_predictions.csv`。
 6. 🚫【代码兼容性极速警告】：执行环境是 Python 3.11+。绝对禁止使用 `from scipy import interp`！绘制 ROC/PR 曲线插值必须使用 `numpy.interp`！

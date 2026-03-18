@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-AMP Model Evaluation Pipeline (Stage 2)
-Based on Stage 1 Exploration Report.
-Strictly follows PI constraints regarding data parsing, merging, and scoring.
-"""
-
 import os
 import sys
 import json
@@ -13,335 +5,386 @@ import glob
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg')  # Must be set before importing pyplot
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from sklearn.metrics import (
-    accuracy_score, recall_score, matthews_corrcoef, 
-    roc_curve, auc, precision_recall_curve, average_precision_score
-)
+from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score, roc_curve, precision_recall_curve
 
-# ==========================================
-# Configuration & Constants
-# ==========================================
-DATA_DIR = "data"
-GROUND_TRUTH_PATH = os.path.join(DATA_DIR, "ground_truth.csv")
-OUTPUT_JSON = "eval_result.json"
-OUTPUT_CSV = "final_results_with_predictions.csv"
-OUTPUT_PNG = "evaluation_curves.png"
+# ============================================================
+# Configuration & Paths
+# ============================================================
+BASE_DIR = "data"
+PATH_GROUND_TRUTH = os.path.join(BASE_DIR, "ground_truth.csv")
+PATH_FASTA = os.path.join(BASE_DIR, "combined_test.fasta")
+PATH_OUTPUT_JSON = "eval_result.json"
+PATH_OUTPUT_CSV = "final_results_with_predictions.csv"
+PATH_OUTPUT_PNG = "evaluation_curves.png"
 
-# Model Output Directories (Identified from Stage 1 Report)
-MODEL_DIRS = {
-    "Macrel": os.path.join(DATA_DIR, "Macrel_out"),
-    "AMP-Scanner-v2": os.path.join(DATA_DIR, "AMP-Scanner-v2_out")
+# Model Output Paths based on Session 1 Exploration Report
+MODEL_CONFIGS = {
+    "Macrel": {
+        "path": os.path.join(BASE_DIR, "Macrel_out", "macrel.out.prediction.gz"),
+        "type": "gz",
+        "sep": "\t",
+        "comment": "#"
+    },
+    "AMP-Scanner-v2": {
+        "path": os.path.join(BASE_DIR, "AMP-Scanner-v2_out", "ampscanner_out.csv"),
+        "type": "csv",
+        "sep": ",",
+        "comment": None
+    }
 }
 
-# ==========================================
+# ============================================================
 # Helper Functions
-# ==========================================
+# ============================================================
 
-def clean_id_series(series):
+def load_fasta_map(fasta_path):
     """
-    Strong Clean ID: Convert to string, remove '>', split by space, strip.
-    Compliant with PI Requirement 3.
+    🚨 FASTA Mapping 必杀技：
+    读取 FASTA 文件，构建 {Header_ID: Sequence} 字典。
+    用于将模型输出的 ID 映射为真实氨基酸序列。
     """
-    return series.apply(lambda x: str(x).replace('>', '').split()[0].strip())
+    fasta_map = {}
+    if not os.path.exists(fasta_path):
+        print(f"[WARN] FASTA file not found: {fasta_path}")
+        return fasta_map
+    
+    current_id = None
+    current_seq = []
+    
+    with open(fasta_path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith('>'):
+                if current_id is not None:
+                    fasta_map[current_id] = "".join(current_seq)
+                current_id = line[1:].split()[0]
+                current_seq = []
+            else:
+                current_seq.append(line)
+        if current_id is not None:
+            fasta_map[current_id] = "".join(current_seq)
+            
+    return fasta_map
 
-def find_model_output_file(directory, extensions):
+def sniff_column(columns, keywords):
     """
-    Dynamic Data Extraction: Find the most likely output file using glob.
-    Compliant with PI Requirement "Dynamic Data Extraction".
+    🚨 动态嗅探真实列名：
+    寻找包含 keywords 中任意一个词的列名。
     """
-    for ext in extensions:
-        pattern = os.path.join(directory, f"*{ext}")
-        files = glob.glob(pattern)
-        # Filter out logs/readme if possible by size or name, but here we look for data files
-        # Prioritize files that are not .md or .log
-        valid_files = [f for f in files if not f.endswith('.md') and not f.endswith('.log')]
-        if valid_files:
-            # Return the largest file usually containing data
-            return max(valid_files, key=os.path.getsize)
+    for col in columns:
+        col_lower = str(col).lower()
+        for kw in keywords:
+            if kw in col_lower:
+                return col
     return None
 
-def load_ground_truth():
+def clean_id_value(val):
     """
-    Load Ground Truth strictly from CSV.
+    🚨 ID 清洗纪律：
+    必须进行 split()[0].strip() 强清洗。
     """
-    if not os.path.exists(GROUND_TRUTH_PATH):
-        raise FileNotFoundError(f"Ground Truth not found at {GROUND_TRUTH_PATH}")
-    
-    # Read without low_memory=False engine conflicts
-    df = pd.read_csv(GROUND_TRUTH_PATH, sep=',')
-    
-    # Validate columns based on Report: Sequence, label
-    if 'Sequence' not in df.columns or 'label' not in df.columns:
-        # Fuzzy match if exact names differ slightly
-        seq_col = [c for c in df.columns if 'seq' in c.lower()]
-        lab_col = [c for c in df.columns if 'label' in c.lower() or 'truth' in c.lower()]
-        if seq_col and lab_col:
-            df = df.rename(columns={seq_col[0]: 'Sequence', lab_col[0]: 'label'})
-        else:
-            raise ValueError("Cannot identify Sequence or label columns in ground_truth.csv")
-            
-    df['ID'] = clean_id_series(df['Sequence'])
-    return df[['ID', 'label']].set_index('ID')
+    if pd.isna(val):
+        return ""
+    return str(val).split()[0].strip()
 
-def load_macrel_output(directory):
+def load_ground_truth(gt_path):
     """
-    Load Macrel output based on Report: .gz, tab-separated, comment='#'.
+    读取 Ground Truth，动态 sniff 列名，统一重命名为 'ID', 'True_Label'。
+    严禁解析 FASTA 获取标签。
     """
-    filepath = find_model_output_file(directory, ['.gz', '.csv', '.tsv', '.out'])
-    if not filepath:
+    if not os.path.exists(gt_path):
+        raise FileNotFoundError(f"Ground Truth not found: {gt_path}")
+    
+    df = pd.read_csv(gt_path)
+    
+    # Sniff ID Column (id, name, seq, sequence)
+    id_col = sniff_column(df.columns, ['id', 'name', 'seq', 'sequence'])
+    # Sniff Label Column (label, class, target)
+    label_col = sniff_column(df.columns, ['label', 'class', 'target'])
+    
+    if id_col is None or label_col is None:
+        raise ValueError(f"Could not sniff columns in Ground Truth. Found: {df.columns}")
+    
+    df = df.rename(columns={id_col: 'ID', label_col: 'True_Label'})
+    
+    # 🚨 ID 清洗纪律
+    df['ID'] = df['ID'].apply(clean_id_value)
+    
+    # Ensure Label is binary (0/1)
+    if df['True_Label'].dtype == object:
+        df['True_Label'] = df['True_Label'].apply(lambda x: 1 if str(x).lower() in ['amp', '1', 'true', 'positive'] else 0)
+    
+    df['True_Label'] = df['True_Label'].astype(int)
+    
+    return df[['ID', 'True_Label']].drop_duplicates(subset=['ID'])
+
+def load_model_output(model_name, config, fasta_map):
+    """
+    读取模型输出，动态 sniff 概率列，并将 ID 映射为序列。
+    """
+    path = config["path"]
+    f_type = config["type"]
+    sep = config["sep"]
+    comment = config["comment"]
+    
+    if not os.path.exists(path):
+        print(f"[WARN] Model output not found: {path}")
         return None
     
-    # Report indicates: macrel.out.prediction.gz
-    # Strict reading protocol for .gz
     try:
-        if filepath.endswith('.gz'):
-            df = pd.read_csv(filepath, sep='\t', comment='#', compression='gzip')
+        if f_type == "gz":
+            # 🚨 防崩溃死命令：特定 gzip 读取方式
+            df = pd.read_csv(path, sep=sep, comment=comment, compression='gzip')
         else:
-            df = pd.read_csv(filepath, sep='\t', comment='#')
-            
-        # Report Columns: Access, Sequence, AMP_family, AMP_probability...
-        # Identify Probability Column
-        prob_cols = [c for c in df.columns if 'prob' in c.lower() and 'amp' in c.lower()]
-        if not prob_cols:
-            prob_cols = [c for c in df.columns if 'prob' in c.lower()]
-        
-        if not prob_cols:
-            return None
-            
-        prob_col = prob_cols[0]
-        
-        # Identify ID Column (Sequence)
-        id_cols = [c for c in df.columns if 'sequence' in c.lower()]
-        if not id_cols:
-            return None
-        id_col = id_cols[0]
-        
-        df['ID'] = clean_id_series(df[id_col])
-        df['Pred_Prob'] = pd.to_numeric(df[prob_col], errors='coerce')
-        return df[['ID', 'Pred_Prob']]
-        
+            # 🚨 防崩溃死命令：特定 csv 读取方式
+            df = pd.read_csv(path, sep=sep)
     except Exception as e:
-        print(f"Error loading Macrel: {e}", file=sys.stderr)
+        print(f"[ERROR] Failed to read {model_name}: {e}")
+        return None
+    
+    if df.empty:
         return None
 
-def load_amp_scanner_output(directory):
-    """
-    Load AMP-Scanner-v2 output based on Report: .csv, comma-separated.
-    """
-    filepath = find_model_output_file(directory, ['.csv', '.tsv', '.txt', '.out'])
-    if not filepath:
+    # 1. Sniff Probability Column ('prob', 'score')
+    prob_col = sniff_column(df.columns, ['prob', 'score'])
+    if prob_col is None:
+        print(f"[WARN] No probability column found for {model_name}. Columns: {df.columns}")
+        return None
+    
+    # 2. 🚨 致命的 ID 与序列错位陷阱处理
+    # 优先寻找 'Sequence' 列，如果没有，则寻找 ID 列并通过 fasta_map 映射
+    seq_col_candidate = sniff_column(df.columns, ['sequence'])
+    final_id_col = None
+    
+    if seq_col_candidate:
+        # Use existing sequence column as ID
+        final_id_col = seq_col_candidate
+        print(f"[INFO] Using column '{seq_col_candidate}' as ID for {model_name}")
+    else:
+        # Fallback: Find ID column and map via FASTA
+        id_col_candidate = sniff_column(df.columns, ['id', 'access', 'seqid'])
+        if id_col_candidate and fasta_map:
+            print(f"[INFO] Mapping {model_name} IDs via FASTA map...")
+            df['ID'] = df[id_col_candidate].astype(str).map(fasta_map)
+            final_id_col = 'ID'
+        else:
+            print(f"[ERROR] Cannot resolve ID to Sequence for {model_name}")
+            return None
+
+    # Rename the identified ID column to 'ID' for merging
+    if final_id_col != 'ID':
+        df = df.rename(columns={final_id_col: 'ID'})
+    
+    # 🚨 ID 清洗纪律
+    df['ID'] = df['ID'].apply(clean_id_value)
+    
+    # 3. 🚨 概率列校验与清洗
+    # 必须校验 dtype == float，避开读取英文字符串标签导致的 DataFrame 灾难
+    df['Pred_Prob'] = pd.to_numeric(df[prob_col], errors='coerce')
+    # 检查是否全部为 NaN
+    if df['Pred_Prob'].isna().all():
+        print(f"[WARN] Probability column for {model_name} contains only NaNs after conversion.")
         return None
         
-    # Report indicates: ampscanner_out.csv
-    # Strict reading protocol for .csv (Default C engine, NO low_memory=False)
-    try:
-        df = pd.read_csv(filepath, sep=',')
-        
-        # Report Columns: SeqID, Prediction_Class, Prediction_Probability, Sequence
-        # Identify Probability Column
-        prob_cols = [c for c in df.columns if 'prob' in c.lower()]
-        if not prob_cols:
-            return None
-        prob_col = prob_cols[0]
-        
-        # Identify ID Column (Sequence)
-        id_cols = [c for c in df.columns if 'sequence' in c.lower()]
-        if not id_cols:
-            return None
-        id_col = id_cols[0]
-        
-        df['ID'] = clean_id_series(df[id_col])
-        df['Pred_Prob'] = pd.to_numeric(df[prob_col], errors='coerce')
-        return df[['ID', 'Pred_Prob']]
-        
-    except Exception as e:
-        print(f"Error loading AMP-Scanner: {e}", file=sys.stderr)
-        return None
+    # 🚨 合并后必须用 fillna(0.0) 兜底 (Applied later during merge, but good to ensure here too)
+    df['Pred_Prob'] = df['Pred_Prob'].fillna(0.0)
+    
+    return df[['ID', 'Pred_Prob']].drop_duplicates(subset=['ID'])
 
 def calculate_metrics(y_true, y_prob):
     """
-    Calculate all required metrics using sklearn.
+    计算 ACC, Recall, MCC, AUROC, AUPRC。
+    🚨 保存 JSON 前，一定要记得将所有指标通过 float(val) 转为 Python 原生类型！
     """
-    # Binary prediction based on threshold 0.5
-    y_pred = (y_prob > 0.5).astype(int)
+    # Threshold 0.5 for classification metrics
+    y_pred = (y_prob >= 0.5).astype(int)
     
-    # Handle case where all probabilities are NaN or 0 leading to constant input
+    metrics = {}
+    
     try:
-        acc = accuracy_score(y_true, y_pred)
-        recall = recall_score(y_true, y_pred, zero_division=0)
-        mcc = matthews_corrcoef(y_true, y_pred)
-    except Exception:
-        acc, recall, mcc = 0.0, 0.0, 0.0
+        metrics["ACC"] = float(accuracy_score(y_true, y_pred))
+    except:
+        metrics["ACC"] = 0.0
         
     try:
-        auroc = auc(*roc_curve(y_true, y_prob)[:2])
-    except Exception:
-        auroc = 0.5
+        metrics["Recall"] = float(recall_score(y_true, y_pred, zero_division=0))
+    except:
+        metrics["Recall"] = 0.0
         
     try:
-        auprc = average_precision_score(y_true, y_prob)
-    except Exception:
-        auprc = 0.0
+        metrics["MCC"] = float(matthews_corrcoef(y_true, y_pred))
+    except:
+        metrics["MCC"] = 0.0
         
-    return {
-        "ACC": float(acc),
-        "Recall": float(recall),
-        "MCC": float(mcc),
-        "AUROC": float(auroc),
-        "AUPRC": float(auprc)
-    }
+    try:
+        metrics["AUROC"] = float(roc_auc_score(y_true, y_prob))
+    except:
+        metrics["AUROC"] = 0.0
+        
+    try:
+        metrics["AUPRC"] = float(average_precision_score(y_true, y_prob))
+    except:
+        metrics["AUPRC"] = 0.0
+        
+    return metrics
 
-def plot_curves(model_results, output_path):
+def plot_curves(results_dict, output_path):
     """
-    Plot ROC and PR curves with publication quality.
-    Uses numpy.interp instead of scipy.interp.
+    绘制专业的 ROC 和 PR 曲线。
+    🚫 禁止使用 scipy.interp，必须使用 numpy.interp
     """
-    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+    plt.style.use('seaborn-v0_8-whitegrid')
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
-    # Color map for models
-    colors = plt.cm.tab10(np.linspace(0, 1, len(model_results)))
+    colors = plt.cm.tab10(np.linspace(0, 1, len(results_dict)))
     
-    # --- ROC Curve ---
+    # ROC Curve
     ax_roc = axes[0]
-    ax_roc.plot([0, 1], [0, 1], 'k--', lw=2, label='Random Chance')
+    ax_roc.plot([0, 1], [0, 1], 'k--', label='Random Chance', linewidth=2)
     
-    # --- PR Curve ---
+    # PR Curve
     ax_pr = axes[1]
     
-    for i, (model_name, data) in enumerate(model_results.items()):
-        y_true = data['y_true']
-        y_prob = data['y_prob']
+    mean_fpr = np.linspace(0, 1, 100)
+    
+    for i, (model_name, data) in enumerate(results_dict.items()):
+        y_true = np.array(data['True_Label'])
+        y_prob = np.array(data['Pred_Prob'])
         
         # ROC
         fpr, tpr, _ = roc_curve(y_true, y_prob)
-        roc_auc = auc(fpr, tpr)
-        ax_roc.plot(fpr, tpr, color=colors[i], lw=2, label=f'{model_name} (AUC={roc_auc:.2f})')
+        # Interpolate to mean_fpr using numpy.interp
+        tpr_interp = np.interp(mean_fpr, fpr, tpr)
+        tpr_interp[0] = 0.0
+        ax_roc.plot(mean_fpr, tpr_interp, color=colors[i], label=f"{model_name} (AUROC={data['Metrics']['AUROC']:.3f})", linewidth=2)
         
         # PR
-        precision, recall, _ = precision_recall_curve(y_true, y_prob)
-        pr_auc = average_precision_score(y_true, y_prob)
-        ax_pr.plot(recall, precision, color=colors[i], lw=2, label=f'{model_name} (AP={pr_auc:.2f})')
-        
-    # Styling ROC
+        prec, rec, _ = precision_recall_curve(y_true, y_prob)
+        ax_pr.plot(rec, prec, color=colors[i], label=f"{model_name} (AUPRC={data['Metrics']['AUPRC']:.3f})", linewidth=2)
+
     ax_roc.set_xlim([0.0, 1.0])
     ax_roc.set_ylim([0.0, 1.05])
     ax_roc.set_xlabel('False Positive Rate', fontsize=12)
     ax_roc.set_ylabel('True Positive Rate', fontsize=12)
-    ax_roc.set_title('Receiver Operating Characteristic (ROC)', fontsize=14, fontweight='bold')
+    ax_roc.set_title('ROC Curve Comparison', fontsize=14, fontweight='bold')
     ax_roc.legend(loc="lower right", fontsize=10)
-    ax_roc.grid(True, linestyle='--', alpha=0.7)
+    ax_roc.grid(True, linestyle='--', alpha=0.6)
     
-    # Styling PR
     ax_pr.set_xlim([0.0, 1.0])
     ax_pr.set_ylim([0.0, 1.05])
     ax_pr.set_xlabel('Recall', fontsize=12)
     ax_pr.set_ylabel('Precision', fontsize=12)
-    ax_pr.set_title('Precision-Recall Curve (PR)', fontsize=14, fontweight='bold')
+    ax_pr.set_title('Precision-Recall Curve Comparison', fontsize=14, fontweight='bold')
     ax_pr.legend(loc="lower left", fontsize=10)
-    ax_pr.grid(True, linestyle='--', alpha=0.7)
+    ax_pr.grid(True, linestyle='--', alpha=0.6)
     
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
+    print(f"[SUCCESS] Saved curves to {output_path}")
 
-# ==========================================
-# Main Execution Logic
-# ==========================================
+# ============================================================
+# Main Execution
+# ============================================================
 
 def main():
-    print("=== Starting AMP Evaluation Pipeline ===")
+    print("============================================================")
+    print("[START] AMP Model Evaluation Pipeline")
+    print("============================================================")
     
-    # 1. Load Ground Truth
-    print("Loading Ground Truth...")
-    gt_df = load_ground_truth()
-    if gt_df.empty:
-        raise ValueError("Ground Truth is empty after loading.")
+    # 1. Load FASTA Map (🚨 Mandatory Step for Safety)
+    print("[INFO] Loading FASTA map for ID unification...")
+    fasta_map = load_fasta_map(PATH_FASTA)
     
-    # Initialize Final Results DataFrame with Ground Truth
-    # We start with ID and Label
-    final_results = gt_df.reset_index() # ID is index, reset to column
+    # 2. Load Ground Truth
+    print("[INFO] Loading Ground Truth...")
+    try:
+        gt_df = load_ground_truth(PATH_GROUND_TRUTH)
+        print(f"[INFO] Ground Truth loaded: {len(gt_df)} samples. Columns: {gt_df.columns.tolist()}")
+    except Exception as e:
+        print(f"[ERROR] Failed to load Ground Truth: {e}")
+        sys.exit(1)
     
-    # Store results for JSON and Plotting
+    # 3. Process Models
+    final_results = gt_df.copy() # Start with GT to ensure all IDs are present
     eval_results = {}
-    plot_data = {}
     
-    # 2. Define Model Loaders
-    models_config = [
-        {"name": "Macrel", "loader": load_macrel_output, "dir": MODEL_DIRS["Macrel"]},
-        {"name": "AMP-Scanner-v2", "loader": load_amp_scanner_output, "dir": MODEL_DIRS["AMP-Scanner-v2"]}
-    ]
-    
-    # 3. Process Each Model
-    for model_cfg in models_config:
-        model_name = model_cfg["name"]
-        print(f"Processing {model_name}...")
+    for model_name, config in MODEL_CONFIGS.items():
+        print(f"\n[START] Processing Model: {model_name}")
         
-        # Load Model Predictions
-        model_df = model_cfg["loader"](model_cfg["dir"])
+        model_df = load_model_output(model_name, config, fasta_map)
         
-        if model_df is None or model_df.empty:
-            print(f"Warning: No valid data found for {model_name}. Skipping.")
-            eval_results[model_name] = {"Error": "No data parsed"}
+        if model_df is None:
+            print(f"[WARN] Skipping {model_name} due to loading errors.")
+            eval_results[model_name] = {"Error": "Failed to load/output"}
             continue
         
-        # --- SAFETY MERGE & SCORING DISCIPLINE ---
-        # 3.1 Merge with Ground Truth (Left Join on ID)
-        # Ensure ID column is consistent
-        merged = final_results[['ID', 'label']].merge(model_df, on='ID', how='left')
+        print(f"[INFO] Model output loaded: {len(model_df)} samples.")
         
-        # 3.2 Fill NaN Probabilities with 0.0
+        # 🚨 安全合并与算分纪律
+        # 1. Merge (how='left' to keep GT structure)
+        merged = pd.merge(gt_df, model_df, on='ID', how='left')
+        
+        # 2. Clean Prob (fillna 0.0)
         merged['Pred_Prob'] = pd.to_numeric(merged['Pred_Prob'], errors='coerce').fillna(0.0)
         
-        # 3.3 Calculate Metrics IMMEDIATELY (Before Renaming)
-        # Extract numpy arrays for sklearn
-        y_true = merged['label'].values
-        y_prob = merged['Pred_Prob'].values
+        # 3. Calculate Metrics (🚨 Must calculate BEFORE renaming)
+        metrics = calculate_metrics(merged['True_Label'].values, merged['Pred_Prob'].values)
+        print(f"[METRICS] {model_name}: {metrics}")
         
-        metrics = calculate_metrics(y_true, y_prob)
-        eval_results[model_name] = metrics
-        plot_data[model_name] = {'y_true': y_true, 'y_prob': y_prob}
-        
-        print(f"  Metrics for {model_name}: {metrics}")
-        
-        # 3.4 Rename Columns for Final CSV Accumulation
-        # Now safe to rename for the final big table
+        # 4. Rename columns for final CSV
         prob_col_name = f"{model_name}_Prob"
         pred_col_name = f"{model_name}_Pred"
         
         merged[prob_col_name] = merged['Pred_Prob']
-        merged[pred_col_name] = (merged['Pred_Prob'] > 0.5).astype(int)
+        merged[pred_col_name] = (merged['Pred_Prob'] >= 0.5).astype(int)
         
-        # 3.5 Merge into Final Results Table
-        # We only need to add the new columns to the main final_results dataframe
-        # Since 'ID' is unique in final_results, we can join directly
-        final_results = final_results.merge(
-            merged[['ID', prob_col_name, pred_col_name]], 
-            on='ID', 
-            how='left'
-        )
+        # 5. Merge into final_results
+        # Only add the new columns to the main table
+        final_results = pd.merge(final_results, merged[['ID', prob_col_name, pred_col_name]], on='ID', how='left')
+        
+        # Store results for JSON and Plotting
+        eval_results[model_name] = {
+            "Metrics": metrics,
+            "True_Label": merged['True_Label'].tolist(),
+            "Pred_Prob": merged['Pred_Prob'].tolist()
+        }
         
     # 4. Save Outputs
-    print("Saving Outputs...")
+    print("\n[SAVE] Saving Results...")
     
-    # 4.1 Save JSON
-    with open(OUTPUT_JSON, 'w') as f:
-        json.dump(eval_results, f, indent=4)
-    print(f"  Saved {OUTPUT_JSON}")
+    # Save JSON (Nested Dict Structure)
+    # Convert to clean metrics dict for JSON
+    json_save_dict = {}
+    for m_name, data in eval_results.items():
+        if "Metrics" in data:
+            json_save_dict[m_name] = data["Metrics"]
+        else:
+            json_save_dict[m_name] = data
+            
+    with open(PATH_OUTPUT_JSON, 'w') as f:
+        json.dump(json_save_dict, f, indent=4)
+    print(f"[SUCCESS] Saved {PATH_OUTPUT_JSON}")
     
-    # 4.2 Save CSV
-    final_results.to_csv(OUTPUT_CSV, index=False)
-    print(f"  Saved {OUTPUT_CSV}")
+    # Save CSV
+    final_results.to_csv(PATH_OUTPUT_CSV, index=False)
+    print(f"[SUCCESS] Saved {PATH_OUTPUT_CSV}")
     
-    # 4.3 Save Plots
+    # Save Plots
+    # Filter only models with valid data for plotting
+    plot_data = {k: v for k, v in eval_results.items() if "Metrics" in v}
     if plot_data:
-        plot_curves(plot_data, OUTPUT_PNG)
-        print(f"  Saved {OUTPUT_PNG}")
+        plot_curves(plot_data, PATH_OUTPUT_PNG)
     else:
-        print("  Skipping plots due to lack of data.")
-        
-    print("=== Evaluation Complete ===")
+        print("[WARN] No valid data to plot curves.")
+    
+    print("\n============================================================")
+    print("[END] Evaluation Pipeline Completed")
+    print("============================================================")
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

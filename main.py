@@ -19,6 +19,14 @@ import sys
 import time
 import threading
 from config import CONDA_SH_PATH, VLAB_ENV
+from config import (
+    SLURM_CPUS_PER_TASK,
+    SLURM_GPUS,
+    SLURM_PARTITION,
+    HPC_TARGET_DIR,
+    CONDA_SH_PATH,
+    VLAB_ENV
+)
 
 def _validate_generated_python(py_code: str) -> tuple[bool, str]:
     if not py_code or not py_code.strip():
@@ -142,101 +150,32 @@ def main():
     for d in dataset_dirs:
         print(f"    - {d.name}")
 
-    # ================= 新增/修改阶段 =================
-    print("\n========== [Phase 0.6] 模型加载阶段 (支持自动解析与手动预设) ==========")
-    
-    # 【新功能】本地已搭建好环境的模型注册表 (随时可以在这里添加你自己配好的模型)
-    LOCAL_PREBUILT_MODELS = {
-        "Macrel": {
-            "model_name": "Macrel",
-            "env_name": "env_macrel",
-            "repo_url": "",
-            "dependencies": [],
-            "inference_cmd_template": "macrel peptides --fasta {fasta_path} --output {output_dir}",
-            "skip_env_setup": True
-        },
-        "AMP-Scanner-v2": {
-            "model_name": "AMP-Scanner-v2",
-            "env_name": "ascan2_tf1",
-            "repo_url": "",
-            "dependencies": [],
-            "inference_cmd_template": "python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f {fasta_path} -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p {output_dir}/ampscanner_out.csv",
-            "skip_env_setup": True
-        }
-    }
-    # ---------------------------------------------------------
-    # 控制开关：你想跑自动文献解析，还是直接跑手动指定的已有模型？
-    # 选项: "auto" (自动扫文献)  或者  "manual" (直接指定)
-    RUN_MODE = "manual"  # <--- 这里切换模式
-    # ---------------------------------------------------------
-
-    models_info = []
-
-    if RUN_MODE == "manual":
-        # 在这里输入你想直接评测的模型名称（必须在上面的注册表中存在）
-        # 你可以只写 ["Macrel"]，也可以同时测多个 ["Macrel", "AMP-Scanner-v2"]
-        target_model_names = ["Macrel", "AMP-Scanner-v2"]
-        
-        print(f">>> [直接评测模式] 跳过文献解析，直接加载预设模型: {target_model_names}")
-        for name in target_model_names:
-            if name in LOCAL_PREBUILT_MODELS:
-                models_info.append(LOCAL_PREBUILT_MODELS[name])
-            else:
-                print(f"!!! [警告] 模型 {name} 未在本地注册表中找到。")
-                
-    elif RUN_MODE == "auto":
-        from database_manager import ingest_new_paper, get_target_models_for_eval, is_paper_processed, mark_paper_processed
-        import PyPDF2
-        
-        print(">>> [自动解析模式] 开始扫描 data/papers 文件夹...")
-        papers_dir = Path("data/papers")
-        papers_dir.mkdir(parents=True, exist_ok=True)
-        valid_extensions = {".pdf", ".txt"}
-        paper_files = [f for f in papers_dir.iterdir() if f.is_file() and f.suffix.lower() in valid_extensions]
-        
-        for paper_file in paper_files:
-            filename = paper_file.name
-            if is_paper_processed(filename):
-                print(f">>> [跳过] 文献 '{filename}' 已处理。")
-                continue
-                
-            print(f"\n>>> [新文献] 正在读取: {filename} ...")
-            raw_text = ""
-            if paper_file.suffix.lower() == ".pdf":
-                try:
-                    with open(paper_file, "rb") as f:
-                        reader = PyPDF2.PdfReader(f)
-                        for page in reader.pages:
-                            page_text = page.extract_text()
-                            if page_text:
-                                raw_text += page_text + "\n"
-                except Exception as e:
-                    print(f"!!! [Error] 读取 PDF 失败: {e}")
-                    continue
-            else:
-                with open(paper_file, "r", encoding="utf-8", errors="ignore") as f:
-                    raw_text = f.read()
-                    
-            import re
-            match = re.search(r'\n\s*(references|bibliography|literature cited)\s*\n', raw_text, re.IGNORECASE)
-            if match:
-                raw_text = raw_text[:match.start()]
-                
-            if ingest_new_paper(raw_text):
-                mark_paper_processed(filename)
-                
-        models_info = get_target_models_for_eval()
-
-    if not models_info:
-        print("!!! [Fatal] 未获取到任何可用的模型元数据，流程终止。")
+    print("\n========== [Phase 0.6] 从静态注册表极速加载模型 ==========")
+    registry_path = "data/local_registry.json"
+    if not os.path.exists(registry_path):
+        print(f"!!! [Fatal] 找不到注册表 {registry_path}！请先运行 prepare_models.py 扫描并下载模型！")
         return
-    print(f"\n>>> 当前准备推流到超算进行评测的模型总数: {len(models_info)}")
-    for m in models_info:
-        print(f"    - 模型: {m.get('model_name')} (指定环境: {m.get('env_name')})")
-    # ============================================
+        
+    with open(registry_path, "r", encoding="utf-8") as f:
+        all_models = json.load(f)
 
-    import os
-    import json
+    # ---------------------------------------------------------
+    # 🎯 在这里配置本次运行你想评测的模型名字 (可自由组合)
+    # ---------------------------------------------------------
+    target_model_names = ["AMP-Scanner-v2", "Macrel"]  # <--- 在这里填入你想测的模型
+    
+    models_info = [m for m in all_models if m.get('model_name') in target_model_names]
+    
+    if not models_info:
+        print(f"!!! [Fatal] 在注册表中没有找到目标模型: {target_model_names}")
+        print("当前注册表包含的模型有:", [m['model_name'] for m in all_models])
+        return
+        
+    print(f">>> 成功加载 {len(models_info)} 个模型配置 (含已挂载的目录树！)")
+    for m in models_info:
+        print(f"    - 模型: {m['model_name']} (指定环境: {m['env_name']})")
+
+
     print("\n========== [Phase 0.8] 检查 OpenAI 兼容环境变量 ==========")
     print(f"OPENAI_BASE_URL = {os.getenv('OPENAI_BASE_URL')}")
     print(f"OPENAI_API_KEY 已设置 = {'是' if os.getenv('OPENAI_API_KEY') else '否'}")
@@ -244,22 +183,7 @@ def main():
     save_directory = Path("data/vlab_discussions")
     save_directory.mkdir(parents=True, exist_ok=True)
 
-    # =====================================================================
-    # 🚀 [Phase 0.8] 源码勘探先遣队
-    # =====================================================================
-    if RUN_MODE == "auto":
-        from vanguard import run_vanguard_exploration
-        models_info = run_vanguard_exploration(
-            models_info=models_info, 
-            sample_dataset_dir=str(dataset_dirs[0]), 
-            save_directory=save_directory
-        )
-    else:
-        print("\n========== [Phase 0.8] 源码勘探先遣队 ==========")
-        print(">>> [直接评测模式] 跳过代码拉取与物理目录勘探。")
-
     print("\n========== [Phase 1] 第一次会议：生成统一金标准模型运行代码 ==========")
-    # 这里将 models_info 传给第一次会议
     with WaitingSpinner(">>> [Meeting] MLOps 工程师与 PI 正在激烈讨论并编写代码，请稍候..."):
         first_result = run_first_meeting(models_info=models_info, save_dir=save_directory)
 
@@ -279,8 +203,6 @@ def main():
         return
 
     print(f">>> [Stage-1] Python脚本已保存: {stage1_py_path}")
-    if stage1_sh_code:
-        print(f">>> [Stage-1] Bash脚本已保存: {stage1_sh_path}")
 
     print("\n========== [Phase 2] 在超算执行第一次会议代码，产出标准化模型输出 ==========")
     first_dataset_dir = dataset_dirs[0]
@@ -294,7 +216,7 @@ def main():
         sh_code=stage1_sh_code,
         fetch_targets=stage1_fetch_targets,
         models_info=models_info,
-        local_data_dir=str(first_dataset_dir)  # <--- 核心修改点
+        local_data_dir=str(first_dataset_dir)
     )
 
     if not stage1_real_outputs:
@@ -302,7 +224,6 @@ def main():
         return
 
     print("\n========== [Phase 3] 第二次会议：PI复核第一次输出后生成评测代码 ==========")
-    # 这里将 models_info 传给第二次会议
     with WaitingSpinner(">>> [Meeting] 审稿人正在复盘超算勘探报告，编写 Pandas 数据清洗逻辑..."):
         second_result = run_second_meeting(
             models_info=models_info,
@@ -312,7 +233,6 @@ def main():
     stage2_py_code = second_result.get("py_code", "")
     stage2_sh_code = second_result.get("sh_code", "")
     stage2_py_path = second_result.get("py_path", "")
-    stage2_sh_path = second_result.get("sh_path", "")
     stage1_context = second_result.get("stage1_context", "")
 
     if not stage2_py_code:
@@ -331,7 +251,6 @@ def main():
     with open(stage1_context_path, "w", encoding="utf-8") as f:
         f.write(stage1_context)
 
-   # ================= 🚀 核心修改：循环评测多份独立数据 =================
     print("\n========== [Phase 4 & Phase 5] 批量轮询评测与科学审判 ==========")
     import base64
     all_results_summary = {}
@@ -341,36 +260,31 @@ def main():
 
     combined_wrapper_code = f"""import os, subprocess, base64
 
-# 1. 还原代码 (确保 utf-8 编码安全)
 with open('stage1_runner.py', 'wb') as f:
     f.write(base64.b64decode('{stage1_b64}'.encode('utf-8')))
 with open('stage2_eval.py', 'wb') as f:
     f.write(base64.b64decode('{stage2_b64}'.encode('utf-8')))
 
-# 2. 依次按顺序执行
 print("\\n" + "="*60)
 print(">>> [HPC Runtime] 启动阶段 1: 运行所有 AI 模型进行预测...")
-print("="*60)
 subprocess.run('python stage1_runner.py', shell=True)
 
 print("\\n" + "="*60)
 print(">>> [HPC Runtime] 启动阶段 2: 提取数据、算分并生成图表...")
-print("="*60)
 subprocess.run('python stage2_eval.py', shell=True)
 """
 
-    # 🛡️ 硬核强制的防弹 Bash 脚本，绝对不允许 AI 的 Bash 脚本来“夺舍”覆盖文件！
     safe_loop_sh_code = f"""#!/bin/bash
 #SBATCH -J amp_vlab_eval
 #SBATCH -N 1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --gres=gpu:1
-#SBATCH -p gpu
+#SBATCH --cpus-per-task={SLURM_CPUS_PER_TASK}
+#SBATCH --gres=gpu:{SLURM_GPUS}
+#SBATCH -p {SLURM_PARTITION}
 #SBATCH -o eval_job.%j.out
 #SBATCH -e eval_job.%j.err
 
-cd /share/home/zhangss/vlab_workspace
+cd {HPC_TARGET_DIR}
 source {CONDA_SH_PATH}
 conda activate {VLAB_ENV}
 
@@ -393,15 +307,16 @@ echo "finish"
         res_dir.mkdir(parents=True, exist_ok=True)
         
         real_data = run_on_hpc_and_fetch(
-            py_code=combined_wrapper_code,  # 传入我们的母体脚本
-            sh_code=safe_loop_sh_code,      # 传入我们硬编码的防弹 Bash 脚本
+            py_code=combined_wrapper_code,
+            sh_code=safe_loop_sh_code,
             fetch_targets={
                 "eval_result.json": str(res_dir / "eval_result.json"),
                 "evaluation_curves.png": str(res_dir / "evaluation_curves.png"),
                 "final_results_with_predictions.csv": str(res_dir / "final_results_with_predictions.csv"),
             },
             models_info=models_info,
-            local_data_dir=str(ds_dir) 
+            local_data_dir=str(ds_dir),
+            use_sbatch=True # <--- 这里强行打开排队计算模式
         )
         
         if not real_data:
@@ -417,7 +332,6 @@ echo "finish"
             "critic_md": str(res_dir / "critic_individual.md")
         }
 
-    # 最终汇总
     print("\n========== [Phase 6] 主流程结束，保存最终摘要 ==========")
     workflow_summary = {
         "datasets_results": all_results_summary

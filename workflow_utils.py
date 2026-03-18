@@ -677,6 +677,7 @@ def run_on_hpc_and_fetch(
     fetch_targets: dict[str, str] | None = None,
     models_info: list[dict] = None,  
     local_data_dir: str = "data",
+    use_sbatch: bool = True,  # <==== 【核心修改 1】：增加免排队开关，默认依然走 SLURM
 ):
     print("\n>>> [SSH] 正在连接物理超算节点...")
     ssh = paramiko.SSHClient()
@@ -707,6 +708,7 @@ def run_on_hpc_and_fetch(
         sftp.put(f"{local_data_dir}/combined_test.fasta", f"{HPC_TARGET_DIR}/data/combined_test.fasta")
         sftp.put(f"{local_data_dir}/ground_truth.csv", f"{HPC_TARGET_DIR}/data/ground_truth.csv")
         # ========================================================================
+        
         # ====== 核心新增：自动根据记忆库组装底层环境 ======
         if models_info:
             setup_model_environments(ssh, models_info)
@@ -727,28 +729,36 @@ def run_on_hpc_and_fetch(
         print(">>> [Env] 正在 login 节点检查并自动补齐评测依赖...")
         ensure_remote_eval_dependencies(ssh, py_code)
 
-        print(">>> [SSH] AI 代码推流完毕，提交任务...")
-        submit_out, submit_err = read_remote_text(ssh, f"cd {HPC_TARGET_DIR} && sbatch run_eval.sh")
-        if "Submitted batch job" not in submit_out:
-            print("!!! [Error] Slurm任务提交失败")
-            print(submit_out)
-            print(submit_err)
-            return None
+        # ==================== 【核心修改 2】：动态路由执行方式 ====================
+        if use_sbatch:
+            print(">>> [SSH] AI 代码推流完毕，提交 SLURM 任务...")
+            submit_out, submit_err = read_remote_text(ssh, f"cd {HPC_TARGET_DIR} && sbatch run_eval.sh")
+            if "Submitted batch job" not in submit_out:
+                print("!!! [Error] Slurm任务提交失败")
+                print(submit_out)
+                print(submit_err)
+                return None
 
-        match = re.search(r"Submitted batch job (\d+)", submit_out)
-        if not match:
-            print("!!! [Error] 无法从 sbatch 输出中解析 job id")
-            return None
+            match = re.search(r"Submitted batch job (\d+)", submit_out)
+            if not match:
+                print("!!! [Error] 无法从 sbatch 输出中解析 job id")
+                return None
 
-        job_id = match.group(1)
-        print(f">>> [Slurm] 等待计算节点完成 (Job ID: {job_id})", end="")
-        while True:
-            sq_out, _ = read_remote_text(ssh, f"squeue -j {job_id}")
-            if job_id not in sq_out:
-                print("\n>>> [Slurm] 任务完毕。")
-                break
-            print(".", end="", flush=True)
-            time.sleep(15)
+            job_id = match.group(1)
+            print(f">>> [Slurm] 等待计算节点完成 (Job ID: {job_id})", end="")
+            while True:
+                sq_out, _ = read_remote_text(ssh, f"squeue -j {job_id}")
+                if job_id not in sq_out:
+                    print("\n>>> [Slurm] 任务完毕。")
+                    break
+                print(".", end="", flush=True)
+                time.sleep(15)
+        else:
+            print(">>> [SSH] (免排队模式) 正在登录节点直接运行脚本...")
+            # 开启 stream=True 可以直接在终端看到 Zenodo 下载的进度条！
+            out, err = read_remote_text(ssh, f"cd {HPC_TARGET_DIR} && bash run_eval.sh", stream=True)
+            print(">>> [SSH] 免排队任务运行完毕。")
+        # =======================================================================
 
         fetched = {}
         for remote_name, local_path in fetch_targets.items():
