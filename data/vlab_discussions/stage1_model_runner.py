@@ -1,67 +1,47 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Stage 1: Model Execution & Structure Exploration Script
-Target Models: Macrel, AMP-Scanner-v2
-Constraint: No pandas, No metrics, No plotting. Robust Self-Healing.
-Output: data/stage1_observation.txt
-"""
-
 import os
 import subprocess
 import shutil
 import glob
 import gzip
 import sys
-import datetime
 
-# ==============================================================================
-# Configuration & Constants
-# ==============================================================================
-
+# ================= 配置区域 =================
 DATA_DIR = "data"
 OBSERVATION_LOG = os.path.join(DATA_DIR, "stage1_observation.txt")
 
-# Model Definition Matrix
+# 模型执行配置清单
 MODELS = [
     {
         "name": "Macrel",
-        "output_dir": os.path.join(DATA_DIR, "Macrel_out"),
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out"'
+        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out"',
+        "output_dir": "data/Macrel_out"
     },
     {
         "name": "AMP-Scanner-v2",
-        "output_dir": os.path.join(DATA_DIR, "AMP-Scanner-v2_out"),
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"'
+        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"',
+        "output_dir": "data/AMP-Scanner-v2_out"
     }
 ]
-
-# ==============================================================================
-# Helper Functions
-# ==============================================================================
-
-def get_timestamp():
-    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+# ===========================================
 
 def ensure_data_dir():
-    """Ensure the base data directory exists."""
-    os.makedirs(DATA_DIR, exist_ok=True)
+    """确保数据目录存在"""
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR, exist_ok=True)
 
 def log_message(message, mode='a'):
-    """Append message to the observation log."""
+    """将消息写入观察日志"""
+    ensure_data_dir()
     try:
-        # Ensure data dir exists before writing
-        os.makedirs(DATA_DIR, exist_ok=True)
-        with open(OBSERVATION_LOG, mode, encoding='utf-8', errors='ignore') as f:
+        with open(OBSERVATION_LOG, mode, encoding='utf-8') as f:
             f.write(message + "\n")
     except Exception as e:
-        print(f"[CRITICAL] Failed to write to log: {e}")
+        print(f"[CRITICAL] Failed to write log: {e}")
 
 def read_file_head(file_path, lines=10):
     """
-    Read the first N lines of a file.
-    Handles .gz compression automatically.
-    Returns a list of strings.
+    读取文件头部内容，支持 .gz 压缩文件
+    严格遵守 Stage 1 约束：不使用 pandas，直接读取文本
     """
     content_lines = []
     try:
@@ -78,169 +58,178 @@ def read_file_head(file_path, lines=10):
                         break
                     content_lines.append(line.strip())
     except Exception as e:
-        return [f"[Error reading file: {str(e)}]"]
+        return [f"Error reading file: {str(e)}"]
     return content_lines
 
-def run_model_with_healing(model_config):
+def execute_model(model_config):
     """
-    Execute a model with strict self-healing logic.
-    1. Clean output dir.
-    2. Run command.
-    3. If fail, check errors and retry based on keywords.
-    4. Log final failures.
+    执行单个模型，包含智能自愈机制 (Self-Healing)
+    严格遵守防御性编程规范：绝对隔离，永不连坐
     """
     name = model_config["name"]
-    out_dir = model_config["output_dir"]
     cmd = model_config["cmd"]
+    out_dir = model_config["output_dir"]
     
-    print(f"[INFO] Starting execution for model: {name} at {get_timestamp()}")
-    log_message(f"\n=== Model Execution: {name} ===\nTime: {get_timestamp()}")
+    print(f"[INFO] Starting execution of model: {name}")
+    log_message(f"--- Model Execution: {name} ---")
     
     try:
-        # Step 1: Clean (Pre-execution hygiene)
-        # Even if it doesn't exist, ignore_errors=True prevents crashes
+        # 第一步：清理 (Clean)
+        # 即使目录不存在，ignore_errors=True 也不会报错
         shutil.rmtree(out_dir, ignore_errors=True)
         
-        # Step 2: Blind Test (First Attempt)
-        # Ensure parent dir exists just in case
-        os.makedirs(os.path.dirname(out_dir), exist_ok=True)
+        # 第二步：执行前兜底 (Pre-mkdir)
+        # 根据规范，执行前必须建好房子
+        os.makedirs(out_dir, exist_ok=True)
         
-        res = subprocess.run(
-            cmd, 
-            shell=True, 
-            capture_output=True, 
-            text=True, 
-            timeout=3600  # 1 hour timeout safety
-        )
+        # 第三步：盲测 (Blind Test)
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         
-        # Step 3: Dynamic Self-Healing (If returncode != 0)
+        # 第四步：动态自愈 (Self-Healing)
         if res.returncode != 0:
+            # 联合检查 stdout 和 stderr
             combined_output = res.stdout + res.stderr
-            print(f"[WARN] {name} failed initially. Analyzing errors...")
+            print(f"[WARN] {name} initial execution failed. Analyzing error...")
+            log_message(f"[ERROR] Initial execution failed for {name}. Returncode: {res.returncode}")
+            log_message(f"[DEBUG] Stdout/Stderr snippet: {combined_output[:500]}")
             
-            retry_needed = False
-            retry_action = ""
+            retry_success = False
             
-            # Check for specific error patterns
+            # 情况 A: 缺少目录 (No such file or directory / Failed to save)
             if "No such file or directory" in combined_output or "Failed to save" in combined_output:
-                # Model complains about missing directory -> Create it
-                print(f"[HEALING] {name} needs directory creation. Executing makedirs...")
-                os.makedirs(out_dir, exist_ok=True)
-                retry_needed = True
-                retry_action = "mkdir"
-                
-            elif "already exists" in combined_output or "exists" in combined_output:
-                # Model complains about existing directory -> Remove it
-                print(f"[HEALING] {name} hates existing directory. Executing rmtree...")
-                shutil.rmtree(out_dir, ignore_errors=True)
-                # Re-create empty dir for consistency before retry
-                os.makedirs(out_dir, exist_ok=True) 
-                retry_needed = True
-                retry_action = "rmtree"
+                print(f"[HEALING] {name} detected missing directory error. Attempting to recreate directory...")
+                log_message(f"[HEALING] Detected 'No such file' error. Recreating {out_dir}...")
+                try:
+                    shutil.rmtree(out_dir, ignore_errors=True) # 先清理确保干净
+                    os.makedirs(out_dir, exist_ok=True)
+                    # 重试
+                    res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                    if res_retry.returncode == 0:
+                        retry_success = True
+                        print(f"[SUCCESS] {name} healed successfully after mkdir retry.")
+                        log_message(f"[SUCCESS] {name} healed successfully after mkdir retry.")
+                except Exception as heal_e:
+                    log_message(f"[ERROR] Healing process failed for {name}: {str(heal_e)}")
             
-            if retry_needed:
-                # Retry Execution
-                print(f"[RETRY] Retrying {name} after {retry_action}...")
-                res = subprocess.run(
-                    cmd, 
-                    shell=True, 
-                    capture_output=True, 
-                    text=True,
-                    timeout=3600
-                )
-        
-        # Step 4: Ultimate Log (If still failed after retry)
-        if res.returncode != 0:
-            error_msg = f"[FAILURE] Model {name} failed after healing attempts.\nSTDOUT:\n{res.stdout}\nSTDERR:\n{res.stderr}\n"
-            print(f"[ERROR] {name} execution failed permanently.")
-            log_message(error_msg)
+            # 情况 B: 目录已存在冲突 (already exists / exists)
+            elif "already exists" in combined_output or "exists" in combined_output:
+                print(f"[HEALING] {name} detected existing directory conflict. Attempting to remove and retry...")
+                log_message(f"[HEALING] Detected 'exists' error. Removing {out_dir} and retrying...")
+                try:
+                    shutil.rmtree(out_dir, ignore_errors=True)
+                    # 注意：这里不再预先 makedirs，让工具自己创建，或者重试前再建
+                    # 根据规范：删掉然后再次重试执行 subprocess.run
+                    os.makedirs(os.path.dirname(out_dir), exist_ok=True) 
+                    
+                    res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                    if res_retry.returncode == 0:
+                        retry_success = True
+                        print(f"[SUCCESS] {name} healed successfully after rmtree retry.")
+                        log_message(f"[SUCCESS] {name} healed successfully after rmtree retry.")
+                except Exception as heal_e:
+                    log_message(f"[ERROR] Healing process failed for {name}: {str(heal_e)}")
+            
+            # 如果重试依然失败，记录终极日志
+            if not retry_success:
+                error_msg = f"[FATAL] Model {name} failed after healing attempts.\nStdout: {res.stdout}\nStderr: {res.stderr}"
+                print(f"[FATAL] {name} execution failed permanently.")
+                log_message(error_msg)
+                # 不 raise，继续执行 (绝对隔离)
+                return False
+            else:
+                return True
         else:
-            print(f"[SUCCESS] {name} completed successfully.")
-            log_message(f"[SUCCESS] Model {name} completed successfully.\n")
-
+            print(f"[SUCCESS] {name} executed successfully.")
+            log_message(f"[SUCCESS] {name} executed successfully.")
+            return True
+            
     except Exception as e:
-        # Absolute Isolation: Catch ANY exception to prevent blocking main program
-        error_msg = f"[CRITICAL EXCEPTION] Model {name} crashed with exception: {str(e)}\n"
-        print(f"[CRITICAL] {name} crashed: {e}")
+        # 绝对隔离，捕获所有未预料的异常
+        error_msg = f"[CRITICAL] Unexpected exception during {name} execution: {str(e)}"
+        print(error_msg)
         log_message(error_msg)
+        return False
 
 def explore_outputs():
     """
-    Traverse data/ directory, find output files, read headers, and report.
-    Strictly follows Stage 1 constraints: No pandas, no metrics.
+    勘探输出文件结构并生成报告
+    严格遵守 Stage 1 约束：不许 merge，不许计算指标，只记录文件结构和头部内容
     """
-    print("[INFO] Starting output structure exploration...")
-    log_message("\n=== Stage 1 Exploration Report ===\n")
-    log_message(f"Exploration Time: {get_timestamp()}\n")
+    print("[INFO] Starting output exploration...")
+    log_message("\n--- Stage 1 Exploration Report ---\n")
     
-    # Ensure data dir exists before globbing
-    if not os.path.exists(DATA_DIR):
-        log_message("[ERROR] Data directory does not exist.")
-        return
-
-    # Find all directories ending with _out
+    ensure_data_dir()
+    
+    # 查找所有带有 _out 后缀的目录
     out_dirs = glob.glob(os.path.join(DATA_DIR, "*_out"))
+    # 同时也查找 data/ 下可能直接生成的文件
+    all_files = glob.glob(os.path.join(DATA_DIR, "*"))
     
     found_files = []
+    
+    # 收集目录内的文件
     for d in out_dirs:
         if os.path.isdir(d):
-            # Walk through the directory
             for root, dirs, files in os.walk(d):
                 for file in files:
                     found_files.append(os.path.join(root, file))
     
-    # Fallback: Check any file in data/ just in case (excluding log itself)
+    # 收集 data 目录下直接的文件 (排除目录本身)
+    for f in all_files:
+        if os.path.isfile(f) and f not in found_files:
+            # 排除日志文件本身以免递归
+            if f != OBSERVATION_LOG:
+                found_files.append(f)
+    
     if not found_files:
-        for f in os.listdir(DATA_DIR):
-            full_path = os.path.join(DATA_DIR, f)
-            if os.path.isfile(full_path) and not f.endswith('.txt'): 
-                found_files.append(full_path)
+        log_message("No output files found in data/ directory.")
+        print("[WARN] No output files found.")
+        return
 
-    if not found_files:
-        log_message("[INFO] No output files found in *_out directories or data/ root.")
-    else:
-        log_message(f"[INFO] Found {len(found_files)} output files.\n")
-        for file_path in found_files:
-            log_message(f"File Path: {file_path}")
-            log_message(f"File Size: {os.path.getsize(file_path)} bytes")
+    log_message(f"Total files found: {len(found_files)}\n")
+    
+    for file_path in found_files:
+        log_message(f"File Path: {file_path}")
+        try:
             head_content = read_file_head(file_path, lines=10)
-            log_message("Header Content (First 10 lines):")
+            log_message("Head Content (first 10 lines):")
             for line in head_content:
                 log_message(f"  {line}")
             log_message("-" * 50)
-
-    print(f"[INFO] Exploration complete. Report saved to {OBSERVATION_LOG}")
-
-# ==============================================================================
-# Main Execution Flow
-# ==============================================================================
+        except Exception as e:
+            log_message(f"Error reading content: {str(e)}")
+            log_message("-" * 50)
 
 def main():
+    """
+    主程序入口
+    严格遵守代码结构规范：单一脚本，完整 import，def main
+    """
     print("=" * 60)
-    print("Stage 1: Model Execution & Exploration Pipeline")
+    print("Starting AMP Model Evaluation Stage 1 (Exploration)")
     print("=" * 60)
     
-    # 0. Initialization
+    # 初始化日志
     ensure_data_dir()
+    # 初始化日志文件
+    with open(OBSERVATION_LOG, 'w', encoding='utf-8') as f:
+        f.write("=== Stage 1 Observation Log ===\n")
+        try:
+            date_res = subprocess.run('date', shell=True, capture_output=True, text=True)
+            f.write(f"Start Time: {date_res.stdout.strip()}\n\n")
+        except:
+            f.write("Start Time: Unknown\n\n")
     
-    # Clear previous observation log for fresh start
-    if os.path.exists(OBSERVATION_LOG):
-        os.remove(OBSERVATION_LOG)
-        
-    log_message(f"Pipeline Start Time: {get_timestamp()}")
-    
-    # 1. Execute Models (Isolated & Self-Healing)
+    # 1. 执行模型 (严格隔离)
     for model in MODELS:
-        run_model_with_healing(model)
-        # Small delay to ensure file system sync
-        subprocess.run("sleep 1", shell=True)
-        
-    # 2. Explore Outputs (Reconnaissance)
+        execute_model(model)
+        print("-" * 30)
+    
+    # 2. 勘探输出 (禁止 pandas merge/metrics)
     explore_outputs()
     
-    log_message(f"Pipeline End Time: {get_timestamp()}")
     print("=" * 60)
-    print("Pipeline Finished. Check data/stage1_observation.txt for details.")
+    print("Stage 1 Complete. Check data/stage1_observation.txt for details.")
     print("=" * 60)
 
 if __name__ == '__main__':

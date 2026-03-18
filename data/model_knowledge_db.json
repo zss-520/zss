@@ -4,7 +4,23 @@
       "paper_title": "PepNet: an interpretable neural network for anti-inflammatory and antimicrobial peptides prediction using a pre-trained protein language model"
     }
   ],
-  "models": [],
+  "models": [
+    {
+      "model_name": "PepNet",
+      "env_name": "pepnet",
+      "repo_url": "https://zenodo.org/records/13734258",
+      "weights_url": null,
+      "python_version": "3.9",
+      "dependencies": [
+        "torch",
+        "transformers",
+        "numpy",
+        "pandas"
+      ],
+      "inference_cmd_template": "python predict.py --input {fasta_path} --out {output_dir} --model_type {model_type}",
+      "source_paper": "PepNet: an interpretable neural network for anti-inflammatory and antimicrobial peptides prediction using a pre-trained protein language model"
+    }
+  ],
   "processed_papers": [
     "s42003-024-06911-1.pdf"
   ]

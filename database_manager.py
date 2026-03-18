@@ -83,13 +83,29 @@ def ingest_new_paper(paper_text: str) -> bool:
         repo_url = model.get("repo_url", "")
         is_valid_repo = False
         
-        if repo_url and str(repo_url).lower() != "null":
-            # 提取链接的核心部分用于匹配验证
-            core_url = repo_url.replace("https://", "").replace("http://", "").strip("/")
-            if core_url in paper_text:
-                is_valid_repo = True
-            else:
+        if repo_url:
+    # 1. 净化大模型提取出来的链接，并物理切除可能残留的参考文献上标（如果末尾是 62、45 之类的两位数）
+            import re
+            clean_repo_url = repo_url.strip().replace(" ", "").replace("\n", "")
+            zenodo_match = re.match(r"(https?://zenodo\.org/records/)(\d{7,8})", clean_repo_url)
+            if zenodo_match:
+                clean_repo_url = zenodo_match.group(1) + zenodo_match.group(2) # 强行只保留到 7~8 位正确 ID
+    
+    # 2. 净化 PDF 原始长文本（消灭所有的空格和换行符带来的排版干扰）
+    # 注意：这里的 pdf_text 变量名请替换成你实际的原文变量名（比如 raw_text）
+            clean_raw_text = paper_text.replace(" ", "").replace("\n", "")
+    
+    # 3. 进行无视排版的安全比对！
+            if clean_repo_url not in clean_raw_text:
                 print(f"    !!! [幻觉拦截] 虚构链接: {repo_url}，原文中并不存在！")
+        # 下面保留你原来的 return False 或丢弃模型的逻辑...
+            else:
+                print(f"    >>> [OK] 链接验证通过: {clean_repo_url}")
+                # 【极其关键的修复 1】：把洗干净的完美链接存回字典，覆盖掉带空格的脏链接！
+                model["repo_url"] = clean_repo_url 
+                
+                # 【极其关键的修复 2】：给它发通行证！告诉下面的拦截器它是合法公民！
+                is_valid_repo = True
         
         # 如果不是有效的代码链接，直接抛弃这个模型，绝不存入记忆库！
         if not is_valid_repo:

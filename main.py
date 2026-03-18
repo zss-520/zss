@@ -5,6 +5,7 @@ from pathlib import Path
 import PyPDF2
 import re
 from openai import OpenAI
+from vanguard import run_vanguard_exploration
 
 from agent import Agent
 from config import MODEL_NAME, FIRST_STAGE_OBSERVATION_TXT, METRIC_WEIGHTS, validate_runtime_config
@@ -166,7 +167,7 @@ def main():
     # ---------------------------------------------------------
     # 控制开关：你想跑自动文献解析，还是直接跑手动指定的已有模型？
     # 选项: "auto" (自动扫文献)  或者  "manual" (直接指定)
-    RUN_MODE = "manual"  
+    RUN_MODE = "manual"  # <--- 这里切换模式
     # ---------------------------------------------------------
 
     models_info = []
@@ -242,6 +243,20 @@ def main():
 
     save_directory = Path("data/vlab_discussions")
     save_directory.mkdir(parents=True, exist_ok=True)
+
+    # =====================================================================
+    # 🚀 [Phase 0.8] 源码勘探先遣队
+    # =====================================================================
+    if RUN_MODE == "auto":
+        from vanguard import run_vanguard_exploration
+        models_info = run_vanguard_exploration(
+            models_info=models_info, 
+            sample_dataset_dir=str(dataset_dirs[0]), 
+            save_directory=save_directory
+        )
+    else:
+        print("\n========== [Phase 0.8] 源码勘探先遣队 ==========")
+        print(">>> [直接评测模式] 跳过代码拉取与物理目录勘探。")
 
     print("\n========== [Phase 1] 第一次会议：生成统一金标准模型运行代码 ==========")
     # 这里将 models_info 传给第一次会议
@@ -358,6 +373,10 @@ subprocess.run('python stage2_eval.py', shell=True)
 cd /share/home/zhangss/vlab_workspace
 source {CONDA_SH_PATH}
 conda activate {VLAB_ENV}
+
+echo ">>> [HPC Clean] 清理上一轮的模型历史输出..."
+rm -rf data/*_out
+rm -f data/stage1_observation.txt
 
 echo ">>> [HPC Runtime] Executing master wrapper..."
 python eval_script.py

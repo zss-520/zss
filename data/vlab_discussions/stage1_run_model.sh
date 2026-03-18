@@ -1,34 +1,27 @@
 #!/bin/bash
-#SBATCH --job-name=stage1_exploration
-#SBATCH --partition=compute
+#SBATCH --job-name=amp_stage1
+#SBATCH --partition=cpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=8G
-#SBATCH --time=01:00:00
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32G
+#SBATCH --time=24:00:00
 #SBATCH --output=logs/stage1_%j.out
 #SBATCH --error=logs/stage1_%j.err
 
-# Load necessary modules if required by your cluster
-# module load python/3.8
+# 加载必要的模块或环境 (根据集群实际情况调整)
+module load anaconda3/2023.09  # 示例模块，请根据实际集群调整
 
-# Ensure log directory exists
+# 创建日志目录
 mkdir -p logs
 mkdir -p data
 
-# Change to the directory where the script is submitted
-cd $SLURM_SUBMIT_DIR
+# 打印开始时间
+echo "Job started at: $(date)"
 
-echo "Starting Stage 1 Exploration at $(date)"
+# 执行 Python 脚本
+# 确保脚本路径正确，这里假设脚本在当前目录
+python stage1_exploration.py
 
-# Run the Python script
-# Ensure the python environment has access to necessary system paths
-/usr/bin/python3 stage1_exploration.py
-
-# Check exit status
-if [ $? -eq 0 ]; then
-    echo "Stage 1 Pipeline completed successfully at $(date)"
-else
-    echo "Stage 1 Pipeline failed with exit code $? at $(date)"
-    exit 1
-fi
+# 打印结束时间
+echo "Job finished at: $(date)"
