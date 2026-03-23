@@ -1,28 +1,17 @@
 #!/bin/bash
-#SBATCH --job-name=amp_stage1
-#SBATCH --output=logs/stage1_%j.out
-#SBATCH --error=logs/stage1_%j.err
-#SBATCH --partition=cpu
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=16G
-#SBATCH --time=02:00:00
+   #SBATCH -J amp_eval
+   #SBATCH --array=0-[MAX_INDEX]%4   # 极度重要: 智能替换为 (模型总数量 - 1)
+   #SBATCH -N 1
+   #SBATCH --ntasks=1
+   #SBATCH --cpus-per-task=12
+   #SBATCH --gres=gpu:3
+   #SBATCH -p gpu
+   #SBATCH -o amp_eval_%A_%a.out
+   #SBATCH -e amp_eval_%A_%a.err
 
-# 加载必要的模块 (如果需要)
-# module load python/3.8
-
-# 确保日志目录存在
-mkdir -p logs
-mkdir -p data
-
-# 打印开始时间
-echo "Job started at: $(date)"
-echo "Working directory: $(pwd)"
-
-# 运行 Python 评估脚本
-# 确保当前环境下 python 可用，或者使用绝对路径 /usr/bin/python3
-python3 stage1_exploration.py
-
-# 打印结束时间
-echo "Job finished at: $(date)"
+   cd /share/home/zhangss/vlab_workspace
+   source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
+   conda activate eval_env
+   python eval_script.py
+   echo "finish"
+   ```

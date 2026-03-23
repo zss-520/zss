@@ -690,9 +690,24 @@ def run_on_hpc_and_fetch(
     }
 
     try:
-        ssh.connect(HPC_HOST, HPC_PORT, HPC_USER, HPC_PASS)
+        # 🚨 核心修复：强行关闭 GSS-API 认证并设置超时，解决卡死问题
+        ssh.connect(
+            hostname=HPC_HOST,
+            port=HPC_PORT,
+            username=HPC_USER,
+            password=HPC_PASS,
+            timeout=15,             
+            auth_timeout=15,        
+            banner_timeout=15,      
+            gss_auth=False,         
+            gss_kex=False,          
+            # 👇 核心修改：关掉本地查找，杜绝死锁！
+            look_for_keys=False,    
+            allow_agent=False       
+        )
+        print(">>> [DEBUG] 密码验证成功，正在打开 SFTP 通道...")
         sftp = ssh.open_sftp()
-        
+        print(">>> [DEBUG] SFTP 通道打开成功！")
         # ====== 新增：核弹级清理！防止幽灵文件干扰 ======
         read_remote_text(ssh, f"rm -rf {HPC_TARGET_DIR}/data/*")
         # ============================================
@@ -703,10 +718,22 @@ def run_on_hpc_and_fetch(
         read_remote_text(ssh, f"rm -rf {HPC_TARGET_DIR}/data/*")
         read_remote_text(ssh, f"mkdir -p {HPC_TARGET_DIR}/data")
         
-        print(f">>> [SSH] 正在将本地 {local_data_dir} 中的数据推送至超算...")
-        # ================= 核心修改处：使用动态的 local_data_dir =================
-        sftp.put(f"{local_data_dir}/combined_test.fasta", f"{HPC_TARGET_DIR}/data/combined_test.fasta")
-        sftp.put(f"{local_data_dir}/ground_truth.csv", f"{HPC_TARGET_DIR}/data/ground_truth.csv")
+        print(f">>> [SSH] 正在将本地 {local_data_dir} 中的数据推送至超算的 data/ 目录...")
+        # ================= 核心修改处：动态遍历推送所有数据文件 =================
+        if os.path.exists(local_data_dir) and os.path.isdir(local_data_dir):
+            upload_count = 0
+            for item in os.listdir(local_data_dir):
+                local_file_path = os.path.join(local_data_dir, item)
+                
+                # 只传输文件，忽略子文件夹
+                if os.path.isfile(local_file_path):
+                    remote_file_path = f"{HPC_TARGET_DIR}/data/{item}"
+                    sftp.put(local_file_path, remote_file_path)
+                    upload_count += 1
+                    # print(f"    -> 已推流: {item}") # 如果觉得刷屏可以注释掉这句
+            print(f">>> [SSH] 成功推送 {upload_count} 个文件到远端 data/ 目录！")
+        else:
+            print(f"!!! [Error] 本地数据目录找不到: {local_data_dir}")
         # ========================================================================
         
         # ====== 核心新增：自动根据记忆库组装底层环境 ======
@@ -720,8 +747,12 @@ def run_on_hpc_and_fetch(
         with sftp.file(py_path, "w") as f:
             f.write(py_code)
 
-        print(">>> [Slurm] 使用固定模板生成 run_eval.sh")
-        sh_code = build_standard_run_eval_sh(py_path, py_code)
+        if not sh_code:
+            print(">>> [Slurm] 未提供脚本，使用固定模板生成 run_eval.sh")
+            sh_code = build_standard_run_eval_sh(py_path, py_code)
+        else:
+            print(">>> [Slurm] 识别到自定义 Bash 脚本，正在突破资源限制...")
+
         with sftp.file(sh_path, "w") as f:
             f.write(sh_code)
 

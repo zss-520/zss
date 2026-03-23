@@ -6,19 +6,19 @@ import PyPDF2
 import re
 from openai import OpenAI
 from vanguard import run_vanguard_exploration
-
+import pandas as pd
 from agent import Agent
 from config import MODEL_NAME, FIRST_STAGE_OBSERVATION_TXT, METRIC_WEIGHTS, validate_runtime_config
 from prompts import CRITIC_PROMPT
 from run_meeting import run_first_meeting, run_second_meeting
 from workflow_utils import run_on_hpc_and_fetch
-
+import queue
+from concurrent.futures import ThreadPoolExecutor
 # ===== 新增导入数据库管理器 =====
 from database_manager import ingest_new_paper, get_target_models_for_eval
 import sys
 import time
 import threading
-from config import CONDA_SH_PATH, VLAB_ENV
 from config import (
     SLURM_CPUS_PER_TASK,
     SLURM_GPUS,
@@ -162,7 +162,7 @@ def main():
     # ---------------------------------------------------------
     # 🎯 在这里配置本次运行你想评测的模型名字 (可自由组合)
     # ---------------------------------------------------------
-    target_model_names = ["AMP-Scanner-v2", "Macrel"]  # <--- 在这里填入你想测的模型
+    target_model_names = ["AMP-Scanner-v2", "Macrel","amPEPpy","AI4AMP","AMPlify"] # <--- 在这里填入你想测的模型
     
     models_info = [m for m in all_models if m.get('model_name') in target_model_names]
     
@@ -183,57 +183,149 @@ def main():
     save_directory = Path("data/vlab_discussions")
     save_directory.mkdir(parents=True, exist_ok=True)
 
-    print("\n========== [Phase 1] 第一次会议：生成统一金标准模型运行代码 ==========")
-    with WaitingSpinner(">>> [Meeting] MLOps 工程师与 PI 正在激烈讨论并编写代码，请稍候..."):
-        first_result = run_first_meeting(models_info=models_info, save_dir=save_directory)
+   # =========================================================================
+    # ⚡ [智能缓存系统] 拆分逻辑：缓存“脑力劳动”，强制“数据运行”
+    # =========================================================================
+    stage1_py_cache_path = save_directory / "stage1_code_cache.py"
+    merged_obs_path = save_directory / "stage1_observation.txt"
 
-    stage1_py_code = first_result.get("py_code", "")
-    stage1_sh_code = first_result.get("sh_code", "")
-    stage1_py_path = first_result.get("py_path", "")
-    stage1_sh_path = first_result.get("sh_path", "")
+    # 新增：记录上一次勘探的是哪个数据集
+    last_ds_record_path = save_directory / "last_explored_dataset.txt"
 
-    if not stage1_py_code:
-        print("!!! [Fatal] 第一次会议未能提取到 Python 代码。")
-        return
+    first_dataset_dir = dataset_dirs[0]
+    current_ds_name = first_dataset_dir.name
 
-    ok, reason = _validate_generated_python(stage1_py_code)
-    if not ok:
-        print("!!! [Fatal] 第一次会议生成的 Python 代码不完整。")
-        print(f"    原因: {reason}")
-        return
+    # 检查：代码存在、报告存在、且上一次测的也是这个数据集
+    has_cache = (
+        stage1_py_cache_path.exists() and 
+        merged_obs_path.exists() and 
+        last_ds_record_path.exists() and
+        last_ds_record_path.read_text().strip() == current_ds_name
+    )
+    if has_cache:
+        print(f"\n========== ⚡ 触发全量缓存：跳过针对 [{current_ds_name}] 的超算连接 ==========")
+        with open(stage1_py_cache_path, "r", encoding="utf-8") as f:
+            stage1_py_code = f.read()
+    else:
+        print(f"\n========== 🔍 缓存失效或数据集切换：正在为 [{current_ds_name}] 重新连接超算 ==========")
+        
+        # 1. 检查代码缓存（脑力劳动）
+        if stage1_py_cache_path.exists():
+            with open(stage1_py_cache_path, "r", encoding="utf-8") as f:
+                stage1_py_code = f.read()
+        else:
+            # 执行 run_first_meeting 并保存 stage1_py_cache_path ... (此处省略旧逻辑)
+            pass
 
-    print(f">>> [Stage-1] Python脚本已保存: {stage1_py_path}")
+    # --- 步骤 1：获取第一阶段 Python 代码 (只缓存这一步) ---
+    if stage1_py_cache_path.exists():
+        print("\n========== [Phase 1] ⚡ 发现代码缓存，跳过第一次会议 ==========")
+        with open(stage1_py_cache_path, "r", encoding="utf-8") as f:
+            stage1_py_code = f.read()
+    else:
+        print("\n========== [Phase 1] 第一次会议：生成模型运行代码 ==========")
+        with WaitingSpinner(">>> [Meeting] MLOps 工程师与 PI 正在激烈讨论..."):
+            first_result = run_first_meeting(models_info=models_info, save_dir=save_directory)
 
-    print("\n========== [Phase 2] 在超算执行第一次会议代码，产出标准化模型输出 ==========")
+        stage1_py_code = first_result.get("py_code", "")
+        if not stage1_py_code:
+            print("!!! [Fatal] 第一次会议未能提取到代码。"); return
+
+        ok, reason = _validate_generated_python(stage1_py_code)
+        if not ok:
+            print(f"!!! [Fatal] 代码语法错误: {reason}"); return
+
+        with open(stage1_py_cache_path, "w", encoding="utf-8") as f:
+            f.write(stage1_py_code)
+        print(f">>> [Cache Saved] 运行脚本已缓存。")
+
+    # --- 步骤 2：强制执行超算勘探 (针对当前运行环境，不设缓存) ---
+    print("\n========== [Phase 2] 执行超算勘探，刷新标准化观测数据 ==========")
+    # 每次运行 main.py 都强制去超算跑一次探路，确保拿到的是当前最真实的数据结构
     first_dataset_dir = dataset_dirs[0]
     print(f">>> [探路者] 使用首个数据集进行结构勘探: {first_dataset_dir.name}")
     
+    import base64
+    stage1_b64_phase2 = base64.b64encode(stage1_py_code.encode('utf-8')).decode('utf-8')
+    
+    # 🚨 关键：在超算端执行前，强制清空旧的 obs 文件
+    exploration_wrapper = f"""import os, subprocess, base64, glob
+for f in glob.glob('data/stage1_obs_*.txt') + ['data/stage1_observation.txt']:
+    if os.path.exists(f): os.remove(f)
+
+with open('ai_stage1_runner.py', 'wb') as f:
+    f.write(base64.b64decode('{stage1_b64_phase2}'.encode('utf-8')))
+
+print(">>> [探路者] 正在生成最新勘探报告...")
+for i in range({len(models_info)}):
+    env = os.environ.copy()
+    env['SLURM_ARRAY_TASK_ID'] = str(i)
+    # 强制给探路者分配 GPU-0，一视同仁
+    env['CUDA_VISIBLE_DEVICES'] = "0"
+    res = subprocess.run('export CUDA_VISIBLE_DEVICES=0 && python ai_stage1_runner.py', shell=True, env=env, capture_output=True, text=True)
+    if res.returncode != 0:
+        with open(f'data/stage1_obs_{{i}}.txt', 'w', encoding='utf-8') as err_file:
+            err_file.write(f"!!! 勘探崩溃 !!!\\n{{res.stderr}}")
+"""
+
     stage1_fetch_targets = {
-        "data/stage1_observation.txt": str(save_directory / "stage1_observation.txt"),
+        f"data/stage1_obs_{i}.txt": str(save_directory / f"stage1_obs_{i}.txt") 
+        for i in range(len(models_info))
     }
+    
     stage1_real_outputs = run_on_hpc_and_fetch(
-        py_code=stage1_py_code,
-        sh_code=stage1_sh_code,
+        py_code=exploration_wrapper, 
+        sh_code="",  
         fetch_targets=stage1_fetch_targets,
         models_info=models_info,
-        local_data_dir=str(first_dataset_dir)
+        local_data_dir=str(first_dataset_dir),
+        use_sbatch=True 
     )
 
-    if not stage1_real_outputs:
-        print("!!! [Fatal] 第一次会议代码在超算未成功返回标准化模型输出。")
-        return
-
+    # 合并最新鲜的碎片文件
+    with open(merged_obs_path, "w", encoding="utf-8") as fout:
+        for i in range(len(models_info)):
+            frag_path = save_directory / f"stage1_obs_{i}.txt"
+            if frag_path.exists():
+                with open(frag_path, "r", encoding="utf-8") as fin:
+                    content = fin.read()
+                    if "!!! 勘探崩溃 !!!" in content:
+                        print(f"\n!!! [Fatal] 探路任务 {i} 在超算崩溃！"); import sys; sys.exit(1)
+                    fout.write(content + "\n")
+    
+    print(">>> [Done] 勘探报告已刷新并合并。")
+    # 3. 🚨 关键：成功合并报告后，记录下这次勘探的数据集名字
+    last_ds_record_path.write_text(current_ds_name)
+    print(f">>> [Success] 已完成对 {current_ds_name} 的结构锁定，下次运行将自动跳过。")
+    # =========================================================================
     print("\n========== [Phase 3] 第二次会议：PI复核第一次输出后生成评测代码 ==========")
+    first_dataset_dir = dataset_dirs[0]
+    gt_sample_text = "[未找到 ground_truth.csv]"
+    gt_file_path = first_dataset_dir / "ground_truth.csv"  # 改成 first_dataset_dir
+    
+    if gt_file_path.exists():
+        try:
+            # 只读前两行，足够架构师分析出表头和数据格式了
+            gt_df_sample = pd.read_csv(gt_file_path, nrows=2)
+            gt_sample_text = gt_df_sample.to_markdown(index=False)
+        except Exception as e:
+            gt_sample_text = f"[读取 ground_truth.csv 失败: {e}]"
+            
+    # 把真值表的样本强行追加到 stage1_output_dir 里的 observation 文件中
+    # 或者你可以直接修改 SECOND_MEETING_APPENDIX_TEMPLATE，把这个 sample 传进去
     with WaitingSpinner(">>> [Meeting] 审稿人正在复盘超算勘探报告，编写 Pandas 数据清洗逻辑..."):
         second_result = run_second_meeting(
             models_info=models_info,
             stage1_output_dir=save_directory,
             save_dir=save_directory,
+            gt_sample=gt_sample_text
         )
     stage2_py_code = second_result.get("py_code", "")
     stage2_sh_code = second_result.get("sh_code", "")
     stage2_py_path = second_result.get("py_path", "")
     stage1_context = second_result.get("stage1_context", "")
+    
+
 
     if not stage2_py_code:
         print("!!! [Fatal] 第二次会议未能提取到 Python 代码。")
@@ -258,7 +350,15 @@ def main():
     stage1_b64 = base64.b64encode(stage1_py_code.encode('utf-8')).decode('utf-8')
     stage2_b64 = base64.b64encode(stage2_py_code.encode('utf-8')).decode('utf-8')
 
-    combined_wrapper_code = f"""import os, subprocess, base64
+    combined_wrapper_code = f"""import os, subprocess, base64, glob, shutil
+import queue
+from concurrent.futures import ThreadPoolExecutor
+
+# 🚨 【数据集隔离强化】：在开始任何预测前，清空所有潜在的旧干扰项
+for old_file in glob.glob('data/stage1_obs_*.txt') + ['data/stage1_observation.txt', 'eval_result.json']:
+    if os.path.exists(old_file): os.remove(old_file)
+if os.path.exists('data/Macrel_out'): shutil.rmtree('data/Macrel_out', ignore_errors=True)
+if os.path.exists('data/AMP-Scanner-v2_out'): shutil.rmtree('data/AMP-Scanner-v2_out', ignore_errors=True)
 
 with open('stage1_runner.py', 'wb') as f:
     f.write(base64.b64decode('{stage1_b64}'.encode('utf-8')))
@@ -266,49 +366,92 @@ with open('stage2_eval.py', 'wb') as f:
     f.write(base64.b64decode('{stage2_b64}'.encode('utf-8')))
 
 print("\\n" + "="*60)
-print(">>> [HPC Runtime] 启动阶段 1: 运行所有 AI 模型进行预测...")
-subprocess.run('python stage1_runner.py', shell=True)
+print(">>> [HPC Runtime] 启动阶段 1: 节点内多卡并行火力全开...")
+
+num_gpus = {SLURM_GPUS}
+free_gpus = queue.Queue()
+for g in range(num_gpus): 
+    free_gpus.put(g)
+
+def run_model(i):
+    # 从队列中获取显卡号
+    gpu_id = free_gpus.get()
+    env = os.environ.copy()
+    env['SLURM_ARRAY_TASK_ID'] = str(i)
+    env['CUDA_VISIBLE_DEVICES'] = str(gpu_id)
+    
+    print(f">>> 🚀 任务 [{{i}}] 获取到 GPU-{{gpu_id}}，全力预测中...")
+    
+    # 拼接完整的执行命令，确保显卡隔离生效
+    full_cmd = f"export CUDA_VISIBLE_DEVICES={{gpu_id}} && python stage1_runner.py"
+    res = subprocess.run(full_cmd, shell=True, env=env, capture_output=True, text=True)
+    
+    if res.returncode != 0:
+        print(f"!!! 任务 [{{i}}] 发生致命崩溃:\\n{{res.stderr}}")
+        
+    print(f">>> 🏁 任务 [{{i}}] 完成！释放 GPU-{{gpu_id}}...")
+    free_gpus.put(gpu_id)
+
+# 确保所有线程安全执行并暴露错误
+futures = []
+with ThreadPoolExecutor(max_workers=num_gpus) as executor:
+    for i in range({len(models_info)}):
+        futures.append(executor.submit(run_model, i))
+for f in futures:
+    f.result()
+
+print("\\n>>> [HPC Runtime] 所有模型预测完毕，正在合并勘探报告...")
+with open('data/stage1_observation.txt', 'w', encoding='utf-8') as fout:
+    for obs_file in glob.glob('data/stage1_obs_*.txt'):
+        with open(obs_file, 'r', encoding='utf-8') as fin:
+            fout.write(fin.read() + '\\n')
 
 print("\\n" + "="*60)
 print(">>> [HPC Runtime] 启动阶段 2: 提取数据、算分并生成图表...")
-subprocess.run('python stage2_eval.py', shell=True)
+res = subprocess.run('python stage2_eval.py', shell=True, capture_output=True, text=True)
+if res.returncode != 0:
+    print(f"!!! 算分阶段发生异常:\\n{{res.stderr}}")
+    import sys
+    sys.exit(1)
 """
 
     safe_loop_sh_code = f"""#!/bin/bash
-#SBATCH -J amp_vlab_eval
+#SBATCH -J amp_eval
 #SBATCH -N 1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task={SLURM_CPUS_PER_TASK}
-#SBATCH --gres=gpu:{SLURM_GPUS}
+#SBATCH --cpus-per-task={SLURM_CPUS_PER_TASK}  # <==== 动态拉取你 .env 里的 12 核
+#SBATCH --gres=gpu:{SLURM_GPUS}              # <==== 🚨 核心：严格按照模板，向超算索要真实 GPU！拉取你 .env 里的 3 卡
+#SBATCH --mem=40G                            # <==== 保留我们的防 OOM 装甲
 #SBATCH -p {SLURM_PARTITION}
-#SBATCH -o eval_job.%j.out
-#SBATCH -e eval_job.%j.err
+#SBATCH -o amp_eval_%j.out
+#SBATCH -e amp_eval_%j.err
 
 cd {HPC_TARGET_DIR}
 source {CONDA_SH_PATH}
 conda activate {VLAB_ENV}
 
-echo ">>> [HPC Clean] 清理上一轮的模型历史输出..."
+# 🚨 【地毯式清场】防止上一轮残留数据污染
 rm -rf data/*_out
+rm -f data/stage1_obs_*.txt
 rm -f data/stage1_observation.txt
+rm -f eval_result.json evaluation_curves.png final_results_with_predictions.csv
 
-echo ">>> [HPC Runtime] Executing master wrapper..."
 python eval_script.py
 echo "finish"
 """
+    # ---------------- 替换 Phase 4 结束 ----------------
 
     for ds_dir in dataset_dirs:
         ds_name = ds_dir.name
         print(f"\n=======================================================")
         print(f"   🚀 正在超算上独立评测数据集: [{ds_name}] ")
-        print(f"=======================================================")
         
         res_dir = Path(f"data/results/{ds_name}")
         res_dir.mkdir(parents=True, exist_ok=True)
         
         real_data = run_on_hpc_and_fetch(
             py_code=combined_wrapper_code,
-            sh_code=safe_loop_sh_code,
+            sh_code=safe_loop_sh_code,  # <--- 我们完美的 4 卡脚本传进去了！
             fetch_targets={
                 "eval_result.json": str(res_dir / "eval_result.json"),
                 "evaluation_curves.png": str(res_dir / "evaluation_curves.png"),
@@ -316,8 +459,9 @@ echo "finish"
             },
             models_info=models_info,
             local_data_dir=str(ds_dir),
-            use_sbatch=True # <--- 这里强行打开排队计算模式
+            use_sbatch=True # <--- 改回 True，老老实实去排队拿 4 张卡！
         )
+    # ---------------- 替换 Phase 4 结束 ----------------
         
         if not real_data:
             print(f"!!! [Error] 数据集 {ds_name} 评测执行失败。")

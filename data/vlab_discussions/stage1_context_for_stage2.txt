@@ -1,69 +1,47 @@
-
-### NEW SESSION STARTED: eval_script.py ###
-
-
-============================================================
-[START] Model: Macrel
-[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
-[OUT] data/Macrel_out
-[WARN] Initial execution failed (Return Code: 1)
-[DEBUG] Error Output Snippet: Output folder [data/Macrel_out] already exists
-
-[HEALING] Detected 'exists' error. Removing directory and retrying without pre-mkdir...
-[SUCCESS] Model Macrel recovered and completed successfully.
-
-============================================================
-[START] Model: AMP-Scanner-v2
-[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
-[OUT] data/AMP-Scanner-v2_out
-[SUCCESS] Model AMP-Scanner-v2 completed successfully.
-
-============================================================
-[STAGE 1 EXPLORATION REPORT]
-============================================================
-
-[DIR] /share/home/zhangss/vlab_workspace/data/AMP-Scanner-v2_out
-  [FILE] /share/home/zhangss/vlab_workspace/data/AMP-Scanner-v2_out/ampscanner_out.csv
-  [HEADER CONTENT]:
-    SeqID,Prediction_Class,Prediction_Probability,Sequence
-    93,Non-AMP,0.0389,IIIQYEGHKH
-    94,AMP,0.5786,AAGMGFFGAR
-    95,Non-AMP,0.0126,KQTENLADTY
-    96,AMP,0.9189,FIMDLLGKIF
-    97,AMP,0.9534,GILDAITGLL
-    98,AMP,0.7697,LRPAILVRIK
-    99,AMP,0.9972,GLLKRIKTLL
-    100,AMP,0.8792,NAGSLLSGWG
-    101,Non-AMP,0.0092,SRSELIVHQR
-
-----------------------------------------
-
-[DIR] /share/home/zhangss/vlab_workspace/data/Macrel_out
-  [FILE] /share/home/zhangss/vlab_workspace/data/Macrel_out/README.md
-  [HEADER CONTENT]:
-    If you find Macrel useful, please cite:
-    
-    > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
-    > genomes and metagenomes. The PeerJ 8:e10555
-    > https://doi.org/10.7717/peerj.10555
-    
-    For more information, please read [the macrel
-    documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
-    list](https://groups.google.com/g/ampsphere-users) for questions.
-    
-
-  [FILE] /share/home/zhangss/vlab_workspace/data/Macrel_out/macrel.out.prediction.gz
-  [HEADER CONTENT]:
-    # Prediction from macrel v1.6.0
-    Access | Sequence | AMP_family | is_AMP | AMP_probability | Hemolytic | Hemolytic_probability
-    93 | IIIQYEGHKH | CLP | True | 0.812 | NonHemo | 0.119
-    94 | AAGMGFFGAR | CLP | True | 0.693 | Hemo | 0.515
-    95 | KQTENLADTY | ALP | False | 0.178 | NonHemo | 0.000
-    96 | FIMDLLGKIF | CLP | False | 0.337 | NonHemo | 0.396
-    97 | GILDAITGLL | ALP | True | 0.941 | NonHemo | 0.436
-    98 | LRPAILVRIK | CLP | True | 0.693 | Hemo | 0.772
-    99 | GLLKRIKTLL | CLP | True | 0.941 | Hemo | 0.970
-    100 | NAGSLLSGWG | CLP | False | 0.228 | NonHemo | 0.208
-
-----------------------------------------
-
+{
+    "Macrel": {
+        "file_path": "data/Macrel_out/macrel.out.prediction.gz",
+        "file_ext": ".gz",
+        "sep": "\t",
+        "comment_char": "#",
+        "id_col": "Access",
+        "seq_col": "Sequence",
+        "prob_col": "AMP_probability"
+    },
+    "AMP-Scanner-v2": {
+        "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
+        "file_ext": ".csv",
+        "sep": ",",
+        "comment_char": null,
+        "id_col": "SeqID",
+        "seq_col": "Sequence",
+        "prob_col": "Prediction_Probability"
+    },
+    "amPEPpy": {
+        "file_path": "data/amPEPpy_out/predictions.txt",
+        "file_ext": ".txt",
+        "sep": "\t",
+        "comment_char": null,
+        "id_col": "seq_id",
+        "seq_col": null,
+        "prob_col": "probability_AMP"
+    },
+    "AI4AMP": {
+        "file_path": "data/AI4AMP_out/predictions.csv",
+        "file_ext": ".csv",
+        "sep": ",",
+        "comment_char": null,
+        "id_col": "Peptide",
+        "seq_col": null,
+        "prob_col": "Score"
+    },
+    "AMPlify": {
+        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv",
+        "file_ext": ".tsv",
+        "sep": "\t",
+        "comment_char": null,
+        "id_col": "Sequence_ID",
+        "seq_col": "Sequence",
+        "prob_col": "Probability_score"
+    }
+}

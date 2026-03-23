@@ -14,5 +14,44 @@
         "dependencies": [],
         "inference_cmd_template": "python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f {fasta_path} -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p {output_dir}/ampscanner_out.csv",
         "skip_env_setup": true
+    },
+    {
+        "model_name": "amPEPpy",
+        "env_name": "amPEP",
+        "repo_url": "",
+        "dependencies": [],
+        "inference_cmd_template": "ampep predict -i {fasta_path} -o {output_dir}/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model",
+        "skip_env_setup": true
+    },
+    {
+        "model_name": "APIN",
+        "env_name": "apin",
+        "repo_url": "",
+        "dependencies": [],
+        "inference_cmd_template": "python /share/home/zhangss/APIN/proposed_model.py -test_file {fasta_path} -false_train_file /share/home/zhangss/APIN/data/DECOY.tr.fa -true_train_file /share/home/zhangss/APIN/data/AMP.tr.fa -prediction_file {output_dir}/predictions.txt",
+        "skip_env_setup": true
+    },
+    {
+        "model_name": "AI4AMP",
+        "env_name": "ai4amp",
+        "repo_url": "",
+        "dependencies": [],
+        "inference_cmd_template": "python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f {fasta_path} -o {output_dir}/predictions.csv",
+        "skip_env_setup": true
+    },{
+        "model_name": "AMPlify",
+        "env_name": "amplify",
+        "repo_url": "",
+        "dependencies": [],
+        "inference_cmd_template": "AMPlify -s {fasta_path} -m balanced -of tsv -od {output_dir}",
+        "skip_env_setup": true
+    },
+    {
+        "model_name": "PepFun",
+        "env_name": "pepfun",
+        "repo_url": "",
+        "dependencies": [],
+        "inference_cmd_template": "python /share/home/zhangss/PepFun/batch_pepfun.py -f {fasta_path} -o {output_dir}/pepfun_results.csv",
+        "skip_env_setup": true
     }
 ]

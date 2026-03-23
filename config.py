@@ -25,8 +25,8 @@ AMPSCANNER_CMD = os.getenv(
 
 SLURM_PARTITION = os.getenv("SLURM_PARTITION", "gpu")
 SLURM_JOB_NAME = os.getenv("SLURM_JOB_NAME", "amp_eval")
-SLURM_GPUS = os.getenv("SLURM_GPUS", "1")
-SLURM_CPUS_PER_TASK = os.getenv("SLURM_CPUS_PER_TASK", "4")
+SLURM_GPUS = os.getenv("SLURM_GPUS", "4")
+SLURM_CPUS_PER_TASK = os.getenv("SLURM_CPUS_PER_TASK", "16")
 
 PIP_INDEX_URL = os.getenv(
     "PIP_INDEX_URL",

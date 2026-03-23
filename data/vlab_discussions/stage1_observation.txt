@@ -1,69 +1,92 @@
+=== Output Inspection Report ===
+Output Directory: data/Macrel_out
 
-### NEW SESSION STARTED: eval_script.py ###
+
+--- File #1: data/Macrel_out/README.md ---
+If you find Macrel useful, please cite:
+
+> Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
+> genomes and metagenomes. The PeerJ 8:e10555
+> https://doi.org/10.7717/peerj.10555
+
+For more information, please read [the macrel
+documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
+list](https://groups.google.com/g/ampsphere-users) for questions.
 
 
-============================================================
-[START] Model: Macrel
-[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
-[OUT] data/Macrel_out
-[WARN] Initial execution failed (Return Code: 1)
-[DEBUG] Error Output Snippet: Output folder [data/Macrel_out] already exists
+--- File #2: data/Macrel_out/macrel.out.prediction.gz ---
+# Prediction from macrel v1.6.0
+Access	Sequence	AMP_family	is_AMP	AMP_probability	Hemolytic	Hemolytic_probability
+pos_000001	KKSFFKKLTSVASSVLS	CLP	False	0.287	Hemo	0.614
+pos_000002	ALKKMLRLAKRLS	CLP	True	0.782	Hemo	0.960
+pos_000003	FCLPLIGGLLKGLCL	CDP	True	0.683	Hemo	0.693
+pos_000004	VGAVAFGPVGAVVGGLASGFTGKQT	CLP	False	0.416	Hemo	0.733
+pos_000005	FKQFHFKDFNRAFGFMTRVALQAEKL	CLP	False	0.446	NonHemo	0.436
+pos_000006	KKCRNKKMEVSR	CDP	False	0.347	NonHemo	0.366
+pos_000007	YNLKYCTNDKDCPTMMCFPPDVSKCVWKTCYCVQKHKKKLKKKKKLTFNM	CDP	False	0.198	Hemo	0.584
+pos_000008	KKWKKFIKKIGIGAVLTTPGAKK	CLP	True	0.812	Hemo	0.980
 
-[HEALING] Detected 'exists' error. Removing directory and retrying without pre-mkdir...
-[SUCCESS] Model Macrel recovered and completed successfully.
+=== Output Inspection Report ===
+Output Directory: data/AMP-Scanner-v2_out
 
-============================================================
-[START] Model: AMP-Scanner-v2
-[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
-[OUT] data/AMP-Scanner-v2_out
-[SUCCESS] Model AMP-Scanner-v2 completed successfully.
 
-============================================================
-[STAGE 1 EXPLORATION REPORT]
-============================================================
+--- File #1: data/AMP-Scanner-v2_out/ampscanner_out.csv ---
+SeqID,Prediction_Class,Prediction_Probability,Sequence
+pos_000001,AMP,0.9992,KKSFFKKLTSVASSVLS
+pos_000002,AMP,0.8649,ALKKMLRLAKRLS
+pos_000003,AMP,1.0000,FCLPLIGGLLKGLCL
+pos_000004,AMP,0.9920,VGAVAFGPVGAVVGGLASGFTGKQT
+pos_000005,Non-AMP,0.0011,FKQFHFKDFNRAFGFMTRVALQAEKL
+pos_000006,Non-AMP,0.0429,KKCRNKKMEVSR
+pos_000007,AMP,1.0000,YNLKYCTNDKDCPTMMCFPPDVSKCVWKTCYCVQKHKKKLKKKKKLTFNM
+pos_000008,AMP,0.9997,KKWKKFIKKIGIGAVLTTPGAKK
+pos_000009,AMP,1.0000,WGHKLRSSWNKVKHAVKKGAGYASGACRVLGH
 
-[DIR] /share/home/zhangss/vlab_workspace/data/AMP-Scanner-v2_out
-  [FILE] /share/home/zhangss/vlab_workspace/data/AMP-Scanner-v2_out/ampscanner_out.csv
-  [HEADER CONTENT]:
-    SeqID,Prediction_Class,Prediction_Probability,Sequence
-    93,Non-AMP,0.0389,IIIQYEGHKH
-    94,AMP,0.5786,AAGMGFFGAR
-    95,Non-AMP,0.0126,KQTENLADTY
-    96,AMP,0.9189,FIMDLLGKIF
-    97,AMP,0.9534,GILDAITGLL
-    98,AMP,0.7697,LRPAILVRIK
-    99,AMP,0.9972,GLLKRIKTLL
-    100,AMP,0.8792,NAGSLLSGWG
-    101,Non-AMP,0.0092,SRSELIVHQR
+=== Output Inspection Report ===
+Output Directory: data/amPEPpy_out
 
-----------------------------------------
 
-[DIR] /share/home/zhangss/vlab_workspace/data/Macrel_out
-  [FILE] /share/home/zhangss/vlab_workspace/data/Macrel_out/README.md
-  [HEADER CONTENT]:
-    If you find Macrel useful, please cite:
-    
-    > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
-    > genomes and metagenomes. The PeerJ 8:e10555
-    > https://doi.org/10.7717/peerj.10555
-    
-    For more information, please read [the macrel
-    documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
-    list](https://groups.google.com/g/ampsphere-users) for questions.
-    
+--- File #1: data/amPEPpy_out/predictions.txt ---
+probability_nonAMP	probability_AMP	predicted	seq_id
+0.5328125	0.4671875	nonAMP	pos_000001
+0.2979166666666666	0.7020833333333333	AMP	pos_000002
+0.10424107142857142	0.8957589285714287	AMP	pos_000003
+0.22093750000000006	0.7790625	AMP	pos_000004
+0.37083333333333335	0.6291666666666667	AMP	pos_000005
+0.5468750000000001	0.453125	nonAMP	pos_000006
+0.4802083333333333	0.5197916666666667	AMP	pos_000007
+0.3177083333333333	0.6822916666666666	AMP	pos_000008
+0.28541666666666665	0.7145833333333333	AMP	pos_000009
 
-  [FILE] /share/home/zhangss/vlab_workspace/data/Macrel_out/macrel.out.prediction.gz
-  [HEADER CONTENT]:
-    # Prediction from macrel v1.6.0
-    Access | Sequence | AMP_family | is_AMP | AMP_probability | Hemolytic | Hemolytic_probability
-    93 | IIIQYEGHKH | CLP | True | 0.812 | NonHemo | 0.119
-    94 | AAGMGFFGAR | CLP | True | 0.693 | Hemo | 0.515
-    95 | KQTENLADTY | ALP | False | 0.178 | NonHemo | 0.000
-    96 | FIMDLLGKIF | CLP | False | 0.337 | NonHemo | 0.396
-    97 | GILDAITGLL | ALP | True | 0.941 | NonHemo | 0.436
-    98 | LRPAILVRIK | CLP | True | 0.693 | Hemo | 0.772
-    99 | GLLKRIKTLL | CLP | True | 0.941 | Hemo | 0.970
-    100 | NAGSLLSGWG | CLP | False | 0.228 | NonHemo | 0.208
+=== Output Inspection Report ===
+Output Directory: data/AI4AMP_out
 
-----------------------------------------
+
+--- File #1: data/AI4AMP_out/predictions.csv ---
+,Peptide,Score,Prediction results
+0,pos_000001,0.9855455,Yes
+1,pos_000002,0.9893574,Yes
+2,pos_000003,0.96799165,Yes
+3,pos_000004,0.8556144,Yes
+4,pos_000005,0.40199384,No
+5,pos_000006,0.3763119,No
+6,pos_000007,0.28892195,No
+7,pos_000008,0.9903686,Yes
+8,pos_000009,0.95857865,Yes
+
+=== Output Inspection Report ===
+Output Directory: data/AMPlify_out
+
+
+--- File #1: data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv ---
+Sequence_ID	Sequence	Length	Charge	Probability_score	AMPlify_log_scaled_score	Prediction
+pos_000001	KKSFFKKLTSVASSVLS	17	4	0.9997115	35.3987	AMP
+pos_000002	ALKKMLRLAKRLS	13	5	0.91416943	10.6636	AMP
+pos_000003	FCLPLIGGLLKGLCL	15	1	0.99584943	23.8189	AMP
+pos_000004	VGAVAFGPVGAVVGGLASGFTGKQT	25	1	0.8004495	6.9995	AMP
+pos_000005	FKQFHFKDFNRAFGFMTRVALQAEKL	26	3	0.25227562	1.2626	non-AMP
+pos_000006	KKCRNKKMEVSR	12	5	0.12617108	0.5857	non-AMP
+pos_000007	YNLKYCTNDKDCPTMMCFPPDVSKCVWKTCYCVQKHKKKLKKKKKLTFNM	50	10	0.89172566	9.6547	AMP
+pos_000008	KKWKKFIKKIGIGAVLTTPGAKK	23	8	0.9999858	48.4997	AMP
+pos_000009	WGHKLRSSWNKVKHAVKKGAGYASGACRVLGH	32	7	0.9998074	37.1552	AMP
 
