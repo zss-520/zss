@@ -55,6 +55,7 @@ IMPORT_TO_PIP = {
 }
 
 
+
 def _score_python_block(code: str, stage: str = "generic") -> int:
     """
     stage-aware 打分：
@@ -444,6 +445,29 @@ PY
 # ==============================================================
 # 新增模块：根据记忆库动态创建模型运行环境 (支持 Git 与 Zenodo 自动解析)
 # ==============================================================
+
+def mark_env_setup_completed(model_name: str):
+    """自动将本地注册表 local_registry.json 中的环境部署状态翻转为 True"""
+    registry_path = "data/local_registry.json"
+    if not os.path.exists(registry_path):
+        return
+    try:
+        with open(registry_path, "r", encoding="utf-8") as f:
+            registry = json.load(f)
+            
+        updated = False
+        for m in registry:
+            if m.get("model_name") == model_name:
+                m["skip_env_setup"] = True
+                updated = True
+                break
+                
+        if updated:
+            with open(registry_path, "w", encoding="utf-8") as f:
+                json.dump(registry, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"!!! [Registry] 自动更新注册表失败: {e}")
+
 def setup_model_environments(ssh, models_info: list[dict]) -> None:
     if not models_info:
         return
@@ -615,8 +639,14 @@ EOF
         out, err = read_remote_text(ssh, setup_script, stream=True)
         
         print(f"    -> 模型 [{model['model_name']}] 环境就绪！")
-        if "fatal:" in err or "CondaHTTPError" in err:
-            print(f"    !!! [警告] 构建时出现潜在错误日志: \n{err}")
+        
+        # 👇【此处为修改代码】：检查报错，如果成功则自动翻转注册表
+        if "fatal:" in err or "CondaHTTPError" in err or "ResolvePackageNotFound" in err:
+            print(f"    !!! [警告] 构建时出现潜在错误日志，注册表状态将不会更新: \n{err}")
+        else:
+            # 只有在没有严重报错的情况下，才触发状态翻转！
+            mark_env_setup_completed(model['model_name'])
+            print(f"    -> [Registry] 本地注册表已自动更新！[{model['model_name']}] 下次将获得免检 VIP 通道。")
 
 def build_standard_run_eval_sh(py_path: str, py_code: str) -> str:
     imported_modules, _ = infer_requirements_from_py_code(py_code)
@@ -717,8 +747,13 @@ def run_on_hpc_and_fetch(
         # ====== 强制核弹级清理！防止跑循环时上一轮的数据干扰 ======
         read_remote_text(ssh, f"rm -rf {HPC_TARGET_DIR}/data/*")
         read_remote_text(ssh, f"mkdir -p {HPC_TARGET_DIR}/data")
-        
-        print(f">>> [SSH] 正在将本地 {local_data_dir} 中的数据推送至超算的 data/ 目录...")
+        if local_data_dir:
+            if not os.path.exists(local_data_dir):
+                print(f"!!! [Error] 本地数据目录找不到: {local_data_dir}")
+                # 👇 【加上这极其关键的一行】
+                return None 
+            else:
+                print(f">>> [SSH] 正在将本地 {local_data_dir} 中的数据推送至超算的 data/ 目录...")
         # ================= 核心修改处：动态遍历推送所有数据文件 =================
         if os.path.exists(local_data_dir) and os.path.isdir(local_data_dir):
             upload_count = 0

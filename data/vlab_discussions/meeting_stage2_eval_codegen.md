@@ -40,7 +40,7 @@
         "prob_col": "Score"
     },
     "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv",
+        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260324100314.tsv",
         "file_ext": ".tsv",
         "sep": "\t",
         "comment_char": null,
@@ -53,34 +53,36 @@
 
 ## PI
 
-好的，作为项目负责人（PI），我将立即向 MLOps 工程师下达本次评测脚本开发的核心逻辑约束指令，并确保其严格按照如下规范执行。
+非常好，我们现在处于**评测脚本开发的关键阶段**。为了确保整个流程具备高度可复现性、鲁棒性和一致性，请你作为 MLOps 工程师严格按照以下【核心逻辑约束】来编写评测脚本。
 
 ---
 
-## ✅【任务指令】MLOps 工程师 - 编写评测脚本核心逻辑约束
+## ✅ 核心目标
 
-> ⏰ 当前阶段：**评测算分阶段**
->
-> 🔧 目标产出物：统一、可复现、高鲁棒性的评测脚本 `evaluate_models.py`
+构建一个统一的、标准化的评测流水线，支持多模型输出格式自动适配，并最终生成结构化评分报告（JSON）。
 
 ---
 
-### 📌 一、总体原则说明
+# 🔧 编写评测脚本的核心逻辑约束
 
-我们已从原始 ETL 架构升级至 **「先标准化，后合并」** 的双阶段模式。该设计旨在实现以下目标：
-
-- **高度容错性**：即使个别模型输出格式异常或字段缺失，也不影响整体流程；
-- **强一致性**：所有模型预测结果都必须对齐到同一份标准 ID 表上；
-- **极致自动化**：支持动态发现模型输出文件，无需手动维护路径列表；
-- **安全兜底机制**：防止因任意一个模型报错导致整个评测中断。
+### ⚠️ 注意事项总览：
+- 不允许使用任何外部工具或手动干预。
+- 所有字段提取必须基于 Schema 字典。
+- 严禁使用 `rename()` 或其他可能引起歧义的操作。
+- 必须采用“先标准化，后合并”的 ETL 架构。
+- 最终输出为 JSON 文件，包含每个模型的性能指标。
 
 ---
 
-### 🚨 二、核心逻辑约束清单（必须严格执行）
-
-#### 1️⃣ 硬编码 Schema 字典 & 固定金标准路径
+## 一、🚨 硬编码配置与 Schema 初始化
 
 ```python
+import pandas as pd
+import glob
+from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score
+import json
+
+# 【硬编码】数据 Schema
 DATA_SCHEMA = {
     "Macrel": {
         "file_path": "data/Macrel_out/macrel.out.prediction.gz",
@@ -119,7 +121,7 @@ DATA_SCHEMA = {
         "prob_col": "Score"
     },
     "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv",
+        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260324100314.tsv",
         "file_ext": ".tsv",
         "sep": "\t",
         "comment_char": None,
@@ -134,69 +136,61 @@ GROUND_TRUTH_PATH = "data/ground_truth.csv"
 
 ---
 
-#### 2️⃣ 标准化真值表（以序列为主键）
+## 二、🚨 真值表绝对标准化（以序列为王）
 
 ```python
-import pandas as pd
-
-# 加载金标准
+# 加载真值表
 gt_df = pd.read_csv(GROUND_TRUTH_PATH)
 
-# 自动识别序列列和标签列
+# 自动识别序列列 & 标签列
 gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
 gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
 
-# 强制标准化主键与标签
+# 强制标准化 ID 和 Label 列
 gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper()
 gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
 
 # 去重保留唯一序列
 gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
 
-# 初始化报告基座 DataFrame
+# 创建初始报告基座 DataFrame
 report_df = gt_df[['Standard_ID', 'True_Label']].copy()
 ```
 
 ---
 
-#### 3️⃣ 模型预测输出标准化处理（逐个模型循环）
+## 三、🚨 模型预测输出的绝对标准化（防弹隔离）
 
 ```python
-import glob
-
 for model_name, m_dict in DATA_SCHEMA.items():
-    # 动态查找模型输出文件
-    found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
-    if not found_files:
-        print(f"[WARNING] 未找到 {model_name} 的输出文件")
-        report_df[f"{model_name}_Prob"] = 0.0
-        continue
-    file_path = found_files[0]
-
-    # 使用 Pandas 原生读取方式加载数据（自动解压 .gz）
-    pred_df = pd.read_csv(
-        file_path,
-        sep=m_dict['sep'],
-        comment=m_dict['comment_char']
-    )
-
-    # 清洗列名（去除 # 号等干扰字符）
-    pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
     try:
+        # 动态查找文件
+        found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
+        if not found_files:
+            print(f"[WARNING] 未找到 {model_name} 的输出文件")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+        file_path = found_files[0]
+
+        # 使用 Pandas 原生读取器（自动处理压缩和注释）
+        pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+
+        # 清洗列名
+        pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
+
         # 提取主键列（优先使用 seq_col，否则 fallback 到 id_col）
         target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
         prob_col_name = m_dict['prob_col']
 
-        # 标准化主键与概率列
+        # 构造 Standard_ID 并提取概率
         pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper()
         pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
 
-        # 映射概率到报告表中
+        # 映射到 report_df 上
         prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
         mapped_probs = report_df['Standard_ID'].map(prob_map)
 
-        # 如果映射失败但长度一致，则启用强制行号对齐策略
+        # 如果映射失败但长度一致，则启用强制行号对齐模式
         if mapped_probs.isna().all() and len(pred_df) == len(report_df):
             print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
             report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
@@ -215,82 +209,82 @@ for model_name, m_dict in DATA_SCHEMA.items():
 
 ---
 
-#### 4️⃣ 合并与评分计算（防崩版）
+## 四、🚨 极简合并与算分死纪律
 
 ```python
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-import numpy as np
+results = {}
+
+y_true = report_df['True_Label']
 
 for model_name in DATA_SCHEMA.keys():
     try:
-        y_true = report_df['True_Label'].values
-        y_pred_prob = report_df[f"{model_name}_Prob"].values
-        y_pred = (y_pred_prob >= 0.5).astype(int)
+        y_prob = report_df[f"{model_name}_Prob"]
+        y_pred = (y_prob >= 0.5).astype(int)
 
         acc = accuracy_score(y_true, y_pred)
-        prec = precision_score(y_true, y_pred, zero_division=0)
         rec = recall_score(y_true, y_pred, zero_division=0)
-        f1 = f1_score(y_true, y_pred, zero_division=0)
-        auc = roc_auc_score(y_true, y_pred_prob) if len(np.unique(y_true)) > 1 else 0.0
+        mcc = matthews_corrcoef(y_true, y_pred)
+        auc_roc = roc_auc_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
+        auc_pr = average_precision_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
 
-        print(f"[SCORE] {model_name}: ACC={acc:.4f}, PREC={prec:.4f}, REC={rec:.4f}, F1={f1:.4f}, AUC={auc:.4f}")
+        results[model_name] = {
+            "ACC": round(acc, 4),
+            "Recall": round(rec, 4),
+            "MCC": round(mcc, 4),
+            "AUROC": round(auc_roc, 4),
+            "AUPRC": round(auc_pr, 4)
+        }
 
     except Exception as e:
         print(f"[ERROR] 计算 {model_name} 分数时出错: {e}")
-        acc = prec = rec = f1 = auc = 0.0
+        results[model_name] = {
+            "ACC": 0.0,
+            "Recall": 0.0,
+            "MCC": 0.0,
+            "AUROC": 0.0,
+            "AUPRC": 0.0
+        }
+
+# 输出结果至 JSON 文件
+with open("evaluation_results.json", "w") as f:
+    json.dump(results, f, indent=4)
 ```
 
 ---
 
-#### 5️⃣ 最终保存报告
+## 📌 总结要点回顾
 
-```python
-report_df.to_csv("evaluation_report.csv", index=False)
-print("[SUCCESS] 评测完成，报告已生成为 evaluation_report.csv")
-```
-
----
-
-### 🛑 三、严禁事项（违者追责）
-
-| 类别 | 违规行为 |
-|------|----------|
-| ❌ 数据处理 | 不允许使用 `rename()` 修改列名；不允许手写 open() 读取文件 |
-| ❌ 控制结构 | 不允许跳过 try-except 兜底；不允许忽略空值填充 |
-| ❌ 输出格式 | 不允许自定义 CSV 名称；必须使用固定字段命名规则 |
-| ❌ 错误处理 | 不允许让程序 crash；必须捕获所有异常并记录日志 |
+| 步骤 | 关键点 |
+|------|--------|
+| 1. 配置加载 | 硬编码 Schema，固定路径 |
+| 2. 真值标准化 | 主键是 Sequence，去重，建立 Report 基础 |
+| 3. 模型输出处理 | 先 map 后 fallback 行号对齐 |
+| 4. 算分机制 | 使用 sklearn，动态 import，异常兜底 |
 
 ---
 
-### 🧭 四、交付时间线建议
+## 📤 下一步行动建议
 
-| 时间节点 | 任务内容 |
-|---------|-----------|
-| D+0 | 完成脚本初稿及单元测试 |
-| D+1 | 在模拟数据集上跑通全流程 |
-| D+2 | 提交 PR 并准备评审会议材料 |
+✅ 完成上述脚本后，请提交 PR 至 GitLab  
+✅ 在 CI 流水线中集成该脚本  
+✅ 设置定时任务每日运行一次评测并推送结果  
 
----
-
-如无异议，请你立即着手实施。我们将安排一次 Code Review 会议确认最终版本是否符合上述约束条件。
-
---- 
-
-如有疑问，请随时联系我。  
-—— PI / 项目经理
+如需我协助 Review 脚本实现细节，请随时 call 我 👇
 
 ## MLOps Coder (V1)
 
 ```python
-import os
-import json
-import glob
 import pandas as pd
+import glob
+from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score
+import json
+import os
 import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, roc_curve
 import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, precision_recall_curve
 
-# === 配置区 ===
+
+# 【硬编码】数据 Schema
 DATA_SCHEMA = {
     "Macrel": {
         "file_path": "data/Macrel_out/macrel.out.prediction.gz",
@@ -329,7 +323,7 @@ DATA_SCHEMA = {
         "prob_col": "Score"
     },
     "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv",
+        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260324100314.tsv",
         "file_ext": ".tsv",
         "sep": "\t",
         "comment_char": None,
@@ -341,101 +335,135 @@ DATA_SCHEMA = {
 
 GROUND_TRUTH_PATH = "data/ground_truth.csv"
 
-def load_ground_truth(path):
-    gt_df = pd.read_csv(path)
+
+def main():
+    # 加载真值表
+    gt_df = pd.read_csv(GROUND_TRUTH_PATH)
+
+    # 自动识别序列列 & 标签列
     gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
     gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
+
+    # 强制标准化 ID 和 Label 列
     gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper()
     gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
+
+    # 去重保留唯一序列
     gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
-    return gt_df[['Standard_ID', 'True_Label']].copy()
 
-def standardize_model_prediction(model_name, m_dict, report_df):
-    found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
-    if not found_files:
-        print(f"[WARNING] 未找到 {model_name} 的输出文件")
-        report_df[f"{model_name}_Prob"] = 0.0
-        return report_df
-    file_path = found_files[0]
+    # 创建初始报告基座 DataFrame
+    report_df = gt_df[['Standard_ID', 'True_Label']].copy()
 
-    pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
-    pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
-    try:
-        target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
-        prob_col_name = m_dict['prob_col']
-
-        pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper()
-        pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
-
-        prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
-        mapped_probs = report_df['Standard_ID'].map(prob_map)
-
-        if mapped_probs.isna().all() and len(pred_df) == len(report_df):
-            print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
-            report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
-        else:
-            report_df[f"{model_name}_Prob"] = mapped_probs.fillna(0.0)
-
-    except KeyError as e:
-        print(f"[ERROR] {model_name} 找不到指定的列名: {e}")
-        report_df[f"{model_name}_Prob"] = 0.0
-    except Exception as e:
-        print(f"[ERROR] 解析 {model_name} 时发生未知崩溃: {e}")
-        report_df[f"{model_name}_Prob"] = 0.0
-
-    return report_df
-
-def evaluate_and_plot(report_df):
-    results = {}
-    fig, ax = plt.subplots(figsize=(10, 8))
-
-    for model_name in DATA_SCHEMA.keys():
+    # 模型预测输出的绝对标准化（防弹隔离）
+    for model_name, m_dict in DATA_SCHEMA.items():
         try:
-            y_true = report_df['True_Label'].values
-            y_pred_prob = report_df[f"{model_name}_Prob"].values
-            y_pred = (y_pred_prob >= 0.5).astype(int)
+            # 动态查找文件
+            found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
+            if not found_files:
+                print(f"[WARNING] 未找到 {model_name} 的输出文件")
+                report_df[f"{model_name}_Prob"] = 0.0
+                continue
+            file_path = found_files[0]
+
+            # 使用 Pandas 原生读取器（自动处理压缩和注释）
+            pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+
+            # 清洗列名
+            pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
+
+            # 提取主键列（优先使用 seq_col，否则 fallback 到 id_col）
+            target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
+            prob_col_name = m_dict['prob_col']
+
+            # 构造 Standard_ID 并提取概率
+            pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper()
+            pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
+
+            # 映射到 report_df 上
+            prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
+            mapped_probs = report_df['Standard_ID'].map(prob_map)
+
+            # 如果映射失败但长度一致，则启用强制行号对齐模式
+            if mapped_probs.isna().all() and len(pred_df) == len(report_df):
+                print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
+                report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
+            else:
+                report_df[f"{model_name}_Prob"] = mapped_probs.fillna(0.0)
+
+        except KeyError as e:
+            print(f"[ERROR] {model_name} 找不到指定的列名: {e}")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+        except Exception as e:
+            print(f"[ERROR] 解析 {model_name} 时发生未知崩溃: {e}")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+
+    # 极简合并与算分死纪律
+    results = {}
+    y_true = report_df['True_Label']
+
+    # 初始化绘图对象
+    fig, axes = plt.subplots(2, len(DATA_SCHEMA), figsize=(5*len(DATA_SCHEMA), 10))
+    if len(DATA_SCHEMA) == 1:
+        axes = axes.reshape(-1, 1)
+
+    for idx, model_name in enumerate(DATA_SCHEMA.keys()):
+        try:
+            y_prob = report_df[f"{model_name}_Prob"]
+            y_pred = (y_prob >= 0.5).astype(int)
 
             acc = accuracy_score(y_true, y_pred)
-            prec = precision_score(y_true, y_pred, zero_division=0)
             rec = recall_score(y_true, y_pred, zero_division=0)
-            f1 = f1_score(y_true, y_pred, zero_division=0)
-            auc = roc_auc_score(y_true, y_pred_prob) if len(np.unique(y_true)) > 1 else 0.0
+            mcc = matthews_corrcoef(y_true, y_pred)
+            auc_roc = roc_auc_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
+            auc_pr = average_precision_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
 
             results[model_name] = {
                 "ACC": round(acc, 4),
-                "PREC": round(prec, 4),
-                "REC": round(rec, 4),
-                "F1": round(f1, 4),
-                "AUC": round(auc, 4)
+                "Recall": round(rec, 4),
+                "MCC": round(mcc, 4),
+                "AUROC": round(auc_roc, 4),
+                "AUPRC": round(auc_pr, 4)
             }
 
-            fpr, tpr, _ = roc_curve(y_true, y_pred_prob)
-            ax.plot(fpr, tpr, label=f'{model_name} (AUC = {auc:.4f})')
+            # 绘制 ROC 曲线
+            fpr, tpr, _ = roc_curve(y_true, y_prob)
+            axes[0, idx].plot(fpr, tpr, label=f'{model_name} (AUC={auc_roc:.2f})')
+            axes[0, idx].set_title(f'{model_name} ROC Curve')
+            axes[0, idx].set_xlabel('False Positive Rate')
+            axes[0, idx].set_ylabel('True Positive Rate')
+            axes[0, idx].legend(loc='lower right')
+
+            # 绘制 PR 曲线
+            prec, recall, _ = precision_recall_curve(y_true, y_prob)
+            axes[1, idx].plot(recall, prec, label=f'{model_name} (AP={auc_pr:.2f})')
+            axes[1, idx].set_title(f'{model_name} Precision-Recall Curve')
+            axes[1, idx].set_xlabel('Recall')
+            axes[1, idx].set_ylabel('Precision')
+            axes[1, idx].legend(loc='upper right')
 
         except Exception as e:
             print(f"[ERROR] 计算 {model_name} 分数时出错: {e}")
-            results[model_name] = {"ACC": 0.0, "PREC": 0.0, "REC": 0.0, "F1": 0.0, "AUC": 0.0}
+            results[model_name] = {
+                "ACC": 0.0,
+                "Recall": 0.0,
+                "MCC": 0.0,
+                "AUROC": 0.0,
+                "AUPRC": 0.0
+            }
 
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
-    ax.set_title('ROC Curves of Models')
-    ax.legend(loc="lower right")
     plt.tight_layout()
     plt.savefig("evaluation_curves.png")
     plt.close()
 
+    # 输出结果至 JSON 文件
     with open("eval_result.json", "w") as f:
         json.dump(results, f, indent=4)
 
+    # 保存带预测结果的 CSV 文件
     report_df.to_csv("final_results_with_predictions.csv", index=False)
-    print("[SUCCESS] 评测完成，报告已生成")
 
-def main():
-    report_df = load_ground_truth(GROUND_TRUTH_PATH)
-    for model_name, m_dict in DATA_SCHEMA.items():
-        report_df = standardize_model_prediction(model_name, m_dict, report_df)
-    evaluate_and_plot(report_df)
 
 if __name__ == '__main__':
     main()
@@ -444,11 +472,11 @@ if __name__ == '__main__':
 ```bash
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-4%4
+#SBATCH --array=0-4%4   # 极度重要: 智能替换为 (模型总数量 - 1)
 #SBATCH -N 1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
-#SBATCH --gres=gpu:3
+#SBATCH --cpus-per-task=20
+#SBATCH --gres=gpu:1
 #SBATCH -p gpu
 #SBATCH -o amp_eval_%A_%a.out
 #SBATCH -e amp_eval_%A_%a.err
@@ -456,143 +484,98 @@ if __name__ == '__main__':
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
 conda activate eval_env
-python evaluate_models.py
+python eval_script.py
 echo "finish"
 ```
 
 ## Data Architect (Review)
 
-### 🧾 代码审查报告（首席数据质检官视角）
+### 🚨 代码审查意见（严厉警告）🚨
 
----
+#### ❌ **Bug 1：主键提取检测未达标**
+> **问题描述**：  
+你在构造 `Standard_ID` 时虽然正确地调用了 `.str.upper()` 等方法，但没有严格按照 PI 要求的“**直接抽列赋值**”，而是使用了中间变量 `target_col_name` 来做判断后再赋值。
 
-#### ✅ 总体评价：
-
-该工程师实现了一个多模型预测结果标准化与评估流程，整体结构清晰、模块分明。但在关键环节存在严重违反【强制ETL标准化后极简合并】原则的问题。
-
----
-
-## 🔍 审查重点 Bug 检查如下：
-
----
-
-### ❌ 1. **主键提取检测失败**
-
-> ⚠️ 违规点：**没有严格按照 PI 要求的 `Standard_ID` 抽列赋值方式处理，而是使用了 `.map()` 映射机制进行 join-like 合并操作！**
-
-#### 🔎 具体问题位置：
+> **PI 规范要求**：
 ```python
-prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
-mapped_probs = report_df['Standard_ID'].map(prob_map)
-...
-report_df[f"{model_name}_Prob"] = mapped_probs.fillna(0.0)
+pred_df['Standard_ID'] = pred_df[m_dict['seq_col']].astype(str).str.strip().str.upper()
+```
+或当 `seq_col` 为空时 fallback 到 `id_col`，也应是显式分支、不可用变量中转！
+
+> 🔥 **整改建议**：
+请将如下代码段：
+```python
+target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
+pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper()
+```
+改为：
+```python
+if m_dict.get('seq_col'):
+    pred_df['Standard_ID'] = pred_df[m_dict['seq_col']].astype(str).str.strip().str.upper()
+else:
+    pred_df['Standard_ID'] = pred_df[m_dict['id_col']].astype(str).str.strip().str.upper()
 ```
 
-#### ❗ 错误分析：
-- 使用了 `dict + map` 实现隐式 merge 行为，这属于高风险的数据映射手段；
-- **PI 强调必须是直接抽列赋值**，即应采用类似如下方式：
-  ```python
-  merged_df = pd.merge(report_df[['Standard_ID']], pred_df[['Standard_ID', 'Model_Prob']], on='Standard_ID', how='left')
-  report_df[f"{model_name}_Prob"] = merged_df['Model_Prob'].fillna(0.0).values
-  ```
-- 或者更严格的【切片赋值】方式（如 PI 所示）：
-  ```python
-  report_df[f"{model_name}_Prob"] = merged_df['Model_Prob'].values
-  ```
-
-#### 🛑 结论：
-🔴 **严重违规！必须整改为显式 merge + 切片赋值，杜绝任何形式的 map/dict lookup 合并行为！**
-
 ---
 
-### ❌ 2. **防阻断容错检测不合格**
+#### ❌ **Bug 2：防阻断容错机制严重违规**
+> **问题描述**：  
+你根本没有加入任何文件存在性检查！一旦某个模型输出路径下无文件，程序会抛出异常导致整个流程中断！
 
-> ⚠️ 违规点：**虽然没写 raise FileNotFoundError，但也没有做任何路径存在性判断！**
-
-#### 🔎 具体问题位置：
+> 🔥 **整改建议**：
+必须在读取文件前添加如下结构：
 ```python
-found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
-if not found_files:
-    print(f"[WARNING] 未找到 {model_name} 的输出文件")
+if not os.path.exists(file_path):
+    print(f"[WARNING] 模型 {model_name} 输出文件不存在: {file_path}")
     report_df[f"{model_name}_Prob"] = 0.0
-    return report_df
+    continue
 ```
+并且严禁使用任何形式的 `raise FileNotFoundError(...)`！
 
-#### ❗ 正确做法应该是：
+---
+
+#### ⚠️ **潜在风险点：写入 CSV 不规范**
+> **问题描述**：  
+虽然你最终采用了切片赋值方式填充 `report_df[f"{model_name}_Prob"]`，但在部分逻辑中仍存在冗余操作如 `mapped_probs` 映射等，容易引发维度爆炸隐患。
+
+> ✅ **合规做法确认**：
 ```python
-expected_file_pattern = f"data/{model_name}_out/*{m_dict['file_ext']}"
-found_files = glob.glob(expected_file_pattern)
-
-if not found_files:
-    print(f"[WARNING] 未找到 {model_name} 输出文件，请检查目录是否存在或格式正确。")
-    report_df[f"{model_name}_Prob"] = 0.0
-    return report_df
+report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
 ```
-
-✅ 当前虽无 `raise`，但缺乏前置路径校验逻辑，仍属不严谨。
-
-#### 🛑 结论：
-🟡 **建议补充路径存在性判断以增强鲁棒性，否则容易因空目录导致后续报错中断。**
+这一步做得很好，只要确保不引入 merge 或 concat 即可。
 
 ---
 
-### ❌ 3. **写入 CSV 检测不合格**
+### ✅ 总结结论：
 
-> ⚠️ 违规点：**最终写入 CSV 时仍然使用了 map 方式填充字段，而非 merge + 切片赋值！**
-
-#### 🔎 具体问题位置同上：
-```python
-report_df[f"{model_name}_Prob"] = mapped_probs.fillna(0.0)
-```
-
-#### ❗ 正确做法应为：
-```python
-merged_df = pd.merge(report_df[['Standard_ID']], pred_df[['Standard_ID', 'Model_Prob']], on='Standard_ID', how='left')
-report_df[f"{model_name}_Prob"] = merged_df['Model_Prob'].fillna(0.0).values
-```
-
-#### 🛑 结论：
-🔴 **严重违规！必须改用 merge + 切片赋值方式，禁止任何形式的 map 映射赋值！**
+| 审查项 | 是否通过 | 备注 |
+|--------|----------|------|
+| 主键提取标准执行 | ❌ 否 | 必须按 PI 要求直接抽列构造 |
+| 防阻断容错机制 | ❌ 否 | 缺少文件存在性校验，可能造成 SLURM 全部任务崩溃 |
+| 写入 CSV 方式 | ✅ 是 | 已采用合规的切片赋值 |
 
 ---
 
-## ✅ 合规项确认
-
-| 检查项目 | 是否合规 | 备注 |
-|---------|----------|------|
-| 主键提取是否照搬 PI 规范 | ❌ 不合规 | 使用了 map 映射替代 merge |
-| 防阻断容错机制是否完善 | ⚠️ 待加强 | 缺少路径存在性判断 |
-| 写入 CSV 是否符合规范 | ❌ 不合规 | 同样用了 map 映射 |
+### 🔧 最终命令：
+> **立即修改上述两个致命 Bug，否则该脚本无法上线用于多模型横向对比评估系统！**
 
 ---
-
-## 📢 最终审查结论：
-
-🔴 **数据逻辑审查未通过！**
-
-请立即修正以下致命缺陷：
-
-1. **废除所有 `map()` 和 `dict(zip())` 形式的主键映射赋值方法；**
-2. **统一改为 `pd.merge(...)[col].values` 的强制 ETL 架构；**
-3. **增加输入路径存在性判断逻辑，避免程序崩溃；**
-4. **确保每一步都是可追溯、非模糊的列级赋值操作。**
-
----
-
-如需我提供标准模板代码片段用于重构，请回复：“请提供标准 merge+切片赋值模板”。
+如需我帮你重写关键函数模块，请回复：“请重构 extract_and_merge 函数”。
 
 ## PI (Summary)
 
 ```python
-import os
-import json
-import glob
 import pandas as pd
+import glob
+import os
+from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score
+import json
 import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, roc_curve
 import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, precision_recall_curve
 
-# === 配置区 ===
+
+# 【硬编码】数据 Schema
 DATA_SCHEMA = {
     "Macrel": {
         "file_path": "data/Macrel_out/macrel.out.prediction.gz",
@@ -631,7 +614,7 @@ DATA_SCHEMA = {
         "prob_col": "Score"
     },
     "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv",
+        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260324100314.tsv",
         "file_ext": ".tsv",
         "sep": "\t",
         "comment_char": None,
@@ -643,105 +626,141 @@ DATA_SCHEMA = {
 
 GROUND_TRUTH_PATH = "data/ground_truth.csv"
 
-def load_ground_truth(path):
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"金标准文件不存在: {path}")
-    gt_df = pd.read_csv(path)
+
+def main():
+    # 加载真值表
+    gt_df = pd.read_csv(GROUND_TRUTH_PATH)
+
+    # 自动识别序列列 & 标签列
     gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
     gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
+
+    # 强制标准化 ID 和 Label 列
     gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper()
     gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
+
+    # 去重保留唯一序列
     gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
-    return gt_df[['Standard_ID', 'True_Label']].copy()
 
-def standardize_model_prediction(model_name, m_dict, report_df):
-    expected_pattern = f"data/{model_name}_out/*{m_dict['file_ext']}"
-    found_files = glob.glob(expected_pattern)
-    
-    if not found_files:
-        print(f"[WARNING] 未找到 {model_name} 的输出文件")
-        report_df[f"{model_name}_Prob"] = 0.0
-        return report_df
-        
-    file_path = found_files[0]
-    
-    if not os.path.exists(file_path):
-        print(f"[WARNING] 文件不存在: {file_path}")
-        report_df[f"{model_name}_Prob"] = 0.0
-        return report_df
+    # 创建初始报告基座 DataFrame
+    report_df = gt_df[['Standard_ID', 'True_Label']].copy()
 
-    pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
-    pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
-    try:
-        target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
-        prob_col_name = m_dict['prob_col']
-
-        pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper()
-        pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
-
-        merged_df = pd.merge(report_df[['Standard_ID']], pred_df[['Standard_ID', 'Model_Prob']], on='Standard_ID', how='left')
-        report_df[f"{model_name}_Prob"] = merged_df['Model_Prob'].fillna(0.0).values
-
-    except KeyError as e:
-        print(f"[ERROR] {model_name} 找不到指定的列名: {e}")
-        report_df[f"{model_name}_Prob"] = 0.0
-    except Exception as e:
-        print(f"[ERROR] 解析 {model_name} 时发生未知崩溃: {e}")
-        report_df[f"{model_name}_Prob"] = 0.0
-
-    return report_df
-
-def evaluate_and_plot(report_df):
-    results = {}
-    fig, ax = plt.subplots(figsize=(10, 8))
-
-    for model_name in DATA_SCHEMA.keys():
+    # 模型预测输出的绝对标准化（防弹隔离）
+    for model_name, m_dict in DATA_SCHEMA.items():
         try:
-            y_true = report_df['True_Label'].values
-            y_pred_prob = report_df[f"{model_name}_Prob"].values
-            y_pred = (y_pred_prob >= 0.5).astype(int)
+            # 动态查找文件
+            found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
+            if not found_files:
+                print(f"[WARNING] 未找到 {model_name} 的输出文件")
+                report_df[f"{model_name}_Prob"] = 0.0
+                continue
+            file_path = found_files[0]
+
+            # 文件存在性检查
+            if not os.path.exists(file_path):
+                print(f"[WARNING] 模型 {model_name} 输出文件不存在: {file_path}")
+                report_df[f"{model_name}_Prob"] = 0.0
+                continue
+
+            # 使用 Pandas 原生读取器（自动处理压缩和注释）
+            pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+
+            # 清洗列名
+            pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
+
+            # 提取主键列（严格按照PI要求直接抽列构造）
+            if m_dict.get('seq_col'):
+                pred_df['Standard_ID'] = pred_df[m_dict['seq_col']].astype(str).str.strip().str.upper()
+            else:
+                pred_df['Standard_ID'] = pred_df[m_dict['id_col']].astype(str).str.strip().str.upper()
+            
+            pred_df['Model_Prob'] = pd.to_numeric(pred_df[m_dict['prob_col']], errors='coerce')
+
+            # 映射到 report_df 上
+            prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
+            mapped_probs = report_df['Standard_ID'].map(prob_map)
+
+            # 如果映射失败但长度一致，则启用强制行号对齐模式
+            if mapped_probs.isna().all() and len(pred_df) == len(report_df):
+                print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
+                report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
+            else:
+                report_df[f"{model_name}_Prob"] = mapped_probs.fillna(0.0)
+
+        except KeyError as e:
+            print(f"[ERROR] {model_name} 找不到指定的列名: {e}")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+        except Exception as e:
+            print(f"[ERROR] 解析 {model_name} 时发生未知崩溃: {e}")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+
+    # 极简合并与算分死纪律
+    results = {}
+    y_true = report_df['True_Label']
+
+    # 初始化绘图对象
+    fig, axes = plt.subplots(2, len(DATA_SCHEMA), figsize=(5*len(DATA_SCHEMA), 10))
+    if len(DATA_SCHEMA) == 1:
+        axes = axes.reshape(-1, 1)
+
+    for idx, model_name in enumerate(DATA_SCHEMA.keys()):
+        try:
+            y_prob = report_df[f"{model_name}_Prob"]
+            y_pred = (y_prob >= 0.5).astype(int)
 
             acc = accuracy_score(y_true, y_pred)
-            prec = precision_score(y_true, y_pred, zero_division=0)
             rec = recall_score(y_true, y_pred, zero_division=0)
-            f1 = f1_score(y_true, y_pred, zero_division=0)
-            auc = roc_auc_score(y_true, y_pred_prob) if len(np.unique(y_true)) > 1 else 0.0
+            mcc = matthews_corrcoef(y_true, y_pred)
+            auc_roc = roc_auc_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
+            auc_pr = average_precision_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
 
             results[model_name] = {
                 "ACC": round(acc, 4),
-                "PREC": round(prec, 4),
-                "REC": round(rec, 4),
-                "F1": round(f1, 4),
-                "AUC": round(auc, 4)
+                "Recall": round(rec, 4),
+                "MCC": round(mcc, 4),
+                "AUROC": round(auc_roc, 4),
+                "AUPRC": round(auc_pr, 4)
             }
 
-            fpr, tpr, _ = roc_curve(y_true, y_pred_prob)
-            ax.plot(fpr, tpr, label=f'{model_name} (AUC = {auc:.4f})')
+            # 绘制 ROC 曲线
+            fpr, tpr, _ = roc_curve(y_true, y_prob)
+            axes[0, idx].plot(fpr, tpr, label=f'{model_name} (AUC={auc_roc:.2f})')
+            axes[0, idx].set_title(f'{model_name} ROC Curve')
+            axes[0, idx].set_xlabel('False Positive Rate')
+            axes[0, idx].set_ylabel('True Positive Rate')
+            axes[0, idx].legend(loc='lower right')
+
+            # 绘制 PR 曲线
+            prec, recall, _ = precision_recall_curve(y_true, y_prob)
+            axes[1, idx].plot(recall, prec, label=f'{model_name} (AP={auc_pr:.2f})')
+            axes[1, idx].set_title(f'{model_name} Precision-Recall Curve')
+            axes[1, idx].set_xlabel('Recall')
+            axes[1, idx].set_ylabel('Precision')
+            axes[1, idx].legend(loc='upper right')
 
         except Exception as e:
             print(f"[ERROR] 计算 {model_name} 分数时出错: {e}")
-            results[model_name] = {"ACC": 0.0, "PREC": 0.0, "REC": 0.0, "F1": 0.0, "AUC": 0.0}
+            results[model_name] = {
+                "ACC": 0.0,
+                "Recall": 0.0,
+                "MCC": 0.0,
+                "AUROC": 0.0,
+                "AUPRC": 0.0
+            }
 
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
-    ax.set_title('ROC Curves of Models')
-    ax.legend(loc="lower right")
     plt.tight_layout()
     plt.savefig("evaluation_curves.png")
     plt.close()
 
+    # 输出结果至 JSON 文件
     with open("eval_result.json", "w") as f:
         json.dump(results, f, indent=4)
 
+    # 保存带预测结果的 CSV 文件
     report_df.to_csv("final_results_with_predictions.csv", index=False)
-    print("[SUCCESS] 评测完成，报告已生成")
 
-def main():
-    report_df = load_ground_truth(GROUND_TRUTH_PATH)
-    for model_name, m_dict in DATA_SCHEMA.items():
-        report_df = standardize_model_prediction(model_name, m_dict, report_df)
-    evaluate_and_plot(report_df)
 
 if __name__ == '__main__':
     main()
@@ -750,11 +769,11 @@ if __name__ == '__main__':
 ```bash
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-4%4
+#SBATCH --array=0-4%4   # 极度重要: 智能替换为 (模型总数量 - 1)
 #SBATCH -N 1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
-#SBATCH --gres=gpu:3
+#SBATCH --cpus-per-task=20
+#SBATCH --gres=gpu:1
 #SBATCH -p gpu
 #SBATCH -o amp_eval_%A_%a.out
 #SBATCH -e amp_eval_%A_%a.err
@@ -762,22 +781,24 @@ if __name__ == '__main__':
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
 conda activate eval_env
-python evaluate_models.py
+python eval_script.py
 echo "finish"
 ```
 
 ## MLOps Coder (Final)
 
 ```python
-import os
-import json
-import glob
 import pandas as pd
+import glob
+import os
+from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score
+import json
 import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, roc_curve
 import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, precision_recall_curve
 
-# === 配置区 ===
+
+# 【硬编码】数据 Schema
 DATA_SCHEMA = {
     "Macrel": {
         "file_path": "data/Macrel_out/macrel.out.prediction.gz",
@@ -816,7 +837,7 @@ DATA_SCHEMA = {
         "prob_col": "Score"
     },
     "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv",
+        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260324100314.tsv",
         "file_ext": ".tsv",
         "sep": "\t",
         "comment_char": None,
@@ -828,105 +849,141 @@ DATA_SCHEMA = {
 
 GROUND_TRUTH_PATH = "data/ground_truth.csv"
 
-def load_ground_truth(path):
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"金标准文件不存在: {path}")
-    gt_df = pd.read_csv(path)
+
+def main():
+    # 加载真值表
+    gt_df = pd.read_csv(GROUND_TRUTH_PATH)
+
+    # 自动识别序列列 & 标签列
     gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
     gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
+
+    # 强制标准化 ID 和 Label 列
     gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper()
     gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
+
+    # 去重保留唯一序列
     gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
-    return gt_df[['Standard_ID', 'True_Label']].copy()
 
-def standardize_model_prediction(model_name, m_dict, report_df):
-    expected_pattern = f"data/{model_name}_out/*{m_dict['file_ext']}"
-    found_files = glob.glob(expected_pattern)
-    
-    if not found_files:
-        print(f"[WARNING] 未找到 {model_name} 的输出文件")
-        report_df[f"{model_name}_Prob"] = 0.0
-        return report_df
-        
-    file_path = found_files[0]
-    
-    if not os.path.exists(file_path):
-        print(f"[WARNING] 文件不存在: {file_path}")
-        report_df[f"{model_name}_Prob"] = 0.0
-        return report_df
+    # 创建初始报告基座 DataFrame
+    report_df = gt_df[['Standard_ID', 'True_Label']].copy()
 
-    pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
-    pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
-    try:
-        target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
-        prob_col_name = m_dict['prob_col']
-
-        pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper()
-        pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
-
-        merged_df = pd.merge(report_df[['Standard_ID']], pred_df[['Standard_ID', 'Model_Prob']], on='Standard_ID', how='left')
-        report_df[f"{model_name}_Prob"] = merged_df['Model_Prob'].fillna(0.0).values
-
-    except KeyError as e:
-        print(f"[ERROR] {model_name} 找不到指定的列名: {e}")
-        report_df[f"{model_name}_Prob"] = 0.0
-    except Exception as e:
-        print(f"[ERROR] 解析 {model_name} 时发生未知崩溃: {e}")
-        report_df[f"{model_name}_Prob"] = 0.0
-
-    return report_df
-
-def evaluate_and_plot(report_df):
-    results = {}
-    fig, ax = plt.subplots(figsize=(10, 8))
-
-    for model_name in DATA_SCHEMA.keys():
+    # 模型预测输出的绝对标准化（防弹隔离）
+    for model_name, m_dict in DATA_SCHEMA.items():
         try:
-            y_true = report_df['True_Label'].values
-            y_pred_prob = report_df[f"{model_name}_Prob"].values
-            y_pred = (y_pred_prob >= 0.5).astype(int)
+            # 动态查找文件
+            found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
+            if not found_files:
+                print(f"[WARNING] 未找到 {model_name} 的输出文件")
+                report_df[f"{model_name}_Prob"] = 0.0
+                continue
+            file_path = found_files[0]
+
+            # 文件存在性检查
+            if not os.path.exists(file_path):
+                print(f"[WARNING] 模型 {model_name} 输出文件不存在: {file_path}")
+                report_df[f"{model_name}_Prob"] = 0.0
+                continue
+
+            # 使用 Pandas 原生读取器（自动处理压缩和注释）
+            pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+
+            # 清洗列名
+            pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
+
+            # 提取主键列（严格按照PI要求直接抽列构造）
+            if m_dict.get('seq_col'):
+                pred_df['Standard_ID'] = pred_df[m_dict['seq_col']].astype(str).str.strip().str.upper()
+            else:
+                pred_df['Standard_ID'] = pred_df[m_dict['id_col']].astype(str).str.strip().str.upper()
+            
+            pred_df['Model_Prob'] = pd.to_numeric(pred_df[m_dict['prob_col']], errors='coerce')
+
+            # 映射到 report_df 上
+            prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
+            mapped_probs = report_df['Standard_ID'].map(prob_map)
+
+            # 如果映射失败但长度一致，则启用强制行号对齐模式
+            if mapped_probs.isna().all() and len(pred_df) == len(report_df):
+                print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
+                report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
+            else:
+                report_df[f"{model_name}_Prob"] = mapped_probs.fillna(0.0)
+
+        except KeyError as e:
+            print(f"[ERROR] {model_name} 找不到指定的列名: {e}")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+        except Exception as e:
+            print(f"[ERROR] 解析 {model_name} 时发生未知崩溃: {e}")
+            report_df[f"{model_name}_Prob"] = 0.0
+            continue
+
+    # 极简合并与算分死纪律
+    results = {}
+    y_true = report_df['True_Label']
+
+    # 初始化绘图对象
+    fig, axes = plt.subplots(2, len(DATA_SCHEMA), figsize=(5*len(DATA_SCHEMA), 10))
+    if len(DATA_SCHEMA) == 1:
+        axes = axes.reshape(-1, 1)
+
+    for idx, model_name in enumerate(DATA_SCHEMA.keys()):
+        try:
+            y_prob = report_df[f"{model_name}_Prob"]
+            y_pred = (y_prob >= 0.5).astype(int)
 
             acc = accuracy_score(y_true, y_pred)
-            prec = precision_score(y_true, y_pred, zero_division=0)
             rec = recall_score(y_true, y_pred, zero_division=0)
-            f1 = f1_score(y_true, y_pred, zero_division=0)
-            auc = roc_auc_score(y_true, y_pred_prob) if len(np.unique(y_true)) > 1 else 0.0
+            mcc = matthews_corrcoef(y_true, y_pred)
+            auc_roc = roc_auc_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
+            auc_pr = average_precision_score(y_true, y_prob) if len(set(y_true)) > 1 else 0.0
 
             results[model_name] = {
                 "ACC": round(acc, 4),
-                "PREC": round(prec, 4),
-                "REC": round(rec, 4),
-                "F1": round(f1, 4),
-                "AUC": round(auc, 4)
+                "Recall": round(rec, 4),
+                "MCC": round(mcc, 4),
+                "AUROC": round(auc_roc, 4),
+                "AUPRC": round(auc_pr, 4)
             }
 
-            fpr, tpr, _ = roc_curve(y_true, y_pred_prob)
-            ax.plot(fpr, tpr, label=f'{model_name} (AUC = {auc:.4f})')
+            # 绘制 ROC 曲线
+            fpr, tpr, _ = roc_curve(y_true, y_prob)
+            axes[0, idx].plot(fpr, tpr, label=f'{model_name} (AUC={auc_roc:.2f})')
+            axes[0, idx].set_title(f'{model_name} ROC Curve')
+            axes[0, idx].set_xlabel('False Positive Rate')
+            axes[0, idx].set_ylabel('True Positive Rate')
+            axes[0, idx].legend(loc='lower right')
+
+            # 绘制 PR 曲线
+            prec, recall, _ = precision_recall_curve(y_true, y_prob)
+            axes[1, idx].plot(recall, prec, label=f'{model_name} (AP={auc_pr:.2f})')
+            axes[1, idx].set_title(f'{model_name} Precision-Recall Curve')
+            axes[1, idx].set_xlabel('Recall')
+            axes[1, idx].set_ylabel('Precision')
+            axes[1, idx].legend(loc='upper right')
 
         except Exception as e:
             print(f"[ERROR] 计算 {model_name} 分数时出错: {e}")
-            results[model_name] = {"ACC": 0.0, "PREC": 0.0, "REC": 0.0, "F1": 0.0, "AUC": 0.0}
+            results[model_name] = {
+                "ACC": 0.0,
+                "Recall": 0.0,
+                "MCC": 0.0,
+                "AUROC": 0.0,
+                "AUPRC": 0.0
+            }
 
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
-    ax.set_title('ROC Curves of Models')
-    ax.legend(loc="lower right")
     plt.tight_layout()
     plt.savefig("evaluation_curves.png")
     plt.close()
 
+    # 输出结果至 JSON 文件
     with open("eval_result.json", "w") as f:
         json.dump(results, f, indent=4)
 
+    # 保存带预测结果的 CSV 文件
     report_df.to_csv("final_results_with_predictions.csv", index=False)
-    print("[SUCCESS] 评测完成，报告已生成")
 
-def main():
-    report_df = load_ground_truth(GROUND_TRUTH_PATH)
-    for model_name, m_dict in DATA_SCHEMA.items():
-        report_df = standardize_model_prediction(model_name, m_dict, report_df)
-    evaluate_and_plot(report_df)
 
 if __name__ == '__main__':
     main()
@@ -935,11 +992,11 @@ if __name__ == '__main__':
 ```bash
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-4%4
+#SBATCH --array=0-4%4   # 极度重要: 智能替换为 (模型总数量 - 1)
 #SBATCH -N 1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
-#SBATCH --gres=gpu:3
+#SBATCH --cpus-per-task=20
+#SBATCH --gres=gpu:1
 #SBATCH -p gpu
 #SBATCH -o amp_eval_%A_%a.out
 #SBATCH -e amp_eval_%A_%a.err
@@ -947,7 +1004,7 @@ if __name__ == '__main__':
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
 conda activate eval_env
-python evaluate_models.py
+python eval_script.py
 echo "finish"
 ```
 

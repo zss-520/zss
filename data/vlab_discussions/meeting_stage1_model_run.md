@@ -67,100 +67,74 @@
 
 ## PI
 
-### PI 审查与要求确认
-
-#### ✅ 任务目标明确：
-我们处于**第一阶段探索性运行（Stage 1 Exploration）**，核心目标是：
-- 并行启动五个生物信息学模型之一（由 SLURM_ARRAY_TASK_ID 控制）
-- 每个模型运行完成后，自动探测其输出目录下的所有文件结构和内容
-- 输出每个文件的路径 + 头部内容（支持 `.gz` 解压读取）
-- 所有结果必须写入各自独立的日志文件中（`data/stage1_obs_{task_id}.txt`）
+非常感谢提供详细的任务描述。作为 PI，我会首先审阅任务需求并提炼出关键点和硬性约束条件，随后指导工程师编写符合所有规范的自动化评估脚本。
 
 ---
 
-## 🔍 关键硬性约束再强调：
+## ✅ **PI 审查与明确要求**
 
-| 编号 | 要求类型 | 描述 |
-|------|----------|------|
-| ⚠️ 1 | **Job Array 分发控制** | 根据 `SLURM_ARRAY_TASK_ID` 只能选择一个模型执行；超出范围则安全退出 |
-| ⚠️ 2 | **命令原样保留原则** | 若命令中使用了绝对路径，则不得修改；若为相对路径且提供目录树，需基于 `/share/home/zhangss/[模型名]` 补全 |
-| ⚠️ 3 | **智能容错机制（Self-healing）** | 必须实现两轮重试策略：<br>① 清理旧目录<br>② 第一次运行<br>③ 出错判断是否因目录问题<br>④ 动态修复后第二次尝试 |
-| ⚠️ 4 | **文件遍历与头部提取** | 使用 `glob`, `gzip` 等工具扫描并提取前几行文本 |
-| ⚠️ 5 | **日志隔离写入规则** | 日志文件命名格式必须为 `data/stage1_obs_{task_id}.txt`，禁止合并或加锁 |
+### 🔍 一、核心目标（探索勘探阶段）
+> 在 Slurm Job Array 并行模式下，自动运行指定的五个生物信息学模型之一，并记录其输出文件结构及内容样本，用于后续分析流程设计。
+
+### 🧪 二、输入控制机制
+- 使用 `SLURM_ARRAY_TASK_ID` 控制当前执行哪个模型。
+- 模型列表共 5 个，索引从 0 到 4。
+- 若超出范围，则打印提示并安全退出。
+
+### ⚙️ 三、模型执行策略（Job Array 单任务）
+- 每次只运行一个模型。
+- 不允许并发或合并操作。
+- 必须支持动态环境变量获取方式启动。
+
+### 🛡️ 四、健壮性保障（极度重要）
+#### 1. 异常捕获原则：
+- 所有模型执行必须包裹在 try-except 中。
+- 禁止 raise 错误中断主线程。
+
+#### 2. 输出目录处理逻辑：
+| 条件 | 动作 |
+|------|------|
+| 执行前 | 删除旧目录（rmtree） |
+| 第一次失败且含 “No such file” | 创建目录后重试 |
+| 第一次失败且含 “already exists” | 删除目录后重试 |
+
+#### 3. 日志输出规则：
+- 每个任务独立写入日志文件：`data/stage1_obs_{task_id}.txt`
+- 禁止任何形式的共享文件写入或锁机制！
+
+### 📁 五、结果采集要求（勘探阶段）
+- 遍历模型输出目录下的所有文件（包括隐藏文件）。
+- 支持 `.gz`, `.csv`, `.txt` 等常见格式。
+- 对每个文件提取前几行内容进行摘要。
+- 写入到独立的日志文件中供人工查看。
+
+### 🚫 六、禁用项（严重违规将导致任务失败）
+- ❌ 不得使用 pandas。
+- ❌ 不得做数据清洗或指标计算。
+- ❌ 不得生成 sbatch 脚本。
+- ❌ 不得使用统一观测文件（必须分片）。
+- ❌ 不得提前创建输出目录（尤其注意 Macrel）。
 
 ---
 
-## 🧬 模型配置表（供参考）
+## ✅ 最终确认：是否满足以下全部要求？
 
-```python
-MODELS = [
-    {
-        "name": "Macrel",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"',
-        "out_dir": "data/Macrel_out"
-    },
-    {
-        "name": "AMP-Scanner-v2",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"',
-        "out_dir": "data/AMP-Scanner-v2_out"
-    },
-    {
-        "name": "amPEPpy",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model"',
-        "out_dir": "data/amPEPpy_out"
-    },
-    {
-        "name": "AI4AMP",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv"',
-        "out_dir": "data/AI4AMP_out"
-    },
-    {
-        "name": "AMPlify",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out"',
-        "out_dir": "data/AMPlify_out"
-    }
-]
-```
+✅ 是单个可运行 Python 脚本  
+✅ 包含完整 import  
+✅ 主函数封装于 `main()`  
+✅ 使用 `if __name__ == '__main__':` 启动  
+✅ 根据 SLURM_ARRAY_TASK_ID 分配模型  
+✅ 清理 + 自适应目录管理 + 双重重试机制  
+✅ 捕获异常但不抛出  
+✅ 每个任务写入独立 log 文件  
+✅ 遍历输出目录并读取文件头若干行  
+✅ 不使用 pandas / merge / lock  
 
 ---
 
-## 🛠 工程师，请开始编码！
+## 👨‍💻 工程师，请你现在开始编写最终版本的 Python 脚本。
 
-请按照上述规范编写完整的自动化脚本。以下是最终交付模板框架建议：
-
-```python
-#!/usr/bin/env python3
-
-import os
-import subprocess
-import shutil
-import glob
-import gzip
-
-MODELS = [ ... ]  # 上述模型列表
-
-def run_model(model):
-    ...
-
-def inspect_output(out_dir, log_file):
-    ...
-
-def main():
-    ...
-
-if __name__ == "__main__":
-    main()
-```
-
-请确保满足以下几点后再提交完整代码：
-- ✅ 正确获取 `SLURM_ARRAY_TASK_ID`
-- ✅ 模型命令原样执行
-- ✅ 实现双轮容错逻辑（rmtree → run → mkdir → retry）
-- ✅ 遍历输出目录下所有文件并读取头部内容
-- ✅ 结果写入 `data/stage1_obs_{task_id}.txt`
-- ✅ 不引入 pandas、不进行 merge、不计算指标
-
-现在请你提供完整可运行的 Python 脚本代码。
+你可以基于上述审查要点来构建代码框架。如果你已完成初稿，请贴上你的实现；否则我可以为你草拟一份模板供参考。
 
 ## User
 
@@ -204,8 +178,8 @@ if __name__ == "__main__":
    #SBATCH --array=0-[MAX_INDEX]%4   # 极度重要: 智能替换为 (模型总数量 - 1)
    #SBATCH -N 1
    #SBATCH --ntasks=1
-   #SBATCH --cpus-per-task=12
-   #SBATCH --gres=gpu:3
+   #SBATCH --cpus-per-task=20
+   #SBATCH --gres=gpu:1
    #SBATCH -p gpu
    #SBATCH -o amp_eval_%A_%a.out
    #SBATCH -e amp_eval_%A_%a.err
@@ -220,139 +194,128 @@ if __name__ == "__main__":
 ## Code Engineer
 
 ```python
-#!/usr/bin/env python3
-
 import os
 import subprocess
 import shutil
 import glob
 import gzip
 
-MODELS = [
-    {
-        "name": "Macrel",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"',
-        "out_dir": "data/Macrel_out"
-    },
-    {
-        "name": "AMP-Scanner-v2",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"',
-        "out_dir": "data/AMP-Scanner-v2_out"
-    },
-    {
-        "name": "amPEPpy",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model"',
-        "out_dir": "data/amPEPpy_out"
-    },
-    {
-        "name": "AI4AMP",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv"',
-        "out_dir": "data/AI4AMP_out"
-    },
-    {
-        "name": "AMPlify",
-        "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out"',
-        "out_dir": "data/AMPlify_out"
-    }
-]
-
-def run_model(model):
-    out_dir = model["out_dir"]
-    cmd = model["cmd"]
-
-    # Step 1: Clean up previous outputs
-    print(f"[INFO] Removing existing output directory: {out_dir}")
-    shutil.rmtree(out_dir, ignore_errors=True)
-
-    # Step 2: First attempt to run the command
-    print(f"[INFO] Running model '{model['name']}' with first attempt...")
-    res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-
-    if res.returncode == 0:
-        print("[SUCCESS] Model executed successfully on first try.")
-        return True
-
-    stderr_output = res.stderr.lower()
-    stdout_output = res.stdout.lower()
-    combined_error = stderr_output + stdout_output
-
-    print(f"[ERROR] First execution failed:\nSTDOUT={res.stdout}\nSTDERR={res.stderr}")
-
-    # Step 3: Self-healing logic based on error messages
-    if any(keyword in combined_error for keyword in ["no such file", "failed to save", "notfounderror"]):
-        print("[HEALING] Detected missing directory issue. Creating output directory...")
-        os.makedirs(out_dir, exist_ok=True)
-        print("[RETRY] Retrying after creating directory...")
-        res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-        if res_retry.returncode == 0:
-            print("[SUCCESS] Model executed successfully after retry.")
-            return True
-        else:
-            print(f"[FAIL] Retry also failed:\nSTDOUT={res_retry.stdout}\nSTDERR={res_retry.stderr}")
-    
-    elif "already exists" in combined_error or "exists" in combined_error:
-        print("[HEALING] Detected pre-existing directory conflict. Removing it again...")
-        shutil.rmtree(out_dir, ignore_errors=True)
-        print("[RETRY] Retrying after removing conflicting directory...")
-        res_retry = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-        if res_retry.returncode == 0:
-            print("[SUCCESS] Model executed successfully after retry.")
-            return True
-        else:
-            print(f"[FAIL] Retry also failed:\nSTDOUT={res_retry.stdout}\nSTDERR={res_retry.stderr}")
-
-    # Final failure handling
-    log_file = f"data/stage1_obs_{int(os.environ.get('SLURM_ARRAY_TASK_ID', 0))}.txt"
-    with open(log_file, "w") as f:
-        f.write("=== Execution Failed ===\n")
-        f.write(f"Command: {cmd}\n")
-        f.write(f"Return Code: {res.returncode}\n")
-        f.write(f"STDOUT:\n{res.stdout}\n")
-        f.write(f"STDERR:\n{res.stderr}\n")
-    print(f"[FATAL] All attempts failed. Error details saved to {log_file}")
-    return False
-
-def inspect_output(out_dir, log_file):
-    print(f"[INSPECT] Inspecting output directory: {out_dir}")
-    files = []
-    pattern_all = os.path.join(out_dir, "**/*")
-    for file_path in glob.glob(pattern_all, recursive=True):
-        if os.path.isfile(file_path):
-            files.append(file_path)
-
-    with open(log_file, "w") as lf:
-        lf.write(f"=== Output Inspection Report ===\n")
-        lf.write(f"Output Directory: {out_dir}\n\n")
-
-        for idx, fp in enumerate(files):
-            lf.write(f"\n--- File #{idx+1}: {fp} ---\n")
-            try:
-                if fp.endswith(".gz"):
-                    with gzip.open(fp, "rt", encoding="utf-8") as gf:
-                        lines = [next(gf) for _ in range(10)]
-                        lf.writelines(lines)
-                else:
-                    with open(fp, "r", encoding="utf-8", errors="ignore") as tf:
-                        lines = [next(tf) for _ in range(10)]
-                        lf.writelines(lines)
-            except Exception as e:
-                lf.write(f"[ERROR] Could not read file content: {str(e)}\n")
-
 def main():
+    # 获取当前任务 ID
     task_id = int(os.environ.get('SLURM_ARRAY_TASK_ID', 0))
-    total_tasks = len(MODELS)
 
-    if task_id >= total_tasks or task_id < 0:
-        print(f"[WARNING] Invalid task_id {task_id}, valid range is [0, {total_tasks - 1}]")
+    # 定义模型配置列表
+    models = [
+        {
+            "name": "Macrel",
+            "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives\"",
+            "output_dir": "data/Macrel_out"
+        },
+        {
+            "name": "AMP-Scanner-v2",
+            "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv\"",
+            "output_dir": "data/AMP-Scanner-v2_out"
+        },
+        {
+            "name": "amPEPpy",
+            "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model\"",
+            "output_dir": "data/amPEPpy_out"
+        },
+        {
+            "name": "AI4AMP",
+            "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv\"",
+            "output_dir": "data/AI4AMP_out"
+        },
+        {
+            "name": "AMPlify",
+            "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out\"",
+            "output_dir": "data/AMPlify_out"
+        }
+    ]
+
+    # 检查任务 ID 是否合法
+    if task_id < 0 or task_id >= len(models):
+        print(f"[ERROR] Invalid task_id {task_id}. Must be between 0 and {len(models)-1}.")
         return
 
-    selected_model = MODELS[task_id]
-    success = run_model(selected_model)
+    model = models[task_id]
+    name = model["name"]
+    cmd = model["cmd"]
+    output_dir = model["output_dir"]
 
-    if success:
-        log_file = f"data/stage1_obs_{task_id}.txt"
-        inspect_output(selected_model["out_dir"], log_file)
-        print(f"[DONE] Observation report written to {log_file}")
+    # 设置日志文件路径（每个任务独立）
+    log_file = f"data/stage1_obs_{task_id}.txt"
+
+    with open(log_file, "w") as log:
+        log.write(f"[INFO] Running model: {name}\n")
+        log.write(f"[CMD] {cmd}\n\n")
+
+        # 第一步：清理旧目录
+        log.write("[CLEANUP] Removing previous output directory...\n")
+        shutil.rmtree(output_dir, ignore_errors=True)
+
+        # 第二步：尝试首次执行
+        log.write("[EXECUTE] First attempt to run command...\n")
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+
+        # 第三步：判断是否需要自愈重试
+        retry_needed = False
+        if res.returncode != 0:
+            stderr_content = res.stderr.lower()
+            stdout_content = res.stdout.lower()
+            combined_error = stderr_content + stdout_content
+
+            if "no such file" in combined_error or "not found" in combined_error or "failed to save" in combined_error:
+                log.write("[RETRY] Detected missing directory error. Creating directory and retrying...\n")
+                os.makedirs(output_dir, exist_ok=True)
+                retry_needed = True
+            elif "already exists" in combined_error or "exists" in combined_error:
+                log.write("[RETRY] Detected existing directory conflict. Removing and retrying...\n")
+                shutil.rmtree(output_dir, ignore_errors=True)
+                retry_needed = True
+
+        # 如果需要重试则再执行一次
+        if retry_needed:
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+
+        # 记录执行结果
+        log.write(f"[RESULT] Return code: {res.returncode}\n")
+        if res.returncode != 0:
+            log.write("[STDERR]\n")
+            log.write(res.stderr)
+            log.write("\n[STDOUT]\n")
+            log.write(res.stdout)
+        else:
+            log.write("[SUCCESS] Command executed successfully.\n")
+
+        # 第四步：勘探输出目录结构
+        log.write("\n[EXPLORATION] Scanning output directory...\n")
+        if not os.path.exists(output_dir):
+            log.write(f"[WARNING] Output directory does not exist: {output_dir}\n")
+        else:
+            for root, dirs, files in os.walk(output_dir):
+                level = root.replace(output_dir, '').count(os.sep)
+                indent = ' ' * 2 * level
+                log.write(f"{indent}{os.path.basename(root)}/\n")
+                subindent = ' ' * 2 * (level + 1)
+                for f in files:
+                    file_path = os.path.join(root, f)
+                    log.write(f"{subindent}{f}\n")
+
+                    # 尝试读取文件头部内容
+                    try:
+                        if f.endswith(".gz"):
+                            with gzip.open(file_path, 'rt', encoding='utf-8') as gf:
+                                lines = [next(gf) for _ in range(5)]
+                                log.write("".join(lines[:5]))
+                        else:
+                            with open(file_path, 'r', encoding='utf-8') as rf:
+                                lines = [next(rf) for _ in range(5)]
+                                log.write("".join(lines[:5]))
+                    except Exception as e:
+                        log.write(f"[READ ERROR] Could not read file: {str(e)}\n")
+                log.write("\n")
+
 
 if __name__ == "__main__":
     main()
@@ -361,10 +324,10 @@ if __name__ == "__main__":
 ```bash
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-4%5
+#SBATCH --array=0-4%4
 #SBATCH -N 1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
+#SBATCH --cpus-per-task=20
 #SBATCH --gres=gpu:1
 #SBATCH -p gpu
 #SBATCH -o amp_eval_%A_%a.out

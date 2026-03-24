@@ -2,7 +2,6 @@ import ast
 import json
 import os
 from pathlib import Path
-import PyPDF2
 import re
 from openai import OpenAI
 from vanguard import run_vanguard_exploration

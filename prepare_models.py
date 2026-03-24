@@ -36,7 +36,7 @@ def main():
         else:
             with open(paper_file, "r", encoding="utf-8", errors="ignore") as f:
                 raw_text = f.read()
-                
+        print(f"    >>> [Debug] 成功提取文本长度: {len(raw_text)} 字符")        
         match = re.search(r'\n\s*(references|bibliography|literature cited)\s*\n', raw_text, re.IGNORECASE)
         if match:
             raw_text = raw_text[:match.start()]

@@ -1,15 +1,18 @@
-=== Output Inspection Report ===
-Output Directory: data/AI4AMP_out
+[INFO] Running model: AI4AMP
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv"
 
+[CLEANUP] Removing previous output directory...
+[EXECUTE] First attempt to run command...
+[RETRY] Detected missing directory error. Creating directory and retrying...
+[RESULT] Return code: 0
+[SUCCESS] Command executed successfully.
 
---- File #1: data/AI4AMP_out/predictions.csv ---
+[EXPLORATION] Scanning output directory...
+AI4AMP_out/
+  predictions.csv
 ,Peptide,Score,Prediction results
 0,pos_000001,0.9855455,Yes
 1,pos_000002,0.9893574,Yes
 2,pos_000003,0.96799165,Yes
 3,pos_000004,0.8556144,Yes
-4,pos_000005,0.40199384,No
-5,pos_000006,0.3763119,No
-6,pos_000007,0.28892195,No
-7,pos_000008,0.9903686,Yes
-8,pos_000009,0.95857865,Yes
+

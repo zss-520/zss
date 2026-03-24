@@ -1,15 +1,18 @@
-=== Output Inspection Report ===
-Output Directory: data/AMPlify_out
+[INFO] Running model: AMPlify
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out"
 
+[CLEANUP] Removing previous output directory...
+[EXECUTE] First attempt to run command...
+[RETRY] Detected missing directory error. Creating directory and retrying...
+[RESULT] Return code: 0
+[SUCCESS] Command executed successfully.
 
---- File #1: data/AMPlify_out/AMPlify_balanced_results_20260323140222.tsv ---
+[EXPLORATION] Scanning output directory...
+AMPlify_out/
+  AMPlify_balanced_results_20260324100314.tsv
 Sequence_ID	Sequence	Length	Charge	Probability_score	AMPlify_log_scaled_score	Prediction
 pos_000001	KKSFFKKLTSVASSVLS	17	4	0.9997115	35.3987	AMP
 pos_000002	ALKKMLRLAKRLS	13	5	0.91416943	10.6636	AMP
 pos_000003	FCLPLIGGLLKGLCL	15	1	0.99584943	23.8189	AMP
 pos_000004	VGAVAFGPVGAVVGGLASGFTGKQT	25	1	0.8004495	6.9995	AMP
-pos_000005	FKQFHFKDFNRAFGFMTRVALQAEKL	26	3	0.25227562	1.2626	non-AMP
-pos_000006	KKCRNKKMEVSR	12	5	0.12617108	0.5857	non-AMP
-pos_000007	YNLKYCTNDKDCPTMMCFPPDVSKCVWKTCYCVQKHKKKLKKKKKLTFNM	50	10	0.89172566	9.6547	AMP
-pos_000008	KKWKKFIKKIGIGAVLTTPGAKK	23	8	0.9999858	48.4997	AMP
-pos_000009	WGHKLRSSWNKVKHAVKKGAGYASGACRVLGH	32	7	0.9998074	37.1552	AMP
+

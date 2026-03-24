@@ -1,27 +1,23 @@
-=== Output Inspection Report ===
-Output Directory: data/Macrel_out
+[INFO] Running model: Macrel
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
 
+[CLEANUP] Removing previous output directory...
+[EXECUTE] First attempt to run command...
+[RESULT] Return code: 0
+[SUCCESS] Command executed successfully.
 
---- File #1: data/Macrel_out/README.md ---
+[EXPLORATION] Scanning output directory...
+Macrel_out/
+  README.md
 If you find Macrel useful, please cite:
 
 > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
 > genomes and metagenomes. The PeerJ 8:e10555
 > https://doi.org/10.7717/peerj.10555
-
-For more information, please read [the macrel
-documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
-list](https://groups.google.com/g/ampsphere-users) for questions.
-
-
---- File #2: data/Macrel_out/macrel.out.prediction.gz ---
+  macrel.out.prediction.gz
 # Prediction from macrel v1.6.0
 Access	Sequence	AMP_family	is_AMP	AMP_probability	Hemolytic	Hemolytic_probability
 pos_000001	KKSFFKKLTSVASSVLS	CLP	False	0.287	Hemo	0.614
 pos_000002	ALKKMLRLAKRLS	CLP	True	0.782	Hemo	0.960
 pos_000003	FCLPLIGGLLKGLCL	CDP	True	0.683	Hemo	0.693
-pos_000004	VGAVAFGPVGAVVGGLASGFTGKQT	CLP	False	0.416	Hemo	0.733
-pos_000005	FKQFHFKDFNRAFGFMTRVALQAEKL	CLP	False	0.446	NonHemo	0.436
-pos_000006	KKCRNKKMEVSR	CDP	False	0.347	NonHemo	0.366
-pos_000007	YNLKYCTNDKDCPTMMCFPPDVSKCVWKTCYCVQKHKKKLKKKKKLTFNM	CDP	False	0.198	Hemo	0.584
-pos_000008	KKWKKFIKKIGIGAVLTTPGAKK	CLP	True	0.812	Hemo	0.980
+

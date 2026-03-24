@@ -1,15 +1,18 @@
-=== Output Inspection Report ===
-Output Directory: data/AMP-Scanner-v2_out
+[INFO] Running model: AMP-Scanner-v2
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
 
+[CLEANUP] Removing previous output directory...
+[EXECUTE] First attempt to run command...
+[RETRY] Detected missing directory error. Creating directory and retrying...
+[RESULT] Return code: 0
+[SUCCESS] Command executed successfully.
 
---- File #1: data/AMP-Scanner-v2_out/ampscanner_out.csv ---
+[EXPLORATION] Scanning output directory...
+AMP-Scanner-v2_out/
+  ampscanner_out.csv
 SeqID,Prediction_Class,Prediction_Probability,Sequence
 pos_000001,AMP,0.9992,KKSFFKKLTSVASSVLS
 pos_000002,AMP,0.8649,ALKKMLRLAKRLS
 pos_000003,AMP,1.0000,FCLPLIGGLLKGLCL
 pos_000004,AMP,0.9920,VGAVAFGPVGAVVGGLASGFTGKQT
-pos_000005,Non-AMP,0.0011,FKQFHFKDFNRAFGFMTRVALQAEKL
-pos_000006,Non-AMP,0.0429,KKCRNKKMEVSR
-pos_000007,AMP,1.0000,YNLKYCTNDKDCPTMMCFPPDVSKCVWKTCYCVQKHKKKLKKKKKLTFNM
-pos_000008,AMP,0.9997,KKWKKFIKKIGIGAVLTTPGAKK
-pos_000009,AMP,1.0000,WGHKLRSSWNKVKHAVKKGAGYASGACRVLGH
+

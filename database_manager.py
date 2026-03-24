@@ -47,6 +47,7 @@ def extract_model_info_from_text(paper_text: str) -> dict:
         )
         
         content = response.choices[0].message.content or "{}"
+        print(f"    >>> [Debug] AI 原始提取结果:\n{content}")
         return json.loads(content)
         
     except json.JSONDecodeError as e:
@@ -59,21 +60,35 @@ def extract_model_info_from_text(paper_text: str) -> dict:
 def ingest_new_paper(paper_text: str) -> bool:
     parsed_data = extract_model_info_from_text(paper_text)
     
-    if not parsed_data or "models" not in parsed_data:
-        print("!!! [Error] 解析失败或未提取到有效的模型信息。")
+    # 👇 核心修复：兼容大模型返回“纯列表”或“字典嵌套”两种格式
+    if isinstance(parsed_data, list):
+        # AI 自作聪明直接返回了列表
+        models_list = parsed_data
+        paper_title = "Unknown_Paper"
+    elif isinstance(parsed_data, dict) and "models" in parsed_data:
+        # AI 乖乖遵守了格式
+        models_list = parsed_data["models"]
+        paper_title = parsed_data.get("paper_title", "Unknown_Paper")
+    else:
+        print("!!! [Error] 解析失败，格式无法识别。")
+        return False
+        
+    if not models_list:
+        print("!!! [Error] 提取到的模型列表为空。")
         return False
         
     db = load_db()
     
-    paper_title = parsed_data.get("paper_title", "Unknown Paper")
     if paper_title not in [p.get("paper_title") for p in db.get("papers", [])]:
         db.setdefault("papers", []).append({"paper_title": paper_title})
         
     existing_models = {m["model_name"] for m in db.get("models", [])}
     new_models_added = 0
     
-    for model in parsed_data["models"]:
+    # 👇 注意这里改成遍历 models_list
+    for model in models_list:
         model["source_paper"] = paper_title
+        model["skip_env_setup"] = False
         if not model.get("inference_cmd_template"):
             model["inference_cmd_template"] = "python predict.py --input {fasta_path} --out {output_dir}"
             
