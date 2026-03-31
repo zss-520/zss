@@ -1,4 +1,5 @@
 import os
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -50,17 +51,37 @@ FIRST_STAGE_OBSERVATION_TXT = os.getenv("FIRST_STAGE_OBSERVATION_TXT", "stage1_o
 # =========================
 # 评测量化打分权重配置 (供 Critic 和计算使用)
 # =========================
-# 在 AMP 预测等类别极度不平衡的任务中，AUPRC 和 MCC 通常比 ACC 更重要。
-# 你可以根据未来不同领域任务的需求，自由调整这里的指标和权重。
-# 注意：所有加权指标的和最好为 1.0 (或 100%)
-METRIC_WEIGHTS = {
-    "ACC": 0.10,      # 准确率权重 
-    "Recall": 0.15,   # 召回率权重 
-    "MCC": 0.35,      # 马修斯相关系数权重 
-    "AUROC": 0.10,    # ROC曲线下侧面积权重 
-    "AUPRC": 0.30,    # PR曲线下侧面积权重 
-}
+# =========================
+# Benchmark Strategy 加载
+# =========================
+def load_benchmark_strategy():
+    strategy_path = "data/benchmark_strategy.json"
+    if os.path.exists(strategy_path):
+        try:
+            with open(strategy_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {}
 
+def load_dynamic_weights():
+    """尝试从架构师生成的基准测试策略中加载动态权重"""
+    data = load_benchmark_strategy()
+    weights = data.get("metric_weights", {})
+    if weights:
+        return weights
+
+    # 默认兜底权重
+    return {
+        "ACC": 0.10,
+        "Recall": 0.15,
+        "MCC": 0.35,
+        "AUROC": 0.10,
+        "AUPRC": 0.30,
+    }
+
+BENCHMARK_STRATEGY = load_benchmark_strategy()
+METRIC_WEIGHTS = load_dynamic_weights()
 def validate_runtime_config(require_hpc: bool = False) -> None:
     required = {
         "OPENAI_API_KEY / DASHSCOPE_API_KEY": DASHSCOPE_API_KEY,

@@ -1,18 +1,33 @@
 [INFO] Running model: amPEPpy
 [CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model"
-
 [CLEANUP] Removing previous output directory...
-[EXECUTE] First attempt to run command...
-[RETRY] Detected missing directory error. Creating directory and retrying...
-[RESULT] Return code: 0
-[SUCCESS] Command executed successfully.
+[FIRST FAIL] Command failed:
+STDOUT:
+
+STDERR:
+/share/home/zhangss/miniconda3/envs/amPEP/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.4.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/share/home/zhangss/miniconda3/envs/amPEP/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.4.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+Traceback (most recent call last):
+  File "/share/home/zhangss/miniconda3/envs/amPEP/bin/ampep", line 33, in <module>
+    sys.exit(load_entry_point('amPEPpy==1.1.0', 'console_scripts', 'ampep')())
+  File "/share/home/zhangss/miniconda3/envs/amPEP/lib/python3.8/site-packages/amPEPpy-1.1.0-py3.8.egg/amPEPpy/amPEP.py", line 53, in main
+  File "/share/home/zhangss/miniconda3/envs/amPEP/lib/python3.8/site-packages/amPEPpy-1.1.0-py3.8.egg/amPEPpy/amPEP.py", line 144, in predict
+FileNotFoundError: [Errno 2] No such file or directory: 'data/amPEPpy_out/predictions.txt'
+
+[RETRY] Detected missing directory; creating it now...
+[RETRYING] Re-executing command after adjustment...
+[SUCCESS] Model executed successfully after retry.
 
 [EXPLORATION] Scanning output directory...
-amPEPpy_out/
-  predictions.txt
+
+[FILE] predictions.txt (data/amPEPpy_out/predictions.txt)
+[HEAD CONTENT]:
 probability_nonAMP	probability_AMP	predicted	seq_id
 0.5328125	0.4671875	nonAMP	pos_000001
 0.2979166666666666	0.7020833333333333	AMP	pos_000002
 0.10424107142857142	0.8957589285714287	AMP	pos_000003
 0.22093750000000006	0.7790625	AMP	pos_000004
-

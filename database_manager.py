@@ -57,24 +57,20 @@ def extract_model_info_from_text(paper_text: str) -> dict:
         print(f"!!! [Error] 调用 API 提取文献信息时发生错误: {e}")
         return {}
 
-def ingest_new_paper(paper_text: str) -> bool:
+def ingest_new_paper(paper_text: str, filename: str = "Unknown_File") -> bool: # <--- 增加 filename 参数
     parsed_data = extract_model_info_from_text(paper_text)
     
-    # 👇 核心修复：兼容大模型返回“纯列表”或“字典嵌套”两种格式
     if isinstance(parsed_data, list):
-        # AI 自作聪明直接返回了列表
         models_list = parsed_data
-        paper_title = "Unknown_Paper"
+        # 🚨 修复点 1：如果 AI 返回列表，直接用文件名作为标题
+        paper_title = filename 
     elif isinstance(parsed_data, dict) and "models" in parsed_data:
-        # AI 乖乖遵守了格式
         models_list = parsed_data["models"]
-        paper_title = parsed_data.get("paper_title", "Unknown_Paper")
+        # 🚨 修复点 2：如果 AI 解析出的标题是 Unknown，则用文件名兜底
+        extracted_title = parsed_data.get("paper_title", "Unknown_Paper")
+        paper_title = extracted_title if extracted_title != "Unknown_Paper" else filename
     else:
         print("!!! [Error] 解析失败，格式无法识别。")
-        return False
-        
-    if not models_list:
-        print("!!! [Error] 提取到的模型列表为空。")
         return False
         
     db = load_db()

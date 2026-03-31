@@ -1,23 +1,22 @@
 [INFO] Running model: Macrel
 [CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
-
 [CLEANUP] Removing previous output directory...
-[EXECUTE] First attempt to run command...
-[RESULT] Return code: 0
-[SUCCESS] Command executed successfully.
+[SUCCESS] Model executed successfully on first try.
 
 [EXPLORATION] Scanning output directory...
-Macrel_out/
-  README.md
+
+[FILE] README.md (data/Macrel_out/README.md)
+[HEAD CONTENT]:
 If you find Macrel useful, please cite:
 
 > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
 > genomes and metagenomes. The PeerJ 8:e10555
 > https://doi.org/10.7717/peerj.10555
-  macrel.out.prediction.gz
+
+[FILE] macrel.out.prediction.gz (data/Macrel_out/macrel.out.prediction.gz)
+[HEAD CONTENT]:
 # Prediction from macrel v1.6.0
 Access	Sequence	AMP_family	is_AMP	AMP_probability	Hemolytic	Hemolytic_probability
 pos_000001	KKSFFKKLTSVASSVLS	CLP	False	0.287	Hemo	0.614
 pos_000002	ALKKMLRLAKRLS	CLP	True	0.782	Hemo	0.960
 pos_000003	FCLPLIGGLLKGLCL	CDP	True	0.683	Hemo	0.693
-

@@ -1,0 +1,27 @@
+{
+  "papers": [
+    {
+      "paper_title": "A generative artificial intelligence approach for the discovery of antimicrobial peptides against mu(1).pdf"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPSorter",
+      "env_name": "amp_sorter",
+      "repo_url": "https://github.com/W1V1995/AMP_Project",
+      "dependencies": [
+        "torch",
+        "transformers",
+        "scikit-learn",
+        "numpy",
+        "pandas"
+      ],
+      "inference_cmd_template": "python predict_amp.py -i {fasta_path} -o {output_dir}/predictions.csv",
+      "skip_env_setup": false,
+      "source_paper": "A generative artificial intelligence approach for the discovery of antimicrobial peptides against mu(1).pdf"
+    }
+  ],
+  "processed_papers": [
+    "A generative artificial intelligence approach for the discovery of antimicrobial peptides against mu(1).pdf"
+  ]
+}

@@ -7,6 +7,12 @@ import PyPDF2
 from database_manager import ingest_new_paper, get_target_models_for_eval, is_paper_processed, mark_paper_processed
 from vanguard import run_vanguard_exploration
 
+# 引入我们刚刚写的首席科学家模块
+try:
+    from benchmark_designer import generate_benchmark_strategy
+except ImportError:
+    generate_benchmark_strategy = None
+
 def main():
     print("========== [Ingestion Phase 1] 扫描文献并提取模型元数据 ==========")
     papers_dir = Path("data/papers")
@@ -41,7 +47,7 @@ def main():
         if match:
             raw_text = raw_text[:match.start()]
             
-        if ingest_new_paper(raw_text):
+        if ingest_new_paper(raw_text, filename=filename): # <--- 传入当前处理的文件名
             mark_paper_processed(filename)
             
     models_info = get_target_models_for_eval()
@@ -50,7 +56,56 @@ def main():
         print(">>> 没有提取到需要入库的新模型，流程结束。")
         return
 
-    print(f"\n>>> 准备去超算拉取源码的模型总数: {len(models_info)}")
+    # ==========================================
+    # 动态生成基准测试策略
+    # ==========================================
+    if generate_benchmark_strategy:
+        generate_benchmark_strategy()
+    else:
+        print("!!! [Warning] 未找到 benchmark_designer 模块，跳过顶刊基准策略生成。")
+
+    # ==========================================
+    # 🛑 交互式断点：人工核查与确认
+    # ==========================================
+    print("\n" + "="*60)
+    print("========== [Review Phase] 人工质检与核对 ==========")
+    print("="*60)
+    print(f">>> AI 共提取了 {len(models_info)} 个模型配置。请核对以下解析结果：\n")
+    
+    for idx, m in enumerate(models_info, 1):
+        print(f"  [{idx}] 模型名称: {m.get('model_name')}")
+        print(f"      虚拟环境: {m.get('env_name')}")
+        print(f"      开源链接: {m.get('repo_url')}")
+        print(f"      推导命令: {m.get('inference_cmd_template')}")
+        if m.get('skip_env_setup'):
+            print(f"      状态: 🟢 已存在本地环境，将跳过拉取")
+        print("-" * 40)
+
+    # 顺便展示一下架构师定的算分策略
+    strategy_path = Path("data/benchmark_strategy.json")
+    if strategy_path.exists():
+        with open(strategy_path, "r", encoding="utf-8") as f:
+            strat = json.load(f)
+            print("\n  [📊 顶刊基准测试策略预览]")
+            for ds in strat.get("recommended_datasets", []):
+                print(f"  - 推荐数据: {ds.get('dataset_name')} (下载: {ds.get('download_url')})")
+                print(f"    来源文献: {', '.join(ds.get('source_papers', []))}")
+            print("\n  [⚖️ 动态指标与权重]")
+            weights = strat.get("metric_weights", {})
+            refs = strat.get("metrics_references", {})
+            for k, w in weights.items():
+                print(f"  - {k} (权重: {w}) -> 依据: {refs.get(k, '无')}")
+            print("-" * 40)
+    # 询问用户是否继续
+    user_input = input("\n🤔 是否确认以上解析正确，并前往超算执行耗时的物理拉取任务？(y/n) [默认: y]: ").strip().lower()
+    
+    if user_input in ['n', 'no']:
+        print("\n>>> [Abort] 🛑 任务已中断！")
+        print(">>> 你可以去 `data/model_knowledge_db.json` 手动修改错误的链接或命令，然后再次运行本脚本。")
+        return
+        
+    print("\n>>> [Proceed] 🚀 授权通过！全军出击，前往超算...")
+    # ==========================================
 
     print("\n========== [Ingestion Phase 2] 超算物理拉取与勘探 (先遣队) ==========")
     save_directory = Path("data/vlab_discussions")

@@ -15,3 +15,6 @@
    python eval_script.py
    echo "finish"
    ```
+### 最终交付成果
+
+#### ✅ Python 脚本：`run_model_exploration.py`

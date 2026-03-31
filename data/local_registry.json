@@ -12,7 +12,7 @@
         "env_name": "ascan2_tf1",
         "repo_url": "",
         "dependencies": [],
-        "inference_cmd_template": "python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f {fasta_path} -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p {output_dir}/ampscanner_out.csv",
+        "inference_cmd_template": "python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f {fasta_path} -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p {output_dir}/ampscanner_out.csv",
         "skip_env_setup": true
     },
     {

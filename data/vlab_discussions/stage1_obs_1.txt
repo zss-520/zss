@@ -1,18 +1,27 @@
 [INFO] Running model: AMP-Scanner-v2
-[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/021820_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
-
+[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
 [CLEANUP] Removing previous output directory...
-[EXECUTE] First attempt to run command...
-[RETRY] Detected missing directory error. Creating directory and retrying...
-[RESULT] Return code: 0
-[SUCCESS] Command executed successfully.
+[FIRST FAIL] Command failed:
+STDOUT:
+STARTING JOB: 2026-03-25 00:52:50
+Encoding sequences...
+Making predictions...
+Saving output...
+ERROR: Failed to save output files 'AMP_Candidates.fasta' or 'data/AMP-Scanner-v2_out/ampscanner_out.csv': [Errno 2] No such file or directory: 'data/AMP-Scanner-v2_out/ampscanner_out.csv'
+
+STDERR:
+Using TensorFlow backend.
+
+[RETRY] Detected missing directory; creating it now...
+[RETRYING] Re-executing command after adjustment...
+[SUCCESS] Model executed successfully after retry.
 
 [EXPLORATION] Scanning output directory...
-AMP-Scanner-v2_out/
-  ampscanner_out.csv
-SeqID,Prediction_Class,Prediction_Probability,Sequence
-pos_000001,AMP,0.9992,KKSFFKKLTSVASSVLS
-pos_000002,AMP,0.8649,ALKKMLRLAKRLS
-pos_000003,AMP,1.0000,FCLPLIGGLLKGLCL
-pos_000004,AMP,0.9920,VGAVAFGPVGAVVGGLASGFTGKQT
 
+[FILE] ampscanner_out.csv (data/AMP-Scanner-v2_out/ampscanner_out.csv)
+[HEAD CONTENT]:
+SeqID,Prediction_Class,Prediction_Probability,Sequence
+pos_000001,AMP,0.9995,KKSFFKKLTSVASSVLS
+pos_000002,AMP,0.9772,ALKKMLRLAKRLS
+pos_000003,AMP,1.0000,FCLPLIGGLLKGLCL
+pos_000004,AMP,0.9998,VGAVAFGPVGAVVGGLASGFTGKQT
