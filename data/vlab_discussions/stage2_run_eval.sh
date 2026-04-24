@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-4%4   # 极度重要: 智能替换为 (模型总数量 - 1)
+#SBATCH --array=0-3%4   # 极度重要: 智能替换为 (模型总数量 - 1)
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
@@ -12,5 +12,5 @@
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
 conda activate eval_env
-python eval_script.py
+python evaluate_pipeline.py
 echo "finish"

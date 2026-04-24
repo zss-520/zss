@@ -1,0 +1,7 @@
+【文献归属领域】: AMP 预测模型(兜底)
+【文献标题】: EnAMP: A novel deep learning ensemble antibacterial peptide recognition algorithm based on multi-features
+【发表年份】: 2024
+【引用次数】: 5
+【PDF 直链】: 无
+
+【摘要】: Antimicrobial peptides (AMPs), as the preferred alternatives to antibiotics, have wide application with good prospects. Identifying AMPs through wet lab experiments remains expensive, time-consuming and challenging. Many machine learning methods have been proposed to predict AMPs and achieved good results. In this work, we combine two kinds of word embedding features with the statistical features of peptide sequences to develop an ensemble classifier, named EnAMP, in which, two deep neural networks are trained based on Word2vec and Glove word embedding features of peptide sequences, respectively, meanwhile, we utilize statistical features of peptide sequences to train random forest and support vector machine classifiers. The average of four classifiers is the final prediction result. Compared with other state-of-the-art algorithms on six datasets, EnAMP outperforms most existing models with similar computational costs, even when compared with high computational cost algorithms based on Bidirectional Encoder Representation from Transformers (BERT), the performance of our model is comparable. EnAMP source code and the data are available at https://github.com/ruisue/EnAMP.

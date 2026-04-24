@@ -1,47 +1,38 @@
 {
-    "Macrel": {
-        "file_path": "data/Macrel_out/macrel.out.prediction.gz",
-        "file_ext": ".gz",
-        "sep": "\t",
-        "comment_char": "#",
-        "id_col": "Access",
-        "seq_col": "Sequence",
-        "prob_col": "AMP_probability"
-    },
-    "AMP-Scanner-v2": {
-        "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
-        "file_ext": ".csv",
-        "sep": ",",
-        "comment_char": null,
-        "id_col": "SeqID",
-        "seq_col": "Sequence",
-        "prob_col": "Prediction_Probability"
-    },
-    "amPEPpy": {
-        "file_path": "data/amPEPpy_out/predictions.txt",
-        "file_ext": ".txt",
-        "sep": "\t",
-        "comment_char": null,
-        "id_col": "seq_id",
-        "seq_col": null,
-        "prob_col": "probability_AMP"
-    },
-    "AI4AMP": {
-        "file_path": "data/AI4AMP_out/predictions.csv",
-        "file_ext": ".csv",
-        "sep": ",",
-        "comment_char": null,
-        "id_col": "Peptide",
-        "seq_col": null,
-        "prob_col": "Score"
-    },
-    "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260325092223.tsv",
-        "file_ext": ".tsv",
-        "sep": "\t",
-        "comment_char": null,
-        "id_col": "Sequence_ID",
-        "seq_col": "Sequence",
-        "prob_col": "Probability_score"
-    }
+  "Macrel": {
+    "file_path": "data/Macrel_out/macrel.out.prediction.gz",
+    "file_ext": ".gz",
+    "sep": "\t",
+    "comment_char": "#",
+    "id_col": "Access",
+    "seq_col": "Sequence",
+    "prob_col": "AMP_probability"
+  },
+  "AMP-Scanner-v2": {
+    "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
+    "file_ext": ".csv",
+    "sep": ",",
+    "comment_char": null,
+    "id_col": "SeqID",
+    "seq_col": "Sequence",
+    "prob_col": "Prediction_Probability"
+  },
+  "amPEPpy": {
+    "file_path": "data/amPEPpy_out/predictions.txt",
+    "file_ext": ".txt",
+    "sep": "\t",
+    "comment_char": null,
+    "id_col": "seq_id",
+    "seq_col": null,
+    "prob_col": "probability_AMP"
+  },
+  "AMPlify": {
+    "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
+    "file_ext": ".tsv",
+    "sep": "\t",
+    "comment_char": null,
+    "id_col": "Sequence_ID",
+    "seq_col": "Sequence",
+    "prob_col": "Probability_score"
+  }
 }

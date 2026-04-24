@@ -757,16 +757,26 @@ def run_on_hpc_and_fetch(
         # ================= 核心修改处：动态遍历推送所有数据文件 =================
         if os.path.exists(local_data_dir) and os.path.isdir(local_data_dir):
             upload_count = 0
+            
             for item in os.listdir(local_data_dir):
                 local_file_path = os.path.join(local_data_dir, item)
                 
                 # 只传输文件，忽略子文件夹
                 if os.path.isfile(local_file_path):
+                    item_lower = item.lower()
+                    
+                    # 🛡️ 终极绝对防御（名字必须一字不差）：
+                    is_ground_truth = (item_lower == "ground_truth.csv")
+                    is_fasta = (item_lower == "combined_test.fasta")
+                    
+                    # 如果不是这两个指定的文件，统统滚蛋！
+                    if not (is_ground_truth or is_fasta):
+                        continue
+                        
                     remote_file_path = f"{HPC_TARGET_DIR}/data/{item}"
                     sftp.put(local_file_path, remote_file_path)
                     upload_count += 1
-                    # print(f"    -> 已推流: {item}") # 如果觉得刷屏可以注释掉这句
-            print(f">>> [SSH] 成功推送 {upload_count} 个文件到远端 data/ 目录！")
+            print(f">>> [SSH] 成功推送 {upload_count} 个绝对核心文件到远端 data/ 目录！")
         else:
             print(f"!!! [Error] 本地数据目录找不到: {local_data_dir}")
         # ========================================================================
@@ -872,3 +882,27 @@ def run_on_hpc_and_fetch(
             ssh.close()
         except Exception:
             pass
+# =========================
+# Patched override: 使用统一的 HPC 模型部署器
+# =========================
+try:
+    from hpc_model_ops import ensure_models_ready_on_hpc as _patched_ensure_models_ready_on_hpc
+
+    def setup_model_environments(ssh, models_info: list[dict]) -> None:
+        print("\n>>> [Patched Auto-Env] 使用统一部署器检查模型环境、远端仓库与小测试...")
+        results = _patched_ensure_models_ready_on_hpc(
+            ssh,
+            models_info,
+            mark_registry=True,
+            run_smoke_test=True,
+        )
+        for item in results:
+            status = "✅" if item.get("env_setup_ok") and item.get("smoke_test_ok") else "❌"
+            print(
+                f"    {status} {item.get('model_name')} | env={item.get('env_name')} | "
+                f"base={item.get('matched_base_env') or 'none'} | repo={item.get('remote_repo_dir') or 'N/A'}"
+            )
+            if item.get("smoke_test_log_path"):
+                print(f"       smoke log: {item.get('smoke_test_log_path')}")
+except Exception as _patched_env_exc:
+    print(f"!!! [Patched Auto-Env] 加载统一部署器失败，将回退到旧逻辑: {_patched_env_exc}")

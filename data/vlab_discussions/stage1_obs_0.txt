@@ -1,22 +1,38 @@
-[INFO] Running model: Macrel
-[CMD] bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
-[CLEANUP] Removing previous output directory...
-[SUCCESS] Model executed successfully on first try.
+=== Stage 1 Exploration Report ===
+Task ID: 0
+Model: Macrel
+Target Dir: data/Macrel_out
+Time: 2026-04-22 08:59:45
+==================================================
 
-[EXPLORATION] Scanning output directory...
+[INFO] Found 2 files:
 
-[FILE] README.md (data/Macrel_out/README.md)
-[HEAD CONTENT]:
+File: Macrel_out/README.md
+Size: 1506 bytes
+Head Content:
 If you find Macrel useful, please cite:
 
 > Santos-Junior, C.D. et al. Macrel: antimicrobial peptide screening in
 > genomes and metagenomes. The PeerJ 8:e10555
 > https://doi.org/10.7717/peerj.10555
 
-[FILE] macrel.out.prediction.gz (data/Macrel_out/macrel.out.prediction.gz)
-[HEAD CONTENT]:
+For more information, please read [the macrel
+documentation](https://macrel.readthedocs.io) and use the [AMPSphere mailing
+list](https://groups.google.com/g/ampsphere-users) for questions.
+
+------------------------------
+
+File: Macrel_out/macrel.out.prediction.gz
+Size: 108243 bytes
+Head Content:
 # Prediction from macrel v1.6.0
 Access	Sequence	AMP_family	is_AMP	AMP_probability	Hemolytic	Hemolytic_probability
-pos_000001	KKSFFKKLTSVASSVLS	CLP	False	0.287	Hemo	0.614
-pos_000002	ALKKMLRLAKRLS	CLP	True	0.782	Hemo	0.960
-pos_000003	FCLPLIGGLLKGLCL	CDP	True	0.683	Hemo	0.693
+Whole_neg_antiBP2_seq_7	AAAAAAAAAGETS	ALP	False	0.317	NonHemo	0.317
+Whole_neg_antiBP2_seq_970	AAAALRARILQVSSKVN	CLP	False	0.426	Hemo	0.545
+Whole_neg_antiBP2_seq_12	AAAGGGGGGAAGRAYSFKVVLLG	CLP	False	0.495	Hemo	0.703
+NC_neg_antiBP2_seq_1	AAAGGGGGGAAGRAYSFKVVLLGEGCVGKT	CDP	True	0.535	Hemo	0.733
+C_pos_antiBP2_seq_1	AAAKALNAVLVGANA	CLP	False	0.406	Hemo	0.851
+NC_neg_antiBP2_seq_2	AAALGEVEDEGLLASLFRDRFPEAQWRERP	ALP	False	0.040	NonHemo	0.010
+Whole_neg_antiBP2_seq_141	AAALGPGVLQATRAFHTGQPRLAPLPPLPEYGGK	CLP	False	0.485	Hemo	0.644
+C_pos_antiBP2_seq_2	AAANWATGGNAGWNK	CLP	False	0.228	Hemo	0.535
+------------------------------

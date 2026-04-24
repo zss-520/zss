@@ -1,10 +1,11 @@
 import ast
 import json
 import os
+from config import TARGET_MODEL_NAMES
 from pathlib import Path
 import re
 from openai import OpenAI
-from vanguard import run_vanguard_exploration
+#from vanguard import run_vanguard_exploration
 import pandas as pd
 from agent import Agent
 from config import MODEL_NAME, FIRST_STAGE_OBSERVATION_TXT, METRIC_WEIGHTS, validate_runtime_config
@@ -73,11 +74,22 @@ def _run_critic(real_data: dict, save_directory: Path) -> str:
     weights_info = json.dumps(METRIC_WEIGHTS, ensure_ascii=False)
     scores_info = json.dumps(scores, ensure_ascii=False)
     
+    # === 新增：读取前期生成的会议决议记录 ===
+    trace_path = Path("data/meeting_trace.md")
+    meeting_trace = ""
+    if trace_path.exists():
+        with open(trace_path, "r", encoding="utf-8") as f:
+            meeting_trace = f.read()
+    else:
+        meeting_trace = "[未找到前置的基准测试规划会议记录 data/meeting_trace.md]"
+    # =======================================
+
     critic_agent = Agent(
         model=MODEL_NAME,
         title="Critic",
         expertise="模型评测与结果分析",
         goal=CRITIC_PROMPT.format(
+            meeting_trace=meeting_trace, # 注入会议决议
             real_data=json.dumps(real_data, indent=2, ensure_ascii=False),
             weights_info=weights_info,
             quantitative_scores=scores_info
@@ -90,7 +102,7 @@ def _run_critic(real_data: dict, save_directory: Path) -> str:
         model=critic_agent.model,
         messages=[
             critic_agent.message, 
-            {"role": "user", "content": "请根据系统传入的真实数据、权重规则以及量化总分，给出深入的科学点评。"}
+            {"role": "user", "content": "请根据系统传入的真实数据、权重规则、会议决议以及量化总分，给出深入的科学点评。"}
         ],
         temperature=0.2,
     )
@@ -160,10 +172,18 @@ def main():
 
     # ---------------------------------------------------------
     # 🎯 在这里配置本次运行你想评测的模型名字 (可自由组合)
+    #    如果你想评测注册表里**所有**模型，只需在列表中加入 "ALL"
     # ---------------------------------------------------------
-    target_model_names = ["AMP-Scanner-v2", "Macrel","amPEPpy","AI4AMP","AMPlify"] # <--- 在这里填入你想测的模型
+    target_model_names = TARGET_MODEL_NAMES or ["ALL"] # <--- 填入 ["ALL"] 即可全选
     
-    models_info = [m for m in all_models if m.get('model_name') in target_model_names]
+    # 【新增功能】：判断是否包含了全选指令
+    if "ALL" in [name.upper() for name in target_model_names]:
+        models_info = all_models
+        # 将 target_model_names 刷新为真实的全部模型名，以便后续打印准确
+        target_model_names = [m.get('model_name') for m in all_models]
+        print(f">>> [Info] 检测到 'ALL' 全选指令，已自动选中注册表中的所有 {len(models_info)} 个模型！")
+    else:
+        models_info = [m for m in all_models if m.get('model_name') in target_model_names]
     
     if not models_info:
         print(f"!!! [Fatal] 在注册表中没有找到目标模型: {target_model_names}")
@@ -484,6 +504,24 @@ echo "finish"
         json.dump(workflow_summary, f, ensure_ascii=False, indent=2)
 
     print(f"\n✨ >>> [Done] 所有 {len(dataset_dirs)} 份数据集独立评测完毕！主流程摘要已保存: {summary_path}")
+
+# ========================================================
+# Phase 7：基于跨数据集评测结果生成 AMP 模型未来发展方向报告
+# ========================================================
+    print("\n========== [Phase 7] AI 生成 AMP 模型未来发展方向报告 ==========")
+
+    try:
+        from amp_research_advisor import generate_amp_future_directions_report
+
+        future_report_path = generate_amp_future_directions_report(
+            results_dir=Path("data/results"),
+            output_dir=Path("data/results"),
+        )
+
+        print(f"\n🧭 >>> [Research Advisor] AMP 未来发展方向报告已保存: {future_report_path}")
+
+    except Exception as e:
+        print(f"⚠️ [Research Advisor] 未来发展方向报告生成失败，但主流程已完成。错误信息: {e}")
 
 if __name__ == "__main__":
     main()

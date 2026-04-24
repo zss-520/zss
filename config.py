@@ -113,3 +113,55 @@ def validate_runtime_config(require_hpc: bool = False) -> None:
     if require_hpc:
         print(f"    HPC_HOST                   = {HPC_HOST}")
         print(f"    HPC_TARGET_DIR             = {HPC_TARGET_DIR}")
+# =========================
+# HPC 预构建基座环境 / 远端仓库复用配置
+# =========================
+DEFAULT_PYTHON_VERSION = os.getenv("DEFAULT_PYTHON_VERSION", "3.9")
+HPC_REMOTE_REPO_ROOT = os.getenv("HPC_REMOTE_REPO_ROOT", "/share/home/zhangss/repos")
+HPC_EXISTING_MODEL_ROOTS = [
+    p.strip() for p in os.getenv(
+        "HPC_EXISTING_MODEL_ROOTS",
+        "/share/home/zhangss/repos,/share/home/zhangss/base_models,/share/home/zhangss/models",
+    ).split(",") if p.strip()
+]
+
+try:
+    HPC_PREBUILT_REPO_MAP = json.loads(os.getenv("HPC_PREBUILT_REPO_MAP", "{}") or "{}")
+except Exception:
+    HPC_PREBUILT_REPO_MAP = {}
+
+try:
+    HPC_BASE_ENV_MAP = json.loads(
+        os.getenv(
+            "HPC_BASE_ENV_MAP",
+            json.dumps(
+                {
+                    "tensorflow": ["base_tf", "tf_base", "tensorflow_base"],
+                    "torch1": ["base_pt1", "pt1_base", "torch1_base"],
+                    "torch2": ["base_pt2", "pt2_base", "torch2_base", "base_llm"],
+                    "generic": [],
+                },
+                ensure_ascii=False,
+            ),
+        )
+        or "{}"
+    )
+except Exception:
+    HPC_BASE_ENV_MAP = {
+        "tensorflow": ["base_tf", "tf_base", "tensorflow_base"],
+        "torch1": ["base_pt1", "pt1_base", "torch1_base"],
+        "torch2": ["base_pt2", "pt2_base", "torch2_base", "base_llm"],
+        "generic": [],
+    }
+
+AUTO_USE_EXISTING_REMOTE_MODEL = os.getenv("AUTO_USE_EXISTING_REMOTE_MODEL", "1") == "1"
+AUTO_RUN_MODEL_SMOKE_TEST = os.getenv("AUTO_RUN_MODEL_SMOKE_TEST", "1") == "1"
+MINI_TEST_FASTA_NAME = os.getenv("MINI_TEST_FASTA_NAME", "vlab_mini_test.fasta")
+MINI_TEST_OUTPUT_ROOT = os.getenv("MINI_TEST_OUTPUT_ROOT", "mini_test_outputs")
+MINI_TEST_FASTA_CONTENT = os.getenv(
+    "MINI_TEST_FASTA_CONTENT",
+    ">mini_seq_1\nACDEFGHIKLMNPQRSTVWY\n>mini_seq_2\nKLLKLLKLLKLL\n",
+)
+TARGET_MODEL_NAMES = [
+    x.strip() for x in os.getenv("TARGET_MODEL_NAMES", "").split(",") if x.strip()
+]

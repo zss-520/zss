@@ -57,16 +57,14 @@ def extract_model_info_from_text(paper_text: str) -> dict:
         print(f"!!! [Error] 调用 API 提取文献信息时发生错误: {e}")
         return {}
 
-def ingest_new_paper(paper_text: str, filename: str = "Unknown_File") -> bool: # <--- 增加 filename 参数
+def ingest_new_paper(paper_text: str, filename: str = "Unknown_File") -> bool: 
     parsed_data = extract_model_info_from_text(paper_text)
     
     if isinstance(parsed_data, list):
         models_list = parsed_data
-        # 🚨 修复点 1：如果 AI 返回列表，直接用文件名作为标题
         paper_title = filename 
     elif isinstance(parsed_data, dict) and "models" in parsed_data:
         models_list = parsed_data["models"]
-        # 🚨 修复点 2：如果 AI 解析出的标题是 Unknown，则用文件名兜底
         extracted_title = parsed_data.get("paper_title", "Unknown_Paper")
         paper_title = extracted_title if extracted_title != "Unknown_Paper" else filename
     else:
@@ -78,10 +76,11 @@ def ingest_new_paper(paper_text: str, filename: str = "Unknown_File") -> bool: #
     if paper_title not in [p.get("paper_title") for p in db.get("papers", [])]:
         db.setdefault("papers", []).append({"paper_title": paper_title})
         
-    existing_models = {m["model_name"] for m in db.get("models", [])}
+    # 🚨 核心修改 1：移除 existing_models 集合，增加 updated_count 计数器
+    models_in_db = db.setdefault("models", [])
     new_models_added = 0
+    models_updated = 0
     
-    # 👇 注意这里改成遍历 models_list
     for model in models_list:
         model["source_paper"] = paper_title
         model["skip_env_setup"] = False
@@ -95,47 +94,48 @@ def ingest_new_paper(paper_text: str, filename: str = "Unknown_File") -> bool: #
         is_valid_repo = False
         
         if repo_url:
-    # 1. 净化大模型提取出来的链接，并物理切除可能残留的参考文献上标（如果末尾是 62、45 之类的两位数）
             import re
             clean_repo_url = repo_url.strip().replace(" ", "").replace("\n", "")
             zenodo_match = re.match(r"(https?://zenodo\.org/records/)(\d{7,8})", clean_repo_url)
             if zenodo_match:
-                clean_repo_url = zenodo_match.group(1) + zenodo_match.group(2) # 强行只保留到 7~8 位正确 ID
+                clean_repo_url = zenodo_match.group(1) + zenodo_match.group(2) 
     
-    # 2. 净化 PDF 原始长文本（消灭所有的空格和换行符带来的排版干扰）
-    # 注意：这里的 pdf_text 变量名请替换成你实际的原文变量名（比如 raw_text）
             clean_raw_text = paper_text.replace(" ", "").replace("\n", "")
     
-    # 3. 进行无视排版的安全比对！
             if clean_repo_url not in clean_raw_text:
                 print(f"    !!! [幻觉拦截] 虚构链接: {repo_url}，原文中并不存在！")
-        # 下面保留你原来的 return False 或丢弃模型的逻辑...
             else:
                 print(f"    >>> [OK] 链接验证通过: {clean_repo_url}")
-                # 【极其关键的修复 1】：把洗干净的完美链接存回字典，覆盖掉带空格的脏链接！
                 model["repo_url"] = clean_repo_url 
-                
-                # 【极其关键的修复 2】：给它发通行证！告诉下面的拦截器它是合法公民！
                 is_valid_repo = True
         
-        # 如果不是有效的代码链接，直接抛弃这个模型，绝不存入记忆库！
         if not is_valid_repo:
             print(f"    !!! [丢弃] 模型 '{model.get('model_name')}' 缺失真实有效的开源链接，拒绝分配环境并丢弃该模型！")
-            continue  # 核心逻辑：直接跳出当前循环，后面的入库代码不执行！
+            continue  
         # ==========================================
 
-        if model["model_name"] not in existing_models:
-            db.setdefault("models", []).append(model)
-            new_models_added += 1
-            print(f"    - [新发现] 模型入库: {model['model_name']} (预期环境: {model.get('env_name')})")
+        # 🚨 核心修改 2：覆盖更新 (Upsert) 逻辑
+        model_name = model.get("model_name")
+        # 查找数据库中是否已经存在同名模型
+        existing_index = next((i for i, m in enumerate(models_in_db) if m.get("model_name") == model_name), None)
+        
+        if existing_index is not None:
+            # 如果存在，用最新的信息覆盖更新它
+            models_in_db[existing_index] = model
+            print(f"    - [🔄 已更新] 记忆库中已有该模型，已使用最新配置覆盖: {model_name}")
+            models_updated += 1
         else:
-            print(f"    - [已跳过] 模型已存在于记忆库中: {model['model_name']}")
+            # 如果不存在，直接追加
+            models_in_db.append(model)
+            print(f"    - [✅ 已新增] 成功将新模型存入记忆库: {model_name} (预期环境: {model.get('env_name', '未知')})")
+            new_models_added += 1
             
-    # 保存数据库。如果所有模型都被丢弃了，db里的 models 不会增加，但我们会把文献标记为“已读”，防止以后每次都重复去读这篇没有代码的废文章。
+    # 保存数据库
     save_db(db)
     
-    if new_models_added > 0:
-        print(f">>> [Knowledge Base] 本次新增 {new_models_added} 个模型的复现记忆。")
+    # 🚨 核心修改 3：修复误导人的日志打印
+    if new_models_added > 0 or models_updated > 0:
+        print(f">>> [Knowledge Base] 数据库同步完成！(新增: {new_models_added} 个, 更新: {models_updated} 个)")
     else:
         print(f">>> [Knowledge Base] 该文献未提供有效开源代码，不产生任何复现任务。")
         
@@ -155,6 +155,7 @@ def get_target_models_for_eval(model_names: list[str] = None) -> list[dict]:
     # 过滤出指定的模型
     target_models = [m for m in all_models if m["model_name"] in model_names]
     return target_models
+
 def is_paper_processed(filename: str) -> bool:
     """检查该文献文件是否已经被成功解析过"""
     db = load_db()
@@ -166,6 +167,27 @@ def mark_paper_processed(filename: str) -> None:
     if filename not in db.setdefault("processed_papers", []):
         db["processed_papers"].append(filename)
         save_db(db)
+def add_models_to_knowledge_db(new_models: list) -> None:
+    """将刚发现的新模型（还未复现）加入模型知识库"""
+    db = load_db()
+    if "models" not in db:
+        db["models"] = []
+    
+    # 获取已存在的模型名称，防止重复录入
+    existing_names = {m.get("model_name") for m in db["models"]}
+    added_count = 0
+    
+    for model in new_models:
+        name = model.get("model_name")
+        if name and name not in existing_names:
+            db["models"].append(model)
+            added_count += 1
+            
+    save_db(db)
+    if added_count > 0:
+        print(f"    -> 🧠 成功将 {added_count} 个新模型情报录入 data/model_knowledge_db.json (待复现队列)。")
+    else:
+        print("    -> 🧠 提取的模型均已存在于知识库中，无需重复录入。")
 # ==========================================
 # 独立测试入口
 # ==========================================

@@ -1,0 +1,100 @@
+【文献归属领域】: AMP 最新预印本模型
+【文献标题】: AMPCliff: quantitative definition and benchmarking of activity cliffs in antimicrobial peptides
+【发表年份】: 2024
+【PDF 直链】: https://arxiv.org/pdf/2404.09738v2.pdf
+
+【摘要】: Since the mechanism of action of drug molecules in the human body is difficult to reproduce in the in vitro environment, it becomes difficult to reveal the causes of the activity cliff phenomenon of drug molecules. We found out the AC of small molecules has been extensively investigated but limited knowledge is accumulated about the AC phenomenon in peptides with canonical amino acids. Understanding the mechanism of AC in canonical amino acids might help understand the one in drug molecules. This study introduces a quantitative definition and benchmarking framework AMPCliff for the AC phenomenon in antimicrobial peptides (AMPs) composed by canonical amino acids. A comprehensive analysis of the existing AMP dataset reveals a significant prevalence of AC within AMPs. AMPCliff quantifies the activities of AMPs by the MIC, and defines 0.9 as the minimum threshold for the normalized BLOSUM62 similarity score between a pair of aligned peptides with at least two-fold MIC changes. This study establishes a benchmark dataset of paired AMPs in Staphylococcus aureus from the publicly available AMP dataset GRAMPA, and conducts a rigorous procedure to evaluate various AMP AC prediction models, including nine machine learning, four deep learning algorithms, four masked language models, and four generative language models. Our analysis reveals that these models are capable of detecting AMP AC events and the pre-trained protein language model ESM2 demonstrates superior performance across the evaluations. The predictive performance of AMP activity cliffs remains to be further improved, considering that ESM2 with 33 layers only achieves the Spearman correlation coefficient 0.4669 for the regression task of the MIC values on the benchmark dataset. Source code and additional resources are available at https://www.healthinformaticslab.org/supp/ or https://github.com/Kewei2023/AMPCliff-generation.
+
+【数据集或开源代码链接提取】:
+    - https://github.com/Kewei2023/AMPCliff-generation.
+
+=========================================
+【PDF 核心正文提取 (前 3 页)】:
+ 
+ AMPCliff : quantitative definition and benchmarking of a ctivity cliffs 
+in antimicrobial peptides  
+Kewei Li1, Yuqian Wu2, Yinheng Li4, Yutong Guo3, Yan Wang7, Yiyang Liang8, Yusi Fan1, 
+Lan Huang1, Ruochi Zhang5,*, Fengfeng Zhou1,6,*. 
+1 College of Computer  Science and Technology, and Key Laboratory of Symbolic 
+Computation and Knowledge Engineering of Ministry of Education, Jilin University, 
+Changchun, Jilin, China, 130012.  
+2 School of Software, Jilin University, Changchun 130012, Jilin,  China.  
+3. School of Life Sciences, Jilin University, Changchun 130012, Jilin, China.  
+4 Department of Computer Science, Columbia University, 116th and B roadway, New 
+York City, New York , 10027, United States .  
+5 School of Artificial Intelligence, and Key Laboratory of Symbolic Computation and 
+Knowledge Engineering of Ministry of Education, Jilin University, C hangchun, Jilin, 
+China, 130012.  
+6 School of Biology and Engineering, Guizhou Medical University, Guiyang 5 50025, 
+Guizhou, China.  
+7 School of Computer Engineering , Changchun University of Engineering , Changchun 
+130103,  Jilin,  China . 
+8 Changchun Wenli High School, Changchun 130062, Jilin, China.  
+* Correspondence may be addressed to Fengfeng Zhou: FengfengZhou@gm ail.com or 
+ffzhou@jlu.edu.cn. Correspondence may also be addressed to Ruochi Zhang: 
+zrc720@gmail.com.  
+ 
+ 
+ Emails: Kewei Li, kwbb1997@gmail.com; Yuqian Wu , 924476388@qq.com ; Yutong 
+Guo, 3291865187.qq.com ; Yinheng Li, yl4039@columbia.edu ; Yusi Fan, 
+fan_yusi@163.com; Ruochi Zhang , zrc720@gmail.com;  Lan Huang, 
+huanglan@jlu.edu.cn;  Fengfeng Zhou, FengfengZhou@gmail.com.  
+Abstract  
+Since the mechanism of action of drug molecules in the  human body is difficult to 
+reproduce in the in vitro environment, it becomes difficult to reveal the causes of the 
+activity cliff phenomenon of drug molecules. We found out t he AC of small molecules 
+has been extensively investigated but limited knowledge is accumulated about the AC phenomenon in peptides with canonical amino acids. Understanding the mechanism 
+of AC in canonical amino acids might help understand the one in drug molecules. This 
+study introduces a quantitative definition and benchmarking framework AMPCliff for 
+the AC phenomenon in antimicrobial peptides (AMPs) composed by canonical amino acids. A comprehensive analysis of the existing AMP dataset reveals a significant 
+prevalence of AC within AMPs. AMPCliff quantifies the activ ities of AMPs by the  MIC, 
+and defines 0.9 as the minimum threshold for the normalized BLOSUM62 similarity score between a pair of aligned peptides with at least two -fold MIC changes. This 
+study establishes a benchmark dataset of paired AMPs in Staphylococc us aureus  from 
+the publicly available AMP dataset GRAMPA, and conducts a rigorous procedure to 
+evaluate various AMP AC prediction models, including nine machine learning, four 
+deep learning algorithms, four masked language models, and four generative 
+langu age models . Our analysis reveals that these models are capable of detecting AMP 
+AC events and the pre -trained protein language model ESM2  demonstrates superior 
+performance across the evaluations. The predictive performance of AMP activity cliffs 
+remains to  be further improved, considering that ESM2 with 33 layers only achieves 
+the Spearman correlation coefficient  0.4669 for the regression task of the MIC values 
+on the benchmark dataset. Source code and additional resources are available at 
+https://www.healt
+hinformaticslab.org/supp/ or 
+https://github.com/Kewei2023/AMPCliff -generation.  
+Keywords:  AMPCliff; activity cliff (AC); minimum inhibitory concentration (MIC); 
+benchmark; antimicrobial peptide (AMP).  
+ 
+ Introduction  
+Activity cliff  (AC) refers to  a pair of similar compounds that differ by only a small 
+structural change  but exhibit a large difference in their biochemical activities 1-11. AC 
+was firstly observed in the investigations of Quantitative Structure -Activity 
+Relationship (QSAR) modeling  in drug design 12, and remains  as a persistent challenge 
+in QSAR modeling for over 30 years  1. This phenomenon affects various tasks  ranging 
+from virtual screening to lead optimization in drug development  9,13. Precise AC 
+modeling is highly beneficial for pharmaceutical researchers.  
+Advances in deep learning has significantly driven the development o f drug design and 
+the applications of QSAR modeling  in both scientific research and industry 14-16. Deep 
+learning methods face many challenges, including interpretability, data quality 
+dependency, and generalization. These challenges are particularly evident in handling 
+ACs in drug design  1,10,15,17,18. Deng  et al., detected that nearly half of the molecular 
+pairs in the Multi -Drug Resistance Protein 1 (MDR1) dataset are ACs, and the Root 
+Mean Square Error (RMSE) for the regression task of the AC pairs  is increased by at 
+least 0.6 using the Graph Convolutiona l Network (GCN) model  compared to non -AC 
+pairs 17. 
+Recent efforts in QSAR modeling of  antimicrobial peptides (AMP) include Recurrent 
+Neural Network (RNN) models  19 and generative variational autoen coder  (VAE ) 20. 
+Despite these advancements, the best models have only achieved a Pearson correlation coefficient (PCC) of 0.77.  This observation suggests that ACs could be a 
+critical factor in building precise QSAR models for AMPs.  
+The potential  AC phenomenon in AMPs was discovered at least 15 years ago. In 2008, 
+Koo et al. investigated the structure -activity relationship of Parasin I, a 19 -amino acid 
+histone H2A -derived antimicrobial peptide that killed S.  aureus by cell membrane  
+21. 
+They found that the deletion of one  lysine residue in  the N  termin i resulted in loss of 
+antimicrobial activity, but did not affect the α -helical content of the peptide. The 
+antimicrobial activity was recovered when the lysine residue was substituted with 
+another basic residue, arginine, but not with polar, neutral, or acidic residues  21. But 
+there were l imited results directly quantitative defined the AC phenomenon in AMPs 
+with canonical amino acids . Since canonical amino acids have more information than 
+
+=========================================

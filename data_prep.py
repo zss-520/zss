@@ -1,9 +1,17 @@
 import os
 import re
+import zipfile
+import tarfile
+import importlib.util
+from openai import OpenAI
+from config import MODEL_NAME
+from prompts import DATASET_ETL_AGENT_PROMPT
+import shutil
+import json
 import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-
+import shutil
 import pandas as pd
 
 
@@ -36,22 +44,33 @@ def parse_label_value(x):
 
 def infer_label_from_filename(filename: str):
     lower_name = filename.lower()
-    if "amp" in lower_name and "non" not in lower_name and "decoy" not in lower_name:
+    # 🚨 补丁：增加 'acp'（抗癌肽）作为正样本关键词
+    if any(k in lower_name for k in ["amp", "pos", "acp", "active"]) and \
+       not any(k in lower_name for k in ["non", "decoy", "neg"]):
         return 1
-    if "pos" in lower_name:
-        return 1
-    if "neg" in lower_name or "decoy" in lower_name or "non" in lower_name:
+    if any(k in lower_name for k in ["neg", "decoy", "non", "inactive"]):
         return 0
     return None
 
 
 def find_sequence_column(df: pd.DataFrame):
+    """表头模糊匹配 + 序列特征自动识别"""
     candidates = []
     for c in df.columns:
         c_low = str(c).lower()
-        if any(k in c_low for k in ["sequence", "seq", "peptide", "aa_seq", "protein"]):
+        if any(k in c_low for k in ["sequence", "seq", "peptide", "aa_seq"]):
             candidates.append(c)
-    return candidates[0] if candidates else None
+    
+    if candidates: return candidates[0]
+    
+    # 🚨 核心逻辑：如果没有匹配到任何列名，但第一列的内容全都是合法的氨基酸序列
+    if not df.empty:
+        # 检查前 10 行（或全部）是否为合法序列
+        test_rows = df.iloc[:, 0].astype(str).map(clean_sequence).head(10)
+        if all(is_valid_peptide_sequence(s) for s in test_rows if s):
+            return df.columns[0]
+            
+    return None
 
 
 def find_id_column(df: pd.DataFrame):
@@ -147,14 +166,55 @@ def find_true_label_column(df: pd.DataFrame):
     return None
 
 
+def sniff_file_format(file_path: str) -> str:
+    """智能文件格式嗅探器：解决后缀名欺骗问题"""
+    lower_name = file_path.lower()
+    if lower_name.endswith((".fa", ".fasta")): return "fasta"
+    if lower_name.endswith(".json"): return "json"
+    if lower_name.endswith((".csv", ".xlsx", ".xls", ".tsv")): return "table"
+    
+    # 🚨 核心修复：把生信老古董后缀 .data 和 .dat 也加入拆箱嗅探范围
+    if lower_name.endswith((".txt", ".data", ".dat")):
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                for _ in range(5):
+                    line = f.readline().strip()
+                    if not line: continue
+                    if line.startswith(">"): return "fasta"
+                    if "\t" in line or "," in line: return "table"
+        except: pass
+        return "table" # 如果看不出，丢给表格解析器去碰运气
+        
+    return "unknown"
 def read_mixed_table(file_path: str):
+    """增强版表格读取器：支持无表头纯序列文件"""
     lower = file_path.lower()
-    if lower.endswith(".csv"):
-        return [("CSV", pd.read_csv(file_path))]
-    if lower.endswith(".xlsx") or lower.endswith(".xls"):
-        xls = pd.read_excel(file_path, sheet_name=None)
-        return list(xls.items())
-    raise ValueError(f"不支持的表格格式: {file_path}")
+    if lower.endswith((".csv", ".tsv", ".txt", ".data", ".dat")):
+        for sep in [',', '\t', ';', ' ']: # 增加空格分隔符支持
+            for enc in ['utf-8', 'gbk', 'latin1']:
+                try:
+                    # 🚨 核心逻辑：先不带表头尝试读取前 5 行
+                    df_sample = pd.read_csv(file_path, encoding=enc, sep=sep, header=None, nrows=5)
+                    first_val = str(df_sample.iloc[0, 0]).strip().upper()
+                    
+                    # 如果第一行第一列就符合氨基酸特征，说明是无表头纯数据
+                    if is_valid_peptide_sequence(first_val):
+                        df = pd.read_csv(file_path, encoding=enc, sep=sep, header=None, on_bad_lines='skip')
+                        return [("RawTable", df)]
+                    else:
+                        # 否则按照有表头正常读取
+                        df = pd.read_csv(file_path, encoding=enc, sep=sep, on_bad_lines='skip')
+                        return [("StandardTable", df)]
+                except:
+                    continue
+        
+    if lower.endswith((".xlsx", ".xls")):
+        try:
+            xls = pd.read_excel(file_path, sheet_name=None)
+            return list(xls.items())
+        except Exception as e:
+            print(f"    ⚠️ Excel 读取异常: {e}")
+    return []
 
 
 # =====================================================================
@@ -257,18 +317,19 @@ def parse_fasta_file(file_path: str, fallback_label: Optional[int], min_length: 
 
 def standardize_table_records(df: pd.DataFrame, file_name: str) -> pd.DataFrame:
     df = df.copy()
+    # 🚨 补丁：强制转换所有表头为字符串，并填充空值，防止类型崩溃
     df.columns = [str(c).strip() for c in df.columns]
-
+    
     seq_col = find_sequence_column(df)
-    if not seq_col:
-        return pd.DataFrame()
+    if not seq_col: return pd.DataFrame()
 
     id_col = find_id_column(df)
     label_col = find_true_label_column(df)
 
     out = pd.DataFrame()
+    # 🚨 补丁：在调用 .str 之前先用 .astype(str) 确保万无一失
     out["sequence"] = df[seq_col].astype(str).map(clean_sequence)
-
+    
     if id_col:
         out["id"] = df[id_col].astype(str).str.split().str[0].str.strip()
     else:
@@ -284,53 +345,225 @@ def standardize_table_records(df: pd.DataFrame, file_name: str) -> pd.DataFrame:
 
     out["source_dataset"] = Path(file_name).stem
     return out
+def decompress_archives(target_dir: str):
+    """递归解压目录下所有的 zip, tar.gz, tar 文件 (带防假死修复)"""
+    path = Path(target_dir)
+    found_new = True
+    while found_new:
+        found_new = False
+        for ext in ["*.zip", "*.tar.gz", "*.tgz", "*.tar"]:
+            for archive in path.rglob(ext):
+                # 智能推断解压目标文件夹名称
+                if archive.name.endswith(".tar.gz"): folder_name = archive.name[:-7]
+                elif archive.name.endswith(".tgz"): folder_name = archive.name[:-4]
+                else: folder_name = archive.stem
+                
+                extract_to = archive.parent / folder_name
+                
+                # 🚨 核心修复：如果文件夹不存在，或者虽然存在但里面是空的，就强行解压！
+                if not extract_to.exists() or not any(extract_to.iterdir()):
+                    print(f"    -> 📦 自动解压: {archive.name} ...")
+                    try:
+                        extract_to.mkdir(parents=True, exist_ok=True)
+                        shutil.unpack_archive(str(archive), str(extract_to))
+                        found_new = True
+                    except Exception as e:
+                        print(f"    ⚠️ 解压失败: {e}")
 
+# =====================================================================
+# 🧬 JSON 智能转换引擎 (修复版：加入递归吸尘器)
+# =====================================================================
+
+def _recursive_find_sequences(data, results, current_id=""):
+    """递归爬虫：穿透任何深度的嵌套 JSON，吸取多肽序列"""
+    if isinstance(data, dict):
+        # 尝试提取 MIBiG 特有的 accession ID 作为标识
+        next_id = data.get("mibig_accession", current_id)
+        
+        for k, v in data.items():
+            k_lower = str(k).lower()
+            # 命中核心关键词：只要键名带有这些字眼，就把值当作序列吸出
+            if isinstance(v, str) and any(kw in k_lower for kw in ['translation', 'sequence', 'peptide']):
+                # 先不管合不合法，统一吸出来，后续清洗引擎会过滤脏数据
+                results.append({"id": next_id, "sequence": v})
+            elif isinstance(v, (dict, list)):
+                _recursive_find_sequences(v, results, next_id)
+                
+    elif isinstance(data, list):
+        for i, item in enumerate(data):
+            # 对于列表里的项，加上索引防止 ID 冲突
+            _recursive_find_sequences(item, results, f"{current_id}_{i}")
+
+
+def parse_json_to_df(file_path: str) -> pd.DataFrame:
+    """尝试将各种格式的 JSON 转换为 DataFrame"""
+    try:
+        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+            data = json.load(f)
+        
+        # 🚨 1. 启动“递归吸尘器” (专治 MIBiG 等深层基因组 JSON)
+        results = []
+        _recursive_find_sequences(data, results, Path(file_path).stem)
+        
+        # 如果吸到了哪怕一条序列，直接构造成 DataFrame 返回！
+        if results:
+            df = pd.DataFrame(results)
+            # 为了骗过后续的标准清洗引擎，人为补充一个 label 列（设为 None 等待二次推断）
+            df['label'] = None 
+            return df
+
+        # 2. 如果没吸到，回退到普通的列表/扁平化解析 (针对 GRAMPA 等常规 JSON)
+        if isinstance(data, list):
+            return pd.DataFrame(data)
+        if isinstance(data, dict):
+            for v in data.values():
+                if isinstance(v, list) and len(v) > 0:
+                    return pd.DataFrame(v)
+            return pd.json_normalize(data)
+            
+    except Exception as e:
+        print(f"    ⚠️ JSON 转换失败: {e}")
+    return pd.DataFrame()
 
 def ingest_single_folder(input_dir: str, dataset_name: str, min_length: int) -> pd.DataFrame:
     print(f"\n========== 开始导入数据集: [{dataset_name}] ==========")
+    if not os.path.exists(input_dir): return pd.DataFrame()
 
-    if not os.path.exists(input_dir):
-        print(f"!!! [错误] 找不到输入目录: {input_dir}")
-        return pd.DataFrame()
+    decompress_archives(input_dir)
+    all_records = []
 
-    all_records: List[Dict] = []
+    for root, _, files in os.walk(input_dir):
+        # 🚨 核心修复：屏蔽 Mac 电脑压缩包带出来的垃圾文件
+        if "__MACOSX" in root: continue
+        
+        for file in files:
+            if file.startswith("."): continue # 屏蔽隐藏文件
+            
+            file_path = os.path.join(root, file)
+            fmt = sniff_file_format(file_path)
+            
+            if fmt == "unknown": continue
+            print(f"[*] 处理文件: {file} [{fmt}]")
 
-    for file in os.listdir(input_dir):
-        file_path = os.path.join(input_dir, file)
-        if os.path.isdir(file_path):
-            continue
+            if fmt == "fasta":
+                fallback_label = infer_label_from_filename(file)
+                records = parse_fasta_file(file_path, fallback_label, min_length)
+                all_records.extend(records)
+                print(f"    -> FASTA 导入 {len(records)} 条")
+                
+            elif fmt == "table":
+                try:
+                    for sheet_name, df in read_mixed_table(file_path):
+                        std_df = standardize_table_records(df, f"{file}__{sheet_name}")
+                        if not std_df.empty:
+                            all_records.extend(std_df.to_dict(orient="records"))
+                            print(f"    -> 表格导入 {len(std_df)} 条")
+                except Exception as e:
+                    print(f"    -> [跳过] 表格解析报错: {e}")
 
-        print(f"[*] 导入文件: {file}")
-
-        if file.endswith((".fa", ".fasta", ".txt")):
-            fallback_label = infer_label_from_filename(file)
-            records = parse_fasta_file(file_path, fallback_label, min_length)
-            all_records.extend(records)
-            print(f"    -> FASTA/TXT 导入 {len(records)} 条")
-            continue
-
-        if file.endswith((".csv", ".xlsx", ".xls")):
-            try:
-                sheets_data = read_mixed_table(file_path)
-                total = 0
-                for sheet_name, df in sheets_data:
-                    std_df = standardize_table_records(df, f"{file}__{sheet_name}")
-                    if not std_df.empty:
-                        total += len(std_df)
-                        all_records.extend(std_df.to_dict(orient="records"))
-                print(f"    -> 表格导入 {total} 条")
-            except Exception as e:
-                print(f"    -> [跳过] 表格读取失败: {e}")
-            continue
-
-        print("    -> [跳过] 不支持的文件类型")
-
-    if not all_records:
-        return pd.DataFrame()
+            elif fmt == "json":
+                try:
+                    df_json = parse_json_to_df(file_path)
+                    if not df_json.empty:
+                        std_df = standardize_table_records(df_json, file)
+                        if not std_df.empty:
+                            all_records.extend(std_df.to_dict(orient="records"))
+                            print(f"    -> JSON 导入 {len(std_df)} 条")
+                except Exception as e:
+                    print(f"    -> [跳过] JSON 报错: {e}")
 
     return pd.DataFrame(all_records)
 
+# =====================================================================
+# 🧠 Agentic ETL: 动态嗅探与代码生成引擎
+# =====================================================================
 
+def sniff_dataset_directory(dataset_dir: str) -> str:
+    """自动探查目录，生成数据样本报告供 Agent 阅读"""
+    target_path = Path(dataset_dir)
+    if not target_path.exists(): return ""
+
+    # 强制解压所有深层压缩包，防止有遗漏
+    decompress_archives(dataset_dir)
+
+    report = f"📂 目标数据集目录: {dataset_dir}\n"
+    report += "-" * 40 + "\n"
+
+    valid_exts = {".csv", ".tsv", ".txt", ".xlsx", ".json", ".fasta", ".fa", ".dat", ".data"}
+    for root, _, files in os.walk(dataset_dir):
+        if "__MACOSX" in root: continue
+        for file in files:
+            if file.startswith("."): continue
+            ext = Path(file).suffix.lower()
+            if ext not in valid_exts: continue
+
+            file_path = Path(root) / file
+            rel_path = file_path.relative_to(target_path)
+            report += f"📄 文件: {rel_path}\n"
+
+            # 读取前 5 行纯文本特征
+            try:
+                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                    head_lines = [next(f) for _ in range(5)]
+                report += "【前5行数据内容】:\n"
+                report += "".join(head_lines) + "\n"
+            except StopIteration:
+                report += "【空文件】\n"
+            except Exception as e:
+                report += f"【读取失败】: {e}\n"
+            report += "-" * 40 + "\n"
+
+    return report
+
+def agentic_process_dataset(dataset_name: str, dataset_dir: str) -> pd.DataFrame:
+    """Agent 动态生成 ETL 代码，提取并返回 raw_df"""
+    print(f"\n🤖 召唤 Data Architect Agent 针对 [{dataset_name}] 编写动态解析代码...")
+
+    sniff_report = sniff_dataset_directory(dataset_dir)
+    if not sniff_report:
+        print("    ⚠️ 嗅探报告为空，无法启动 Agent。")
+        return pd.DataFrame()
+
+    client = OpenAI()
+    prompt = DATASET_ETL_AGENT_PROMPT.format(sniff_report=sniff_report)
+
+    try:
+        response = client.chat.completions.create(
+            model=MODEL_NAME, 
+            messages=[{"role": "system", "content": prompt}],
+            temperature=0.1
+        )
+        code_text = response.choices[0].message.content
+
+        # 提取 Python 代码块
+        match = re.search(r'```python\n(.*?)\n```', code_text, re.DOTALL)
+        if not match:
+            print("    ❌ Agent 未返回合法的 Python 代码块。")
+            return pd.DataFrame()
+
+        generated_code = match.group(1)
+        
+        # 固化代码为本地独立脚本，方便留痕和排错
+        script_path = Path(dataset_dir) / f"{dataset_name}_etl.py"
+        with open(script_path, "w", encoding="utf-8") as f:
+            f.write(generated_code)
+        print(f"    ✅ Agent 代码已生成并存入: {script_path.name}，正在尝试执行...")
+
+        # 动态沙盒加载模块并执行
+        spec = importlib.util.spec_from_file_location("custom_etl", script_path)
+        custom_etl = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(custom_etl)
+
+        raw_df = custom_etl.custom_extract_data(dataset_dir)
+        
+        if raw_df is not None and not raw_df.empty:
+            print(f"    🌟 Agent 大显神威！成功提取出 {len(raw_df)} 条潜在记录。")
+            return raw_df
+            
+    except Exception as e:
+        print(f"    ❌ Agent ETL 管线执行崩溃: {e}")
+
+    return pd.DataFrame()
 # =====================================================================
 # 测试集处理逻辑
 # =====================================================================
@@ -427,31 +660,49 @@ def export_testset(df: pd.DataFrame, ambiguous_df: pd.DataFrame, out_dir: Path):
 # 主流程
 # =====================================================================
 
-def process_single_folder(input_dir: str, dataset_name: str):
+def process_single_folder(input_dir: str, dataset_name: str) -> Optional[pd.DataFrame]:
+    """
+    处理单一数据集文件夹：
+    1. 优先使用启发式引擎提取。
+    2. 如果失败或数据过少，触发大模型编写 ETL 代码强制提取。
+    3. 最后统一经过物理底线防御系统（质控、过滤、去重）。
+    """
     strategy = load_benchmark_strategy()
     min_len = int(strategy["sequence_constraints"].get("min_len", 5))
 
+    # 第一重防线：尝试常规的启发式读取
     raw_df = ingest_single_folder(input_dir, dataset_name, min_length=min_len)
-    if raw_df.empty:
-        print(f"!!! [{dataset_name}] 未读取到有效记录")
-        return False
 
+    # 第二重防线：如果常规方法拿不到数据（或者数据过少判定为漏读），立刻触发 Agent ETL 抢救
+    if raw_df.empty or len(raw_df) < 5:
+        print(f"⚠️ [{dataset_name}] 启发式引擎未能提取有效数据，启动 Agentic ETL 抢救机制...")
+        raw_df = agentic_process_dataset(dataset_name, input_dir)
+
+    if raw_df.empty:
+        print(f"!!! [{dataset_name}] 彻底宣告失败：启发式与 Agent 均未能提取出有效数据。")
+        return None
+
+    # 第三重（最终）防线：不管上面是谁拿到的数据，必须强制过一遍清洗和质控系统！
     filtered_df = filter_sequences(raw_df, strategy)
     gold_df, ambiguous_df = apply_gold_label_rules(filtered_df)
     gold_df = deduplicate_records(gold_df)
     gold_df = assign_unique_ids(gold_df)
+    
+    if gold_df.empty:
+        print(f"!!! [{dataset_name}] 提取的数据未能通过生信质控规则（可能格式无效或全部被过滤）。")
+        return None
 
     out_dir = Path(f"data/datasets/{dataset_name}")
     export_testset(gold_df, ambiguous_df, out_dir)
 
-    print(f"\n[+] [{dataset_name}] 金标准测试集构建完成")
-    print(f"    总记录数: {len(filtered_df)}")
-    print(f"    保留 gold: {len(gold_df)}")
-    print(f"    ambiguous: {len(ambiguous_df)}")
+    print(f"\n[+] [{dataset_name}] 单体金标准测试集构建完成")
+    print(f"    总原始/提取记录数: {len(raw_df)}")
+    print(f"    质控后保留 gold: {len(gold_df)}")
     print(f"    正样本: {sum(gold_df['label'] == 1)}")
     print(f"    负样本: {sum(gold_df['label'] == 0)}")
     print(f"    输出目录: {out_dir}")
-    return True
+    
+    return gold_df
 
 
 def main():
@@ -465,7 +716,9 @@ def main():
         print("!!! [Error] benchmark_strategy.json 中没有 recommended_datasets，请先执行 prepare_models.py")
         return
 
-    # 2. 遍历策略中的每一个顶刊数据集
+    all_gold_dfs = []
+
+    # 2. 遍历策略中的每一个顶刊数据集，进行单源清洗
     for ds in datasets:
         # 名字必须和 dataset_fetcher.py 保持一致（替换空格为下划线）
         ds_name = ds.get("dataset_name", "Unknown_Dataset").replace(" ", "_")
@@ -475,13 +728,59 @@ def main():
 
         if os.path.exists(input_folder) and os.path.isdir(input_folder):
             print(f"\n[🚀] 发现目标数据集目录: {input_folder}，准备启动数据炼金炉...")
-            # 3. 原地执行清洗，洗好的 combined_test.fasta 也会存在这个文件夹里
-            process_single_folder(input_folder, ds_name)
+            # 3. 原地执行清洗，同时收集返回的纯净 DataFrame
+            gold_df = process_single_folder(input_folder, ds_name)
+            if gold_df is not None and not gold_df.empty:
+                all_gold_dfs.append(gold_df)
         else:
             print(f"\n!!! [Skip] 找不到原始数据文件夹: {input_folder} (可能是 Web 数据库，需手动放入数据)")
 
-    print("\n🎉 所有测试集物理清洗、长度裁切与标签对齐完毕！")
-    print("👉 最终的金标准评估文件 (combined_test.fasta) 已生成，随时可以发往超算进行打分！")
+    print("\n" + "="*60)
+    print("🎉 所有独立测试集物理清洗、长度裁切与标签对齐完毕！")
+
+    # 4. 🚨 核心新功能：执行全局跨数据集大一统合并 (Master Benchmark)
+    if all_gold_dfs:
+        print("\n========== [Phase 7] 数据大一统：构建终极 Master Benchmark ==========")
+        
+        # 将所有清洗好的数据集合并成一张大表
+        master_df = pd.concat(all_gold_dfs, ignore_index=True)
+        initial_master_len = len(master_df)
+        
+        # 全局去重法则：优先保留 evidence_level 更可靠的记录
+        priority = {"table_label": 2, "filename_inferred": 1, "unknown": 0}
+        master_df["__prio"] = master_df["evidence_level"].map(lambda x: priority.get(str(x), 0))
+        
+        # 排序：序列相同的，置信度高的排前面
+        master_df = master_df.sort_values(by=["sequence", "__prio"], ascending=[True, False])
+        
+        # 执行全局暴力去重 (只要序列一模一样，跨库重复也只保留一条！)
+        master_df = master_df.drop_duplicates(subset=["sequence"], keep="first").reset_index(drop=True)
+        master_df = master_df.drop(columns=["__prio"])
+        
+        # 为防止合并后 ID 冲突，重新赋予绝对唯一的全局 ID
+        master_df["id"] = [f"Master_Seq_{i+1:05d}_{row['source_dataset'][:5]}" for i, row in master_df.iterrows()]
+        
+        dropped_count = initial_master_len - len(master_df)
+        
+        # 统一存入最高级别的独立标准库中
+        master_dir = Path("data/standardized_datasets")
+        master_dir.mkdir(parents=True, exist_ok=True)
+        
+        # 导出供模型预测的综合 FASTA 和供评估脚本核对的最终 CSV
+        master_csv_path = master_dir / "MASTER_BENCHMARK.csv"
+        master_fasta_path = master_dir / "MASTER_BENCHMARK.fasta"
+        
+        master_df[["id", "sequence", "label", "source_dataset"]].to_csv(master_csv_path, index=False)
+        write_fasta(master_df, master_fasta_path)
+        
+        print(f"    -> 🌍 [跨库融合] 成功汇聚 {len(all_gold_dfs)} 个独立基准集的优质数据。")
+        print(f"    -> ✂️ [全局去重] 清洗了 {dropped_count} 条跨库重复/冗余数据。")
+        print(f"    -> 🏆 [终极产出] 诞生 Master Benchmark！共含 {len(master_df)} 条绝对纯净序列！")
+        print(f"       -> 正样本: {sum(master_df['label'] == 1)} | 负样本: {sum(master_df['label'] == 0)}")
+        print(f"    -> 📁 {master_fasta_path}")
+        print("👉 整个 MLOps 评估管线的数据准备工作现已达到完美闭环！可以提交超算打分了！")
+    else:
+        print("⚠️ 全局合并失败：没有采集到任何有效的数据集 DataFrame。")
 
 if __name__ == "__main__":
     main()

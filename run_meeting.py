@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 from openai import OpenAI
-
+import os
 from agent import Agent
 from config import (
     FIRST_MEETING_NAME,
@@ -209,6 +209,18 @@ def run_second_meeting(
             f"-------------------------\n{gt_sample}\n-------------------------\n"
             f"请严格参照上述真值表头进行 Pandas 的重命名和合并操作！"
         )
+    target_metrics_str = "ACC, Recall, MCC, AUROC, AUPRC" # 兜底默认值
+    strategy_path = Path("data/benchmark_strategy.json")
+    if strategy_path.exists():
+        try:
+            with open(strategy_path, "r", encoding="utf-8") as f:
+                strategy_data = json.load(f)
+                weights = strategy_data.get("metric_weights", {})
+                if weights:
+                    target_metrics_str = ", ".join(weights.keys())
+                    print(f">>> [Dynamic Strategy] 成功加载动态指标体系: {target_metrics_str}")
+        except Exception as e:
+            print(f"!!! [Warning] 读取动态指标失败，使用默认体系: {e}")
     
     # ==========================================
     # 智能体定义
@@ -239,21 +251,98 @@ def run_second_meeting(
     messages = []  # 共享的消息总线
 
     # ==========================================
-    # 第一幕：分析师登场，提取 Schema
+    # 第一幕：分析师登场，提取 Schema (含记忆与人机交互)
     # ==========================================
-    print("\n>>> [Agent Debate] 第一幕：数据架构师解析勘探报告...")
-    analyst_prompt = DATA_ANALYST_EXTRACTION_PROMPT.format(stage1_context=raw_stage1_context)
-    schema_json_str = _chat_once(client, analyst_agent, [{"role": "user", "content": analyst_prompt}], 0.1)
-    schema_json_str = schema_json_str.strip().replace("```json", "").replace("```", "")
+    print("\n>>> [Agent Debate] 第一幕：数据架构师加载记忆并解析勘探报告...")
     
-    discussion.append({"agent": "Data Architect", "message": f"我已经成功提取了 Data Schema：\n```json\n{schema_json_str}\n```"})
-    print(">>> Schema 提取完成！")
+    # 1. 尝试读取历史记忆
+    SCHEMA_MEMORY_FILE = "data/schema_memory.json"
+    schema_memory = {}
+    if os.path.exists(SCHEMA_MEMORY_FILE):
+        try:
+            with open(SCHEMA_MEMORY_FILE, "r", encoding="utf-8") as f:
+                schema_memory = json.load(f)
+            print(">>> [Memory] 成功加载历史 Schema 记忆库。")
+        except Exception:
+            pass
+
+    # 2. 让大模型进行分析
+    analyst_prompt = DATA_ANALYST_EXTRACTION_PROMPT.format(stage1_context=raw_stage1_context)
+    ai_schema_str = _chat_once(client, analyst_agent, [{"role": "user", "content": analyst_prompt}], 0.1)
+    ai_schema_str = ai_schema_str.strip().replace("```json", "").replace("```", "")
+    
+    try:
+        current_schema = json.loads(ai_schema_str)
+    except json.JSONDecodeError:
+        print("!!! [Error] 分析师输出的不是合法 JSON，回退为空字典。")
+        current_schema = {}
+
+    # 3. 记忆与 AI 推理融合，并触发人工介入 (Human-in-the-Loop)
+    final_schema = {}
+    schema_updated = False
+
+    for model_name, ai_dict in current_schema.items():
+        # 如果记忆库里已经有这个完美的模型，直接用记忆！
+        if model_name in schema_memory and schema_memory[model_name].get('prob_col') != "UNKNOWN":
+            print(f"    -> [命中记忆] 模型 {model_name} 已在记忆库中，直接沿用标准 Schema！")
+            final_schema[model_name] = schema_memory[model_name]
+            continue
+            
+        print(f"    -> [AI 推理] 正在校验模型 {model_name} 的 Schema...")
+        
+        # 🚨 核心修复：只要能走到这里，说明这是一个记忆库里没有的新模型！
+        # 无论等一下是大模型自己猜对，还是需要人工补齐，最终都必须把它的 Schema 存入记忆库！
+        schema_updated = True 
+        
+        # 检查大模型是不是“认怂”了，或者有没有漏掉核心列
+        if ai_dict.get('prob_col') == "UNKNOWN" or ai_dict.get('id_col') == "UNKNOWN":
+            print("\n" + "!"*60)
+            print(f"🚨 [人工介入请求] 数据架构师被 {model_name} 的格式难住了！")
+            print("以下是该模型的勘探报告片段（供您参考）：")
+            
+            # 找到勘探报告中对应模型的片段打印出来给用户看
+            model_context = [line for line in raw_stage1_context.split('\n') if model_name.lower() in line.lower()][:15]
+            print("\n".join(model_context) if model_context else "[未找到明确的上下文片段]")
+            print("-" * 60)
+            
+            # 开启人工输入循环
+            if ai_dict.get('id_col') == "UNKNOWN":
+                user_id = input(f"请输入 {model_name} 的 ID 列名 (或按回车跳过): ").strip()
+                ai_dict['id_col'] = user_id if user_id else "UNKNOWN"
+                
+            if ai_dict.get('seq_col') == "UNKNOWN" or ai_dict.get('seq_col') is None:
+                user_seq = input(f"请输入 {model_name} 的序列列名 (如果没有请直接按回车): ").strip()
+                ai_dict['seq_col'] = user_seq if user_seq else None
+
+            if ai_dict.get('prob_col') == "UNKNOWN":
+                user_prob = input(f"请输入 {model_name} 的概率列名 (必须填写): ").strip()
+                ai_dict['prob_col'] = user_prob if user_prob else "UNKNOWN"
+            
+            print("!"*60 + "\n")
+
+        final_schema[model_name] = ai_dict
+
+    # 4. 如果有人工介入或新的正确 Schema 产生，保存回记忆库！
+    if schema_updated:
+        schema_memory.update(final_schema)
+        with open(SCHEMA_MEMORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(schema_memory, f, ensure_ascii=False, indent=4)
+        print(f">>> [Memory] 新的 Schema 规则已刻入系统记忆：{SCHEMA_MEMORY_FILE}")
+
+    # 将最终的 schema 转化为字符串，传递给 PI
+    schema_json_str = json.dumps(final_schema, ensure_ascii=False, indent=2)
+    
+    discussion.append({"agent": "Data Architect", "message": f"我已经成功提取并确认了 Data Schema：\n```json\n{schema_json_str}\n```"})
+    print(">>> Schema 提取与复核完成！")
 
     # ==========================================
     # 第二幕：PI 下达逻辑指令
     # ==========================================
     print(">>> [Agent Debate] 第二幕：PI 下达逻辑架构约束...")
-    pi_sys = SECOND_MEETING_PI_PROMPT.format(schema_json=schema_json_str)
+    pi_sys = SECOND_MEETING_PI_PROMPT.format(
+        schema_json=schema_json_str, 
+        target_metrics=target_metrics_str
+    )
     pi_msg1 = _chat_once(client, pi_agent, [{"role": "user", "content": pi_sys}], 0.2)
     
     messages.append({"role": "user", "content": f"PI 刚刚发布了任务规划：\n{pi_msg1}"})
