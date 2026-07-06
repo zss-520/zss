@@ -1,0 +1,1094 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="case-report" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Brief Bioinform</journal-id><journal-id journal-id-type="iso-abbrev">Brief Bioinform</journal-id><journal-id journal-id-type="pmc-domain-id">721</journal-id><journal-id journal-id-type="pmc-domain">bib</journal-id><journal-id journal-id-type="nlm-id">100912837</journal-id><journal-id journal-id-type="publisher-id">bib</journal-id><journal-title-group><journal-title>Briefings in Bioinformatics</journal-title></journal-title-group><issn pub-type="ppub">1467-5463</issn><issn pub-type="epub">1477-4054</issn><publisher><publisher-name>Oxford University Press</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12895073</article-id><article-id pub-id-type="pmcid-ver">PMC12895073.1</article-id><article-id pub-id-type="pmcaid">12895073</article-id><article-id pub-id-type="pmcaiid">12895073</article-id><article-id pub-id-type="pmid">41664908</article-id><article-id pub-id-type="doi">10.1093/bib/bbag023</article-id><article-id pub-id-type="publisher-id">bbag023</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Case Study</subject></subj-group><subj-group subj-group-type="category-taxonomy-collection"><subject>AcademicSubjects/SCI01060</subject></subj-group></article-categories><title-group><article-title>ANIA: an inception-attention network for predicting minimum inhibitory concentration of antimicrobial peptides</article-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>Chiu</surname><given-names initials="YP">Yen-Peng</given-names></name><aff>
+<institution>Institute of Data Science and Engineering, College of Computer Science, National Yang Ming Chiao Tung University</institution>, <addr-line>No. 1001, Daxue Rd., East Dist., Hsinchu City 300</addr-line>, <country country="TW">Taiwan</country></aff></contrib><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-4554-6827</contrib-id><name name-style="western"><surname>Yao</surname><given-names initials="L">Lantian</given-names></name><aff>
+<institution>School of Informatics, Xiamen University</institution>, <addr-line>No. 4221 Xiang'an South Road, Xiang'an District, Xiamen, 361102, Fujian</addr-line>, <country country="CN">China</country></aff><aff>
+<institution>State Key Laboratory of Vaccines for Infectious Diseases, Xiang An Biomedicine Laboratory, Xiamen University</institution>, <addr-line>No. 4221 Xiang'an South Road, Xiang'an District, Xiamen, 361102, Fujian</addr-line>, <country country="CN">China</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Tang</surname><given-names initials="Y">Yun</given-names></name><aff>
+<institution>Institute of Bioinformatics and Systems Biology, College of Engineering Bioscience, National Yang Ming Chiao Tung University</institution>, <addr-line>No. 75, Boai Street, East Dist., Hsinchu City 300</addr-line>, <country country="TW">Taiwan</country></aff></contrib><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-4548-7620</contrib-id><name name-style="western"><surname>Chung</surname><given-names initials="CR">Chia-Ru</given-names></name><aff>
+<institution>Department of Computer Science and Information Engineering, National Central University</institution>, <addr-line>No. 300, Zhongda Rd., Zhongli Dist., Taoyuan City 320</addr-line>, <country country="TW">Taiwan</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Pang</surname><given-names initials="Y">Yuxuan</given-names></name><aff>
+<institution>Institute of Medical Science, The University of Tokyo</institution>, <addr-line>4-6-1, Shirokanedai, Minato-ku, Tokyo 108-8639</addr-line>, <country country="JP">Japan</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Chiang</surname><given-names initials="YC">Ying-Chih</given-names></name><aff>
+<institution>Kobilka Institute of Innovative Drug Discovery, School of Medicine, The Chinese University of Hong Kong</institution>, <addr-line>Shenzhen, 2001 Longxiang Boulevard, Longgang District, Shenzhen 518172</addr-line>, <country country="CN">China</country></aff></contrib><contrib contrib-type="author" corresp="yes"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0002-0283-7712</contrib-id><name name-style="western"><surname>Lee</surname><given-names initials="TY">Tzong-Yi</given-names></name><aff>
+<institution>Institute of Bioinformatics and Systems Biology, College of Engineering Bioscience, National Yang Ming Chiao Tung University</institution>, <addr-line>No. 75, Boai Street, East Dist., Hsinchu City 300</addr-line>, <country country="TW">Taiwan</country></aff><aff>
+<institution>Center for Intelligent Drug Systems and Smart Bio-devices (IDS<sub>2</sub>B), National Yang Ming Chiao Tung University</institution>, <addr-line>No. 75, Boai Street, East Dist., Hsinchu City 300</addr-line>, <country country="TW">Taiwan</country></aff><aff>
+<institution>Molecular Bioinformatics Center, College of Engineering Bioscience, National Yang Ming Chiao Tung University</institution>, <addr-line>No. 75, Boai Street, East Dist., Hsinchu City 300</addr-line>, <country country="TW">Taiwan</country></aff><xref rid="cor1" ref-type="corresp"/></contrib></contrib-group><author-notes><corresp id="cor1">Corresponding author. Institute of Bioinformatics and Systems Biology, College of Engineering Bioscience, National Yang Ming Chiao Tung University, No. 75, Boai Street, East Dist., Hsinchu City 300, Taiwan. E-mail: <email>leetzongyi@nycu.edu.tw</email></corresp></author-notes><pub-date pub-type="collection"><month>1</month><year>2026</year></pub-date><pub-date pub-type="epub" iso-8601-date="2026-02-10"><day>10</day><month>2</month><year>2026</year></pub-date><volume>27</volume><issue>1</issue><issue-id pub-id-type="pmc-issue-id">504440</issue-id><elocation-id>bbag023</elocation-id><history><date date-type="received"><day>17</day><month>7</month><year>2025</year></date><date date-type="rev-recd"><day>29</day><month>12</month><year>2025</year></date><date date-type="accepted"><day>06</day><month>1</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>10</day><month>02</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>13</day><month>02</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-02-13 00:25:13.593"><day>13</day><month>02</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2026. Published by Oxford University Press.</copyright-statement><copyright-year>2026</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbynclicense">https://creativecommons.org/licenses/by-nc/4.0/</ali:license_ref><license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc/4.0/">https://creativecommons.org/licenses/by-nc/4.0/</ext-link>), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact reprints@oup.com for reprints and translation rights for reprints. All other permissions can be obtained through our RightsLink service via the Permissions link on the article page on our site—for further information please contact journals.permissions@oup.com.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="bbag023.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="bbag023.pdf"/><abstract><title>Abstract</title><p>Antimicrobial resistance poses a significant challenge to conventional antibiotics, underscoring the urgent need for alternative therapeutic strategies. Antimicrobial peptides (AMPs) have emerged as promising candidates due to their broad-spectrum antibacterial activity and distinct mechanisms of action. This study presents ANIA, a deep learning framework developed to predict the minimum inhibitory concentration (MIC) values of AMPs against three clinically significant bacteria: <italic toggle="yes">Staphylococcus aureus, Escherichia coli</italic>, and <italic toggle="yes">Pseudomonas aeruginosa</italic>. ANIA leverages Chaos Game Representation (CGR) to transform AMP sequences into frequency-based image features, which are subsequently processed through a hybrid architecture comprising stacked Inception modules, a Transformer encoder, and a regression head. This integrative architecture enables ANIA to capture both local motif-based features and global contextual patterns embedded within AMP sequences. In benchmarking experiments, ANIA achieved notably superior performance compared to existing tools, including ESKAPEE-Pred, AMPActiPred, and esAMPMIC, achieving higher correlation coefficients and lower predictive errors across all bacteria targets, with the most pronounced improvement observed for <italic toggle="yes">P. aeruginosa</italic>, a pathogen renowned for its multidrug resistance. Specifically, ANIA achieved PCCs of 0.75–0.79 and MSEs of 0.23–0.26 across all species. Furthermore, motif-based interpretability analyses combining Grad-CAM visualizations, correlation heatmaps, motif frequency distributions, and hydrophobicity profiling revealed biologically meaningful subregions within the CGR matrix that are plausibly associated with antimicrobial efficacy. In conclusion, this study develops ANIA as a robust predictive tool for MIC estimation, offering valuable insights into the design of effective antimicrobial agents and contributing to the fight against antimicrobial resistance. A user-friendly web server for ANIA is available at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://biomics.lab.nycu.edu.tw/ANIA/" ext-link-type="uri">https://biomics.lab.nycu.edu.tw/ANIA/</ext-link>.</p></abstract><kwd-group><kwd>antimicrobial peptides</kwd><kwd>drug discovery</kwd><kwd>chaos game representation</kwd><kwd>deep learning</kwd><kwd>antibiotic resistance</kwd></kwd-group><funding-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Center for Intelligent Drug Systems and Smart Biodevices (IDS2B)</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Cancer and Immunology Research Center</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>The Featured Areas Research Center Program of the Higher Education Sprout Project</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Yushan Young Fellow Program</institution></institution-wrap>
+</funding-source><award-id>114C51N039</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Ministry of Education</institution><institution-id institution-id-type="DOI">10.13039/100009122</institution-id></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>National Science and Technology Council</institution><institution-id institution-id-type="DOI">10.13039/100020595</institution-id></institution-wrap>
+</funding-source><award-id>NSTC 114–2321-B-A49–009</award-id><award-id>114–2634-F-039-001</award-id><award-id>114–2740-B-400-005</award-id><award-id>114–2640-B-A49–001</award-id><award-id>113–2221-E-A49–160-MY3</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>National Health Research Institutes</institution><institution-id institution-id-type="DOI">10.13039/501100004737</institution-id></institution-wrap>
+</funding-source><award-id>NHRI-EX115-11320BI</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Scientific Research Foundation of State Key Laboratory of Vaccines for Infectious Diseases</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Xiang An Biomedicine Laboratory</institution></institution-wrap>
+</funding-source><award-id>2025XAKJ0102017</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Fundamental Research Funds for the Central Universities</institution><institution-id institution-id-type="DOI">10.13039/501100012226</institution-id></institution-wrap>
+</funding-source><award-id>20720250172</award-id></award-group></funding-group><counts><page-count count="12"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="sec3"><title>Introduction</title><p>The overuse of antibiotics has precipitated a global health crisis, as antibiotic-resistant bacteria increasingly compromise the efficacy of conventional therapies [<xref rid="ref1" ref-type="bibr">1</xref>, <xref rid="ref2" ref-type="bibr">2</xref>]. Antibiotic resistance, confirmed as a major threat, causes millions of deaths annually [<xref rid="ref3" ref-type="bibr">3</xref>]. Among the most concerning are the ESKAPE pathogens, including <italic toggle="yes">Staphylococcus aureus</italic> (<italic toggle="yes">S. aureus</italic>), <italic toggle="yes">Escherichia coli</italic> (<italic toggle="yes">E. coli</italic>), and <italic toggle="yes">Pseudomonas aeruginosa</italic> (<italic toggle="yes">P. aeruginosa</italic>), which are characterized by their multidrug resistance and frequent association with severe healthcare-related infections such as pneumonia and bacteremia [<xref rid="ref4" ref-type="bibr">4</xref>, <xref rid="ref5" ref-type="bibr">5</xref>]. Antimicrobial peptides (AMPs) have emerged as promising therapeutic candidates, demonstrating rapid bactericidal activity and effectiveness against resistant strains [<xref rid="ref6" ref-type="bibr">6</xref>]. The minimum inhibitory concentration (MIC), a key metric for evaluating AMP potency, plays a crucial role in guiding treatment strategies. However, conventional MIC determination remains labor-intensive and time-consuming, thus motivating the development of efficient computational prediction methods [<xref rid="ref7" ref-type="bibr">7</xref>].</p><p>Machine learning has advanced AMP analysis, initially focusing on classification. Classifiers, such as AntiBP and AMPScanner, utilized algorithms to identify antibacterial peptides, but provided only binary outputs [<xref rid="ref8" ref-type="bibr">8–15</xref>]. Subsequently, to address this limitation, a new class of models was developed to estimate MIC values directly. Xiao et al. employed pseudo-amino acid composition and Gaussian kernel regression to model AMP activity against <italic toggle="yes">E. coli</italic> [<xref rid="ref16" ref-type="bibr">16</xref>], while Yan et al. applied a multi-branch convolutional neural network (CNN) with attention mechanisms, trained on data from the DBAASP database [<xref rid="ref17" ref-type="bibr">17</xref>]. More recently, ensemble learning has been applied to improve generalization across species. For instance, Chung et al. developed an ensemble deep learning model for MIC regression across multiple pathogens [<xref rid="ref18" ref-type="bibr">18</xref>], and AMPActiPred implemented a three-stage deep forest framework capable of both AMP identification and MIC prediction [<xref rid="ref19" ref-type="bibr">19</xref>]. Additionally, ESKAPEE-MICpred incorporated genomic and language model features to capture pathogen-specific AMP interactions [<xref rid="ref20" ref-type="bibr">20</xref>]. Despite these advances, most existing models remain limited in their ability to capture spatial dependencies within AMP sequences, as traditional encoding schemes may not fully preserve the spatial patterns necessary for accurate MIC prediction [<xref rid="ref21" ref-type="bibr">21</xref>].</p><p>Parallel innovations in AI have further expanded the possibilities for AMP discovery and optimization. Generative adversarial networks (GANs), such as the feedback-based design framework by Zervou et al., have been used to synthesize novel peptides with enhanced antimicrobial properties [<xref rid="ref22" ref-type="bibr">22</xref>]. Transformer-based architectures like ProtTrans have demonstrated strong performance in capturing long-range sequence dependencies relevant to antimicrobial activity [<xref rid="ref23" ref-type="bibr">23</xref>]. Reinforcement learning has also shown promise, as demonstrated by Wang et al., who developed an optimization framework that iteratively refines AMP sequences to balance potency and toxicity [<xref rid="ref24" ref-type="bibr">24</xref>]. Moreover, hybrid models that integrate empirical screening data with deep learning architectures, such as combinations of CNNs and recurrent neural networks [<xref rid="ref14" ref-type="bibr">14</xref>], reflect a growing trend toward more comprehensive modeling of AMP functionality. Collectively, these strategies underscore the transformative potential of AI-driven methodologies in advancing both AMP prediction and rational design [<xref rid="ref25" ref-type="bibr">25–27</xref>].</p><p>Despite recent progress in computational approaches, critical challenges remain in accurately predicting AMP activity and MIC values. Many traditional models rely primarily on sequence-derived features, such as pseudo-amino acid composition, which often fail to capture spatial patterns essential for modeling AMP–bacteria interactions [<xref rid="ref21" ref-type="bibr">21</xref>]. In addition, numerous existing frameworks lack integration of physicochemical properties that are vital to AMP function, thereby limiting predictive accuracy across diverse bacterial species [<xref rid="ref28" ref-type="bibr">28</xref>]. Practical application is further hindered by the high synthesis cost and molecular complexity of AMPs, reinforcing the need for more efficient and informative predictive strategies [<xref rid="ref6" ref-type="bibr">6</xref>].</p><p>To address these limitations, we propose a novel computational pipeline that leverages Chaos Game Representation (CGR) encoding to convert AMP sequences into image-based frequency matrices, effectively preserving the spatial distribution of sequence motifs [<xref rid="ref29" ref-type="bibr">29</xref>, <xref rid="ref30" ref-type="bibr">30</xref>]. This encoding facilitates the application of computer vision methods, enabling the model to capture both local sequential features and global structural patterns [<xref rid="ref31" ref-type="bibr">31</xref>]. Building on this foundation, we developed ANIA, a deep learning framework designed to predict MIC values of AMPs against three clinically relevant pathogens: <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic> [<xref rid="ref31" ref-type="bibr">31</xref>, <xref rid="ref32" ref-type="bibr">32</xref>]. Unlike conventional binary classifiers, ANIA adopts a regression-based strategy to estimate MIC values as continuous outcomes, enabling fine-grained assessments of antimicrobial activity [<xref rid="ref7" ref-type="bibr">7</xref>].</p></sec><sec id="sec4"><title>Materials and Methods</title><p>An overview of the ANIA workflow is provided in <xref rid="f1" ref-type="fig">Fig. 1</xref>, and the web server (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://biomics.lab.nycu.edu.tw/ANIA/" ext-link-type="uri">https://biomics.lab.nycu.edu.tw/ANIA/</ext-link>) offers a publicly accessible platform for practical application. Specifically, <xref rid="f1" ref-type="fig">Figs 1A–F</xref> illustrates the complete workflow: (A) dataset collection and preprocessing, (B) CGR-based encoding and FCGR generation, (C) model architecture integrating Inception and Transformer modules, (D) training and validation procedures, (E) interpretability and feature attribution analyses, and (F) deployment of the ANIA web interface.</p><fig position="float" id="f1" orientation="portrait"><label>Figure 1</label><caption><p>Workflow of the ANIA-based MIC prediction system. (A) Dataset collection and preprocessing. Antimicrobial peptide sequences and corresponding MIC values targeting <italic toggle="yes">E. coli, S. aureus</italic>, and <italic toggle="yes">P. aeruginosa</italic> were curated from public databases (DBAASP, dbAMP, DRAMP). (B) Image feature extraction using CGR and frequency matrix transformation. (C) Model construction using an inception-attention network with 5-fold cross-validation and evaluation on an independent test set. (D) Performance comparison with conventional machine learning methods and existing AMP prediction tools. (E) Feature-level explainability analysis based on FCGR-derived spatial patterns and physicochemical property mapping. (F) Web server development for user interaction, FASTA input submission, prediction display, and CSV export.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag023f1.jpg"><alt-text>Diagram illustrating a workflow for data processing, model training, evaluation, interpretation, and web-based prediction.</alt-text></graphic></fig><sec id="sec5"><title>Data sources and preparation</title><p>AMP sequences targeting <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic> were curated from DBAASP [<xref rid="ref33" ref-type="bibr">33</xref>], dbAMP [<xref rid="ref34" ref-type="bibr">34</xref>], and DRAMP [<xref rid="ref35" ref-type="bibr">35</xref>]. These repositories provided validated sequences and MIC values, supporting predictive modeling. The ESKAPE pathogens were selected for their multidrug resistance and clinical relevance [<xref rid="ref5" ref-type="bibr">5</xref>]. The dataset comprised 8283, 7582, and 5621 sequences for <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>, respectively, partitioned into 4:1 training and test sets with 5-fold cross-validation. Detailed preprocessing steps are provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Note 1.1</xref>. The number of AMP sequences allocated to the training and test sets for each bacterial species is summarized in <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S1</xref>.</p></sec><sec id="sec6"><title>CGR encoding for AMP sequence representation</title><p>To transform AMP sequences into a format compatible with deep learning models designed for image-based data, we employed CGR encoding to convert each sequence into a two-dimensional frequency matrix. CGR is a mathematical technique based on iterated function systems, which maps sequential data into a fractal representation within a unit square, effectively preserving the spatial distribution of sequence motifs [<xref rid="ref29" ref-type="bibr">29</xref>]. This representation has been widely recognized as a robust feature encoding strategy for biological sequences, including DNA, RNA, and proteins, and has facilitated the application of computer vision-based methods in various prediction tasks [<xref rid="ref30" ref-type="bibr">30</xref>, <xref rid="ref31" ref-type="bibr">31</xref>, <xref rid="ref36" ref-type="bibr">36</xref>, <xref rid="ref37" ref-type="bibr">37</xref>]. In our study, this encoding enables the transformation of AMP sequences into image-like representations suitable for MIC regression modeling.</p><p>To construct the CGR representation, each amino acid type <inline-formula><tex-math notation="LaTeX" id="ineq01">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${a}_k$\end{document}</tex-math></inline-formula>(<inline-formula><tex-math notation="LaTeX" id="ineq02">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k=1,2,\dots, 20$\end{document}</tex-math></inline-formula>) was mapped to a unique vertex within a unit square. For an AMP sequence <inline-formula><tex-math notation="LaTeX" id="ineq03">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{s}=\left\{{\mathrm{s}}_1,{\mathrm{s}}_2,\dots, {\mathrm{s}}_{\mathrm{n}}\right\}$\end{document}</tex-math></inline-formula>, where <inline-formula><tex-math notation="LaTeX" id="ineq04">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{n}$\end{document}</tex-math></inline-formula> is the sequence length and <inline-formula><tex-math notation="LaTeX" id="ineq05">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{s}}_{\mathrm{i}}\in \left\{\mathrm{A},\mathrm{C},\dots, \mathrm{Y}\right\}$\end{document}</tex-math></inline-formula> denotes the <inline-formula><tex-math notation="LaTeX" id="ineq06">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i- th$\end{document}</tex-math></inline-formula> amino acid in the sequence, the 20 amino acid types were uniformly distributed as vertices on a unit circle (radius <inline-formula><tex-math notation="LaTeX" id="ineq07">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{r}=1$\end{document}</tex-math></inline-formula>) inscribed within a square ranging from coordinates <inline-formula><tex-math notation="LaTeX" id="ineq08">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left(-1,1\right)$\end{document}</tex-math></inline-formula> to <inline-formula><tex-math notation="LaTeX" id="ineq09">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left(1,-1\right)$\end{document}</tex-math></inline-formula>. The coordinates of each vertex <inline-formula><tex-math notation="LaTeX" id="ineq10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{h}\left({\mathrm{a}}_{\mathrm{k}}\right)=\left({\mathrm{x}}_{\mathrm{k}},{\mathrm{y}}_{\mathrm{k}}\right)$\end{document}</tex-math></inline-formula> were calculated as follows:</p><disp-formula id="deqn01">
+<label>1</label>
+<tex-math notation="LaTeX" id="DmEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} {\mathrm{\theta}}_{\mathrm{k}}=\frac{2\mathrm{\pi} \bullet \mathrm{k}}{20} \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn02">
+<label>2</label>
+<tex-math notation="LaTeX" id="DmEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} {\mathrm{x}}_{\mathrm{k}}=\mathrm{r}\bullet \cos \left({\mathrm{\theta}}_{\mathrm{k}}\right),\kern0.5em {\mathrm{y}}_{\mathrm{k}}=\mathrm{r}\bullet \sin \left({\mathrm{\theta}}_{\mathrm{k}}\right) \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><p>These coordinates were assigned to the 20 amino acids in alphabetical order (A, C, D, …, Y), ensuring a balanced and symmetrical distribution across the unit square.</p><p>The CGR encoding process begins at an initial position <inline-formula><tex-math notation="LaTeX" id="ineq11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_0,{\mathrm{y}}_0\right)=\left(0,0\right)$\end{document}</tex-math></inline-formula>. For each amino acid <inline-formula><tex-math notation="LaTeX" id="ineq12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{s}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula> at position <inline-formula><tex-math notation="LaTeX" id="ineq13">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula> in the sequence, its coordinate <inline-formula><tex-math notation="LaTeX" id="ineq14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_{\mathrm{i}},{\mathrm{y}}_{\mathrm{i}}\right)$\end{document}</tex-math></inline-formula> is computed by moving a fraction of the distance from the previous coordinate <inline-formula><tex-math notation="LaTeX" id="ineq15">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_{\mathrm{i}-1},{\mathrm{y}}_{\mathrm{i}-1}\right)$\end{document}</tex-math></inline-formula> toward the vertex <inline-formula><tex-math notation="LaTeX" id="ineq16">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{h}\left({\mathrm{a}}_{\mathrm{k}}\right)$\end{document}</tex-math></inline-formula> corresponding to its amino acid type (i.e. the vertex of <inline-formula><tex-math notation="LaTeX" id="ineq17">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{s}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula>). The scaling factor <inline-formula><tex-math notation="LaTeX" id="ineq18">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{sf}$\end{document}</tex-math></inline-formula> is defined based on the geometry of the polygon formed by the 20 vertices, ensuring that sub-polygons within the CGR space remain non-overlapping [<xref rid="ref29" ref-type="bibr">29</xref>]. It is computed as:</p><disp-formula id="deqn03">
+<label>3</label>
+<tex-math notation="LaTeX" id="DmEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \mathrm{sf}=1-\frac{\sin \left(\mathrm{\pi} /20\right)}{\sin \left(\mathrm{\pi} /20\right)+\sin \left(\mathrm{\pi} /20+2\bullet \left(\left\lfloor 20/4\right\rfloor /20\right)\right)} \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><p>This results in <inline-formula><tex-math notation="LaTeX" id="ineq19">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{sf}\approx 0.86$\end{document}</tex-math></inline-formula>. The coordinates <inline-formula><tex-math notation="LaTeX" id="ineq20">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_{\mathrm{i}},{\mathrm{y}}_{\mathrm{i}}\right)$\end{document}</tex-math></inline-formula> for the <inline-formula><tex-math notation="LaTeX" id="ineq21">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{i}$\end{document}</tex-math></inline-formula>-th amino acid are then computed using the following recursive formula:</p><disp-formula id="deqn04">
+<label>4</label>
+<tex-math notation="LaTeX" id="DmEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \left({\mathrm{x}}_{\mathrm{i}},{\mathrm{y}}_{\mathrm{i}}\right)=\left(1-\mathrm{sf}\right)\bullet \left({\mathrm{x}}_{\mathrm{i}-1},{\mathrm{y}}_{\mathrm{i}-1}\right)+\mathrm{sf}\bullet \mathrm{h}\left({\mathrm{s}}_{\mathrm{i}}\right) \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ineq22">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{h}\left({\mathrm{s}}_{\mathrm{i}}\right)$\end{document}</tex-math></inline-formula> denotes the vertex corresponding to the amino acid type of <inline-formula><tex-math notation="LaTeX" id="ineq23">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{s}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula>. This iterative process generates a trajectory of coordinates <inline-formula><tex-math notation="LaTeX" id="ineq24">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_1,{\mathrm{y}}_1\right)$\end{document}</tex-math></inline-formula>, <inline-formula><tex-math notation="LaTeX" id="ineq25">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_2,{\mathrm{y}}_2\right)$\end{document}</tex-math></inline-formula>,…, <inline-formula><tex-math notation="LaTeX" id="ineq26">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_{\mathrm{n}},{\mathrm{y}}_{\mathrm{n}}\right)$\end{document}</tex-math></inline-formula>, forming a visual representation that reflects the sequential structure of the AMP.</p><p>To derive a feature representation suitable for deep learning, we extended CGR into a Frequency Chaos Game Representation (FCGR) by discretizing the unit square into a grid. The grid resolution parameter (<inline-formula><tex-math notation="LaTeX" id="ineq27">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{res}$\end{document}</tex-math></inline-formula>) defines the number of subdivisions along each axis, thereby controlling the granularity of spatial representation in the resulting matrix. This discretization converts the continuous CGR trajectory into a grid-based frequency map, reducing noise sensitivity while preserving motif-level spatial information [<xref rid="ref29" ref-type="bibr">29</xref>]. For each AMP sequence, the coordinates <inline-formula><tex-math notation="LaTeX" id="ineq28">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_{\mathrm{i}},{\mathrm{y}}_{\mathrm{i}}\right)$\end{document}</tex-math></inline-formula> were discretized by linearly mapping them to the nearest grid cell, computed as:</p><disp-formula id="deqn05">
+<label>5</label>
+<tex-math notation="LaTeX" id="DmEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} {\mathrm{x}}_{\mathrm{matrix}}=\left\lceil \left({\mathrm{x}}_{\mathrm{i}}+1\right)\bullet \left(\mathrm{res}/2\right)\right\rceil\!, \kern0.5em {\mathrm{y}}_{\mathrm{matrix}}=\left\lceil \left({\mathrm{y}}_{\mathrm{i}}+1\right)\bullet \left(\mathrm{res}/2\right)\right\rceil \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><p>The frequency of CGR trajectory coordinates <inline-formula><tex-math notation="LaTeX" id="ineq29">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\left({\mathrm{x}}_{\mathrm{i}},{\mathrm{y}}_{\mathrm{i}}\right)$\end{document}</tex-math></inline-formula> landing in each grid cell was then tallied to generate the FCGR matrix, where each cell value reflects how many trajectory points fall within that region. In this study, the FCGR resolution was set to 16<inline-formula><tex-math notation="LaTeX" id="ineq30">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>16, which provided an optimal balance between spatial granularity and feature density based on empirical evaluation (see <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S2</xref>). <xref rid="f2" ref-type="fig">Figure 2A</xref> shows a step-by-step example illustrating the CGR encoding procedure and the construction of the FCGR matrix for an AMP sequence (LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTESDYKDDDDKCQDSERTFY), with a detailed description provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Note 1.2</xref>. To further enhance interpretability, <xref rid="f2" ref-type="fig">Fig. 2B</xref> visualizes motif-level patterns captured by the FCGR representation by summarizing the most frequently observed 3-mer within each FCGR cell. Tripeptide motifs are a commonly adopted unit for local sequence context in AMP studies, where they capture recurrent physicochemical and functional patterns relevant to antimicrobial activity [<xref rid="ref38" ref-type="bibr">38</xref>, <xref rid="ref39" ref-type="bibr">39</xref>, <xref rid="ref40" ref-type="bibr">40</xref>]. A detailed description of the motif-level 3-mer visualization on the FCGR matrix for the same illustrative AMP sequence is provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Note 1.3</xref>.</p><fig position="float" id="f2" orientation="portrait"><label>Figure 2</label><caption><p>Overview of CGR encoding and the ANIA model architecture. (A) Step-by-step example of applying CGR on a AMP sequence (length = 54). The peptide sequence is fragmented into overlapping sliding 3-mers, which are sequentially mapped onto 2D CGR space. Intermediate steps of the CGR trajectory are shown at selected position index (i), demonstrating how sequence order and motif information are encoded into a spatial frequency distribution (FCGR). (B) Motif-level visualization on FCGR matrix generated from the example sequence, where each pixel represents the normalized frequency of a specific 3-mer pattern within the predefined CGR grid. Representative sub-regions are enlarged to illustrate how distinct amino-acid combinations contribute to localized frequency intensities. (C) The overall framework of ANIA, comprising stacked Inception modules, a Transformer encoder, and a regression head for MIC prediction. (D) Internal configuration of the Inception module, with four parallel branches for extracting multi-scale sequence features.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag023f2.jpg"><alt-text>Diagram illustrating CGR-based sequence encoding and the overall architecture of the ANIA prediction model.</alt-text></graphic></fig><p>
+<xref rid="sup1" ref-type="supplementary-material">Supplementary Figs S1A–C</xref> display the FCGR representations of AMP sequences targeting <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>, respectively. Within each species, discernible differences emerged between sequences associated with low and high MIC values. For example, sequences with lower MIC values exhibited elevated motif frequencies in specific grid regions, suggesting potential hotspots linked to antimicrobial activity. These visual patterns provide preliminary insights into sequence-function relationships and are particularly informative for the downstream regression task of MIC prediction.</p><p>The FCGR matrix serves as an image-based representation of the AMP sequence, capturing the spatial distribution of sequence motifs that are critical for MIC estimation. This format is well-suited for computer vision-based deep learning models, enabling them to leverage structured motif frequency patterns to enhance predictive accuracy. Moreover, the FCGR representation facilitates interpretability by allowing visual analysis of sequence motif distributions, as demonstrated in our feature interpretation experiments.</p></sec><sec id="sec7"><title>ANIA model architecture</title><p>Initial attempts to predict MIC values of AMPs using conventional sequence encodings and traditional machine learning methods demonstrated limited performance, particularly when applied to spatially structured representations [<xref rid="ref12" ref-type="bibr">12</xref>, <xref rid="ref18" ref-type="bibr">18</xref>]. To overcome these limitations, we employed CGR to convert AMP sequences into 16<inline-formula><tex-math notation="LaTeX" id="ineq31">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>16 single-channel frequency matrices, referred to as FCGR. However, standard machine learning algorithms were not well suited for extracting hierarchical patterns from these image-like features. This motivated the development of ANIA, a deep learning framework specifically designed to predict MIC values against <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic> using FCGR-based inputs [<xref rid="ref32" ref-type="bibr">32</xref>, <xref rid="ref41" ref-type="bibr">41</xref>].</p><p>Predicting MIC values from FCGR representations requires the model to capture both localized motif patterns, which reflect physicochemical residue interactions, and global spatial dependencies, which describe the overall organization of functional regions within the peptide map. To meet these dual requirements, ANIA was designed as a hybrid architecture that combines convolutional and attention-based mechanisms. Specifically, ANIA integrates two stacked Inception modules to extract multi-scale local motifs. In this study, two Inception modules were stacked sequentially, providing an optimal balance between predictive performance, architectural complexity, and computational efficiency based on empirical evaluation (see <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S3</xref>). The extracted features are subsequently processed by a Transformer encoder that models long-range dependencies across the FCGR representation. A final regression head is employed to estimate MIC values. This hybrid design leverages the complementary strengths of convolutional feature extraction and attention-driven contextual learning, enabling the model to jointly learn fine-grained spatial features and global dependency patterns from image-based peptide representations. The overall architecture of ANIA is illustrated in <xref rid="f2" ref-type="fig">Fig. 2C</xref>. The model was implemented in Python using the PyTorch framework and trained on an NVIDIA GPU platform.</p><p>The input FCGR matrix is first processed by two sequential Inception modules. Each module receives a 16<inline-formula><tex-math notation="LaTeX" id="ineq32">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>16 single-channel image and consists of four parallel branches: (i) a 1<inline-formula><tex-math notation="LaTeX" id="ineq33">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>1 convolution, (ii) a decomposed 3<inline-formula><tex-math notation="LaTeX" id="ineq34">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>3 convolution (implemented as a 1<inline-formula><tex-math notation="LaTeX" id="ineq35">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>3 followed by a 3<inline-formula><tex-math notation="LaTeX" id="ineq36">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>1 convolution), (iii) a decomposed 5<inline-formula><tex-math notation="LaTeX" id="ineq37">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>5 convolution (two sequential 3<inline-formula><tex-math notation="LaTeX" id="ineq38">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>3 convolutions), and (iv) a 3<inline-formula><tex-math notation="LaTeX" id="ineq39">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>3 max pooling layer followed by a 1<inline-formula><tex-math notation="LaTeX" id="ineq40">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>1 convolution. The first Inception module outputs 128 channels, while the second outputs 176 channels. A 1<inline-formula><tex-math notation="LaTeX" id="ineq41">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>1 convolution is used as a residual connection between the two modules to align channel dimensions and improve gradient propagation [<xref rid="ref32" ref-type="bibr">32</xref>]. Each module contains learnable weights to adaptively balance contributions from the parallel branches. The internal architecture of the Inception module is illustrated in <xref rid="f2" ref-type="fig">Fig. 2D</xref>.</p><p>Following the Inception blocks, a max pooling operation reduces the spatial resolution to 8<inline-formula><tex-math notation="LaTeX" id="ineq42">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>8. The resulting feature maps are flattened across the spatial dimensions and passed through two linear layers with ReLU activations, projecting each channel into a 128-dimensional embedding space. These embeddings serve as input to a single-layer Transformer encoder with two attention heads, which captures global dependencies through multi-head self-attention. The attention weights are computed using the scaled dot-product formulation:</p><disp-formula id="deqn06">
+<label>6</label>
+<tex-math notation="LaTeX" id="DmEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \mathrm{Attention}\left(\mathrm{Q},\mathrm{K},\mathrm{V}\right)=\mathrm{softmax}\left(\frac{\mathrm{Q}{\mathrm{K}}^{\mathrm{T}}}{\sqrt{{\mathrm{d}}_{\mathrm{k}}}}\right)\mathrm{V} \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><p>where, <inline-formula><tex-math notation="LaTeX" id="ineq43">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{Q}$\end{document}</tex-math></inline-formula>, <inline-formula><tex-math notation="LaTeX" id="ineq44">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{K}$\end{document}</tex-math></inline-formula>, and <inline-formula><tex-math notation="LaTeX" id="ineq45">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{V}$\end{document}</tex-math></inline-formula> denote the query, key, and value matrices derived from input embeddings, and <inline-formula><tex-math notation="LaTeX" id="ineq46">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{d}}_{\mathrm{k}}=64$\end{document}</tex-math></inline-formula> is the dimensionality of the keys [<xref rid="ref41" ref-type="bibr">41</xref>].</p><p>The encoder output is globally pooled and passed through a three-layer fully connected regression head with a hidden dimension of 64 and dropout rates ranging from 0.4 to 0.6. This head applies dropout-based regularization and produces a scalar output representing the predicted MIC value.</p><p>The model’s hyperparameters were selected to balance architectural complexity and predictive performance. Instead of relying on fixed-scale filters, the Inception modules incorporate multiple kernel sizes and learnable branch weights to adaptively extract sequence features across varying receptive fields. Similarly, the Transformer encoder, configured with one layer and two attention heads, enables the model to capture long-range dependencies across embedded spatial features. A complete specification of the ANIA architecture—including kernel dimensions, channel sizes, number of layers, activation functions, and pooling strategies—is provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S4</xref>. Model training was performed using the Adam optimizer with Mean Squared Error loss and early stopping based on validation loss. Training convergence was consistently achieved within ~40–50 epochs across folds, indicating stable optimization behavior and reliable generalization.</p></sec><sec id="sec8"><title>Evaluation metrics</title><p>To evaluate the performance of the ANIA model in predicting the log MIC values of AMPs targeting <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>, we employed five standard regression metrics: Mean Absolute Error (MAE), Mean Squared Error (MSE), the coefficient of determination (<inline-formula><tex-math notation="LaTeX" id="ineq47">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{R}}^2$\end{document}</tex-math></inline-formula>), the Pearson Correlation Coefficient (PCC), and the Spearman Rank Correlation Coefficient (<inline-formula><tex-math notation="LaTeX" id="ineq48">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\rho$\end{document}</tex-math></inline-formula>). Let <inline-formula><tex-math notation="LaTeX" id="ineq49">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{y}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula> denote the actual log MIC value, <inline-formula><tex-math notation="LaTeX" id="ineq50">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\hat{\mathrm{y}}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula> the predicted value, <inline-formula><tex-math notation="LaTeX" id="ineq51">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{n}$\end{document}</tex-math></inline-formula> the total number of samples, and <inline-formula><tex-math notation="LaTeX" id="ineq52">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\overline{\mathrm{y}}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ineq53">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\hat{\overline{\mathrm{y}}}$\end{document}</tex-math></inline-formula> the means of the actual and predicted values, and <inline-formula><tex-math notation="LaTeX" id="ineq54">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${d}_i$\end{document}</tex-math></inline-formula> the rank difference between <inline-formula><tex-math notation="LaTeX" id="ineq55">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{y}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ineq56">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\hat{\mathrm{y}}}_{\mathrm{i}}$\end{document}</tex-math></inline-formula> for the Spearman correlation. These metrics are defined as follows:</p><disp-formula id="deqn07">
+<label>7</label>
+<tex-math notation="LaTeX" id="DmEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \mathrm{MAE}=\frac{1}{\mathrm{n}}\sum_{\mathrm{i}=1}^{\mathrm{n}}\left|{\mathrm{y}}_{\mathrm{i}}-{\hat{\mathrm{y}}}_{\mathrm{i}}\right| \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn08">
+<label>8</label>
+<tex-math notation="LaTeX" id="DmEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \mathrm{MSE}=\frac{1}{\mathrm{n}}\sum_{\mathrm{i}=1}^{\mathrm{n}}{\left({\mathrm{y}}_{\mathrm{i}}-{\hat{\mathrm{y}}}_{\mathrm{i}}\right)}^2 \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn09">
+<label>9</label>
+<tex-math notation="LaTeX" id="DmEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} {\mathrm{R}}^2=1-\frac{\sum_{\mathrm{i}=1}^{\mathrm{n}}{\left({\mathrm{y}}_{\mathrm{i}}-{\hat{\mathrm{y}}}_{\mathrm{i}}\right)}^2}{\sum_{\mathrm{i}=1}^{\mathrm{n}}{\left({\hat{\mathrm{y}}}_{\mathrm{i}}-\overline{y}\right)}^2} \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn10">
+<label>10</label>
+<tex-math notation="LaTeX" id="DmEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \mathrm{PCC}=\frac{\sum_{\mathrm{i}=1}^{\mathrm{n}}\left({\mathrm{y}}_{\mathrm{i}}-\overline{\mathrm{y}}\right)\left({\hat{\mathrm{y}}}_{\mathrm{i}}-\hat{\overline{\mathrm{y}}}\right)}{\sqrt{\sum_{\mathrm{i}=1}^{\mathrm{n}}{\left({\mathrm{y}}_{\mathrm{i}}-\overline{\mathrm{y}}\right)}^2}\sqrt{\sum_{\mathrm{i}=1}^{\mathrm{n}}{\left({\hat{\mathrm{y}}}_{\mathrm{i}}-\hat{\overline{\mathrm{y}}}\right)}^2}} \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn11">
+<label>11</label>
+<tex-math notation="LaTeX" id="DmEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*} \mathrm{\rho} =1-\frac{6{\sum}_{\mathrm{i}=1}^{\mathrm{n}}{d_i}^2}{n\left({n}^2-1\right)} \end{eqnarray*}\end{document}</tex-math>
+</disp-formula><p>During model training, MSE was used as the loss function to minimize the prediction error of log MIC values. For evaluation, PCC served as the primary metric to quantify the linear correlation between predicted and actual values, while MAE, <inline-formula><tex-math notation="LaTeX" id="ineq57">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${\mathrm{R}}^2$\end{document}</tex-math></inline-formula>, and <inline-formula><tex-math notation="LaTeX" id="ineq58">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{\rho}$\end{document}</tex-math></inline-formula> were additionally reported to provide a comprehensive assessment of predictive accuracy, explanatory power, and rank-order consistency.</p></sec></sec><sec id="sec9"><title>Results</title><sec id="sec10"><title>Distributional analysis of AMP sequence length and log MIC distribution across targeted bacteria</title><p>Log-transformed MIC values displayed distinct species-specific patterns (<xref rid="f3" ref-type="fig">Fig. 3A</xref>). <italic toggle="yes">S. aureus</italic> showed a relatively symmetric distribution, while <italic toggle="yes">E. coli</italic> and <italic toggle="yes">P. aeruginosa</italic> exhibited broader spreads with mild skewness toward higher MIC values. These differences reflect interspecies variability in AMP susceptibility and emphasize the need for pathogen-specific modeling strategies. As shown in <xref rid="f3" ref-type="fig">Fig. 3B</xref>, a consistent negative correlation was observed between sequence length and log MIC across all species, indicating that longer AMPs tend to exhibit stronger antimicrobial activity. Detailed descriptions of distributional characteristics and regression parameters are provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Note 1.4</xref>.</p><fig position="float" id="f3" orientation="portrait"><label>Figure 3</label><caption><p>(A) Distributions of log MIC values for AMP sequences targeting <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>. (B) Relationship between AMP sequence length and log MIC values across species, with fitted linear trend lines.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag023f3.jpg"><alt-text>Plots illustrating the distribution of log MIC values and the relationship between peptide length and antimicrobial activity across different bacteria.</alt-text></graphic></fig></sec><sec id="sec10a"><title>Performance of machine learning models with iFeature encoding</title><p>To establish a baseline for MIC prediction, we evaluated conventional machine learning models trained on iFeature-derived descriptors [<xref rid="ref42" ref-type="bibr">42</xref>], comprising physicochemical, structural, and compositional features (<xref rid="sup1" ref-type="supplementary-material">Supplementary Table S5</xref>). The models comprised linear regressors (Linear Regression [<xref rid="ref43" ref-type="bibr">43</xref>], Lasso [<xref rid="ref44" ref-type="bibr">44</xref>], Ridge [<xref rid="ref45" ref-type="bibr">45</xref>], Elastic Net [<xref rid="ref46" ref-type="bibr">46</xref>]), tree-based ensembles (Random Forest, RF [<xref rid="ref47" ref-type="bibr">47</xref>], Gradient Boosting [<xref rid="ref48" ref-type="bibr">48</xref>], XGBoost [<xref rid="ref49" ref-type="bibr">49</xref>]), and a kernel-based method (Support Vector Machine, SVM [<xref rid="ref50" ref-type="bibr">50</xref>]). Model performance was evaluated on independent test sets for <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic> (<xref rid="TB1" ref-type="table">Table 1</xref>). Gradient Boosting achieved the highest predictive performance, with the strongest PCC and explained variance across species. RF and XGBoost also performed robustly, while linear models showed reduced accuracy, particularly for <italic toggle="yes">P. aeruginosa</italic>. SVM exhibited intermediate results. Notably, <italic toggle="yes">E. coli</italic> showed the best overall results, possibly due to its larger dataset and stronger sequence length–MIC association.</p><table-wrap position="float" id="TB1" orientation="portrait"><label>Table 1</label><caption><p>Evaluation of machine learning models for MIC prediction using iFeature-derived features on the independent test set.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><th colspan="8" align="left" rowspan="1">
+<bold>Models</bold>
+</th></tr><tr><th align="left" rowspan="1" colspan="1">
+<bold>Bacteria</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Metrics</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Linear</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Lasso</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Ridge</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Elastic Net</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>RF</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Gradient Boosting</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>XGBoost</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>SVM</bold>
+</th></tr></thead><tbody><tr><td align="left" rowspan="5" colspan="1">
+<italic toggle="yes">S. aureus</italic>
+</td><td align="left" rowspan="1" colspan="1">MAE</td><td align="left" rowspan="1" colspan="1">0.5523</td><td align="left" rowspan="1" colspan="1">0.5533</td><td align="left" rowspan="1" colspan="1">0.5519</td><td align="left" rowspan="1" colspan="1">0.5587</td><td align="left" rowspan="1" colspan="1">0.4595</td><td align="left" rowspan="1" colspan="1">0.4532</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4521</bold>
+</td><td align="left" rowspan="1" colspan="1">0.4691</td></tr><tr><td align="left" rowspan="1" colspan="1">MSE</td><td align="left" rowspan="1" colspan="1">0.4570</td><td align="left" rowspan="1" colspan="1">0.4557</td><td align="left" rowspan="1" colspan="1">0.4542</td><td align="left" rowspan="1" colspan="1">0.4609</td><td align="left" rowspan="1" colspan="1">0.3359</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3301</bold>
+</td><td align="left" rowspan="1" colspan="1">0.3321</td><td align="left" rowspan="1" colspan="1">0.3622</td></tr><tr><td align="left" rowspan="1" colspan="1">R<sup>2</sup></td><td align="left" rowspan="1" colspan="1">0.2112</td><td align="left" rowspan="1" colspan="1">0.2135</td><td align="left" rowspan="1" colspan="1">0.2160</td><td align="left" rowspan="1" colspan="1">0.2045</td><td align="left" rowspan="1" colspan="1">0.4203</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4303</bold>
+</td><td align="left" rowspan="1" colspan="1">0.4267</td><td align="left" rowspan="1" colspan="1">0.3748</td></tr><tr><td align="left" rowspan="1" colspan="1">PCC</td><td align="left" rowspan="1" colspan="1">0.4622</td><td align="left" rowspan="1" colspan="1">0.4628</td><td align="left" rowspan="1" colspan="1">0.4657</td><td align="left" rowspan="1" colspan="1">0.4523</td><td align="left" rowspan="1" colspan="1">0.6553</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6565</bold>
+</td><td align="left" rowspan="1" colspan="1">0.6538</td><td align="left" rowspan="1" colspan="1">0.6131</td></tr><tr><td align="left" rowspan="1" colspan="1">Spearman</td><td align="left" rowspan="1" colspan="1">0.4219</td><td align="left" rowspan="1" colspan="1">0.4243</td><td align="left" rowspan="1" colspan="1">0.4260</td><td align="left" rowspan="1" colspan="1">0.4186</td><td align="left" rowspan="1" colspan="1">0.6446</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6460</bold>
+</td><td align="left" rowspan="1" colspan="1">0.6416</td><td align="left" rowspan="1" colspan="1">0.5964</td></tr><tr><td align="left" rowspan="5" colspan="1">
+<italic toggle="yes">E. coli</italic>
+</td><td align="left" rowspan="1" colspan="1">MAE</td><td align="left" rowspan="1" colspan="1">0.5340</td><td align="left" rowspan="1" colspan="1">0.5340</td><td align="left" rowspan="1" colspan="1">0.5324</td><td align="left" rowspan="1" colspan="1">0.5337</td><td align="left" rowspan="1" colspan="1">0.4493</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4480</bold>
+</td><td align="left" rowspan="1" colspan="1">0.4533</td><td align="left" rowspan="1" colspan="1">0.4544</td></tr><tr><td align="left" rowspan="1" colspan="1">MSE</td><td align="left" rowspan="1" colspan="1">0.4651</td><td align="left" rowspan="1" colspan="1">0.4588</td><td align="left" rowspan="1" colspan="1">0.4573</td><td align="left" rowspan="1" colspan="1">0.4572</td><td align="left" rowspan="1" colspan="1">0.3451</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3399</bold>
+</td><td align="left" rowspan="1" colspan="1">0.3454</td><td align="left" rowspan="1" colspan="1">0.3581</td></tr><tr><td align="left" rowspan="1" colspan="1">R<sup>2</sup></td><td align="left" rowspan="1" colspan="1">0.2899</td><td align="left" rowspan="1" colspan="1">0.2995</td><td align="left" rowspan="1" colspan="1">0.3017</td><td align="left" rowspan="1" colspan="1">0.3019</td><td align="left" rowspan="1" colspan="1">0.4732</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4809</bold>
+</td><td align="left" rowspan="1" colspan="1">0.4727</td><td align="left" rowspan="1" colspan="1">0.4533</td></tr><tr><td align="left" rowspan="1" colspan="1">PCC</td><td align="left" rowspan="1" colspan="1">0.5420</td><td align="left" rowspan="1" colspan="1">0.5481</td><td align="left" rowspan="1" colspan="1">0.5500</td><td align="left" rowspan="1" colspan="1">0.5498</td><td align="left" rowspan="1" colspan="1">0.6935</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6943</bold>
+</td><td align="left" rowspan="1" colspan="1">0.6895</td><td align="left" rowspan="1" colspan="1">0.6735</td></tr><tr><td align="left" rowspan="1" colspan="1">Spearman</td><td align="left" rowspan="1" colspan="1">0.5229</td><td align="left" rowspan="1" colspan="1">0.5288</td><td align="left" rowspan="1" colspan="1">0.5302</td><td align="left" rowspan="1" colspan="1">0.5307</td><td align="left" rowspan="1" colspan="1">0.6848</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6823</bold>
+</td><td align="left" rowspan="1" colspan="1">0.6809</td><td align="left" rowspan="1" colspan="1">0.6577</td></tr><tr><td align="left" rowspan="5" colspan="1">
+<italic toggle="yes">P. aeruginosa</italic>
+</td><td align="left" rowspan="1" colspan="1">MAE</td><td align="left" rowspan="1" colspan="1">0.5312</td><td align="left" rowspan="1" colspan="1">0.5253</td><td align="left" rowspan="1" colspan="1">0.5242</td><td align="left" rowspan="1" colspan="1">0.5237</td><td align="left" rowspan="1" colspan="1">0.4328</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4232</bold>
+</td><td align="left" rowspan="1" colspan="1">0.4262</td><td align="left" rowspan="1" colspan="1">0.4312</td></tr><tr><td align="left" rowspan="1" colspan="1">MSE</td><td align="left" rowspan="1" colspan="1">0.4497</td><td align="left" rowspan="1" colspan="1">0.4396</td><td align="left" rowspan="1" colspan="1">0.4390</td><td align="left" rowspan="1" colspan="1">0.4370</td><td align="left" rowspan="1" colspan="1">0.3143</td><td align="left" rowspan="1" colspan="1">0.3074</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3073</bold>
+</td><td align="left" rowspan="1" colspan="1">0.3193</td></tr><tr><td align="left" rowspan="1" colspan="1">R<sup>2</sup></td><td align="left" rowspan="1" colspan="1">0.1852</td><td align="left" rowspan="1" colspan="1">0.2036</td><td align="left" rowspan="1" colspan="1">0.2047</td><td align="left" rowspan="1" colspan="1">0.2083</td><td align="left" rowspan="1" colspan="1">0.4307</td><td align="left" rowspan="1" colspan="1">0.4431</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4432</bold>
+</td><td align="left" rowspan="1" colspan="1">0.4216</td></tr><tr><td align="left" rowspan="1" colspan="1">PCC</td><td align="left" rowspan="1" colspan="1">0.4441</td><td align="left" rowspan="1" colspan="1">0.4560</td><td align="left" rowspan="1" colspan="1">0.4566</td><td align="left" rowspan="1" colspan="1">0.4594</td><td align="left" rowspan="1" colspan="1">0.6609</td><td align="left" rowspan="1" colspan="1">0.6672</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6688</bold>
+</td><td align="left" rowspan="1" colspan="1">0.6494</td></tr><tr><td align="left" rowspan="1" colspan="1">Spearman</td><td align="left" rowspan="1" colspan="1">0.4262</td><td align="left" rowspan="1" colspan="1">0.4440</td><td align="left" rowspan="1" colspan="1">0.4449</td><td align="left" rowspan="1" colspan="1">0.4498</td><td align="left" rowspan="1" colspan="1">0.6405</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6492</bold>
+</td><td align="left" rowspan="1" colspan="1">0.6474</td><td align="left" rowspan="1" colspan="1">0.6205</td></tr></tbody></table></table-wrap><p>While these results highlight the utility of traditional machine learning with sequence-derived descriptors, the moderate predictive accuracy underscores limitations in capturing complex, non-linear determinants of antimicrobial activity. These findings provide a reference point for evaluating CGR-based feature representations and the ANIA deep learning framework, which are specifically designed to capture spatial and contextual patterns beyond the reach of conventional models.</p></sec><sec id="sec11"><title>Performance of machine learning models with CGR encoding</title><p>To assess the predictive utility of CGR-based features independently of deep learning architectures, we re-evaluated the previously tested machine learning algorithms using CGR encoding, which transforms AMP sequences into frequency-based image representations. Model performance on independent test sets for <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic> is summarized in <xref rid="TB2" ref-type="table">Table 2</xref>. Across species, predictive accuracy varied with both the choice of algorithm and target bacterium. SVM achieved the best results, though overall performance was lower than with iFeature-derived descriptors. Although CGR encodes spatial sequence patterns absent in conventional descriptors, its combination with traditional models did not improve predictive accuracy.</p><table-wrap position="float" id="TB2" orientation="portrait"><label>Table 2</label><caption><p>Evaluation of machine learning models for MIC prediction using CGR-encoded features on the independent test set.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><th colspan="8" align="left" rowspan="1">
+<bold>Models</bold>
+</th></tr><tr><th align="left" rowspan="1" colspan="1">
+<bold>Bacteria</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Metrics</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Linear</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Lasso</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Ridge</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Elastic Net</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>RF</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>Gradient Boosting</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>XGBoost</bold>
+</th><th align="left" rowspan="1" colspan="1">
+<bold>SVM</bold>
+</th></tr></thead><tbody><tr><td align="left" rowspan="5" colspan="1">
+<italic toggle="yes">S. aureus</italic>
+</td><td align="left" rowspan="1" colspan="1">MAE</td><td align="left" rowspan="1" colspan="1">0.5718</td><td align="left" rowspan="1" colspan="1">0.5737</td><td align="left" rowspan="1" colspan="1">0.5751</td><td align="left" rowspan="1" colspan="1">0.5760</td><td align="left" rowspan="1" colspan="1">0.4937</td><td align="left" rowspan="1" colspan="1">0.5007</td><td align="left" rowspan="1" colspan="1">0.4943</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4720</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">MSE</td><td align="left" rowspan="1" colspan="1">0.4806</td><td align="left" rowspan="1" colspan="1">0.4799</td><td align="left" rowspan="1" colspan="1">0.4812</td><td align="left" rowspan="1" colspan="1">0.4817</td><td align="left" rowspan="1" colspan="1">0.3834</td><td align="left" rowspan="1" colspan="1">0.3870</td><td align="left" rowspan="1" colspan="1">0.3799</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3669</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">R<sup>2</sup></td><td align="left" rowspan="1" colspan="1">0.1705</td><td align="left" rowspan="1" colspan="1">0.1717</td><td align="left" rowspan="1" colspan="1">0.1695</td><td align="left" rowspan="1" colspan="1">0.1686</td><td align="left" rowspan="1" colspan="1">0.3383</td><td align="left" rowspan="1" colspan="1">0.3320</td><td align="left" rowspan="1" colspan="1">0.3442</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3668</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">PCC</td><td align="left" rowspan="1" colspan="1">0.4155</td><td align="left" rowspan="1" colspan="1">0.4146</td><td align="left" rowspan="1" colspan="1">0.4117</td><td align="left" rowspan="1" colspan="1">0.4107</td><td align="left" rowspan="1" colspan="1">0.5868</td><td align="left" rowspan="1" colspan="1">0.5765</td><td align="left" rowspan="1" colspan="1">0.5875</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6058</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">Spearman</td><td align="left" rowspan="1" colspan="1">0.4061</td><td align="left" rowspan="1" colspan="1">0.4037</td><td align="left" rowspan="1" colspan="1">0.4007</td><td align="left" rowspan="1" colspan="1">0.3997</td><td align="left" rowspan="1" colspan="1">0.5828</td><td align="left" rowspan="1" colspan="1">0.5654</td><td align="left" rowspan="1" colspan="1">0.5796</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6063</bold>
+</td></tr><tr><td align="left" rowspan="5" colspan="1">
+<italic toggle="yes">E. coli</italic>
+</td><td align="left" rowspan="1" colspan="1">MAE</td><td align="left" rowspan="1" colspan="1">0.5520</td><td align="left" rowspan="1" colspan="1">0.5528</td><td align="left" rowspan="1" colspan="1">0.5536</td><td align="left" rowspan="1" colspan="1">0.5542</td><td align="left" rowspan="1" colspan="1">0.4740</td><td align="left" rowspan="1" colspan="1">0.4811</td><td align="left" rowspan="1" colspan="1">0.4757</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4577</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">MSE</td><td align="left" rowspan="1" colspan="1">0.4810</td><td align="left" rowspan="1" colspan="1">0.4815</td><td align="left" rowspan="1" colspan="1">0.4830</td><td align="left" rowspan="1" colspan="1">0.4835</td><td align="left" rowspan="1" colspan="1">0.3735</td><td align="left" rowspan="1" colspan="1">0.3870</td><td align="left" rowspan="1" colspan="1">0.3866</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3663</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">R<sup>2</sup></td><td align="left" rowspan="1" colspan="1">0.2656</td><td align="left" rowspan="1" colspan="1">0.2649</td><td align="left" rowspan="1" colspan="1">0.2625</td><td align="left" rowspan="1" colspan="1">0.2618</td><td align="left" rowspan="1" colspan="1">0.4297</td><td align="left" rowspan="1" colspan="1">0.4092</td><td align="left" rowspan="1" colspan="1">0.4096</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4407</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">PCC</td><td align="left" rowspan="1" colspan="1">0.5161</td><td align="left" rowspan="1" colspan="1">0.5154</td><td align="left" rowspan="1" colspan="1">0.5136</td><td align="left" rowspan="1" colspan="1">0.5132</td><td align="left" rowspan="1" colspan="1">0.6629</td><td align="left" rowspan="1" colspan="1">0.6404</td><td align="left" rowspan="1" colspan="1">0.6405</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6640</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">Spearman</td><td align="left" rowspan="1" colspan="1">0.5119</td><td align="left" rowspan="1" colspan="1">0.5119</td><td align="left" rowspan="1" colspan="1">0.5115</td><td align="left" rowspan="1" colspan="1">0.5108</td><td align="left" rowspan="1" colspan="1">0.6492</td><td align="left" rowspan="1" colspan="1">0.6277</td><td align="left" rowspan="1" colspan="1">0.6302</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6506</bold>
+</td></tr><tr><td align="left" rowspan="5" colspan="1">
+<italic toggle="yes">P. aeruginosa</italic>
+</td><td align="left" rowspan="1" colspan="1">MAE</td><td align="left" rowspan="1" colspan="1">0.5269</td><td align="left" rowspan="1" colspan="1">0.5275</td><td align="left" rowspan="1" colspan="1">0.5287</td><td align="left" rowspan="1" colspan="1">0.5292</td><td align="left" rowspan="1" colspan="1">0.4487</td><td align="left" rowspan="1" colspan="1">0.4615</td><td align="left" rowspan="1" colspan="1">0.4605</td><td align="left" rowspan="1" colspan="1">
+<bold>0.4442</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">MSE</td><td align="left" rowspan="1" colspan="1">0.4308</td><td align="left" rowspan="1" colspan="1">0.4282</td><td align="left" rowspan="1" colspan="1">0.4284</td><td align="left" rowspan="1" colspan="1">0.4285</td><td align="left" rowspan="1" colspan="1">0.3277</td><td align="left" rowspan="1" colspan="1">0.3492</td><td align="left" rowspan="1" colspan="1">0.3450</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3369</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">R<sup>2</sup></td><td align="left" rowspan="1" colspan="1">0.2196</td><td align="left" rowspan="1" colspan="1">0.2243</td><td align="left" rowspan="1" colspan="1">0.2238</td><td align="left" rowspan="1" colspan="1">0.2237</td><td align="left" rowspan="1" colspan="1">0.4064</td><td align="left" rowspan="1" colspan="1">0.3674</td><td align="left" rowspan="1" colspan="1">0.3750</td><td align="left" rowspan="1" colspan="1">
+<bold>0.3897</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">PCC</td><td align="left" rowspan="1" colspan="1">0.4717</td><td align="left" rowspan="1" colspan="1">0.4739</td><td align="left" rowspan="1" colspan="1">0.4736</td><td align="left" rowspan="1" colspan="1">0.4732</td><td align="left" rowspan="1" colspan="1">0.6408</td><td align="left" rowspan="1" colspan="1">0.6070</td><td align="left" rowspan="1" colspan="1">0.6137</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6256</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">Spearman</td><td align="left" rowspan="1" colspan="1">0.4461</td><td align="left" rowspan="1" colspan="1">0.4470</td><td align="left" rowspan="1" colspan="1">0.4484</td><td align="left" rowspan="1" colspan="1">0.4471</td><td align="left" rowspan="1" colspan="1">0.6122</td><td align="left" rowspan="1" colspan="1">0.5718</td><td align="left" rowspan="1" colspan="1">0.5799</td><td align="left" rowspan="1" colspan="1">
+<bold>0.6066</bold>
+</td></tr></tbody></table></table-wrap><p>This limitation arises from a mismatch between CGR’s structured, hierarchical information and the flat data assumptions of tree-based or kernel-based models. These results underscore the need for deep learning frameworks—such as ANIA—that are specifically designed to process CGR matrices and capture contextual biological features.</p></sec><sec id="sec12"><title>Performance of the ANIA model</title><p>To overcome the limitations of traditional machine learning models in leveraging CGR-encoded features, we evaluated the proposed ANIA deep learning model, which is specifically designed to extract and integrate the spatial and contextual information embedded in CGR representations. <xref rid="f4" ref-type="fig">Figure 4A</xref> summarizes the comparative performance of ANIA versus the best-performing traditional model —Gradient Boosting for iFeature-derived descriptors and SVM for FCGR-based features—across <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>. The full numerical results are available in <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S6</xref>. Across all three bacterial species, ANIA consistently outperformed both traditional models on every performance metric. For instance, on <italic toggle="yes">S. aureus</italic>, using FCGR features, ANIA reduced the MAE from 0.4720 (SVM) to 0.3899 and increased the PCC from 0.6058 to 0.7518. A similar trend was observed for <italic toggle="yes">E. coli</italic>, with MAE reduced from 0.4557 to 0.3839 and PCC improved from 0.6640 to 0.7923. Notably, for <italic toggle="yes">P. aeruginosa</italic>, where traditional models demonstrated relatively poor predictive power, ANIA achieved a substantial performance gain, improving MAE from 0.4442 to 0.3643 and boosting PCC from 0.6256 to 0.7822.</p><fig position="float" id="f4" orientation="portrait"><label>Figure 4</label><caption><p>Performance evaluation of ANIA for AMP MIC prediction. (A) Bar chart comparing ANIA versus gradient boosting using iFeature and FCGR encodings across MAE, MSE, R<sup>2</sup>, PCC, and Spearman for <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>. (B) Scatter plots of predicted versus actual log MIC values by ANIA for each bacterium, showing regression accuracy. (C) Bar chart comparing ANIA with ESKAPEE-MICpred, esAMPMIC, and AMPActiPred across MAE, MSE, R<sup>2</sup>, PCC, and Spearman on an independent test set for the same bacteria. Red stars indicate metrics where ANIA achieved the best performance.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag023f4.jpg"><alt-text>Charts and scatter plots illustrating the prediction performance of different models for MIC estimation across multiple bacterial species.</alt-text></graphic></fig><p>These results underscore ANIA’s strength in capturing the spatially structured patterns within CGR-based representations—patterns that conventional models fail to exploit effectively. The model’s superior and consistent performance across all bacterial species highlights its robustness and affirms its potential as a powerful predictive framework for MIC estimation in antimicrobial peptide research. <xref rid="f4" ref-type="fig">Figure 4B</xref> further visualizes the predicted versus actual MIC values obtained by ANIA for each bacterial species, demonstrating close alignment with experimental values and validating the reliability of the model’s regression predictions.</p></sec><sec id="sec13"><title>Interpretability analysis and feature attribution visualization</title><p>To investigate how spatial and physicochemical patterns encoded within the FCGR matrix contribute to MIC prediction, we performed a multi-angle interpretability analysis that integrates motif-level composition mapping, model-derived attention visualization, correlation statistics, motif frequency comparisons, and physicochemical property profiling (<xref rid="f5" ref-type="fig">Figs 5A–E</xref>). The FCGR matrix, derived from the CGR framework [<xref rid="ref29" ref-type="bibr">29</xref>], represents AMP sequences as a 16<inline-formula><tex-math notation="LaTeX" id="ineq59">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times$\end{document}</tex-math></inline-formula>16 grid in which each cell reflects the frequency of specific 3-mers, encoded based on cumulative amino acid usage.</p><fig position="float" id="f5" orientation="portrait"><label>Figure 5</label><caption><p>Motif-level interpretability analysis of the FCGR matrix for MIC prediction using <italic toggle="yes">E. coli</italic> as a representative example. (A) Motif-level composition map displaying the most representative 3-mer in each FCGR cell, providing a fine-grained overview of local sequence patterns. (B) Grad-CAM visualization of the ANIA model’s attention across the FCGR matrix, highlighting the upper-central and lower-left subregions most critical for MIC prediction. (C) Pearson correlation heatmap between individual FCGR cells and predicted log MIC values, confirming the statistical relevance of the highlighted subregions. (D) Differential motif frequency map showing occurrence differences of FCGR cell intensities between high-activity (low log MIC) and low-activity (high log MIC) peptides. (E) Heatmap of cell-wise weighted average hydrophobicity (ARGP820101 index) derived from 3-mer frequency analysis, illustrating hydrophobicity shifts between high-and low-activity groups. Orange and green boxes denote spatial zones consistently identified as the most prominent across multiple analyses.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag023f5.jpg"><alt-text>Motif maps and heatmaps illustrating FCGR-based patterns and interpretability analyses for antimicrobial peptide MIC prediction.</alt-text></graphic></fig><p>Using <italic toggle="yes">E. coli</italic> as a representative example, we first examined the local sequence composition underlying each pixel to determine the types of 3-mer motifs that were encoded within the FCGR space. Because each pixel typically aggregates multiple 3-mers, <xref rid="f5" ref-type="fig">Fig. 5A</xref> displays the most representative motif in each pixel, providing a fine-grained map of motif distribution across the grid. We then analyzed the model’s Grad-CAM attention map (<xref rid="f5" ref-type="fig">Fig. 5B</xref>) to identify the pixels receiving the strongest activations during prediction. These attention-focused regions were enriched with recurring motif families characterized by cationic–hydrophobic combinations (e.g. RRI, KSI, KVA, KAI), short alanine- and leucine-dominated nonpolar fragments (e.g. LLS, KSA, LSA), and mixed polar–hydrophobic triplets containing aromatic or bulky residues (e.g. WWR, CYR, GVA). Collectively, these findings suggest that the ANIA model focuses on composite sequence–structure features shaped by the balance between cationic–hydrophobic enrichment and localized flexibility.</p><p>To further interpret the model’s focus regions, we highlighted two major subregions—colored in orange and green in <xref rid="f5" ref-type="fig">Fig. 5B</xref>—that exhibited the strongest Grad-CAM activations in <italic toggle="yes">E. coli</italic>. We next examined the statistical association between these spatial patterns and predicted MIC values. A cell-wise Pearson correlation analysis (<xref rid="f5" ref-type="fig">Fig. 5C</xref>) revealed that the attention-focused subregions displayed moderately strong negative correlations with predicted log MIC values, indicating that higher motif frequency in these areas tended to drive the model toward predicting higher antimicrobial potency.</p><p>To assess whether these correlations were reflected at the sequence level, we compared the FCGR intensity distributions between high-activity and low-activity peptides (<xref rid="f5" ref-type="fig">Fig. 5D</xref>). The resulting difference map showed that the same attention-highlighted regions were preferentially enriched in high-activity peptides, whereas low-activity peptides exhibited more diffuse or depleted signal patterns. This correspondence between model attention and predicted activity grouping suggests that the ANIA model supports its decisions on spatially localized motif clusters that it internally associates with stronger activity.</p><p>Finally, we evaluated the physicochemical properties underlying these spatial motifs by computing cell-wise weighted average hydrophobicity using the ARGP820101 index (<xref rid="f5" ref-type="fig">Fig. 5E</xref>) [<xref rid="ref51" ref-type="bibr">51</xref>]. The attention-focused regions exhibited higher hydrophobicity values in high-activity peptides, consistent with prior experimental findings that greater hydrophobicity enhances peptide–membrane interactions and antimicrobial efficacy [<xref rid="ref28" ref-type="bibr">28</xref>,<xref rid="ref53" ref-type="bibr">52</xref>,<xref rid="ref54" ref-type="bibr">53</xref>]. Cross-species comparison of attention-weighted motif distributions consistently supported these compositional trends across <italic toggle="yes">E. coli, P. aeruginosa</italic>, and <italic toggle="yes">S. aureus</italic> (see <xref rid="sup1" ref-type="supplementary-material">Supplementary Note 1.5</xref>).</p><p>Taken together, this integrative analysis identifies spatially coherent subregions within the FCGR matrix that exert a strong influence on the prediction of antimicrobial potency. By integrating spatial localization, correlation structure, and physicochemical context, our interpretability analysis reveals how ANIA internally associates specific motif compositions with high predicted activity, thereby clarifying the model’s decision basis. These insights not only enhance the transparency of the prediction process but also provide a foundation for rational AMP design guided by model-interpretable sequence features.</p></sec><sec id="sec14"><title>Comparison with existing tools</title><p>To further evaluate the predictive capability of the ANIA model, we conducted a comparative analysis against three established MIC prediction tools: ESKAPEE-Pred [<xref rid="ref20" ref-type="bibr">20</xref>], esAMPMIC [<xref rid="ref18" ref-type="bibr">18</xref>], and AMPActiPred [<xref rid="ref19" ref-type="bibr">19</xref>]. These models were selected based on their relevance to AMP MIC prediction and public availability. Given that many prior studies suffer from dataset inconsistencies and reproducibility limitations, we curated an independent test set targeting <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>, ensuring no sequence overlap with the training data of the compared tools. The number of AMPs used for each species is provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S7</xref>, and the complete sequences used for independent evaluation are provided in <xref rid="sup1" ref-type="supplementary-material">Supplementary Data S2</xref>.</p><p>
+<xref rid="f4" ref-type="fig">Figure 4C</xref> provides a visual summary of the performance comparison across four evaluation metrics for each bacterium. ANIA consistently outperformed all baseline models, showing both higher correlation with experimental log MIC values and lower prediction errors across all three pathogens. For <italic toggle="yes">S. aureus</italic>, ANIA improved PCC from 0.2304 (ESKAPEE-Pred) and 0.5486 (esAMPMIC) to 0.6227, while reducing MSE from 0.4016 to 0.2348. Similarly, for <italic toggle="yes">E. coli</italic>, ANIA attained the highest PCC (0.7046), exceeding esAMPMIC (0.6045) and AMPActiPred (0.4651), and maintained low MAE and MSE values. The most notable improvement was observed for <italic toggle="yes">P. aeruginosa</italic>, where traditional tools exhibited limited predictive power (PCC &lt; 0.48), yet ANIA achieved a substantial performance gain with a PCC of 0.5902 and the lowest MSE (0.2335).</p><p>These results demonstrate ANIA’s superior ability to capture MIC-relevant sequence patterns, particularly under challenging conditions such as those presented by <italic toggle="yes">P. aeruginosa</italic>. The full numerical results are available in <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S8</xref>. Collectively, this comparative evaluation reinforces ANIA’s value as a reliable and generalizable deep learning framework for AMP activity prediction and provides details of the ANIA web server in <xref rid="sup1" ref-type="supplementary-material">supplementary note 1.6</xref>.</p></sec></sec><sec id="sec15"><title>Discussion and Conclusion</title><p>The rise of bacterial resistance highlights the need for alternative therapies. AMPs, with broad-spectrum efficacy, offer a promising option. Predicting AMP activity is crucial for their development. Here, we present ANIA, a model predicting AMP MICs for <italic toggle="yes">S. aureus, E. coli</italic>, and <italic toggle="yes">P. aeruginosa</italic>, meeting the demand for accurate, interpretable tools. The ANIA model integrates spatial features extracted via FCGR with a deep learning architecture. To enhance transparency, we incorporated multiple interpretability techniques—including motif-level composition mapping, Grad-CAM visualizations, correlation mapping, motif frequency analysis, and physicochemical profiling. Comparative assessments demonstrated that ANIA consistently outperformed existing tools such as ESKAPEE-Pred, esAMPMIC, and AMPActiPred, achieving higher correlation coefficients and reduced errors. The most notable improvement was observed in <italic toggle="yes">P. aeruginosa</italic>, where prior models exhibited limited predictive capacity.</p><p>Motif-based analysis identified four key FCGR subregions linked to low MICs, marked by strong Grad-CAM attention and negative correlations. Hydrophobicity mapping showed higher hydrophobicity in these areas aligned with stronger activity, consistent with prior findings on AMP–membrane interactions. To enhance usability, we developed the ANIA web interface, allowing users to input peptide sequences and obtain MIC predictions for three clinically relevant bacterial species. This resource offers a practical tool for evaluating peptide potency and supports rational AMP design.</p><p>Despite its strong performance, our study has certain limitations. The dataset, though carefully curated, remains modest in size, which may restrict model generalizability. Moreover, while FCGR-based encoding effectively captures spatial features, exploring alternative representations—including structure-informed or evolutionary embeddings, as well as peptide descriptors that account for post-translational modifications—may offer further improvements [<xref rid="ref55" ref-type="bibr">54–56</xref>]. Future research should aim to expand the dataset, incorporate descriptors and extend prediction to antiviral or anticancer activity. Moreover, the ANIA framework, which combines CGR-based spatial encoding with Inception-Attention modeling, is conceptually generalizable to other peptide-related prediction tasks, such as toxicity or hemolytic activity forecasting. In conclusion, ANIA provides a robust, interpretable MIC prediction framework, supporting peptide discovery and advancing strategies against antimicrobial resistance.</p><boxed-text id="box01" position="float" orientation="portrait"><label>Key Points</label><list list-type="bullet"><list-item><p>Antimicrobial resistance necessitates the development of predictive tools for evaluating peptide efficacy beyond conventional classification tasks.</p></list-item><list-item><p>ANIA is a deep learning framework that integrates CGR and a hybrid Inception–Transformer architecture to predict MIC values of AMPs.</p></list-item><list-item><p>Benchmark comparisons with existing tools demonstrate that ANIA consistently outperforms baseline models across three clinically relevant bacteria, especially <italic toggle="yes">P. aeruginosa</italic>.</p></list-item><list-item><p>Motif-level interpretability analyses identify biologically meaningful FCGR subregions, linking sequence motifs and physicochemical properties to antimicrobial potency.</p></list-item><list-item><p>A publicly available ANIA web server enables MIC prediction from user-submitted AMP sequences, facilitating rational peptide design and translational applications.</p></list-item></list></boxed-text></sec><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material id="sup1" position="float" content-type="local-data" orientation="portrait"><label>bbag023_Supplemental_Files</label><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="bbag023_supplemental_files.zip" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="bbag023-ack"><title>Acknowledgements</title><p>We are grateful to the library of National Yang Ming Chiao Tung University for providing effective database service.</p></ack><sec id="sec20"><title>Author contributions</title><p>Conceptualization, Y.P.C.; Methodology, T.Y.L., L.T.Y., C.R.C., and Y.X.P.; Software, Y.P.C.; Validation, L.T.Y. and Y.X.P.; Formal analysis, L.T.Y., C.R.C., and Y.X.P.; Investigation, Y.P.C.; Resources, T.Y.L. and Y.C.C.; Data curation, Y.P.C.; Writing—original draft preparation, Y.P.C.; Writing—review and editing, Y.T., L.T.Y. and T.Y.L.; Visualization, Y.P.C.; Supervision, Y.C.C. and T.Y.L.; Project administration, Y.C.C. and T.Y.L. All authors have read and agreed to the published version of the manuscript.</p></sec><sec sec-type="COI-statement" id="sec18"><title>Conflict of interest</title><p>No competing interests declared.</p></sec><sec id="sec19"><title>Funding</title><p>This work was financially supported by the Center for Intelligent Drug Systems and Smart Biodevices (IDS2B) and Cancer and Immunology Research Center from The Featured Areas Research Center Program of the Higher Education Sprout Project and Yushan Young Fellow Program (114C51N039) by the Ministry of Education (MOE) and National Science and Technology Council (NSTC 114–2321-B-A49–009, 114–2634-F-039-001, 114–2740-B-400-005, 114–2640-B-A49–001 and 113–2221-E-A49–160-MY3) in Taiwan; the National Health Research Institutes (NHRI-EX115-11320BI) in Taiwan; the Scientific Research Foundation of State Key Laboratory of Vaccines for Infectious Diseases, Xiang An Biomedicine Laboratory (2025XAKJ0102017); and the Fundamental Research Funds for the Central Universities (20720250172).</p></sec><sec sec-type="data-availability" id="sec17"><title>Data and code availability</title><p>Data and Code Availability: AMP sequences, MIC data, and curated dataset from DBAASP, dbAMP, DRAMP are at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://biomics.lab.nycu.edu.tw/ANIA/" ext-link-type="uri">https://biomics.lab.nycu.edu.tw/ANIA/</ext-link>. ANIA source code is at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/SilverGojo4/ANIA" ext-link-type="uri">https://github.com/SilverGojo4/ANIA</ext-link>.</p></sec><ref-list id="bib1"><title>References</title><ref id="ref1"><label>1.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ferri</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Ranucci</surname>  <given-names>E</given-names></string-name>, <string-name name-style="western"><surname>Romagnoli</surname>  <given-names>P</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Antimicrobial resistance: a global emerging threat to public health systems</article-title>. <source>Crit Rev Food Sci Nutr</source>  <year>2017</year>;<volume>57</volume>:<fpage>2857</fpage>–<lpage>76</lpage>. <pub-id pub-id-type="doi">10.1080/10408398.2015.1077192</pub-id><pub-id pub-id-type="pmid">26464037</pub-id>
+</mixed-citation></ref><ref id="ref2"><label>2.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kumar</surname>  <given-names>NR</given-names></string-name>, <string-name name-style="western"><surname>Balraj</surname>  <given-names>TA</given-names></string-name>, <string-name name-style="western"><surname>Kempegowda</surname>  <given-names>SN</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Multidrug-resistant sepsis: a critical healthcare challenge</article-title>. <source>Antibiotics (Basel)</source>  <year>2024</year>;<volume>13</volume>:<fpage>46</fpage>. <pub-id pub-id-type="doi">10.3390/antibiotics13010046</pub-id><pub-id pub-id-type="pmid">38247605</pub-id>
+<pub-id pub-id-type="pmcid">PMC10812490</pub-id></mixed-citation></ref><ref id="ref3"><label>3.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Mancuso</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>De Gaetano</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Midiri</surname>  <given-names>A</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>The challenge of overcoming antibiotic resistance in carbapenem-resistant gram-negative bacteria: “attack on titan”</article-title>. <source>Microorganisms</source>  <year>2023</year>;<volume>11</volume>:<fpage>1912</fpage>. <pub-id pub-id-type="doi">10.3390/microorganisms11081912</pub-id><pub-id pub-id-type="pmid">37630472</pub-id>
+<pub-id pub-id-type="pmcid">PMC10456941</pub-id></mixed-citation></ref><ref id="ref4"><label>4.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Siegel</surname>  <given-names>RE</given-names></string-name>
+</person-group>. <article-title>Emerging gram-negative antibiotic resistance: daunting challenges, declining sensitivities, and dire consequences</article-title>. <source>Respir Care</source>  <year>2008</year>;<volume>53</volume>:<fpage>471</fpage>–<lpage>9</lpage>.<pub-id pub-id-type="pmid">18364060</pub-id>
+</mixed-citation></ref><ref id="ref5"><label>5.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bassetti</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Poulakou</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Ruppe</surname>  <given-names>E</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Antimicrobial resistance in the next 30 years, humankind, bugs and drugs: a visionary approach</article-title>. <source>Intensive Care Med</source>  <year>2017</year>;<volume>43</volume>:<fpage>1464</fpage>–<lpage>75</lpage>. <pub-id pub-id-type="doi">10.1007/s00134-017-4878-x</pub-id><pub-id pub-id-type="pmid">28733718</pub-id>
+</mixed-citation></ref><ref id="ref6"><label>6.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Moravej</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Moravej</surname>  <given-names>Z</given-names></string-name>, <string-name name-style="western"><surname>Yazdanparast</surname>  <given-names>M</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Antimicrobial peptides: features, action, and their resistance mechanisms in bacteria</article-title>. <source>Microb Drug Resist</source>  <year>2018</year>;<volume>24</volume>:<fpage>747</fpage>–<lpage>67</lpage>. <pub-id pub-id-type="doi">10.1089/mdr.2017.0392</pub-id><pub-id pub-id-type="pmid">29957118</pub-id>
+</mixed-citation></ref><ref id="ref7"><label>7.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>Z</given-names></string-name></person-group>. <article-title>APD3: the antimicrobial peptide database as a tool for research and education</article-title>. <source>Nucleic Acids Res</source>  <year>2016</year>;<volume>44</volume>:<fpage>D1087</fpage>–<lpage>93</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkv1278</pub-id><pub-id pub-id-type="pmid">26602694</pub-id>
+<pub-id pub-id-type="pmcid">PMC4702905</pub-id></mixed-citation></ref><ref id="ref8"><label>8.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lata</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Sharma</surname>  <given-names>BK</given-names></string-name>, <string-name name-style="western"><surname>Raghava</surname>  <given-names>GPS</given-names></string-name></person-group>. <article-title>Analysis and prediction of antibacterial peptides</article-title>. <source>BMC Bioinformatics</source>  <year>2007</year>;<volume>8</volume>:<fpage>263</fpage>. <pub-id pub-id-type="doi">10.1186/1471-2105-8-263</pub-id><pub-id pub-id-type="pmid">17645800</pub-id>
+<pub-id pub-id-type="pmcid">PMC2041956</pub-id></mixed-citation></ref><ref id="ref9"><label>9.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lata</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Mishra</surname>  <given-names>NK</given-names></string-name>, <string-name name-style="western"><surname>Raghava</surname>  <given-names>GPS</given-names></string-name></person-group>. <article-title>AntiBP2: improved version of antibacterial peptide prediction</article-title>. <source>BMC Bioinformatics</source>  <year>2010</year>;<volume>11</volume>:<fpage>S19</fpage>. <pub-id pub-id-type="doi">10.1186/1471-2105-11-S1-S19</pub-id><pub-id pub-id-type="pmcid">PMC3009489</pub-id><pub-id pub-id-type="pmid">20122190</pub-id></mixed-citation></ref><ref id="ref10"><label>10.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bajiya</surname>  <given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Choudhury</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Dhall</surname>  <given-names>A</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>AntiBP3: a hybrid method for predicting antibacterial peptides against gram-positive/negative/variable bacteria</article-title>. <source>Antibiotics (Basel)</source>  <year>2024</year>;<volume>13</volume>:<fpage>168</fpage>. <pub-id pub-id-type="doi">10.3390/antibiotics13020168</pub-id><pub-id pub-id-type="pmid">38391554</pub-id>
+<pub-id pub-id-type="pmcid">PMC10885866</pub-id></mixed-citation></ref><ref id="ref11"><label>11.</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Veltri</surname>  <given-names>D</given-names></string-name>
+</person-group>. A computational and statistical framework for screening novel antimicrobial peptides. PhD thesis. George Mason University, Fairfax, VA, USA, 2015. <pub-id pub-id-type="doi">10.13021/MARS/7140</pub-id></mixed-citation></ref><ref id="ref12"><label>12.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Veltri</surname>  <given-names>D</given-names></string-name>, <string-name name-style="western"><surname>Kamath</surname>  <given-names>U</given-names></string-name>, <string-name name-style="western"><surname>Shehu</surname>  <given-names>A</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Deep learning improves antimicrobial peptide recognition</article-title>. <source>Bioinformatics</source>  <year>2018</year>;<volume>34</volume>:<fpage>2740</fpage>–<lpage>7</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bty179</pub-id><pub-id pub-id-type="pmid">29590297</pub-id>
+<pub-id pub-id-type="pmcid">PMC6084614</pub-id></mixed-citation></ref><ref id="ref13"><label>13.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Meher</surname>  <given-names>PK</given-names></string-name>, <string-name name-style="western"><surname>Sahu</surname>  <given-names>TK</given-names></string-name>, <string-name name-style="western"><surname>Saini</surname>  <given-names>V</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Predicting antimicrobial peptides with improved accuracy by incorporating the compositional, physicochemical and structural features into Chou’s general PseAAC</article-title>. <source>Sci Rep</source>  <year>2017</year>;<volume>7</volume>:<fpage>42362</fpage>. <pub-id pub-id-type="doi">10.1038/srep42362</pub-id><pub-id pub-id-type="pmid">28205576</pub-id>
+<pub-id pub-id-type="pmcid">PMC5304217</pub-id></mixed-citation></ref><ref id="ref14"><label>14.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lin</surname>  <given-names>TT</given-names></string-name>, <string-name name-style="western"><surname>Yang</surname>  <given-names>LY</given-names></string-name>, <string-name name-style="western"><surname>Lu</surname>  <given-names>IH</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>AI4AMP: an antimicrobial peptide predictor using physicochemical property-based encoding method and deep learning</article-title>. <italic toggle="yes">mSystems</italic>  <year>2021</year>;<volume>6</volume>:<fpage>e00299</fpage>–<lpage>21</lpage>. <pub-id pub-id-type="doi">10.1128/mSystems.00299-21</pub-id><pub-id pub-id-type="pmcid">PMC8594441</pub-id><pub-id pub-id-type="pmid">34783578</pub-id></mixed-citation></ref><ref id="ref15"><label>15.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chung</surname>  <given-names>CR</given-names></string-name>, <string-name name-style="western"><surname>Kuo</surname>  <given-names>TR</given-names></string-name>, <string-name name-style="western"><surname>Wu</surname>  <given-names>LC</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Characterization and identification of antimicrobial peptides with different functional activities</article-title>. <source>Brief Bioinform</source>  <year>2020</year>;<volume>21</volume>:<fpage>1098</fpage>–<lpage>114</lpage>. <pub-id pub-id-type="doi">10.1093/bib/bbz043</pub-id><pub-id pub-id-type="pmid">31155657</pub-id></mixed-citation></ref><ref id="ref16"><label>16.</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Xiao</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>You</surname>  <given-names>ZB</given-names></string-name></person-group>. <part-title>Predicting minimum inhibitory concentration of antimicrobial peptides by the pseudo-amino acid composition and Gaussian kernel regression</part-title>. In: <source>2015 8th International Conference on Biomedical Engineering and Informatics (BMEI)</source>, Shenyang, China, 2015, 301–5. <pub-id pub-id-type="doi">10.1109/BMEI.2015.7401519</pub-id></mixed-citation></ref><ref id="ref17"><label>17.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Bhadra</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>A</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Deep-AmPEP30: improve short antimicrobial peptides prediction with deep learning</article-title>. <source>Mol Ther Nucleic Acids</source>  <year>2020</year>;<volume>20</volume>:<fpage>882</fpage>–<lpage>94</lpage>. <pub-id pub-id-type="doi">10.1016/j.omtn.2020.05.006</pub-id><pub-id pub-id-type="pmid">32464552</pub-id>
+<pub-id pub-id-type="pmcid">PMC7256447</pub-id></mixed-citation></ref><ref id="ref18"><label>18.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chung</surname>  <given-names>CR</given-names></string-name>, <string-name name-style="western"><surname>Chien</surname>  <given-names>CY</given-names></string-name>, <string-name name-style="western"><surname>Tang</surname>  <given-names>Y</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>An ensemble deep learning model for predicting minimum inhibitory concentrations of antimicrobial peptides against pathogenic bacteria</article-title>. <source>iScience</source>  <year>2024</year>;<volume>27</volume>:<fpage>110718</fpage>. <pub-id pub-id-type="doi">10.1016/j.isci.2024.110718</pub-id><pub-id pub-id-type="pmid">39262770</pub-id>
+<pub-id pub-id-type="pmcid">PMC11388163</pub-id></mixed-citation></ref><ref id="ref19"><label>19.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>  <given-names>L</given-names></string-name>, <string-name name-style="western"><surname>Guan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Xie</surname>  <given-names>P</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>AMPActiPred: a three-stage framework for predicting antibacterial peptides and activity levels with deep forest</article-title>. <source>Protein Sci</source>  <year>2024a</year>;<volume>33</volume>:<fpage>e5006</fpage>. <pub-id pub-id-type="doi">10.1002/pro.5006</pub-id><pub-id pub-id-type="pmid">38723168</pub-id>
+<pub-id pub-id-type="pmcid">PMC11081525</pub-id></mixed-citation></ref><ref id="ref20"><label>20.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Sharma</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Shrivastava</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Singh</surname>  <given-names>SK</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Artificial intelligence-based model for predicting the minimum inhibitory concentration of antibacterial peptides against ESKAPEE pathogens</article-title>. <source>IEEE J Biomed Health Inform</source>  <year>2024</year>;<volume>28</volume>:<fpage>1949</fpage>–<lpage>58</lpage>. <pub-id pub-id-type="doi">10.1109/JBHI.2023.3271611</pub-id><pub-id pub-id-type="pmid">37115837</pub-id></mixed-citation></ref><ref id="ref21"><label>21.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Dou</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Song</surname>  <given-names>J</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Antimicrobial peptides: promising alternatives in the post-feeding antibiotic era</article-title>. <source>Med Res Rev</source>  <year>2019</year>;<volume>39</volume>:<fpage>831</fpage>–<lpage>59</lpage>. <pub-id pub-id-type="doi">10.1002/med.21542</pub-id><pub-id pub-id-type="pmid">30353555</pub-id>
+</mixed-citation></ref><ref id="ref22"><label>22.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zervou</surname>  <given-names>MA</given-names></string-name>, <string-name name-style="western"><surname>Doutsi</surname>  <given-names>E</given-names></string-name>, <string-name name-style="western"><surname>Pantazis</surname>  <given-names>Y</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>De novo antimicrobial peptide design with feedback generative adversarial networks</article-title>. <source>Int J Mol Sci</source>  <year>2024</year>;<volume>25</volume>:<fpage>5506</fpage>. <pub-id pub-id-type="doi">10.3390/ijms25105506</pub-id><pub-id pub-id-type="pmid">38791544</pub-id>
+<pub-id pub-id-type="pmcid">PMC11122239</pub-id></mixed-citation></ref><ref id="ref23"><label>23.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Elnaggar</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Heinzinger</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Dallago</surname>  <given-names>C</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>ProtTrans: toward understanding the language of life through self-supervised learning</article-title>. <source>IEEE Trans Pattern Anal Mach Intell</source>  <year>2022</year>;<volume>44</volume>:<fpage>7112</fpage>–<lpage>27</lpage>. <pub-id pub-id-type="doi">10.1109/TPAMI.2021.3095381</pub-id><pub-id pub-id-type="pmid">34232869</pub-id>
+</mixed-citation></ref><ref id="ref24"><label>24.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>T</given-names></string-name>, <string-name name-style="western"><surname>Zhuo</surname>  <given-names>L</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Diff-AMP: tailored designed antimicrobial peptide framework with all-in-one generation, identification, prediction and optimization</article-title>. <source>Brief Bioinform</source>  <year>2024</year>;<volume>25</volume>:<fpage>bbae078</fpage>. <pub-id pub-id-type="doi">10.1093/bib/bbae078</pub-id><pub-id pub-id-type="pmid">38446739</pub-id>
+<pub-id pub-id-type="pmcid">PMC10939340</pub-id></mixed-citation></ref><ref id="ref25"><label>25.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jin</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Zeng</surname>  <given-names>Z</given-names></string-name>, <string-name name-style="western"><surname>Xiong</surname>  <given-names>X</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>AMPGen: an evolutionary information-reserved and diffusion-driven generative model for de novo design of antimicrobial peptides</article-title>. <source>Commun Biol</source>  <year>2025</year>;<volume>8</volume>:<fpage>839</fpage>. <pub-id pub-id-type="doi">10.1038/s42003-025-08282-7</pub-id><pub-id pub-id-type="pmid">40447738</pub-id>
+<pub-id pub-id-type="pmcid">PMC12125351</pub-id></mixed-citation></ref><ref id="ref26"><label>26.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yu</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Qiao</surname>  <given-names>J</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Multi-CGAN: Deep generative model-based multiproperty antimicrobial peptide design</article-title>. <source>J Chem Inf Model</source>  <year>2024</year>;<volume>64</volume>:<fpage>316</fpage>–<lpage>26</lpage>. <pub-id pub-id-type="doi">10.1021/acs.jcim.3c01234</pub-id><pub-id pub-id-type="pmid">38135439</pub-id>
+</mixed-citation></ref><ref id="ref27"><label>27.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Li</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Xu</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>X</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>BroadAMP-GPT: AI-driven generation of broad-spectrum antimicrobial peptides for combating multidrug-resistant ESKAPE pathogens</article-title>. <source>Gut Microbes</source>  <year>2025</year>;<volume>17</volume>:<fpage>2523811</fpage>. <pub-id pub-id-type="doi">10.1080/19490976.2025.2523811</pub-id><pub-id pub-id-type="pmid">40568788</pub-id>
+<pub-id pub-id-type="pmcid">PMC12203862</pub-id></mixed-citation></ref><ref id="ref28"><label>28.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Huan</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Kong</surname>  <given-names>Q</given-names></string-name>, <string-name name-style="western"><surname>Mou</surname>  <given-names>H</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>The role of physicochemical properties in antimicrobial peptide design: challenges and opportunities</article-title>. <source>Curr Med Chem</source>  <year>2018</year>;<volume>25</volume>:<fpage>1234</fpage>–<lpage>45</lpage>.</mixed-citation></ref><ref id="ref29"><label>29.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jeffrey</surname>  <given-names>HJ</given-names></string-name>
+</person-group>. <article-title>Chaos game representation of gene structure</article-title>. <source>Nucleic Acids Res</source>  <year>1990</year>;<volume>18</volume>:<fpage>2163</fpage>–<lpage>70</lpage>. <pub-id pub-id-type="doi">10.1093/nar/18.8.2163</pub-id><pub-id pub-id-type="pmid">2336393</pub-id>
+<pub-id pub-id-type="pmcid">PMC330698</pub-id></mixed-citation></ref><ref id="ref30"><label>30.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Almeida</surname>  <given-names>JS</given-names></string-name>, <string-name name-style="western"><surname>Carriço</surname>  <given-names>JA</given-names></string-name>, <string-name name-style="western"><surname>Maretzek</surname>  <given-names>A</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Analysis of genomic sequences by chaos game representation</article-title>. <source>Bioinformatics</source>  <year>2001</year>;<volume>17</volume>:<fpage>429</fpage>–<lpage>37</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/17.5.429</pub-id><pub-id pub-id-type="pmid">11331237</pub-id>
+</mixed-citation></ref><ref id="ref31"><label>31.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Löchel</surname>  <given-names>HF</given-names></string-name>, <string-name name-style="western"><surname>Heider</surname>  <given-names>D</given-names></string-name></person-group>. <article-title>Chaos game representation and its applications in bioinformatics</article-title>. <source>Comput Struct Biotechnol J</source>  <year>2021</year>;<volume>19</volume>:<fpage>6263</fpage>–<lpage>71</lpage>. <pub-id pub-id-type="doi">10.1016/j.csbj.2021.11.008</pub-id><pub-id pub-id-type="pmid">34900136</pub-id>
+<pub-id pub-id-type="pmcid">PMC8636998</pub-id></mixed-citation></ref><ref id="ref32"><label>32.</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Szegedy</surname>  <given-names>C</given-names></string-name>, <string-name name-style="western"><surname>Liu</surname>  <given-names>W</given-names></string-name>, <string-name name-style="western"><surname>Jia</surname>  <given-names>Y</given-names></string-name>  <etal>et al.</etal></person-group>  <part-title>Going deeper with convolutions</part-title>. In: <source>2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</source>, Boston, MA, USA, 2015, 1–9. <pub-id pub-id-type="doi">10.1109/CVPR.2015.7298594</pub-id></mixed-citation></ref><ref id="ref33"><label>33.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Pirtskhalava</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Amstrong</surname>  <given-names>AA</given-names></string-name>, <string-name name-style="western"><surname>Grigolava</surname>  <given-names>M</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>DBAASP v3: database of antimicrobial/cytotoxic activity and structure of peptides as a resource for development of new therapeutics</article-title>. <source>Nucleic Acids Res</source>  <year>2021</year>;<volume>49</volume>:<fpage>D288</fpage>–<lpage>97</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkaa991</pub-id><pub-id pub-id-type="pmid">33151284</pub-id>
+<pub-id pub-id-type="pmcid">PMC7778994</pub-id></mixed-citation></ref><ref id="ref34"><label>34.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>  <given-names>L</given-names></string-name>, <string-name name-style="western"><surname>Guan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Xie</surname>  <given-names>P</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>dbAMP 3.0: updated resource of antimicrobial activity and structural annotation of peptides in the post-pandemic era</article-title>. <source>Nucleic Acids Res</source>  <year>2025</year>;<volume>53</volume>:<fpage>D364</fpage>–<lpage>76</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkae1019</pub-id><pub-id pub-id-type="pmid">39540425</pub-id>
+<pub-id pub-id-type="pmcid">PMC11701527</pub-id></mixed-citation></ref><ref id="ref35"><label>35.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ma</surname>  <given-names>T</given-names></string-name>, <string-name name-style="western"><surname>Liu</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Yu</surname>  <given-names>B</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>DRAMP 4.0: an open-access data repository dedicated to the clinical translation of antimicrobial peptides</article-title>. <source>Nucleic Acids Res</source>  <year>2025</year>;<volume>53</volume>:<fpage>D403</fpage>–<lpage>10</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkae1046</pub-id><pub-id pub-id-type="pmid">39526377</pub-id>
+<pub-id pub-id-type="pmcid">PMC11701585</pub-id></mixed-citation></ref><ref id="ref36"><label>36.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Anitas</surname>  <given-names>EM</given-names></string-name>
+</person-group>. <article-title>Fractal analysis of DNA sequences using frequency chaos game representation and small-angle scattering</article-title>. <source>Int J Mol Sci</source>  <year>2022</year>;<volume>23</volume>:<fpage>1847</fpage>. <pub-id pub-id-type="doi">10.3390/ijms23031847</pub-id><pub-id pub-id-type="pmid">35163771</pub-id>
+<pub-id pub-id-type="pmcid">PMC8836744</pub-id></mixed-citation></ref><ref id="ref37"><label>37.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>  <given-names>L</given-names></string-name>, <string-name name-style="western"><surname>Xie</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Guan</surname>  <given-names>J</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>CapsEnhancer: an effective computational framework for identifying enhancers based on chaos game representation and capsule network</article-title>. <source>J Chem Inf Model</source>  <year>2024b</year>;<volume>64</volume>:<fpage>5725</fpage>–<lpage>36</lpage>. <pub-id pub-id-type="doi">10.1021/acs.jcim.4c00546</pub-id><pub-id pub-id-type="pmid">38946113</pub-id>
+<pub-id pub-id-type="pmcid">PMC11267569</pub-id></mixed-citation></ref><ref id="ref38"><label>38.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Phan</surname>  <given-names>LT</given-names></string-name>, <string-name name-style="western"><surname>Park</surname>  <given-names>HW</given-names></string-name>, <string-name name-style="western"><surname>Pitti</surname>  <given-names>T</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>MLACP 2.0: an updated machine learning tool for anticancer peptide prediction. <italic toggle="yes">Comput struct</italic></article-title>. <source>Biotechnol J</source>  <year>2022</year>;<volume>20</volume>:<fpage>4473</fpage>–<lpage>80</lpage>. <pub-id pub-id-type="doi">10.1016/j.csbj.2022.07.043</pub-id><pub-id pub-id-type="pmcid">PMC9421197</pub-id><pub-id pub-id-type="pmid">36051870</pub-id></mixed-citation></ref><ref id="ref39"><label>39.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Sun</surname>  <given-names>T-J</given-names></string-name>, <string-name name-style="western"><surname>Bu</surname>  <given-names>H-L</given-names></string-name>, <string-name name-style="western"><surname>Yan</surname>  <given-names>X</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>LABAMPsGCN: a framework for identifying lactic acid bacteria antimicrobial peptides based on graph convolutional neural network</article-title>. <source>Front Genet</source>  <year>2022</year>;<volume>13</volume>:<fpage>1062576</fpage>. <pub-id pub-id-type="doi">10.3389/fgene.2022.1062576</pub-id><pub-id pub-id-type="pmid">36406112</pub-id>
+<pub-id pub-id-type="pmcid">PMC9669054</pub-id></mixed-citation></ref><ref id="ref40"><label>40.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Aguilera-Puga</surname>  <given-names>MDC</given-names></string-name>, <string-name name-style="western"><surname>Plisson</surname>  <given-names>F</given-names></string-name></person-group>. <article-title>Structure-aware machine learning strategies for antimicrobial peptide discovery</article-title>. <source>Sci Rep</source>  <year>2024</year>;<volume>14</volume>:<fpage>11995</fpage>. <pub-id pub-id-type="doi">10.1038/s41598-024-62419-y</pub-id><pub-id pub-id-type="pmid">38796582</pub-id>
+<pub-id pub-id-type="pmcid">PMC11127937</pub-id></mixed-citation></ref><ref id="ref41"><label>41.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Vaswani</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Shazeer</surname>  <given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Parmar</surname>  <given-names>N</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Attention is all you need</article-title>. <source>Adv Neural Inf Process Syst</source>  <year>2017</year>;<volume>30</volume>:<fpage>5998</fpage>–<lpage>6008</lpage>.</mixed-citation></ref><ref id="ref42"><label>42.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chen</surname>  <given-names>Z</given-names></string-name>, <string-name name-style="western"><surname>Zhao</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>F</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>iFeature: a python package and web server for features extraction and selection from protein and peptide sequences</article-title>. <source>Bioinformatics</source>  <year>2018</year>;<volume>34</volume>:<fpage>2499</fpage>–<lpage>502</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bty140</pub-id><pub-id pub-id-type="pmid">29528364</pub-id>
+<pub-id pub-id-type="pmcid">PMC6658705</pub-id></mixed-citation></ref><ref id="ref43"><label>43.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Pedregosa</surname>  <given-names>F</given-names></string-name>, <string-name name-style="western"><surname>Varoquaux</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Gramfort</surname>  <given-names>A</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Scikit-learn: machine learning in python</article-title>. <source>J Mach Learn Res</source>  <year>2011</year>;<volume>12</volume>:<fpage>2825</fpage>–<lpage>30</lpage>.</mixed-citation></ref><ref id="ref44"><label>44.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Tibshirani</surname>  <given-names>R</given-names></string-name>
+</person-group>. <article-title>Regression shrinkage and selection via the lasso</article-title>. <source>J R Stat Soc Series B Methodol</source>  <year>1996</year>;<volume>58</volume>:<fpage>267</fpage>–<lpage>88</lpage>. <pub-id pub-id-type="doi">10.1111/j.2517-6161.1996.tb02080.x</pub-id></mixed-citation></ref><ref id="ref45"><label>45.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Hoerl</surname>  <given-names>AE</given-names></string-name>, <string-name name-style="western"><surname>Kennard</surname>  <given-names>RW</given-names></string-name></person-group>. <article-title>Ridge regression: biased estimation for nonorthogonal problems</article-title>. <source>Technometrics</source>  <year>1970</year>;<volume>12</volume>:<fpage>55</fpage>–<lpage>67</lpage>. <pub-id pub-id-type="doi">10.1080/00401706.1970.10488634</pub-id></mixed-citation></ref><ref id="ref46"><label>46.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zou</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Hastie</surname>  <given-names>T</given-names></string-name></person-group>. <article-title>Regularization and variable selection via the elastic net</article-title>. <source>J R Stat Soc Series B Stat Methodol</source>  <year>2005</year>;<volume>67</volume>:<fpage>301</fpage>–<lpage>20</lpage>. <pub-id pub-id-type="doi">10.1111/j.1467-9868.2005.00503.x</pub-id></mixed-citation></ref><ref id="ref47"><label>47.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Breiman</surname>  <given-names>L</given-names></string-name>
+</person-group>. <article-title>Random forests</article-title>. <source>Mach Learn</source>  <year>2001</year>;<volume>45</volume>:<fpage>5</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1023/A:1010933404324</pub-id></mixed-citation></ref><ref id="ref48"><label>48.</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chen</surname>  <given-names>T</given-names></string-name>, <string-name name-style="western"><surname>Guestrin</surname>  <given-names>C</given-names></string-name></person-group>. <part-title>XGBoost: A scalable tree boosting system</part-title>. In: <source>22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD ’16)</source>, San Francisco, CA, USA, 2016, 785–94. <pub-id pub-id-type="doi">10.1145/2939672.2939785</pub-id></mixed-citation></ref><ref id="ref49"><label>49.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Friedman</surname>  <given-names>JH</given-names></string-name>
+</person-group>. <article-title>Greedy function approximation: a gradient boosting machine</article-title>. <source>Ann Stat</source>  <year>2001</year>;<volume>29</volume>:<fpage>1189</fpage>–<lpage>232</lpage>. <pub-id pub-id-type="doi">10.1214/aos/1013203451</pub-id></mixed-citation></ref><ref id="ref50"><label>50.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Cortes</surname>  <given-names>C</given-names></string-name>, <string-name name-style="western"><surname>Vapnik</surname>  <given-names>V</given-names></string-name></person-group>. <article-title>Support-vector networks</article-title>. <source>Mach Learn</source>  <year>1995</year>;<volume>20</volume>:<fpage>273</fpage>–<lpage>97</lpage>. <pub-id pub-id-type="doi">10.1007/BF00994018</pub-id></mixed-citation></ref><ref id="ref51"><label>51.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kyte</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Doolittle</surname>  <given-names>RF</given-names></string-name></person-group>. <article-title>A simple method for displaying the hydropathic character of a protein</article-title>. <source>J Mol Biol</source>  <year>1982</year>;<volume>157</volume>:<fpage>105</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1016/0022-2836(82)90515-0</pub-id><pub-id pub-id-type="pmid">7108955</pub-id>
+</mixed-citation></ref><ref id="ref53"><label>52.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zhang</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Ouyang</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Fu</surname>  <given-names>L</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Hydrophobicity determines the bacterial killing rate of α-helical antimicrobial peptides and influences the bacterial resistance development</article-title>. <source>J Med Chem</source>  <year>2022</year>;<volume>65</volume>:<fpage>14458</fpage>–<lpage>71</lpage>. <pub-id pub-id-type="doi">10.1021/acs.jmedchem.2c01238</pub-id><pub-id pub-id-type="pmid">36283984</pub-id></mixed-citation></ref><ref id="ref54"><label>53.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Du</surname>  <given-names>K</given-names></string-name>, <string-name name-style="western"><surname>Yang</surname>  <given-names>Z-R</given-names></string-name>, <string-name name-style="western"><surname>Qin</surname>  <given-names>H</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Optimized charge/hydrophobicity balance of antimicrobial peptides against polymicrobial abdominal infections</article-title>. <source>Macromol Biosci</source>  <year>2024</year>;<volume>24</volume>:<fpage>e2300451</fpage>. <pub-id pub-id-type="doi">10.1002/mabi.202300451</pub-id><pub-id pub-id-type="pmid">37997560</pub-id>
+</mixed-citation></ref><ref id="ref55"><label>54.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Abramson</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Adler</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Dunger</surname>  <given-names>J</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>Accurate structure prediction of biomolecular interactions with AlphaFold 3</article-title>. <source>Nature</source>  <year>2024</year>;<volume>630</volume>:<fpage>493</fpage>–<lpage>501</lpage>. <pub-id pub-id-type="doi">10.1038/s41586-024-07487-w</pub-id><pub-id pub-id-type="pmid">38718835</pub-id>
+<pub-id pub-id-type="pmcid">PMC11168924</pub-id></mixed-citation></ref><ref id="ref56"><label>55.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<collab>The UniProt Consortium</collab>
+</person-group>. <article-title>UniProt: the universal protein knowledgebase in 2023</article-title>. <source>Nucleic Acids Res</source>  <year>2023</year>;<volume>51</volume>:<fpage>D523</fpage>–<lpage>31</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkac1052</pub-id><pub-id pub-id-type="pmid">36408920</pub-id>
+<pub-id pub-id-type="pmcid">PMC9825514</pub-id></mixed-citation></ref><ref id="ref57"><label>56.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chung</surname>  <given-names>CR</given-names></string-name>, <string-name name-style="western"><surname>Tang</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Chiu</surname>  <given-names>YP</given-names></string-name>  <etal>et al.</etal></person-group>  <article-title>dbPTM 2025 update: comprehensive integration of PTMs and proteomic data for advanced insights into cancer research</article-title>. <source>Nucleic Acids Res</source>  <year>2025</year>;<volume>53</volume>:<fpage>D377</fpage>–<lpage>86</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkae1005</pub-id><pub-id pub-id-type="pmid">39526378</pub-id>
+<pub-id pub-id-type="pmcid">PMC11701562</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

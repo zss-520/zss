@@ -1,0 +1,45 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1133160",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.21203/rs.3.rs-8208819/v1",
+  "title": "Unlocking the genomic landscape for antimicrobial domain discovery with a two-stage progressive residue-level annotation model",
+  "abstract": "<title>Abstract</title>  <p>The escalating crisis of antimicrobial resistance (AMR) urgently demands novel therapeutic agents, positioning antimicrobial peptides (AMPs)—key effectors of innate immunity—as highly promising candidates. While direct genomic mining provides a powerful route for discovery, conventional sequence-level classifiers face a fundamental methodological bottleneck: they are inadequate for analyzing full Open Reading Frame (ORF) translation products (precursor proteins) because they fail to identify and precisely locate the functional AMP domain within sequences that also contain other regions like signal peptides. To overcome this limitation and enable fine-grained locating, we developed RegionAMP, a unified deep learning framework for accurate residue-level annotation of AMP precursors. RegionAMP leverages the pre-trained ESM-2 protein language model, adapting it through a meticulously designed two-stage fine-tuning strategy. The initial stage learns the intrinsic sequence patterns of isolated functional fragments (signal, antimicrobial, neutral functions). Crucially, the second stage integrates a Conditional Random Field (CRF) decoding layer, enabling the model to learn contextual dependencies and inter-region transitions within full-length proteins, thereby achieving robust boundary delineation. The final architecture (PLM-CRF) is highly effective for this sequence labeling task. RegionAMP exhibits exceptional performance on a challenging, imbalanced independent test set, achieving an MCC of 0.92, indicating strong discriminative performance. The recall for the critical antimicrobial peptide sites (\\((Recall_M)\\)) also reached 0.93. Feature space analysis using t-SNE confirms the model’s effective differentiation of AMP, signal peptide, and neutral sites into distinct clusters. Most compellingly, on an independent and extremely imbalanced test dataset containing only 2,296 antimicrobial residues within 46,442,400 total residues, RegionAMP successfully recovered 2,127 true antimicrobial residues, achieving an impressive average Intersection over Union (IoU) of 0.9528. This high IoU definitively validates the model’s capacity for precise locating and boundary detection of the complete AMP domain. This work successfully demonstrates robust, region-specific AMP identification directly from precursor protein sequences.</p>",
+  "journal": {
+    "publisher": "Research Square",
+    "yearOfPublication": 2025
+  },
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Xie P",
+    "Liu X",
+    "Yao L",
+    "Zhao Z",
+    "Yang A",
+    "Guan J",
+    "Jiao Z",
+    "Liu Z",
+    "Wang J",
+    "Lee T",
+    "Li Z",
+    "Cui B",
+    "Chiang Y."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.21203/rs.3.rs-8208819/v1"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europe-pmc-preprints",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model) AND (SRC:PPR)",
+  "candidate_key": "doi:10 21203 rs 3 rs 8208819 v1"
+}

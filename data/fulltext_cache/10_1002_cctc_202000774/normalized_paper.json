@@ -1,0 +1,35 @@
+{
+  "source_primary": "openalex",
+  "sources": [
+    "openalex"
+  ],
+  "source_ids": {
+    "openalex": "https://openalex.org/W3033377301"
+  },
+  "openalex_id": "https://openalex.org/W3033377301",
+  "doi": "10.1002/cctc.202000774",
+  "pmid": null,
+  "pmcid": null,
+  "title": "Active Learning A Neural Network Model For Gold Clusters &amp; Bulk From Sparse First Principles Training Data",
+  "abstract": "Abstract Small metal clusters are of fundamental scientific interest and of tremendous significance in catalysis. These nanoscale clusters display diverse geometries and structural motifs depending on the cluster size; a knowledge of this size‐dependent structural motifs and their dynamical evolution has been of longstanding interest. Given the high computational cost of first‐principles calculations, molecular modeling and atomistic simulations such as molecular dynamics (MD) has proven to be an important complementary tool to aid this understanding. Classical MD typically employ predefined functional forms which limits their ability to capture such complex size‐dependent structural and dynamical transformation. Neural Network (NN) based potentials represent flexible alternatives and in principle, well‐trained NN potentials can provide high level of flexibility, transferability and accuracy on‐par with the reference model used for training. A major challenge, however, is that NN models are interpolative and requires large quantities ( or greater) of training data to ensure that the model adequately samples the energy landscape both near and far‐from‐equilibrium. A highly desirable goal is minimize the number of training data, especially if the underlying reference model is first‐principles based and hence expensive. Here, we introduce an active learning (AL) scheme that trains a NN model on‐the‐fly with minimal amount of first‐principles based training data. Our AL workflow is initiated with a sparse training dataset ( 1 to 5 data points) and is updated on‐the‐fly via a Nested Ensemble Monte Carlo scheme that iteratively queries the energy landscape in regions of failure and updates the training pool to improve the network performance. Using a representative system of gold clusters, we demonstrate that our AL workflow can train a NN with 500 total reference calculations. Using an extensive DFT test set of ∼1100 configurations, we show that our AL‐NN is able to accurately predict both the DFT energies and the forces for clusters of a myriad of different sizes. Our NN predictions are within 30 meV/atom and 40 meV/Å of the reference DFT calculations. Moreover, our AL‐NN model also adequately captures the various size‐dependent structural and dynamical properties of gold clusters in excellent agreement with DFT calculations and available experiments. We finally show that our AL‐NN model also captures bulk properties reasonably well, even though they were not included in the training data.",
+  "journal": "ChemCatChem",
+  "venue": "ChemCatChem",
+  "year": 2020,
+  "authors": [
+    "Troy D. Loeffler",
+    "Sukriti Manna",
+    "Tarak K. Patra",
+    "Henry Chan",
+    "Badri Narayanan",
+    "Subramanian K. R. S. Sankaranarayanan"
+  ],
+  "urls": [
+    "https://openalex.org/W3033377301",
+    "https://doi.org/10.1002/cctc.202000774",
+    "https://doi.org/10.1002/cctc.202000774"
+  ],
+  "is_open_access": true,
+  "cited_by_count": 30,
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1002 cctc 202000774"
+}

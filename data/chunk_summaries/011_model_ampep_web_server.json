@@ -1,0 +1,243 @@
+{
+  "chunk_id": "model_ampep_web_server",
+  "chunk_type": "model",
+  "chunk_name": "AmPEP web server",
+  "compression_status": "ok",
+  "main_entities": [
+    "AmPEP",
+    "StackAMP"
+  ],
+  "papers": [
+    {
+      "title": "AmPEP: Sequence-based prediction of antimicrobial peptides using distribution patterns of amino acid properties and random forest",
+      "pmid": "29374199",
+      "pmcid": "PMC5785966",
+      "doi": "10.1038/s41598-018-19752-w",
+      "year": "2018",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "StackAMP: Stacking-Based Ensemble Classifier for Antimicrobial Peptide Identification",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.1109/tai.2024.3421176",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AmPEP",
+      "canonical_name": "AmPEP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest with CTD descriptors (distribution patterns of amino acid properties)",
+      "input_features": "105 distribution descriptors from 7 physicochemical properties",
+      "source_pmid": "29374199",
+      "source_pmcid": "PMC5785966",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://cbbio.cis.umac.mo/software/AmPEP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "own collection from CAMP, APD, UniProt; benchmark sets from iAMPpred and iAMP-2L",
+      "benchmark_candidate": true,
+      "candidate_reason": "Well-cited AMP prediction model with web server, clear methodology, and external benchmarking",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "not_applicable",
+      "benchmark_entry_status": "webserver_only",
+      "representative_reason": "Classic Random Forest AMP classifier with reproducible CTD descriptors, suitable as a traditional ML baseline."
+    },
+    {
+      "model_name": "StackAMP",
+      "canonical_name": "StackAMP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "stacking ensemble (details unknown)",
+      "input_features": "unknown",
+      "source_pmid": null,
+      "source_pmcid": null,
+      "source_doi": "10.1109/tai.2024.3421176",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "unknown",
+      "benchmark_candidate": true,
+      "candidate_reason": "2024 stacking ensemble model; potential candidate but lacking full details",
+      "blocking_issues": [
+        "no full text access",
+        "no abstract available",
+        "review_only",
+        "original_paper_needed"
+      ],
+      "evidence_level": "metadata",
+      "confidence": 0.3,
+      "model_category_hint": "unknown",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Too little information to assign a representative role."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AmPEP web server",
+      "url": "http://cbbio.cis.umac.mo/software/AmPEP/",
+      "repository_type": "webserver",
+      "matched_model_name": "AmPEP",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AmPEP training set",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "collected from CAMP, APD, UniProt",
+      "linked_model": "AmPEP",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "3268 AMPs",
+      "negative_samples": "166791 non-AMPs",
+      "deduplication_method": "CD-HIT at 90% identity",
+      "split_method": "10-fold cross-validation (1:3 positive:negative ratio)",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "iAMPpred benchmark dataset (Ctrain/Ctest)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "from iAMPpred (Meher et al. 2017)",
+      "linked_model": "AmPEP",
+      "dataset_role": "external_test",
+      "dataset_status": "source_database_named",
+      "positive_samples": "not specified",
+      "negative_samples": "not specified",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "iAMP-2L benchmark dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "from iAMP-2L (Xiao et al. 2013)",
+      "linked_model": "AmPEP",
+      "dataset_role": "external_test",
+      "dataset_status": "source_database_named",
+      "positive_samples": "not specified",
+      "negative_samples": "not specified",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "AmPEP",
+      "dataset_name": "AmPEP training set",
+      "relationship": "trained_on",
+      "dataset_status": "source_database_named"
+    },
+    {
+      "model_name": "AmPEP",
+      "dataset_name": "iAMPpred benchmark dataset (Ctrain/Ctest)",
+      "relationship": "externally_tested_on",
+      "dataset_status": "source_database_named"
+    },
+    {
+      "model_name": "AmPEP",
+      "dataset_name": "iAMP-2L benchmark dataset",
+      "relationship": "externally_tested_on",
+      "dataset_status": "source_database_named"
+    },
+    {
+      "model_name": "StackAMP",
+      "dataset_name": "not_reported",
+      "relationship": "unknown",
+      "dataset_status": "not_reported"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "AmPEP accuracy 96%"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "MCC 0.9"
+    },
+    {
+      "metric_name": "AUC-ROC",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "AUC-ROC 0.99"
+    },
+    {
+      "metric_name": "AUC-PR",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "Used in ratio tests"
+    },
+    {
+      "metric_name": "Sensitivity",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "Reported in cross-validation"
+    },
+    {
+      "metric_name": "Specificity",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "Reported in cross-validation"
+    },
+    {
+      "metric_name": "Kappa",
+      "usage": "Model evaluation",
+      "source_pmid": "29374199",
+      "source_doi": "10.1038/s41598-018-19752-w",
+      "evidence": "Kappa statistic 0.9"
+    }
+  ],
+  "important_evidence": [
+    "AmPEP random forest achieves 96% accuracy, MCC 0.9, AUC-ROC 0.99 on own dataset; web server available at http://cbbio.cis.umac.mo/software/AmPEP/",
+    "StackAMP exists only as a 2024 IEEE TAI paper with no accessible full text; insufficient evidence for benchmarking."
+  ],
+  "uncertainties": [
+    "StackAMP completely lacks details (input features, datasets, performance) due to missing full text; must be treated as low-confidence until verified.",
+    "AmPEP code not found; only web server is accessible, limiting reproducibility."
+  ],
+  "source_pmids": [
+    "29374199"
+  ],
+  "source_dois": [
+    "10.1038/s41598-018-19752-w",
+    "10.1109/tai.2024.3421176"
+  ],
+  "urls": [
+    "http://cbbio.cis.umac.mo/software/AmPEP/",
+    "https://doi.org/10.1038/s41598-018-19752-w",
+    "https://doi.org/10.1109/tai.2024.3421176/mm1"
+  ]
+}

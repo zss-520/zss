@@ -1,0 +1,42 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1239269",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.05.23.727347",
+  "title": "Pathogen-specific antimicrobial activity prediction with biological large language model-based methods",
+  "abstract": "<h4>ABSTRACT</h4>  Driven by the rise of antimicrobial resistance, antimicrobial peptides (AMPs) have emerged as promising therapeutics capable of targeting multidrug-resistant pathogens. Because identifying AMPs and their specific targets requires costly and labor-intensive wet-lab experiments,  in silico methods to prioritize candidates are highly valuable. However, current computational methods often lack pathogen specificity or fail to incorporate crucial targeted proteomic and genomic contexts. To bridge this gap, we developed triAMPh, a robust, zero-shot framework for pathogen-specific peptide bioactivity prediction. triAMPh integrates a heterogeneous graph attention network-based link predictor (HLP), Extreme Gradient Boosting, and a multilayer perceptron trained on features from biological large language models (bLLMs). Our novel HLP constructs a knowledge graph that maps peptides and pathogens as distinct nodes, connected by similarity and bioactivity edges. The model extracts information through semantic traversals, prioritizing neighboring nodes and their biological contexts. Benchmarking shows that triAMPh provides unbiased, peptide- and pathogen-centered zero-shot predictions, matching or outperforming state-of-the-art methods across all metrics except precision. Ultimately, triAMPh offers a powerful computational tool to accelerate wet-lab AMP discovery while demonstrating the capability of bLLMs to capture complex, pathogen-specific bioactivity patterns.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Ucar B",
+    "Demirsoy E",
+    "Salehi A",
+    "Sutherland D",
+    "Yanai A",
+    "Coombe L",
+    "Thompson VC",
+    "Warren RL",
+    "Helbing CC",
+    "Birol I."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.05.23.727347"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "general-search",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model OR classification)",
+  "candidate_key": "doi:10 64898 2026 05 23 727347"
+}

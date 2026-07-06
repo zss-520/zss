@@ -1,0 +1,184 @@
+{
+  "chunk_id": "model_ampfinder",
+  "chunk_type": "model",
+  "chunk_name": "AMPfinder",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPfinder",
+    "AMPpredictor",
+    "AMPActiPred",
+    "dbAMP 3.0",
+    "Transcriptomic analysis of non-model Drosophilidae reveals novel AMP candidates"
+  ],
+  "papers": [
+    {
+      "title": "dbAMP 3.0: updated resource of antimicrobial activity and structural annotation of peptides in the post-pandemic era.",
+      "pmid": "39540425",
+      "pmcid": "PMC11701527",
+      "doi": "10.1093/nar/gkae1019",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Transcriptomic analysis of non-model Drosophilidae reveals novel AMP candidates.",
+      "pmid": "41634709",
+      "pmcid": "PMC12958777",
+      "doi": "10.1186/s12915-026-02535-5",
+      "year": "2026",
+      "role": "dataset_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Transcriptomic analysis of non-model Drosophilidae reveals novel AMP candidates",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.21203/rs.3.rs-6856057/v1",
+      "year": "2025",
+      "role": "dataset_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Big Data & Deep Data: Minding the Challenges",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.3233/978-1-61499-822-8-177",
+      "year": "2017",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPfinder",
+      "canonical_name": "AMPfinder",
+      "aliases": [],
+      "task_type": "AMP discovery / prediction",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "genomic/metagenomic data mining",
+      "input_features": "genomic/metagenomic sequences",
+      "source_pmid": "39540425",
+      "source_pmcid": "PMC11701527",
+      "source_doi": "10.1093/nar/gkae1019",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "dbAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "集成在 dbAMP 3.0 中的 AMP 发现工具，可用于从基因组/宏基因组数据中挖掘 AMP。",
+      "blocking_issues": [
+        "code not independently available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "AMPpredictor",
+      "canonical_name": "AMPpredictor",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "machine learning",
+      "input_features": "peptide sequences",
+      "source_pmid": "39540425",
+      "source_pmcid": "PMC11701527",
+      "source_doi": "10.1093/nar/gkae1019",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "dbAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "集成在 dbAMP 3.0 中的机器学习工具，用于预测 AMP 功能活性。",
+      "blocking_issues": [
+        "code not independently available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "AMPActiPred",
+      "canonical_name": "AMPActiPred",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "deep forest",
+      "input_features": "peptide sequences",
+      "source_pmid": "39540425",
+      "source_pmcid": "PMC11701527",
+      "source_doi": "10.1093/nar/gkae1019",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "dbAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "集成在 dbAMP 3.0 中的深度森林框架，用于预测抗菌肽及其活性水平。",
+      "blocking_issues": [
+        "code not independently available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "dbAMP 3.0 web server",
+      "url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPfinder, AMPpredictor, AMPActiPred",
+      "source_pmid": "39540425",
+      "source_doi": "10.1093/nar/gkae1019",
+      "evidence_level": "fulltext",
+      "evidence": "The updated dbAMP is freely accessible at https://awi.cuhk.edu.cn/dbAMP/."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "dbAMP 3.0",
+      "dataset_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "dataset_source": "dbAMP database",
+      "linked_model": "AMPfinder, AMPpredictor, AMPActiPred",
+      "source_pmid": "39540425",
+      "source_doi": "10.1093/nar/gkae1019",
+      "positive_samples": "33,065 AMPs, 2,453 antimicrobial proteins",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "In this update, dbAMP has curated data from over 5200 publications, encompassing 33,065 AMPs and 2453 antimicrobial proteins from 3534 organisms."
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "AMPfinder, AMPpredictor, AMPActiPred are described in dbAMP 3.0 paper (PMID:39540425) and accessible via the dbAMP web server.",
+    "Transcriptomic analysis of non-model Drosophilidae (PMID:41634709) identified novel AMP candidates.",
+    "dbAMP 3.0 contains 33,065 AMPs and 2,453 antimicrobial proteins from 3,534 organisms."
+  ],
+  "uncertainties": [
+    "Code for AMPfinder, AMPpredictor, AMPActiPred is not independently available.",
+    "Method details for AMPfinder are unknown (method_family: unknown).",
+    "External test performance of these models is not reported.",
+    "Relevance of the Big Data & Deep Data paper (doi:10.3233/978-1-61499-822-8-177) to AMP models is unclear."
+  ],
+  "source_pmids": [
+    "39540425",
+    "41634709"
+  ],
+  "source_dois": [
+    "10.1093/nar/gkae1019",
+    "10.1186/s12915-026-02535-5",
+    "10.21203/rs.3.rs-6856057/v1",
+    "10.3233/978-1-61499-822-8-177"
+  ],
+  "urls": [
+    "https://awi.cuhk.edu.cn/dbAMP/",
+    "https://academic.oup.com/nar/advance-article-pdf/doi/10.1093/nar/gkae1019/60667711/gkae1019.pdf",
+    "https://doi.org/10.1093/nar/gkae1019",
+    "https://pubmed.ncbi.nlm.nih.gov/39540425",
+    "https://pubmed.ncbi.nlm.nih.gov/39540425/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11701527/",
+    "https://pubmed.ncbi.nlm.nih.gov/41634709/",
+    "https://doi.org/10.1186/s12915-026-02535-5",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12958777/",
+    "https://doi.org/10.21203/rs.3.rs-6856057/v1",
+    "https://doi.org/10.3233/978-1-61499-822-8-177"
+  ]
+}

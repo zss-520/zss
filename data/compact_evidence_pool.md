@@ -1,0 +1,46 @@
+# Compact Evidence Pool
+
+- Created: 2026-07-03 13:48:45
+- Chunk summaries: 40
+
+## Chunk Summaries
+- **model_acpred** | type=model | name=ACPred | status=ok | entities=ACPred, AMPfun, AntiCP, AntiCP2.0, iAMPpred, Macrel, HAPPENN, HemoPred
+- **model_adam** | type=model | name=ADAM | status=ok | entities=ADAM, CAMPR3, DBAASP, AmPEP, AntiBP, BAGEL3, AMP prediction server (biosino)
+- **model_adam_prediction_tool** | type=model | name=ADAM (prediction tool) | status=ok | entities=AxPEP3, Deep-AmPEP30, RF-AmPEP30, CAMPR34, CLASSAMP5, DBAASP6, ADAM, APSvr.2
+- **model_admetlab_3** | type=model | name=ADMETlab 3 | status=ok | entities=ADMETlab 3, PeptideRanker, PMC12986296, PMC13276608
+- **model_allenccf** | type=model | name=allenCCF | status=ok | entities=allenCCF (GitHub repository), Paper: A time window for memory consolidation during NREM sleep revealed by cAMP oscillation, Paper: Bioactive Peptides from Yellowfin Tuna By-Products: Structural Characterization and Neuro-Related Activities in PC12 Cells
+- **model_amp_de_novo_design_cdgan** | type=model | name=amp_de_novo_design_cdGAN | status=ok | entities=Multi-label weighted KNN-MLR model (Wang2017), cdGAN (Tizoc2025)
+- **model_amp_gsm** | type=model | name=AMP-GSM | status=ok | entities=AMP-GSM model, ISCAPE model, AMP-GSM paper (doi:10.3390/app13085106), ISCAPE paper (doi:10.1016/j.jmgm.2025.109188)
+- **model_amp_mic_predictor_cnn_rnn** | type=model | name=AMP MIC predictor (CNN/RNN) | status=ok | entities=AMP MIC predictor (CNN/RNN)
+- **model_amp_scanner_v2** | type=model | name=AMP Scanner V2 | status=ok | entities=AMP Scanner V2, Macrel, AxPEP, AmPEP, AMPlify, AMPGenix, hydramp, AntiBP2
+- **model_ampep** | type=model | name=AmPEP | status=ok | entities=AmPEP, StackAMP, Macrel, AMP Scanner V2, AMPlify_bal, AMPlify_imbal, AMPGenix
+- **model_ampep_web_server** | type=model | name=AmPEP web server | status=ok | entities=AmPEP, StackAMP
+- **model_amper** | type=model | name=AMPer | status=ok | entities=PeptideRanker, AMPer, CAMP, AntiBP2, HydrAMP, Macrel, AmPEP, AMP Scanner v2
+- **model_amper_web_server** | type=model | name=AMPer web server | status=ok | entities=PeptideRanker, AMPer, CAMP, AntiBP2
+- **model_ampfun** | type=model | name=AMPfun | status=ok | entities=AMPfun, AntiCP, AntiCP2.0, ACPred, iAMPpred, Macrel, HAPPENN, HemoPred
+- **model_ampgenix** | type=model | name=AMPGenix | status=ok | entities=Macrel, AmPEP, AMP Scanner V2, AMPlify_bal, AMPlify_imbal, AMPGenix
+- **model_amplify** | type=model | name=AMPlify | status=ok | entities=AMPlify, HydrAMP
+- **model_amplify_bal** | type=model | name=AMPlify_bal | status=ok | entities=Macrel, AmPEP, AMP Scanner V2, AMPlify_bal, AMPlify_imbal, AMPGenix
+- **model_amplify_github** | type=model | name=AMPlify GitHub | status=ok | entities=AMPlify
+- **model_amplify_imbal** | type=model | name=AMPlify_imbal | status=ok | entities=AMPlify_imbal, AMPlify_bal, Macrel, AmPEP, AMP Scanner V2, AMPGenix
+- **model_anti_cp** | type=model | name=Anti_Cp | status=ok | entities=WeightedEnsemble_L3 (AMP activity classifier), DBAASP-derived dataset, Anti_Cp GitHub repository
+- **model_anti_cp_git** | type=model | name=Anti_Cp.git | status=ok | entities=WeightedEnsemble_L3, Anti_Cp, DBAASP, AutoGluon, AMP prediction
+- **model_antibp** | type=model | name=AntiBP | status=ok | entities=ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP, DBAASP, AntiBP, AntiBP2, BAGEL3
+- **model_antibp2** | type=model | name=AntiBP2 | status=ok | entities=AntiBP2, PeptideRanker, AMPer, CAMP, ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP
+- **model_anticp** | type=model | name=AntiCP | status=ok | entities=AntiCP, AntiCP2.0, ACPred, AMPfun, iAMPpred, Macrel, HAPPENN, HemoPred
+- **model_anticp2_0** | type=model | name=AntiCP2.0 | status=ok | entities=AntiCP2.0, AntiCP, AMPfun, ACPred, iAMPpred, Macrel, HAPPENN, HemoPred
+- **model_antimicrobial** | type=model | name=Antimicrobial | status=ok | entities=PLUM
+- **model_antimicrobial_peptide_database_apd3** | type=model | name=Antimicrobial Peptide Database (APD3) | status=ok | entities=CAMPR3, Deep-AmPEP30, APD3, AVPpred, AVCpred
+- **model_apd3** | type=model | name=APD3 | status=ok | entities=APD3, CAMPR3, Deep-AmPEP30, AVPpred, AVCpred
+- **model_apex** | type=model | name=APEX | status=ok | entities=APEX, ApexGO
+- **model_apex_1_1** | type=model | name=APEX 1.1 | status=ok | entities=APEX model, ApexGO model, Venomics AI paper (PMID:39764027), ApexGO paper (PMID:42206144)
+- **model_apex_generative_optimization** | type=model | name=APEX generative optimization | status=ok | entities=APEX (MIC prediction model), ApexGO (generative optimization model), Venomics AI (2024), ApexGO paper (2026), DBAASP database, ConoServer, ArachnoServer, ISOB
+- **model_apexgo** | type=model | name=ApexGO | status=ok | entities=APEX, ApexGO
+- **model_aro** | type=model | name=aro | status=ok | entities=Macrel, FESNov antimicrobial peptide families, nov-fams-pipeline, aro
+- **model_avcpred** | type=model | name=AVCpred | status=ok | entities=AVCpred, AVPpred, CAMPR3, Deep-AmPEP30, APD3
+- **model_avppred** | type=model | name=AVPpred | status=ok | entities=CAMPR3, Deep-AmPEP30, APD3, AVPpred, AVCpred
+- **model_axpep** | type=model | name=AxPEP | status=ok | entities=Macrel, AxPEP, AMP Scanner V2, Paper: Bioactive Plasmid- and Phage-Encoded Antimicrobial Peptides (AMPs) in the Human Gut (PMID:41315055)
+- **model_axpep3** | type=model | name=AxPEP3 | status=ok | entities=AxPEP3, Deep-AmPEP30, RF-AmPEP30, CAMPR34, CLASSAMP5, DBAASP6, ADAM (prediction tool), APSvr.2
+- **model_bagel3** | type=model | name=BAGEL3 | status=ok | entities=ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP, DBAASP, AntiBP, AntiBP2, BAGEL3
+- **model_c_amps_prediction** | type=model | name=c_AMPs-prediction | status=ok | entities=c_AMPs-prediction model
+- **model_camp** | type=model | name=CAMP | status=ok | entities=PeptideRanker, AMPer, CAMP, AntiBP2

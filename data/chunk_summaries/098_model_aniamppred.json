@@ -1,0 +1,257 @@
+{
+  "chunk_id": "model_aniamppred",
+  "chunk_type": "model",
+  "chunk_name": "AniAMPpred",
+  "compression_status": "ok",
+  "main_entities": [
+    "AniAMPpred",
+    "Appred",
+    "sAMPpred-GAT",
+    "AMPs-Net",
+    "LABAMPs"
+  ],
+  "papers": [
+    {
+      "title": "AniAMPpred: artificial intelligence guided discovery of novel antimicrobial peptides in animal kingdom",
+      "pmid": "34259329",
+      "pmcid": "",
+      "doi": "10.1093/bib/bbab242",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Antiprotozoal peptide prediction using machine learning with effective feature selection techniques",
+      "pmid": "39247292",
+      "pmcid": "11380031",
+      "doi": "10.1016/j.heliyon.2024.e36163",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Geometric deep learning as a potential tool for antimicrobial peptide prediction",
+      "pmid": "37521317",
+      "pmcid": "10374423",
+      "doi": "10.3389/fbinf.2023.1216362",
+      "year": "2023",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial peptide activity prediction using machine learning methods (Makine öğrenmesi yöntemleriyle antimikrobiyal peptit aktivite tahmini)",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AniAMPpred",
+      "canonical_name": "AniAMPpred",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML/DL",
+      "architecture_or_algorithm": "Support Vector Machine with deep learning-based features",
+      "input_features": "sequence features (deep learning-based features)",
+      "source_pmid": "34259329",
+      "source_pmcid": "",
+      "source_doi": "10.1093/bib/bbab242",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://aniamppred.anvil.app/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model with SVM and deep features, online server available; abstract describes high accuracy and non-biased classification.",
+      "blocking_issues": [
+        "no code available",
+        "fulltext provided does not match article (PMC12620532 is a different paper); only abstract evidence used"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "Appred",
+      "canonical_name": "Appred",
+      "aliases": [
+        "Antiprotozoal peptide predictor"
+      ],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "XGBoost with mRMR feature selection on pfeature composition features",
+      "input_features": "amino acid composition features (selected by mRMR)",
+      "source_pmid": "39247292",
+      "source_pmcid": "11380031",
+      "source_doi": "10.1016/j.heliyon.2024.e36163",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "www.soodlab.com/appred",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Predicts antiprotozoal peptides (AMP subclass) with high accuracy, provides web server, suitable for benchmarking.",
+      "blocking_issues": [
+        "no code available",
+        "dataset not publicly linked"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "sAMPpred-GAT",
+      "canonical_name": "sAMPpred-GAT",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Graph Attention Network (GAT) with features: one-hot, position encoding, PSSM, HMM, and structural contact maps",
+      "input_features": "sequence features and structural graph-based features (predicted contact maps)",
+      "source_pmid": "37521317",
+      "source_pmcid": "10374423",
+      "source_doi": "10.3389/fbinf.2023.1216362",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in review as outperforming current methods, based on geometric deep learning.",
+      "blocking_issues": [
+        "only review evidence",
+        "no original paper details",
+        "no code or server found"
+      ],
+      "evidence_level": "uncertain",
+      "confidence": 0.4
+    },
+    {
+      "model_name": "AMPs-Net",
+      "canonical_name": "AMPs-Net",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Graph Convolutional Network (GCN) with message passing, 9 physicochemical properties per amino acid, bond features",
+      "input_features": "graph representation of peptide (physicochemical and bond properties)",
+      "source_pmid": "37521317",
+      "source_pmcid": "10374423",
+      "source_doi": "10.3389/fbinf.2023.1216362",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Review states it outperformed four other deep learning methods.",
+      "blocking_issues": [
+        "only review evidence",
+        "no code or server found"
+      ],
+      "evidence_level": "uncertain",
+      "confidence": 0.4
+    },
+    {
+      "model_name": "LABAMPs",
+      "canonical_name": "LABAMPs",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Graph Convolutional Network (GCN) on heterogeneous graph of amino acids, dipeptides, tripeptides",
+      "input_features": "word embedding of peptide segments",
+      "source_pmid": "37521317",
+      "source_pmcid": "10374423",
+      "source_doi": "10.3389/fbinf.2023.1216362",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Predicts lactic acid bacteria AMPs, outperformed other ML algorithms according to review.",
+      "blocking_issues": [
+        "only review evidence",
+        "no code or server found"
+      ],
+      "evidence_level": "uncertain",
+      "confidence": 0.4
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AniAMPpred webserver",
+      "url": "https://aniamppred.anvil.app/",
+      "repository_type": "webserver",
+      "matched_model_name": "AniAMPpred",
+      "source_pmid": "34259329",
+      "source_doi": "10.1093/bib/bbab242",
+      "evidence_level": "abstract",
+      "evidence": "online prediction server ... https://aniamppred.anvil.app/."
+    },
+    {
+      "name": "Appred webserver",
+      "url": "www.soodlab.com/appred",
+      "repository_type": "webserver",
+      "matched_model_name": "Appred",
+      "source_pmid": "39247292",
+      "source_doi": "10.1016/j.heliyon.2024.e36163",
+      "evidence_level": "fulltext",
+      "evidence": "web server (www.soodlab.com/appred) to predict the antiprotozoal activity."
+    }
+  ],
+  "datasets": [],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "Appred performance",
+      "source_pmid": "39247292",
+      "source_doi": "10.1016/j.heliyon.2024.e36163",
+      "evidence": "accuracy of 97.27 %, 93.64 %, 86.36 %, 90.91 %, and 89.09 % respectively on validation dataset"
+    },
+    {
+      "metric_name": "sensitivity",
+      "usage": "Appred performance",
+      "source_pmid": "39247292",
+      "source_doi": "10.1016/j.heliyon.2024.e36163",
+      "evidence": "sensitivity values reported in multiple tables"
+    },
+    {
+      "metric_name": "specificity",
+      "usage": "Appred performance",
+      "source_pmid": "39247292",
+      "source_doi": "10.1016/j.heliyon.2024.e36163",
+      "evidence": "specificity values reported"
+    },
+    {
+      "metric_name": "AUCROC",
+      "usage": "Appred and sAMPpred-GAT",
+      "source_pmid": "39247292",
+      "source_doi": "10.1016/j.heliyon.2024.e36163",
+      "evidence": "AUCROC 0.99 for Appred; sAMPpred-GAT AuC mentioned"
+    }
+  ],
+  "important_evidence": [
+    "AniAMPpred: SVM with deep features, server at https://aniamppred.anvil.app/ (abstract evidence only)",
+    "Appred: XGBoost, mRMR feature selection, accuracy 97.27%, AUC 0.99, server www.soodlab.com/appred",
+    "sAMPpred-GAT, AMPs-Net, LABAMPs: mentioned in review, no original code or server found",
+    "AniAMPpred fulltext mismatch, needs verification"
+  ],
+  "uncertainties": [
+    "AniAMPpred: The fulltext provided (PMC12620532) is a different article on AI and photodynamic therapy; the correct fulltext is needed to verify details.",
+    "sAMPpred-GAT, AMPs-Net, LABAMPs: Only review-level evidence; original papers must be located and assessed for code/data availability.",
+    "Turkish paper: No abstract or fulltext available; unclear if it describes a named model."
+  ],
+  "source_pmids": [
+    "34259329",
+    "39247292",
+    "37521317"
+  ],
+  "source_dois": [
+    "10.1093/bib/bbab242",
+    "10.1016/j.heliyon.2024.e36163",
+    "10.3389/fbinf.2023.1216362"
+  ],
+  "urls": [
+    "https://aniamppred.anvil.app/",
+    "www.soodlab.com/appred",
+    "https://doi.org/10.1093/bib/bbab242",
+    "https://doi.org/10.1016/j.heliyon.2024.e36163",
+    "https://doi.org/10.3389/fbinf.2023.1216362"
+  ]
+}

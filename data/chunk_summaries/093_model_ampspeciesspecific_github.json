@@ -1,0 +1,360 @@
+{
+  "chunk_id": "model_ampspeciesspecific_github",
+  "chunk_type": "model",
+  "chunk_name": "AMPSpeciesSpecific GitHub",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPSpeciesSpecific",
+    "PepNet",
+    "BPFun",
+    "LLAMP"
+  ],
+  "papers": [
+    {
+      "title": "PA-Win2: In Silico-Based Discovery of a Novel Peptide with Dual Antibacterial and Anti-Biofilm Activity",
+      "pmid": "39766503",
+      "pmcid": "PMC11672609",
+      "doi": "10.3390/antibiotics13121113",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "PepNet: an interpretable neural network for anti-inflammatory and antimicrobial peptides prediction using a pre-trained protein language model",
+      "pmid": "39341947",
+      "pmcid": "PMC11438969",
+      "doi": "10.1038/s42003-024-06911-1",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "BPFun: a deep learning framework for bioactive peptide function prediction using multi-label strategy by transformer-driven and sequence rich intrinsic information",
+      "pmid": "40691539",
+      "pmcid": "PMC12278619",
+      "doi": "10.1186/s12859-025-06190-5",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "AI-guided discovery and optimization of antimicrobial peptides through species-aware language model",
+      "pmid": "40676915",
+      "pmcid": "PMC12271573",
+      "doi": "10.1093/bib/bbaf343",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPSpeciesSpecific",
+      "canonical_name": "AMPSpeciesSpecific",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "multi-task learning deep learning model predicting species-specific antimicrobial activity",
+      "input_features": "peptide sequence",
+      "source_pmid": "39766503",
+      "source_pmcid": "PMC11672609",
+      "source_doi": "10.3390/antibiotics13121113",
+      "code_repository_url": "https://github.com/bzlee-bio/AMPSpeciesSpecific",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/bzlee-bio/AMPSpeciesSpecific (may contain data)",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model with public code, used in a discovery pipeline with experimental validation",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "PepNet",
+      "canonical_name": "PepNet",
+      "aliases": [],
+      "task_type": "AMP prediction / anti-inflammatory peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "residual dilated convolution block + residual Transformer block using pre-trained protein language model features",
+      "input_features": "amino acid type, physicochemical properties, pre-trained protein language model embeddings",
+      "source_pmid": "39341947",
+      "source_pmcid": "PMC11438969",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "code_repository_url": "https://zenodo.org/records/1322351661, https://zenodo.org/records/1373425862",
+      "web_server_url": "http://liulab.top/PepNet/server",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence (described as AMP and AIP test sets from previous studies; likely included in Zenodo records)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel deep learning model for AMP and AIP prediction with web server and code, outperforming existing methods",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "BPFun",
+      "canonical_name": "BPFun",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification / bioactive peptide function prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "multi-scale CNN, Bi-LSTM, self-attention, using multiple feature encodings (one-hot, AAindex, ProtT5, ESM-2)",
+      "input_features": "peptide sequences encoded via one-hot, AAindex1, ProtT5, ESM-2, and natural number representation",
+      "source_pmid": "40691539",
+      "source_pmcid": "PMC12278619",
+      "source_doi": "10.1186/s12859-025-06190-5",
+      "code_repository_url": "https://github.com/291357657/BPFun",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/291357657/BPFun (data included in repository)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Multi-label deep learning model for bioactive peptide prediction including AMP, with code and data available",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "LLAMP",
+      "canonical_name": "LLAMP",
+      "aliases": [],
+      "task_type": "AMP prediction (MIC prediction, species-aware)",
+      "method_family": "DL",
+      "architecture_or_algorithm": "ESM-2 protein language model fine-tuned with species genomic information for regression of MIC values",
+      "input_features": "peptide sequence and target bacterial species genome features",
+      "source_pmid": "40676915",
+      "source_pmcid": "PMC12271573",
+      "source_doi": "10.1093/bib/bbaf343",
+      "code_repository_url": "https://github.com/GIST-CSBL/LLAMP",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/GIST-CSBL/LLAMP (data included); DBAASP v3 for MIC data",
+      "benchmark_candidate": true,
+      "candidate_reason": "Species-aware AMP activity prediction model based on language model, with code and data, predicts MIC values",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPSpeciesSpecific GitHub",
+      "url": "https://github.com/bzlee-bio/AMPSpeciesSpecific",
+      "repository_type": "code",
+      "matched_model_name": "AMPSpeciesSpecific",
+      "source_pmid": "39766503",
+      "source_doi": "10.3390/antibiotics13121113",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub link extracted from fulltext"
+    },
+    {
+      "name": "PepNet Zenodo record 1",
+      "url": "https://zenodo.org/records/1322351661",
+      "repository_type": "code",
+      "matched_model_name": "PepNet",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "evidence_level": "fulltext",
+      "evidence": "Zenodo link from fulltext"
+    },
+    {
+      "name": "PepNet Zenodo record 2",
+      "url": "https://zenodo.org/records/1373425862",
+      "repository_type": "code",
+      "matched_model_name": "PepNet",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "evidence_level": "fulltext",
+      "evidence": "Zenodo link from fulltext"
+    },
+    {
+      "name": "PepNet web server",
+      "url": "http://liulab.top/PepNet/server",
+      "repository_type": "webserver",
+      "matched_model_name": "PepNet",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "evidence_level": "fulltext",
+      "evidence": "Web server URL in fulltext"
+    },
+    {
+      "name": "BPFun GitHub",
+      "url": "https://github.com/291357657/BPFun",
+      "repository_type": "code",
+      "matched_model_name": "BPFun",
+      "source_pmid": "40691539",
+      "source_doi": "10.1186/s12859-025-06190-5",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub link from fulltext"
+    },
+    {
+      "name": "LLAMP GitHub",
+      "url": "https://github.com/GIST-CSBL/LLAMP",
+      "repository_type": "code",
+      "matched_model_name": "LLAMP",
+      "source_pmid": "40676915",
+      "source_doi": "10.1093/bib/bbaf343",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub link from fulltext"
+    },
+    {
+      "name": "Antimicrobial-Peptides",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "repository_type": "code",
+      "matched_model_name": "LLAMP",
+      "source_pmid": "40676915",
+      "source_doi": "10.1093/bib/bbaf343",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Associated repository found via regex search"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AMPSpeciesSpecific associated data",
+      "dataset_url": "https://github.com/bzlee-bio/AMPSpeciesSpecific",
+      "dataset_source": "likely included in GitHub repository",
+      "linked_model": "AMPSpeciesSpecific",
+      "source_pmid": "39766503",
+      "source_doi": "10.3390/antibiotics13121113",
+      "positive_samples": "not reported",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub repository may contain training data"
+    },
+    {
+      "dataset_name": "PepNet AMP and AIP datasets",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "curated from previous studies; details in paper",
+      "linked_model": "PepNet",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "positive_samples": "not reported",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Training and test sets described but not directly linked"
+    },
+    {
+      "dataset_name": "BPFun dataset",
+      "dataset_url": "https://github.com/291357657/BPFun",
+      "dataset_source": "GitHub repository; includes AMP, ACP, ADP, AHP, AIP, AAP, AOP peptides",
+      "linked_model": "BPFun",
+      "source_pmid": "40691539",
+      "source_doi": "10.1186/s12859-025-06190-5",
+      "positive_samples": "2409 AMPs",
+      "negative_samples": "not explicitly reported",
+      "deduplication_method": "CD-HIT at 0.9 threshold",
+      "evidence_level": "fulltext",
+      "evidence": "Data available at GitHub; CD-HIT used for redundancy removal"
+    },
+    {
+      "dataset_name": "LLAMP dataset",
+      "dataset_url": "https://github.com/GIST-CSBL/LLAMP",
+      "dataset_source": "DBAASP v3, processed; included in GitHub",
+      "linked_model": "LLAMP",
+      "source_pmid": "40676915",
+      "source_doi": "10.1093/bib/bbaf343",
+      "positive_samples": "~1.7 million peptide-MIC pairs",
+      "negative_samples": "not applicable (regression)",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Data from DBAASP v3; GitHub repository contains data"
+    },
+    {
+      "dataset_name": "grampa.csv",
+      "dataset_url": "https://github.com/zswitten/Antimicrobial-Peptides/blob/master/data/grampa.csv",
+      "dataset_source": "subdirectory of Antimicrobial-Peptides repository",
+      "linked_model": "LLAMP",
+      "source_pmid": "40676915",
+      "source_doi": "10.1093/bib/bbaf343",
+      "positive_samples": "not reported",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Data file found via regex in associated repository"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "F1-score",
+      "usage": "evaluated on AMP test set",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "evidence": "PepNet F1-score 0.951 on AMP test set"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "evaluated on AMP test set",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "evidence": "PepNet MCC 0.901 on AMP test set"
+    },
+    {
+      "metric_name": "accuracy",
+      "usage": "evaluated on AMP test set",
+      "source_pmid": "39341947",
+      "source_doi": "10.1038/s42003-024-06911-1",
+      "evidence": "PepNet accuracy 0.950 on AMP test set"
+    },
+    {
+      "metric_name": "accuracy",
+      "usage": "multi-label classification accuracy",
+      "source_pmid": "40691539",
+      "source_doi": "10.1186/s12859-025-06190-5",
+      "evidence": "BPFun accuracy 0.6577 on seven-function test set"
+    },
+    {
+      "metric_name": "absolute truth value",
+      "usage": "multi-label metric",
+      "source_pmid": "40691539",
+      "source_doi": "10.1186/s12859-025-06190-5",
+      "evidence": "BPFun absolute truth value 0.6573"
+    },
+    {
+      "metric_name": "Pearson correlation coefficient (PCC)",
+      "usage": "MIC prediction test set",
+      "source_pmid": "40676915",
+      "source_doi": "10.1093/bib/bbaf343",
+      "evidence": "LLAMP average PCC 0.735 on test set"
+    },
+    {
+      "metric_name": "F1-score",
+      "usage": "AMP classification (derived from MIC thresholds)",
+      "source_pmid": "40676915",
+      "source_doi": "10.1093/bib/bbaf343",
+      "evidence": "LLAMP F1-score 90.53 in classification comparison"
+    }
+  ],
+  "important_evidence": [
+    "AMPSpeciesSpecific used in PA-Win2 discovery pipeline with experimental validation against five bacterial strains.",
+    "PepNet outperforms other methods with F1-score 0.951 and MCC 0.901 on AMP test set; web server and code available.",
+    "BPFun provides multi-label prediction of seven peptide functions, including AMP, with code and data on GitHub.",
+    "LLAMP is a species-aware language model predicting MIC values, trained on ~1.7 million peptide-MIC pairs from DBAASP v3; code and data available."
+  ],
+  "uncertainties": [
+    "PepNet training and test datasets are not directly linked; likely contained in the provided Zenodo records.",
+    "AMPSpeciesSpecific training data may be present in its GitHub repository but was not explicitly verified.",
+    "BPFun negative samples not explicitly reported; deduplication by CD-HIT at 0.9 threshold.",
+    "LLAMP deduplication method not reported; data originates from DBAASP v3."
+  ],
+  "source_pmids": [
+    "39766503",
+    "39341947",
+    "40691539",
+    "40676915"
+  ],
+  "source_dois": [
+    "10.3390/antibiotics13121113",
+    "10.1038/s42003-024-06911-1",
+    "10.1186/s12859-025-06190-5",
+    "10.1093/bib/bbaf343"
+  ],
+  "urls": [
+    "https://github.com/bzlee-bio/AMPSpeciesSpecific",
+    "https://zenodo.org/records/1322351661",
+    "https://zenodo.org/records/1373425862",
+    "http://liulab.top/PepNet/server",
+    "https://github.com/291357657/BPFun",
+    "https://github.com/GIST-CSBL/LLAMP",
+    "https://github.com/zswitten/Antimicrobial-Peptides",
+    "https://github.com/zswitten/Antimicrobial-Peptides/blob/master/data/grampa.csv"
+  ]
+}

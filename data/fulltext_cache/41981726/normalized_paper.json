@@ -1,0 +1,34 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41981726",
+    "pmid": "41981726"
+  },
+  "pmid": "41981726",
+  "pmcid": "PMC13143419",
+  "doi": "10.1093/bioinformatics/btag179",
+  "title": "Molecular fingerprints are strong models for peptide function prediction.",
+  "abstract": "<h4>Motivation</h4>Understanding peptide properties is often assumed to require modeling long-range molecular interactions, motivating complex graph neural networks and pretrained transformers. Whether such long-range dependencies are essential remains unclear. We investigate if simple, domain-specific molecular fingerprints can capture peptide function without these assumptions. Atomic-level representations aim to provide richer information than purely sequence-based models and better efficiency than structural ones.<h4>Results</h4>Across 132 datasets, including LRGB and five additional peptide benchmarks, models using count-based ECFP, Topological Torsion, and RDKit fingerprints with LightGBM achieve state-of-the-art accuracy. Despite encoding only short-range molecular features, these models outperform GNNs and transformer-based approaches. Control experiments confirm that fingerprints, though inherently local, suffice for robust peptide property prediction. Our results challenge the presumed necessity of long-range interaction modeling and highlight molecular fingerprints as efficient, interpretable, and lightweight alternatives.<h4>Supplementary information</h4>All code and data are available on GitHub and Zenodo: https://github.com/scikit-fingerprints/peptides_molecular_fingerprints_classification  https://doi.org/10.5281/zenodo.19388783.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Adamczyk J",
+    "Ludynia P",
+    "Czech W."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/41981726/",
+    "https://doi.org/10.1093/bioinformatics/btag179",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13143419/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+  "candidate_key": "doi:10 1093 bioinformatics btag179"
+}

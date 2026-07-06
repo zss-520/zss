@@ -1,0 +1,136 @@
+{
+  "chunk_id": "model_afp_dl_qsares",
+  "chunk_type": "model",
+  "chunk_name": "AFP_DL-QSARES",
+  "compression_status": "ok",
+  "main_entities": [
+    "ESM2-AFPpred",
+    "AFP_DL repository",
+    "AFP_DL-QSARES repository",
+    "DRAMP_APD3_anti-Candida dataset"
+  ],
+  "papers": [
+    {
+      "title": "Generating and screening de novo compounds against given targets using ultrafast deep learning models as core components",
+      "pmid": "35724626",
+      "pmcid": "PMC11967820",
+      "doi": "10.1093/bib/bbac226",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "ESM2-AFPpred",
+      "canonical_name": "ESM2-AFPpred",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Protein language model ESM-2 with MLP classifier",
+      "input_features": "amino acid sequences",
+      "source_pmid": "35724626",
+      "source_pmcid": "PMC11967820",
+      "source_doi": "10.1093/bib/bbac226",
+      "code_repository_url": "https://github.com/DongYin521/AFP_DL",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "DRAMP and APD3 databases (no direct download link provided in evidence)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel antifungal peptide prediction model with public code, suitable for benchmarking AMP classification tasks.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AFP_DL",
+      "url": "https://github.com/DongYin521/AFP_DL",
+      "repository_type": "code",
+      "matched_model_name": "ESM2-AFPpred",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub link from fulltext: https://github.com/DongYin521/AFP_DL"
+    },
+    {
+      "name": "AFP_DL-QSARES",
+      "url": "https://github.com/DongYin521/AFP_DL‐QSARES",
+      "repository_type": "code",
+      "matched_model_name": "ESM2-AFPpred",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub link from fulltext: https://github.com/DongYin521/AFP_DL‐QSARES"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "DRAMP_APD3_anti-Candida",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "DRAMP and APD3 databases",
+      "linked_model": "ESM2-AFPpred",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "positive_samples": "1237 anti-Candida peptides",
+      "negative_samples": "not specified",
+      "deduplication_method": "CD-HIT or similar (mentioned but not detailed)",
+      "evidence_level": "fulltext",
+      "evidence": "1237 anti-Candida peptides from DRAMP and APD3 databases."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Model evaluation on validation and independent test sets",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "evidence": "Performance comparison tables include Accuracy, Precision, Recall, F1-score."
+    },
+    {
+      "metric_name": "Precision",
+      "usage": "Model evaluation",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "evidence": "Tables 1 and 2 show Precision values."
+    },
+    {
+      "metric_name": "Recall",
+      "usage": "Model evaluation",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "evidence": "Tables 1 and 2 show Recall values."
+    },
+    {
+      "metric_name": "F1-score",
+      "usage": "Model evaluation",
+      "source_pmid": "35724626",
+      "source_doi": "10.1093/bib/bbac226",
+      "evidence": "Derived from Precision and Recall."
+    }
+  ],
+  "important_evidence": [
+    "ESM-2 protein language model with MLP classifier for antifungal peptide prediction.",
+    "Code available at https://github.com/DongYin521/AFP_DL and https://github.com/DongYin521/AFP_DL‐QSARES.",
+    "Trained on 1237 anti-Candida peptides from DRAMP and APD3 databases.",
+    "Performance metrics (Accuracy, Precision, Recall, F1-score) reported on validation and independent test sets."
+  ],
+  "uncertainties": [
+    "Negative samples not specified; deduplication method not detailed.",
+    "Independent test set details limited.",
+    "No direct download link for the constructed dataset.",
+    "Model weights not provided in the repository."
+  ],
+  "source_pmids": [
+    "35724626"
+  ],
+  "source_dois": [
+    "10.1093/bib/bbac226"
+  ],
+  "urls": [
+    "https://github.com/DongYin521/AFP_DL",
+    "https://github.com/DongYin521/AFP_DL‐QSARES",
+    "https://doi.org/10.1093/bib/bbac226"
+  ]
+}

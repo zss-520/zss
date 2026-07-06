@@ -1,0 +1,44 @@
+{
+  "source_primary": "crossref",
+  "sources": [
+    "crossref"
+  ],
+  "source_ids": {
+    "crossref": "10.1101/2021.04.07.438629"
+  },
+  "doi": "10.1101/2021.04.07.438629",
+  "title": "Alpha-Frag: a deep neural network for fragment presence prediction improves peptide identification",
+  "abstract": "<jats:title>ABSTRACT</jats:title>\n                <jats:p>Identification of peptides in mass spectrometry-based proteomics typically relies on spectra matches. As MS/MS spectra record presence and intensity of fragment ions, the match should take both fragment presence similarity and intensity similarity into consideration. Fragment presence similarity can be calculated with the help of fragment presence prediction such as theoretical enumeration of all possible fragment ions or selecting non-zero intensity ions from the result of fragment intensity prediction, but neither of these two methods is accurate enough. In this work, we developed a deep neural network based model, Alpha-Frag, to predict precisely the fragment ions that should be present for a given peptide. Alpha-Frag modelled fragment presence prediction as a multi-label classification task and trained with ProteomeTools dataset. In terms of intersection over union (IoU), Alpha-Frag achieved an average of &gt;0.7 and outperformed the benchmarks across the validation datasets. Furthermore, fragment presence similarity was calculated based on presence prediction and incorporated into the peptide statistical validation tools as an additional score to improve peptide identifications. Our preliminary experiments show that this score led to a maximum increase of 26.8% (FDR 0.1%) and 21.6% (FDR 1%) for the DDA and the DIA identification, respectively.</jats:p>\n                <jats:sec>\n                  <jats:title>Significance Statement</jats:title>\n                  <jats:p>A better prediction of fragmentation for peptides in mass spectrometry (MS) is beneficial to the peptide identification. As the MS/MS spectra record two-dimensional information of fragment ions derived from precursors, mass-to-charge ratio (m/z) and their corresponding intensities, besides the fragment intensity prediction, it is necessary to study the presence prediction. Although the presence prediction can be realized by enumerating all the possible fragmentation patterns of a peptide with equal probability or by selecting non-zero intensity fragment ions from the result of fragment intensity prediction, neither of these two methods is accurate enough. In this study, deep learning is leveraged to precisely predict the fragment ions of a given peptide. Based on the fragment presence prediction, fragment presence similarity between experimental spectra and predicted spectra can be calculated which is proved to promote the peptide detections both for DDA and for DIA data.</jats:p>\n                </jats:sec>",
+  "journal": "",
+  "venue": "",
+  "year": 2021,
+  "authors": [
+    "Jian Song",
+    "Fangfei Zhang",
+    "Changbin Yu"
+  ],
+  "urls": [
+    "https://doi.org/10.1101/2021.04.07.438629",
+    "https://doi.org/10.1101/2021.04.07.438629"
+  ],
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2021,
+            4,
+            9
+          ]
+        ],
+        "date-time": "2021-04-09T00:00:00Z",
+        "timestamp": 1617926400000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+    }
+  ],
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1101 2021 04 07 438629"
+}

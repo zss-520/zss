@@ -1,0 +1,45 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "40095253",
+    "pmid": "40095253"
+  },
+  "pmid": "40095253",
+  "pmcid": "PMC11914415",
+  "doi": "10.1007/s12672-025-02111-3",
+  "title": "Advanced machine learning framework for enhancing breast cancer diagnostics through transcriptomic profiling.",
+  "abstract": "<h4>Purpose</h4>This study proposes an advanced machine learning (ML) framework for breast cancer diagnostics by integrating transcriptomic profiling with optimized feature selection and classification techniques.<h4>Materials and methods</h4>A dataset of 1759 samples (987 breast cancer patients, 772 healthy controls) was analyzed using Recursive Feature Elimination, Boruta, and ElasticNet for feature selection. Dimensionality reduction techniques, including Non-Negative Matrix Factorization (NMF), Autoencoders, and transformer-based embeddings (BioBERT, DNABERT), were applied to enhance model interpretability. Classifiers such as XGBoost, LightGBM, ensemble voting, Multi-Layer Perceptron, and Stacking were trained using grid search and cross-validation. Model evaluation was conducted using accuracy, AUC, MCC, Kappa Score, ROC, and PR curves, with external validation performed on an independent dataset of 175 samples.<h4>Results</h4>XGBoost and LightGBM achieved the highest test accuracies (0.91 and 0.90) and AUC values (up to 0.92), particularly with NMF and BioBERT. The ensemble Voting method exhibited the best external accuracy (0.92), confirming its robustness. Transformer-based embeddings and advanced feature selection techniques significantly improved model performance compared to conventional approaches like PCA and Decision Trees.<h4>Conclusion</h4>The proposed ML framework enhances diagnostic accuracy and interpretability, demonstrating strong generalizability on an external dataset. These findings highlight its potential for precision oncology and personalized breast cancer diagnostics.",
+  "journal": null,
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Saadh MJ",
+    "Ahmed HH",
+    "Kareem RA",
+    "Yadav A",
+    "Ganesan S",
+    "Shankhyan A",
+    "Sharma GC",
+    "Naidu KS",
+    "Rakhmatullaev A",
+    "Sameer HN",
+    "Yaseen A",
+    "Athab ZH",
+    "Adil M",
+    "Farhood B."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/40095253/",
+    "https://doi.org/10.1007/s12672-025-02111-3",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11914415/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_stackamp",
+  "query_text": "\"StackAMP\"",
+  "candidate_key": "doi:10 1007 s12672 025 02111 3"
+}

@@ -1,0 +1,301 @@
+{
+  "chunk_id": "model_amplify",
+  "chunk_type": "model",
+  "chunk_name": "AMPlify",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPlify",
+    "HydrAMP"
+  ],
+  "papers": [
+    {
+      "title": "Deep-Learning Driven Identification of Novel Antimicrobial Peptides.",
+      "pmid": "40801152",
+      "pmcid": "PMC8001998",
+      "doi": "10.3390/ijms22062857",
+      "year": 2025,
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Synthetic antimicrobial peptides: Combatting antimicrobial resistance for sustainable aquaculture.",
+      "pmid": "40967516",
+      "pmcid": "PMC13203813",
+      "doi": "10.1016/j.micpath.2025.108029",
+      "year": 2025,
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Mining the UniProtKB/Swiss-Prot database for antimicrobial peptides.",
+      "pmid": "40100125",
+      "pmcid": "PMC1084323",
+      "doi": "10.1093/nar/gki524",
+      "year": 2025,
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPlify",
+      "canonical_name": "AMPlify",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep learning (likely LSTM/attention; based on original AMPlify publication)",
+      "input_features": "protein sequence",
+      "source_pmid": "40100125",
+      "source_pmcid": "PMC1084323",
+      "source_doi": "10.1093/nar/gki524",
+      "code_repository_url": "https://github.com/bcgsc/AMPlify",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "UniProtKB/Swiss-Prot (used as mining source)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Open-source AMP prediction tool with code available; used for large-scale mining; can be included in benchmark",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "deep_learning_sequence_model",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Open-source DL AMP predictor with available code, used in large-scale mining, suitable as representative for sequence-based DL AMP classifiers."
+    },
+    {
+      "model_name": "HydrAMP",
+      "canonical_name": "HydrAMP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "deep generative model (exact architecture not specified in available evidence)",
+      "input_features": "not specified",
+      "source_pmid": "40801152",
+      "source_pmcid": "PMC8001998",
+      "source_doi": "10.3390/ijms22062857",
+      "code_repository_url": "https://github.com/szczurek-lab/hydramp",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep generative model for AMP discovery; used in applied study; GitHub repository found",
+      "blocking_issues": [
+        "non-original-model paper, architecture details missing",
+        "code/weights require manual verification"
+      ],
+      "evidence_level": "mixed",
+      "confidence": 0.7,
+      "model_category_hint": "generative_or_design_model",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Generative model for AMP discovery, could represent generative DL methods."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPlify",
+      "url": "https://github.com/bcgsc/AMPlify",
+      "repository_type": "code",
+      "matched_model_name": "AMPlify",
+      "source_pmid": "40100125",
+      "source_doi": "10.1093/nar/gki524",
+      "evidence_level": "fulltext",
+      "evidence": "AMPlify and the companion scripts ... publicly available at https://github.com/bcgsc/AMPlify."
+    },
+    {
+      "name": "HydrAMP",
+      "url": "https://github.com/szczurek-lab/hydramp",
+      "repository_type": "code",
+      "matched_model_name": "HydrAMP",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=HydrAMP: a deep generative model for antimicrobial peptide discovery"
+    },
+    {
+      "name": "HydrAMP feedstock",
+      "url": "https://github.com/conda-forge/hydrampp-feedstock",
+      "repository_type": "code",
+      "matched_model_name": "HydrAMP",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; conda-smithy repository for hydrampp."
+    },
+    {
+      "name": "PyTorch HydrAMP",
+      "url": "https://github.com/marmarmarmar/pytorch-hydramp",
+      "repository_type": "code",
+      "matched_model_name": "HydrAMP",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; porting HydrAMP model to pytorch"
+    },
+    {
+      "name": "Macrel",
+      "url": "https://github.com/BigDataBiology/macrel",
+      "repository_type": "code",
+      "matched_model_name": "Macrel",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=Predict AMPs in (meta)genomes and peptides"
+    },
+    {
+      "name": "AmPEP",
+      "url": "https://github.com/ShirleyWISiu/AmPEP",
+      "repository_type": "code",
+      "matched_model_name": "AmPEP",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=Sequence-based Identification of Antimicrobial Peptides"
+    },
+    {
+      "name": "AmPEPpy",
+      "url": "https://github.com/tlawrence3/amPEPpy",
+      "repository_type": "code",
+      "matched_model_name": "AmPEP",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result for AmPEP"
+    },
+    {
+      "name": "Ampep_Python",
+      "url": "https://github.com/Chonwai/Ampep_Python",
+      "repository_type": "code",
+      "matched_model_name": "AmPEP",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result for AmPEP"
+    },
+    {
+      "name": "AntiBP2",
+      "url": "https://github.com/raghavagps/AntiBP2",
+      "repository_type": "code",
+      "matched_model_name": "AntiBP2",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=AntiBP2: improved version of antibacterial peptide prediction"
+    },
+    {
+      "name": "AMP Scanner v2",
+      "url": "https://github.com/dan-veltri/amp-scanner-v2",
+      "repository_type": "code",
+      "matched_model_name": "AMP Scanner v2",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=Antimicrobial Peptide Scanner Version 2"
+    },
+    {
+      "name": "Deep_AmPEP30_R",
+      "url": "https://github.com/Chonwai/Deep_AmPEP30_R",
+      "repository_type": "code",
+      "matched_model_name": "Deep-AmPEP30",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result for Deep-AmPEP30"
+    },
+    {
+      "name": "MetaPepticon",
+      "url": "https://github.com/arikanlab/MetaPepticon",
+      "repository_type": "code",
+      "matched_model_name": "MetaPepticon",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=Automated prediction of anticancer peptides from (meta)genomes"
+    },
+    {
+      "name": "AVPpred-BWR",
+      "url": "https://github.com/zyweizm/AVPpred-BWR",
+      "repository_type": "code",
+      "matched_model_name": "AVPpred",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result; description=Prediction of Antiviral Peptides"
+    },
+    {
+      "name": "PrefixProt",
+      "url": "https://github.com/chen-bioinfo/PrefixProt",
+      "repository_type": "code",
+      "matched_model_name": "PrefixProt",
+      "source_pmid": "github_enrichment",
+      "source_doi": "",
+      "evidence_level": "github_search",
+      "evidence": "GitHub repository search result for PrefixProt"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "UniProtKB/Swiss-Prot",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "PMID 40100125",
+      "linked_model": "AMPlify",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "",
+      "negative_samples": "",
+      "deduplication_method": "",
+      "split_method": "",
+      "source_pmid": "40100125",
+      "source_doi": "10.1093/nar/gki524",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "AMPlify",
+      "dataset_name": "UniProtKB/Swiss-Prot",
+      "role": "training",
+      "evidence_level": "fulltext",
+      "source_pmid": "40100125"
+    },
+    {
+      "model_name": "HydrAMP",
+      "dataset_name": "not_reported_in_available_evidence",
+      "role": "unknown",
+      "evidence_level": "not_reported",
+      "source_pmid": ""
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "AMPlify code publicly available at https://github.com/bcgsc/AMPlify (PMID 40100125)",
+    "HydrAMP deep learning algorithm used to generate Trp-rich peptide sequences (PMID 40801152)",
+    "13 of 38 peptides predicted by AMPlify showed antimicrobial activity in vitro (PMID 40100125)",
+    "HydrAMP GitHub repository found: https://github.com/szczurek-lab/hydramp (GitHub enrichment)"
+  ],
+  "uncertainties": [
+    "HydrAMP original model paper not identified; architecture details missing",
+    "HydrAMP code repository requires manual verification for authenticity",
+    "AMPlify model weights not explicitly reported; code repository may contain them",
+    "Several GitHub enrichment results (e.g., AWS Amplify, amperfy) are unrelated and were filtered out",
+    "Training data for AMPlify beyond Swiss-Prot mining not described"
+  ],
+  "source_pmids": [
+    "40801152",
+    "40967516",
+    "40100125"
+  ],
+  "source_dois": [
+    "10.3390/ijms22062857",
+    "10.1016/j.micpath.2025.108029",
+    "10.1093/nar/gki524"
+  ],
+  "urls": [
+    "https://github.com/bcgsc/AMPlify",
+    "https://github.com/szczurek-lab/hydramp",
+    "https://doi.org/10.3390/ijms22062857",
+    "https://doi.org/10.1016/j.micpath.2025.108029",
+    "https://doi.org/10.1093/nar/gki524"
+  ]
+}

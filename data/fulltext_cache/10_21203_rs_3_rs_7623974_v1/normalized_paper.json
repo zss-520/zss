@@ -1,0 +1,54 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "crossref",
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1087504",
+    "pmid": null,
+    "crossref": "10.21203/rs.3.rs-7623974/v1"
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.21203/rs.3.rs-7623974/v1",
+  "title": "Machine Learning Framework for Multi-Label Antimicrobial Peptide Classification with Interpretable Feature Insights",
+  "abstract": "<title>Abstract</title>  <p>Antimicrobial peptides are promising alternatives to combat antibiotic resistance, but their multifunctionality poses significant classification challenges. This study introduces a multilabel classification framework using adaptation techniques in Extreme Gradient Boosting (XGB_multi), Random Forest (RF_multi), and Convolutional Neural Networks (CNN_multi) to predict AMP functionalities, including antibacterial, antifungal, antiviral, anticancer, and mammalian cell targeting. A dataset containing \\((6,845)\\) peptide sequences was curated from the dbAMPv2 database. Sequences were filtered for canonical amino acids and clustered with a \\((90%)\\) sequence identity threshold using CD-HIT (Cluster Database at High Identity with Tolerance), ensuring diversity and reducing redundancy. Features were extracted using the iFeatureOmega toolkit, combining sequence-based descriptors like Amino Acid Composition (AAC) and Pseudo-Amino Acid Composition (PAAC) with physicochemical properties like hydrophobicity, charge, and secondary structure. XGB_multi achieved the highest accuracy of \\((0.919)\\), outperforming RF_multi and CNN_multi in other functional predictions. CNN_multi excelled in antibacterial, antifungal, and antiviral tasks with an AUC of \\((0.892)\\), while RF_multi demonstrated high precision (\\((0.861)\\)) and subset accuracy (\\((0.689)\\)). These models outperformed existing tools like AMPfun, MultiPep, iAMPpred, and AMP_scanner v2, achieving up to \\((7.9%)\\) improvement in AUC for certain functionalities. Feature importance analysis identified charge, hydrophobicity, and structural attributes as critical contributors, with sequence-derived features like PAAC and hydrophobicity5 emerging as highly discriminative. These findings provide a robust foundation for designing innovative antimicrobial therapeutics with multifunctional capabilities to combat drug-resistant pathogens.</p>",
+  "journal": {
+    "publisher": "Research Square",
+    "yearOfPublication": 2025
+  },
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Kohinoor MSR",
+    "Hossain MS."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.21203/rs.3.rs-7623974/v1"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "preprint_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\") AND SRC:PPR",
+  "candidate_key": "doi:10 21203 rs 3 rs 7623974 v1",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2025,
+            9,
+            18
+          ]
+        ],
+        "date-time": "2025-09-18T00:00:00Z",
+        "timestamp": 1758153600000
+      },
+      "content-version": "unspecified",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

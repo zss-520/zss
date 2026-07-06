@@ -1,0 +1,4005 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 1349230,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              30
+            ]
+          ],
+          "date-time": "2026-06-30T16:10:19Z",
+          "timestamp": 1782835819741,
+          "version": "3.54.5"
+        },
+        "reference-count": 125,
+        "publisher": "Frontiers Media SA",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  11,
+                  27
+                ]
+              ],
+              "date-time": "2024-11-27T00:00:00Z",
+              "timestamp": 1732665600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "frontiersin.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Front. Artif. Intell."
+        ],
+        "abstract": "<jats:sec><jats:title>Introduction</jats:title><jats:p>Requirements classification is an essential task for development of a successful software by incorporating all relevant aspects of users' needs. Additionally, it aids in the identification of project failure risks and facilitates to achieve project milestones in more comprehensive way. Several machine learning predictors are developed for binary or multi-class requirements classification. However, a few predictors are designed for multi-label classification and they are not practically useful due to less predictive performance.</jats:p></jats:sec><jats:sec><jats:title>Method</jats:title><jats:p>MLR-Predictor makes use of innovative OkapiBM25 model to transforms requirements text into statistical vectors by computing words informative patterns. Moreover, predictor transforms multi-label requirements classification data into multi-class classification problem and utilize logistic regression classifier for categorization of requirements. The performance of the proposed predictor is evaluated and compared with 123 machine learning and 9 deep learning-based predictive pipelines across three public benchmark requirements classification datasets using eight different evaluation measures.</jats:p></jats:sec><jats:sec><jats:title>Results</jats:title><jats:p>The large-scale experimental results demonstrate that proposed MLR-Predictor outperforms 123 adopted machine learning and 9 deep learning predictive pipelines, as well as the state-of-the-art requirements classification predictor. Specifically, in comparison to state-of-the-art predictor, it achieves a 13% improvement in macro F1-measure on the PROMISE dataset, a 1% improvement on the EHR-binary dataset, and a 2.5% improvement on the EHR-multiclass dataset.</jats:p></jats:sec><jats:sec><jats:title>Discussion</jats:title><jats:p>As a case study, the generalizability of proposed predictor is evaluated on softwares customer reviews classification data. In this context, the proposed predictor outperformed the state-of-the-art BERT language model by F-1 score of 1.4%. These findings underscore the robustness and effectiveness of the proposed MLR-Predictor in various contexts, establishing its utility as a promising solution for requirements classification task.</jats:p></jats:sec>",
+        "DOI": "10.3389/frai.2024.1481581",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              27
+            ]
+          ],
+          "date-time": "2024-11-27T06:42:34Z",
+          "timestamp": 1732689754000
+        },
+        "update-policy": "https://doi.org/10.3389/crossmark-policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 5,
+        "title": [
+          "MLR-predictor: a versatile and efficient computational framework for multi-label requirements classification"
+        ],
+        "prefix": "10.3389",
+        "volume": "7",
+        "author": [
+          {
+            "given": "Summra",
+            "family": "Saleem",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Muhammad Nabeel",
+            "family": "Asim",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ludger",
+            "family": "Van Elst",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Markus",
+            "family": "Junker",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Andreas",
+            "family": "Dengel",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "1965",
+        "published-online": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              27
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "B1",
+            "doi-asserted-by": "crossref",
+            "first-page": "496",
+            "DOI": "10.1109/RE.2017.36",
+            "article-title": "“What works better? a study of classifying requirements,”",
+            "volume-title": "2017 IEEE 25th International Requirements Engineering Conference (RE)",
+            "author": "Abad",
+            "year": "2017"
+          },
+          {
+            "key": "B2",
+            "doi-asserted-by": "publisher",
+            "first-page": "e1412",
+            "DOI": "10.1002/widm.1412",
+            "article-title": "Text-based question answering from information retrieval and deep neural network perspectives: a survey",
+            "volume": "11",
+            "author": "Abbasiantaeb",
+            "year": "2021",
+            "journal-title": "Wiley Interdiscipl. Rev"
+          },
+          {
+            "key": "B3",
+            "doi-asserted-by": "publisher",
+            "first-page": "37431",
+            "DOI": "10.32604/cmc.2023.037431",
+            "article-title": "An innovative bispectral deep learning method for protein family classification",
+            "volume": "75",
+            "author": "Abu-Qasmieh",
+            "year": "2023",
+            "journal-title": "Comput. Mater. Contin"
+          },
+          {
+            "key": "B4",
+            "doi-asserted-by": "publisher",
+            "first-page": "1",
+            "DOI": "10.1007/s42979-020-00165-4",
+            "article-title": "Fake news detection using a blend of neural networks: an application of deep learning",
+            "volume": "1",
+            "author": "Agarwal",
+            "year": "2020",
+            "journal-title": "SN Comput. Sci"
+          },
+          {
+            "key": "B5",
+            "doi-asserted-by": "crossref",
+            "first-page": "309",
+            "DOI": "10.1109/RE54965.2022.00046",
+            "article-title": "“Retraining a bert model for transfer learning in requirements engineering: a preliminary study,”",
+            "volume-title": "2022 IEEE 30th International Requirements Engineering Conference (RE)",
+            "author": "Ajagbe",
+            "year": "2022"
+          },
+          {
+            "key": "B6",
+            "first-page": "1638",
+            "article-title": "“Contextual string embeddings for sequence labeling,”",
+            "volume-title": "Proceedings of the 27th International Conference on Computational Linguistics",
+            "author": "Akbik",
+            "year": "2018"
+          },
+          {
+            "key": "B7",
+            "doi-asserted-by": "publisher",
+            "first-page": "106877",
+            "DOI": "10.1016/j.infsof.2022.106877",
+            "article-title": "An end-to-end deep learning system for requirements classification using recurrent neural networks",
+            "volume": "147",
+            "author": "AlDhafer",
+            "year": "2022",
+            "journal-title": "Inform. Softw. Technol"
+          },
+          {
+            "key": "B8",
+            "doi-asserted-by": "publisher",
+            "first-page": "104",
+            "DOI": "10.1016/j.knosys.2016.03.029",
+            "article-title": "RFBoost: an improved multi-label boosting algorithm and its application to text categorisation",
+            "volume": "103",
+            "author": "Al-Salemi",
+            "year": "2016",
+            "journal-title": "Knowl. Bas. Syst"
+          },
+          {
+            "key": "B9",
+            "doi-asserted-by": "publisher",
+            "first-page": "203827",
+            "DOI": "10.1109/ACCESS.2020.3036572",
+            "article-title": "Predicting student performance and its influential factors using hybrid regression and multi-label classification",
+            "volume": "8",
+            "author": "Alshanqiti",
+            "year": "2020",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "B10",
+            "volume-title": "Supporting Classification of Software Requirements System Using Intelligent Technologies Algorithms",
+            "author": "Althanoon",
+            "year": "2021"
+          },
+          {
+            "key": "B11",
+            "doi-asserted-by": "publisher",
+            "first-page": "232",
+            "DOI": "10.1016/j.procs.2021.05.086",
+            "article-title": "ARACOVID19-MFH: arabic COVID-19 multi-label fake news & hate speech detection dataset",
+            "volume": "189",
+            "author": "Ameur",
+            "year": "2021",
+            "journal-title": "Proc. Comput. Sci"
+          },
+          {
+            "key": "B12",
+            "doi-asserted-by": "publisher",
+            "first-page": "e0011",
+            "DOI": "10.34133/research.0011",
+            "article-title": "Biological sequence classification: a review on data and general methods",
+            "volume": "2022",
+            "author": "Ao",
+            "year": "2022",
+            "journal-title": "Research"
+          },
+          {
+            "key": "B13",
+            "first-page": "610",
+            "article-title": "“Automatic multi-class non-functional software requirements classification using neural networks,”",
+            "volume-title": "2019 IEEE 43rd Annual Computer Software and Applications Conference (COMPSAC), Vol. 2",
+            "author": "Baker",
+            "year": "2019"
+          },
+          {
+            "key": "B14",
+            "doi-asserted-by": "publisher",
+            "first-page": "e15",
+            "DOI": "10.24215/16666038.19.e15",
+            "article-title": "Applying an improving strategy that embeds functional and non-functional requirements concepts",
+            "volume": "19",
+            "author": "Becker",
+            "year": "2019",
+            "journal-title": "J. Comput. Sci. Technol"
+          },
+          {
+            "key": "B15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.2108.10566",
+            "article-title": "SigmoidF1: a smooth f1 score surrogate loss for multilabel classification",
+            "author": "Bénédict",
+            "year": "2021",
+            "journal-title": "arXiv preprint arXiv:2108.10566"
+          },
+          {
+            "key": "B16",
+            "doi-asserted-by": "crossref",
+            "first-page": "847",
+            "DOI": "10.1109/ICDMW.2015.14",
+            "article-title": "“HARAM: a hierarchical aram neural network for large-scale text classification,”",
+            "volume-title": "2015 IEEE international conference on data mining workshop (ICDMW)",
+            "author": "Benites",
+            "year": "2015"
+          },
+          {
+            "key": "B17",
+            "doi-asserted-by": "publisher",
+            "first-page": "100001",
+            "DOI": "10.1016/j.eswax.2019.100001",
+            "article-title": "A review of machine learning algorithms for identification and classification of non-functional requirements",
+            "volume": "1",
+            "author": "Binkhonain",
+            "year": "2019",
+            "journal-title": "Exp. Syst. Appl"
+          },
+          {
+            "key": "B18",
+            "doi-asserted-by": "crossref",
+            "first-page": "61",
+            "DOI": "10.1109/2.59",
+            "article-title": "A spiral model of software development and enhancement",
+            "volume": "21",
+            "author": "Boehm",
+            "year": "1988",
+            "journal-title": "Computer"
+          },
+          {
+            "key": "B19",
+            "doi-asserted-by": "publisher",
+            "first-page": "135",
+            "DOI": "10.1162/tacl_a_00051",
+            "article-title": "Enriching word vectors with subword information",
+            "volume": "5",
+            "author": "Bojanowski",
+            "year": "2017",
+            "journal-title": "Trans. Assoc. Comput. Linguist"
+          },
+          {
+            "key": "B20",
+            "doi-asserted-by": "publisher",
+            "first-page": "41",
+            "DOI": "10.1007/s43069-021-00081-0",
+            "article-title": "Evaluation of news search engines based on information retrieval models",
+            "volume": "2",
+            "author": "Bokhari",
+            "year": "2021",
+            "journal-title": "Operat. Res. For"
+          },
+          {
+            "key": "B21",
+            "doi-asserted-by": "publisher",
+            "first-page": "1757",
+            "DOI": "10.1016/j.patcog.2004.03.009",
+            "article-title": "Learning multi-label scene classification",
+            "volume": "37",
+            "author": "Boutell",
+            "year": "2004",
+            "journal-title": "Pat. Recogn"
+          },
+          {
+            "key": "B22",
+            "doi-asserted-by": "publisher",
+            "first-page": "5",
+            "DOI": "10.1023/A:1010933404324",
+            "article-title": "Random forests",
+            "volume": "45",
+            "author": "Breiman",
+            "year": "2001",
+            "journal-title": "Machine Learn"
+          },
+          {
+            "key": "B23",
+            "doi-asserted-by": "publisher",
+            "first-page": "108964",
+            "DOI": "10.1016/j.patcog.2022.108964",
+            "article-title": "Enhancement of dnn-based multilabel classification by grouping labels based on data imbalance and label correlation",
+            "volume": "132",
+            "author": "Chen",
+            "year": "2022",
+            "journal-title": "Pat. Recogn"
+          },
+          {
+            "key": "B24",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Chen\n              T.\n            \n            \n              He\n              T.\n            \n            \n              Benesty\n              M.\n            \n            \n              Khotilovich\n              V.\n            \n            \n              Tang\n              Y.\n            \n            \n              Cho\n              H.\n            \n          \n          XGBoost: Extreme Gradient Boosting. R Package Version 0.4-2\n          \n          2015",
+            "DOI": "10.32614/CRAN.package.xgboost"
+          },
+          {
+            "key": "B25",
+            "doi-asserted-by": "publisher",
+            "first-page": "61",
+            "DOI": "10.1016/j.patcog.2015.10.008",
+            "article-title": "MLTSVM: a novel twin support vector machine to multi-label learning",
+            "volume": "52",
+            "author": "Chen",
+            "year": "2016",
+            "journal-title": "Pat. Recogn"
+          },
+          {
+            "key": "B26",
+            "doi-asserted-by": "publisher",
+            "first-page": "211",
+            "DOI": "10.1007/s10994-009-5127-5",
+            "article-title": "Combining instance-based learning and logistic regression for multilabel classification",
+            "volume": "76",
+            "author": "Cheng",
+            "year": "2009",
+            "journal-title": "Machine Learn"
+          },
+          {
+            "key": "B27",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/E17-1104",
+            "article-title": "Very deep convolutional networks for text classification",
+            "author": "Conneau",
+            "year": "2016",
+            "journal-title": "arXiv preprint arXiv:1606.01781"
+          },
+          {
+            "key": "B28",
+            "doi-asserted-by": "publisher",
+            "first-page": "5",
+            "DOI": "10.1007/s10994-012-5285-8",
+            "article-title": "On label dependence and loss minimization in multi-label classification",
+            "volume": "88",
+            "author": "Dembczyński",
+            "year": "2012",
+            "journal-title": "Machine Learn"
+          },
+          {
+            "key": "B29",
+            "doi-asserted-by": "crossref",
+            "first-page": "547",
+            "DOI": "10.1007/978-981-16-3728-5_42",
+            "article-title": "“A comparative study of information retrieval models for short document summaries,”",
+            "volume-title": "Computer Networks and Inventive Communication Technologies: Proceedings of Fourth ICCNCT 2021",
+            "author": "Desai",
+            "year": "2022"
+          },
+          {
+            "key": "B30",
+            "doi-asserted-by": "publisher",
+            "first-page": "1057",
+            "DOI": "10.3390/e22091057",
+            "article-title": "Software requirements classification using machine learning algorithms",
+            "volume": "22",
+            "author": "Dias Canedo",
+            "year": "2020",
+            "journal-title": "Entropy"
+          },
+          {
+            "key": "B31",
+            "doi-asserted-by": "publisher",
+            "first-page": "1883698",
+            "DOI": "10.1155/2022/1883698",
+            "article-title": "A complete process of text classification system using state-of-the-art NLP models",
+            "volume": "2022",
+            "author": "Dogra",
+            "year": "2022",
+            "journal-title": "Comput. Intell. Neurosci"
+          },
+          {
+            "key": "B32",
+            "doi-asserted-by": "publisher",
+            "first-page": "1279",
+            "DOI": "10.1093/jamia/ocz085",
+            "article-title": "ML-NET: multi-label classification of biomedical texts with deep neural networks",
+            "volume": "26",
+            "author": "Du",
+            "year": "2019",
+            "journal-title": "J. Am. Med. Informat. Assoc"
+          },
+          {
+            "key": "B33",
+            "doi-asserted-by": "publisher",
+            "first-page": "1",
+            "DOI": "10.5120/20083-1666",
+            "article-title": "Experimental comparison of methods for multi-label classification in different application domains",
+            "volume": "114",
+            "author": "El Kafrawy",
+            "year": "2015",
+            "journal-title": "Int. J. Comput. Appl"
+          },
+          {
+            "key": "B34",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1007/11880561_1",
+            "article-title": "“MP-Boost: a multiple-pivot boosting algorithm and its application to text categorization,”",
+            "volume-title": "String Processing and Information Retrieval: 13th International Conference, SPIRE 2006, Glasgow, UK, October 11-13, 2006. Proceedings 13",
+            "author": "Esuli",
+            "year": "2006"
+          },
+          {
+            "key": "B35",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.2112.00699",
+            "article-title": "Bert_se: a pre-trained language representation model for software engineering",
+            "year": "2021",
+            "journal-title": "arXiv preprint arXiv:2112.00699"
+          },
+          {
+            "key": "B36",
+            "doi-asserted-by": "crossref",
+            "first-page": "119",
+            "DOI": "10.1006/jcss.1997.1504",
+            "article-title": "A decision-theoretic generalization of on-line learning and an application to boosting",
+            "volume": "55",
+            "author": "Freund",
+            "year": "1997",
+            "journal-title": "J. Comput. Syst. Sci"
+          },
+          {
+            "key": "B37",
+            "doi-asserted-by": "publisher",
+            "first-page": "1189",
+            "DOI": "10.1214/aos/1013203451",
+            "article-title": "Greedy boosting approximation: a gradient boosting machine",
+            "volume": "29",
+            "author": "Friedman",
+            "year": "2021",
+            "journal-title": "Ann. Statist"
+          },
+          {
+            "key": "B38",
+            "doi-asserted-by": "publisher",
+            "first-page": "133",
+            "DOI": "10.1007/s10994-008-5064-8",
+            "article-title": "Multilabel classification via calibrated label ranking",
+            "volume": "73",
+            "author": "Fürnkranz",
+            "year": "2008",
+            "journal-title": "Machine Learn"
+          },
+          {
+            "key": "B39",
+            "doi-asserted-by": "publisher",
+            "first-page": "641",
+            "DOI": "10.5220/0006730506410650",
+            "article-title": "Deep convolution neural network for extreme multi-label text classification",
+            "volume": "2018",
+            "author": "Gargiulo",
+            "year": "2018",
+            "journal-title": "Healthinf"
+          },
+          {
+            "key": "B40",
+            "doi-asserted-by": "publisher",
+            "first-page": "3",
+            "DOI": "10.1007/s10994-006-6226-1",
+            "article-title": "Extremely randomized trees",
+            "volume": "63",
+            "author": "Geurts",
+            "year": "2006",
+            "journal-title": "Machine Learn"
+          },
+          {
+            "key": "B41",
+            "first-page": "557",
+            "article-title": "“Evaluation of example-based measures for multi-label classification performance,”",
+            "volume-title": "Bioinformatics and Biomedical Engineering: Third International Conference, IWBBIO 2015, Granada, Spain, April 15–17, 2015, Proceedings, Part I 3",
+            "author": "Giraldo-Forero",
+            "year": "2015"
+          },
+          {
+            "key": "B42",
+            "doi-asserted-by": "publisher",
+            "first-page": "6125",
+            "DOI": "10.3390/app10176125",
+            "article-title": "Requirements engineering in software startups: a systematic mapping study",
+            "volume": "10",
+            "author": "Gupta",
+            "year": "2020",
+            "journal-title": "Appl. Sci"
+          },
+          {
+            "key": "B43",
+            "first-page": "1",
+            "article-title": "“Non-functional requirements classification with feature extraction and machine learning: an empirical study,”",
+            "volume-title": "2019 1st International Conference on Advances in Science, Engineering and Robotics Technology (ICASERT)",
+            "author": "Haque",
+            "year": "2019"
+          },
+          {
+            "key": "B44",
+            "doi-asserted-by": "crossref",
+            "first-page": "169",
+            "DOI": "10.1109/RE48521.2020.00028",
+            "article-title": "“NorBERT: transfer learning for requirements classification,”",
+            "volume-title": "2020 IEEE 28th International Requirements Engineering Conference (RE)",
+            "author": "Hey",
+            "year": "2020"
+          },
+          {
+            "key": "B45",
+            "doi-asserted-by": "publisher",
+            "first-page": "3051898",
+            "DOI": "10.1109/TSE.2021.3051898",
+            "article-title": "The effects of human aspects on the requirements engineering process: a systematic literature review",
+            "volume": "2021",
+            "author": "Hidellaarachchi",
+            "year": "2021",
+            "journal-title": "IEEE Trans. Softw. Eng"
+          },
+          {
+            "key": "B46",
+            "doi-asserted-by": "crossref",
+            "first-page": "386",
+            "DOI": "10.1109/RE.2019.00050",
+            "article-title": "“Non-functional requirements for machine learning: challenges and new directions,”",
+            "volume-title": "2019 IEEE 27th International Requirements Engineering Conference (RE)",
+            "author": "Horkoff",
+            "year": "2019"
+          },
+          {
+            "key": "B47",
+            "doi-asserted-by": "publisher",
+            "first-page": "1897",
+            "DOI": "10.1016/j.artint.2008.08.002",
+            "article-title": "Label ranking by learning pairwise preferences",
+            "volume": "172",
+            "author": "Hüllermeier",
+            "year": "2008",
+            "journal-title": "Artif. Intell"
+          },
+          {
+            "key": "B48",
+            "doi-asserted-by": "crossref",
+            "first-page": "3",
+            "DOI": "10.1007/978-3-030-57977-7_1",
+            "article-title": "“Rule-based multi-label classification: challenges and opportunities,”",
+            "volume-title": "Rules and Reasoning: 4th International Joint Conference, RuleML+ RR 2020, Oslo, Norway, June 29–July 1, 2020, Proceedings 4",
+            "author": "Hüllermeier",
+            "year": "2020"
+          },
+          {
+            "key": "B49",
+            "doi-asserted-by": "crossref",
+            "first-page": "46",
+            "DOI": "10.18653/v1/W19-3506",
+            "article-title": "“Multi-label hate speech and abusive language detection in indonesian twitter,”",
+            "volume-title": "Proceedings of the Third Workshop on Abusive Language Online",
+            "author": "Ibrohim",
+            "year": "2019"
+          },
+          {
+            "key": "B50",
+            "doi-asserted-by": "publisher",
+            "first-page": "3659",
+            "DOI": "10.1007/s10664-019-09716-7",
+            "article-title": "Mining non-functional requirements from app store reviews",
+            "volume": "24",
+            "author": "Jha",
+            "year": "2019",
+            "journal-title": "Empir. Softw. Eng"
+          },
+          {
+            "key": "B51",
+            "doi-asserted-by": "publisher",
+            "first-page": "1547",
+            "DOI": "10.5705/ss.2012.331",
+            "article-title": "Optimal ranking in multi-label classification using local precision rates",
+            "volume": "331",
+            "author": "Jiang",
+            "year": "2014",
+            "journal-title": "Statist. Sin"
+          },
+          {
+            "key": "B52",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/E17-2068",
+            "article-title": "Bag of tricks for efficient text classification",
+            "author": "Joulin",
+            "year": "2016",
+            "journal-title": "arXiv preprint arXiv:1607.01759"
+          },
+          {
+            "key": "B53",
+            "doi-asserted-by": "publisher",
+            "first-page": "9159",
+            "DOI": "10.1007/s13369-019-03998-1",
+            "article-title": "Passage-based text summarization for legal information retrieval",
+            "volume": "44",
+            "author": "Kanapala",
+            "year": "2019",
+            "journal-title": "Arab. J. Sci. Eng"
+          },
+          {
+            "key": "B54",
+            "doi-asserted-by": "publisher",
+            "first-page": "e2430",
+            "DOI": "10.1002/smr.2430",
+            "article-title": "SABDM: a self-attention based bidirectional-RNN deep model for requirements classification",
+            "volume": "2022",
+            "author": "Kaur",
+            "year": "2022",
+            "journal-title": "J. Softw. Evol. Process"
+          },
+          {
+            "key": "B55",
+            "doi-asserted-by": "publisher",
+            "first-page": "1",
+            "DOI": "10.1007/s00521-023-08833-1",
+            "article-title": "MNOR-BERT: multi-label classification of non-functional requirements using BERT",
+            "volume": "23",
+            "author": "Kaur",
+            "year": "2023",
+            "journal-title": "Neural Comput. Appl"
+          },
+          {
+            "key": "B56",
+            "doi-asserted-by": "crossref",
+            "first-page": "1942",
+            "DOI": "10.1109/ICNN.1995.488968",
+            "article-title": "“Particle swarm optimization,”",
+            "volume-title": "Proceedings of ICNN'95-International Conference on Neural Networks, Volume 4",
+            "author": "Kennedy",
+            "year": "1995"
+          },
+          {
+            "key": "B57",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.2211.05286",
+            "article-title": "Deep learning methods for software requirement classification: a performance study on the pure dataset",
+            "author": "Khayashi",
+            "year": "2022",
+            "journal-title": "arXiv preprint arXiv:2211.05286"
+          },
+          {
+            "key": "B58",
+            "first-page": "163",
+            "article-title": "“Text classification on software requirements specifications using transformer models,”",
+            "volume-title": "Proceedings of the 31st Annual International Conference on Computer Science and Software Engineering",
+            "author": "Kici",
+            "year": "2021"
+          },
+          {
+            "key": "B59",
+            "doi-asserted-by": "crossref",
+            "first-page": "1746",
+            "DOI": "10.3115/v1/D14-1181",
+            "article-title": "“Convolutional neural networks for sentence classification,”",
+            "volume-title": "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+            "author": "Kim",
+            "year": "2014"
+          },
+          {
+            "key": "B60",
+            "first-page": "521",
+            "article-title": "“Improved neural network-based multi-label classification with better initialization leveraging label co-occurrence,”",
+            "volume-title": "Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+            "author": "Kurata",
+            "year": "2016"
+          },
+          {
+            "key": "B61",
+            "doi-asserted-by": "crossref",
+            "first-page": "490",
+            "DOI": "10.1109/RE.2017.82",
+            "article-title": "“Automatically classifying functional and non-functional requirements using supervised machine learning,”",
+            "volume-title": "2017 IEEE 25th International Requirements Engineering Conference (RE)",
+            "author": "Kurtanović",
+            "year": "2017"
+          },
+          {
+            "key": "B62",
+            "first-page": "271",
+            "article-title": "“Word vectors, reuse, and replicability: towards a community repository of large-text resources,”",
+            "volume-title": "Proceedings of the 58th Conference on Simulation and Modelling",
+            "author": "Kutuzov",
+            "year": "2017"
+          },
+          {
+            "key": "B63",
+            "doi-asserted-by": "publisher",
+            "first-page": "2023E",
+            "DOI": "10.1587/transinf.2023EDP7160",
+            "article-title": "Detecting textual backdoor attacks via class difference for text classification system",
+            "volume": "2024",
+            "year": "2024",
+            "journal-title": "IEICE Trans. Inform. Syst"
+          },
+          {
+            "key": "B64",
+            "doi-asserted-by": "publisher",
+            "first-page": "19161",
+            "DOI": "10.1007/s10489-022-03313-w",
+            "article-title": "Detecting textual adversarial examples through text modification on text classification systems",
+            "volume": "53",
+            "author": "Kwon",
+            "year": "2023",
+            "journal-title": "Appl. Intell"
+          },
+          {
+            "key": "B65",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1609/aaai.v29i1.9513",
+            "article-title": "“Recurrent convolutional neural networks for text classification,”",
+            "volume-title": "Proceedings of the AAAI conference on artificial intelligence, Volume 29",
+            "author": "Lai",
+            "year": "2015"
+          },
+          {
+            "key": "B66",
+            "doi-asserted-by": "publisher",
+            "first-page": "47",
+            "DOI": "10.1109/MC.2003.1204375",
+            "article-title": "Iterative and incremental developments. a brief history",
+            "volume": "36",
+            "author": "Larman",
+            "year": "2003",
+            "journal-title": "Computer"
+          },
+          {
+            "key": "B67",
+            "doi-asserted-by": "publisher",
+            "first-page": "2395",
+            "DOI": "10.1161/CIRCULATIONAHA.106.682658",
+            "article-title": "Logistic regression",
+            "volume": "117",
+            "author": "LaValley",
+            "year": "2008",
+            "journal-title": "Circulation"
+          },
+          {
+            "key": "B68",
+            "doi-asserted-by": "publisher",
+            "first-page": "106991",
+            "DOI": "10.1016/j.infsof.2022.106991",
+            "article-title": "A comparative study on vectorization methods for non-functional requirements classification",
+            "volume": "150",
+            "author": "Leelaprute",
+            "year": "2022",
+            "journal-title": "Inform. Softw. Technol"
+          },
+          {
+            "key": "B69",
+            "doi-asserted-by": "publisher",
+            "first-page": "65",
+            "DOI": "10.1016/j.neucom.2020.01.091",
+            "article-title": "Tag recommendation by text classification with attention-based capsule network",
+            "volume": "391",
+            "author": "Lei",
+            "year": "2020",
+            "journal-title": "Neurocomputing"
+          },
+          {
+            "key": "B70",
+            "doi-asserted-by": "publisher",
+            "first-page": "30080",
+            "DOI": "10.1109/ACCESS.2022.3159238",
+            "article-title": "Automatic requirements classification based on graph attention network",
+            "volume": "10",
+            "author": "Li",
+            "year": "2022",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "B71",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.1912.06059",
+            "article-title": "Grid search, random search, genetic algorithm: a big comparison for NAS",
+            "author": "Liashchynskyi",
+            "year": "2019",
+            "journal-title": "arXiv preprint arXiv:1912.06059"
+          },
+          {
+            "key": "B72",
+            "doi-asserted-by": "publisher",
+            "first-page": "e14499",
+            "DOI": "10.2196/14499",
+            "article-title": "Projection word embedding model with hybrid sampling training for classifying ICD-10-cm codes: longitudinal observational study",
+            "volume": "7",
+            "author": "Lin",
+            "year": "2019",
+            "journal-title": "JMIR Med. Informat"
+          },
+          {
+            "key": "B73",
+            "first-page": "115",
+            "article-title": "“Deep learning for extreme multi-label text classification,”",
+            "volume-title": "Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+            "author": "Liu",
+            "year": "2017"
+          },
+          {
+            "key": "B74",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.1605.05101",
+            "article-title": "Recurrent neural network for text classification with multi-task learning",
+            "author": "Liu",
+            "year": "2016",
+            "journal-title": "arXiv preprint arXiv:1605.05101"
+          },
+          {
+            "key": "B75",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.1712.00075",
+            "article-title": "Multi-channel CNN-based object detection for enhanced situation awareness",
+            "author": "Liu",
+            "year": "2017",
+            "journal-title": "arXiv preprint arXiv:1712.00075"
+          },
+          {
+            "key": "B76",
+            "first-page": "1",
+            "article-title": "“PRCBERT: prompt learning for requirement classification using bert-based pretrained language models,”",
+            "volume-title": "37th IEEE/ACM International Conference on Automated Software Engineering",
+            "author": "Luo",
+            "year": "2022"
+          },
+          {
+            "key": "B77",
+            "doi-asserted-by": "crossref",
+            "first-page": "43",
+            "DOI": "10.1007/978-94-015-8729-7_2",
+            "article-title": "Hyperparameters: optimize, or integrate out?",
+            "volume": "1996",
+            "author": "MacKay",
+            "year": "1996",
+            "journal-title": "Max. Entr. Bayesian Methods"
+          },
+          {
+            "key": "B78",
+            "first-page": "211",
+            "article-title": "Pruning adaptive boosting",
+            "volume": "97",
+            "author": "Margineantu",
+            "year": "1997",
+            "journal-title": "ICML"
+          },
+          {
+            "key": "B79",
+            "doi-asserted-by": "publisher",
+            "first-page": "443",
+            "DOI": "10.1080/0960085X.2020.1831834",
+            "article-title": "The evolution of software development orchestration: current state and an agenda for future research",
+            "volume": "29",
+            "author": "Maruping",
+            "year": "2020",
+            "journal-title": "Eur. J. Inform. Syst"
+          },
+          {
+            "key": "B80",
+            "doi-asserted-by": "publisher",
+            "first-page": "8825",
+            "DOI": "10.1016/j.jksuci.2021.11.001",
+            "article-title": "An effective ensemble deep learning framework for text classification",
+            "volume": "34",
+            "author": "Mohammed",
+            "year": "2022",
+            "journal-title": "J. King Saud Univ. Comput. Inform. Sci"
+          },
+          {
+            "key": "B81",
+            "first-page": "94",
+            "article-title": "A comparison between five models of software engineering",
+            "volume": "7",
+            "author": "Munassar",
+            "year": "2010",
+            "journal-title": "Int. J. Comput. Sci. Iss"
+          },
+          {
+            "key": "B82",
+            "doi-asserted-by": "publisher",
+            "first-page": "516",
+            "DOI": "10.1197/jamia.M2077",
+            "article-title": "Automating the assignment of diagnosis codes to patient encounters using example-based and machine learning techniques",
+            "volume": "13",
+            "author": "Pakhomov",
+            "year": "2006",
+            "journal-title": "J. Am. Med. Informat. Assoc"
+          },
+          {
+            "key": "B83",
+            "first-page": "1063",
+            "article-title": "“Large-scale hierarchical text classification with recursively regularized deep graph-CNN,”",
+            "volume-title": "Proceedings of the 2018 World Wide Web Conference",
+            "author": "Peng",
+            "year": "2018"
+          },
+          {
+            "key": "B84",
+            "doi-asserted-by": "publisher",
+            "first-page": "2505",
+            "DOI": "10.1109/TKDE.2019.2959991",
+            "article-title": "Hierarchical taxonomy-aware and attentional graph capsule RCNNS for large-scale multi-label text classification",
+            "volume": "33",
+            "author": "Peng",
+            "year": "2019",
+            "journal-title": "IEEE Trans. Knowl. Data Eng"
+          },
+          {
+            "key": "B85",
+            "doi-asserted-by": "publisher",
+            "first-page": "359",
+            "DOI": "10.1016/j.ipm.2018.01.002",
+            "article-title": "Correlation analysis of performance measures for multi-label classification",
+            "volume": "54",
+            "author": "Pereira",
+            "year": "2018",
+            "journal-title": "Inform. Process. Manag"
+          },
+          {
+            "key": "B86",
+            "doi-asserted-by": "crossref",
+            "first-page": "386",
+            "DOI": "10.1007/978-3-642-02152-7_29",
+            "article-title": "“The waterfall model in large-scale development,”",
+            "volume-title": "Product-Focused Software Process Improvement: 10th International Conference, PROFES 2009, Oulu, Finland, June 15–17, 2009. Proceedings 10",
+            "author": "Petersen",
+            "year": "2009"
+          },
+          {
+            "key": "B87",
+            "article-title": "“A new method of region embedding for text classification,”",
+            "author": "Qiao",
+            "year": "2018",
+            "journal-title": "ICLR (Poster)"
+          },
+          {
+            "key": "B88",
+            "doi-asserted-by": "crossref",
+            "first-page": "71",
+            "DOI": "10.1145/234313.234346",
+            "article-title": "Learning decision tree classifiers",
+            "volume": "28",
+            "author": "Quinlan",
+            "year": "1996",
+            "journal-title": "ACM Comput. Surv"
+          },
+          {
+            "key": "B89",
+            "doi-asserted-by": "publisher",
+            "first-page": "1601",
+            "DOI": "10.3390/sym12101601",
+            "article-title": "An ensemble machine learning technique for functional requirement classification",
+            "volume": "12",
+            "author": "Rahimi",
+            "year": "2020",
+            "journal-title": "Symmetry"
+          },
+          {
+            "key": "B90",
+            "doi-asserted-by": "publisher",
+            "first-page": "1264",
+            "DOI": "10.3390/e23101264",
+            "article-title": "One-and two-phase software requirement classification using ensemble deep learning",
+            "volume": "23",
+            "author": "Rahimi",
+            "year": "2021",
+            "journal-title": "Entropy"
+          },
+          {
+            "key": "B91",
+            "doi-asserted-by": "crossref",
+            "first-page": "25",
+            "DOI": "10.1145/3340482.3342745",
+            "article-title": "“Classifying non-functional requirements using RNN variants for quality software development,”",
+            "volume-title": "Proceedings of the 3rd ACM SIGSOFT International Workshop on Machine Learning Techniques for Software Quality Evaluation",
+            "author": "Rahman",
+            "year": "2019"
+          },
+          {
+            "key": "B92",
+            "first-page": "29",
+            "article-title": "“Using TF-IDF to determine word relevance in document queries,”",
+            "volume-title": "Proceedings of the First Instructional Conference on Machine Learning, Volume 242",
+            "author": "Ramos",
+            "year": "2003"
+          },
+          {
+            "key": "B93",
+            "doi-asserted-by": "crossref",
+            "first-page": "381",
+            "DOI": "10.1109/COMPSAC.2013.64",
+            "article-title": "“Ontology-based classification of non-functional requirements in software specifications: a new corpus and SVM-based classifier,”",
+            "volume-title": "2013 IEEE 37th Annual Computer Software and Applications Conference",
+            "author": "Rashwan",
+            "year": "2013"
+          },
+          {
+            "key": "B94",
+            "doi-asserted-by": "publisher",
+            "first-page": "799",
+            "DOI": "10.3390/e24060799",
+            "article-title": "A hybrid deep learning model for brain tumour classification",
+            "volume": "24",
+            "author": "Rasool",
+            "year": "2022",
+            "journal-title": "Entropy"
+          },
+          {
+            "key": "B95",
+            "doi-asserted-by": "publisher",
+            "first-page": "333",
+            "DOI": "10.1007/s10994-011-5256-5",
+            "article-title": "Classifier chains for multi-label classification",
+            "volume": "85",
+            "author": "Read",
+            "year": "2011",
+            "journal-title": "Machine Learn"
+          },
+          {
+            "key": "B96",
+            "doi-asserted-by": "publisher",
+            "first-page": "175942020",
+            "DOI": "10.30534/ijatcse/2020/175942020",
+            "article-title": "Binary cross entropy with deep learning technique for image classification",
+            "volume": "9",
+            "author": "Ruby",
+            "year": "2020",
+            "journal-title": "Int. J. Adv. Trends Comput. Sci. Eng"
+          },
+          {
+            "key": "B97",
+            "doi-asserted-by": "publisher",
+            "first-page": "8",
+            "DOI": "10.1145/1764810.1764814",
+            "article-title": "Software development lifecycle models",
+            "volume": "35",
+            "author": "Ruparelia",
+            "year": "2010",
+            "journal-title": "ACM SIGSOFT Softw. Eng. Not"
+          },
+          {
+            "key": "B98",
+            "doi-asserted-by": "publisher",
+            "first-page": "101665",
+            "DOI": "10.1016/j.jksuci.2023.101665",
+            "article-title": "FNReq-NET: a hybrid computational framework for functional and non-functional requirements classification",
+            "volume": "2023",
+            "author": "Saleem",
+            "year": "2023",
+            "journal-title": "J. King Saud Univ. Comput. Inform. Sci"
+          },
+          {
+            "key": "B99",
+            "volume-title": "Automatic Assignment of Medical Codes",
+            "author": "Samanta",
+            "year": "2021"
+          },
+          {
+            "key": "B100",
+            "first-page": "265",
+            "article-title": "“Biomedical question types classification using syntactic and rule based approach,”",
+            "volume-title": "2015 7th International Joint Conference on Knowledge Discovery, Knowledge Engineering and Knowledge Management (IC3K), Volume 1",
+            "author": "Sarrouti",
+            "year": "2015"
+          },
+          {
+            "key": "B101",
+            "doi-asserted-by": "crossref",
+            "first-page": "811",
+            "DOI": "10.18653/v1/D18-1093",
+            "article-title": "“HFT-CNN: learning hierarchical category structure for multi-label short text categorization,”",
+            "volume-title": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+            "author": "Shimura",
+            "year": "2018"
+          },
+          {
+            "key": "B102",
+            "doi-asserted-by": "crossref",
+            "first-page": "620",
+            "DOI": "10.1109/ICACCI.2016.7732115",
+            "article-title": "“Rule-based system for automated classification of non-functional requirements from requirement specifications,”",
+            "volume-title": "2016 International Conference on Advances in Computing, Communications and Informatics (ICACCI)",
+            "author": "Singh",
+            "year": "2016"
+          },
+          {
+            "key": "B103",
+            "doi-asserted-by": "crossref",
+            "first-page": "9",
+            "DOI": "10.1109/NAturaLiSE.2013.6611715",
+            "article-title": "“Automated extraction of non-functional requirements in available documentation,”",
+            "volume-title": "2013 1st International Workshop on Natural Language Analysis in Software Engineering (NaturaLiSE)",
+            "author": "Slankas",
+            "year": "2013"
+          },
+          {
+            "key": "B104",
+            "first-page": "401",
+            "article-title": "“An empirical study of lazy multilabel classification algorithms,”",
+            "volume-title": "Artificial Intelligence: Theories, Models and Applications: 5th Hellenic Conference on AI, SETN 2008, Syros, Greece, October 2–4, 2008. Proceedings 5",
+            "author": "Spyromitros",
+            "year": "2008"
+          },
+          {
+            "key": "B105",
+            "doi-asserted-by": "publisher",
+            "first-page": "e042077",
+            "DOI": "10.1088/1742-6596/1529/4/042077",
+            "article-title": "Classification of functional and non-functional requirement in software requirement using word2vec and fast text",
+            "volume": "1529",
+            "author": "Tiun",
+            "year": "2020",
+            "journal-title": "J. Phys"
+          },
+          {
+            "key": "B106",
+            "first-page": "45",
+            "article-title": "Support vector machine active learning with applications to text classification",
+            "volume": "2",
+            "author": "Tong",
+            "year": "2001",
+            "journal-title": "J. Machine Learn. Res"
+          },
+          {
+            "key": "B107",
+            "doi-asserted-by": "publisher",
+            "first-page": "432",
+            "DOI": "10.5755/j01.itc.48.3.21973",
+            "article-title": "Comparative study of the performance of various classifiers in labeling non-functional requirements",
+            "volume": "48",
+            "author": "Tóth",
+            "year": "2019",
+            "journal-title": "Inform. Technol. Contr"
+          },
+          {
+            "key": "B108",
+            "first-page": "406",
+            "article-title": "“Random k-labelsets: an ensemble method for multilabel classification,”",
+            "volume-title": "Machine Learning: ECML 2007: 18th European Conference on Machine Learning, Warsaw, Poland, September 17–21, 2007. Proceedings 18",
+            "author": "Tsoumakas",
+            "year": "2007"
+          },
+          {
+            "key": "B109",
+            "doi-asserted-by": "publisher",
+            "first-page": "881",
+            "DOI": "10.1109/TCSS.2021.3068519",
+            "article-title": "Welfake: word embedding over linguistic features for fake news detection",
+            "volume": "8",
+            "author": "Verma",
+            "year": "2021",
+            "journal-title": "IEEE Trans. Comput. Soc. Syst"
+          },
+          {
+            "key": "B110",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1109/HICSS.2011.28",
+            "article-title": "“A rule-based natural language technique for requirements discovery and classification in open-source software development projects,”",
+            "volume-title": "2011 44th Hawaii International Conference on System Sciences",
+            "author": "Vlas",
+            "year": "2011"
+          },
+          {
+            "key": "B111",
+            "doi-asserted-by": "publisher",
+            "first-page": "11",
+            "DOI": "10.2753/MIS0742-1222280402",
+            "article-title": "Two rule-based natural language strategies for requirements discovery and classification in open source software development projects",
+            "volume": "28",
+            "author": "Vlas",
+            "year": "2012",
+            "journal-title": "J. Manag. Inform. Syst"
+          },
+          {
+            "key": "B112",
+            "doi-asserted-by": "crossref",
+            "first-page": "245",
+            "DOI": "10.1109/REW.2019.00050",
+            "article-title": "“Requirements engineering for machine learning: perspectives from data scientists,”",
+            "volume-title": "2019 IEEE 27th International Requirements Engineering Conference Workshops (REW)",
+            "author": "Vogelsang",
+            "year": "2019"
+          },
+          {
+            "key": "B113",
+            "doi-asserted-by": "crossref",
+            "first-page": "2311",
+            "DOI": "10.18653/v1/P18-1215",
+            "article-title": "“Disconnected recurrent neural networks for text categorization,”",
+            "volume-title": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+            "author": "Wang",
+            "year": "2018"
+          },
+          {
+            "key": "B114",
+            "doi-asserted-by": "publisher",
+            "first-page": "103143",
+            "DOI": "10.1016/j.jbi.2019.103143",
+            "article-title": "Multi-label biomedical question classification for lexical answer type prediction",
+            "volume": "93",
+            "author": "Wasim",
+            "year": "2019",
+            "journal-title": "J. Biomed. Informat"
+          },
+          {
+            "key": "B115",
+            "unstructured": "Watkins\n              C. J. C. H.\n            \n          \n          Ph.D. thesis\n          Learning from delayed rewards\n          \n          1989"
+          },
+          {
+            "key": "B116",
+            "first-page": "126",
+            "article-title": "“Convolutional neural network using a threshold predictor for multi-label speech act classification,”",
+            "volume-title": "2017 IEEE international conference on big data and smart computing (BigComp)",
+            "author": "Xu",
+            "year": "2017"
+          },
+          {
+            "key": "B117",
+            "first-page": "1480",
+            "article-title": "“Hierarchical attention networks for document classification,”",
+            "volume-title": "Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+            "author": "Yang",
+            "year": "2016"
+          },
+          {
+            "key": "B118",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.48550/arXiv.1702.01923",
+            "article-title": "Comparative study of CNN and RNN for natural language processing",
+            "author": "Yin",
+            "year": "2017",
+            "journal-title": "arXiv preprint arXiv:1702.01923"
+          },
+          {
+            "key": "B119",
+            "doi-asserted-by": "publisher",
+            "first-page": "687",
+            "DOI": "10.1162/tacl_a_00249",
+            "article-title": "Attentive convolution: equipping CNNS with RNN-style attention mechanisms",
+            "volume": "6",
+            "author": "Yin",
+            "year": "2018",
+            "journal-title": "Trans. Assoc. Comput. Linguist"
+          },
+          {
+            "key": "B120",
+            "doi-asserted-by": "publisher",
+            "first-page": "138",
+            "DOI": "10.48550/arXiv.1811.01727",
+            "article-title": "AttentionXML: extreme multi-label text classification with multi-label attention based recurrent neural networks",
+            "volume": "137",
+            "author": "You",
+            "year": "2018",
+            "journal-title": "arXiv preprint arXiv:1811.01727"
+          },
+          {
+            "key": "B121",
+            "doi-asserted-by": "publisher",
+            "first-page": "1",
+            "DOI": "10.1186/s13638-019-1354-z",
+            "article-title": "Research on information retrieval model based on ontology",
+            "volume": "2019",
+            "author": "Yu",
+            "year": "2019",
+            "journal-title": "EURASIP J. Wirel. Commun. Netw"
+          },
+          {
+            "key": "B122",
+            "doi-asserted-by": "crossref",
+            "first-page": "718",
+            "DOI": "10.1109/GRC.2005.1547385",
+            "article-title": "“A k-nearest neighbor based algorithm for multi-label classification,”",
+            "volume-title": "2005 IEEE International Conference on Granular Computing, Volume 2",
+            "author": "Zhang",
+            "year": "2005"
+          },
+          {
+            "key": "B123",
+            "doi-asserted-by": "publisher",
+            "first-page": "2038",
+            "DOI": "10.1016/j.patcog.2006.12.019",
+            "article-title": "ML-KNN: a lazy learning approach to multi-label learning",
+            "volume": "40",
+            "author": "Zhang",
+            "year": "2007",
+            "journal-title": "Pat. Recogn"
+          },
+          {
+            "key": "B124",
+            "doi-asserted-by": "publisher",
+            "first-page": "84",
+            "DOI": "10.1109/MS.2010.85",
+            "article-title": "Agile model-driven development in practice",
+            "volume": "28",
+            "author": "Zhang",
+            "year": "2010",
+            "journal-title": "IEEE Softw"
+          },
+          {
+            "key": "B125",
+            "first-page": "1",
+            "article-title": "“Improved adam optimizer for deep neural networks,”",
+            "volume-title": "2018 IEEE/ACM 26th International Symposium on Quality of Service (IWQoS)",
+            "author": "Zhang",
+            "year": "2018"
+          }
+        ],
+        "container-title": [
+          "Frontiers in Artificial Intelligence"
+        ],
+        "link": [
+          {
+            "URL": "https://www.frontiersin.org/articles/10.3389/frai.2024.1481581/full",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              27
+            ]
+          ],
+          "date-time": "2024-11-27T06:43:02Z",
+          "timestamp": 1732689782000
+        },
+        "score": 21.965027,
+        "resource": {
+          "primary": {
+            "URL": "https://www.frontiersin.org/articles/10.3389/frai.2024.1481581/full"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              27
+            ]
+          ]
+        },
+        "references-count": 125,
+        "alternative-id": [
+          "10.3389/frai.2024.1481581"
+        ],
+        "URL": "https://doi.org/10.3389/frai.2024.1481581",
+        "ISSN": [
+          "2624-8212"
+        ],
+        "issn-type": [
+          {
+            "value": "2624-8212",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              27
+            ]
+          ]
+        },
+        "article-number": "1481581"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              8
+            ]
+          ],
+          "date-time": "2026-05-08T05:10:14Z",
+          "timestamp": 1778217014410,
+          "version": "3.51.4"
+        },
+        "reference-count": 31,
+        "publisher": "MDPI AG",
+        "issue": "9",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Applied Sciences"
+        ],
+        "abstract": "<jats:p>WiFi fingerprinting remains attractive for indoor localization because it reuses existing wireless infrastructure, yet RSSI fingerprints are high-dimensional, sparse, and often ambiguous across adjacent floors and building regions. This study develops a hybrid blended localization framework that combines multi-task learning with feature-space weighted k-nearest-neighbor refinement. A shared neural encoder predicts building labels, floor labels, and normalized coordinates from 520-dimensional WiFi fingerprints, and the learned embedding space is then used for semantically constrained WKNN correction. The final model is trained with AdamW, a learning rate of 8×10−4, batch size 512, and a joint loss over building classification, floor classification, and coordinate regression, without a learning-rate scheduler. Experiments on a public WiFi fingerprint dataset show that the hybrid model achieves the strongest overall localization robustness among the evaluated non-ensemble methods. On the official validation split, it obtains a mean localization error of 9.01, a median error of 6.25, and an RMSE of 12.95 in the dataset coordinate units. On the internal semantic validation split, it reaches 94.81% floor classification accuracy and 97.62% building classification accuracy. Floor-wise and building–floor analyses further show that the largest errors are concentrated in a small number of difficult semantic regions, especially the highest floor and sparsely constrained partitions.</jats:p>",
+        "DOI": "10.3390/app16094184",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ],
+          "date-time": "2026-04-24T14:28:23Z",
+          "timestamp": 1777040903000
+        },
+        "page": "4184",
+        "update-policy": "https://doi.org/10.3390/mdpi_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Hybrid Blended WiFi Fingerprint Indoor Localization Using Multi-Task Learning and Feature-Space WKNN"
+        ],
+        "prefix": "10.3390",
+        "volume": "16",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0006-5706-7670",
+            "authenticated-orcid": false,
+            "given": "Yujie",
+            "family": "Li",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Computer Science, Kookmin University, Seoul 02707, Republic of Korea"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2622-0426",
+            "authenticated-orcid": false,
+            "given": "Sang-Chul",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Computer Science, Kookmin University, Seoul 02707, Republic of Korea"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "1968",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref_1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1468",
+            "DOI": "10.3390/eng4020085",
+            "article-title": "RSSI and Machine Learning-Based Indoor Localization Systems for Smart Cities",
+            "volume": "4",
+            "author": "Rathnayake",
+            "year": "2023",
+            "journal-title": "Eng"
+          },
+          {
+            "key": "ref_2",
+            "doi-asserted-by": "crossref",
+            "first-page": "111527",
+            "DOI": "10.1016/j.comnet.2025.111527",
+            "article-title": "A Comparative Analysis of Indoor Localization Technologies",
+            "volume": "270",
+            "author": "Retscher",
+            "year": "2025",
+            "journal-title": "Comput. Netw."
+          },
+          {
+            "key": "ref_3",
+            "first-page": "775",
+            "article-title": "RADAR: An In-Building RF-Based User Location and Tracking System",
+            "volume": "Volume 2",
+            "author": "Bahl",
+            "year": "2000",
+            "journal-title": "Proceedings of the IEEE INFOCOM 2000"
+          },
+          {
+            "key": "ref_4",
+            "doi-asserted-by": "crossref",
+            "first-page": "127150",
+            "DOI": "10.1109/ACCESS.2021.3111083",
+            "article-title": "Machine Learning Based Indoor Localization Using Wi-Fi RSSI Fingerprints: An Overview",
+            "volume": "9",
+            "author": "Singh",
+            "year": "2021",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "ref_5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Youssef, M.A., and Agrawala, A.K. (2005). The Horus WLAN Location Determination System. Proceedings of the Third International Conference on Mobile Systems, Applications, and Services (MobiSys 2005), ACM.",
+            "DOI": "10.1145/1067170.1067193"
+          },
+          {
+            "key": "ref_6",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Yaro, A.S., Maly, F., and Prazak, P. (2023). A Survey of the Performance-Limiting Factors of a 2-Dimensional RSS Fingerprinting-Based Indoor Wireless Localization System. Sensors, 23.",
+            "DOI": "10.3390/s23052545"
+          },
+          {
+            "key": "ref_7",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kozhassap, A., Auelbekov, A., Bekova, S., Zhumadilova, M., and Dzhaksybekov, N. (2025). RSSI Fingerprint-Based Indoor Localization Solutions Using Machine Learning Algorithms: A Comprehensive Review. Smart Cities, 8.",
+            "DOI": "10.3390/smartcities8050153"
+          },
+          {
+            "key": "ref_8",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wang, B., Li, Q., Liu, J., Wang, Z., Yu, Q., and Liang, R. (2024). A WKNN Indoor Fingerprint Localization Technique Based on Improved Discrimination Capability of RSS Similarity. Sensors, 24.",
+            "DOI": "10.20944/preprints202401.1075.v1"
+          },
+          {
+            "key": "ref_9",
+            "doi-asserted-by": "crossref",
+            "first-page": "37",
+            "DOI": "10.12720/jcm.19.1.37-43",
+            "article-title": "Efficient and Accurate Indoor Positioning System: A Hybrid Approach Integrating PCA, WKNN, and Linear Regression",
+            "volume": "19",
+            "author": "Duong",
+            "year": "2024",
+            "journal-title": "J. Commun."
+          },
+          {
+            "key": "ref_10",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Song, X., Fan, X., He, X., Xiang, C., Ye, Q., Huang, X., Fang, G., Chen, L.L., Qin, J., and Wang, Z. (2019). CNNLoc: Deep-Learning Based Indoor Localization with WiFi Fingerprinting. Proceedings of the 2019 IEEE SmartWorld/UIC/ATC/CBDCom/IOP/SCI, IEEE.",
+            "DOI": "10.1109/SmartWorld-UIC-ATC-SCALCOM-IOP-SCI.2019.00139"
+          },
+          {
+            "key": "ref_11",
+            "doi-asserted-by": "crossref",
+            "first-page": "108624",
+            "DOI": "10.1016/j.asoc.2022.108624",
+            "article-title": "A Hierarchical Auxiliary Deep Neural Network Architecture for Large-Scale Indoor Localization Based on Wi-Fi Fingerprinting",
+            "volume": "120",
+            "author": "Cha",
+            "year": "2022",
+            "journal-title": "Appl. Soft Comput."
+          },
+          {
+            "key": "ref_12",
+            "doi-asserted-by": "crossref",
+            "first-page": "6961",
+            "DOI": "10.1109/JIOT.2023.3315289",
+            "article-title": "DeepMetricFi: Improving Wi-Fi Fingerprinting Localization by Deep Metric Learning",
+            "volume": "11",
+            "author": "Chen",
+            "year": "2024",
+            "journal-title": "IEEE Internet Things J."
+          },
+          {
+            "key": "ref_13",
+            "doi-asserted-by": "crossref",
+            "first-page": "23341",
+            "DOI": "10.1109/JSEN.2024.3455554",
+            "article-title": "Hierarchical Stage-Wise Training of Linked Deep Neural Networks for Multi-Building and Multi-Floor Indoor Localization Based on Wi-Fi RSSI Fingerprinting",
+            "volume": "25",
+            "author": "Li",
+            "year": "2024",
+            "journal-title": "IEEE Sens. J."
+          },
+          {
+            "key": "ref_14",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Li, S., Tang, Z., Kim, K.S., and Smith, J.S. (2024). On the Use and Construction of Wi-Fi Fingerprint Databases for Large-Scale Multi-Building and Multi-Floor Indoor Localization: A Case Study of the UJIIndoorLoc Database. Sensors, 24.",
+            "DOI": "10.36227/techrxiv.170957156.62104511/v2"
+          },
+          {
+            "key": "ref_15",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Martín-Frechina, S., Dura, E., Miralles, I., and Torres-Sospedra, J. (2025). From Fingerprinting to Advanced Machine Learning: A Systematic Review of Wi-Fi and BLE-Based Indoor Positioning Systems. Sensors, 25.",
+            "DOI": "10.3390/s25226946"
+          },
+          {
+            "key": "ref_16",
+            "doi-asserted-by": "crossref",
+            "first-page": "167970",
+            "DOI": "10.1109/ACCESS.2024.3496561",
+            "article-title": "A Review of Open Access Wi-Fi Fingerprinting Datasets for Indoor Positioning",
+            "volume": "12",
+            "author": "Feng",
+            "year": "2024",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "ref_17",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Lin, X., Gan, J., Jiang, C., Xue, S., and Liang, Y. (2023). Wi-Fi-Based Indoor Localization and Navigation: A Robot-Aided Hybrid Deep Learning Approach. Sensors, 23.",
+            "DOI": "10.3390/s23146320"
+          },
+          {
+            "key": "ref_18",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Esmaeili Gorjan, H., and Gil Jiménez, V.P. (2024). Improving Indoor WiFi Localization by Using Machine Learning Techniques. Sensors, 24.",
+            "DOI": "10.3390/s24196293"
+          },
+          {
+            "key": "ref_19",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Gu, F., Shi, L., Guo, H., and Shang, J. (2023). Deep Fingerprint Metric Learning for KNN-Based Indoor Localization. Proceedings of the IEEE Global Communications Conference (GLOBECOM 2023), IEEE.",
+            "DOI": "10.1109/GLOBECOM54140.2023.10437360"
+          },
+          {
+            "key": "ref_20",
+            "doi-asserted-by": "crossref",
+            "first-page": "118889",
+            "DOI": "10.1016/j.eswa.2022.118889",
+            "article-title": "A Real-Time Fingerprint-Based Indoor Positioning Using Deep Learning and Preceding States",
+            "volume": "213",
+            "author": "Nabati",
+            "year": "2023",
+            "journal-title": "Expert Syst. Appl."
+          },
+          {
+            "key": "ref_21",
+            "first-page": "e2471",
+            "article-title": "A Novel Device-Free Wi-Fi Indoor Localization Using a Convolutional Neural Network Based on Residual Attention",
+            "volume": "11",
+            "author": "Saeed",
+            "year": "2025",
+            "journal-title": "PeerJ Comput. Sci."
+          },
+          {
+            "key": "ref_22",
+            "doi-asserted-by": "crossref",
+            "first-page": "33550",
+            "DOI": "10.1109/JIOT.2024.3430087",
+            "article-title": "Graph-Neural-Network-Based WiFi Indoor Localization System with Access Point Selection",
+            "volume": "11",
+            "author": "Wang",
+            "year": "2024",
+            "journal-title": "IEEE Internet Things J."
+          },
+          {
+            "key": "ref_23",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Li, M., Zhang, Y., Wang, Y., Chen, R., and Huang, Z. (2025). Heterogeneous Graph Neural Network for WiFi RSSI-Based Indoor Floor Classification. Electronics, 14.",
+            "DOI": "10.3390/electronics14244845"
+          },
+          {
+            "key": "ref_24",
+            "doi-asserted-by": "crossref",
+            "first-page": "11945",
+            "DOI": "10.1109/JIOT.2023.3331705",
+            "article-title": "Enhancing Indoor Localization with Semi-Crowdsourced Fingerprinting and GAN-Based Data Augmentation",
+            "volume": "11",
+            "author": "Junoh",
+            "year": "2024",
+            "journal-title": "IEEE Internet Things J."
+          },
+          {
+            "key": "ref_25",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Yoo, J. (2024). Wi-Fi Fingerprint Indoor Localization by Semi-Supervised Generative Adversarial Network. Sensors, 24.",
+            "DOI": "10.3390/s24175698"
+          },
+          {
+            "key": "ref_26",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Tang, Z., Gu, R., Li, S., Kim, K.S., and Smith, J.S. (2024). Static vs. Dynamic Databases for Indoor Localization Based on Wi-Fi Fingerprinting: A Discussion from a Data Perspective. Proceedings of the 6th International Conference on Artificial Intelligence in Information and Communication (ICAIIC 2024), IEEE.",
+            "DOI": "10.1109/ICAIIC60209.2024.10463461"
+          },
+          {
+            "key": "ref_27",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Li, S., Kim, K.S., Tang, Z., and Smith, J.S. (2024). Exploiting Unlabeled RSSI Fingerprints in Multi-Building and Multi-Floor Indoor Localization through Deep Semi-Supervised Learning Based on Mean Teacher. Proceedings of the 2024 IEEE International Conference on Consumer Electronics (ICCE), IEEE.",
+            "DOI": "10.1109/CANDAR60563.2023.00028"
+          },
+          {
+            "key": "ref_28",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Etiabi, Y., Njima, W., and Amhoud, E.M. (2023). Federated Learning Based Hierarchical 3D Indoor Localization. Proceedings of the 2023 IEEE Wireless Communications and Networking Conference (WCNC), IEEE.",
+            "DOI": "10.1109/WCNC55385.2023.10118848"
+          },
+          {
+            "key": "ref_29",
+            "doi-asserted-by": "crossref",
+            "first-page": "41",
+            "DOI": "10.1023/A:1007379606734",
+            "article-title": "Multitask Learning",
+            "volume": "28",
+            "author": "Caruana",
+            "year": "1997",
+            "journal-title": "Mach. Learn."
+          },
+          {
+            "key": "ref_30",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Torres-Sospedra, J., Montoliu, R., Martínez-Usó, A., Avariento, J.P., Arnau, T.J., Benedito-Bordonau, M., and Huerta, J. (2014). UJIIndoorLoc: A New Multi-Building and Multi-Floor Database for WLAN Fingerprint-Based Indoor Localization Problems. Proceedings of the 2014 International Conference on Indoor Positioning and Indoor Navigation (IPIN), IEEE.",
+            "DOI": "10.1109/IPIN.2014.7275492"
+          },
+          {
+            "key": "ref_31",
+            "doi-asserted-by": "crossref",
+            "first-page": "824",
+            "DOI": "10.1109/TPAMI.2018.2889473",
+            "article-title": "Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs",
+            "volume": "42",
+            "author": "Malkov",
+            "year": "2020",
+            "journal-title": "IEEE Trans. Pattern Anal. Mach. Intell."
+          }
+        ],
+        "container-title": [
+          "Applied Sciences"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.mdpi.com/2076-3417/16/9/4184/pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              8
+            ]
+          ],
+          "date-time": "2026-05-08T04:20:58Z",
+          "timestamp": 1778214058000
+        },
+        "score": 19.939737,
+        "resource": {
+          "primary": {
+            "URL": "https://www.mdpi.com/2076-3417/16/9/4184"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "references-count": 31,
+        "journal-issue": {
+          "issue": "9",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "app16094184"
+        ],
+        "URL": "https://doi.org/10.3390/app16094184",
+        "ISSN": [
+          "2076-3417"
+        ],
+        "issn-type": [
+          {
+            "value": "2076-3417",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2026-06-13T21:40:15Z",
+          "timestamp": 1781386815962,
+          "version": "3.54.1"
+        },
+        "reference-count": 35,
+        "publisher": "Tech Science Press",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  2,
+                  10
+                ]
+              ],
+              "date-time": "2023-02-10T00:00:00Z",
+              "timestamp": 1675987200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 40,
+            "URL": "https://doi.org/10.32604/TSP-CROSSMARKPOLICY"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "DOI": "10.32604/csse.2023.035185",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              2,
+              9
+            ]
+          ],
+          "date-time": "2023-02-09T06:55:52Z",
+          "timestamp": 1675925752000
+        },
+        "page": "1741-1758",
+        "update-policy": "https://doi.org/10.32604/tsp-crossmarkpolicy",
+        "source": "Crossref",
+        "is-referenced-by-count": 3,
+        "title": [
+          "Classification of Multi-view Digital Mammogram Images Using SMO-WkNN"
+        ],
+        "prefix": "10.32604",
+        "volume": "46",
+        "author": [
+          {
+            "given": "P.",
+            "family": "Malathi",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "G.",
+            "family": "Charlyn Pushpa Latha",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "17807",
+        "reference": [
+          {
+            "key": "ref1",
+            "first-page": "209",
+            "article-title": "Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+            "volume": "71",
+            "author": "Sung",
+            "year": "2021",
+            "journal-title": "CA: A Cancer Journal for Clinicians"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "first-page": "209",
+            "DOI": "10.5306/wjco.v13.i3.209",
+            "article-title": "Breast cancer in India: Present scenario and the challenges ahead",
+            "volume": "13",
+            "author": "Mehrotra",
+            "year": "2022",
+            "journal-title": "World Journal of Clinical Oncology"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/j.cmpb.2022.106884",
+            "article-title": "Early detection and classification of abnormality in prior mammograms using image-to-image translation and YOLO techniques",
+            "volume": "221",
+            "author": "Baccouche",
+            "year": "2022",
+            "journal-title": "Computer Methods and Programs in Biomedicine"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "first-page": "20043",
+            "DOI": "10.1007/s11042-022-12332-1",
+            "article-title": "Mammogram breast cancer CAD systems for mass detection and classification: A review",
+            "volume": "81",
+            "author": "Hassan",
+            "year": "2022",
+            "journal-title": "Multimedia Tools and Applications"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "first-page": "411",
+            "DOI": "10.1016/j.amjsurg.2019.01.039",
+            "article-title": "Redefining the sensitivity of screening mammography: A review",
+            "volume": "218",
+            "author": "Hollingsworth",
+            "year": "2019",
+            "journal-title": "The American Journal of Surgery"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "first-page": "124",
+            "DOI": "10.1016/j.diii.2013.12.010",
+            "article-title": "Masses in mammography: What are the underlying anatomopathological lesions?",
+            "volume": "95",
+            "author": "Bermenta",
+            "year": "2014",
+            "journal-title": "Diagnostic and Interventional Imaging"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "crossref",
+            "first-page": "165",
+            "DOI": "10.1016/j.semcancer.2019.10.024",
+            "article-title": "The clinical value of detecting micro calcifications on a mammogram",
+            "volume": "72",
+            "author": "Tot",
+            "year": "2021",
+            "journal-title": "Seminars in Cancer Biology"
+          },
+          {
+            "key": "ref8",
+            "first-page": "311",
+            "article-title": "Analyses of statistical feature fusion techniques in breast cancer detection",
+            "volume": "17",
+            "author": "Shanmugam",
+            "year": "2020",
+            "journal-title": "International Journal of Applied Science and Engineering"
+          },
+          {
+            "key": "ref9",
+            "series-title": "Institute of Scholars (InSc)",
+            "first-page": "1099",
+            "article-title": "Advancement on breast cancer detection using medio-lateral-oblique (MLO) and cranio-caudal (CC) features",
+            "author": "Sridevi",
+            "year": "2020"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "crossref",
+            "first-page": "227",
+            "DOI": "10.1007/s00521-014-1764-0",
+            "article-title": "Breast tumor detection in double views mammography based on extreme learning machine",
+            "volume": "27",
+            "author": "Wang",
+            "year": "2016",
+            "journal-title": "Neural Computing and Applications"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.3390/app12147080",
+            "article-title": "CoroNet: Deep neural network-based end-to-end training for breast cancer diagnosis",
+            "volume": "12",
+            "author": "Mobark",
+            "year": "2022",
+            "journal-title": "Applied Sciences"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "first-page": "2860",
+            "DOI": "10.1049/iet-ipr.2020.0070",
+            "article-title": "Deep learning algorithm for breast masses classification in mammograms",
+            "volume": "14",
+            "author": "Gnanasekaran",
+            "year": "2020",
+            "journal-title": "IET Image Processing"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/j.compbiomed.2020.103774",
+            "article-title": "Deep learning for mass detection in full field digital mammograms",
+            "volume": "121",
+            "author": "Agarwal",
+            "year": "2020",
+            "journal-title": "Computers in Biology and Medicine"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "crossref",
+            "first-page": "4701",
+            "DOI": "10.1016/j.aej.2021.03.048",
+            "article-title": "Deep learning in mammography images segmentation and classification: Automated CNN approach",
+            "volume": "60",
+            "author": "Salama",
+            "year": "2021",
+            "journal-title": "Alexandria Engineering Journal"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "crossref",
+            "first-page": "321",
+            "DOI": "10.1016/B978-0-12-810408-8.00019-5",
+            "author": "Carneiro",
+            "year": "2017",
+            "journal-title": "Deep Learning for Medical Image Analysis"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "first-page": "1036",
+            "DOI": "10.4103/jcrt.JCRT_1352_16",
+            "article-title": "Fusion of k‐Gabor features from medio‐lateral‐oblique and craniocaudal view mammograms for improved breast cancer diagnosis",
+            "volume": "14",
+            "author": "Sasikala",
+            "year": "2018",
+            "journal-title": "Journal of Cancer Research and Therapeutics"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "crossref",
+            "first-page": "12939",
+            "DOI": "10.1007/s11042-018-6267-z",
+            "article-title": "Multi-scale CNN based on region proposals for efficient breast abnormality recognition",
+            "volume": "78",
+            "author": "Bakkouri",
+            "year": "2019",
+            "journal-title": "Multimedia Tools and Applications"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "crossref",
+            "first-page": "165724",
+            "DOI": "10.1109/ACCESS.2019.2953318",
+            "article-title": "Multi-view feature fusion based four views model for mammogram classification using convolutional neural network",
+            "volume": "7",
+            "author": "Khan",
+            "year": "2019",
+            "journal-title": "IEEE Access"
+          },
+          {
+            "key": "ref19",
+            "first-page": "1",
+            "article-title": "Deep learning for reliable classification of COVID‐19, MERS, and SARS from chest x‐ray images",
+            "volume": "1",
+            "author": "Tahir",
+            "year": "2022",
+            "journal-title": "Cognitive Computation"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "first-page": "175",
+            "DOI": "10.1016/j.cmpb.2011.05.007",
+            "article-title": "Technique for preprocessing of digital mammogram",
+            "volume": "107",
+            "author": "Maitra",
+            "year": "2012",
+            "journal-title": "Computer Methods and Programs in Biomedicine"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "crossref",
+            "first-page": "495",
+            "DOI": "10.1002/ima.22400",
+            "article-title": "Deep learning and optimization algorithms for automatic breast cancer detection",
+            "volume": "30",
+            "author": "Sha",
+            "year": "2020",
+            "journal-title": "International Journal of Imaging Systems and Technology"
+          },
+          {
+            "key": "ref22",
+            "series-title": "Proceedings of the 11th Joint Conference on Information Sciences (JCIS 2008)",
+            "first-page": "1",
+            "article-title": "A completely automatic segmentation method for breast ultrasound images using region growing",
+            "author": "Shan",
+            "year": "2008"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "first-page": "128",
+            "DOI": "10.1016/j.csi.2010.06.003",
+            "article-title": "Performance evaluation of a region growing procedure for mammographic breast lesion identification",
+            "volume": "33",
+            "author": "Rabottino",
+            "year": "2011",
+            "journal-title": "Computer Standards & Interfaces"
+          },
+          {
+            "key": "ref24",
+            "first-page": "125",
+            "article-title": "Pyramid histogram of oriented gradients based human ear identification",
+            "volume": "15",
+            "author": "Sarangi",
+            "year": "2017",
+            "journal-title": "International Journal of Control Theory and Applications"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "crossref",
+            "first-page": "284",
+            "DOI": "10.14569/IJACSA.2018.091034",
+            "article-title": "Evaluation of distance measures for feature-based image registration using AlexNet",
+            "volume": "9",
+            "author": "Kavitha",
+            "year": "2018",
+            "journal-title": "International Journal of Advanced Computer Science and Applications"
+          },
+          {
+            "key": "ref26",
+            "first-page": "44",
+            "article-title": "Image classification using AlexNet with SVM classifier and transfer learning, image classification using AlexNet with SVM classifier and transfer learning",
+            "volume": "10",
+            "author": "Jokhio",
+            "year": "2019",
+            "journal-title": "Journal of Information Communication Technologies and Robotic Applications"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "first-page": "24",
+            "DOI": "10.3991/ijim.v15i05.17173",
+            "article-title": "Credit card fraud detection using fuzzy rough nearest neighbor and sequential minimal optimization with logistic regression",
+            "volume": "15",
+            "author": "Hussein",
+            "year": "2021",
+            "journal-title": "International Journal of Interactive Mobile Technologies"
+          },
+          {
+            "key": "ref28",
+            "series-title": "Second International Conference on Trends in Electronics and Informatics (ICOEI)",
+            "first-page": "1132",
+            "article-title": "Bearing fault diagnosis using weighted k-nearest neighbor",
+            "author": "Sharma",
+            "year": "2018"
+          },
+          {
+            "key": "ref29",
+            "first-page": "1",
+            "article-title": "Hyperspectral image classification model using squeeze and excitation network with deep learning",
+            "volume": "2022",
+            "author": "Rajendran",
+            "year": "2022",
+            "journal-title": "Computational Intelligence and Neuroscience"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1155/2022/1601354",
+            "article-title": "Segmentation and classification of glaucoma using u-net with deep learning model",
+            "volume": "2022",
+            "author": "Sudan",
+            "year": "2022",
+            "journal-title": "International Journal of Healthcare Engineering"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "crossref",
+            "first-page": "26",
+            "DOI": "10.53409/mnaa.jcsit20201204",
+            "article-title": "A review on prostate cancer detection using deep learning techniques",
+            "volume": "1",
+            "author": "Narmatha",
+            "year": "2020",
+            "journal-title": "Journal of Computational Science and Intelligent Technologies"
+          },
+          {
+            "key": "ref32",
+            "doi-asserted-by": "crossref",
+            "first-page": "34",
+            "DOI": "10.53409/mnaa.jcsit20201205",
+            "article-title": "Classification of Alzheimer’s disease from MRI images using CNN based pre-trained VGG-19 model",
+            "volume": "1",
+            "author": "Manimurugan",
+            "year": "2020",
+            "journal-title": "Journal of Computational Science and Intelligent Technologies"
+          },
+          {
+            "key": "ref33",
+            "first-page": "1",
+            "article-title": "Multiclass classification for detection of COVID-19 infection in chest X-Rays using CNN",
+            "volume": "2022",
+            "author": "Alharbi",
+            "year": "2022",
+            "journal-title": "Computational Intelligence and Neuroscience"
+          },
+          {
+            "key": "ref34",
+            "doi-asserted-by": "crossref",
+            "first-page": "333",
+            "DOI": "10.1049/iet-spr.2019.0543",
+            "article-title": "Review of advanced computational approaches on multiple sclerosis segmentation and classification",
+            "volume": "14",
+            "author": "Shanmuganathan",
+            "year": "2020",
+            "journal-title": "IET Signal Processing"
+          },
+          {
+            "key": "ref35",
+            "first-page": "1",
+            "article-title": "A torn acl mapping in knee mri images using deep convolution neural network with inceptionv3",
+            "volume": "2022",
+            "author": "Sridhar",
+            "year": "2022",
+            "journal-title": "International Journal of Healthcare Engineering"
+          }
+        ],
+        "container-title": [
+          "Computer Systems Science and Engineering"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.techscience.com/files/csse/2023/TSP_CSSE-46-2/TSP_CSSE_35185/TSP_CSSE_35185.pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              6
+            ]
+          ],
+          "date-time": "2024-12-06T21:59:23Z",
+          "timestamp": 1733522363000
+        },
+        "score": 19.796333,
+        "resource": {
+          "primary": {
+            "URL": "https://www.techscience.com/csse/v46n2/51640"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "references-count": 35,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2023
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.32604/csse.2023.035185",
+        "ISSN": [
+          "0267-6192"
+        ],
+        "issn-type": [
+          {
+            "value": "0267-6192",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2022-08-10",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2022-11-15",
+            "order": 1,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2023-02-09",
+            "order": 2,
+            "name": "published",
+            "label": "Published Online",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              2
+            ]
+          ],
+          "date-time": "2026-04-02T16:03:36Z",
+          "timestamp": 1775145816681,
+          "version": "3.50.1"
+        },
+        "reference-count": 40,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-017"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-012"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2023-06-01T00:00:00Z",
+              "timestamp": 1685577600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-004"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Pattern Recognition"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.patcog.2023.109357",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              1,
+              23
+            ]
+          ],
+          "date-time": "2023-01-23T11:09:08Z",
+          "timestamp": 1674472148000
+        },
+        "page": "109357",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 20,
+        "special_numbering": "C",
+        "title": [
+          "Multi-dimensional multi-label classification: Towards encompassing heterogeneous label spaces and multi-label annotations"
+        ],
+        "prefix": "10.1016",
+        "volume": "138",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-3302-9398",
+            "authenticated-orcid": false,
+            "given": "Bin-Bin",
+            "family": "Jia",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-1880-5918",
+            "authenticated-orcid": false,
+            "given": "Min-Ling",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0001",
+            "series-title": "Pattern Classification",
+            "author": "Duda",
+            "year": "2001"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.patcog.2023.109357_bib0002",
+            "doi-asserted-by": "crossref",
+            "first-page": "211",
+            "DOI": "10.1007/s11263-015-0816-y",
+            "article-title": "ImageNet large scale visual recognition challenge",
+            "volume": "115",
+            "author": "Russakovsky",
+            "year": "2015",
+            "journal-title": "Int J Comput Vis"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.patcog.2023.109357_bib0003",
+            "doi-asserted-by": "crossref",
+            "first-page": "454",
+            "DOI": "10.1109/TCSVT.2016.2607345",
+            "article-title": "Image classification with tailored fine-grained dictionaries",
+            "volume": "28",
+            "author": "Shu",
+            "year": "2018",
+            "journal-title": "IEEE Trans. Circuits Syst. Video Technol."
+          },
+          {
+            "issue": "7",
+            "key": "10.1016/j.patcog.2023.109357_bib0004",
+            "doi-asserted-by": "crossref",
+            "first-page": "1720",
+            "DOI": "10.1109/TKDE.2013.167",
+            "article-title": "Multi-dimensional classification with super-classes",
+            "volume": "26",
+            "author": "Read",
+            "year": "2014",
+            "journal-title": "IEEE Trans Knowl Data Eng"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0005",
+            "doi-asserted-by": "crossref",
+            "first-page": "1121",
+            "DOI": "10.1016/j.neucom.2017.09.057",
+            "article-title": "Multi-dimensional classification via a metric approach",
+            "volume": "275",
+            "author": "Ma",
+            "year": "2018",
+            "journal-title": "Neurocomputing"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0006",
+            "series-title": "Proceedings of the 32nd AAAI Conference on Artificial Intelligence",
+            "first-page": "3635",
+            "article-title": "Dual set multi-label learning",
+            "author": "Liu",
+            "year": "2018"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.patcog.2023.109357_bib0007",
+            "doi-asserted-by": "crossref",
+            "first-page": "38",
+            "DOI": "10.1007/s11633-022-1316-5",
+            "article-title": "Multi-dimensional classification via selective feature augmentation",
+            "volume": "19",
+            "author": "Jia",
+            "year": "2022",
+            "journal-title": "Machine Intelligence Research"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.patcog.2023.109357_bib0008",
+            "doi-asserted-by": "crossref",
+            "first-page": "52",
+            "DOI": "10.1145/2716262",
+            "article-title": "A tutorial on multilabel learning",
+            "volume": "47",
+            "author": "Gibaja",
+            "year": "2015",
+            "journal-title": "ACM Comput Surv"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0009",
+            "series-title": "Encyclopedia of Machine Learning and Data Mining",
+            "first-page": "875",
+            "article-title": "Multi-label learning",
+            "author": "Zhou",
+            "year": "2017"
+          },
+          {
+            "issue": "9",
+            "key": "10.1016/j.patcog.2023.109357_bib0010",
+            "doi-asserted-by": "crossref",
+            "first-page": "1757",
+            "DOI": "10.1016/j.patcog.2004.03.009",
+            "article-title": "Learning multi-label scene classification",
+            "volume": "37",
+            "author": "Boutell",
+            "year": "2004",
+            "journal-title": "Pattern Recognit"
+          },
+          {
+            "issue": "7",
+            "key": "10.1016/j.patcog.2023.109357_bib0011",
+            "doi-asserted-by": "crossref",
+            "first-page": "2038",
+            "DOI": "10.1016/j.patcog.2006.12.019",
+            "article-title": "ML-KNN: A lazy learning approach to multi-label learning",
+            "volume": "40",
+            "author": "Zhang",
+            "year": "2007",
+            "journal-title": "Pattern Recognit"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0012",
+            "series-title": "Proceedings of the 23rd ACM International Conference on Multimedia",
+            "first-page": "35",
+            "article-title": "Weakly-shared deep transfer networks for heterogeneous-domain knowledge propagation",
+            "author": "Shu",
+            "year": "2015"
+          },
+          {
+            "issue": "4s",
+            "key": "10.1016/j.patcog.2023.109357_bib0013",
+            "doi-asserted-by": "crossref",
+            "first-page": "68",
+            "DOI": "10.1145/2998574",
+            "article-title": "Generalized deep transfer networks for knowledge propagation in heterogeneous domains",
+            "volume": "12",
+            "author": "Tang",
+            "year": "2016",
+            "journal-title": "ACM Transactions on Multimedia Computing, Communications, and Applications"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.patcog.2023.109357_bib0014",
+            "doi-asserted-by": "crossref",
+            "first-page": "176",
+            "DOI": "10.1109/TAI.2021.3110935",
+            "article-title": "Decomposition-based classifier chains for multi-dimensional classification",
+            "volume": "3",
+            "author": "Jia",
+            "year": "2022",
+            "journal-title": "IEEE Transactions on Artificial Intelligence"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.patcog.2023.109357_bib0015",
+            "doi-asserted-by": "crossref",
+            "first-page": "7185",
+            "DOI": "10.1109/TNNLS.2021.3084373",
+            "article-title": "Maximum margin multi-dimensional classification",
+            "volume": "33",
+            "author": "Jia",
+            "year": "2022",
+            "journal-title": "IEEE Trans Neural Netw Learn Syst"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.patcog.2023.109357_bib0016",
+            "doi-asserted-by": "crossref",
+            "first-page": "191",
+            "DOI": "10.1007/s11704-017-7031-7",
+            "article-title": "Binary relevance for multi-label learning: an overview",
+            "volume": "12",
+            "author": "Zhang",
+            "year": "2018",
+            "journal-title": "Frontiers of Computer Science"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.patcog.2023.109357_bib0017",
+            "doi-asserted-by": "crossref",
+            "first-page": "333",
+            "DOI": "10.1007/s10994-011-5256-5",
+            "article-title": "Classifier chains for multi-label classification",
+            "volume": "85",
+            "author": "Read",
+            "year": "2011",
+            "journal-title": "Mach Learn"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0018",
+            "doi-asserted-by": "crossref",
+            "first-page": "683",
+            "DOI": "10.1613/jair.1.12376",
+            "article-title": "Classifier chains: a review and perspectives",
+            "volume": "70",
+            "author": "Read",
+            "year": "2021",
+            "journal-title": "Journal of Artificial Intelligence Research"
+          },
+          {
+            "issue": "10",
+            "key": "10.1016/j.patcog.2023.109357_bib0019",
+            "doi-asserted-by": "crossref",
+            "first-page": "1338",
+            "DOI": "10.1109/TKDE.2006.162",
+            "article-title": "Multi-label neural networks with applications to functional genomics and text categorization",
+            "volume": "18",
+            "author": "Zhang",
+            "year": "2006",
+            "journal-title": "IEEE Trans Knowl Data Eng"
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.patcog.2023.109357_bib0020",
+            "first-page": "2057",
+            "article-title": "Leveraging implicit relative labeling-importance information for effective multi-label learning",
+            "volume": "33",
+            "author": "Zhang",
+            "year": "2021",
+            "journal-title": "IEEE Trans Knowl Data Eng"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.patcog.2023.109357_bib0021",
+            "doi-asserted-by": "crossref",
+            "first-page": "107",
+            "DOI": "10.1109/TPAMI.2014.2339815",
+            "article-title": "LIFT: Multi-label learning with label-specific features",
+            "volume": "37",
+            "author": "Zhang",
+            "year": "2015",
+            "journal-title": "IEEE Trans Pattern Anal Mach Intell"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.patcog.2023.109357_bib0022",
+            "doi-asserted-by": "crossref",
+            "first-page": "3309",
+            "DOI": "10.1109/TKDE.2016.2608339",
+            "article-title": "Learning label-specific features and class-dependent labels for multi-label classification",
+            "volume": "28",
+            "author": "Huang",
+            "year": "2016",
+            "journal-title": "IEEE Trans Knowl Data Eng"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.patcog.2023.109357_bib0023",
+            "doi-asserted-by": "crossref",
+            "first-page": "18",
+            "DOI": "10.1145/3458283",
+            "article-title": "BiLabel-specific features for multi-label classification",
+            "volume": "16",
+            "author": "Zhang",
+            "year": "2022",
+            "journal-title": "ACM Trans Knowl Discov Data"
+          },
+          {
+            "issue": "9",
+            "key": "10.1016/j.patcog.2023.109357_bib0024",
+            "first-page": "5199",
+            "article-title": "Multi-label classification with label-specific feature generation: a wrapped approach",
+            "volume": "44",
+            "author": "Yu",
+            "year": "2022",
+            "journal-title": "IEEE Trans Pattern Anal Mach Intell"
+          },
+          {
+            "issue": "8",
+            "key": "10.1016/j.patcog.2023.109357_bib0025",
+            "doi-asserted-by": "crossref",
+            "first-page": "1819",
+            "DOI": "10.1109/TKDE.2013.39",
+            "article-title": "A review on multi-label learning algorithms",
+            "volume": "26",
+            "author": "Zhang",
+            "year": "2014",
+            "journal-title": "IEEE Trans Knowl Data Eng"
+          },
+          {
+            "issue": "11",
+            "key": "10.1016/j.patcog.2023.109357_bib0026",
+            "doi-asserted-by": "crossref",
+            "first-page": "7955",
+            "DOI": "10.1109/TPAMI.2021.3119334",
+            "article-title": "The emerging trends of multi-label learning",
+            "volume": "44",
+            "author": "Liu",
+            "year": "2022",
+            "journal-title": "IEEE Trans Pattern Anal Mach Intell"
+          },
+          {
+            "issue": "6",
+            "key": "10.1016/j.patcog.2023.109357_bib0027",
+            "doi-asserted-by": "crossref",
+            "first-page": "705",
+            "DOI": "10.1016/j.ijar.2011.01.007",
+            "article-title": "Multi-dimensional classification with Bayesian networks",
+            "volume": "52",
+            "author": "Bielza",
+            "year": "2011",
+            "journal-title": "Int. J. Approximate Reasoning"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.patcog.2023.109357_bib0028",
+            "doi-asserted-by": "crossref",
+            "first-page": "519",
+            "DOI": "10.1007/s10462-020-09858-x",
+            "article-title": "Multi-dimensional Bayesian network classifiers: a survey",
+            "volume": "54",
+            "author": "Gil-Begue",
+            "year": "2021",
+            "journal-title": "Artif Intell Rev"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0029",
+            "series-title": "Proceedings of the 22nd International Joint Conference on Artificial Intelligence",
+            "first-page": "2192",
+            "article-title": "Bayesian chain classifiers for multidimensional classification",
+            "author": "Zaragoza",
+            "year": "2011"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.patcog.2023.109357_bib0030",
+            "doi-asserted-by": "crossref",
+            "first-page": "1535",
+            "DOI": "10.1016/j.patcog.2013.10.006",
+            "article-title": "Efficient monte carlo methods for multi-dimensional learning with classifier chains",
+            "volume": "47",
+            "author": "Read",
+            "year": "2014",
+            "journal-title": "Pattern Recognit"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.patcog.2023.109357_sbref0031",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1007/s11432-019-2905-3",
+            "article-title": "Multi-dimensional classification via stacked dependency exploitation",
+            "volume": "63",
+            "author": "Jia",
+            "year": "2020",
+            "journal-title": "Science China Information Sciences"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0032",
+            "series-title": "Proceedings of the 25th International Conference on Pattern Recognition",
+            "first-page": "126",
+            "article-title": "MD-KNN: an instance-based approach for multi-dimensional classification",
+            "author": "Jia",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0033",
+            "series-title": "Proceedings of the 38th International Conference on Machine Learning",
+            "first-page": "4917",
+            "article-title": "Multi-dimensional classification via sparse label encoding",
+            "author": "Jia",
+            "year": "2021"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.patcog.2023.109357_bib0034",
+            "doi-asserted-by": "crossref",
+            "first-page": "1844",
+            "DOI": "10.1109/TKDE.2021.3100436",
+            "article-title": "Multi-dimensional classification via decomposed label encoding",
+            "volume": "35",
+            "author": "Jia",
+            "year": "2023",
+            "journal-title": "IEEE Trans Knowl Data Eng"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0035",
+            "series-title": "Proceedings of the 34th AAAI Conference on Artificial Intelligence",
+            "first-page": "6178",
+            "article-title": "Incorporating label embedding and feature augmentation for multi-dimensional classification",
+            "author": "Wang",
+            "year": "2020"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_sbref0036",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.patcog.2020.107423",
+            "article-title": "Multi-dimensional classification via kNN feature augmentation",
+            "volume": "106",
+            "author": "Jia",
+            "year": "2020",
+            "journal-title": "Pattern Recognit"
+          },
+          {
+            "issue": "25",
+            "key": "10.1016/j.patcog.2023.109357_bib0037",
+            "doi-asserted-by": "crossref",
+            "first-page": "14863",
+            "DOI": "10.1073/pnas.95.25.14863",
+            "article-title": "Cluster analysis and display of genome-wide expression patterns",
+            "volume": "95",
+            "author": "Eisen",
+            "year": "1998",
+            "journal-title": "Proceedings of the National Academy of Sciences"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0038",
+            "series-title": "Proceedings of the 34th International Conference on Machine Learning",
+            "first-page": "3780",
+            "article-title": "A unified view of multi-label performance measures",
+            "author": "Wu",
+            "year": "2017"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.patcog.2023.109357_bib0039",
+            "doi-asserted-by": "crossref",
+            "first-page": "9860",
+            "DOI": "10.1109/TPAMI.2021.3136592",
+            "article-title": "Collaborative learning of label semantics and deep label-specific features for multi-label classification",
+            "volume": "44",
+            "author": "Hang",
+            "year": "2022",
+            "journal-title": "IEEE Trans Pattern Anal Mach Intell"
+          },
+          {
+            "key": "10.1016/j.patcog.2023.109357_bib0040",
+            "first-page": "1871",
+            "article-title": "LIBLINEAR: A library for large linear classification",
+            "volume": "9",
+            "author": "Fan",
+            "year": "2008",
+            "journal-title": "Journal of Machine Learning Research"
+          }
+        ],
+        "container-title": [
+          "Pattern Recognition"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0031320323000584?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0031320323000584?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              21
+            ]
+          ],
+          "date-time": "2025-09-21T17:07:12Z",
+          "timestamp": 1758474432000
+        },
+        "score": 19.679817,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0031320323000584"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              6
+            ]
+          ]
+        },
+        "references-count": 40,
+        "alternative-id": [
+          "S0031320323000584"
+        ],
+        "URL": "https://doi.org/10.1016/j.patcog.2023.109357",
+        "ISSN": [
+          "0031-3203"
+        ],
+        "issn-type": [
+          {
+            "value": "0031-3203",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Multi-dimensional multi-label classification: Towards encompassing heterogeneous label spaces and multi-label annotations",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Pattern Recognition",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.patcog.2023.109357",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2023 Elsevier Ltd. All rights reserved.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ],
+        "article-number": "109357"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              7,
+              2
+            ]
+          ],
+          "date-time": "2026-07-02T20:22:49Z",
+          "timestamp": 1783023769848,
+          "version": "3.54.6"
+        },
+        "description": "This supplementary appendix provides the proof of Theorem 1 and the derivation connecting the masked BCE segment score with label relevant information for the supervision driven adaptive dynamic masking module.",
+        "reference-count": 0,
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.1109/tcsvt.2026.3707408/mm1",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              7,
+              2
+            ]
+          ],
+          "date-time": "2026-07-02T19:47:32Z",
+          "timestamp": 1783021652000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Label-Guided Masking and Imputation Network for Incomplete Multi-View Multi-Label Classification_supp1-3707408.pdf"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Xiaohuan",
+            "family": "Lu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              7,
+              2
+            ]
+          ],
+          "date-time": "2026-07-02T19:47:35Z",
+          "timestamp": 1783021655000
+        },
+        "score": 19.578547,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/ielx8/76/4358651/11579390/supp1-3707408.pdf?arnumber=11579390"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.1109/tcsvt.2026.3707408/mm1",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.1109/TCSVT.2026.3707408",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "institution": [
+          {
+            "name": "Research Square"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              14
+            ]
+          ],
+          "date-time": "2025-05-14T06:30:37Z",
+          "timestamp": 1747204237089,
+          "version": "3.40.5"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2022,
+              8,
+              24
+            ]
+          ]
+        },
+        "group-title": "In Review",
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2022,
+                  8,
+                  24
+                ]
+              ],
+              "date-time": "2022-08-24T00:00:00Z",
+              "timestamp": 1661299200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "accepted": {
+          "date-parts": [
+            [
+              2022,
+              6,
+              24
+            ]
+          ]
+        },
+        "abstract": "<title>Abstract</title>\n        <p>Multi-label classification (MLC) is a very explored field in recent years. The most common approaches that deal with MLC problems are classified into two groups: (i) problem transformation which aims to adapt the multi-label data, making the use of traditional binary or multiclass classification algorithms feasible, and (ii) algorithm adaptation which focuses on modifying algorithms used into binary or multiclass classification, enabling them to make multi-label predictions. Several approaches have been proposed aiming to explore the relationships among the labels, with some of them through the transformation of a flat multi-label label space into a hierarchical multi-label label space, creating a tree-structured label taxonomy and inducing a hierarchical multi-label classifier to solve the classification problem. This paper  presents a novel method in which a label hierarchy structured as a directed acyclic graph (DAG) is created from the multi-label label space, taking into account the label co-occurrences using the notion of closed frequent labelset. With this, it is possible to solve an MLC task as if it was a hierarchical multi-label classification (HMC) task. Global and local HMC approaches were tested with the obtained label hierarchies and compared with the approaches using tree-structured label hierarchies showing very competitive results. The main advantage of the proposed approach is better exploration and representation of the relationships between labels through the use of DAG-structured taxonomies, improving the results. Experimental results over 32 multi-label datasets from different domains showed that the proposed approach is better than related approaches in most of the multi-label evaluation measures. Moreover, we found that both tree and in specially DAG-structured label hierarchies combined with a local hierarchical classifier are more suitable to deal with imbalanced multi-label datasets.</p>",
+        "DOI": "10.21203/rs.3.rs-1793069/v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              8,
+              24
+            ]
+          ],
+          "date-time": "2022-08-24T18:25:05Z",
+          "timestamp": 1661365505000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A multi-label classification approach via hierarchical multi-label classification"
+        ],
+        "prefix": "10.21203",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-4248-1207",
+            "authenticated-orcid": false,
+            "given": "Mauri",
+            "family": "Ferrandin",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "UFSC: Universidade Federal de Santa Catarina"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Ricardo",
+            "family": "Cerri",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Federal University of Sao Carlos: Universidade Federal de Sao Carlos"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "link": [
+          {
+            "URL": "https://www.researchsquare.com/article/rs-1793069/v1",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.researchsquare.com/article/rs-1793069/v1.html",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              10,
+              16
+            ]
+          ],
+          "date-time": "2023-10-16T23:47:08Z",
+          "timestamp": 1697500028000
+        },
+        "score": 19.517948,
+        "resource": {
+          "primary": {
+            "URL": "https://www.researchsquare.com/article/rs-1793069/v1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              8,
+              24
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.21203/rs.3.rs-1793069/v1",
+        "relation": {
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.1007/s00500-023-08048-5",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              8,
+              24
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "institution": [
+          {
+            "name": "Universidade de São Paulo",
+            "place": [
+              "São Carlos"
+            ],
+            "department": [
+              "Instituto de Ciências Matemáticas e de Computação"
+            ]
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              30
+            ]
+          ],
+          "date-time": "2022-03-30T16:22:22Z",
+          "timestamp": 1648657342367
+        },
+        "reference-count": 0,
+        "publisher": "Universidade de Sao Paulo, Agencia USP de Gestao da Informacao Academica (AGUIA)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.11606/t.55.2020.tde-18082020-161950",
+        "type": "dissertation",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              8,
+              18
+            ]
+          ],
+          "date-time": "2020-08-18T19:28:23Z",
+          "timestamp": 1597778903000
+        },
+        "approved": {
+          "date-parts": [
+            [
+              2020,
+              4,
+              9
+            ]
+          ]
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Label operation for multi-label learning"
+        ],
+        "prefix": "10.11606",
+        "author": [
+          {
+            "given": "Adriano Rivolli da",
+            "family": "Silva",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "4873",
+        "link": [
+          {
+            "URL": "https://www.teses.usp.br/teses/disponiveis/55/55134/tde-18082020-161950/publico/AdrianoRivollidaSilva.pdf",
+            "content-type": "application/octet-stream",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.teses.usp.br/teses/disponiveis/55/55134/tde-18082020-161950/publico/AdrianoRivollidaSilva.pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2020,
+              8,
+              18
+            ]
+          ],
+          "date-time": "2020-08-18T19:28:25Z",
+          "timestamp": 1597778905000
+        },
+        "score": 19.456997,
+        "degree": [
+          "Doutorado em Ciências de Computação e Matemática Computacional"
+        ],
+        "resource": {
+          "primary": {
+            "URL": "https://www.teses.usp.br/teses/disponiveis/55/55134/tde-18082020-161950/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.11606/t.55.2020.tde-18082020-161950"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:31:56Z",
+          "timestamp": 1772271116395,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerjcs.2367/fig-12",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2024-10-18T04:57:51Z",
+          "timestamp": 1729227471000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Figure 12: Predicted multi-class label\n                      <i>vs</i>\n                      actual multi bin label across “num_diagnoses”, “num_medication”, and “gender”."
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2024-10-18T04:57:54Z",
+          "timestamp": 1729227474000
+        },
+        "score": 19.281143,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-2367/fig-12"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerjcs.2367/fig-12",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.2367",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T08:07:12Z",
+          "timestamp": 1761898032867
+        },
+        "reference-count": 15,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  4,
+                  12
+                ]
+              ],
+              "date-time": "2024-04-12T00:00:00Z",
+              "timestamp": 1712880000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  4,
+                  12
+                ]
+              ],
+              "date-time": "2024-04-12T00:00:00Z",
+              "timestamp": 1712880000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1109/ipec61310.2024.00089",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              2
+            ]
+          ],
+          "date-time": "2024-10-02T18:15:58Z",
+          "timestamp": 1727892958000
+        },
+        "page": "489-493",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "A 5G Positioning Method Based on Multi-fingerprint Features and Improved WKNN"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Rui",
+            "family": "Zhu",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Inner Mongolia University of Technology,College of Electric Power,Hohhot,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Lijie",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Inner Mongolia University of Technology,College of Electric Power,Hohhot,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s17020255"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/su141610255"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2023.3261567"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2478/amns.2021.2.00111"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s23031311"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TCOMM.2021.3119072"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICJECE.2022.3187348"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/JSTSP.2021.3119929"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/JIOT.2021.3125373"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s22134757"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TITS.2022.3146932"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TWC.2021.3061985"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s22093179"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/JSEN.2021.3103863"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/s22218152"
+          }
+        ],
+        "event": {
+          "name": "2024 Asia-Pacific Conference on Image Processing, Electronics and Computers (IPEC)",
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                4,
+                12
+              ]
+            ]
+          },
+          "location": "Dalian, China",
+          "end": {
+            "date-parts": [
+              [
+                2024,
+                4,
+                14
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2024 Asia-Pacific Conference on Image Processing, Electronics and Computers (IPEC)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/10695168/10695519/10695577.pdf?arnumber=10695577",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              3
+            ]
+          ],
+          "date-time": "2024-10-03T05:51:24Z",
+          "timestamp": 1727934684000
+        },
+        "score": 19.196104,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/10695577/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              12
+            ]
+          ]
+        },
+        "references-count": 15,
+        "URL": "https://doi.org/10.1109/ipec61310.2024.00089",
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:32:42Z",
+          "timestamp": 1772271162451,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerj-cs.2367/supp-10",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2024-10-18T04:57:51Z",
+          "timestamp": 1729227471000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Supplemental Information 10: Predicted multi-class label\n                      <i>vs</i>\n                      actual multi bin label across ”Length_of_Episode”, ”Inpatient_ratio” and ”age_group”"
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2024-10-18T04:57:57Z",
+          "timestamp": 1729227477000
+        },
+        "score": 19.156248,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-2367/supp-10"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerj-cs.2367/supp-10",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.2367",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

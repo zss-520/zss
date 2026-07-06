@@ -1,0 +1,36 @@
+{
+  "source_primary": "semantic_scholar",
+  "sources": [
+    "semantic_scholar"
+  ],
+  "source_ids": {
+    "semantic_scholar": "4e6f504bd20553c7d8f97e60c0d3f57f0d4a4458"
+  },
+  "semantic_scholar_id": "4e6f504bd20553c7d8f97e60c0d3f57f0d4a4458",
+  "doi": "10.1021/acs.jcim.4c01034",
+  "pmid": "39121059",
+  "pmcid": "PMC13018777",
+  "title": "Glypred: Lysine Glycation Site Prediction via CCU-LightGBM-BiLSTM Framework with Multi-Head Attention Mechanism",
+  "abstract": "Glycation, a type of posttranslational modification, preferentially occurs on lysine and arginine residues, impairing protein functionality and altering characteristics. This process is linked to diseases such as Alzheimer's, diabetes, and atherosclerosis. Traditional wet lab experiments are time-consuming, whereas machine learning has significantly streamlined the prediction of protein glycation sites. Despite promising results, challenges remain, including data imbalance, feature redundancy, and suboptimal classifier performance. This research introduces Glypred, a lysine glycation site prediction model combining ClusterCentroids Undersampling (CCU), LightGBM, and bidirectional long short-term memory network (BiLSTM) methodologies, with an additional multihead attention mechanism integrated into the BiLSTM. To achieve this, the study undertakes several key steps: selecting diverse feature types to capture comprehensive protein information, employing a cluster-based undersampling strategy to balance the data set, using LightGBM for feature selection to enhance model performance, and implementing a bidirectional LSTM network for accurate classification. Together, these approaches ensure that Glypred effectively identifies glycation sites with high accuracy and robustness. For feature encoding, five distinct feature types─AAC, KMER, DR, PWAA, and EBGW─were selected to capture a broad spectrum of protein sequence and biological information. These encoded features were integrated and validated to ensure comprehensive protein information acquisition. To address the issue of highly imbalanced positive and negative samples, various undersampling algorithms, including random undersampling, NearMiss, edited nearest neighbor rule, and CCU, were evaluated. CCU was ultimately chosen to remove redundant nonglycated training data, establishing a balanced data set that enhances the model's accuracy and robustness. For feature selection, the LightGBM ensemble learning algorithm was employed to reduce feature dimensionality by identifying the most significant features. This approach accelerates model training, enhances generalization capabilities, and ensures good transferability of the model. Finally, a bidirectional long short-term memory network was used as the classifier, with a network structure designed to capture glycation modification site features from both forward and backward directions. To prevent overfitting, appropriate regularization parameters and dropout rates were introduced, achieving efficient classification. Experimental results show that Glypred achieved optimal performance. This model provides new insights for bioinformatics and encourages the application of similar strategies in other fields. A lysine glycation site prediction software tool was also developed using the PyQt5 library, offering researchers an auxiliary screening tool to reduce workload and improve efficiency. The software and data sets are available on GitHub: https://github.com/ZBYnb/Glypred.",
+  "journal": "Journal of Chemical Information and Modeling",
+  "venue": "Journal of Chemical Information and Modeling",
+  "year": 2024,
+  "authors": [
+    "Yun Zuo",
+    "Bangyi Zhang",
+    "Yinkang Dong",
+    "Wenying He",
+    "Yue Bi",
+    "Xiangrong Liu",
+    "Xiangxiang Zeng",
+    "Zhaohong Deng"
+  ],
+  "urls": [
+    "https://www.semanticscholar.org/paper/4e6f504bd20553c7d8f97e60c0d3f57f0d4a4458",
+    "https://doi.org/10.1021/acs.jcim.4c01034"
+  ],
+  "citation_count": 3,
+  "reference_count": 35,
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1021 acs jcim 4c01034"
+}

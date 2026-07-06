@@ -1,0 +1,42 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc",
+    "openalex"
+  ],
+  "source_ids": {
+    "europe_pmc": "41230490",
+    "pmid": "41230490",
+    "openalex": "https://openalex.org/W4415776719"
+  },
+  "pmid": "41230490",
+  "pmcid": "PMC12603352",
+  "doi": "10.1093/bioadv/vbaf274",
+  "title": "Long short-term memory-based deep learning model for the discovery of antimicrobial peptides targeting &lt;i&gt;Mycobacterium tuberculosis&lt;/i&gt;.",
+  "abstract": "<h4>Motivation</h4>Tuberculosis, caused by <i>Mycobacterium tuberculosis</i>, remains a global health challenge driven by rising antibiotic resistance. Antimicrobial peptides offer a promising alternative due to membrane-disruptive activity and low resistance potential, yet the scarcity of TB-specific AMP data constrains targeted development. We present a reproducible deep learning protocol that integrates long short-term memory networks with transfer learning to classify and generate TB-active peptides.<h4>Results</h4>Classifiers were pretrained on a large corpus of general AMPs and fine-tuned on curated TB-specific sequences using frozen encoder and full backpropagation strategies. We benchmarked four model variants [unidirectional and bidirectional long short-term memories (LSTMs), with and without attention] on a held-out TB test set; the unidirectional LSTM with a frozen encoder achieved the best performance (accuracy 90%, AUC 0.97). In parallel, LSTM-based generative models were trained to produce de novo TB-active peptides. A generator trained exclusively on TB data produced 94 of 100 peptides predicted as antimicrobial by AMP Scanner, outperforming transfer learning-based generators. Generated peptides were evaluated for antimicrobial activity, toxicity, structure, and AMP-like physicochemical traits, and four candidates shared ≥84% identity with known TB-AMPs.<h4>Availability and implementation</h4>The complete model and data can be found at: https://github.com/linfeng-wang/TB-AMP-design.",
+  "journal": "Bioinformatics Advances",
+  "venue": "Bioinformatics Advances",
+  "year": "2025",
+  "authors": [
+    "Wang L",
+    "Campino S",
+    "Clark TG",
+    "Phelan JE."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://academic.oup.com/bioinformaticsadvances/article-pdf/5/1/vbaf274/65044853/vbaf274.pdf",
+    "https://doi.org/10.1093/bioadv/vbaf274",
+    "https://openalex.org/W4415776719",
+    "https://pubmed.ncbi.nlm.nih.gov/41230490",
+    "https://pubmed.ncbi.nlm.nih.gov/41230490/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12603352/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_antimicrobial_peptide_scanner_vr_2",
+  "query_text": "\"Antimicrobial Peptide Scanner vr.2\"",
+  "candidate_key": "doi:10 1093 bioadv vbaf274",
+  "openalex_id": "https://openalex.org/W4415776719",
+  "cited_by_count": 2
+}

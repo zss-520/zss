@@ -1,0 +1,34 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41653519",
+    "pmid": "41653519"
+  },
+  "pmid": "41653519",
+  "pmcid": null,
+  "doi": "10.1016/j.bpc.2026.107591",
+  "title": "iAFP-fLRM: Accurate identification of antifungal peptides via hybrid deep learning architecture and multi-modal feature fusion.",
+  "abstract": "Fungal infections (mycoses) represent a significant and increasing global health concern, particularly in immunocompromised populations. The emergence of antifungal drug resistance and the limited efficacy of conventional treatments necessitate the development of novel therapeutic strategies. Antifungal peptides (AFPs), due to their broad-spectrum activity, low toxicity, and reduced likelihood of resistance development, have garnered considerable attention as potential alternatives. However, the experimental identification of AFPs remains costly, labor-intensive, and time-consuming. To address this challenge, we propose iAFP-fLRM, a hybrid deep learning framework for AFP prediction based solely on amino acid sequences. The model integrates BLOSUM62-based evolutionary features, token embeddings, positional embeddings, and a Transformer encoder, with a subsequent LSTM-ResMLP classification module to capture both global contextual. information and local sequential dependencies. Notably, we design a dual-branch feature fusion module that integrates adaptive pooling alignment and cross-branch attention enhancement: the former dynamically aligns sequence lengths without information loss, while the latter adaptively adjusts the contribution of heterogeneous features to enhance complementarity. Extensive evaluations on benchmark datasets demonstrate that iAFP-fLRM achieves superior performance compared to state-of-the-art methods in terms of accuracy, the area under the receiver operating characteristic curve, and Matthews correlation coefficient. Ablation studies confirm the complementary effectiveness of combining handcrafted and learned features. Furthermore, t-SNE visualizations of the latent representations illustrate the model's ability to distinguish AFPs from non-AFPs. Overall, iAFP-fLRM provides a robust and scalable computational tool for in silico AFP identification, with the potential to facilitate antifungal peptide discovery and accelerate the development of novel antifungal therapeutics. The datasets and code used in this research are available at https://github.com/blue-tsuki/iAFP-fLRM.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Zhang S",
+    "Cheng J",
+    "Zhou G",
+    "Wang J."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/41653519/",
+    "https://doi.org/10.1016/j.bpc.2026.107591"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "preprint benchmarks",
+  "query_text": "antimicrobial peptide benchmark",
+  "candidate_key": "doi:10 1016 j bpc 2026 107591"
+}

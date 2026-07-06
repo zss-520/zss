@@ -1,0 +1,203 @@
+{
+  "chunk_id": "model_acp_dl",
+  "chunk_type": "model",
+  "chunk_name": "ACP-DL",
+  "compression_status": "ok",
+  "main_entities": [
+    "ACP-DL",
+    "ACP-MHCNN",
+    "anticancer peptide prediction",
+    "multi-headed deep convolutional neural network"
+  ],
+  "papers": [
+    {
+      "title": "Active Learning A Neural Network Model For Gold Clusters &amp; Bulk From Sparse First Principles Training Data",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.1002/cctc.202000774",
+      "year": "2020",
+      "role": "uncertain",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "An application of Random Forests to a genome-wide association dataset: Methodological considerations &amp; new findings",
+      "pmid": "20546594",
+      "pmcid": "PMC2896336",
+      "doi": "10.1186/1471-2156-11-49",
+      "year": "2010",
+      "role": "uncertain",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "Deep learning models for bacteria taxonomic classification of metagenomic data",
+      "pmid": "30066629",
+      "pmcid": "PMC6069770",
+      "doi": "10.1186/s12859-018-2182-6",
+      "year": "2018",
+      "role": "uncertain",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "pmid": "34880291",
+      "pmcid": "PMC8654959",
+      "doi": "10.1038/s41598-021-02703-3",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "repository"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "ACP-DL",
+      "canonical_name": "ACP-DL",
+      "aliases": [
+        "ACP-MHCNN"
+      ],
+      "task_type": "anticancer peptide prediction",
+      "method_family": "deep learning",
+      "architecture_or_algorithm": "multi-headed deep-convolutional neural network",
+      "input_features": "sequence, physicochemical, evolutionary features",
+      "source_pmid": "34880291",
+      "source_pmcid": "PMC8654959",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "code_repository_url": "https://github.com/haichengyi/ACP-DL",
+      "web_server_url": "https://anticancer.pythonanywhere.com/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Model predicts anticancer peptides, not antimicrobial peptides; not suitable for AMP benchmark.",
+      "blocking_issues": [
+        "targets anticancer peptides, not antimicrobial peptides"
+      ],
+      "evidence_level": "repository",
+      "confidence": 0.7
+    }
+  ],
+  "repositories": [
+    {
+      "name": "ACP-DL",
+      "url": "https://github.com/haichengyi/ACP-DL",
+      "matched_paper_title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "source_pmid": "34880291",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "Anticancer-Peptides-CNN",
+      "url": "https://github.com/mrzResearchArena/Anticancer-Peptides-CNN",
+      "matched_paper_title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "source_pmid": "34880291",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "Anticancer-Peptides-CNN.",
+      "url": "https://github.com/mrzResearchArena/Anticancer-Peptides-CNN.",
+      "matched_paper_title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "source_pmid": "34880291",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "MetagenomicDC",
+      "url": "https://github.com/IcarPA-TBlab/MetagenomicDC",
+      "matched_paper_title": "Deep learning models for bacteria taxonomic classification of metagenomic data",
+      "source_pmid": "30066629",
+      "source_doi": "10.1186/s12859-018-2182-6",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "deep-belief-network.",
+      "url": "https://github.com/albertbup/deep-belief-network.",
+      "matched_paper_title": "Deep learning models for bacteria taxonomic classification of metagenomic data",
+      "source_pmid": "30066629",
+      "source_doi": "10.1186/s12859-018-2182-6",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "ACP-DL",
+      "dataset_url": "https://github.com/haichengyi/ACP-DL",
+      "matched_paper_title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "source_pmid": "34880291",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "Anticancer-Peptides-CNN",
+      "dataset_url": "https://github.com/mrzResearchArena/Anticancer-Peptides-CNN",
+      "matched_paper_title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "source_pmid": "34880291",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "Anticancer-Peptides-CNN.",
+      "dataset_url": "https://github.com/mrzResearchArena/Anticancer-Peptides-CNN.",
+      "matched_paper_title": "ACP-MHCNN: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides",
+      "source_pmid": "34880291",
+      "source_doi": "10.1038/s41598-021-02703-3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "MetagenomicDC",
+      "dataset_url": "https://github.com/IcarPA-TBlab/MetagenomicDC",
+      "matched_paper_title": "Deep learning models for bacteria taxonomic classification of metagenomic data",
+      "source_pmid": "30066629",
+      "source_doi": "10.1186/s12859-018-2182-6",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "deep-belief-network.",
+      "dataset_url": "https://github.com/albertbup/deep-belief-network.",
+      "matched_paper_title": "Deep learning models for bacteria taxonomic classification of metagenomic data",
+      "source_pmid": "30066629",
+      "source_doi": "10.1186/s12859-018-2182-6",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "ACP-DL is a repository for anticancer peptide prediction, linked to the paper ACP-MHCNN (PMID 34880291).",
+    "The model uses a multi-headed deep convolutional neural network with sequence, physicochemical, and evolutionary features.",
+    "No evidence of antimicrobial peptide prediction; all related papers are about anticancer peptides, gold clusters, GWAS, or bacterial metagenomics.",
+    "A web server exists at https://anticancer.pythonanywhere.com/ but may be associated with the broader ACP-MHCNN project."
+  ],
+  "uncertainties": [
+    "Whether ACP-DL and ACP-MHCNN are exactly the same model or ACP-DL is an independent implementation.",
+    "No explicit mention of training dataset or weights availability.",
+    "The web server link may refer to the original ACP-MHCNN, not necessarily ACP-DL.",
+    "The matched repositories include two unrelated bacterial metagenomic projects, likely due to imperfect search."
+  ],
+  "source_pmids": [
+    "20546594",
+    "30066629",
+    "34880291"
+  ],
+  "source_dois": [
+    "10.1002/cctc.202000774",
+    "10.1186/1471-2156-11-49",
+    "10.1186/s12859-018-2182-6",
+    "10.1038/s41598-021-02703-3"
+  ],
+  "urls": [
+    "https://github.com/haichengyi/ACP-DL",
+    "https://github.com/mrzResearchArena/Anticancer-Peptides-CNN",
+    "https://github.com/mrzResearchArena/Anticancer-Peptides-CNN.",
+    "https://github.com/IcarPA-TBlab/MetagenomicDC",
+    "https://github.com/albertbup/deep-belief-network.",
+    "https://anticancer.pythonanywhere.com/"
+  ]
+}

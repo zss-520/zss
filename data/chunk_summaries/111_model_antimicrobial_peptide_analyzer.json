@@ -1,0 +1,153 @@
+{
+  "chunk_id": "model_antimicrobial_peptide_analyzer",
+  "chunk_type": "model",
+  "chunk_name": "AntiMicrobial Peptide Analyzer",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPA (AntiMicrobial Peptide Analyzer)"
+  ],
+  "papers": [
+    {
+      "title": "Mining the heparinome for cryptic antimicrobial peptides that selectively kill Gram-negative bacteria",
+      "pmid": "40410382",
+      "pmcid": "PMC12223310",
+      "doi": "10.1038/s44320-025-00120-6",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "BERT & Family Eat Word Salad: Experiments with Text Understanding",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.1609/aaai.v35i14.17531",
+      "year": "2021",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "Transformers: State-of-the-Art Natural Language Processing",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.5281/zenodo.5347031",
+      "year": "2020",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "Entreprises non cotées et différence d'évaluation entre LBO et M&A",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.3917/g2000.296.0093",
+      "year": "2012",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPA",
+      "canonical_name": "AMPA",
+      "aliases": [
+        "AntiMicrobial Peptide Analyzer"
+      ],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "web-server",
+      "architecture_or_algorithm": "prediction algorithm for detecting cryptic antimicrobial segments in proteins",
+      "input_features": "protein sequence",
+      "source_pmid": "40410382",
+      "source_pmcid": "PMC12223310",
+      "source_doi": "10.1038/s44320-025-00120-6",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://tcoffee.crg.cat/apps/ampa",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMPA is a computational tool for predicting antimicrobial regions in protein sequences, directly applicable to AMP prediction benchmarks.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPA web server",
+      "url": "http://tcoffee.crg.cat/apps/ampa",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPA",
+      "source_pmid": "40410382",
+      "source_doi": "10.1038/s44320-025-00120-6",
+      "evidence_level": "fulltext",
+      "evidence": "Link found in fulltext: http://tcoffee.crg.cat/apps/ampa."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "zenodo.5347031",
+      "dataset_url": "https://doi.org/10.5281/zenodo.5347031",
+      "matched_paper_title": "Transformers: State-of-the-Art Natural Language Processing",
+      "source_pmid": null,
+      "source_doi": "10.5281/zenodo.5347031",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6,
+      "relevance_note": "Probably unrelated to AMPA; matched via regex on Zenodo record."
+    },
+    {
+      "dataset_name": "models?filter=beit",
+      "dataset_url": "https://huggingface.co/models?filter=beit",
+      "matched_paper_title": "Transformers: State-of-the-Art Natural Language Processing",
+      "source_pmid": null,
+      "source_doi": "10.5281/zenodo.5347031",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6,
+      "relevance_note": "Probably unrelated to AMPA; matched via regex on Hugging Face URL."
+    },
+    {
+      "dataset_name": "models?filter=layoutlmv2",
+      "dataset_url": "https://huggingface.co/models?filter=layoutlmv2",
+      "matched_paper_title": "Transformers: State-of-the-Art Natural Language Processing",
+      "source_pmid": null,
+      "source_doi": "10.5281/zenodo.5347031",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6,
+      "relevance_note": "Probably unrelated to AMPA; matched via regex on Hugging Face URL."
+    },
+    {
+      "dataset_name": "5347031",
+      "dataset_url": "https://zenodo.org/record/5347031",
+      "matched_paper_title": "Transformers: State-of-the-Art Natural Language Processing",
+      "source_pmid": null,
+      "source_doi": "10.5281/zenodo.5347031",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6,
+      "relevance_note": "Probably unrelated to AMPA; matched via regex on Zenodo record."
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "AMPA web server operational at http://tcoffee.crg.cat/apps/ampa, used in 2025 Molecular Systems Biology article (PMID:40410382) to detect cryptic antimicrobial peptides.",
+    "Original AMPA references: Ramos-Llorens et al, 2024; Torrent et al, 2012a (not included in chunk)."
+  ],
+  "uncertainties": [
+    "AMPA primary publication(s) not directly identified in this chunk; only a secondary application paper is available.",
+    "Three unrelated papers (DOI:10.1609/aaai.v35i14.17531, 10.5281/zenodo.5347031, 10.3917/g2000.296.0093) were matched erroneously; they contain no antimicrobial peptide tool information.",
+    "Datasets extracted from the Zenodo record (Transformers) are irrelevant to AMPA and likely represent regex false positives.",
+    "No code repository, model weights, or training dataset found for AMPA."
+  ],
+  "source_pmids": [
+    "40410382"
+  ],
+  "source_dois": [
+    "10.1038/s44320-025-00120-6",
+    "10.1609/aaai.v35i14.17531",
+    "10.5281/zenodo.5347031",
+    "10.3917/g2000.296.0093"
+  ],
+  "urls": [
+    "http://tcoffee.crg.cat/apps/ampa",
+    "https://doi.org/10.1038/s44320-025-00120-6",
+    "https://doi.org/10.1609/aaai.v35i14.17531",
+    "https://doi.org/10.5281/zenodo.5347031",
+    "https://doi.org/10.3917/g2000.296.0093"
+  ]
+}

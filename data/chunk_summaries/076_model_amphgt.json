@@ -1,0 +1,211 @@
+{
+  "chunk_id": "model_amphgt",
+  "chunk_type": "model",
+  "chunk_name": "AmpHGT",
+  "compression_status": "ok",
+  "main_entities": [
+    "Pore-Forming AMP SVM",
+    "CG-AMP",
+    "AmpHGT",
+    "GenPept-Curated-2025",
+    "Pore-Forming_AMP_SVM repository"
+  ],
+  "papers": [
+    {
+      "title": "Mechanism-Driven Screening of Membrane-Targeting and Pore-Forming Antimicrobial Peptides.",
+      "pmid": "41391039",
+      "pmcid": "PMC12904036",
+      "doi": "10.1002/advs.202516470",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "GenPept-Curated-2025: A Benchmark Dataset for Antimicrobial Peptide Prediction with Homology-Controlled Partitioning",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.64898/2026.04.25.720793",
+      "year": "2026",
+      "role": "dataset_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Antimicrobial peptide prediction based on contrastive learning and gated convolutional neural network.",
+      "pmid": "41286313",
+      "pmcid": "PMC12749617",
+      "doi": "10.1038/s41598-025-29666-z",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "AmpHGT: expanding prediction of antimicrobial activity in peptides containing non-canonical amino acids using multi-view constrained heterogeneous graph transformer.",
+      "pmid": "40598389",
+      "pmcid": "PMC12217533",
+      "doi": "10.1186/s12915-025-02253-4",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "Pore-Forming_AMP_SVM",
+      "canonical_name": "Pore-Forming AMP SVM",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine with ProtBERT-BFD protein language model embeddings",
+      "input_features": "ProtBERT-BFD embeddings of peptide sequences",
+      "source_pmid": "41391039",
+      "source_pmcid": "PMC12904036",
+      "source_doi": "10.1002/advs.202516470",
+      "code_repository_url": "https://github.com/ComputBiophys/Pore%E2%80%90Forming_AMP_SVM",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/ComputBiophys/Pore%E2%80%90Forming_AMP_SVM (training data included)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Publicly available code and data, SVM classifier for AMP prediction with novel mechanism-driven screening pipeline.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "CG-AMP",
+      "canonical_name": "CG-AMP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Contrastive learning with MLP encoder and Gated Convolutional Neural Network (GCNN), dual-module",
+      "input_features": "ESM-2 embeddings, BLOSUM62, Z-scale, one-hot encoding",
+      "source_pmid": "41286313",
+      "source_pmcid": "PMC12749617",
+      "source_doi": "10.1038/s41598-025-29666-z",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "AMPlify and DAMP benchmark datasets",
+      "benchmark_candidate": true,
+      "candidate_reason": "State-of-the-art DL model for AMP prediction with strong benchmark results, but code not provided.",
+      "blocking_issues": [
+        "Code not available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.85
+    },
+    {
+      "model_name": "AmpHGT",
+      "canonical_name": "AmpHGT",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Heterogeneous graph transformer (HGT) with multi-view molecular graph, ESM2 embeddings",
+      "input_features": "Peptide molecular graphs (atom, fragment, residue, junction views) with ESM2 residue embeddings",
+      "source_pmid": "40598389",
+      "source_pmcid": "PMC12217533",
+      "source_doi": "10.1186/s12915-025-02253-4",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "XUAMP, AMPDiscover, NCAA datasets",
+      "benchmark_candidate": true,
+      "candidate_reason": "Advanced model handling non-canonical amino acids, competitive on benchmarks, but code not provided.",
+      "blocking_issues": [
+        "Code not available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.85
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Pore-Forming_AMP_SVM",
+      "url": "https://github.com/ComputBiophys/Pore%E2%80%90Forming_AMP_SVM",
+      "repository_type": "code/model",
+      "matched_model_name": "Pore-Forming AMP SVM",
+      "source_pmid": "41391039",
+      "source_doi": "10.1002/advs.202516470",
+      "evidence_level": "fulltext",
+      "evidence": "The code and data used in this study are available at https://github.com/ComputBiophys/Pore‐Forming_AMP_SVM."
+    },
+    {
+      "name": "Pore",
+      "url": "https://github.com/ComputBiophys/Pore",
+      "matched_paper_title": "Mechanism-Driven Screening of Membrane-Targeting and Pore-Forming Antimicrobial Peptides.",
+      "source_pmid": "41391039",
+      "source_doi": "10.1002/advs.202516470",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "GenPept-Curated-2025",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "GenPept/NCBI Protein, Bacteria, Archaea, Fungi",
+      "linked_model": "none",
+      "source_pmid": null,
+      "source_doi": "10.64898/2026.04.25.720793",
+      "positive_samples": "5500",
+      "negative_samples": "5500",
+      "deduplication_method": "Identical Protein Groups (IPG)-based deduplication",
+      "evidence_level": "abstract",
+      "evidence": "GenPept-Curated-2025, a curated, class-balanced benchmark of 11,000 peptide sequences (5,500 AMP / 5,500 non-AMP) derived from Bacteria, Archaea, and Fungi, sourced exclusively from GenPept/NCBI Protein."
+    },
+    {
+      "dataset_name": "Pore",
+      "dataset_url": "https://github.com/ComputBiophys/Pore",
+      "matched_paper_title": "Mechanism-Driven Screening of Membrane-Targeting and Pore-Forming Antimicrobial Peptides.",
+      "source_pmid": "41391039",
+      "source_doi": "10.1002/advs.202516470",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "Pore‐Forming_AMP_SVM.",
+      "dataset_url": "https://github.com/ComputBiophys/Pore‐Forming_AMP_SVM.",
+      "matched_paper_title": "Mechanism-Driven Screening of Membrane-Targeting and Pore-Forming Antimicrobial Peptides.",
+      "source_pmid": "41391039",
+      "source_doi": "10.1002/advs.202516470",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "Pore-Forming AMP SVM has publicly available code and data at GitHub.",
+    "CG-AMP and AmpHGT lack code repositories or web servers in available evidence.",
+    "GenPept-Curated-2025 is a new benchmark dataset from GenPept/NCBI Protein, homology-controlled."
+  ],
+  "uncertainties": [
+    "Code availability for CG-AMP and AmpHGT not reported; further verification recommended.",
+    "GenPept-Curated-2025 dataset URL not provided in available evidence; may be available via the preprint DOI."
+  ],
+  "source_pmids": [
+    "41391039",
+    "41286313",
+    "40598389"
+  ],
+  "source_dois": [
+    "10.1002/advs.202516470",
+    "10.1038/s41598-025-29666-z",
+    "10.1186/s12915-025-02253-4",
+    "10.64898/2026.04.25.720793"
+  ],
+  "urls": [
+    "https://github.com/ComputBiophys/Pore%E2%80%90Forming_AMP_SVM",
+    "https://github.com/ComputBiophys/Pore",
+    "https://pubmed.ncbi.nlm.nih.gov/41391039/",
+    "https://doi.org/10.1002/advs.202516470",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12904036/",
+    "https://doi.org/10.1038/s41598-025-29666-z",
+    "https://pubmed.ncbi.nlm.nih.gov/41286313/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12749617/",
+    "https://doi.org/10.1186/s12915-025-02253-4",
+    "https://openalex.org/W4411857860",
+    "https://pubmed.ncbi.nlm.nih.gov/40598389/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12217533/",
+    "https://doi.org/10.64898/2026.04.25.720793",
+    "https://www.semanticscholar.org/paper/2b4fa2436796f70ec12c96454fa5efa0890e4a5f"
+  ]
+}

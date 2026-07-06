@@ -1,0 +1,76 @@
+{
+  "chunk_id": "model_ampa_web_server",
+  "chunk_type": "model",
+  "chunk_name": "AMPA web server",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPA"
+  ],
+  "papers": [
+    {
+      "title": "Mining the heparinome for cryptic antimicrobial peptides that selectively kill Gram-negative bacteria",
+      "pmid": "40410382",
+      "pmcid": "PMC12223310",
+      "doi": "10.1038/s44320-025-00120-6",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPA",
+      "canonical_name": "AMPA",
+      "aliases": [
+        "AntiMicrobial Peptide Analyzer"
+      ],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "web-server",
+      "architecture_or_algorithm": "prediction algorithm for detecting cryptic antimicrobial segments in proteins",
+      "input_features": "protein sequence",
+      "source_pmid": "40410382",
+      "source_pmcid": "PMC12223310",
+      "source_doi": "10.1038/s44320-025-00120-6",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://tcoffee.crg.cat/apps/ampa",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMPA is a computational tool for predicting antimicrobial regions in protein sequences, directly applicable to AMP prediction benchmarks.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPA web server",
+      "url": "http://tcoffee.crg.cat/apps/ampa",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPA",
+      "source_pmid": "40410382",
+      "source_doi": "10.1038/s44320-025-00120-6",
+      "evidence_level": "fulltext",
+      "evidence": "Link found in fulltext: http://tcoffee.crg.cat/apps/ampa."
+    }
+  ],
+  "datasets": [],
+  "metrics": [],
+  "important_evidence": [
+    "The paper Mining the heparinome... uses AMPA for detecting cryptic antimicrobial segments in proteins. Web server: http://tcoffee.crg.cat/apps/ampa."
+  ],
+  "uncertainties": [
+    "The specific prediction algorithm is not detailed in the available evidence.",
+    "Training data and external test signals are not reported.",
+    "Code repository and model weights are not available."
+  ],
+  "source_pmids": [
+    "40410382"
+  ],
+  "source_dois": [
+    "10.1038/s44320-025-00120-6"
+  ],
+  "urls": [
+    "http://tcoffee.crg.cat/apps/ampa"
+  ]
+}

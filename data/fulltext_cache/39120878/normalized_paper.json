@@ -1,0 +1,43 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc",
+    "openalex"
+  ],
+  "source_ids": {
+    "europe_pmc": "39120878",
+    "pmid": "39120878",
+    "openalex": "https://openalex.org/W4401440911"
+  },
+  "pmid": "39120878",
+  "pmcid": "PMC11338452",
+  "doi": "10.1093/bioinformatics/btae497",
+  "title": "PGAT-ABPp: harnessing protein language models and graph attention networks for antibacterial peptide identification with remarkable accuracy.",
+  "abstract": "<h4>Motivation</h4>The emergence of drug-resistant pathogens represents a formidable challenge to global health. Using computational methods to identify the antibacterial peptides (ABPs), an alternative antimicrobial agent, has demonstrated advantages in further drug design studies. Most of the current approaches, however, rely on handcrafted features and underutilize structural information, which may affect prediction performance.<h4>Results</h4>To present an ultra-accurate model for ABP identification, we propose a novel deep learning approach, PGAT-ABPp. PGAT-ABPp leverages structures predicted by AlphaFold2 and a pretrained protein language model, ProtT5-XL-U50 (ProtT5), to construct graphs. Then the graph attention network (GAT) is adopted to learn global discriminative features from the graphs. PGAT-ABPp outperforms the other fourteen state-of-the-art models in terms of accuracy, F1-score and Matthews Correlation Coefficient on the independent test dataset. The results show that ProtT5 has significant advantages in the identification of ABPs and the introduction of spatial information further improves the prediction performance of the model. The interpretability analysis of key residues in known active ABPs further underscores the superiority of PGAT-ABPp.<h4>Availability and implementation</h4>The datasets and source codes for the PGAT-ABPp model are available at https://github.com/moonseter/PGAT-ABPp/.",
+  "journal": "Bioinformatics",
+  "venue": "Bioinformatics",
+  "year": "2024",
+  "authors": [
+    "Hao Y",
+    "Liu X",
+    "Fu H",
+    "Shao X",
+    "Cai W."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://academic.oup.com/bioinformatics/article-pdf/40/8/btae497/58883948/btae497.pdf",
+    "https://doi.org/10.1093/bioinformatics/btae497",
+    "https://openalex.org/W4401440911",
+    "https://pubmed.ncbi.nlm.nih.gov/39120878",
+    "https://pubmed.ncbi.nlm.nih.gov/39120878/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11338452/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_samppred_gat",
+  "query_text": "\"sAMPpred-GAT\"",
+  "candidate_key": "doi:10 1093 bioinformatics btae497",
+  "openalex_id": "https://openalex.org/W4401440911",
+  "cited_by_count": 23
+}

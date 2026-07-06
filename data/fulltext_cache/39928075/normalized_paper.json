@@ -1,0 +1,52 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "39928075"
+  },
+  "pmid": "39928075",
+  "pmcid": "7795231",
+  "doi": "10.1109/21.52545",
+  "title": "Human sleep position classification using a lightweight model and acceleration data.",
+  "abstract": "PURPOSE: This exploratory study introduces a portable, wearable device using a single accelerometer to monitor twelve sleep positions. Targeted for home use, the device aims to assist patients with mild conditions such as gastroesophageal reflux disease (GERD) by tracking sleep postures, promoting healthier habits, and improving both reflux symptoms and sleep quality without requiring hospital-based monitoring.\nMETHODS: The study developed AnpoNet, a lightweight deep learning model combining 1D-CNN and LSTM, optimized with BN and Dropout. The 1D-CNN captures short-term movement features, while the LSTM identifies long-term temporal dependencies. Experiments were conducted on data from 15 participants performing twelve sleep positions, with each position recorded for one minute at a sampling frequency of 50 Hz. The model was evaluated using 5-Fold cross-validation and unseen participant data to assess generalization.\nRESULTS: AnpoNet achieved a classification accuracy of 94.67% ± 0.80% and an F1-score of 92.94% ± 1.35%, outperforming baseline models. Accuracy was computed as the mean of accuracies obtained for three participants in the test set, averaged over five independent random seeds. This evaluation approach ensures robustness by accounting for variability in both individual participant performance and model initialization, underscoring its potential for real-world, home-based applications.\nCONCLUSION: This study provides a foundation for a portable system enabling continuous, non-invasive sleep posture monitoring at home. By addressing the needs of GERD patients, the device holds promise for improving sleep quality and supporting positional therapy. Future research will focus on larger cohorts, extended monitoring durations, and user-friendly interfaces for broader adoption.",
+  "journal": "Sleep & breathing = Schlaf & Atmung",
+  "venue": "Sleep & breathing = Schlaf & Atmung",
+  "year": 2025,
+  "authors": [
+    "Hoang-Dieu Vu",
+    "Duc-Nghia Tran",
+    "Huy-Hieu Pham",
+    "Dinh-Dat Pham",
+    "Khanh-Ly Can",
+    "To-Hieu Dao",
+    "Duc-Tan Tran"
+  ],
+  "keywords": [
+    "Accelerometer-based wearable",
+    "Deep learning classification",
+    "GERD",
+    "Positional therapy",
+    "Sleep position monitoring",
+    "Sleep posture"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "33401750",
+    "doi": "10.1109/21.52545",
+    "pii": "10.1007/s11325-025-03247-w",
+    "pmc": "7795231"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/39928075/",
+    "https://doi.org/10.1109/21.52545",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/7795231/"
+  ],
+  "raw_source_files": [],
+  "query_name": "model_pubmed_lstm_generative_and_classification_model",
+  "query_text": "\"LSTM generative and classification model\"",
+  "candidate_key": "doi:10 1109 21 52545"
+}

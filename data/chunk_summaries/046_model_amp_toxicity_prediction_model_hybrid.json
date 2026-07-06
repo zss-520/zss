@@ -1,0 +1,300 @@
+{
+  "chunk_id": "model_amp_toxicity_prediction_model_hybrid",
+  "chunk_type": "model",
+  "chunk_name": "AMP toxicity prediction model (hybrid)",
+  "compression_status": "ok",
+  "main_entities": [
+    "Unnamed AMP predictor from DRAMP 2.0",
+    "Deep-AmPEP30",
+    "AMP toxicity prediction model (hybrid)",
+    "CalcAMP"
+  ],
+  "papers": [
+    {
+      "title": "DRAMP 2.0, an updated data repository of antimicrobial peptides",
+      "pmid": "31409791",
+      "pmcid": "PMC6692298",
+      "doi": "10.1038/s41597-019-0154-y",
+      "year": "2019",
+      "role": "dataset_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Deep-AmPEP30: Improve Short Antimicrobial Peptides Prediction with Deep Learning",
+      "pmid": "32464552",
+      "pmcid": "PMC7256447",
+      "doi": "10.1016/j.omtn.2020.05.006",
+      "year": "2020",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Prediction of antimicrobial peptides toxicity based on their physico-chemical properties using machine learning techniques",
+      "pmid": "34758751",
+      "pmcid": "PMC8582201",
+      "doi": "10.1186/s12859-021-04468-y",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "CalcAMP: A New Machine Learning Model for the Accurate Prediction of Antimicrobial Activity of Peptides",
+      "pmid": "37107088",
+      "pmcid": "PMC10135148",
+      "doi": "10.3390/antibiotics12040725",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "Unnamed AMP predictor from DRAMP 2.0",
+      "canonical_name": "DRAMP_ML_model",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Machine learning model based on 3D descriptors (specific algorithm not named)",
+      "input_features": "3D descriptors",
+      "source_pmid": "31409791",
+      "source_pmcid": "PMC6692298",
+      "source_doi": "10.1038/s41597-019-0154-y",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "DRAMP database (http://dramp.cpu-bioinfor.org/)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Described as a predictive classifier for AMPs, with reported performance, but lacks name and public code; may be available in future DRAMP updates.",
+      "blocking_issues": [
+        "Model name not provided",
+        "No code or web server link available",
+        "Not yet integrated into DRAMP as stated"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "Deep-AmPEP30",
+      "canonical_name": "Deep-AmPEP30",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional Neural Network (CNN) with PseKRAAC reduced amino acid composition features",
+      "input_features": "PseKRAAC reduced amino acid composition (86 features from five-best clusters)",
+      "source_pmid": "32464552",
+      "source_pmcid": "PMC7256447",
+      "source_doi": "10.1016/j.omtn.2020.05.006",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://cbbio.cis.um.edu.mo/AxPEP",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "Benchmark dataset of 188 samples (balanced); training set of 1529 positive samples from AMP databases (AmPEP, etc.)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Publicly available web server for short AMP prediction, including genome screening; strong experimental validation; suitable for benchmarking.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "AMP toxicity prediction model (hybrid)",
+      "canonical_name": "AMP_toxicity_predictor",
+      "aliases": [],
+      "task_type": "antimicrobial peptide toxicity prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Hybrid model combining SVC (RBF), Random Forest, etc., with feature selection",
+      "input_features": "Combination of physico-chemical and linguistic-based features (90 selected features including aggregation propensity, polar residue composition, etc.)",
+      "source_pmid": "34758751",
+      "source_pmcid": "PMC8582201",
+      "source_doi": "10.1186/s12859-021-04468-y",
+      "code_repository_url": "https://git.io/JRZaT",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "DBAASP database",
+      "benchmark_candidate": false,
+      "candidate_reason": "This model predicts AMP toxicity, not AMP identity. It is relevant for downstream filtering but not for direct AMP prediction benchmark.",
+      "blocking_issues": [
+        "Not an AMP prediction model",
+        "Focus on toxicity rather than antimicrobial activity classification"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "CalcAMP",
+      "canonical_name": "CalcAMP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Ensemble tree-based algorithms (CatBoost, LightGBM, XGBoost, Random Forest) with feature selection; separate models for Gram-positive and Gram-negative bacteria",
+      "input_features": "Amino acid composition (AAC), dipeptide composition (DPC), pseudo amino acid composition (PseAAC), composition-transition-distribution (CTD), global physicochemical descriptors",
+      "source_pmid": "37107088",
+      "source_pmcid": "PMC10135148",
+      "source_doi": "10.3390/antibiotics12040725",
+      "code_repository_url": "https://github.com/CDDLeiden/CalcAMP",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://doi.org/10.5281/zenodo.7588702",
+      "benchmark_candidate": true,
+      "candidate_reason": "Publicly available code and dataset; specific models for Gram+ and Gram-; uses experimentally validated non-AMPs as negatives; suitable for benchmarking.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    }
+  ],
+  "repositories": [
+    {
+      "name": "CalcAMP GitHub repository",
+      "url": "https://github.com/CDDLeiden/CalcAMP",
+      "repository_type": "code",
+      "matched_model_name": "CalcAMP",
+      "source_pmid": "37107088",
+      "source_doi": "10.3390/antibiotics12040725",
+      "evidence_level": "fulltext",
+      "evidence": "Code available at GitHub link provided in the paper."
+    },
+    {
+      "name": "Deep-AmPEP30 web server",
+      "url": "https://cbbio.cis.um.edu.mo/AxPEP",
+      "repository_type": "webserver",
+      "matched_model_name": "Deep-AmPEP30",
+      "source_pmid": "32464552",
+      "source_doi": "10.1016/j.omtn.2020.05.006",
+      "evidence_level": "fulltext",
+      "evidence": "Our method is available at https://cbbio.cis.um.edu.mo/AxPEP for both individual sequence prediction and genome screening for AMPs."
+    },
+    {
+      "name": "AMP toxicity prediction code",
+      "url": "https://git.io/JRZaT",
+      "repository_type": "code",
+      "matched_model_name": "AMP toxicity prediction model (hybrid)",
+      "source_pmid": "34758751",
+      "source_doi": "10.1186/s12859-021-04468-y",
+      "evidence_level": "fulltext",
+      "evidence": "The executable code is available at https://git.io/JRZaT."
+    },
+    {
+      "name": "DRAMP database website",
+      "url": "http://dramp.cpu-bioinfor.org/",
+      "repository_type": "webserver",
+      "matched_model_name": "Unnamed AMP predictor from DRAMP 2.0",
+      "source_pmid": "31409791",
+      "source_doi": "10.1038/s41597-019-0154-y",
+      "evidence_level": "fulltext",
+      "evidence": "DRAMP is an open-access comprehensive database... The website source code is also available on dedicatedly designed download webpage."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "DRAMP 2.0",
+      "dataset_url": "http://dramp.cpu-bioinfor.org/",
+      "dataset_source": "DRAMP database",
+      "linked_model": "Unnamed AMP predictor from DRAMP 2.0",
+      "source_pmid": "31409791",
+      "source_doi": "10.1038/s41597-019-0154-y",
+      "positive_samples": "19,899 AMP entries (5,084 general, 14,739 patent, 76 clinical)",
+      "negative_samples": "Not explicitly described; the database contains only AMPs",
+      "deduplication_method": "Compared with APD and CAMP; 70.56% non-overlapping sequences",
+      "evidence_level": "fulltext",
+      "evidence": "DRAMP 2.0 contains a total of 19,899 entries... contains 14,040 (70.56% in DRAMP) non-overlapping sequences with APD and CAMP."
+    },
+    {
+      "dataset_name": "CalcAMP dataset",
+      "dataset_url": "https://doi.org/10.5281/zenodo.7588702",
+      "dataset_source": "Custom built from public AMP data",
+      "linked_model": "CalcAMP",
+      "source_pmid": "37107088",
+      "source_doi": "10.3390/antibiotics12040725",
+      "positive_samples": "AMPs with activity below threshold; numbers not explicitly given",
+      "negative_samples": "Confirmed inactive peptides (Non-AMPs) above threshold",
+      "deduplication_method": "Not described",
+      "evidence_level": "fulltext",
+      "evidence": "We created a new data set composed exclusively of experimentally proven AMPs and Non-AMPs by setting an activity threshold... The dataset is available at https://doi.org/10.5281/zenodo.7588702."
+    },
+    {
+      "dataset_name": "DBAASP (for toxicity)",
+      "dataset_url": "https://dbaasp.org/",
+      "dataset_source": "DBAASP database",
+      "linked_model": "AMP toxicity prediction model (hybrid)",
+      "source_pmid": "34758751",
+      "source_doi": "10.1186/s12859-021-04468-y",
+      "positive_samples": "Toxic AMPs (based on HC50, CC50, MIC thresholds)",
+      "negative_samples": "Non-toxic AMPs",
+      "deduplication_method": "Records with unnatural residues or D-amino acids removed; concentration units converted",
+      "evidence_level": "fulltext",
+      "evidence": "Several AMP databases were considered... the DBAASP dataset was chosen. DBAASP provides access to latest experimental data of AMPs antimicrobial activity and toxicity."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "description": "Deep-AmPEP30: 77%; CalcAMP: ~81%; DRAMP ML model: 92.59% training, 100% test; toxicity model: not directly reported accuracy but recall/F1.",
+      "source_pmids": [
+        "32464552",
+        "37107088",
+        "31409791",
+        "34758751"
+      ],
+      "source_dois": [
+        "10.1016/j.omtn.2020.05.006",
+        "10.3390/antibiotics12040725",
+        "10.1038/s41597-019-0154-y",
+        "10.1186/s12859-021-04468-y"
+      ]
+    },
+    {
+      "metric_name": "AUC-ROC",
+      "description": "Deep-AmPEP30: 85%; toxicity model: 0.8835 before feature selection; CalcAMP: not explicitly reported.",
+      "source_pmids": [
+        "32464552",
+        "34758751"
+      ],
+      "source_dois": [
+        "10.1016/j.omtn.2020.05.006",
+        "10.1186/s12859-021-04468-y"
+      ]
+    },
+    {
+      "metric_name": "MCC",
+      "description": "Deep-AmPEP30: 0.54; DRAMP ML model: 0.84.",
+      "source_pmids": [
+        "32464552",
+        "31409791"
+      ],
+      "source_dois": [
+        "10.1016/j.omtn.2020.05.006",
+        "10.1038/s41597-019-0154-y"
+      ]
+    }
+  ],
+  "important_evidence": [
+    "Deep-AmPEP30 achieved 77% accuracy, AUC-ROC 85%, and was validated by genome screening of Candida glabrata, identifying a potent peptide P3 comparable to ampicillin.",
+    "CalcAMP provides separate models for Gram-positive and Gram-negative bacteria, with code and dataset publicly available; accuracy ~81%.",
+    "The unnamed AMP predictor from DRAMP 2.0 reported 92.59% training accuracy and 100% test accuracy but lacks a name, public code, or web server; integration into DRAMP is pending.",
+    "AMP toxicity prediction model (hybrid) achieved recall 0.876, F1 0.849, focusing on toxicity rather than AMP activity; code available."
+  ],
+  "uncertainties": [
+    "The unnamed AMP predictor from DRAMP 2.0 may have been integrated later; check DRAMP website for any prediction tool.",
+    "The AMP toxicity prediction model is not an AMP classifier but could be relevant for benchmark filtering; decide on inclusion policy.",
+    "Deep-AmPEP30 web server availability should be confirmed; the paper states it supports genome screening, but no code repository found.",
+    "CalcAMP provides separate models for Gram+ and Gram-; we need to decide how to handle them in a unified benchmark."
+  ],
+  "source_pmids": [
+    "31409791",
+    "32464552",
+    "34758751",
+    "37107088"
+  ],
+  "source_dois": [
+    "10.1038/s41597-019-0154-y",
+    "10.1016/j.omtn.2020.05.006",
+    "10.1186/s12859-021-04468-y",
+    "10.3390/antibiotics12040725"
+  ],
+  "urls": [
+    "http://dramp.cpu-bioinfor.org/",
+    "https://cbbio.cis.um.edu.mo/AxPEP",
+    "https://git.io/JRZaT",
+    "https://github.com/CDDLeiden/CalcAMP",
+    "https://doi.org/10.5281/zenodo.7588702",
+    "https://dbaasp.org/"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41197436",
+    "pmid": "41197436"
+  },
+  "pmid": "41197436",
+  "pmcid": "PMC12637048",
+  "doi": "10.1016/j.identj.2025.103986",
+  "title": "Graph-Contrastive Convolutional Neural Network for Extracting and Classifying Peptide-Based Periodontal Immunomodulatory and Anti-Inflammatory Signatures.",
+  "abstract": "<h4>Introduction</h4>Periodontitis is a chronic inflammatory disease that occurs when the body's immune system fails to respond properly to microbial biofilms. Peptides exhibiting anti-inflammatory and immunomodulatory properties are promising as biomarkers and therapeutic agents; however, identifying functional peptide signatures remains a significant challenge due to sequence variability and limited data availability. The aim of this study was to develop a graph-contrastive convolutional neural network (GCCNN) framework for accurately categorizing periodontitis-related peptides into immunomodulatory and anti-inflammatory classes, to enhance model interpretability, and facilitate customized peptide-based therapies.<h4>Methods</h4>In this research, we introduce a Graph-Contrastive Convolutional Neural Network (GCCNN) framework for classifying peptide sequences relevant to periodontal health into anti-inflammatory peptides (AIPs) and immunomodulatory peptides (IMPs). Our model combines a 1D CNN encoder with SimCLR-style contrastive learning to obtain motif-level representations from peptide sequences that remain unchanged. To fix a big class imbalance, pre-trained representations are fine-tuned using supervised learning with class-weighted binary cross-entropy.<h4>Results</h4>On a curated peptide dataset, GCCNN performed well with AIPs (F1 = 0.94, ROC-AUC = 0.98), but struggled to generalize IMP predictions due to insufficient data (F1 = 0.04, ROC-AUC = 0.54). Using t-SNE to visualize the latent space revealed that AIP clusters were closely grouped, whereas IMP embeddings were more widely dispersed. SHAP-based interpretation revealed conserved sequence motifs that contribute to AIP predictions, highlighting the model's transparency.<h4>Conclusion</h4>This study demonstrates the effectiveness of contrastive learning for peptide signature extraction and provides a foundation for improving minority-class peptide classification in biomedical sequence tasks.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Natarajan PM",
+    "Yadalam PK",
+    "V SD."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1016/j.identj.2025.103986",
+    "https://pubmed.ncbi.nlm.nih.gov/41197436/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12637048/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_ampscanner_v2",
+  "query_text": "\"AMPScanner v2\"",
+  "candidate_key": "doi:10 1016 j identj 2025 103986"
+}

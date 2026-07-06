@@ -1,0 +1,37 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1220605",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.03.06.710241",
+  "title": "InversePep: Diffusion-Driven Structure-Based Inverse Folding for Functional Peptides",
+  "abstract": "<h4>Design: </h4> ing functional peptides with specific structural and biochemical properties is critical for applications in protein engineering and therapeutic discovery. However, most peptide design approaches rely on evolutionary or local sequence optimization methods, which are limited when adapting to peptides’ shorter length, high conformational flexibility, and unique physicochemical constraints. While recent structure-based inverse folding models have shown success for proteins, these models often underperform on peptides because sequence recovery alone is not a reliable indicator of stability or foldability in short, flexible backbones. To address this challenge, we introduce InversePep, a generative diffusion model for structure-based peptide inverse folding. InversePep learns the conditional distribution of sequences that can adopt a given backbone conformation, enabling direct generation of peptides tailored to target structural geometries. The framework integrates a geometric graph neural network to encode 3D backbone features with a Transformer-based sequence refinement module that iteratively denoises candidate sequences during diffusion. Trained on a diverse set of peptide backbones sourced from Propedia and SATPdb, InversePep effectively captures structural and biochemical diversity across peptide families. In systematic evaluations on held-out peptide structures and the PepBDB benchmark, InversePep achieves a mean TM score of 0.38 and a median of 0.28, outperforming ProteinMPNN and ESM-IF1 in generating geometry-consistent peptide sequences. In-silico folding analyses confirm that sampled peptides reliably adopt the target conformations. These results highlight InversePep’s capability for designing structurally stable and sequence-diverse peptides, demonstrating its potential in antimicrobial peptide discovery, peptide therapeutics, and molecular probe development.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Chilakamarri SK",
+    "Kasturi SR",
+    "Yerrabandla SPR",
+    "Gogte S",
+    "Kondaparthi V."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.03.06.710241"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "preprints only",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR model) AND SRC:PPR",
+  "candidate_key": "doi:10 64898 2026 03 06 710241"
+}

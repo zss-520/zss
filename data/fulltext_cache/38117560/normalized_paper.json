@@ -1,0 +1,51 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "38117560"
+  },
+  "pmid": "38117560",
+  "pmcid": "PMC7859180",
+  "doi": "10.1038/s41598-021-82465-0",
+  "title": "The impact of gut microbiome enterotypes on ulcerative colitis: identifying key bacterial species and revealing species co-occurrence networks using machine learning.",
+  "abstract": "Ulcerative colitis (UC) is a chronic inflammatory intestinal disease affecting the colon and rectum, with its pathogenesis attributed to genetic background, environmental factors, and gut microbes. This study aimed to investigate the role of enterotypes in UC by conducting a hierarchical analysis, determining differential bacteria using machine learning, and performing Species Co-occurrence Network (SCN) analysis. Fecal bacterial data were collected from UC patients, and a 16S rRNA metagenomic analysis was performed using the QIIME2 bioinformatics pipeline. Enterotype clustering was conducted at the family level, and deep neural network (DNN) classification models were trained for UC and healthy controls (HC) in each enterotype. Results from eleven 16S rRNA gut microbiome datasets revealed three enterotypes: Bacteroidaceae (ET-B), Lachnospiraceae (ET-L), and Clostridiaceae (ET-C). Ruminococcus (R. gnavus) abundance was significantly higher in UC subjects with ET-B and ET-C than in those with ET-L. R. gnavus also showed a positive correlation with Clostridia in UC SCN for ET-B and ET-C subjects, with a higher correlation in ET-C subjects. Conversely, Odoribacter (O.) splanchnicus and Bacteroides (B.) uniformis exhibited a positive correlation with tryptophan metabolism and AMP-activated protein kinase (AMPK) signaling pathways, while R. gnavus showed a negative correlation. In vitro co-culture experiments with Clostridium (C.) difficile demonstrated that fecal microbiota from ET-B subjects had a higher abundance of C. difficile than ET-L subjects. In conclusion, the ET-B enterotype predisposes individuals to UC, with R. gnavus as a potential risk factor and O. splanchnicus and B. uniformis as protective bacteria, and those with UC may have ultimately become ET-C.",
+  "journal": "Gut microbes",
+  "venue": "Gut microbes",
+  "year": 2024,
+  "authors": [
+    "Xuangao Wu",
+    "Ting Zhang",
+    "TianShun Zhang",
+    "Sunmin Park"
+  ],
+  "keywords": [
+    "B. uniformis",
+    "O. splanchnicus",
+    "R. gnavus",
+    "Ulcerative colitis",
+    "co-occurrence network",
+    "enterotypes",
+    "gut microbiome",
+    "machine learning"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "33536501",
+    "pmc": "PMC7859180",
+    "doi": "10.1038/s41598-021-82465-0"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/38117560/",
+    "https://doi.org/10.1038/s41598-021-82465-0",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7859180/"
+  ],
+  "raw_source_files": [],
+  "query_name": "high recall prediction models",
+  "query_text": "(\"antimicrobial peptide\" OR \"AMP\" OR \"antimicrobial peptides\") AND (predict* OR model* OR machine learning OR deep learning OR classifier OR neural network)",
+  "candidate_key": "doi:10 1038 s41598 021 82465 0"
+}

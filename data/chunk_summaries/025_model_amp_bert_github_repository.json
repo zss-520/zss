@@ -1,0 +1,239 @@
+{
+  "chunk_id": "model_amp_bert_github_repository",
+  "chunk_type": "model",
+  "chunk_name": "AMP-BERT GitHub repository",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP-BERT",
+    "COMDEL",
+    "Screening antimicrobial peptides and probiotics using multiple deep learning and directed evolution strategies",
+    "AMP-BERT: Prediction of antimicrobial peptide function based on a BERT model",
+    "Discovery of naturally inspired antimicrobial peptides using deep learning",
+    "Recent Progress in the Discovery and Design of Antimicrobial Peptides Using Traditional Machine Learning and Deep Learning"
+  ],
+  "papers": [
+    {
+      "title": "Screening antimicrobial peptides and probiotics using multiple deep learning and directed evolution strategies.",
+      "pmid": "39234615",
+      "pmcid": "PMC2935846",
+      "doi": "10.1016/j.apsb.2024.05.003",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "AMP-BERT: Prediction of antimicrobial peptide function based on a BERT model.",
+      "pmid": "36461699",
+      "pmcid": "PMC3765848",
+      "doi": "10.1002/pro.4529",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Discovery of naturally inspired antimicrobial peptides using deep learning.",
+      "pmid": "40209356",
+      "pmcid": "PMC13161480",
+      "doi": "10.1016/j.bioorg.2025.108444",
+      "year": "2025",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Recent Progress in the Discovery and Design of Antimicrobial Peptides Using Traditional Machine Learning and Deep Learning.",
+      "pmid": "36290108",
+      "pmcid": "PMC7326367",
+      "doi": "10.1038/s42256-019-0138-9",
+      "year": "2022",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "COMDEL",
+      "canonical_name": "COMDEL",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Comparing and Optimizing Multiple DEep Learning (COMDEL) algorithms",
+      "input_features": "peptide sequences (implied)",
+      "source_pmid": "39234615",
+      "source_pmcid": "PMC2935846",
+      "source_doi": "10.1016/j.apsb.2024.05.003",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel deep learning AMP prediction model with reported test accuracy (94.8%), suitable for benchmarking.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "AMP-BERT",
+      "canonical_name": "AMP-BERT",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "fine-tuned BERT (Bidirectional Encoder Representations from Transformers)",
+      "input_features": "peptide sequences",
+      "source_pmid": "36461699",
+      "source_pmcid": "PMC3765848",
+      "source_doi": "10.1002/pro.4529",
+      "code_repository_url": "https://github.com/GIST-CSBL/AMP-BERT",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/GIST-CSBL/AMP-BERT",
+      "benchmark_candidate": true,
+      "candidate_reason": "Publicly available code and dataset, BERT-based deep learning model, strong performance in external test, ideal for benchmark.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMP-BERT GitHub repository",
+      "url": "https://github.com/GIST-CSBL/AMP-BERT",
+      "repository_type": "code",
+      "matched_model_name": "AMP-BERT",
+      "source_pmid": "36461699",
+      "source_doi": "10.1002/pro.4529",
+      "evidence_level": "fulltext",
+      "evidence": "Abstract states code and dataset are publicly available at the GitHub link."
+    },
+    {
+      "name": "treexplainer-study",
+      "url": "https://github.com/suinleelab/treexplainer-study",
+      "repository_type": "code",
+      "matched_model_name": null,
+      "source_pmid": "36290108",
+      "source_doi": "10.1038/s42256-019-0138-9",
+      "evidence_level": "fulltext",
+      "evidence": "Mentioned in review paper."
+    },
+    {
+      "name": "LightGBM",
+      "url": "https://github.com/Microsoft/LightGBM",
+      "repository_type": "code",
+      "matched_model_name": null,
+      "source_pmid": "36290108",
+      "source_doi": "10.1038/s42256-019-0138-9",
+      "evidence_level": "fulltext",
+      "evidence": "Mentioned in review paper."
+    },
+    {
+      "name": "shap",
+      "url": "https://github.com/slundberg/shap",
+      "repository_type": "code",
+      "matched_model_name": null,
+      "source_pmid": "36290108",
+      "source_doi": "10.1038/s42256-019-0138-9",
+      "evidence_level": "fulltext",
+      "evidence": "Mentioned in review paper."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AMP-BERT dataset",
+      "dataset_url": "https://github.com/GIST-CSBL/AMP-BERT",
+      "dataset_source": "AMP-BERT GitHub repository",
+      "linked_model": "AMP-BERT",
+      "source_pmid": "36461699",
+      "source_doi": "10.1002/pro.4529",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "fulltext",
+      "evidence": "Code and dataset are available together at the GitHub link mentioned in the abstract."
+    },
+    {
+      "dataset_name": "treexplainer-study",
+      "dataset_url": "https://github.com/suinleelab/treexplainer-study",
+      "dataset_source": "review paper",
+      "linked_model": null,
+      "source_pmid": "36290108",
+      "source_doi": "10.1038/s42256-019-0138-9",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "fulltext",
+      "evidence": "Listed in review paper alongside code repositories."
+    },
+    {
+      "dataset_name": "LightGBM",
+      "dataset_url": "https://github.com/Microsoft/LightGBM",
+      "dataset_source": "review paper",
+      "linked_model": null,
+      "source_pmid": "36290108",
+      "source_doi": "10.1038/s42256-019-0138-9",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "fulltext",
+      "evidence": "Listed in review paper alongside code repositories."
+    },
+    {
+      "dataset_name": "shap",
+      "dataset_url": "https://github.com/slundberg/shap",
+      "dataset_source": "review paper",
+      "linked_model": null,
+      "source_pmid": "36290108",
+      "source_doi": "10.1038/s42256-019-0138-9",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "fulltext",
+      "evidence": "Listed in review paper alongside code repositories."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Test accuracy of COMDEL model",
+      "source_pmid": "39234615",
+      "source_doi": "10.1016/j.apsb.2024.05.003",
+      "evidence": "Abstract: 'reaching an accuracy of 94.8% in test'"
+    }
+  ],
+  "important_evidence": [
+    "AMP-BERT code and dataset publicly available at https://github.com/GIST-CSBL/AMP-BERT",
+    "COMDEL achieves 94.8% test accuracy",
+    "Both models are strong benchmarking candidates for AMP prediction"
+  ],
+  "uncertainties": [
+    "PMC IDs for some papers may be incorrect (e.g., PMC2935846 for COMDEL paper, PMC3765848 for AMP-BERT paper)",
+    "Model weights for AMP-BERT not available",
+    "Repositories/datasets associated with the review paper (treexplainer, LightGBM, shap) are not directly linked to benchmark models"
+  ],
+  "source_pmids": [
+    "39234615",
+    "36461699",
+    "40209356",
+    "36290108"
+  ],
+  "source_dois": [
+    "10.1016/j.apsb.2024.05.003",
+    "10.1002/pro.4529",
+    "10.1016/j.bioorg.2025.108444",
+    "10.1038/s42256-019-0138-9"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/39234615/",
+    "https://doi.org/10.1016/j.apsb.2024.05.003",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2935846/",
+    "https://pubmed.ncbi.nlm.nih.gov/36461699/",
+    "https://doi.org/10.1002/pro.4529",
+    "https://github.com/GIST-CSBL/AMP-BERT",
+    "https://pubmed.ncbi.nlm.nih.gov/40209356/",
+    "https://doi.org/10.1016/j.bioorg.2025.108444",
+    "https://pubmed.ncbi.nlm.nih.gov/36290108/",
+    "https://doi.org/10.1038/s42256-019-0138-9",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7326367/",
+    "https://github.com/suinleelab/treexplainer-study",
+    "https://github.com/Microsoft/LightGBM",
+    "https://github.com/slundberg/shap"
+  ]
+}

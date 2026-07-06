@@ -1,0 +1,833 @@
+{
+  "chunk_id": "model_amp_gan",
+  "chunk_type": "model",
+  "chunk_name": "amp_gan",
+  "compression_status": "ok",
+  "main_entities": [
+    "AI4AVP",
+    "GAC-BiTCNN-AMP",
+    "CVAE-BIO",
+    "HydrAMP",
+    "AMPGAN",
+    "Macrel",
+    "iAMPpred",
+    "AntiBP",
+    "AMPlify",
+    "E-CLEAP",
+    "UniproLcad",
+    "TriStack",
+    "iAMP-DL",
+    "amp-gan",
+    "AVPIden",
+    "ADAM",
+    "ampsphere"
+  ],
+  "papers": [
+    {
+      "title": "Design methods for antimicrobial peptides with improved performance.",
+      "pmid": "37914524",
+      "pmcid": "PMC4262413",
+      "doi": "10.1371/journal.pone.0114605",
+      "year": "2023",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Repositioning Antimicrobial Peptides Against WHO-Priority Fungi.",
+      "pmid": "40884276",
+      "pmcid": "PMC7657096",
+      "doi": "10.1002/advs.202509567",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial peptides with cell-penetrating activity as prophylactic and treatment drugs.",
+      "pmid": "36052730",
+      "pmcid": "PMC7937881",
+      "doi": "10.3389/fmicb.2021.616979",
+      "year": "2022",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Review and perspective on bioinformatics tools using machine learning and deep learning for predicting antiviral peptides.",
+      "pmid": "37626205",
+      "pmcid": "9710571",
+      "doi": "10.1109/JBHI.2021.3130825",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "A generative explainable model for antimicrobial peptide prediction using bidirectional temporal convolutional neural network.",
+      "pmid": "41844874",
+      "pmcid": "PMC13128923",
+      "doi": "10.1038/s41598-026-43370-6",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Biochemical-knowledge-driven machine learning pipeline for generating potent antimicrobial peptides.",
+      "pmid": "41849223",
+      "pmcid": "PMC12998437",
+      "doi": "10.1093/bib/bbag115",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Harnessing Machine Learning Approaches for the Identification, Characterization, and Optimization of Novel Antimicrobial Peptides.",
+      "pmid": "41463765",
+      "pmcid": "PMC12730010",
+      "doi": "10.3390/antibiotics14121263",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Artificial Intelligence-Driven Discovery and Optimization of Antimicrobial Peptides Targeting ESKAPE Pathogens and Multidrug-Resistant Fungi.",
+      "pmid": "41900351",
+      "pmcid": "PMC13029496",
+      "doi": "10.3390/microorganisms14030591",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Progress in the Identification and Design of Novel Antimicrobial Peptides Against Pathogenic Microorganisms",
+      "pmid": "39557756",
+      "pmcid": "PMC11925980",
+      "doi": "10.1007/s12602-024-10402-4",
+      "year": "2024",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "AMPlify: attentive deep learning model for discovery of novel antimicrobial peptides effective against WHO priority pathogens",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.21203/rs.3.rs-120780/v1",
+      "year": "2020",
+      "role": "original_model_paper",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "not_reported_in_available_evidence",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.3390/ijms24043852",
+      "year": "",
+      "role": "review_or_secondary",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "not_reported_in_available_evidence",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.3390/biom10111473",
+      "year": "",
+      "role": "review_or_secondary",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AI4AVP",
+      "canonical_name": "AI4AVP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "CNN with three blocks; PC6 encoding; WGAN-GP data augmentation",
+      "input_features": "peptide amino acid sequences (10-50 aa), PC6 or descriptor encoding",
+      "source_pmid": "37626205",
+      "source_pmcid": "9710571",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "code_repository_url": "https://github.com/LinTzuTang/AI4AVP_predictor",
+      "web_server_url": "http://axp.iis.sinica.edu.tw/AI4AVP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/LinTzuTang/AI4AVP_predictor (APD3, DRAMP, YADAMP, DBAASP, CAMP, AVPdb, UniProt/SwissProt)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning antiviral peptide predictor, open-source, web server available",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "GAC-BiTCNN-AMP",
+      "canonical_name": "GAC-BiTCNN-AMP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "GAN + CapsNet + BiTCNN, ProtTrans-T5/UniRep/ESM-2/PsePSSM-DCT embeddings, XGBoost feature selection",
+      "input_features": "amino acid sequences, embeddings",
+      "source_pmid": "41844874",
+      "source_pmcid": "PMC13128923",
+      "source_doi": "10.1038/s41598-026-43370-6",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP prediction model, reported independent test performance, full text available",
+      "blocking_issues": [
+        "code not reported"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "CVAE-BIO",
+      "canonical_name": "CVAE-BIO",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML/DL",
+      "architecture_or_algorithm": "Conditional VAE for generation, Random Forest classifier on 30 biochemical descriptors",
+      "input_features": "amino acid sequences, biochemical properties (net charge, hydrophobicity, etc.)",
+      "source_pmid": "41849223",
+      "source_pmcid": "PMC12998437",
+      "source_doi": "10.1093/bib/bbag115",
+      "code_repository_url": "https://github.com/scan2030",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "APD3 (http://aps.unmc.edu/)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Multi-module pipeline with AMP classifier; experimental validation",
+      "blocking_issues": [
+        "code availability unclear"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.85
+    },
+    {
+      "model_name": "HydrAMP",
+      "canonical_name": "HydrAMP",
+      "aliases": [],
+      "task_type": "AMP prediction / generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "VAE",
+      "input_features": "peptide sequences",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "VAE-based AMP model mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4
+    },
+    {
+      "model_name": "AMPGAN",
+      "canonical_name": "AMPGAN",
+      "aliases": [
+        "AMP-GAN",
+        "AMPGAN v2"
+      ],
+      "task_type": "AMP generation / prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "GAN",
+      "input_features": "peptide sequences",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "GAN-based AMP model mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest",
+      "input_features": "biochemical descriptors",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "RF-based AMP predictor mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "iAMPpred",
+      "canonical_name": "iAMPpred",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "SVM",
+      "input_features": "sequence-based features",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "SVM-based AMP predictor mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "AntiBP",
+      "canonical_name": "AntiBP",
+      "aliases": [
+        "antibp"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "SVM",
+      "input_features": "sequence-based features",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://www.imtech.res.in/raghava/antibp/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "SVM-based AMP predictor mentioned in review; web server available; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "AMPlify",
+      "canonical_name": "AMPlify",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "attentive deep learning",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.21203/rs.3.rs-120780/v1",
+      "code_repository_url": "https://github.com/bcgsc/AMPlify",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMPlify preprint; code available; needs full text verification",
+      "blocking_issues": [
+        "preprint not yet peer-reviewed, full text verification needed"
+      ],
+      "evidence_level": "search_result",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "E-CLEAP",
+      "canonical_name": "E-CLEAP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "https://github.com/Wangsicheng52/E-CLEAP",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in review with GitHub; needs original paper verification",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "UniproLcad",
+      "canonical_name": "UniproLcad",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "https://github.com/harkic/UniproLcad",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in review with GitHub; needs original paper verification",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "TriStack",
+      "canonical_name": "TriStack",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "https://github.com/hjy23/TriStack",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in review with GitHub; needs original paper verification",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "iAMP-DL",
+      "canonical_name": "iAMP-DL",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "https://github.com/mldlproject/2022-iAMP-DL",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in review with GitHub; needs original paper verification",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "amp-gan",
+      "canonical_name": "amp-gan",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "GAN",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "https://gitlab.com/vail-uvm/amp-gan",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in review as AMP model with GitLab; needs original paper verification",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "AVPIden",
+      "canonical_name": "AVPIden",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "web-server",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://awi.cuhk.edu.cn/AVPIden/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Web server for AMP identification mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.6
+    },
+    {
+      "model_name": "ADAM",
+      "canonical_name": "ADAM",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "web-server",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://bioinformatics.cs.ntou.edu.tw/ADAM",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Web server for AMP prediction mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.6
+    },
+    {
+      "model_name": "ampsphere",
+      "canonical_name": "ampsphere",
+      "aliases": [],
+      "task_type": "AMP prediction / database",
+      "method_family": "web-server",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "39557756",
+      "source_pmcid": "PMC11925980",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://ampsphere.big-data-biology.org/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Web server/database mentioned in review; needs original paper",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.6
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AI4AVP_predictor",
+      "url": "https://github.com/LinTzuTang/AI4AVP_predictor",
+      "repository_type": "code",
+      "matched_model_name": "AI4AVP",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence_level": "fulltext",
+      "evidence": "AVP predictor CNN code available at https://github.com/LinTzuTang/AI4AVP_predictor."
+    },
+    {
+      "name": "amp_gan",
+      "url": "https://github.com/lsbnb/amp_gan",
+      "repository_type": "code",
+      "matched_model_name": "AI4AVP",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence_level": "fulltext",
+      "evidence": "GAN code for peptide generation available at https://github.com/lsbnb/amp_gan."
+    },
+    {
+      "name": "AI4AVP_web_server",
+      "url": "http://axp.iis.sinica.edu.tw/AI4AVP/",
+      "repository_type": "webserver",
+      "matched_model_name": "AI4AVP",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence_level": "fulltext",
+      "evidence": "AI4AVP is freely accessible at http://axp.iis.sinica.edu.tw/AI4AVP/."
+    },
+    {
+      "name": "scan2030 (potential CVAE-BIO code)",
+      "url": "https://github.com/scan2030",
+      "repository_type": "code",
+      "matched_model_name": "CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence_level": "fulltext",
+      "evidence": "Linked as dataset_url or code repository; unclear if contains full pipeline."
+    },
+    {
+      "name": "E-CLEAP",
+      "url": "https://github.com/Wangsicheng52/E-CLEAP",
+      "repository_type": "code",
+      "matched_model_name": "E-CLEAP",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "GitHub link extracted from review."
+    },
+    {
+      "name": "UniproLcad",
+      "url": "https://github.com/harkic/UniproLcad",
+      "repository_type": "code",
+      "matched_model_name": "UniproLcad",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "GitHub link extracted from review."
+    },
+    {
+      "name": "TriStack",
+      "url": "https://github.com/hjy23/TriStack",
+      "repository_type": "code",
+      "matched_model_name": "TriStack",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "GitHub link extracted from review."
+    },
+    {
+      "name": "iAMP-DL",
+      "url": "https://github.com/mldlproject/2022-iAMP-DL",
+      "repository_type": "code",
+      "matched_model_name": "iAMP-DL",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "GitHub link extracted from review."
+    },
+    {
+      "name": "amp-gan",
+      "url": "https://gitlab.com/vail-uvm/amp-gan",
+      "repository_type": "code",
+      "matched_model_name": "amp-gan",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "GitLab link extracted from review."
+    },
+    {
+      "name": "AVPIden_web_server",
+      "url": "http://awi.cuhk.edu.cn/AVPIden/",
+      "repository_type": "webserver",
+      "matched_model_name": "AVPIden",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "Web server URL extracted from review."
+    },
+    {
+      "name": "ADAM_web_server",
+      "url": "http://bioinformatics.cs.ntou.edu.tw/ADAM",
+      "repository_type": "webserver",
+      "matched_model_name": "ADAM",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "Web server URL extracted from review."
+    },
+    {
+      "name": "antibp_web_server",
+      "url": "http://www.imtech.res.in/raghava/antibp/",
+      "repository_type": "webserver",
+      "matched_model_name": "AntiBP",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "Web server URL extracted from review."
+    },
+    {
+      "name": "ampsphere_web_server",
+      "url": "https://ampsphere.big-data-biology.org/",
+      "repository_type": "webserver",
+      "matched_model_name": "ampsphere",
+      "source_pmid": "39557756",
+      "source_doi": "10.1007/s12602-024-10402-4",
+      "evidence_level": "review",
+      "evidence": "Web server URL extracted from review."
+    },
+    {
+      "name": "AMPlify",
+      "url": "https://github.com/bcgsc/AMPlify",
+      "repository_type": "code",
+      "matched_model_name": "AMPlify",
+      "source_pmid": "",
+      "source_doi": "10.21203/rs.3.rs-120780/v1",
+      "evidence_level": "search_result",
+      "evidence": "GitHub link from review or metadata."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AI4AVP_dataset",
+      "dataset_url": "https://github.com/LinTzuTang/AI4AVP_predictor",
+      "dataset_source": "APD3, DRAMP, YADAMP, DBAASP, CAMP, AVPdb, UniProt/SwissProt",
+      "linked_model": "AI4AVP",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "positive_samples": "2934 AVPs",
+      "negative_samples": "17184 non-AVP peptides",
+      "deduplication_method": "CD-HIT at 95% identity",
+      "evidence_level": "fulltext",
+      "evidence": "AVP sequence sets collected from multiple databases, cleaned to create non-redundant set."
+    },
+    {
+      "dataset_name": "APD3",
+      "dataset_url": "http://aps.unmc.edu/",
+      "dataset_source": "Antimicrobial Peptide Database",
+      "linked_model": "CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "CVAE-BIO trained on APD3 peptides with activity against E. coli."
+    },
+    {
+      "dataset_name": "scan2030",
+      "dataset_url": "https://github.com/scan2030",
+      "dataset_source": "unknown",
+      "linked_model": "CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence_level": "repository",
+      "evidence": "GitHub user profile; may contain dataset."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "Reported along with precision, sensitivity, specificity, MCC."
+    },
+    {
+      "metric_name": "precision",
+      "usage": "AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "Reported."
+    },
+    {
+      "metric_name": "sensitivity",
+      "usage": "AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "Reported."
+    },
+    {
+      "metric_name": "specificity",
+      "usage": "AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "Reported."
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "Reported."
+    },
+    {
+      "metric_name": "Accuracy",
+      "usage": "GAC-BiTCNN-AMP cross-validation and independent test",
+      "source_pmid": "41844874",
+      "source_doi": "10.1038/s41598-026-43370-6",
+      "evidence": "CV 97.42%, independent test 95.32%."
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "GAC-BiTCNN-AMP cross-validation and independent test",
+      "source_pmid": "41844874",
+      "source_doi": "10.1038/s41598-026-43370-6",
+      "evidence": "CV 0.923, independent test 0.914."
+    },
+    {
+      "metric_name": "AUROC",
+      "usage": "CVAE-BIO RF classifier",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence": "0.793 (95% CI 0.740-0.834)."
+    },
+    {
+      "metric_name": "AUPRC",
+      "usage": "CVAE-BIO RF classifier",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence": "0.634 (95% CI 0.545-0.732)."
+    }
+  ],
+  "important_evidence": [
+    "AI4AVP: CNN + WGAN-GP data augmentation, open-source, web server, trained on 2934 AVPs, augmented to 16995 positives.",
+    "GAC-BiTCNN-AMP: hybrid GAN-CapsNet-BiTCNN, high accuracy (97.42% CV, 95.32% independent test), but no code or dataset reported.",
+    "CVAE-BIO: conditional VAE + RF classifier, wet-lab validation (18.5% active at MIC≤10 μg/mL), code unclear.",
+    "Multiple candidates from reviews: HydrAMP, AMPGAN, Macrel, iAMPpred, AntiBP, E-CLEAP, UniproLcad, TriStack, iAMP-DL, amp-gan, AVPIden, ADAM, ampsphere; most need original paper verification.",
+    "AMPlify: attentive DL model, preprint, GitHub code available."
+  ],
+  "uncertainties": [
+    "GAC-BiTCNN-AMP: code repository and dataset source not reported.",
+    "CVAE-BIO: GitHub link (scan2030) may not contain the full pipeline; model weights not available.",
+    "HydrAMP, AMPGAN, Macrel, iAMPpred, AntiBP: only mentioned in review, original papers not verified.",
+    "E-CLEAP, UniproLcad, TriStack, iAMP-DL, amp-gan, AVPIden, ADAM, ampsphere: only mentioned in review PMID 39557756, original papers not verified.",
+    "AMPlify: preprint status, need peer-reviewed publication verification.",
+    "Two papers with DOIs 10.3390/ijms24043852 and 10.3390/biom10111473 have missing metadata."
+  ],
+  "source_pmids": [
+    "37914524",
+    "40884276",
+    "36052730",
+    "37626205",
+    "41844874",
+    "41849223",
+    "41463765",
+    "41900351",
+    "39557756"
+  ],
+  "source_dois": [
+    "10.1371/journal.pone.0114605",
+    "10.1002/advs.202509567",
+    "10.3389/fmicb.2021.616979",
+    "10.1109/JBHI.2021.3130825",
+    "10.1038/s41598-026-43370-6",
+    "10.1093/bib/bbag115",
+    "10.3390/antibiotics14121263",
+    "10.3390/microorganisms14030591",
+    "10.1007/s12602-024-10402-4",
+    "10.21203/rs.3.rs-120780/v1",
+    "10.3390/ijms24043852",
+    "10.3390/biom10111473"
+  ],
+  "urls": [
+    "https://github.com/LinTzuTang/AI4AVP_predictor",
+    "https://github.com/lsbnb/amp_gan",
+    "http://axp.iis.sinica.edu.tw/AI4AVP/",
+    "https://github.com/scan2030",
+    "https://github.com/Wangsicheng52/E-CLEAP",
+    "https://github.com/harkic/UniproLcad",
+    "https://github.com/hjy23/TriStack",
+    "https://github.com/mldlproject/2022-iAMP-DL",
+    "https://gitlab.com/vail-uvm/amp-gan",
+    "http://awi.cuhk.edu.cn/AVPIden/",
+    "http://bioinformatics.cs.ntou.edu.tw/ADAM",
+    "http://www.imtech.res.in/raghava/antibp/",
+    "https://ampsphere.big-data-biology.org/",
+    "https://github.com/bcgsc/AMPlify",
+    "http://aps.unmc.edu/"
+  ]
+}

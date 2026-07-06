@@ -1,0 +1,58 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "35864258"
+  },
+  "pmid": "39196703",
+  "pmcid": "PMC4702905",
+  "doi": "10.1016/j.cub.2015.11.017",
+  "title": "Structure-aware deep learning model for peptide toxicity prediction.",
+  "abstract": "Antimicrobial resistance is a critical public health concern, necessitating the exploration of alternative treatments. While antimicrobial peptides (AMPs) show promise, assessing their toxicity using traditional wet lab methods is both time-consuming and costly. We introduce tAMPer, a novel multi-modal deep learning model designed to predict peptide toxicity by integrating the underlying amino acid sequence composition and the three-dimensional structure of peptides. tAMPer adopts a graph-based representation for peptides, encoding ColabFold-predicted structures, where nodes represent amino acids and edges represent spatial interactions. Structural features are extracted using graph neural networks, and recurrent neural networks capture sequential dependencies. tAMPer's performance was assessed on a publicly available protein toxicity benchmark and an AMP hemolysis data we generated. On the latter, tAMPer achieves an F1-score of 68.7%, outperforming the second-best method by 23.4%. On the protein benchmark, tAMPer exhibited an improvement of over 3.0% in the F1-score compared to current state-of-the-art methods. We anticipate tAMPer to accelerate AMP discovery and development by reducing the reliance on laborious toxicity screening experiments.",
+  "journal": "Protein science : a publication of the Protein Society",
+  "venue": "Protein science : a publication of the Protein Society",
+  "year": 2024,
+  "authors": [
+    "Hossein Ebrahimikondori",
+    "Darcy Sutherland",
+    "Anat Yanai",
+    "Amelia Richter",
+    "Ali Salehi",
+    "Chenkai Li",
+    "Lauren Coombe",
+    "Monica Kotkoff",
+    "René L Warren",
+    "Inanc Birol"
+  ],
+  "keywords": [
+    "3D structures",
+    "antimicrobial peptides",
+    "attention mechanism",
+    "graph neural networks",
+    "multi‐modal deep learning",
+    "tAMPer"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "26766224",
+    "pmc": "PMC4702905",
+    "doi": "10.1016/j.cub.2015.11.017"
+  },
+  "urls": [
+    "https://doi.org/10.1016/j.cub.2015.11.017",
+    "https://pubmed.ncbi.nlm.nih.gov/33384902/",
+    "https://pubmed.ncbi.nlm.nih.gov/35864258/",
+    "https://pubmed.ncbi.nlm.nih.gov/38988311/",
+    "https://pubmed.ncbi.nlm.nih.gov/39196703/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4702905/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5663234/"
+  ],
+  "raw_source_files": [],
+  "query_name": "high-recall-general",
+  "query_text": "(antimicrobial peptide* OR \"AMP\") AND (predict* OR classify OR classification OR model* OR machine learning OR deep learning OR neural network)",
+  "candidate_key": "doi:10 1016 j cub 2015 11 017"
+}

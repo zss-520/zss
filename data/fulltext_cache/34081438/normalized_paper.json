@@ -1,0 +1,40 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "34081438"
+  },
+  "pmid": "34081438",
+  "pmcid": "PMC13233393",
+  "doi": "10.1021/acs.jcim.1c00251",
+  "title": "Alignment-Free Antimicrobial Peptide Predictors: Improving Performance by a Thorough Analysis of the Largest Available Data Set.",
+  "abstract": "In the last two decades, a large number of machine-learning-based predictors for the activities of antimicrobial peptides (AMPs) have been proposed. These predictors differ from one another in the learning method and in the training and testing data sets used. Unfortunately, the training data sets present several drawbacks, such as a low representativeness regarding the experimentally validated AMP space, and duplicated peptide sequences between negative and positive data sets. These limitations give a low confidence to most of the approaches to be used in prospective studies. To address these weaknesses, we propose novel modeling and assessing data sets from the largest experimentally validated nonredundant peptide data set reported to date. From these novel data sets, alignment-free quantitative sequence-activity models (AF-QSAMs) based on Random Forest are created to identify general AMPs and their antibacterial, antifungal, antiparasitic, and antiviral functional types. An applicability domain analysis is carried out to determine the reliability of the predictions obtained, which, to the best of our knowledge, is performed for the first time for AMP recognition. A benchmarking is undertaken between the models proposed and several models from the literature that are freely available in 13 programs (ClassAMP, iAMP-2L, ADAM, MLAMP, AMPScanner v2.0, AntiFP, AMPfun, PEPred-suite, AxPEP, CAMPR3, iAMPpred, APIN, and Meta-iAVP). The models proposed are those with the best performance in all of the endpoints modeled, while most of the methods from the literature have weak-to-random predictive agreements. The models proposed are also assessed through Y-scrambling and repeated k-fold cross-validation tests, demonstrating that the outcomes obtained by them are not given by chance. Three chemometric analyses also confirmed the relevance of the peptides descriptors used in the modeling. Therefore, it can be concluded that the models built by fixing the drawbacks existing in the literature contribute to identifying antibacterial, antifungal, antiparasitic, and antiviral peptides with high effectivity and reliability. Models are freely available via the AMPDiscover tool at https://biocom-ampdiscover.cicese.mx/.",
+  "journal": "Journal of chemical information and modeling",
+  "venue": "Journal of chemical information and modeling",
+  "year": 2021,
+  "authors": [
+    "Sergio A Pinacho-Castellanos",
+    "César R García-Jacas",
+    "Michael K Gilson",
+    "Carlos A Brizuela"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "34081438",
+    "doi": "10.1021/acs.jcim.1c00251"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/34081438/",
+    "https://doi.org/10.1021/acs.jcim.1c00251"
+  ],
+  "raw_source_files": [],
+  "query_name": "benchmark-dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"data set\" OR evaluation)",
+  "candidate_key": "doi:10 1021 acs jcim 1c00251"
+}

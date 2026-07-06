@@ -1,0 +1,221 @@
+{
+  "chunk_id": "model_apex_1_1",
+  "chunk_type": "model",
+  "chunk_name": "APEX 1.1",
+  "compression_status": "ok",
+  "main_entities": [
+    "APEX model",
+    "ApexGO model",
+    "Venomics AI paper (PMID:39764027)",
+    "ApexGO paper (PMID:42206144)"
+  ],
+  "papers": [
+    {
+      "title": "Venomics AI: a computational exploration of global venoms for antibiotic discovery",
+      "pmid": "39764027",
+      "pmcid": "PMC11702808",
+      "doi": "10.1101/2024.12.17.628923",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "A generative artificial intelligence approach for peptide antibiotic optimization.",
+      "pmid": "42206144",
+      "pmcid": "PMC13201158",
+      "doi": "10.1038/s42256-026-01237-5",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "APEX",
+      "canonical_name": "APEX",
+      "aliases": [
+        "APEX 1.1"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "deep learning model combining a peptide-sequence encoder with neural networks for antimicrobial activity prediction (MIC prediction)",
+      "input_features": "peptide sequence",
+      "source_pmid": "39764027",
+      "source_pmcid": "PMC11702808",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning model for AMP activity (MIC) prediction; used for venomics screening with high hit rate.",
+      "blocking_issues": [
+        "Code and trained model not publicly available",
+        "Training data (in-house peptides) not publicly available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "mic_or_activity_regression_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Deep learning AMP MIC predictor with demonstrated venomics discovery success."
+    },
+    {
+      "model_name": "ApexGO",
+      "canonical_name": "ApexGO",
+      "aliases": [
+        "APEX generative optimization"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide optimization",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Transformer variational autoencoder (VAE) combined with Bayesian optimization (BO) and APEX predictor for antimicrobial activity optimization",
+      "input_features": "peptide sequence",
+      "source_pmid": "42206144",
+      "source_pmcid": "PMC13201158",
+      "source_doi": "10.1038/s42256-026-01237-5",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Generative AI model for AMP optimization; combines VAE with APEX predictor; high experimental hit rate.",
+      "blocking_issues": [
+        "Code and model not publicly available",
+        "APEX predictor weights not available",
+        "VAE training data details missing"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "generative_or_design_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Generative optimization model for AMPs using VAE and Bayesian optimization; strong experimental validation."
+    }
+  ],
+  "repositories": [],
+  "datasets": [
+    {
+      "dataset_name": "DBAASP",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Database of Antimicrobial Activity and Structure of Peptides",
+      "linked_model": "APEX",
+      "dataset_role": "unknown",
+      "dataset_status": "source_database_named",
+      "positive_samples": "19,762 known AMPs",
+      "negative_samples": "not specified",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "39764027",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "ConoServer",
+      "dataset_url": "https://www.conoserver.org/",
+      "dataset_source": "ConoServer",
+      "linked_model": "APEX",
+      "dataset_role": "external_test",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "Conopeptides (not all AMPs)",
+      "negative_samples": "not applicable",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "39764027",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "ArachnoServer",
+      "dataset_url": "https://arachnoserver.qfab.org/mainMenu.html",
+      "dataset_source": "ArachnoServer",
+      "linked_model": "APEX",
+      "dataset_role": "external_test",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "Spider proteins",
+      "negative_samples": "not applicable",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "39764027",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "ISOB",
+      "dataset_url": "https://www.snakebd.com/",
+      "dataset_source": "ISOB (Indigenous Snake Proteins)",
+      "linked_model": "APEX",
+      "dataset_role": "external_test",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "Snake proteins",
+      "negative_samples": "not applicable",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "39764027",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "VenomZone",
+      "dataset_url": "https://venomzone.expasy.org/",
+      "dataset_source": "VenomZone (UniProtKB)",
+      "linked_model": "APEX",
+      "dataset_role": "external_test",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "Venom proteins from six taxa",
+      "negative_samples": "not applicable",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "39764027",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [],
+  "metrics": [
+    {
+      "metric_name": "Experimental antimicrobial hit rate",
+      "usage": "Proportion of predicted peptides showing antimicrobial activity in vitro",
+      "source_pmid": "39764027",
+      "source_doi": "10.1101/2024.12.17.628923",
+      "evidence": "53 out of 58 synthesized VEPs (91.4%) exhibited activity against at least one pathogenic strain."
+    },
+    {
+      "metric_name": "Optimization success rate",
+      "usage": "Percentage of ApexGO-optimized peptides with enhanced antimicrobial activity against Gram-negative pathogens",
+      "source_pmid": "42206144",
+      "source_doi": "10.1038/s42256-026-01237-5",
+      "evidence": "ApexGO achieved an 85% ground-truth experimental hit rate and a 72% success rate in enhancing antimicrobial activity against Gram-negative pathogens."
+    }
+  ],
+  "important_evidence": [
+    "APEX predicted 386 VEPs from venom datasets; 58 synthesized; 53 active (91.4% hit rate); in vivo mouse model tested.",
+    "ApexGO optimized 10 template peptides; 100 synthesized; 85% experimental hit rate; 72% success in enhancing anti-Gram-negative activity; in vivo validation."
+  ],
+  "uncertainties": [
+    "No public code or weights for APEX or ApexGO.",
+    "APEX training data (in-house peptides) not described.",
+    "ApexGO VAE training data details missing.",
+    "DBAASP database link not provided in evidence."
+  ],
+  "source_pmids": [
+    "39764027",
+    "42206144"
+  ],
+  "source_dois": [
+    "10.1101/2024.12.17.628923",
+    "10.1038/s42256-026-01237-5"
+  ],
+  "urls": [
+    "https://www.biorxiv.org/content/biorxiv/early/2024/12/20/2024.12.17.628923.full.pdf",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13201158/",
+    "https://pubmed.ncbi.nlm.nih.gov/39764027",
+    "https://pubmed.ncbi.nlm.nih.gov/42206144/",
+    "https://doi.org/10.1101/2024.12.17.628923",
+    "https://doi.org/10.1038/s42256-026-01237-5",
+    "https://www.conoserver.org/",
+    "https://arachnoserver.qfab.org/mainMenu.html",
+    "https://www.snakebd.com/",
+    "https://venomzone.expasy.org/"
+  ]
+}

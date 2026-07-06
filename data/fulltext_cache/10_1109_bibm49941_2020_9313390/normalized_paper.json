@@ -1,0 +1,33 @@
+{
+  "source_primary": "semantic_scholar",
+  "sources": [
+    "semantic_scholar"
+  ],
+  "source_ids": {
+    "semantic_scholar": "71c38853f3ca571ec3fac0cbc6e7ff5d1df48d6f"
+  },
+  "semantic_scholar_id": "71c38853f3ca571ec3fac0cbc6e7ff5d1df48d6f",
+  "doi": "10.1109/BIBM49941.2020.9313390",
+  "pmid": null,
+  "pmcid": null,
+  "title": "An two-layer predictive model of ensemble classifier chain for detecting antimicrobial peptides",
+  "abstract": "Antimicrobial peptides (AMPs) are innate immune molecules that exhibit activities against a range of microbes. According to their special functions, AMPs are generally classified into several categories. Over the last decade, a number of AMP prediction tools have been designed and made freely available online, which show potential to discriminate AMPs from non-AMPs. However, the relative quality of existing AMP predictions produced by various tools is difficult to quantify. In fact, a comprehensive benchmark dataset used to train the prediction model is one of key points to solving the problem. Also, how to address the multi-label character of new synthetic instance is obviously very important to both basic research and drug development. In view of this, AMPs prediction should be a task of two-level multi-label classification, in which the first step is to identify whether a query peptide is AMP, and the second step is to identify which functional type(s) the peptide belongs to. To establish a really useful prediction method, we construct a valid benchmark dataset to train the predictor, and develop a powerful algorithm to operate the prediction. In this paper, we propose a novel two-layer prediction model for identifying AMP and its functional types, using ADASYN oversampling technology to solve imbalance multi-label classification problem. First, we construct a novel benchmark AMPs dataset with seven different AMP functional types. Then, we encode AMPs within three different feature representations, and use various feature extraction models to convert the variable length coding matrix into some equidimensional features. Furthermore, we use modelbased feature selection method for filtering effective and sparse features. Finally, we apply ensemble classifier chain model to identify whether a query peptide is an AMPs or non-AMPs. In the second layer prediction, we use ADASYN to oversample different functional types of AMPs, and build a multi-label multi-class prediction model to identify which functional type(s) it belongs to. To be specific, our novel method outperforms outstanding rather than other tools in most respects on our novel benchmark datasets. Our novel benchmark dataset and source codes are available at https://github.com/guofei-tju/Two_Level_Ensemble-classifier-chain.",
+  "journal": "IEEE International Conference on Bioinformatics and Biomedicine",
+  "venue": "IEEE International Conference on Bioinformatics and Biomedicine",
+  "year": 2020,
+  "authors": [
+    "Jinhao Zhang",
+    "Shuhao Li",
+    "Yijie Ding",
+    "Jijun Tang",
+    "Fei Guo"
+  ],
+  "urls": [
+    "https://www.semanticscholar.org/paper/71c38853f3ca571ec3fac0cbc6e7ff5d1df48d6f",
+    "https://doi.org/10.1109/BIBM49941.2020.9313390"
+  ],
+  "citation_count": 4,
+  "reference_count": 17,
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1109 bibm49941 2020 9313390"
+}

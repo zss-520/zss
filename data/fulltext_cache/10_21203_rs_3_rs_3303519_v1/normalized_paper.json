@@ -1,0 +1,46 @@
+{
+  "source_primary": "crossref",
+  "sources": [
+    "crossref"
+  ],
+  "source_ids": {
+    "crossref": "10.21203/rs.3.rs-3303519/v1"
+  },
+  "doi": "10.21203/rs.3.rs-3303519/v1",
+  "title": "MSTCNN: A Transformer with multi-scale convolutional neural network for multi-focus image fusion",
+  "abstract": "<jats:title>Abstract</jats:title>\n        <jats:p>In the field of multi-focus image fusion, how to efficiently and accurately extract the focus region in the source image is a challenging problem. The existing multi-focus image fusion methods have some problems, such as color distortion, artifacts at the boundary and high computational cost. Therefore, a Multi-Scale Convolu-tional Neural Network Transformer (MSTMCNN) for multi-focus image fusion is proposed in this paper. MSTMCNN is mainly composed of three parts: feature extraction, feature fusion and feature reconstruction. Firstly, down-sampling is used in the feature extraction stage to increase the training speed of the model. feature extraction mainly consists of structure 1 and structure 2. In structure 1, we have designed three different scales of convolution kernels to extract the features of source images. Meanwhile, in order to further improve the performance of the network, the initial module is introduced, which is of great help to the reconstruction of the focus map. Since CNN can extract local information and Transformer can obtain global features, the combination of the two enhances feature extraction capabilities and retains more effective information. In structure 2, we have adopted a network structure called CTR that combines CNN and Transformer. CTR solves the problem of image size limitation and calculation in multi-cluster image fusion with traditional Vision Transformer (Vit). In the feature reconstruction stage, we perform up-sampling for image recovery. Finally, the experimental results of the method are compared with 15 advanced fusion algorithms on Lytro, MFFW2 and MFI-WHU respectively, and the method achieves better fusion performance.</jats:p>",
+  "journal": "",
+  "venue": "",
+  "year": 2023,
+  "authors": [
+    "Hao Zhai",
+    "Yun Chen",
+    "Zhi Zeng",
+    "Nannan Luo",
+    "Qingyu Li"
+  ],
+  "urls": [
+    "https://doi.org/10.21203/rs.3.rs-3303519/v1",
+    "https://doi.org/10.21203/rs.3.rs-3303519/v1"
+  ],
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2023,
+            9,
+            1
+          ]
+        ],
+        "date-time": "2023-09-01T00:00:00Z",
+        "timestamp": 1693526400000
+      },
+      "content-version": "unspecified",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "raw_source_files": [],
+  "candidate_key": "doi:10 21203 rs 3 rs 3303519 v1"
+}

@@ -1,0 +1,37 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1212597",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.04.28.721185",
+  "title": "A Conditional Variational Autoencoder with QSAR-Guided Surrogate-Weighted Fine-Tuning and Cross-Entropy Optimization for Targeted Antimicrobial Peptide Generation",
+  "abstract": "Machine Learning frameworks have emerged as a promising tool for antimicrobial peptide design; however, generative models remain limited by two persistent problems: the limited availability of experimentally validated peptides and the circular dependency of the models. In this work we present a conditional variational autoencoder pipeline that addresses both limitations through a modular architecture that combines both binary and quantitative experimental data and implements a multimodal approach to externally guide the generation. A transformer-based encoder successfully generated a discriminative 64-dimensional latent space (test AUROC 0.968, F1 0.919) separating antimicrobial from non-antimicrobial sequences. This latent representation conditions a species-specific LoRA fine-tuned ProtGPT2 decoder through a scalar gating function, which generates balanced antimicrobial peptides through two different modes; prior and perturb, depending on their generation starting points. We introduced a Surrogate Weighted Fine-Tuning (SWF) ensemble to eliminate the circular dependency and a Cross-Entropy Method to explore and exploit the latent space, leading to successful antimicrobial peptide generation. The best candidates exhibited competitive physicochemical characteristics, a mean helical fraction of 0.874 (mean pLDDT 83.7), and externally predicted efficacy evaluated by APEX.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Castanon I",
+    "Wan F",
+    "de la Fuente-Núñez C",
+    "Pini A",
+    "Falciani C."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.04.28.721185"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "preprint_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\") AND SRC:PPR",
+  "candidate_key": "doi:10 64898 2026 04 28 721185"
+}

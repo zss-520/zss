@@ -1,0 +1,38 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41444580",
+    "pmid": "41444580"
+  },
+  "pmid": "41444580",
+  "pmcid": "PMC12729081",
+  "doi": "10.1186/s12915-025-02469-4",
+  "title": "Prediction and analysis of anti-aging peptides using data augmentation and machine learning algorithms.",
+  "abstract": "<h4>Background</h4>For most species, Aging is an inevitable biological process that poses significant challenges to global healthcare due to age-related diseases. Recent advances in peptide therapy have highlighted anti-aging peptides (AAPs) as a promising therapeutic strategy, owing to their low immunogenicity and ease of synthesis. However, the lack of computational tools for AAP identification has hindered systematic research in this field.<h4>Results</h4>In this study, we provided a benchmark dataset of anti-aging peptides (AAPs) based on their annotated biological functions and AgingBase database. Subsequently, we proposed three novel predictive models, including 1) Antiaging-FL, which integrates feature representation learning with machine learning algorithms; 2) ESM_GAN, which utilizes a generative adversarial network (GAN) for data augmentation to enhance prediction robustness; and 3) ESM_CNN, which combines a data augmentation strategy based on conservative amino acid substitutions with a convolutional neural network (CNN) architecture for improved feature extraction. Comprehensive evaluations demonstrated that all three models achieved high predictive performance. Specifically, Antiaging-FL achieved an AUC of 1.00 on the AAP400 dataset and 0.99 on an independent test set, while ESM_GAN yielded AUCs of 0.99 and 0.95, and ESM_CNN obtained AUCs of 0.96 and 0.94, respectively.<h4>Conclusions</h4>Our study presents three high-performance models for AAP prediction, accelerating the discovery of novel anti-aging peptides. These models not only provide a valuable resource for researchers but also offer insights into the functional mechanisms of AAPs, paving the way for targeted drug development in aging-related therapeutics.",
+  "journal": null,
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Zhang Z",
+    "Chen Y",
+    "Wang S",
+    "Chen G",
+    "Wang M",
+    "Pan Y",
+    "Li E."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1186/s12915-025-02469-4",
+    "https://pubmed.ncbi.nlm.nih.gov/41444580/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12729081/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\" OR \"web server\")",
+  "candidate_key": "doi:10 1186 s12915 025 02469 4"
+}

@@ -1,0 +1,35 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1225264",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.02.03.703041",
+  "title": "QMAP: A Benchmark for Standardized Evaluation of Antimicrobial Peptide MIC and Hemolytic Activity Regression",
+  "abstract": "<h4>ABSTRACT</h4>  Antimicrobial peptides (AMPs) are promising alternatives to conventional antibiotics, but progress in computational AMP discovery has been difficult to quantify due to inconsistent datasets and evaluation protocols. We introduce QMAP, a domain-specific benchmark for predicting AMP antimicrobial potency (MIC) and hemolytic toxicity (HC50) with homology-aware, predefined test sets. QMAP enforces strict sequence homology constraints between training and test data, ensuring that model performance reflects true generalization rather than overfitting. Applying QMAP, we reassess existing MIC models and establish baselines for MIC and HC50 regression. Results suggest limited progress over six years, poor performance for high-potency MIC regression, and low predictability for hemolytic activity, emphasizing the need for standardized evaluation and improved modeling approaches for highly potent peptides. We release a Python package facilitating practical adoption, and with a Rust-accelerated engine enabling efficient data manipulation, installable with  pip install qmap-benchmark .",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Lavertu A",
+    "Corbeil J",
+    "Germain P."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.02.03.703041"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europepmc_dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+  "candidate_key": "doi:10 64898 2026 02 03 703041"
+}

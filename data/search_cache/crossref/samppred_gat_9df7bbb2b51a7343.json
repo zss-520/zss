@@ -1,0 +1,5005 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 3243,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              19
+            ]
+          ],
+          "date-time": "2026-06-19T08:05:01Z",
+          "timestamp": 1781856301727,
+          "version": "3.54.5"
+        },
+        "reference-count": 70,
+        "publisher": "Oxford University Press (OUP)",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2022,
+                  11,
+                  7
+                ]
+              ],
+              "date-time": "2022-11-07T00:00:00Z",
+              "timestamp": 1667779200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "62102030"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "62102030"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "U22A2039"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "U22A2039"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "62271049"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "62271049"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100004826",
+            "name": "Beijing Natural Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "JQ19019"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "JQ19019"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100004826",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              1,
+              1
+            ]
+          ]
+        },
+        "abstract": "<jats:title>Abstract</jats:title><jats:sec><jats:title>Motivation</jats:title><jats:p>Antimicrobial peptides (AMPs) are essential components of therapeutic peptides for innate immunity. Researchers have developed several computational methods to predict the potential AMPs from many candidate peptides. With the development of artificial intelligent techniques, the protein structures can be accurately predicted, which are useful for protein sequence and function analysis. Unfortunately, the predicted peptide structure information has not been applied to the field of AMP prediction so as to improve the predictive performance.</jats:p></jats:sec><jats:sec><jats:title>Results</jats:title><jats:p>In this study, we proposed a computational predictor called sAMPpred-GAT for AMP identification. To the best of our knowledge, sAMPpred-GAT is the first approach based on the predicted peptide structures for AMP prediction. The sAMPpred-GAT predictor constructs the graphs based on the predicted peptide structures, sequence information and evolutionary information. The Graph Attention Network (GAT) is then performed on the graphs to learn the discriminative features. Finally, the full connection networks are utilized as the output module to predict whether the peptides are AMP or not. Experimental results show that sAMPpred-GAT outperforms the other state-of-the-art methods in terms of AUC, and achieves better or highly comparable performance in terms of the other metrics on the eight independent test datasets, demonstrating that the predicted peptide structure information is important for AMP prediction.</jats:p></jats:sec><jats:sec><jats:title>Availability and implementation</jats:title><jats:p>A user-friendly webserver of sAMPpred-GAT can be accessed at http://bliulab.net/sAMPpred-GAT and the source code is available at https://github.com/HongWuL/sAMPpred-GAT/.</jats:p></jats:sec><jats:sec><jats:title>Supplementary information</jats:title><jats:p>Supplementary data are available at Bioinformatics online.</jats:p></jats:sec>",
+        "DOI": "10.1093/bioinformatics/btac715",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              7
+            ]
+          ],
+          "date-time": "2022-11-07T13:13:07Z",
+          "timestamp": 1667826787000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 202,
+        "title": [
+          "sAMPpred-GAT: prediction of antimicrobial peptide by graph attention network and predicted peptide structure"
+        ],
+        "prefix": "10.1093",
+        "volume": "39",
+        "author": [
+          {
+            "given": "Ke",
+            "family": "Yan",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "School of Computer Science and Technology, Beijing Institute of Technology , Beijing 100081, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hongwu",
+            "family": "Lv",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Computer Science and Technology, Beijing Institute of Technology , Beijing 100081, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yichen",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Computer Science and Technology, Beijing Institute of Technology , Beijing 100081, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Wei",
+            "family": "Peng",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Computer Science and Technology, Beijing Institute of Technology , Beijing 100081, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3685-9469",
+            "authenticated-orcid": false,
+            "given": "Bin",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Computer Science and Technology, Beijing Institute of Technology , Beijing 100081, China"
+              },
+              {
+                "name": "Advanced Research Institute of Multidisciplinary Science, Beijing Institute of Technology , Beijing 100081, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "286",
+        "published-online": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              7
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "2023010107525856900_btac715-B1",
+            "doi-asserted-by": "crossref",
+            "first-page": "3389",
+            "DOI": "10.1093/nar/25.17.3389",
+            "article-title": "Gapped BLAST and PSI-BLAST: a new generation of protein database search programs",
+            "volume": "25",
+            "author": "Altschul",
+            "year": "1997",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B2",
+            "doi-asserted-by": "crossref",
+            "first-page": "1543",
+            "DOI": "10.3390/ph6121543",
+            "article-title": "Antimicrobial peptides",
+            "volume": "6",
+            "author": "Bahar",
+            "year": "2013",
+            "journal-title": "Pharmaceuticals (Basel)"
+          },
+          {
+            "key": "2023010107525856900_btac715-B3",
+            "doi-asserted-by": "crossref",
+            "first-page": "351",
+            "DOI": "10.1080/10408363.2019.1631249",
+            "article-title": "Designing and optimizing new antimicrobial peptides: all targets are not the same",
+            "volume": "56",
+            "author": "Barreto-Santamaria",
+            "year": "2019",
+            "journal-title": "Crit. Rev. Clin. Lab. Sci"
+          },
+          {
+            "key": "2023010107525856900_btac715-B4",
+            "doi-asserted-by": "crossref",
+            "first-page": "1697",
+            "DOI": "10.1038/s41598-018-19752-w",
+            "article-title": "AmPEP: sequence-based prediction of antimicrobial peptides using distribution patterns of amino acid properties and random Forest",
+            "volume": "8",
+            "author": "Bhadra",
+            "year": "2018",
+            "journal-title": "Sci. Rep"
+          },
+          {
+            "key": "2023010107525856900_btac715-B5",
+            "doi-asserted-by": "crossref",
+            "first-page": "4310",
+            "DOI": "10.3390/ijms21124310",
+            "article-title": "Proteomic screening for prediction and design of antimicrobial peptides with AmpGram",
+            "volume": "21",
+            "author": "Burdukiewicz",
+            "year": "2020",
+            "journal-title": "Int. J. Mol. Sci"
+          },
+          {
+            "key": "2023010107525856900_btac715-B6",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab172",
+            "DOI": "10.1093/bib/bbab172",
+            "article-title": "StackIL6: a stacking ensemble model for improving the prediction of IL-6 inducing peptides",
+            "volume": "22",
+            "author": "Charoenkwan",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B7",
+            "first-page": "3438",
+            "article-title": "Measuring and relieving the over-smoothing problem for graph neural networks from the topological view",
+            "volume": "34",
+            "author": "Chen",
+            "year": "2020",
+            "journal-title": "Proc. AAAI Conf. Artif. Intell"
+          },
+          {
+            "key": "2023010107525856900_btac715-B8",
+            "doi-asserted-by": "crossref",
+            "first-page": "652",
+            "DOI": "10.3390/genes10090652",
+            "article-title": "Sparse convolutional denoising autoencoders for genotype imputation",
+            "volume": "10",
+            "author": "Chen",
+            "year": "2019",
+            "journal-title": "Genes (Basel)"
+          },
+          {
+            "key": "2023010107525856900_btac715-B9",
+            "first-page": "127",
+            "author": "Chen",
+            "year": "2021"
+          },
+          {
+            "key": "2023010107525856900_btac715-B10",
+            "doi-asserted-by": "crossref",
+            "first-page": "1098",
+            "DOI": "10.1093/bib/bbz043",
+            "article-title": "Characterization and identification of antimicrobial peptides with different functional activities",
+            "volume": "21",
+            "author": "Chung",
+            "year": "2020",
+            "journal-title": "Brief. Bioinform."
+          },
+          {
+            "key": "2023010107525856900_btac715-B11",
+            "doi-asserted-by": "crossref",
+            "first-page": "132",
+            "DOI": "10.1016/j.pharmthera.2017.04.002",
+            "article-title": "Antimicrobial peptides: role in human disease and potential as immunotherapies",
+            "volume": "178",
+            "author": "de la Fuente-Nunez",
+            "year": "2017",
+            "journal-title": "Pharmacol. Ther"
+          },
+          {
+            "key": "2023010107525856900_btac715-B12",
+            "doi-asserted-by": "crossref",
+            "first-page": "24482",
+            "DOI": "10.1038/srep24482",
+            "article-title": "DRAMP: a comprehensive data repository of antimicrobial peptides",
+            "volume": "6",
+            "author": "Fan",
+            "year": "2016",
+            "journal-title": "Sci. Rep"
+          },
+          {
+            "key": "2023010107525856900_btac715-B13",
+            "author": "Fey",
+            "year": "2019"
+          },
+          {
+            "key": "2023010107525856900_btac715-B14",
+            "doi-asserted-by": "crossref",
+            "first-page": "5262",
+            "DOI": "10.1093/bioinformatics/btaa653",
+            "article-title": "Ampir: an R package for fast genome-wide prediction of antimicrobial peptides",
+            "volume": "36",
+            "author": "Fingerhut",
+            "year": "2021",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B15",
+            "first-page": "2083",
+            "author": "Gao",
+            "year": "2019"
+          },
+          {
+            "key": "2023010107525856900_btac715-B16",
+            "doi-asserted-by": "crossref",
+            "first-page": "294",
+            "DOI": "10.3389/fmicb.2013.00294",
+            "article-title": "From antimicrobial to anticancer peptides",
+            "volume": "4",
+            "author": "Gaspar",
+            "year": "2013",
+            "journal-title": "Front. Microbiol"
+          },
+          {
+            "key": "2023010107525856900_btac715-B17",
+            "doi-asserted-by": "crossref",
+            "first-page": "3168",
+            "DOI": "10.1038/s41467-021-23303-9",
+            "article-title": "Structure-based protein function prediction using graph convolutional networks",
+            "volume": "12",
+            "author": "Gligorijević",
+            "year": "2021",
+            "journal-title": "Nat. Commun"
+          },
+          {
+            "key": "2023010107525856900_btac715-B18",
+            "volume-title": "Deep Learning",
+            "author": "Goodfellow",
+            "year": "2016"
+          },
+          {
+            "key": "2023010107525856900_btac715-B19",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab358",
+            "DOI": "10.1093/bib/bbab358",
+            "article-title": "PreTP-EL: prediction of therapeutic peptides based on ensemble learning",
+            "volume": "22",
+            "author": "Guo",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B20",
+            "doi-asserted-by": "crossref",
+            "first-page": "423",
+            "DOI": "10.1093/bioinformatics/14.5.423",
+            "article-title": "Removing near-neighbour redundancy from large protein sequence collections",
+            "volume": "14",
+            "author": "Holm",
+            "year": "1998",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B21",
+            "doi-asserted-by": "crossref",
+            "first-page": "680",
+            "DOI": "10.1093/bioinformatics/btq003",
+            "article-title": "CD-HIT suite: a web server for clustering and comparing biological sequences",
+            "volume": "26",
+            "author": "Huang",
+            "year": "2010",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B22",
+            "doi-asserted-by": "crossref",
+            "first-page": "491",
+            "DOI": "10.1128/CMR.00056-05",
+            "article-title": "Peptide antimicrobial agents",
+            "volume": "19",
+            "author": "Jenssen",
+            "year": "2006",
+            "journal-title": "Clin. Microbiol. Rev"
+          },
+          {
+            "key": "2023010107525856900_btac715-B23",
+            "doi-asserted-by": "crossref",
+            "first-page": "D285",
+            "DOI": "10.1093/nar/gky1030",
+            "article-title": "dbAMP: an integrated resource for exploring antimicrobial peptides with functional activities and physicochemical properties on transcriptome and proteome data",
+            "volume": "47",
+            "author": "Jhong",
+            "year": "2019",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B24",
+            "doi-asserted-by": "crossref",
+            "first-page": "D460",
+            "DOI": "10.1093/nar/gkab1080",
+            "article-title": "dbAMP 2.0: updated resource for antimicrobial peptides with an enhanced scanning method for genomic and proteomic data",
+            "volume": "50",
+            "author": "Jhong",
+            "year": "2022",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B25",
+            "doi-asserted-by": "crossref",
+            "first-page": "605132",
+            "DOI": "10.3389/fbioe.2020.605132",
+            "article-title": "RA-UNet: a hybrid deep attention-aware network to extract liver and tumor in CT scans",
+            "volume": "8",
+            "author": "Jin",
+            "year": "2020",
+            "journal-title": "Front. Bioeng. Biotechnol"
+          },
+          {
+            "key": "2023010107525856900_btac715-B26",
+            "doi-asserted-by": "crossref",
+            "first-page": "583",
+            "DOI": "10.1038/s41586-021-03819-2",
+            "article-title": "Highly accurate protein structure prediction with AlphaFold",
+            "volume": "596",
+            "author": "Jumper",
+            "year": "2021",
+            "journal-title": "Nature"
+          },
+          {
+            "key": "2023010107525856900_btac715-B27",
+            "doi-asserted-by": "crossref",
+            "first-page": "148",
+            "DOI": "10.1038/s41597-019-0154-y",
+            "article-title": "DRAMP 2.0, an updated data repository of antimicrobial peptides",
+            "volume": "6",
+            "author": "Kang",
+            "year": "2019",
+            "journal-title": "Sci. Data"
+          },
+          {
+            "key": "2023010107525856900_btac715-B28",
+            "author": "Kingma",
+            "year": "2014"
+          },
+          {
+            "key": "2023010107525856900_btac715-B29",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab502",
+            "DOI": "10.1093/bib/bbab502",
+            "article-title": "Accurate protein function prediction via graph attention networks with predicted structure information",
+            "volume": "23",
+            "author": "Lai",
+            "year": "2022",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B30",
+            "doi-asserted-by": "crossref",
+            "first-page": "2058",
+            "DOI": "10.1093/bioinformatics/btaa917",
+            "article-title": "amPEPpy 1.0: a portable and accurate antimicrobial peptide prediction tool",
+            "volume": "37",
+            "author": "Lawrence",
+            "year": "2021",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B31",
+            "first-page": "475062",
+            "article-title": "A large-scale structural classification of antimicrobial peptides",
+            "volume": "2015",
+            "author": "Lee",
+            "year": "2015",
+            "journal-title": "Biomed Res. Int"
+          },
+          {
+            "key": "2023010107525856900_btac715-B32",
+            "first-page": "1",
+            "article-title": "AMPlify: attentive deep learning model for discovery of novel antimicrobial peptides effective against WHO priority pathogens",
+            "volume": "23",
+            "author": "Li",
+            "year": "2022",
+            "journal-title": "BMC Genomics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B33",
+            "first-page": "679",
+            "author": "Liu",
+            "year": "2020"
+          },
+          {
+            "key": "2023010107525856900_btac715-B34",
+            "author": "Nair",
+            "year": "2010"
+          },
+          {
+            "key": "2023010107525856900_btac715-B35",
+            "doi-asserted-by": "crossref",
+            "first-page": "D733",
+            "DOI": "10.1093/nar/gkv1189",
+            "article-title": "Reference sequence (RefSeq) database at NCBI: current status, taxonomic expansion, and functional annotation",
+            "volume": "44",
+            "author": "O'Leary",
+            "year": "2016",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B36",
+            "doi-asserted-by": "crossref",
+            "first-page": "1085",
+            "DOI": "10.1093/bib/bbaa423",
+            "article-title": "Identifying anti-coronavirus peptides by incorporating different negative datasets and imbalanced learning strategies",
+            "volume": "22",
+            "author": "Pang",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B37",
+            "doi-asserted-by": "crossref",
+            "first-page": "346",
+            "DOI": "10.1016/j.ijantimicag.2011.12.003",
+            "article-title": "YADAMP: yet another database of antimicrobial peptides",
+            "volume": "39",
+            "author": "Piotto",
+            "year": "2012",
+            "journal-title": "Int. J. Antimicrob. Agents"
+          },
+          {
+            "key": "2023010107525856900_btac715-B38",
+            "doi-asserted-by": "crossref",
+            "first-page": "D288",
+            "DOI": "10.1093/nar/gkaa991",
+            "article-title": "DBAASP v3: database of antimicrobial/cytotoxic activity and structure of peptides as a resource for development of new therapeutics",
+            "volume": "49",
+            "author": "Pirtskhalava",
+            "year": "2021",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B39",
+            "first-page": "173",
+            "article-title": "HHblits: lightning-fast iterative protein sequence searching by HMM-HMM alignment",
+            "author": "Remmert",
+            "year": "2012"
+          },
+          {
+            "key": "2023010107525856900_btac715-B40",
+            "doi-asserted-by": "crossref",
+            "first-page": "321",
+            "DOI": "10.1007/0-387-25465-X_15",
+            "volume-title": "Data Mining and Knowledge Discovery Handbook",
+            "author": "Rokach",
+            "year": "2005"
+          },
+          {
+            "key": "2023010107525856900_btac715-B41",
+            "doi-asserted-by": "crossref",
+            "first-page": "12",
+            "DOI": "10.2478/s11536-009-0079-5",
+            "article-title": "Surmounting antimicrobial resistance in the millennium superbug: staphylococcus aureus",
+            "volume": "5",
+            "author": "Saxena",
+            "year": "2010",
+            "journal-title": "Open Med"
+          },
+          {
+            "key": "2023010107525856900_btac715-B42",
+            "doi-asserted-by": "crossref",
+            "first-page": "D488",
+            "DOI": "10.1093/nar/gkab651",
+            "article-title": "DRAMP 3.0: an enhanced comprehensive data repository of antimicrobial peptides",
+            "volume": "50",
+            "author": "Shi",
+            "year": "2022",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B43",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1119",
+            "DOI": "10.1093/nar/gkv1114",
+            "article-title": "SATPdb: a database of structurally annotated therapeutic peptides",
+            "volume": "44",
+            "author": "Singh",
+            "year": "2016",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B44",
+            "doi-asserted-by": "crossref",
+            "first-page": "638",
+            "DOI": "10.1093/bib/bby028",
+            "article-title": "iProt-Sub: a comprehensive package for accurately mapping and predicting protease-specific substrates and cleavage sites",
+            "volume": "20",
+            "author": "Song",
+            "year": "2019",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B45",
+            "first-page": "1929",
+            "article-title": "Dropout: a simple way to prevent neural networks from overfitting",
+            "volume": "15",
+            "author": "Srivastava",
+            "year": "2014",
+            "journal-title": "BibSonomy"
+          },
+          {
+            "key": "2023010107525856900_btac715-B46",
+            "doi-asserted-by": "crossref",
+            "first-page": "W199",
+            "DOI": "10.1093/nar/gks450",
+            "article-title": "AVPpred: collection and prediction of highly effective antiviral peptides",
+            "volume": "40",
+            "author": "Thakur",
+            "year": "2012",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B47",
+            "doi-asserted-by": "crossref",
+            "first-page": "D774",
+            "DOI": "10.1093/nar/gkp1021",
+            "article-title": "CAMP: a useful resource for research on antimicrobial peptides",
+            "volume": "38",
+            "author": "Thomas",
+            "year": "2010",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B48",
+            "doi-asserted-by": "crossref",
+            "first-page": "D204",
+            "DOI": "10.1093/nar/gku989",
+            "article-title": "UniProt: a hub for protein information",
+            "volume": "43",
+            "author": "UniProt Consortium",
+            "year": "2015",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B49",
+            "first-page": "5998",
+            "article-title": "Attention is all you need",
+            "author": "Vaswani",
+            "year": "2017",
+            "journal-title": "Adv. Neural Inf. Process. Syst"
+          },
+          {
+            "key": "2023010107525856900_btac715-B50",
+            "author": "Veličković",
+            "year": "2017"
+          },
+          {
+            "key": "2023010107525856900_btac715-B51",
+            "doi-asserted-by": "crossref",
+            "first-page": "2740",
+            "DOI": "10.1093/bioinformatics/bty179",
+            "article-title": "Deep learning improves antimicrobial peptide recognition",
+            "volume": "34",
+            "author": "Veltri",
+            "year": "2018",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B52",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1094",
+            "DOI": "10.1093/nar/gkv1051",
+            "article-title": "CAMPR3: a database on sequences, structures and signatures of antimicrobial peptides",
+            "volume": "44",
+            "author": "Waghu",
+            "year": "2016",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B53",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1087",
+            "DOI": "10.1093/nar/gkv1278",
+            "article-title": "APD3: the antimicrobial peptide database as a tool for research and education",
+            "volume": "44",
+            "author": "Wang",
+            "year": "2016",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B54",
+            "doi-asserted-by": "crossref",
+            "first-page": "D590",
+            "DOI": "10.1093/nar/gkh025",
+            "article-title": "APD: the antimicrobial peptide database",
+            "volume": "32",
+            "author": "Wang",
+            "year": "2004",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B55",
+            "doi-asserted-by": "crossref",
+            "first-page": "4007",
+            "DOI": "10.1093/bioinformatics/bty451",
+            "article-title": "ACPred-FL: a sequence-based predictor using effective feature representation to improve the prediction of anti-cancer peptides",
+            "volume": "34",
+            "author": "Wei",
+            "year": "2018",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B56",
+            "doi-asserted-by": "crossref",
+            "first-page": "336",
+            "DOI": "10.1038/s42256-019-0086-4",
+            "article-title": "Protein structure prediction beyond AlphaFold",
+            "volume": "1",
+            "author": "Wei",
+            "year": "2019",
+            "journal-title": "Nat. Mach. Intell"
+          },
+          {
+            "key": "2023010107525856900_btac715-B57",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbaa275",
+            "DOI": "10.1093/bib/bbaa275",
+            "article-title": "Computational prediction and interpretation of cell-specific replication origin sites from multiple eukaryotes by exploiting stacking framework",
+            "volume": "22",
+            "author": "Wei",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B58",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab041",
+            "DOI": "10.1093/bib/bbab041",
+            "article-title": "ATSE: a peptide toxicity predictor by exploiting structural and evolutionary information based on graph neural network and attention mechanism",
+            "volume": "22",
+            "author": "Wei",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform."
+          },
+          {
+            "key": "2023010107525856900_btac715-B59",
+            "doi-asserted-by": "crossref",
+            "first-page": "e51",
+            "DOI": "10.1093/nar/gkab044",
+            "article-title": "GraphBind: protein structural context embedded rules learned by hierarchical graph neural networks for recognizing nucleic-acid-binding residues",
+            "volume": "49",
+            "author": "Xia",
+            "year": "2021",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023010107525856900_btac715-B60",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab08",
+            "DOI": "10.1093/bib/bbab083",
+            "article-title": "Comprehensive assessment of machine learning-based methods for predicting antimicrobial peptides",
+            "volume": "22",
+            "author": "Xu",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B61",
+            "doi-asserted-by": "crossref",
+            "first-page": "882",
+            "DOI": "10.1016/j.omtn.2020.05.006",
+            "article-title": "Deep-AmPEP30: improve short antimicrobial peptides prediction with deep learning",
+            "volume": "20",
+            "author": "Yan",
+            "year": "2020",
+            "journal-title": "Mol. Ther. Nucleic Acids"
+          },
+          {
+            "key": "2023010107525856900_btac715-B62",
+            "doi-asserted-by": "crossref",
+            "first-page": "2982",
+            "DOI": "10.1093/bioinformatics/btz040",
+            "article-title": "Protein fold recognition based on multi-view modeling",
+            "volume": "35",
+            "author": "Yan",
+            "year": "2019",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B63",
+            "doi-asserted-by": "crossref",
+            "first-page": "2712",
+            "DOI": "10.1093/bioinformatics/btac200",
+            "article-title": "TPpred-ATMV: therapeutic peptides prediction by adaptive multi-view tensor learning model",
+            "volume": "38",
+            "author": "Yan",
+            "year": "2022",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023010107525856900_btac715-B64",
+            "doi-asserted-by": "crossref",
+            "first-page": "174",
+            "DOI": "10.2174/1574893617666211220153429",
+            "article-title": "TP-MV: therapeutic peptides prediction by multi-view learning",
+            "volume": "17",
+            "author": "Yan",
+            "year": "2022",
+            "journal-title": "Curr. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B65",
+            "doi-asserted-by": "crossref",
+            "first-page": "1496",
+            "DOI": "10.1073/pnas.1914677117",
+            "article-title": "Improved protein structure prediction using predicted interresidue orientations",
+            "volume": "117",
+            "author": "Yang",
+            "year": "2020",
+            "journal-title": "Proc. Natl. Acad. Sci. USA"
+          },
+          {
+            "key": "2023010107525856900_btac715-B66",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/database/baaa061",
+            "article-title": "LAMP2: a major update of the database linking antimicrobial peptides",
+            "volume": "2020",
+            "author": "Ye",
+            "year": "2020",
+            "journal-title": "Database (Oxford)"
+          },
+          {
+            "key": "2023010107525856900_btac715-B67",
+            "first-page": "7134",
+            "author": "You",
+            "year": "2019"
+          },
+          {
+            "key": "2023010107525856900_btac715-B68",
+            "doi-asserted-by": "crossref",
+            "first-page": "389",
+            "DOI": "10.1038/415389a",
+            "article-title": "Antimicrobial peptides of multicellular organisms",
+            "volume": "415",
+            "author": "Zasloff",
+            "year": "2002",
+            "journal-title": "Nature"
+          },
+          {
+            "key": "2023010107525856900_btac715-B69",
+            "doi-asserted-by": "crossref",
+            "first-page": "2141",
+            "DOI": "10.1093/bib/bbaa044",
+            "article-title": "Identifying drug-target interactions based on graph convolutional network and deep neural network",
+            "volume": "22",
+            "author": "Zhao",
+            "year": "2021",
+            "journal-title": "Brief. Bioinform"
+          },
+          {
+            "key": "2023010107525856900_btac715-B70",
+            "doi-asserted-by": "crossref",
+            "first-page": "e66557",
+            "DOI": "10.1371/journal.pone.0066557",
+            "article-title": "LAMP: a database linking antimicrobial peptides",
+            "volume": "8",
+            "author": "Zhao",
+            "year": "2013",
+            "journal-title": "PLoS One"
+          }
+        ],
+        "container-title": [
+          "Bioinformatics"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://academic.oup.com/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btac715/47104572/btac715.pdf",
+            "content-type": "application/pdf",
+            "content-version": "am",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "https://academic.oup.com/bioinformatics/article-pdf/39/1/btac715/48448854/btac715.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "https://academic.oup.com/bioinformatics/article-pdf/39/1/btac715/48448854/btac715.pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              11
+            ]
+          ],
+          "date-time": "2023-03-11T04:41:46Z",
+          "timestamp": 1678509706000
+        },
+        "score": 25.212801,
+        "resource": {
+          "primary": {
+            "URL": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btac715/6808615"
+          }
+        },
+        "editor": [
+          {
+            "given": "Pier Luigi",
+            "family": "Martelli",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "editor"
+              }
+            ]
+          }
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              7
+            ]
+          ]
+        },
+        "references-count": 70,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2022,
+                11,
+                7
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2023,
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1093/bioinformatics/btac715",
+        "ISSN": [
+          "1367-4811"
+        ],
+        "issn-type": [
+          {
+            "value": "1367-4811",
+            "type": "electronic"
+          }
+        ],
+        "published-other": {
+          "date-parts": [
+            [
+              2023,
+              1,
+              1
+            ]
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              7
+            ]
+          ]
+        },
+        "article-number": "btac715"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              4
+            ]
+          ],
+          "date-time": "2024-09-04T23:03:43Z",
+          "timestamp": 1725491023750
+        },
+        "publisher-location": "Berlin, Heidelberg",
+        "reference-count": 0,
+        "publisher": "Springer Berlin Heidelberg",
+        "isbn-type": [
+          {
+            "type": "print",
+            "value": "9783540439578"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.1007/978-3-540-29805-2_1601",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2006,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2006-11-03T02:52:56Z",
+          "timestamp": 1162522376000
+        },
+        "page": "822-822",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "GAT 1, GAT 2, GAT 3"
+        ],
+        "prefix": "10.1007",
+        "member": "297",
+        "container-title": [
+          "Encyclopedia of Pain"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2019,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2019-11-05T11:57:44Z",
+          "timestamp": 1572955064000
+        },
+        "score": 19.685665,
+        "resource": {
+          "primary": {
+            "URL": "http://link.springer.com/10.1007/978-3-540-29805-2_1601"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "ISBN": [
+          "9783540439578"
+        ],
+        "references-count": 0,
+        "URL": "https://doi.org/10.1007/978-3-540-29805-2_1601"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              8
+            ]
+          ],
+          "date-time": "2024-09-08T01:59:32Z",
+          "timestamp": 1725760772026
+        },
+        "publisher-location": "Berlin, Heidelberg",
+        "reference-count": 0,
+        "publisher": "Springer Berlin Heidelberg",
+        "isbn-type": [
+          {
+            "type": "print",
+            "value": "9783642287527"
+          },
+          {
+            "type": "electronic",
+            "value": "9783642287534"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2013
+            ]
+          ]
+        },
+        "DOI": "10.1007/978-3-642-28753-4_200858",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2013,
+              11,
+              29
+            ]
+          ],
+          "date-time": "2013-11-29T23:02:14Z",
+          "timestamp": 1385766134000
+        },
+        "page": "1356-1356",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "GAT 1, GAT 2, GAT 3"
+        ],
+        "prefix": "10.1007",
+        "member": "297",
+        "container-title": [
+          "Encyclopedia of Pain"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://link.springer.com/content/pdf/10.1007/978-3-642-28753-4_200858",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2013,
+              11,
+              29
+            ]
+          ],
+          "date-time": "2013-11-29T23:02:26Z",
+          "timestamp": 1385766146000
+        },
+        "score": 19.116756,
+        "resource": {
+          "primary": {
+            "URL": "http://link.springer.com/10.1007/978-3-642-28753-4_200858"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2013
+            ]
+          ]
+        },
+        "ISBN": [
+          "9783642287527",
+          "9783642287534"
+        ],
+        "references-count": 0,
+        "URL": "https://doi.org/10.1007/978-3-642-28753-4_200858",
+        "published": {
+          "date-parts": [
+            [
+              2013
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              10
+            ]
+          ],
+          "date-time": "2024-09-10T04:46:20Z",
+          "timestamp": 1725943580022
+        },
+        "reference-count": 0,
+        "publisher": "Oxford University Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2011,
+              10,
+              31
+            ]
+          ]
+        },
+        "DOI": "10.1093/benz/9780199773787.article.b00071315",
+        "type": "reference-entry",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              1,
+              19
+            ]
+          ],
+          "date-time": "2018-01-19T10:25:50Z",
+          "timestamp": 1516357550000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Gat, Eliahu"
+        ],
+        "prefix": "10.1093",
+        "member": "286",
+        "container-title": [
+          "Benezit Dictionary of Artists"
+        ],
+        "original-title": [
+          "Gat, Eliahu"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              1,
+              25
+            ]
+          ],
+          "date-time": "2018-01-25T07:11:04Z",
+          "timestamp": 1516864264000
+        },
+        "score": 18.127651,
+        "resource": {
+          "primary": {
+            "URL": "http://www.oxfordartonline.com/benezit/view/10.1093/benz/9780199773787.001.0001/acref-9780199773787-e-00071315"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2011,
+              10,
+              31
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.1093/benz/9780199773787.article.b00071315",
+        "published": {
+          "date-parts": [
+            [
+              2011,
+              10,
+              31
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              23
+            ]
+          ],
+          "date-time": "2026-02-23T06:08:55Z",
+          "timestamp": 1771826935707,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "Oxford University Press",
+        "isbn-type": [
+          {
+            "value": "9781561592630",
+            "type": "electronic"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.1093/gmo/9781561592630.article.48145",
+        "type": "reference-entry",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              1,
+              3
+            ]
+          ],
+          "date-time": "2018-01-03T06:53:59Z",
+          "timestamp": 1514962439000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Gat"
+        ],
+        "prefix": "10.1093",
+        "author": [
+          {
+            "given": "Richard",
+            "family": "Widdess",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "286",
+        "published-online": {
+          "date-parts": [
+            [
+              2001
+            ]
+          ]
+        },
+        "container-title": [
+          "Oxford Music Online"
+        ],
+        "original-title": [
+          "Gat"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              23
+            ]
+          ],
+          "date-time": "2026-02-23T05:25:48Z",
+          "timestamp": 1771824348000
+        },
+        "score": 18.095703,
+        "resource": {
+          "primary": {
+            "URL": "https://www.oxfordmusiconline.com/grovemusic/documentID/omo-9781561592630-e-0000048145"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2001
+            ]
+          ]
+        },
+        "ISBN": [
+          "9781561592630"
+        ],
+        "references-count": 0,
+        "URL": "https://doi.org/10.1093/gmo/9781561592630.article.48145",
+        "published": {
+          "date-parts": [
+            [
+              2001
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              20
+            ]
+          ],
+          "date-time": "2025-10-20T09:59:12Z",
+          "timestamp": 1760954352478
+        },
+        "reference-count": 22,
+        "publisher": "Elsevier BV",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  1999,
+                  5,
+                  1
+                ]
+              ],
+              "date-time": "1999-05-01T00:00:00Z",
+              "timestamp": 925516800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Neuroscience Letters"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1999,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1016/s0304-3940(99)00268-2",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2002,
+              7,
+              25
+            ]
+          ],
+          "date-time": "2002-07-25T13:01:38Z",
+          "timestamp": 1027602098000
+        },
+        "page": "117-120",
+        "source": "Crossref",
+        "is-referenced-by-count": 10,
+        "title": [
+          "Immunoreactivity for multiple GABA transporters (GAT-1, GAT-2, GAT-3) in the gerbil pineal gland"
+        ],
+        "prefix": "10.1016",
+        "volume": "266",
+        "author": [
+          {
+            "given": "Peter",
+            "family": "Redecker",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB1",
+            "doi-asserted-by": "crossref",
+            "first-page": "123",
+            "DOI": "10.1016/S0304-3940(98)00449-2",
+            "article-title": "GABA transporter-1 (GAT-1) immunoreactivity in the cat periaqueductal gray matter",
+            "volume": "250",
+            "author": "Barbaresi",
+            "year": "1998",
+            "journal-title": "Neurosci. Lett."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB2",
+            "doi-asserted-by": "crossref",
+            "first-page": "335",
+            "DOI": "10.1016/0197-0186(95)00158-1",
+            "article-title": "GABA transporter heterogeneity: pharmacology and cellular localization",
+            "volume": "29",
+            "author": "Borden",
+            "year": "1996",
+            "journal-title": "Neurochem. Int."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB3",
+            "doi-asserted-by": "crossref",
+            "first-page": "9733",
+            "DOI": "10.1523/JNEUROSCI.18-23-09733.1998",
+            "article-title": "The vesicular GABA transporter, VGAT, localizes to synaptic vesicles in sets of glycinergic as well as GABAergic neurons",
+            "volume": "18",
+            "author": "Chaudhry",
+            "year": "1998",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB4",
+            "first-page": "1133",
+            "article-title": "Neuronal and glial expression of GAT-2, a high-affinity GABA plasma membrane transporter, in the cerebral cortex",
+            "volume": "23",
+            "author": "De Biasi",
+            "year": "1997",
+            "journal-title": "Soc. Neurosci. Abstr."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB5",
+            "series-title": "Dynamics of Neurotransmitter Function",
+            "first-page": "177",
+            "article-title": "The role of γ-aminobutyric acid in regulation of melatonin synthesis in bovine pineal gland",
+            "author": "Ebadi",
+            "year": "1984"
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB6",
+            "doi-asserted-by": "crossref",
+            "first-page": "742",
+            "DOI": "10.1002/jnr.490420603",
+            "article-title": "Comparative distribution of GAD65 and GAD67 mRNAs and proteins in the rat spinal cord supports a differential regulation of these two glutamate decarboxylases in vivo",
+            "volume": "42",
+            "author": "Feldblum",
+            "year": "1995",
+            "journal-title": "J. Neurosci. Res."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB7",
+            "doi-asserted-by": "crossref",
+            "first-page": "212",
+            "DOI": "10.1002/(SICI)1096-9861(19961111)375:2<212::AID-CNE3>3.0.CO;2-5",
+            "article-title": "Multiple γ-aminobutyric acid plasma membrane transporters (GAT-1, GAT-2, GAT-3) in the rat retina",
+            "volume": "375",
+            "author": "Johnson",
+            "year": "1996",
+            "journal-title": "J. Comp. Neurol."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB8",
+            "doi-asserted-by": "crossref",
+            "first-page": "415",
+            "DOI": "10.1016/0166-2236(93)90010-J",
+            "article-title": "Carrier-mediated release of neurotransmitters",
+            "volume": "16",
+            "author": "Levi",
+            "year": "1993",
+            "journal-title": "Trends Neurosci."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB9",
+            "doi-asserted-by": "crossref",
+            "first-page": "383",
+            "DOI": "10.1016/0006-8993(76)90306-1",
+            "article-title": "On GABA function and physiology in the pineal gland",
+            "volume": "118",
+            "author": "Mata",
+            "year": "1976",
+            "journal-title": "Brain Res."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB10",
+            "doi-asserted-by": "crossref",
+            "first-page": "7734",
+            "DOI": "10.1523/JNEUROSCI.15-11-07734.1995",
+            "article-title": "GAT-1, a high-affinity GABA plasma membrane transporter, is localized to neurons and astroglia in the cerebral cortex",
+            "volume": "15",
+            "author": "Minelli",
+            "year": "1995",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB11",
+            "doi-asserted-by": "crossref",
+            "first-page": "6255",
+            "DOI": "10.1523/JNEUROSCI.16-19-06255.1996",
+            "article-title": "GAT-3, a high-affinity GABA plasma membrane transporter, is localized to astrocytic processes, and it is not confined to the vicinity of GABAergic synapses in the cerebral cortex",
+            "volume": "16",
+            "author": "Minelli",
+            "year": "1996",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB12",
+            "doi-asserted-by": "crossref",
+            "first-page": "233",
+            "DOI": "10.1016/0014-5793(95)00559-R",
+            "article-title": "Microvesicles isolated from bovine pineal gland specifically accumulate l-glutamate",
+            "volume": "367",
+            "author": "Moriyama",
+            "year": "1995",
+            "journal-title": "FEBS Lett."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB13",
+            "doi-asserted-by": "crossref",
+            "first-page": "43",
+            "DOI": "10.1016/S0165-3806(97)00156-9",
+            "article-title": "Developmental pattern of cell type-specific calretinin immunoreactivity in the postnatal gerbil pineal gland",
+            "volume": "105",
+            "author": "Redecker",
+            "year": "1998",
+            "journal-title": "Dev. Brain Res."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB14",
+            "doi-asserted-by": "crossref",
+            "first-page": "201",
+            "DOI": "10.1016/S0074-7696(08)60160-6",
+            "article-title": "Synaptic-like microvesicles in mammalian pinealocytes",
+            "volume": "191",
+            "author": "Redecker",
+            "year": "1999",
+            "journal-title": "Int. Rev. Cytol."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB15",
+            "doi-asserted-by": "crossref",
+            "first-page": "79",
+            "DOI": "10.1002/jnr.490340109",
+            "article-title": "Synaptophysin – a common constituent of presumptive secretory microvesicles in the mammalian pinealocyte: a study of rat and gerbil pineal glands",
+            "volume": "34",
+            "author": "Redecker",
+            "year": "1993",
+            "journal-title": "J. Neurosci. Res."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB16",
+            "doi-asserted-by": "crossref",
+            "first-page": "9",
+            "DOI": "10.1007/BF02284782",
+            "article-title": "Differential immunocytochemical localization of calretinin in the pineal gland of three mammalian species",
+            "volume": "25",
+            "author": "Redecker",
+            "year": "1996",
+            "journal-title": "J. Neurocytol."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB17",
+            "doi-asserted-by": "crossref",
+            "first-page": "207",
+            "DOI": "10.1007/BF00713029",
+            "article-title": "Release and effect of γ-aminobutyric acid on rat pineal melatonin production in vitro",
+            "volume": "9",
+            "author": "Rosenstein",
+            "year": "1989",
+            "journal-title": "Cell. Mol. Neurobiol."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB18",
+            "doi-asserted-by": "crossref",
+            "first-page": "141",
+            "DOI": "10.1007/BF01248927",
+            "article-title": "Gamma aminobutyric acid uptake, release, and effect on 36Cl−-influx in bovine pineal gland",
+            "volume": "77",
+            "author": "Rosenstein",
+            "year": "1989",
+            "journal-title": "J. Neural Transm."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB19",
+            "doi-asserted-by": "crossref",
+            "first-page": "339",
+            "DOI": "10.1016/0361-9230(90)90080-J",
+            "article-title": "GABA as a presumptive paracrine signal in the pineal gland. Evidence on an intrapineal GABAergic system",
+            "volume": "25",
+            "author": "Rosenstein",
+            "year": "1990",
+            "journal-title": "Brain Res. Bull."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB20",
+            "doi-asserted-by": "crossref",
+            "first-page": "479",
+            "DOI": "10.1016/0006-8993(75)90821-5",
+            "article-title": "On GABA metabolism in the gliocyte cells of the rat pineal gland",
+            "volume": "85",
+            "author": "Schon",
+            "year": "1975",
+            "journal-title": "Brain Res."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB21",
+            "doi-asserted-by": "crossref",
+            "first-page": "175",
+            "DOI": "10.1111/j.1600-079X.1996.tb00285.x",
+            "article-title": "Microvesicle-mediated exocytosis of glutamate is a novel paracrine-like chemical transduction mechanism and inhibits melatonin secretion in rat pinealocytes",
+            "volume": "21",
+            "author": "Yamada",
+            "year": "1996",
+            "journal-title": "J. Pineal Res."
+          },
+          {
+            "key": "10.1016/S0304-3940(99)00268-2_BIB22",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/S0165-3806(96)00192-7",
+            "article-title": "Immunoreactivity for GABA plasma membrane transporter, GAT-1, in the developing rat cerebral cortex: transient presence in the somata of neocortical and hippocampal neurons",
+            "volume": "99",
+            "author": "Yan",
+            "year": "1997",
+            "journal-title": "Dev. Brain Res."
+          }
+        ],
+        "container-title": [
+          "Neuroscience Letters"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0304394099002682?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0304394099002682?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2020,
+              1,
+              8
+            ]
+          ],
+          "date-time": "2020-01-08T14:16:49Z",
+          "timestamp": 1578493009000
+        },
+        "score": 17.69981,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0304394099002682"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1999,
+              5
+            ]
+          ]
+        },
+        "references-count": 22,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1999,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0304394099002682"
+        ],
+        "URL": "https://doi.org/10.1016/s0304-3940(99)00268-2",
+        "ISSN": [
+          "0304-3940"
+        ],
+        "issn-type": [
+          {
+            "value": "0304-3940",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1999,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              11
+            ]
+          ],
+          "date-time": "2025-05-11T08:10:06Z",
+          "timestamp": 1746951006474,
+          "version": "3.40.5"
+        },
+        "reference-count": 0,
+        "publisher": "Shafi Science Center Ltd",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  5,
+                  11
+                ]
+              ],
+              "date-time": "2025-05-11T00:00:00Z",
+              "timestamp": 1746921600000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IIPT"
+        ],
+        "abstract": "<jats:p>Mazkur maqolada infratuzilmani samarali rejalashtirish, boshqarish va rivojlantirishda geografik axborot tizimlari (GAT) texnologiyalarining o‘rni yoritilgan. GAT vositalari orqali hududiy resurslardan oqilona foydalanish, muhandislik kommunikatsiyalarini optimallashtirish, favqulodda vaziyatlarga tezkor javob berish va ekologik barqarorlikni ta’minlash imkoniyatlari tahlil etilgan. Dunyodagi ilg‘or tajribalar, xususan, Singapurda “Smart Nation” tashabbusi doirasida GAT texnologiyalarining joriy etilishi, virtual shahar modellarining shakllantirilishi va ularning transport, suv va qurilish infratuzilmasiga ta’siri misol sifatida ko‘rib chiqilib, tahlillar asosida xulosa va takliflar keltirib o‘tilgan.</jats:p>",
+        "DOI": "10.60078/3060-4842-2025-vol2-iss2-pp946-953",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              11
+            ]
+          ],
+          "date-time": "2025-05-11T07:48:49Z",
+          "timestamp": 1746949729000
+        },
+        "page": "946-953",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "INFRATUZILMANI RIVOJLANTIRISHDA GAT TEXNOLOGIYASINING ROLI",
+          "ROLE OF GAT TECHNOLOGY IN INFRASTRUCTURE DEVELOPMENT",
+          "РОЛЬ ТЕХНОЛОГИИ GAT В РАЗВИТИИ ИНФРАСТРУКТУРЫ"
+        ],
+        "prefix": "10.60078",
+        "volume": "2",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-0783-4078",
+            "authenticated-orcid": false,
+            "given": "Laylo",
+            "family": "Abduxalilova",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "39529",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              11
+            ]
+          ]
+        },
+        "container-title": [
+          "Ilgʻor iqtisodiyot va pedagogik texnologiyalar"
+        ],
+        "link": [
+          {
+            "URL": "https://sci-p.uz/index.php/aept/article/download/2640/2469",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://sci-p.uz/index.php/aept/article/download/2640/2469",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              11
+            ]
+          ],
+          "date-time": "2025-05-11T07:48:49Z",
+          "timestamp": 1746949729000
+        },
+        "score": 17.359505,
+        "resource": {
+          "primary": {
+            "URL": "https://sci-p.uz/index.php/aept/article/view/2640"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              11
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                13
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.60078/3060-4842-2025-vol2-iss2-pp946-953",
+        "ISSN": [
+          "3060-4842"
+        ],
+        "issn-type": [
+          {
+            "value": "3060-4842",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              11
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              17
+            ]
+          ],
+          "date-time": "2026-04-17T19:49:47Z",
+          "timestamp": 1776455387269,
+          "version": "3.51.2"
+        },
+        "reference-count": 78,
+        "publisher": "Wiley",
+        "issue": "8",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2015,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2015-09-01T00:00:00Z",
+              "timestamp": 1441065600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 1629,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2011,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1111/j.1460-9568.2011.07636.x",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2011,
+              3,
+              17
+            ]
+          ],
+          "date-time": "2011-03-17T09:43:05Z",
+          "timestamp": 1300354985000
+        },
+        "page": "1504-1518",
+        "source": "Crossref",
+        "is-referenced-by-count": 31,
+        "title": [
+          "Differential localization and function of GABA transporters, GAT-1 and GAT-3, in the rat globus pallidus"
+        ],
+        "prefix": "10.1111",
+        "volume": "33",
+        "author": [
+          {
+            "given": "Xiao-Tao",
+            "family": "Jin",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jean-Francois",
+            "family": "Paré",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Yoland",
+            "family": "Smith",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2011,
+              3,
+              17
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB1|cit1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1185",
+            "DOI": "10.1523/JNEUROSCI.3908-07.2008",
+            "article-title": "Differential tonic GABA conductances in striatal medium spiny neurons",
+            "volume": "28",
+            "author": "Ade",
+            "year": "2008",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB2|cit2",
+            "doi-asserted-by": "crossref",
+            "first-page": "3837",
+            "DOI": "10.1523/JNEUROSCI.5539-03.2004",
+            "article-title": "Sequential release of GABA by exocytosis and reversed uptake leads to neuronal swelling in simulated ischaemia of hippocampal slices",
+            "volume": "24",
+            "author": "Allen",
+            "year": "2004",
+            "journal-title": "J. Neorosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB3|cit3",
+            "doi-asserted-by": "crossref",
+            "first-page": "259",
+            "DOI": "10.1016/0014-2999(91)90467-5",
+            "article-title": "Blockade of neurotransmitter-activated K+ conductance by QX-314 in the rat hippocampus",
+            "volume": "199",
+            "author": "Andrade",
+            "year": "1991",
+            "journal-title": "Eur. J. Pharmacol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB4|cit4",
+            "doi-asserted-by": "crossref",
+            "first-page": "4012",
+            "DOI": "10.1523/JNEUROSCI.23-10-04012.2003",
+            "article-title": "Functional correlations between neighboring neurons in the primate globus pallidus are weak or nonexistent",
+            "volume": "23",
+            "author": "Bar-Gad",
+            "year": "2003",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB5|cit5",
+            "doi-asserted-by": "crossref",
+            "first-page": "9438",
+            "DOI": "10.1523/JNEUROSCI.18-22-09438.1998",
+            "article-title": "Selective innervation of neostriatal interneurons by a subclass of neuron in the globus pallidus of the rat",
+            "volume": "18",
+            "author": "Bevan",
+            "year": "1998",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB6|cit6",
+            "doi-asserted-by": "crossref",
+            "first-page": "525",
+            "DOI": "10.1016/S0166-2236(02)02235-X",
+            "article-title": "Move to the rhythm: oscillations in the subthalamic nucleus-external globus pallidus network",
+            "volume": "25",
+            "author": "Bevan",
+            "year": "2002",
+            "journal-title": "Trends Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB7|cit7",
+            "doi-asserted-by": "crossref",
+            "first-page": "9123",
+            "DOI": "10.1523/JNEUROSCI.23-27-09123.2003",
+            "article-title": "Quantitative estimate of synaptic inputs to striatal neurons during up and down state in vitro",
+            "volume": "23",
+            "author": "Blackwell",
+            "year": "2003",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB8|cit8",
+            "doi-asserted-by": "crossref",
+            "first-page": "335",
+            "DOI": "10.1016/0197-0186(95)00158-1",
+            "article-title": "GABA transporter heterogeneity: pharmacology and cellular localization",
+            "volume": "29",
+            "author": "Borden",
+            "year": "1996",
+            "journal-title": "Neurochem. Int."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB9|cit9",
+            "doi-asserted-by": "crossref",
+            "first-page": "1285",
+            "DOI": "10.1152/jn.00598.2005",
+            "article-title": "Excitatory GABAergic effects in striatal projection neurons",
+            "volume": "95",
+            "author": "Bracci",
+            "year": "2006",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB10|cit10",
+            "doi-asserted-by": "crossref",
+            "first-page": "1781",
+            "DOI": "10.1111/j.1471-4159.2008.05273.x",
+            "article-title": "GAT-1 regulates both tonic and phasic GABAA receptor-mediated inhibition in the cerebral cortex",
+            "volume": "105",
+            "author": "Bragina",
+            "year": "2008",
+            "journal-title": "J. Neurochem."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB11|cit11",
+            "doi-asserted-by": "crossref",
+            "first-page": "753",
+            "DOI": "10.1113/jphysiol.1996.sp021806",
+            "article-title": "Development of a tonic form of synaptic inhibition in rat cerebellar granule cells resulting from persistent activation of GABAA receptors",
+            "volume": "497",
+            "author": "Brickley",
+            "year": "1996",
+            "journal-title": "J. Physiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB12|cit12",
+            "doi-asserted-by": "crossref",
+            "first-page": "54",
+            "DOI": "10.1016/S1471-4892(02)00011-5",
+            "article-title": "CB1 cannabinoid receptor signalling in Parkinson’s disease",
+            "volume": "3",
+            "author": "Brotchie",
+            "year": "2003",
+            "journal-title": "Curr. Opin. Pharmacol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB13|cit13",
+            "doi-asserted-by": "crossref",
+            "first-page": "7596",
+            "DOI": "10.1523/JNEUROSCI.22-17-07596.2002",
+            "article-title": "Heterotopic neurons with altered inhibitory synaptic function in an animal model of malformation-associated epilepsy",
+            "volume": "22",
+            "author": "Calcagnotto",
+            "year": "2002",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB14|cit14",
+            "doi-asserted-by": "crossref",
+            "first-page": "S107",
+            "DOI": "10.1212/01.WNL.0000095223.08711.48",
+            "article-title": "Translating A2A antagonist KW6002 from animal models to parkinsonian patients",
+            "volume": "61",
+            "author": "Chase",
+            "year": "2003",
+            "journal-title": "Neurology"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB15|cit15",
+            "doi-asserted-by": "crossref",
+            "first-page": "263",
+            "DOI": "10.1007/s00221-003-1549-7",
+            "article-title": "Effects of the GABA-uptake inhibitor tiagabine in rat globus pallidus",
+            "volume": "152",
+            "author": "Chen",
+            "year": "2003",
+            "journal-title": "Exp. Brain Res."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB16|cit16",
+            "doi-asserted-by": "crossref",
+            "first-page": "3234",
+            "DOI": "10.1523/JNEUROSCI.3364-04.2005",
+            "article-title": "GABA transporter deficiency causes tremor, ataxia, nervousness, and increased GABA induced tonic conductance in cerebellum",
+            "volume": "25",
+            "author": "Chiu",
+            "year": "2005",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB17|cit17",
+            "doi-asserted-by": "crossref",
+            "first-page": "51",
+            "DOI": "10.1002/(SICI)1096-9861(19980622)396:1<51::AID-CNE5>3.0.CO;2-H",
+            "article-title": "Neuronal and glial localization of GAT-1, a high-affinity gamma-aminobutyric acid plasma membrane transporter, in human cerebral cortex: with a note on its distribution in monkey cortex",
+            "volume": "396",
+            "author": "Conti",
+            "year": "1998",
+            "journal-title": "J. Comp. Neurol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB18|cit18",
+            "doi-asserted-by": "crossref",
+            "first-page": "291",
+            "DOI": "10.1111/j.1469-7793.2000.t01-1-00291.x",
+            "article-title": "Electrophysiological and morphological characteristics of three subtypes of rat globus pallidus neurones in vitro",
+            "volume": "527",
+            "author": "Cooper",
+            "year": "2000",
+            "journal-title": "J. Physiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB19|cit19",
+            "first-page": "62",
+            "article-title": "Dopamine D2 receptor mediated presynaptic inhibition of striatopallidal GABA(A) IPSCs in vitro",
+            "volume": "41",
+            "author": "Cooper",
+            "year": "2001",
+            "journal-title": "Neurophysiology"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB20|cit20",
+            "doi-asserted-by": "crossref",
+            "first-page": "281",
+            "DOI": "10.1016/0166-2236(90)90110-V",
+            "article-title": "Primate models of movement disorders of basal ganglia origin",
+            "volume": "13",
+            "author": "DeLong",
+            "year": "1990",
+            "journal-title": "Trends Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB21|cit21",
+            "doi-asserted-by": "crossref",
+            "first-page": "1051",
+            "DOI": "10.1016/S0896-6273(02)01053-X",
+            "article-title": "Paracrine intercellular communication by a Ca2+- and SNARE-independent release of GABA and glutamate prior to synapse formation",
+            "volume": "36",
+            "author": "Demarque",
+            "year": "2002",
+            "journal-title": "Neuron"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB22|cit22",
+            "doi-asserted-by": "crossref",
+            "first-page": "3983",
+            "DOI": "10.1152/jn.1996.76.6.3983",
+            "article-title": "Different mechanisms regulate IPSC kinetics in early postnatal and juvenile hippocampal granule cells",
+            "volume": "76",
+            "author": "Draguhn",
+            "year": "1996",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB23|cit23",
+            "doi-asserted-by": "crossref",
+            "first-page": "7",
+            "DOI": "10.1016/0169-328X(95)00101-W",
+            "article-title": "Localization of messenger RNAs encoding three GABA transporters in rat brain: an in situ hybridization study",
+            "volume": "33",
+            "author": "Durkin",
+            "year": "1995",
+            "journal-title": "Brain Res. Mol. Brain Res."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB24|cit24",
+            "doi-asserted-by": "crossref",
+            "first-page": "643",
+            "DOI": "10.1111/j.1469-7793.1998.643bd.x",
+            "article-title": "Laminar difference in GABA uptake and GAT-1 expression in rat CA1",
+            "volume": "512",
+            "author": "Engel",
+            "year": "1998",
+            "journal-title": "J. Physiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB25|cit25",
+            "doi-asserted-by": "crossref",
+            "first-page": "990",
+            "DOI": "10.1152/jn.00068.2005",
+            "article-title": "GABAergic modulation of the activity of globus pallidus neurons in primates: in vivo analysis of the functions of GABA receptors and GABA transporters",
+            "volume": "94",
+            "author": "Galvan",
+            "year": "2005",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB26|cit26",
+            "doi-asserted-by": "crossref",
+            "first-page": "154",
+            "DOI": "10.1016/j.neuropharm.2006.03.011",
+            "article-title": "Adenosine A2A receptor stimulation decreases GAT-1-mediated GABA uptake in the globus pallidus of the rat",
+            "volume": "51",
+            "author": "Gonzalez",
+            "year": "2006",
+            "journal-title": "Neuropharmacology"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB27|cit27",
+            "doi-asserted-by": "crossref",
+            "first-page": "533",
+            "DOI": "10.1152/jn.91161.2008",
+            "article-title": "GABA transporter GAT1 prevents spillover at proximal and distal GABA synapses onto primate prefrontal cortex neuron",
+            "volume": "101",
+            "author": "Gonzalez-Burgos",
+            "year": "2009",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB28|cit28",
+            "doi-asserted-by": "crossref",
+            "first-page": "47",
+            "DOI": "10.1016/0169-328X(94)90072-8",
+            "article-title": "Production of specific antibodies against GABA transporter subtypes (GAT1, GAT2, GAT3) and their application to immunocytochemistry",
+            "volume": "26",
+            "author": "Ikegaki",
+            "year": "1994",
+            "journal-title": "Mol. Brain Res."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB29|cit29",
+            "doi-asserted-by": "crossref",
+            "first-page": "165",
+            "DOI": "10.1016/0896-6273(93)90308-E",
+            "article-title": "Local and diffuse synaptic actions of GABA in the hippocampus",
+            "volume": "10",
+            "author": "Isaacson",
+            "year": "1993",
+            "journal-title": "Neuron"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB30|cit30",
+            "doi-asserted-by": "crossref",
+            "first-page": "2690",
+            "DOI": "10.1152/jn.00240.2003",
+            "article-title": "GABA transporter-1 (GAT-1)-deficient mice: differential tonic activation of GABAA versus GABAB receptors in the hippocampus",
+            "volume": "90",
+            "author": "Jensen",
+            "year": "2003",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB31|cit31",
+            "doi-asserted-by": "crossref",
+            "first-page": "338",
+            "DOI": "10.1016/j.neuroscience.2007.07.017",
+            "article-title": "Activation of presynaptic kainate receptors suppresses GABAergic synaptic transmission in the rat globus pallidus",
+            "volume": "149",
+            "author": "Jin",
+            "year": "2007",
+            "journal-title": "Neuroscience"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB32|cit32",
+            "doi-asserted-by": "crossref",
+            "first-page": "374",
+            "DOI": "10.1111/j.1460-9568.2005.04574.x",
+            "article-title": "Localization and function of pre- and postsynaptic kainate receptors in the rat globus pallidus",
+            "volume": "23",
+            "author": "Jin",
+            "year": "2006",
+            "journal-title": "Eur. J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB33|cit33",
+            "doi-asserted-by": "crossref",
+            "first-page": "321",
+            "DOI": "10.1006/exnr.2000.7350",
+            "article-title": "Combined use of the adenosine A(2A) antagonist KW-6002 with L-DOPA or with selective D1 or D2 dopamine agonist increases antiparkinsonian activity but not dyskinesia in MPTP-treated monkeys",
+            "volume": "162",
+            "author": "Kanda",
+            "year": "2000",
+            "journal-title": "Exp. Neurol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB34|cit34",
+            "doi-asserted-by": "crossref",
+            "first-page": "3421",
+            "DOI": "10.1523/JNEUROSCI.10-10-03421.1990",
+            "article-title": "Projection subtypes of rat neostriatal matrix cells revealed by intracellular injection of biocytin",
+            "volume": "10",
+            "author": "Kawaguchi",
+            "year": "1990",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB35|cit35",
+            "doi-asserted-by": "crossref",
+            "first-page": "2073",
+            "DOI": "10.1152/jn.00520.2005",
+            "article-title": "Subtype-specific GABA transporter antagonists synergistically modulate phasic and tonic GABAA conductances in rat neocortex",
+            "volume": "94",
+            "author": "Keros",
+            "year": "2005",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB36|cit36",
+            "doi-asserted-by": "crossref",
+            "first-page": "4533",
+            "DOI": "10.1152/jn.00420.2005",
+            "article-title": "GAT-3 transporters regulate inhibition in the neocortex",
+            "volume": "94",
+            "author": "Kinney",
+            "year": "2005",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB37|cit37",
+            "doi-asserted-by": "crossref",
+            "first-page": "5665",
+            "DOI": "10.1113/jphysiol.2008.161943",
+            "article-title": "GABA transporter 1 tunes GABAergic synaptic transmission at output neurons of the mouse neostriatum",
+            "volume": "586",
+            "author": "Kirmse",
+            "year": "2008",
+            "journal-title": "J. Physiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB38|cit38",
+            "doi-asserted-by": "crossref",
+            "first-page": "921",
+            "DOI": "10.1002/syn.20675",
+            "article-title": "Role of GABA transporter 3 in GABAergic synaptic transmission at striatal output neurons",
+            "volume": "63",
+            "author": "Kirmse",
+            "year": "2009",
+            "journal-title": "Synapse"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB39|cit39",
+            "doi-asserted-by": "crossref",
+            "first-page": "438",
+            "DOI": "10.1002/cne.1294",
+            "article-title": "Number, origins, and chemical types of rat pallidostriatal projection neurons",
+            "volume": "437",
+            "author": "Kita",
+            "year": "2001",
+            "journal-title": "J. Comp. Neurol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB40|cit40",
+            "doi-asserted-by": "crossref",
+            "first-page": "296",
+            "DOI": "10.1016/0006-8993(91)91466-E",
+            "article-title": "Intracellular study of rat globus pallidus neurons: membrane properties and responses to neostriatal, subthalamic and nigral stimulation",
+            "volume": "564",
+            "author": "Kita",
+            "year": "1991",
+            "journal-title": "Brain Res."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB41|cit41",
+            "doi-asserted-by": "crossref",
+            "first-page": "1467",
+            "DOI": "10.1097/00001756-199905140-00014",
+            "article-title": "Monkey globus pallidus external segment neurons projecting to the neostriatum",
+            "volume": "10",
+            "author": "Kita",
+            "year": "1999",
+            "journal-title": "NeuroReport"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB42|cit42",
+            "doi-asserted-by": "crossref",
+            "first-page": "1036",
+            "DOI": "10.1152/jn.1996.76.2.1036",
+            "article-title": "Spontaneous release of GABA activates GABAB receptors and controls network activity in the neonatal rat hippocampus",
+            "volume": "76",
+            "author": "McLean",
+            "year": "1996",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB43|cit43",
+            "doi-asserted-by": "crossref",
+            "first-page": "38",
+            "DOI": "10.1002/syn.890080106",
+            "article-title": "GABA depolarizes neurons in the rat striatum: an in vivo study",
+            "volume": "8",
+            "author": "Mercuri",
+            "year": "1991",
+            "journal-title": "Synapse"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB44|cit44",
+            "doi-asserted-by": "crossref",
+            "first-page": "7734",
+            "DOI": "10.1523/JNEUROSCI.15-11-07734.1995",
+            "article-title": "GAT-1, a high-affinity GABA plasma membrane transporter, is localized to neurons and astroglia in the cerebral cortex",
+            "volume": "15",
+            "author": "Minelli",
+            "year": "1995",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB45|cit45",
+            "doi-asserted-by": "crossref",
+            "first-page": "6255",
+            "DOI": "10.1523/JNEUROSCI.16-19-06255.1996",
+            "article-title": "GAT-3, a high-affinity GABA plasma membrane transporter, is localized to astrocytic processes, and it is not confined to the vicinity of GABAergic synapses in the cerebral cortex",
+            "volume": "16",
+            "author": "Minelli",
+            "year": "1996",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB46|cit46",
+            "doi-asserted-by": "crossref",
+            "first-page": "1127",
+            "DOI": "10.1152/jn.1994.72.3.1127",
+            "article-title": "Electrophysiology of globus pallidus neurons in vitro",
+            "volume": "72",
+            "author": "Nambu",
+            "year": "1994",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB47|cit47",
+            "doi-asserted-by": "crossref",
+            "first-page": "309",
+            "DOI": "10.1016/0304-3940(90)90865-7",
+            "article-title": "The slow inhibitory postsynaptic potential in rat hippocampal CA1 neurons is blocked by intracellular injection of QX-314",
+            "volume": "110",
+            "author": "Nathan",
+            "year": "1990",
+            "journal-title": "Neurosci. Lett."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB48|cit48",
+            "doi-asserted-by": "crossref",
+            "first-page": "595",
+            "DOI": "10.1023/A:1011076219493",
+            "article-title": "A light and electron microscopic study of the GABA transporter GAT-3 in the monkey basal ganglia and brainstem",
+            "volume": "29",
+            "author": "Ng",
+            "year": "2000",
+            "journal-title": "J. Neurocytol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB49|cit49",
+            "doi-asserted-by": "crossref",
+            "first-page": "2624",
+            "DOI": "10.1152/jn.2002.87.5.2624",
+            "article-title": "Selective modulation of tonic and phasic inhibitions in dentate gyrus granule cells",
+            "volume": "87",
+            "author": "Nusser",
+            "year": "2002",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB50|cit50",
+            "doi-asserted-by": "crossref",
+            "first-page": "580",
+            "DOI": "10.1002/(SICI)1096-9861(19960318)366:4<580::AID-CNE3>3.0.CO;2-0",
+            "article-title": "Total number of neurons in the neostriatal, pallidal, subthalamic, and substantia nigral nuclei of the rat basal ganglia: a stereological study using the cavalieri and optical disector methods",
+            "volume": "366",
+            "author": "Oorschot",
+            "year": "1996",
+            "journal-title": "J. Comp. Neurol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB51|cit51",
+            "doi-asserted-by": "crossref",
+            "first-page": "2618",
+            "DOI": "10.1523/JNEUROSCI.23-07-02618.2003",
+            "article-title": "Synaptic sensity regulates independence at unitary inhibitory synapses",
+            "volume": "23",
+            "author": "Overstreet",
+            "year": "2003",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB52|cit52",
+            "doi-asserted-by": "crossref",
+            "first-page": "7914",
+            "DOI": "10.1523/JNEUROSCI.20-21-07914.2000",
+            "article-title": "Slow desensitization regulates the availability of synaptic GABA(A) receptors",
+            "volume": "20",
+            "author": "Overstreet",
+            "year": "2000",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB53|cit53",
+            "doi-asserted-by": "crossref",
+            "first-page": "280",
+            "DOI": "10.1016/0006-8993(95)01017-P",
+            "article-title": "Single striatofugal axons arborizing in both pallidal segments and in the substantia nigra in primates",
+            "volume": "698",
+            "author": "Parent",
+            "year": "1995",
+            "journal-title": "Brain Res."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB54|cit54",
+            "volume-title": "The Fine Structure of the Nervous System",
+            "author": "Peters",
+            "year": "1991"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB55|cit55",
+            "doi-asserted-by": "crossref",
+            "first-page": "677",
+            "DOI": "10.1038/23281",
+            "article-title": "A basal ganglia pacemaker formed by the subthalamic nucleus and external globus pallidus",
+            "volume": "400",
+            "author": "Plenz",
+            "year": "1999",
+            "journal-title": "Nature"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB56|cit56",
+            "doi-asserted-by": "crossref",
+            "first-page": "122",
+            "DOI": "10.1523/JNEUROSCI.23-01-00122.2003",
+            "article-title": "Distinct functional roles of the metabotropic glutamate receptors 1 and 5 in the rat globus pallidus",
+            "volume": "23",
+            "author": "Poisik",
+            "year": "2003",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB57|cit57",
+            "doi-asserted-by": "crossref",
+            "first-page": "706",
+            "DOI": "10.1046/j.0022-3042.2001.00750.x",
+            "article-title": "Multiple mechanisms of transmitter release evoked by ‘pathologically’ elevated ectracellular [K+]: involvement of transporter reversal and mitochondrial calcium",
+            "volume": "80",
+            "author": "Raiteri",
+            "year": "2002",
+            "journal-title": "J. Neurochem."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB58|cit58",
+            "doi-asserted-by": "crossref",
+            "first-page": "208",
+            "DOI": "10.1083/jcb.17.1.208",
+            "article-title": "The use of lead citrate at high pH as an electron-opaque stain in electron microscopy",
+            "volume": "17",
+            "author": "Reynolds",
+            "year": "1963",
+            "journal-title": "J. Cell Biol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB59|cit59",
+            "doi-asserted-by": "crossref",
+            "first-page": "595",
+            "DOI": "10.1002/(SICI)1096-9861(19960415)367:4<595::AID-CNE9>3.0.CO;2-#",
+            "article-title": "GABA plasma membrane transporters, GAT-1 and GAT-3, display different distributions in the rat hippocampus",
+            "volume": "367",
+            "author": "Ribak",
+            "year": "1996a",
+            "journal-title": "J. Comp. Neurol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB60|cit60",
+            "doi-asserted-by": "crossref",
+            "first-page": "379",
+            "DOI": "10.1007/BF00198540",
+            "article-title": "Astrocytic processes compensate for the apparent lack of GABA transporters in the axon terminals of cerebellar Purkinje cells",
+            "volume": "194",
+            "author": "Ribak",
+            "year": "1996b",
+            "journal-title": "Anat. Embryol. (Berl.)"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB61|cit61",
+            "doi-asserted-by": "crossref",
+            "first-page": "1363",
+            "DOI": "10.1152/jn.00317.2003",
+            "article-title": "Dynamic equilibrium of neurotransmitter transporters: not just for reuptake anymore",
+            "volume": "90",
+            "author": "Richerson",
+            "year": "2003",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB62|cit62",
+            "doi-asserted-by": "crossref",
+            "first-page": "131",
+            "DOI": "10.1016/0304-3940(92)90060-K",
+            "article-title": "Comparison of the effect of the GABA uptake blockers, tiagabine and nipecotic acid, on inhibitory synaptic efficacy in hippocampal CA1 neurons",
+            "volume": "146",
+            "author": "Roepstorff",
+            "year": "1992",
+            "journal-title": "Neurosci. Lett."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB63|cit63",
+            "doi-asserted-by": "crossref",
+            "first-page": "2911",
+            "DOI": "10.1152/jn.1994.72.6.2911",
+            "article-title": "Factors contributing to the decay of the stimulus-evoked IPSC in rat hippocampal CA1 neurons",
+            "volume": "72",
+            "author": "Roepstorff",
+            "year": "1994",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB64|cit64",
+            "doi-asserted-by": "crossref",
+            "first-page": "137",
+            "DOI": "10.1016/S0163-7258(02)00253-X",
+            "article-title": "The endogenous cannabinoid system and the basal ganglia. Biochemical, pharmacological, and therapeutic aspects",
+            "volume": "95",
+            "author": "Romero",
+            "year": "2002",
+            "journal-title": "Pharmacol. Ther."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB65|cit65",
+            "doi-asserted-by": "crossref",
+            "first-page": "97",
+            "DOI": "10.1113/jphysiol.2002.036459",
+            "article-title": "Multiple modes of GABAergic inhibition of rat cerebellar cells",
+            "volume": "548",
+            "author": "Rossi",
+            "year": "2003",
+            "journal-title": "J. Physiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB66|cit66",
+            "doi-asserted-by": "crossref",
+            "first-page": "6352",
+            "DOI": "10.1523/JNEUROSCI.0953-07.2007",
+            "article-title": "A single-cell analysis of intrinsic connectivity in the rat globus pallidus",
+            "volume": "27",
+            "author": "Sadek",
+            "year": "2007",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB67|cit67",
+            "doi-asserted-by": "crossref",
+            "first-page": "1573",
+            "DOI": "10.1152/jn.1996.75.4.1573",
+            "article-title": "Spontaneous GABAA receptor-mediated inhibitory currents in adult rat somatosensory cortex",
+            "volume": "75",
+            "author": "Salin",
+            "year": "1996",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB68|cit68",
+            "doi-asserted-by": "crossref",
+            "first-page": "10016",
+            "DOI": "10.1523/JNEUROSCI.2520-05.2005",
+            "article-title": "Multiple and plastic receptors mediate tonic GABAA receptor currents in the hippocampus",
+            "volume": "25",
+            "author": "Scimemi",
+            "year": "2005",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB69|cit69",
+            "doi-asserted-by": "crossref",
+            "first-page": "484",
+            "DOI": "10.1038/nn1043",
+            "article-title": "GABA uptake regulates cortical excitability via cell type-specific tonic inhibition",
+            "volume": "6",
+            "author": "Semyanov",
+            "year": "2003",
+            "journal-title": "Nat. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB70|cit70",
+            "doi-asserted-by": "crossref",
+            "first-page": "262",
+            "DOI": "10.1016/j.tins.2004.03.005",
+            "article-title": "Tonically active GABAA receptor: modulating gain and maintaining the tone",
+            "volume": "27",
+            "author": "Semyanov",
+            "year": "2004",
+            "journal-title": "Trends Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB71|cit71",
+            "first-page": "353",
+            "article-title": "Microcircuitry of the direct and indirect pathways of the basal ganglia",
+            "volume": "86",
+            "author": "Smith",
+            "year": "1998",
+            "journal-title": "Neuroscience"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB72|cit72",
+            "doi-asserted-by": "crossref",
+            "first-page": "1698",
+            "DOI": "10.1152/jn.1992.67.6.1698",
+            "article-title": "Effects of the GABA uptake inhibitor tiagabine on inhibitory synaptic potentials in rat hippocampal slice cultures",
+            "volume": "67",
+            "author": "Thompson",
+            "year": "1992",
+            "journal-title": "J. Neurophysiol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB73|cit73",
+            "doi-asserted-by": "crossref",
+            "first-page": "7218",
+            "DOI": "10.1523/JNEUROSCI.23-18-07218.2003",
+            "article-title": "Group III metabotropic glutamatergic receptor-mediated modulation of the striatopallidal synapse",
+            "volume": "23",
+            "author": "Valenti",
+            "year": "2003",
+            "journal-title": "J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB74|cit74",
+            "doi-asserted-by": "crossref",
+            "first-page": "284",
+            "DOI": "10.1016/j.expneurol.2005.02.012",
+            "article-title": "Differental effects of endocannabinoids on [3H]-GABA uptake in the rat globus pallidus",
+            "volume": "194",
+            "author": "Venderova",
+            "year": "2005",
+            "journal-title": "Exp. Neurol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB75|cit75",
+            "doi-asserted-by": "crossref",
+            "first-page": "533",
+            "DOI": "10.1111/j.1460-9568.1997.tb01630.x",
+            "article-title": "Development of action potential-dependent and independent spontaneous GABAA receptor-mediated currents in granule cells of postnatal rat cerebellum",
+            "volume": "9",
+            "author": "Wall",
+            "year": "1997",
+            "journal-title": "Eur. J. Neurosci."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB76|cit76",
+            "doi-asserted-by": "crossref",
+            "first-page": "1053",
+            "DOI": "10.1023/A:1007056608820",
+            "article-title": "A light and electron microscopic study of GAT-1 in the monkey basal ganglia",
+            "volume": "28",
+            "author": "Wang",
+            "year": "1999",
+            "journal-title": "J. Neurocytol."
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB77|cit77",
+            "doi-asserted-by": "crossref",
+            "first-page": "851",
+            "DOI": "10.1016/j.neuron.2007.10.021",
+            "article-title": "Nonvesicular inhibitory neurotransmission via reversal of the GABA transporter GAT-1",
+            "volume": "56",
+            "author": "Wu",
+            "year": "2007",
+            "journal-title": "Neuron"
+          },
+          {
+            "key": "10.1111/j.1460-9568.2011.07636.x-BIB78|cit78",
+            "doi-asserted-by": "crossref",
+            "first-page": "205",
+            "DOI": "10.1016/S0169-328X(96)00200-8",
+            "article-title": "Regional distribution of GABA transporter 1 (GAT1) mRNA in the rat brain: comparison with glutamic acid decarboxylase67 (GAD67) mRNA localization",
+            "volume": "44",
+            "author": "Yasumi",
+            "year": "1997",
+            "journal-title": "Brain Res. Mol. Brain Res."
+          }
+        ],
+        "container-title": [
+          "European Journal of Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.1460-9568.2011.07636.x",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "http://onlinelibrary.wiley.com/wol1/doi/10.1111/j.1460-9568.2011.07636.x/fullpdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              7,
+              7
+            ]
+          ],
+          "date-time": "2021-07-07T06:26:22Z",
+          "timestamp": 1625639182000
+        },
+        "score": 17.113665,
+        "resource": {
+          "primary": {
+            "URL": "https://onlinelibrary.wiley.com/doi/10.1111/j.1460-9568.2011.07636.x"
+          }
+        },
+        "subtitle": [
+          "GAT-1 and GAT-3 in globus pallidus"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2011,
+              3,
+              17
+            ]
+          ]
+        },
+        "references-count": 78,
+        "journal-issue": {
+          "issue": "8",
+          "published-print": {
+            "date-parts": [
+              [
+                2011,
+                4
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1111/j.1460-9568.2011.07636.x",
+        "ISSN": [
+          "0953-816X"
+        ],
+        "issn-type": [
+          {
+            "value": "0953-816X",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2011,
+              3,
+              17
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              1,
+              20
+            ]
+          ],
+          "date-time": "2024-01-20T00:02:13Z",
+          "timestamp": 1705708933441
+        },
+        "reference-count": 0,
+        "publisher": "Project MUSE",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "jmh"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2005,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1353/jmh.2005.0160",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              17
+            ]
+          ],
+          "date-time": "2005-07-17T13:10:13Z",
+          "timestamp": 1121605813000
+        },
+        "page": "818-820",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Dr. Gat Responds"
+        ],
+        "prefix": "10.1353",
+        "volume": "69",
+        "author": [
+          {
+            "given": "Moshe",
+            "family": "Gat",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "147",
+        "container-title": [
+          "The Journal of Military History"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              1,
+              19
+            ]
+          ],
+          "date-time": "2024-01-19T18:23:44Z",
+          "timestamp": 1705688624000
+        },
+        "score": 17.038033,
+        "resource": {
+          "primary": {
+            "URL": "https://muse.jhu.edu/article/184800"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2005,
+              7
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2005,
+                7
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1353/jmh.2005.0160",
+        "ISSN": [
+          "1543-7795"
+        ],
+        "issn-type": [
+          {
+            "value": "1543-7795",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2005,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              16
+            ]
+          ],
+          "date-time": "2026-03-16T09:54:53Z",
+          "timestamp": 1773654893448,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "The Association of Anaesthetists of Great Britain and Ireland",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.21466/g.gh.2017",
+        "type": "report",
+        "created": {
+          "date-parts": [
+            [
+              2019,
+              5,
+              9
+            ]
+          ],
+          "date-time": "2019-05-09T06:54:17Z",
+          "timestamp": 1557384857000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Trainee (GAT) handbook"
+        ],
+        "prefix": "10.21466",
+        "author": [
+          {
+            "name": "AAGBI GAT Committee Elected Member",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr Anna",
+            "family": "Costello",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr Satinder",
+            "family": "Dalay",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "AAGBI GAT Committee Elected Member",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr Andrew",
+            "family": "Hartle",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "AAGBI President Consultant in Anaesthesia & Intensive Care, Imperial College Healthcare NHS Trust, St Mary’s Hospital",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr Ben",
+            "family": "Fox",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "AAGBI GAT Committee Chair",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr JP",
+            "family": "Lomas",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "RCoA Council Member",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Elizabeth H",
+            "family": "Shewry",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Past GAT Committee Vice Chair 2008–2010",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr Emma",
+            "family": "Plunkett",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "GAT Committee Honorary Secretary 2015–16 and LTFT Representative",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr Sarah",
+            "family": "Gibb",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "GAT Chair 2014–15. Previous GAT and RCoA LTFT Representative",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Nicola",
+            "family": "Barber",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Deputy Regional Advisor, East of England School of Anaesthesia Consultant, Cambridge University Hospitals NHS Foundation Trust",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "8899",
+        "published-online": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        },
+        "deposited": {
+          "date-parts": [
+            [
+              2019,
+              5,
+              9
+            ]
+          ],
+          "date-time": "2019-05-09T06:54:18Z",
+          "timestamp": 1557384858000
+        },
+        "score": 17.037495,
+        "resource": {
+          "primary": {
+            "URL": "https://www.anaesthetists.org/Home/Resources-publications/Guidelines/Trainee-handbook"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.21466/g.gh.2017",
+        "published": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:33:16Z",
+          "timestamp": 1772271196364,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerj-cs.2735/fig-3",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              19
+            ]
+          ],
+          "date-time": "2025-03-19T04:12:46Z",
+          "timestamp": 1742357566000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Figure 3: GAT graph."
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              19
+            ]
+          ],
+          "date-time": "2025-03-19T04:12:47Z",
+          "timestamp": 1742357567000
+        },
+        "score": 16.778246,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-2735/fig-3"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerj-cs.2735/fig-3",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.2735",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:35:33Z",
+          "timestamp": 1772271333651,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerj-cs.3281/table-5",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2025-11-06T08:12:45Z",
+          "timestamp": 1762416765000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Table 5: GAT model specifications."
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2025-11-06T08:12:47Z",
+          "timestamp": 1762416767000
+        },
+        "score": 16.714247,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-3281/table-5"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerj-cs.3281/table-5",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.3281",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              11
+            ]
+          ],
+          "date-time": "2025-09-11T17:12:17Z",
+          "timestamp": 1757610737531,
+          "version": "3.44.0"
+        },
+        "reference-count": 45,
+        "publisher": "Elsevier BV",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  1983,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "1983-08-01T00:00:00Z",
+              "timestamp": 428544000000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  1983,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "1983-08-01T00:00:00Z",
+              "timestamp": 428544000000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Cellular Immunology"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1983,
+              8
+            ]
+          ]
+        },
+        "DOI": "10.1016/0008-8749(83)90092-8",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2004,
+              10,
+              23
+            ]
+          ],
+          "date-time": "2004-10-23T09:16:22Z",
+          "timestamp": 1098522982000
+        },
+        "page": "43-56",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Primary response to GAT in F344 rats: Anti-GAT antibodies, nonspecific immunoglobulins, and expression of the GAT-13 idiotype"
+        ],
+        "prefix": "10.1016",
+        "volume": "80",
+        "author": [
+          {
+            "given": "Christine",
+            "family": "Petit",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Michèle",
+            "family": "Gilbert",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB1",
+            "doi-asserted-by": "crossref",
+            "first-page": "111",
+            "DOI": "10.4049/jimmunol.33.2.111",
+            "volume": "33",
+            "author": "Boyd",
+            "year": "1937",
+            "journal-title": "J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB2",
+            "first-page": "783",
+            "volume": "19",
+            "author": "Urbain-Vansanten",
+            "year": "1970",
+            "journal-title": "Immunology"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB3",
+            "first-page": "537",
+            "volume": "30",
+            "author": "Antoine",
+            "year": "1976",
+            "journal-title": "Immunology"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB4",
+            "doi-asserted-by": "crossref",
+            "first-page": "1321",
+            "DOI": "10.4049/jimmunol.119.4.1321",
+            "volume": "119",
+            "author": "Ternynck",
+            "year": "1977",
+            "journal-title": "J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB5",
+            "first-page": "551",
+            "volume": "127C",
+            "author": "Avrameas",
+            "year": "1976",
+            "journal-title": "Ann. Immunol. (Inst. Pasteur)"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB6",
+            "doi-asserted-by": "crossref",
+            "first-page": "151",
+            "DOI": "10.1016/0008-8749(78)90258-7",
+            "volume": "36",
+            "author": "Moticka",
+            "year": "1978",
+            "journal-title": "Cell. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB7",
+            "doi-asserted-by": "crossref",
+            "first-page": "517",
+            "DOI": "10.1084/jem.150.3.517",
+            "volume": "150",
+            "author": "Rosenberg",
+            "year": "1979",
+            "journal-title": "J. Exp. Med"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB8",
+            "doi-asserted-by": "crossref",
+            "first-page": "705",
+            "DOI": "10.1002/eji.1830110907",
+            "volume": "11",
+            "author": "Rosenberg",
+            "year": "1981",
+            "journal-title": "Eur. J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB9",
+            "first-page": "397",
+            "volume": "130C",
+            "author": "Urbain-Vansanten",
+            "year": "1979",
+            "journal-title": "Ann. Immunol. (Inst. Pasteur)"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB10",
+            "first-page": "231",
+            "volume": "125C",
+            "author": "Miller",
+            "year": "1974",
+            "journal-title": "Ann. Immunol. (Inst. Pasteur)"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB11",
+            "doi-asserted-by": "crossref",
+            "first-page": "626",
+            "DOI": "10.4049/jimmunol.114.2_Part_1.626",
+            "volume": "114",
+            "author": "Miller",
+            "year": "1975",
+            "journal-title": "J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB12",
+            "first-page": "2616",
+            "volume": "68",
+            "author": "Oudin",
+            "year": "1971"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB13",
+            "first-page": "4500",
+            "volume": "71",
+            "author": "Cazenave",
+            "year": "1974"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB14",
+            "doi-asserted-by": "crossref",
+            "first-page": "1139",
+            "DOI": "10.1016/0161-5890(82)90324-8",
+            "volume": "19",
+            "author": "Petit",
+            "year": "1982",
+            "journal-title": "Mol. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB15",
+            "doi-asserted-by": "crossref",
+            "first-page": "24",
+            "DOI": "10.1016/0014-5793(72)80274-6",
+            "volume": "23",
+            "author": "Ternynck",
+            "year": "1972",
+            "journal-title": "FEBS Lett"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB16",
+            "first-page": "1229",
+            "volume": "71",
+            "author": "Molinaro",
+            "year": "1974"
+          },
+          {
+            "first-page": "150",
+            "year": "1961",
+            "series-title": "Experimental Immunochemistry",
+            "key": "10.1016/0008-8749(83)90092-8_BIB17"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB18",
+            "doi-asserted-by": "crossref",
+            "first-page": "53",
+            "DOI": "10.1016/0019-2791(69)90178-5",
+            "volume": "6",
+            "author": "Avrameas",
+            "year": "1969",
+            "journal-title": "Immunochemistry"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB19",
+            "doi-asserted-by": "crossref",
+            "first-page": "230",
+            "DOI": "10.1016/0003-9861(60)90049-7",
+            "volume": "89",
+            "author": "Nisonoff",
+            "year": "1960",
+            "journal-title": "Arch. Biochem. Biophys"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB20",
+            "doi-asserted-by": "crossref",
+            "first-page": "1175",
+            "DOI": "10.1016/0019-2791(71)90395-8",
+            "volume": "9",
+            "author": "Avrameas",
+            "year": "1971",
+            "journal-title": "Immunochemistry"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB21",
+            "doi-asserted-by": "crossref",
+            "first-page": "479",
+            "DOI": "10.1016/0019-2791(77)90299-3",
+            "volume": "14",
+            "author": "Petit",
+            "year": "1977",
+            "journal-title": "Immunochemistry"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB22",
+            "doi-asserted-by": "crossref",
+            "first-page": "280",
+            "DOI": "10.1016/0008-8749(81)90376-2",
+            "volume": "61",
+            "author": "Mazié",
+            "year": "1981",
+            "journal-title": "Cell. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB23",
+            "first-page": "197",
+            "volume": "127C",
+            "author": "Ternynck",
+            "year": "1976",
+            "journal-title": "Ann. Immunol. (Inst. Pasteur)"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB24",
+            "first-page": "599",
+            "volume": "14",
+            "author": "Cunningham",
+            "year": "1968",
+            "journal-title": "Immunology"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB25",
+            "doi-asserted-by": "crossref",
+            "first-page": "291",
+            "DOI": "10.1177/14.4.291",
+            "volume": "14",
+            "author": "Graham",
+            "year": "1966",
+            "journal-title": "J. Histochem. Cytochem"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB26",
+            "doi-asserted-by": "crossref",
+            "first-page": "105",
+            "DOI": "10.1016/0022-1759(76)90161-7",
+            "volume": "10",
+            "author": "Stage",
+            "year": "1976",
+            "journal-title": "J. Immunol. Methods"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB27",
+            "doi-asserted-by": "crossref",
+            "first-page": "27",
+            "DOI": "10.4049/jimmunol.122.1.27",
+            "volume": "122",
+            "author": "Waltenbaugh",
+            "year": "1979",
+            "journal-title": "J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB28",
+            "doi-asserted-by": "crossref",
+            "first-page": "259",
+            "DOI": "10.1016/0303-2647(81)90006-X",
+            "volume": "13",
+            "author": "Danchin",
+            "year": "1981",
+            "journal-title": "Biosystems"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB29",
+            "first-page": "721",
+            "volume": "129",
+            "author": "Thèze",
+            "year": "1978",
+            "journal-title": "Ann. Immunol. (Inst. Pasteur)"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB30",
+            "doi-asserted-by": "crossref",
+            "first-page": "294",
+            "DOI": "10.1002/eji.1830090409",
+            "volume": "9",
+            "author": "Thèze",
+            "year": "1979",
+            "journal-title": "Eur. J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB31",
+            "doi-asserted-by": "crossref",
+            "first-page": "1034",
+            "DOI": "10.4049/jimmunol.121.3.1034",
+            "volume": "121",
+            "author": "Ju",
+            "year": "1978",
+            "journal-title": "J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB32",
+            "first-page": "6192",
+            "volume": "75",
+            "author": "Ju",
+            "year": "1978"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB33",
+            "doi-asserted-by": "crossref",
+            "first-page": "493",
+            "DOI": "10.1002/eji.1830110610",
+            "volume": "11",
+            "author": "Sommé",
+            "year": "1981",
+            "journal-title": "Eur. J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB34",
+            "doi-asserted-by": "crossref",
+            "first-page": "184",
+            "DOI": "10.1084/jem.150.1.184",
+            "volume": "150",
+            "author": "Wickler",
+            "year": "1979",
+            "journal-title": "J. Exp. Med"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB35",
+            "doi-asserted-by": "crossref",
+            "first-page": "1436",
+            "DOI": "10.1084/jem.146.5.1436",
+            "volume": "146",
+            "author": "Eichman",
+            "year": "1977",
+            "journal-title": "J. Exp. Med"
+          },
+          {
+            "year": "1981",
+            "series-title": "Idiotypes and Lymphocytes",
+            "author": "Bona",
+            "key": "10.1016/0008-8749(83)90092-8_BIB36"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB37",
+            "article-title": "Inaugural dissertation zur Erlangung des Doktorgrades des Mathematisch",
+            "volume": "61",
+            "author": "Reth",
+            "year": "1981",
+            "journal-title": "Naturwissen-schaftlichn"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB38",
+            "doi-asserted-by": "crossref",
+            "first-page": "34",
+            "DOI": "10.1016/0019-2791(72)90097-3",
+            "volume": "9",
+            "author": "Crothers",
+            "year": "1972",
+            "journal-title": "Immunochemistry"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB39",
+            "doi-asserted-by": "crossref",
+            "first-page": "194",
+            "DOI": "10.1084/jem.151.1.194",
+            "volume": "151",
+            "author": "Schreier",
+            "year": "1980",
+            "journal-title": "J. Exp. Med"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB40",
+            "first-page": "1612",
+            "volume": "77",
+            "author": "Andersson",
+            "year": "1980"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB41",
+            "doi-asserted-by": "crossref",
+            "first-page": "679",
+            "DOI": "10.1002/eji.1830100905",
+            "volume": "10",
+            "author": "Melchers",
+            "year": "1980",
+            "journal-title": "Eur. J. Immunol"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB42",
+            "doi-asserted-by": "crossref",
+            "first-page": "1121",
+            "DOI": "10.1084/jem.138.5.1121",
+            "volume": "138",
+            "author": "Kapp",
+            "year": "1973",
+            "journal-title": "J. Exp. Med"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB43",
+            "doi-asserted-by": "crossref",
+            "first-page": "329",
+            "DOI": "10.1007/BF01564071",
+            "volume": "1",
+            "author": "Amerding",
+            "year": "1974",
+            "journal-title": "Immunogenetics"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB44",
+            "doi-asserted-by": "crossref",
+            "first-page": "315",
+            "DOI": "10.1111/j.1600-065X.1980.tb00326.x",
+            "volume": "51",
+            "author": "Schreier",
+            "year": "1980",
+            "journal-title": "Immunol. Rev"
+          },
+          {
+            "key": "10.1016/0008-8749(83)90092-8_BIB45",
+            "series-title": "Isolation, Characterization and Utilization of T Lymphocyte Clones",
+            "first-page": "399",
+            "author": "Thèze",
+            "year": "1982"
+          }
+        ],
+        "container-title": [
+          "Cellular Immunology"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:0008874983900928?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:0008874983900928?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              3
+            ]
+          ],
+          "date-time": "2025-09-03T16:35:15Z",
+          "timestamp": 1756917315000
+        },
+        "score": 16.63464,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/0008874983900928"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1983,
+              8
+            ]
+          ]
+        },
+        "references-count": 45,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1983,
+                8
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "0008874983900928"
+        ],
+        "URL": "https://doi.org/10.1016/0008-8749(83)90092-8",
+        "ISSN": [
+          "0008-8749"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "0008-8749"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1983,
+              8
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Primary response to GAT in F344 rats: Anti-GAT antibodies, nonspecific immunoglobulins, and expression of the GAT-13 idiotype",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Cellular Immunology",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/0008-8749(83)90092-8",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "converted-article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "Copyright © 1983 Published by Elsevier Inc.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:33:20Z",
+          "timestamp": 1772271200463,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerjcs.2846/fig-2",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              9
+            ]
+          ],
+          "date-time": "2025-05-09T04:06:38Z",
+          "timestamp": 1746763598000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Figure 2: Framework for DRL-GAT."
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              9
+            ]
+          ],
+          "date-time": "2025-05-09T04:06:39Z",
+          "timestamp": 1746763599000
+        },
+        "score": 16.523493,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-2846/fig-2"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerjcs.2846/fig-2",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.2846",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T19:28:23Z",
+          "timestamp": 1649186903448
+        },
+        "reference-count": 0,
+        "publisher": "De Gruyter",
+        "isbn-type": [
+          {
+            "value": "9783111687308",
+            "type": "electronic"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              1982,
+              12,
+              31
+            ]
+          ]
+        },
+        "DOI": "10.1515/9783111687308",
+        "type": "book",
+        "created": {
+          "date-parts": [
+            [
+              2019,
+              9,
+              6
+            ]
+          ],
+          "date-time": "2019-09-06T09:01:41Z",
+          "timestamp": 1567760501000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Gat - Gek"
+        ],
+        "prefix": "10.1515",
+        "member": "374",
+        "published-online": {
+          "date-parts": [
+            [
+              2019,
+              9,
+              3
+            ]
+          ]
+        },
+        "link": [
+          {
+            "URL": "http://www.degruyter.com/view/books/9783111687308/9783111687308/9783111687308.xml",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.degruyter.com/document/doi/10.1515/9783111687308/pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              21
+            ]
+          ],
+          "date-time": "2021-04-21T16:53:01Z",
+          "timestamp": 1619023981000
+        },
+        "score": 16.507448,
+        "resource": {
+          "primary": {
+            "URL": "https://www.degruyter.com/document/doi/10.1515/9783111687308/html"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1982,
+              12,
+              31
+            ]
+          ]
+        },
+        "ISBN": [
+          "9783111687308"
+        ],
+        "references-count": 0,
+        "alternative-id": [
+          "10.1515/9783111687308"
+        ],
+        "URL": "https://doi.org/10.1515/9783111687308",
+        "published": {
+          "date-parts": [
+            [
+              1982,
+              12,
+              31
+            ]
+          ]
+        }
+      },
+      {
+        "institution": [
+          {
+            "name": "The University of Queensland",
+            "department": [
+              "School of Molecular and Microbial Sciences"
+            ]
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2022-11-02T05:09:25Z",
+          "timestamp": 1667365765822
+        },
+        "reference-count": 0,
+        "publisher": "University of Queensland Library",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.14264/107266",
+        "type": "dissertation",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              1
+            ]
+          ],
+          "date-time": "2022-11-01T06:14:29Z",
+          "timestamp": 1667283269000
+        },
+        "approved": {
+          "date-parts": [
+            [
+              2005,
+              1,
+              1
+            ]
+          ]
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "GABA neurotransmitter transporters (GAT)-1A and GAT-1B, from the honeybee (Apis mellifera) : structure, phylogenetics, expression and function"
+        ],
+        "prefix": "10.14264",
+        "author": [
+          {
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Paul James St. John",
+            "family": "Dutton",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "5387",
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              1
+            ]
+          ],
+          "date-time": "2022-11-01T06:14:31Z",
+          "timestamp": 1667283271000
+        },
+        "score": 16.356167,
+        "degree": [
+          "MPhil Thesis"
+        ],
+        "resource": {
+          "primary": {
+            "URL": "https://espace.library.uq.edu.au/view/UQ:107266"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.14264/107266"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:30:23Z",
+          "timestamp": 1772271023303,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerj-cs.1893/supp-1",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              2,
+              29
+            ]
+          ],
+          "date-time": "2024-02-29T04:36:48Z",
+          "timestamp": 1709181408000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Supplemental Information 1: GAT English questions"
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              2,
+              29
+            ]
+          ],
+          "date-time": "2024-02-29T04:36:52Z",
+          "timestamp": 1709181412000
+        },
+        "score": 16.348927,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-1893/supp-1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerj-cs.1893/supp-1",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.1893",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2024-09-13T10:01:07Z",
+          "timestamp": 1726221667086
+        },
+        "edition-number": "3",
+        "reference-count": 0,
+        "publisher": "Oxford University Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              2
+            ]
+          ]
+        },
+        "DOI": "10.1093/oed/1577056782",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              21
+            ]
+          ],
+          "date-time": "2023-07-21T12:15:28Z",
+          "timestamp": 1689941728000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "gat, n.¹"
+        ],
+        "prefix": "10.1093",
+        "member": "286",
+        "container-title": [
+          "Oxford English Dictionary"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              21
+            ]
+          ],
+          "date-time": "2023-07-21T12:23:14Z",
+          "timestamp": 1689942194000
+        },
+        "score": 16.237751,
+        "resource": {
+          "primary": {
+            "URL": "https://oed.com/dictionary/gat_n1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              2
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.1093/oed/1577056782",
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              2
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              14
+            ]
+          ],
+          "date-time": "2026-06-14T17:59:39Z",
+          "timestamp": 1781459979562,
+          "version": "3.54.1"
+        },
+        "reference-count": 0,
+        "publisher": "National University of Uzbekistan",
+        "issue": "3.1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  13
+                ]
+              ],
+              "date-time": "2026-03-13T00:00:00Z",
+              "timestamp": 1773360000000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-sa/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "NUUz"
+        ],
+        "abstract": "<jats:p>This article discusses the state of degraded soils, types and reclamation-ecological conditions of soils associated with degradation processes. Also, when assessing the condition of irrigated sierozem-meadow soils common in the Khavast district of the Syrdarya region, data on certain types of degradation, the main causes and negative consequences of the degradation process are provided. As a result of processing data on the agrochemical and chemical properties of the soils of the Pakhtakor massif of the Khovos district, electronic maps of the distribution of humus, nitrogen, phosphorus, potassium, and the amount in the upper soil layer distributed over the territory were compiled based on the GAT programs.</jats:p>",
+        "DOI": "10.69617/nuuz.v3i3.1.11292",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              14
+            ]
+          ],
+          "date-time": "2026-06-14T17:24:35Z",
+          "timestamp": 1781457875000
+        },
+        "page": "16-18",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "USE OF GAT TECHNOLOGIES IN THE IDENTIFICATION AND ASSESSMENT OF SOIL DEGRADATION",
+          "ИСПОЛЬЗОВАНИЕ ТЕХНОЛОГИЙ GAT ДЛЯ ВЫЯВЛЕНИЯ И ОЦЕНКИ ДЕГРАДАЦИИ ПОЧВ",
+          "TUPROQLARNING DEGRADASIYAGA UCHRAGANLIK HOLATINI ANIQLASH VA BAHOLASHDA GAT TEXNOLOGIYALARIDAN FOYDALANISH"
+        ],
+        "prefix": "10.69617",
+        "volume": "3",
+        "author": [
+          {
+            "family": "Oygul ABDUJALILOVA",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "49518",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              13
+            ]
+          ]
+        },
+        "container-title": [
+          "UzMU xabarlari"
+        ],
+        "link": [
+          {
+            "URL": "https://journals.nuu.uz/index.php/actanuuz/article/download/11292/6831",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.nuu.uz/index.php/actanuuz/article/download/11292/6831",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              14
+            ]
+          ],
+          "date-time": "2026-06-14T17:24:42Z",
+          "timestamp": 1781457882000
+        },
+        "score": 16.23479,
+        "resource": {
+          "primary": {
+            "URL": "https://journals.nuu.uz/index.php/actanuuz/article/view/11292"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              13
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3.1",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                3,
+                12
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.69617/nuuz.v3i3.1.11292",
+        "ISSN": [
+          "3093-8996",
+          "2181-7324"
+        ],
+        "issn-type": [
+          {
+            "value": "3093-8996",
+            "type": "electronic"
+          },
+          {
+            "value": "2181-7324",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              13
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2026-02-28T09:31:31Z",
+          "timestamp": 1772271091278,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "PeerJ",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.7717/peerj-cs.1893/supp-2",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              2,
+              29
+            ]
+          ],
+          "date-time": "2024-02-29T04:36:48Z",
+          "timestamp": 1709181408000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Supplemental Information 2: GAT Arabic questions"
+        ],
+        "prefix": "10.7717",
+        "member": "4443",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              2,
+              29
+            ]
+          ],
+          "date-time": "2024-02-29T04:36:59Z",
+          "timestamp": 1709181419000
+        },
+        "score": 16.2206,
+        "resource": {
+          "primary": {
+            "URL": "https://peerj.com/articles/cs-1893/supp-2"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.7717/peerj-cs.1893/supp-2",
+        "relation": {
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.7717/peerj-cs.1893",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      }
+    ],
+    "items-per-page": 20,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

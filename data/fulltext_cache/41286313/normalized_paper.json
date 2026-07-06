@@ -1,0 +1,35 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41286313",
+    "pmid": "41286313"
+  },
+  "pmid": "41286313",
+  "pmcid": "PMC12749617",
+  "doi": "10.1038/s41598-025-29666-z",
+  "title": "Antimicrobial peptide prediction based on contrastive learning and gated convolutional neural network.",
+  "abstract": "The excessive use of antibiotics presents significant risks, as it not only drives the emergence of antibiotic resistance in microbial pathogens but also disrupts the microbial communities essential for maintaining normal human physiological functions. Antimicrobial peptides (AMPs) have garnered increasing attention as a highly promising alternative to antibiotics. The use of computational methods to identify AMPs is becoming increasingly popular, as these approaches can considerably reduce the time and cost involved. In this work, we propose a deep learning-based AMP recognition framework, CG-AMP, aimed at efficiently identifying AMPs. CG-AMP adopts a dual-module architecture, where the first module learns the feature representation space through a pre-trained language model and contrastive learning, while the second module incorporates an enhanced Convolutional Neural Network (CNN) to more efficiently extract feature information. This design aims to effectively integrate multimodal features by combining the strengths of both methods, thereby enhancing the accuracy and efficiency of AMP identification. We evaluated CG-AMP on two independent test sets and compared its performance with current state-of-the-art models. The results demonstrated that CG-AMP was a reliable AMP identification tool. Specifically, on the AMPlify and DAMP test sets, CG-AMP achieved accuracies of 0.9497 and 0.9403, F1 scores of 0.9508 and 0.9392, and Matthews correlation coefficients of 0.8994 and 0.8812, respectively, outperforming other existing methods.",
+  "journal": null,
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Li G",
+    "Wang L",
+    "Luo J",
+    "Liang C."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/41286313/",
+    "https://doi.org/10.1038/s41598-025-29666-z",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12749617/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+  "candidate_key": "doi:10 1038 s41598 025 29666 z"
+}

@@ -1,0 +1,41 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "40608882"
+  },
+  "pmid": "40608882",
+  "pmcid": null,
+  "doi": "10.1109/TIP.2025.3583194",
+  "title": "Soft Neighbors Supported Contrastive Clustering.",
+  "abstract": "Existing deep clustering methods leverage contrastive or non-contrastive learning to facilitate downstream tasks. Most contrastive-based methods typically learn representations by comparing positive pairs (two views of the same sample) against negative pairs (views of different samples). However, we spot that this hard treatment of samples ignores inter-sample relationships, leading to class collisions and degrade clustering performances. In this paper, we propose a soft neighbor supported contrastive clustering method to address this issue. Specifically, we first introduce a concept called perception radius to quantify similarity confidence between a sample and its neighbors. Based on this insight, we design a two-level soft neighbor loss that captures both local and global neighborhood relationships. Additionally, a cluster-level loss enforces compact and well-separated cluster distributions. Finally, we conduct a pseudo-label refinement strategy to mitigate false negative samples. Extensive experiments on benchmark datasets demonstrate the superiority of our method. The code is available at https://github.com/DuannYu/soft-neighbors-supported-clustering.",
+  "journal": "IEEE transactions on image processing : a publication of the IEEE Signal Processing Society",
+  "venue": "IEEE transactions on image processing : a publication of the IEEE Signal Processing Society",
+  "year": 2025,
+  "authors": [
+    "Yu Duan",
+    "Huimin Chen",
+    "Runxin Zhang",
+    "Rong Wang",
+    "Feiping Nie",
+    "Xuelong Li"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "40608882",
+    "doi": "10.1109/TIP.2025.3583194"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/40608882/",
+    "https://doi.org/10.1109/TIP.2025.3583194"
+  ],
+  "raw_source_files": [],
+  "query_name": "model_pubmed_two_level_ensemble_classifier_chain",
+  "query_text": "\"Two_Level_Ensemble-classifier-chain\"",
+  "candidate_key": "doi:10 1109 tip 2025 3583194"
+}

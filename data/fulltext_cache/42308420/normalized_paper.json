@@ -1,0 +1,54 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "42308420"
+  },
+  "pmid": "42308420",
+  "pmcid": "PMC8371605",
+  "doi": "10.1038/s41586-021-03819-2",
+  "title": "MAPLE: interpretable deep learning identifies selective antimicrobial peptides using joint evolutionary-physicochemical analysis.",
+  "abstract": "Antimicrobial peptides (AMPs) are promising alternatives to conventional antibiotics, yet early translation is often hindered by the perceived coupling between antibacterial potency and mammalian toxicity. This assumption complicates prioritization: highly active candidates are frequently suspected to be hemolytic, while existing multi-task predictors rarely reveal where selectivity resides in sequence space. Here, we present Multifunctional AMP Learning Engine (MAPLE), an interpretable dual-stream framework for AMP identification and systematic category-specific functional profiling across 14 activity categories directly from peptide sequences. MAPLE combines protein language model embeddings with explicit physicochemical descriptors, enabling robust task-specific prediction under severe label imbalance. Across the benchmark dataset and a sequence-non-overlapping independent validation set, MAPLE achieves consistently well-balanced performance, including on low-prevalence but clinically relevant endpoints. Building on this predictive basis, we conduct systematic k-mer enrichment to map motif-level selectivity and show that potency-hemolysis coupling is motif-regime-dependent rather than universal. Motifs most strongly enriched for antibacterial activity exhibit reduced hemolytic overlap and occupy a physicochemical regime characterized by moderate cationicity, lower hydrophobicity, and higher amphipathicity. We further provide a proof-of-concept prioritization workflow leveraging antibacterial-selective motifs, with structural modeling yielding conformations consistent with amphipathic α-helices. Despite limitations of predominantly binary annotations and incomplete structural integration, MAPLE offers reproducible sequence-level hypotheses and prioritization principles to support the engineering of potent and safer AMPs.",
+  "journal": "Briefings in bioinformatics",
+  "venue": "Briefings in bioinformatics",
+  "year": 2026,
+  "authors": [
+    "Hao Liu",
+    "Yi Shi",
+    "Feiyu Guo",
+    "Jinyi Wang",
+    "Jiaqian Li",
+    "Guangji Wang",
+    "De-Chuan Zhan",
+    "Haiping Hao",
+    "Guo Yu"
+  ],
+  "keywords": [
+    "antimicrobial peptides",
+    "functional profiling",
+    "hemolysis prediction",
+    "motif interpretability",
+    "protein language models",
+    "therapeutic selectivity"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "34265844",
+    "doi": "10.1038/s41586-021-03819-2",
+    "pii": "8709886",
+    "pmc": "PMC8371605"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/42308420/",
+    "https://doi.org/10.1038/s41586-021-03819-2",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8371605/"
+  ],
+  "raw_source_files": [],
+  "query_name": "model_pubmed_multifunctional_amp_learning_engine",
+  "query_text": "\"Multifunctional AMP Learning Engine\"",
+  "candidate_key": "doi:10 1038 s41586 021 03819 2"
+}

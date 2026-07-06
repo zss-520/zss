@@ -1,0 +1,216 @@
+{
+  "chunk_id": "model_ampgpt2",
+  "chunk_type": "model",
+  "chunk_name": "AmpGPT2",
+  "compression_status": "ok",
+  "main_entities": [
+    "AmpGPT2",
+    "AMP-CapsNet",
+    "deepAMP"
+  ],
+  "papers": [
+    {
+      "title": "Contemporary data-driven innovations in peptide-based therapeutic design.",
+      "pmid": "42153319",
+      "pmcid": "PMC13184531",
+      "doi": "10.1093/bib/bbag220",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Harnessing generative AI for predicting and optimizing antimicrobial peptides against drug-resistant infections.",
+      "pmid": "42174216",
+      "pmcid": "PMC13230547",
+      "doi": "10.1038/s44259-026-00218-3",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Artificial Intelligence as a Catalyst for Antimicrobial Discovery: From Predictive Models to De Novo Design.",
+      "pmid": "41753681",
+      "pmcid": "PMC12943268",
+      "doi": "10.3390/microorganisms14020394",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "AMP-CapsNet: a multi-view feature fusion approach for antimicrobial peptide prediction using capsule networks.",
+      "pmid": "41654884",
+      "pmcid": "PMC12977703",
+      "doi": "10.1186/s44342-026-00067-6",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AmpGPT2",
+      "canonical_name": "AmpGPT2",
+      "aliases": [],
+      "task_type": "other",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Transformer-based generative model (GPT-2) fine-tuned on AMP sequences",
+      "input_features": "amino acid sequences",
+      "source_pmid": "42174216",
+      "source_pmcid": "PMC13230547",
+      "source_doi": "10.1038/s44259-026-00218-3",
+      "code_repository_url": "https://imigitlab.uni-muenster.de/heiderlab/ampgpt2",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "COMPASS database (https://compass.imi.uni-muenster.de)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Generative model for AMP sequences; can be used to evaluate novelty and diversity of generated AMPs; paper includes experimental validation.",
+      "blocking_issues": [
+        "Not a direct AMP activity classifier; requires external classifier for evaluation."
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "AMP-CapsNet",
+      "canonical_name": "AMP-CapsNet",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Capsule Neural Network with multi-view feature fusion (AAC and DPC)",
+      "input_features": "Amino Acid Composition (AAC) and Dipeptide Composition (DPC) features",
+      "source_pmid": "41654884",
+      "source_pmcid": "PMC12977703",
+      "source_doi": "10.1186/s44342-026-00067-6",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "derived from UniProt and previous study [31]; positive: 1085 AMPs, negative: 1316 non-AMPs",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP prediction classifier with reported accuracy of 97.29% and AUC of 98.91% on test set; uses capsule networks; could be included in benchmark.",
+      "blocking_issues": [
+        "No code or model weights publicly available",
+        "Dataset not independently accessible"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "deepAMP",
+      "canonical_name": "deepAMP",
+      "aliases": [],
+      "task_type": "other",
+      "method_family": "DL",
+      "architecture_or_algorithm": "BERT-like generative model",
+      "input_features": "peptide sequences with known membrane-disrupting activity",
+      "source_pmid": "41753681",
+      "source_pmcid": "PMC12943268",
+      "source_doi": "10.3390/microorganisms14020394",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Generative model for AMP design; could be included in benchmark of generative models.",
+      "blocking_issues": [
+        "Original paper not in this batch; details sparse",
+        "No code availability reported"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AmpGPT2 code repository",
+      "url": "https://imigitlab.uni-muenster.de/heiderlab/ampgpt2",
+      "repository_type": "code",
+      "matched_model_name": "AmpGPT2",
+      "source_pmid": "42174216",
+      "source_doi": "10.1038/s44259-026-00218-3",
+      "evidence_level": "fulltext",
+      "evidence": "The AmpGPT2 model is available at https://imigitlab.uni-muenster.de/heiderlab/ampgpt2."
+    },
+    {
+      "name": "COMPASS database",
+      "url": "https://compass.imi.uni-muenster.de",
+      "repository_type": "webserver",
+      "matched_model_name": "AmpGPT2",
+      "source_pmid": "42174216",
+      "source_doi": "10.1038/s44259-026-00218-3",
+      "evidence_level": "fulltext",
+      "evidence": "The complete database is available for download at https://compass.imi.uni-muenster.de/data.json, and a web interface can be accessed at https://compass.imi.uni-muenster.de."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "COMPASS",
+      "dataset_url": "https://compass.imi.uni-muenster.de/data.json",
+      "dataset_source": "aggregated from 9 public AMP databases (Bactibase, YADAMP, APD3, DRAMP, CAMP3, DBAASP, LAMP2, dbAMP, UniProt)",
+      "linked_model": "AmpGPT2",
+      "source_pmid": "42174216",
+      "source_doi": "10.1038/s44259-026-00218-3",
+      "positive_samples": "75,381 unique AMP sequences",
+      "negative_samples": "not_applicable",
+      "deduplication_method": "deduplication performed across the 9 databases, resulting in 75,381 unique sequences",
+      "evidence_level": "fulltext",
+      "evidence": "COMPASS contains 75,381 unique sequences, each assigned a unique identifier."
+    },
+    {
+      "dataset_name": "AMP-CapsNet dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "UniProt and previous study [31]",
+      "linked_model": "AMP-CapsNet",
+      "source_pmid": "41654884",
+      "source_doi": "10.1186/s44342-026-00067-6",
+      "positive_samples": "1085",
+      "negative_samples": "1316",
+      "deduplication_method": "duplicate peptide sequences removed",
+      "evidence_level": "fulltext",
+      "evidence": "We used 1,085 positive AMP sequences and 1,316 non-AMP sequences."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "model evaluation on test set",
+      "source_pmid": "41654884",
+      "source_doi": "10.1186/s44342-026-00067-6",
+      "evidence": "achieving an accuracy of 97.29% on the test set using with dipeptide Composition (DPC)."
+    },
+    {
+      "metric_name": "AUC",
+      "usage": "model evaluation on test set",
+      "source_pmid": "41654884",
+      "source_doi": "10.1186/s44342-026-00067-6",
+      "evidence": "AUC score of 98.91% on the test set using with dipeptide Composition (DPC)."
+    }
+  ],
+  "important_evidence": [
+    "AmpGPT2 generated 95.41% of peptides predicted as AMPs by AMP Scanner.",
+    "AmpGPT2 code available at https://imigitlab.uni-muenster.de/heiderlab/ampgpt2",
+    "COMPASS database aggregates 75,381 unique AMP sequences from 9 databases.",
+    "AMP-CapsNet achieved 97.29% accuracy and 98.91% AUC on test set."
+  ],
+  "uncertainties": [
+    "AMP-CapsNet code and dataset are not publicly available; the original reference [31] for the dataset is not identified in this batch.",
+    "deepAMP original paper details (PMID, code) are missing; only mentioned in review, requiring full-text verification.",
+    "AmpGPT2 model weights may be available from the code repository but not explicitly stated; further verification needed."
+  ],
+  "source_pmids": [
+    "42153319",
+    "42174216",
+    "41753681",
+    "41654884"
+  ],
+  "source_dois": [
+    "10.1093/bib/bbag220",
+    "10.1038/s44259-026-00218-3",
+    "10.3390/microorganisms14020394",
+    "10.1186/s44342-026-00067-6"
+  ],
+  "urls": [
+    "https://imigitlab.uni-muenster.de/heiderlab/ampgpt2",
+    "https://compass.imi.uni-muenster.de",
+    "https://compass.imi.uni-muenster.de/data.json"
+  ]
+}

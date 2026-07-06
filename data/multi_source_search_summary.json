@@ -1,0 +1,280 @@
+{
+  "time": "2026-07-03 10:26:58",
+  "queries": {
+    "pubmed": [
+      {
+        "name": "high_recall",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"AMP\"[tiab] OR \"host defense peptide\"[tiab]) AND (predict*[tiab] OR classif*[tiab] OR identif*[tiab] OR model*[tiab] OR \"machine learning\"[tiab] OR \"deep learning\"[tiab] OR \"neural network\"[tiab] OR software[tiab] OR \"web server\"[tiab] OR tool[tiab] OR benchmark[tiab] OR dataset[tiab] OR \"data set\"[tiab])",
+        "pmids": [
+          "40459283",
+          "40261713",
+          "41290594",
+          "41094143",
+          "39825096",
+          "40568788",
+          "40159831",
+          "42168097",
+          "40626654",
+          "40043127"
+        ]
+      },
+      {
+        "name": "ml_dl_models",
+        "query": "((\"antimicrobial peptide\"[tiab] OR \"AMP\"[tiab]) AND (\"deep learning\"[tiab] OR \"neural network\"[tiab] OR \"machine learning\"[tiab] OR \"random forest\"[tiab] OR \"SVM\"[tiab] OR \"XGBoost\"[tiab] OR \"BERT\"[tiab] OR \"CNN\"[tiab] OR \"LSTM\"[tiab] OR \"transformer\"[tiab]) AND (predict*[tiab] OR classif*[tiab] OR identif*[tiab] OR model[tiab])) NOT \"review\"[Publication Type]",
+        "pmids": [
+          "40261713",
+          "41094143",
+          "39825096",
+          "40043127",
+          "41801219",
+          "40462515",
+          "40585238",
+          "40645962",
+          "40529865",
+          "40598766"
+        ]
+      },
+      {
+        "name": "software_webserver",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"AMP\"[tiab]) AND (software[tiab] OR \"web server\"[tiab] OR webserver[tiab] OR tool[tiab] OR \"online tool\"[tiab])",
+        "pmids": [
+          "40459283",
+          "41747053",
+          "40568788",
+          "42168097",
+          "42168109",
+          "42168092",
+          "42168086",
+          "40445833",
+          "40370983",
+          "41801219"
+        ]
+      },
+      {
+        "name": "benchmark_dataset",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"AMP\"[tiab]) AND (benchmark*[tiab] OR dataset*[tiab] OR \"data set\"[tiab] OR \"evaluation\"[tiab] OR \"comparison\"[tiab] OR \"standard\"[tiab])",
+        "pmids": [
+          "40555230",
+          "41651782",
+          "39912669",
+          "40968052",
+          "40562874",
+          "42168092",
+          "40084623",
+          "40626654",
+          "40256772",
+          "42168084"
+        ]
+      },
+      {
+        "name": "review_for_model_extraction",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"AMP\"[tiab]) AND (review[Publication Type] OR \"review\"[tiab] OR \"survey\"[tiab]) AND (predict*[tiab] OR model*[tiab] OR \"machine learning\"[tiab] OR \"deep learning\"[tiab] OR software[tiab])",
+        "pmids": [
+          "40459283",
+          "41448179",
+          "41166543",
+          "40626654",
+          "41651783",
+          "40699207",
+          "40774384",
+          "40741175",
+          "40884276",
+          "41130919"
+        ]
+      },
+      {
+        "name": "broad_prediction",
+        "query": "(\"antimicrobial peptide\" OR \"antimicrobial peptides\" OR (AMP AND peptide) OR \"host defense peptide\") AND (prediction OR predictor OR classifier OR classification OR identification OR recognition OR screening OR discrimination)",
+        "pmids": [
+          "40459283",
+          "39814884",
+          "40108474",
+          "39753133",
+          "39825096",
+          "40568788",
+          "40159831",
+          "39908380",
+          "40626654",
+          "41044364"
+        ]
+      },
+      {
+        "name": "ml_dl_precision",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"antimicrobial peptides\"[tiab]) AND (\"machine learning\"[tiab] OR \"deep learning\"[tiab] OR \"neural network\"[tiab] OR CNN[tiab] OR LSTM[tiab] OR transformer[tiab] OR BERT[tiab] OR SVM[tiab] OR \"support vector machine\"[tiab] OR \"random forest\"[tiab] OR XGBoost[tiab]) AND (predictor[tiab] OR classifier[tiab] OR prediction[tiab] OR identification[tiab])",
+        "pmids": [
+          "39825096",
+          "40626654",
+          "40598766",
+          "40801287",
+          "41581993",
+          "39927895",
+          "40801152",
+          "40462515",
+          "40967516",
+          "41160325"
+        ]
+      },
+      {
+        "name": "software_server_tool",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"antimicrobial peptides\"[tiab] OR \"AMP prediction\"[tiab]) AND (\"web server\"[tiab] OR \"online tool\"[tiab] OR software[tiab] OR standalone[tiab] OR platform[tiab] OR database[tiab])",
+        "pmids": [
+          "40568788",
+          "40159831",
+          "40365533",
+          "40517353",
+          "41430733",
+          "40513403",
+          "40959869",
+          "41305856",
+          "40100125",
+          "41407286"
+        ]
+      },
+      {
+        "name": "benchmark_dataset_metrics",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"antimicrobial peptides\"[tiab] OR \"AMP\"[tiab]) AND (benchmark[tiab] OR dataset[tiab] OR \"data set\"[tiab] OR \"independent test\"[tiab] OR \"external validation\"[tiab] OR evaluation[tiab] OR comparison[tiab] OR metric[tiab])",
+        "pmids": [
+          "41651782",
+          "40562874",
+          "42168092",
+          "40084623",
+          "40626654",
+          "42168086",
+          "40939294",
+          "40374521",
+          "40043049",
+          "41008626"
+        ]
+      },
+      {
+        "name": "review_for_model_names",
+        "query": "(\"antimicrobial peptide\"[tiab] OR \"antimicrobial peptides\"[tiab]) AND (predictor[tiab] OR classifier[tiab] OR \"machine learning\"[tiab] OR \"deep learning\"[tiab]) AND review[pt]",
+        "pmids": [
+          "40626654",
+          "40884276",
+          "41727556",
+          "40365533",
+          "40801287",
+          "39754551",
+          "41581993",
+          "39927895",
+          "41581932",
+          "42370218"
+        ]
+      }
+    ],
+    "europe_pmc": [
+      {
+        "name": "open_access_fulltext",
+        "query": "(\"antimicrobial peptide\" OR \"AMP\") AND (predict* OR model* OR software OR tool OR benchmark OR dataset) AND (HAS_FT:Y)",
+        "count": 10
+      },
+      {
+        "name": "europepmc_broad",
+        "query": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\" OR \"web server\")",
+        "count": 10
+      },
+      {
+        "name": "europepmc_dataset",
+        "query": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+        "count": 10
+      },
+      {
+        "name": "preprints_via_europe_pmc",
+        "query": "((\"antimicrobial peptide\" OR \"AMP\") AND (predict* OR model* OR software OR tool)) AND (SRC:PPR)",
+        "count": 10
+      },
+      {
+        "name": "preprint_broad",
+        "query": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\") AND SRC:PPR",
+        "count": 10
+      }
+    ],
+    "crossref": [
+      {
+        "name": "general_natural_language",
+        "count": 10
+      },
+      {
+        "name": "crossref_broad",
+        "count": 10
+      },
+      {
+        "name": "crossref_tool",
+        "count": 10
+      }
+    ],
+    "openalex": [
+      {
+        "name": "natural_language",
+        "count": 10
+      },
+      {
+        "name": "openalex_broad",
+        "count": 10
+      },
+      {
+        "name": "openalex_deep_learning",
+        "count": 10
+      }
+    ],
+    "semantic_scholar": [
+      {
+        "name": "high_recall",
+        "count": 10
+      }
+    ],
+    "github": [
+      {
+        "name": "code_repositories",
+        "count": 10
+      },
+      {
+        "name": "github_broad",
+        "count": 10
+      },
+      {
+        "name": "github_amp_ml",
+        "count": 5
+      }
+    ],
+    "datacite": [
+      {
+        "name": "datasets_software",
+        "count": 10
+      },
+      {
+        "name": "datacite_dataset",
+        "count": 10
+      }
+    ],
+    "zenodo": [
+      {
+        "name": "datasets_software",
+        "count": 10
+      },
+      {
+        "name": "zenodo_dataset",
+        "count": 10
+      }
+    ]
+  },
+  "errors": [
+    {
+      "source": "semantic_scholar",
+      "query": {
+        "name": "s2_broad",
+        "query": "antimicrobial peptide prediction machine learning"
+      },
+      "error": "HTTP GET failed after 3 retries: https://api.semanticscholar.org/graph/v1/paper/search?query=antimicrobial+peptide+prediction+machine+learning&limit=10&fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Curl%2Cvenue%2CexternalIds%2CopenAccessPdf%2CcitationCount%2CreferenceCount :: HTTP Error 429: "
+    },
+    {
+      "source": "semantic_scholar",
+      "query": {
+        "name": "s2_tool",
+        "query": "antimicrobial peptide predictor web server"
+      },
+      "error": "HTTP GET failed after 3 retries: https://api.semanticscholar.org/graph/v1/paper/search?query=antimicrobial+peptide+predictor+web+server&limit=10&fields=paperId%2Ctitle%2Cabstract%2Cyear%2Cauthors%2Curl%2Cvenue%2CexternalIds%2CopenAccessPdf%2CcitationCount%2CreferenceCount :: HTTP Error 429: "
+    }
+  ]
+}

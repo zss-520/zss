@@ -1,0 +1,1146 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article article-type="research-article" xml:lang="en" dtd-version="1.4"><front><journal-meta><journal-id journal-id-type="nlm-ta">J Cheminform</journal-id><journal-id journal-id-type="iso-abbrev">J Cheminform</journal-id><journal-id journal-id-type="pmc-domain-id">1180</journal-id><journal-id journal-id-type="pmc-domain">jcheminfo</journal-id><journal-id journal-id-type="nlm-id">101516718</journal-id><journal-title-group><journal-title>Journal of Cheminformatics</journal-title></journal-title-group><issn pub-type="epub">1758-2946</issn><publisher><publisher-name>BMC</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC7015965</article-id><article-id pub-id-type="pmcid-ver">PMC7015965.2</article-id><article-id pub-id-type="pmcaid">7015965</article-id><article-id pub-id-type="pmcaiid">7017547</article-id><article-id pub-id-type="pmid">33431043</article-id><article-id pub-id-type="doi">10.1186/s13321-020-0416-x</article-id><article-id pub-id-type="publisher-id">416</article-id><article-version article-version-type="pmc-version">2</article-version><article-categories><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Visualization of very large high-dimensional data sets as minimum spanning trees</article-title></title-group><contrib-group><contrib contrib-type="author" corresp="yes"><contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-1737-4407</contrib-id><name name-style="western"><surname>Probst</surname><given-names initials="D">Daniel</given-names></name><address><email>daniel.probst@dcb.unibe.ch</email></address><xref ref-type="aff" rid="Aff1"/></contrib><contrib contrib-type="author" corresp="yes"><contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-2724-2942</contrib-id><name name-style="western"><surname>Reymond</surname><given-names initials="JL">Jean-Louis</given-names></name><address><email>jean-louis.reymond@dcb.unibe.ch</email></address><xref ref-type="aff" rid="Aff1"/></contrib><aff id="Aff1"><institution-wrap><institution-id institution-id-type="GRID">grid.5734.5</institution-id><institution-id institution-id-type="ISNI">0000 0001 0726 5157</institution-id><institution>Department of Chemistry and Biochemistry, </institution><institution>University of Bern, </institution></institution-wrap>Freiestrasse 3, 3012 Bern, Switzerland </aff></contrib-group><pub-date pub-type="epub"><day>12</day><month>2</month><year>2020</year></pub-date><pub-date pub-type="collection"><year>2020</year></pub-date><volume>12</volume><issue-id pub-id-type="pmc-issue-id">349481</issue-id><elocation-id>12</elocation-id><history><date date-type="received"><day>9</day><month>1</month><year>2020</year></date><date date-type="accepted"><day>4</day><month>2</month><year>2020</year></date></history><pub-history><event event-type="pmc-release"><date><day>12</day><month>02</month><year>2020</year></date></event><event event-type="pmc-live"><date><day>20</day><month>02</month><year>2020</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-03-13 02:25:12.863"><day>13</day><month>03</month><year>2026</year></date></event><event event-type="pmc-version" specific-use="live"><article-id pub-id-type="pmcaiid">7015965</article-id><article-id pub-id-type="doi">10.1186/s13321-020-0416-x</article-id><article-version>1</article-version><pub-date><day>12</day><month>02</month><year>2020</year></pub-date></event><event event-type="pmc-version" specific-use="live"><article-id pub-id-type="pmcaiid">7017547</article-id><article-id pub-id-type="doi">10.1186/s13321-020-0416-x</article-id><article-version>2</article-version><pub-date><day>12</day><month>02</month><year>2020</year></pub-date></event></pub-history><permissions><copyright-statement>© The Author(s) 2020</copyright-statement><license license-type="OpenAccess"><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="13321_2020_Article_416.pdf"/><abstract id="Abs1"><p id="Par1">The chemical sciences are producing an unprecedented amount of large, high-dimensional data sets containing chemical structures and associated properties. However, there are currently no algorithms to visualize such data while preserving both global and local features with a sufficient level of detail to allow for human inspection and interpretation. Here, we propose a solution to this problem with a new data visualization method, TMAP, capable of representing data sets of up to millions of data points and arbitrary high dimensionality as a two-dimensional tree (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link>). Visualizations based on TMAP are better suited than t-SNE or UMAP for the exploration and interpretation of large data sets due to their tree-like nature, increased local and global neighborhood and structure preservation, and the transparency of the methods the algorithm is based on. We apply TMAP to the most used chemistry data sets including databases of molecules such as ChEMBL, FDB17, the Natural Products Atlas, DSSTox, as well as to the MoleculeNet benchmark collection of data sets. We also show its broad applicability with further examples from biology, particle physics, and literature.<graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="MO1" orientation="portrait" xlink:href="13321_2020_416_Figa_HTML.jpg"/></p></abstract><kwd-group xml:lang="en"><title>Keywords</title><kwd>Data visualization</kwd><kwd>Chemistry databases</kwd><kwd>Algorithms</kwd><kwd>Big data</kwd><kwd>Dimensionality reduction</kwd></kwd-group><funding-group><award-group><funding-source><institution-wrap><institution-id institution-id-type="FundRef">http://dx.doi.org/10.13039/501100001711</institution-id><institution>Schweizerischer Nationalfonds zur Förderung der Wissenschaftlichen Forschung</institution></institution-wrap></funding-source><award-id>51NF40-185544</award-id><principal-award-recipient><name name-style="western"><surname>Reymond</surname><given-names>Jean-Louis</given-names></name></principal-award-recipient></award-group></funding-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>issue-copyright-statement</meta-name><meta-value>© The Author(s) 2020</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="Sec1"><title>Introduction</title><p id="Par22">The recent development of new and often very accessible frameworks and powerful hardware has enabled the implementation of computational methods to generate and collect large high dimensional data sets and created an ever increasing need to explore as well as understand these data [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR9">9</xref>]. Generally, large high-dimensional data sets are matrices where rows are samples and columns are measured variables, each column defining a dimension of the space which contains the data. Visualizing such data sets is challenging because reducing the dimensionality, which is required in order to make the data visually interpretable for humans, is both lossy and computationally expensive [<xref ref-type="bibr" rid="CR10">10</xref>].</p><p id="Par23">Large high-dimensional data sets are frequently used in the chemical sciences. For instance the ChEMBL database (<inline-formula id="IEq1"><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1,159,881$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M2"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>159</mml:mn><mml:mo>,</mml:mo><mml:mn>881</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq1.gif"/></alternatives></inline-formula>) of bioactive molecules from the scientific literature and their associated biological assay data are used daily in the area of drug discovery [<xref ref-type="bibr" rid="CR11">11</xref>]. Further examples of large databases containing molecules include FDB17 <inline-formula id="IEq2"><alternatives><tex-math id="M3">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left( {n = 10,101,204} \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M4"><mml:mfenced close=")" open="("><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>10</mml:mn><mml:mo>,</mml:mo><mml:mn>101</mml:mn><mml:mo>,</mml:mo><mml:mn>204</mml:mn></mml:mrow></mml:mfenced></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq2.gif"/></alternatives></inline-formula>), a fragment-like subset of the enumerated database GDB17 listing theoretically possible molecules up to 17 atoms [<xref ref-type="bibr" rid="CR12">12</xref>–<xref ref-type="bibr" rid="CR14">14</xref>], and DSSTox (<inline-formula id="IEq3"><alternatives><tex-math id="M5">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 848,816$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M6"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>848</mml:mn><mml:mo>,</mml:mo><mml:mn>816</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq3.gif"/></alternatives></inline-formula>), containing molecules investigated for toxicity [<xref ref-type="bibr" rid="CR15">15</xref>]. Examples of smaller data sets include the Natural Products Atlas (<inline-formula id="IEq4"><alternatives><tex-math id="M7">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 24,594$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M8"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>24</mml:mn><mml:mo>,</mml:mo><mml:mn>594</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq4.gif"/></alternatives></inline-formula>), collecting microbially-derived natural products; [<xref ref-type="bibr" rid="CR16">16</xref>] Drugbank (<inline-formula id="IEq5"><alternatives><tex-math id="M9">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 9300$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M10"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>9300</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq5.gif"/></alternatives></inline-formula>), listing molecules marketed or investigated as drugs; [<xref ref-type="bibr" rid="CR17">17</xref>] and the MoleculeNet benchmark, containing a collection of 16 data sets of small organic molecules [<xref ref-type="bibr" rid="CR18">18</xref>].</p><p id="Par24">To visualize such databases, simple linear dimensionality reduction methods such as principal component analysis and similarity mapping readily produce 2D- or 3D-representations of global features [<xref ref-type="bibr" rid="CR19">19</xref>–<xref ref-type="bibr" rid="CR25">25</xref>]. However, local features defining the relationships between close or even nearest neighbor (NN) molecules, which are very important to understand the structure of data, are mostly lost, limiting the applicability of linear dimensionality reduction methods for visualization. The important NN relationships are much better preserved using non-linear manifold learning algorithms, which assume that the data lies on a lower-dimensional manifold embedded within the high-dimensional space. Algorithms such as nonlinear principal component analysis (NLPCA), t-distributed stochastic neighbor embedding (t-SNE), and more recently uniform manifold approximation and projection (UMAP) are based on this assumption [<xref ref-type="bibr" rid="CR26">26</xref>–<xref ref-type="bibr" rid="CR28">28</xref>]. Other techniques used are probabilistic generative topographic maps (GTM) and self-organizing maps (SOM), which are based on artificial neural networks [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>]. However, these algorithms have time complexities between at least <inline-formula id="IEq6"><alternatives><tex-math id="M11">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {n^{1.14} } \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M12"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:msup><mml:mi>n</mml:mi><mml:mrow><mml:mn>1.14</mml:mn></mml:mrow></mml:msup></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq6.gif"/></alternatives></inline-formula> and <inline-formula id="IEq7"><alternatives><tex-math id="M13">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {n^{5} } \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M14"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:msup><mml:mi>n</mml:mi><mml:mn>5</mml:mn></mml:msup></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq7.gif"/></alternatives></inline-formula>, limiting the size of to be visualized data sets [<xref ref-type="bibr" rid="CR31">31</xref>]. The same limitations in terms of data set size apply when distributing data in a tree by implementing the neighbor joining algorithm or similar methods used to create phylogenetic trees [<xref ref-type="bibr" rid="CR32">32</xref>, <xref ref-type="bibr" rid="CR33">33</xref>]. This limiting behavior has been documented by the ChemTreeMap tool, which can only visualize up to approximately 10,000 data points (molecules or clusters of molecules) [<xref ref-type="bibr" rid="CR34">34</xref>]. Due to the described challenges, large scientific data sets are generally visualized in aggregated or reduced form [<xref ref-type="bibr" rid="CR35">35</xref>, <xref ref-type="bibr" rid="CR36">36</xref>].</p><p id="Par25">Here we present an algorithm, named TMAP (Tree MAP), to generate and distribute intuitive visualizations of large data sets in the order of up to <inline-formula id="IEq8"><alternatives><tex-math id="M15">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{7}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M16"><mml:msup><mml:mn>10</mml:mn><mml:mn>7</mml:mn></mml:msup></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq8.gif"/></alternatives></inline-formula> with arbitrary dimensionality in a tree. Our method is based on a combination of locality sensitive hashing, graph theory, and modern web technology which also integrates into established data analysis and plotting workflows. This tree-based layout facilitates visual inspection of the data with a high resolution by explicitly visualizing the closest distance between clusters and the detailed structure of clusters through branches and sub-branches. We demonstrate the performance of TMAP with toy data sets from computer graphics and with ChEMBL subsets of different size and composition, and show that it surpasses comparable algorithms such as t-SNE and UMAP in terms of time and space complexity. We further exemplify the use of TMAP for visualizing large high-dimensional data sets from chemistry as well as from further scientific fields (Table <xref rid="Tab1" ref-type="table">1</xref>).<table-wrap id="Tab1" position="float" orientation="portrait"><label>Table 1</label><caption><p>Data sets visualized using TMAP</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" colspan="1" rowspan="1">Data set</th><th align="left" colspan="1" rowspan="1">Description</th><th align="left" colspan="1" rowspan="1">Data type</th><th align="left" colspan="1" rowspan="1">Size</th></tr></thead><tbody><tr><td align="left" colspan="4" rowspan="1">Toy data sets</td></tr><tr><td align="left" colspan="1" rowspan="1"> COIL20</td><td align="left" colspan="1" rowspan="1">Gray-scale images of 20 objects, each rotated 72 × at 5° intervals</td><td align="left" colspan="1" rowspan="1">Images</td><td char="." align="char" colspan="1" rowspan="1">1440</td></tr><tr><td align="left" colspan="1" rowspan="1"> MNIST</td><td align="left" colspan="1" rowspan="1">Gray-scale images of handwritten digits</td><td align="left" colspan="1" rowspan="1">Images</td><td char="." align="char" colspan="1" rowspan="1">70,000</td></tr><tr><td align="left" colspan="1" rowspan="1"> Fashion MNIST</td><td align="left" colspan="1" rowspan="1">Gray-scale images of fashion items from 10 classes</td><td align="left" colspan="1" rowspan="1">Images</td><td char="." align="char" colspan="1" rowspan="1">70,000</td></tr><tr><td align="left" colspan="4" rowspan="1">Chemical compound databases and PDB</td></tr><tr><td align="left" colspan="1" rowspan="1"> ChEMBL</td><td align="left" colspan="1" rowspan="1">Bioactive molecules with drug-like properties</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">1,159,881</td></tr><tr><td align="left" colspan="1" rowspan="1"> FDB17 and ChEMBL</td><td align="left" colspan="1" rowspan="1">Fragment database (up to 17 atoms) and ChEMBL</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">11,261,085</td></tr><tr><td align="left" colspan="1" rowspan="1"> Natural products atlas</td><td align="left" colspan="1" rowspan="1">Bacterial and fungal natural products</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">24,594</td></tr><tr><td align="left" colspan="1" rowspan="1"> DSSTox</td><td align="left" colspan="1" rowspan="1">U.S. EPA information on toxicity of chemicals</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">848,816</td></tr><tr><td align="left" colspan="1" rowspan="1"> PDB</td><td align="left" colspan="1" rowspan="1">Information on the 3D structures of proteins and nucleic acids</td><td align="left" colspan="1" rowspan="1">Atomic coordinates</td><td char="." align="char" colspan="1" rowspan="1">131,236</td></tr><tr><td align="left" colspan="1" rowspan="1"> Drugbank</td><td align="left" colspan="1" rowspan="1">Approved, investigational, experimental, and withdrawn drugs</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">9300</td></tr><tr><td align="left" colspan="4" rowspan="1">MoleculeNet benchmark data sets</td></tr><tr><td align="left" colspan="1" rowspan="1"> QM8</td><td align="left" colspan="1" rowspan="1">Subset of GDB-13 with associated QM properties</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">21,786</td></tr><tr><td align="left" colspan="1" rowspan="1"> QM9</td><td align="left" colspan="1" rowspan="1">Subset of GDB-13 with associated QM properties</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">133,885</td></tr><tr><td align="left" colspan="1" rowspan="1"> ESOL</td><td align="left" colspan="1" rowspan="1">Common organic small molecules with solubility information</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">1128</td></tr><tr><td align="left" colspan="1" rowspan="1"> FreeSolv</td><td align="left" colspan="1" rowspan="1">Calculated and experimental hydration free energy of molecules</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">642</td></tr><tr><td align="left" colspan="1" rowspan="1"> Lipophilicity</td><td align="left" colspan="1" rowspan="1">Experimental results of logD for organic small molecules</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">4200</td></tr><tr><td align="left" colspan="1" rowspan="1"> PCBA</td><td align="left" colspan="1" rowspan="1">PubChem subset with biological activities</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">437,929</td></tr><tr><td align="left" colspan="1" rowspan="1"> MUV</td><td align="left" colspan="1" rowspan="1">PubChem subset for virtual screening validation</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">93,087</td></tr><tr><td align="left" colspan="1" rowspan="1"> HIV</td><td align="left" colspan="1" rowspan="1">Experimental results for HIV replication inhibition</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">41,127</td></tr><tr><td align="left" colspan="1" rowspan="1"> PDBind</td><td align="left" colspan="1" rowspan="1">Binding affinities for ligands in biomolecular complexes</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">11,908</td></tr><tr><td align="left" colspan="1" rowspan="1"> BACE</td><td align="left" colspan="1" rowspan="1">IC50 values against BACE-1 (human β-secretase 1)</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">1513</td></tr><tr><td align="left" colspan="1" rowspan="1"> BBBP</td><td align="left" colspan="1" rowspan="1">Ability of organic molecules to cross the blood–brain barrier</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">2039</td></tr><tr><td align="left" colspan="1" rowspan="1"> Tox21</td><td align="left" colspan="1" rowspan="1">Toxicity measurements on 12 targets</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">7831</td></tr><tr><td align="left" colspan="1" rowspan="1"> ToxCast</td><td align="left" colspan="1" rowspan="1">Toxicity measurements on more than 600 targets</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">8575</td></tr><tr><td align="left" colspan="1" rowspan="1"> SIDER</td><td align="left" colspan="1" rowspan="1">Adverse drug reactions of a selection of marketed drugs.</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">1427</td></tr><tr><td align="left" colspan="1" rowspan="1"> ClinTox</td><td align="left" colspan="1" rowspan="1">FDA approved drugs that failed clinical trials for toxicity reasons</td><td align="left" colspan="1" rowspan="1">SMILES</td><td char="." align="char" colspan="1" rowspan="1">1478</td></tr><tr><td align="left" colspan="4" rowspan="1">Other data sets</td></tr><tr><td align="left" colspan="1" rowspan="1"> PubMed central</td><td align="left" colspan="1" rowspan="1">Full-text archive of biomedical and life sciences journal literature</td><td align="left" colspan="1" rowspan="1">Text</td><td char="." align="char" colspan="1" rowspan="1">327,628</td></tr><tr><td align="left" colspan="1" rowspan="1"> Gutenberg</td><td align="left" colspan="1" rowspan="1">A subset of public domain Project Gutenberg eBooks.</td><td align="left" colspan="1" rowspan="1">Text</td><td char="." align="char" colspan="1" rowspan="1">3036</td></tr><tr><td align="left" colspan="1" rowspan="1"> NIPS</td><td align="left" colspan="1" rowspan="1">Abstracts of NIPS conference papers from 1987 to 2015</td><td align="left" colspan="1" rowspan="1">Text</td><td char="." align="char" colspan="1" rowspan="1">7241</td></tr><tr><td align="left" colspan="1" rowspan="1"> RNA sequencing</td><td align="left" colspan="1" rowspan="1">A subset of the PANCAN database</td><td align="left" colspan="1" rowspan="1">Gene expression</td><td char="." align="char" colspan="1" rowspan="1">801</td></tr><tr><td align="left" colspan="1" rowspan="1"> ProteomeHD</td><td align="left" colspan="1" rowspan="1">Human proteome co-regulation data</td><td align="left" colspan="1" rowspan="1">Co-regulation scores</td><td char="." align="char" colspan="1" rowspan="1">5013</td></tr><tr><td align="left" colspan="1" rowspan="1"> Flowcytometry</td><td align="left" colspan="1" rowspan="1">Data gathered from a flow cytometry experiment</td><td align="left" colspan="1" rowspan="1">Signal intensity</td><td char="." align="char" colspan="1" rowspan="1">436,877</td></tr><tr><td align="left" colspan="1" rowspan="1"> MiniBooNE</td><td align="left" colspan="1" rowspan="1">Data gathered by the MiniBooNE particle physics experiment</td><td align="left" colspan="1" rowspan="1">Particle ID</td><td char="." align="char" colspan="1" rowspan="1">130,065</td></tr></tbody></table></table-wrap></p></sec><sec id="Sec2"><title>Methods</title><p id="Par26">Given an arbitrary data set as an input, TMAP encompasses four phases: (I) LSH forest indexing [<xref ref-type="bibr" rid="CR37">37</xref>, <xref ref-type="bibr" rid="CR38">38</xref>], (II) construction of a <inline-formula id="IEq9"><alternatives><tex-math id="M17">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M18"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq9.gif"/></alternatives></inline-formula>-approximate <inline-formula id="IEq10"><alternatives><tex-math id="M19">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M20"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq10.gif"/></alternatives></inline-formula>-nearest neighbor graph, (III) calculation of a minimum spanning tree (MST) of the <inline-formula id="IEq11"><alternatives><tex-math id="M21">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M22"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq11.gif"/></alternatives></inline-formula>-approximate <inline-formula id="IEq12"><alternatives><tex-math id="M23">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M24"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq12.gif"/></alternatives></inline-formula>-nearest neighbor graph [<xref ref-type="bibr" rid="CR39">39</xref>], and (IV) generation of a layout for the resulting MST [<xref ref-type="bibr" rid="CR40">40</xref>].</p><p id="Par27">During phase I, the input data are indexed in an LSH forest data structure, enabling <inline-formula id="IEq13"><alternatives><tex-math id="M25">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M26"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq13.gif"/></alternatives></inline-formula>-approximate <inline-formula id="IEq14"><alternatives><tex-math id="M27">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M28"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq14.gif"/></alternatives></inline-formula>-nearest neighbor (<italic toggle="yes">k</italic>-NN) searches with a time complexity sub-linear in <inline-formula id="IEq15"><alternatives><tex-math id="M29">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M30"><mml:mi>n</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq15.gif"/></alternatives></inline-formula>. Text and binary data are encoded using the MinHash algorithm, while integer and floating-point data are encoded using a weighted variation of the algorithm [<xref ref-type="bibr" rid="CR41">41</xref>–<xref ref-type="bibr" rid="CR43">43</xref>]. The LSH Forest data structure for both MinHash and weighted MinHash data is initialized with the number of hash functions <inline-formula id="IEq16"><alternatives><tex-math id="M31">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M32"><mml:mi>d</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq16.gif"/></alternatives></inline-formula> used in encoding the data, and the number of prefix trees <inline-formula id="IEq17"><alternatives><tex-math id="M33">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$l$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M34"><mml:mi>l</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq17.gif"/></alternatives></inline-formula>. An increase in the values of both parameters led to an increase in main memory usage; however, higher values for <inline-formula id="IEq18"><alternatives><tex-math id="M35">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$l$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M36"><mml:mi>l</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq18.gif"/></alternatives></inline-formula> also decrease query speed. The effect of parameters <inline-formula id="IEq19"><alternatives><tex-math id="M37">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M38"><mml:mi>d</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq19.gif"/></alternatives></inline-formula> and <inline-formula id="IEq20"><alternatives><tex-math id="M39">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$l$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M40"><mml:mi>l</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq20.gif"/></alternatives></inline-formula> on the final visualization is shown in Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Fig. S1. The use of a combination of (weighted) MinHash and LSH Forest, which supports fast estimation of the Jaccard distance between two binary sets, has been shown to perform very well for molecules [<xref ref-type="bibr" rid="CR44">44</xref>]. Note that other data structures and algorithms implementing a variety of different distance metrics may show better performance on other data and can be used as drop-in replacements of phase I.</p><p id="Par28">In phase II, an undirected weighted <inline-formula id="IEq21"><alternatives><tex-math id="M41">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M42"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq21.gif"/></alternatives></inline-formula>-approximate <inline-formula id="IEq22"><alternatives><tex-math id="M43">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M44"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq22.gif"/></alternatives></inline-formula>-nearest neighbor graph (<inline-formula id="IEq23"><alternatives><tex-math id="M45">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M46"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq23.gif"/></alternatives></inline-formula>–<inline-formula id="IEq24"><alternatives><tex-math id="M47">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M48"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq24.gif"/></alternatives></inline-formula>-NNG) is constructed from the data points indexed in the LSH forest, where an augmented variant of the LSH forest query algorithm we previously introduced for virtual screening tasks is used to increase efficiency [<xref ref-type="bibr" rid="CR45">45</xref>]. The <inline-formula id="IEq25"><alternatives><tex-math id="M49">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M50"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq25.gif"/></alternatives></inline-formula>–<inline-formula id="IEq26"><alternatives><tex-math id="M51">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M52"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq26.gif"/></alternatives></inline-formula>-NNG construction phase takes two arguments, namely <inline-formula id="IEq27"><alternatives><tex-math id="M53">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M54"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq27.gif"/></alternatives></inline-formula>, the number of nearest-neighbors to be searched for, and <inline-formula id="IEq28"><alternatives><tex-math id="M55">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{c}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M56"><mml:msub><mml:mi>k</mml:mi><mml:mi>c</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq28.gif"/></alternatives></inline-formula>, the factor used by the augmented query algorithm. The variant of the query algorithm increases the time complexity of a single query from <inline-formula id="IEq29"><alternatives><tex-math id="M57">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {\log n} \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M58"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:mo>log</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq29.gif"/></alternatives></inline-formula> to <inline-formula id="IEq30"><alternatives><tex-math id="M59">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {k \cdot k_{c} + \log n} \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M60"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:mi>k</mml:mi><mml:mo>·</mml:mo><mml:msub><mml:mi>k</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mo>log</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq30.gif"/></alternatives></inline-formula>, resulting in an overall time complexity of <inline-formula id="IEq31"><alternatives><tex-math id="M61">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {n\left( {k \cdot k_{c} + \log n} \right)} \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M62"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:mi>n</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:mi>k</mml:mi><mml:mo>·</mml:mo><mml:msub><mml:mi>k</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mo>log</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq31.gif"/></alternatives></inline-formula>, where practically <inline-formula id="IEq32"><alternatives><tex-math id="M63">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k \cdot k_{c} &gt; \log n$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M64"><mml:mrow><mml:mi>k</mml:mi><mml:mo>·</mml:mo><mml:msub><mml:mi>k</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo>&gt;</mml:mo><mml:mo>log</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq32.gif"/></alternatives></inline-formula>, for the <inline-formula id="IEq33"><alternatives><tex-math id="M65">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M66"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq33.gif"/></alternatives></inline-formula>–<inline-formula id="IEq34"><alternatives><tex-math id="M67">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M68"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq34.gif"/></alternatives></inline-formula>-NNG construction. The edges of the <inline-formula id="IEq35"><alternatives><tex-math id="M69">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M70"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq35.gif"/></alternatives></inline-formula>–<inline-formula id="IEq36"><alternatives><tex-math id="M71">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M72"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq36.gif"/></alternatives></inline-formula>-NNG are assigned the Jaccard distance of their incident vertices as their weight. Depending on the distribution and the hashing of the data, the <inline-formula id="IEq37"><alternatives><tex-math id="M73">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M74"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq37.gif"/></alternatives></inline-formula>–<inline-formula id="IEq38"><alternatives><tex-math id="M75">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M76"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq38.gif"/></alternatives></inline-formula>-NNG can be disconnected (1) if outliers exist which have a Jaccard distance of 1.0 to all other data points and are therefore not connected to any other nodes or (2) if, due to highly connected clusters of size <inline-formula id="IEq39"><alternatives><tex-math id="M77">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\ge k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M78"><mml:mrow><mml:mo>≥</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq39.gif"/></alternatives></inline-formula> in the Jaccard space, connected components are created. However, the following phases are agnostic to whether this phase yields a disconnected graph. The effect of parameters <inline-formula id="IEq40"><alternatives><tex-math id="M79">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M80"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq40.gif"/></alternatives></inline-formula> and <inline-formula id="IEq41"><alternatives><tex-math id="M81">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{c}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M82"><mml:msub><mml:mi>k</mml:mi><mml:mi>c</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq41.gif"/></alternatives></inline-formula> on the final visualization is shown in Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Fig. S2. Alternatively, an arbitrary undirected graph can be supplied to the algorithm as a (weighted) edge list.</p><p id="Par29">During phase III, a minimum spanning tree (MST) is constructed on the weighted <inline-formula id="IEq42"><alternatives><tex-math id="M83">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M84"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq42.gif"/></alternatives></inline-formula>–<inline-formula id="IEq43"><alternatives><tex-math id="M85">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M86"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq43.gif"/></alternatives></inline-formula>-NNG using Kruskal’s algorithm, which represents the central and differentiating phase of the described algorithm. Whereas comparable algorithms such as UMAP or t-SNE attempt to embed pruned graphs, TMAP removes all cycles from the initial graph using the MST algorithm, significantly lowering the computational complexity of a low dimensional embedding. The algorithm reaches a globally optimal solution by applying a greedy approach of selecting locally optimal solutions at each stage—properties which are also desirable in data visualization. The time complexity of Kruskal’s algorithm is <inline-formula id="IEq44"><alternatives><tex-math id="M87">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {E + \log V} \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M88"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:mrow><mml:mi>E</mml:mi><mml:mo>+</mml:mo><mml:mo>log</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq44.gif"/></alternatives></inline-formula>, rendering this phase negligible compared to phase II in terms of execution time. In the case of a disconnected <inline-formula id="IEq45"><alternatives><tex-math id="M89">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M90"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq45.gif"/></alternatives></inline-formula>–<inline-formula id="IEq46"><alternatives><tex-math id="M91">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M92"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq46.gif"/></alternatives></inline-formula>-NNG, a minimum spanning forest is created.</p><p id="Par30">Phase IV lays out the tree on the Euclidean plane. As the MST is unrooted and to keep the drawing compact, the tree is not visualized by applying a tree but a graph layout algorithm. In order to draw MSTs of considerable size (millions of vertices), a spring-electrical model layout algorithm with multilevel multipole-based force approximation is applied. This algorithm is provided by the open graph drawing framework (OGDF), a modular C++ library [<xref ref-type="bibr" rid="CR40">40</xref>]. In addition, the use of the OGDF allows for effortless adjustments to the graph layout algorithm in terms of both aesthetics and computational time requirements. Whereas several parameters can be configured for the layout phase, only parameter <inline-formula id="IEq47"><alternatives><tex-math id="M93">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$p$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M94"><mml:mi>p</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq47.gif"/></alternatives></inline-formula> must be adjusted based on the size of the input data set (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Fig. S3). This phase constitutes the bottleneck regarding computational complexity.</p></sec><sec id="Sec3"><title>Results and discussion</title><sec id="Sec4"><title>TMAP performance assessment with toy data sets and ChEMBL subsets</title><p id="Par31">The quality of our TMAP algorithm is first assessed by comparing TMAP and UMAP to visualize the common benchmarking data sets MNIST, FMNIST, and COIL20 (Fig. <xref rid="Fig1" ref-type="fig">1</xref>). UMAP generally represents clusters as tightly packed patches and tries to reach maximal separation between them. On the other hand, TMAP visualizes the relations between, as well as within, clusters as branches and sub-branches. While UMAP can represent the circular nature of the COIL20 subsets, TMAP cuts the circular clusters at the edge of largest difference and joins subsets through one or more edges of smallest difference (Fig. <xref rid="Fig1" ref-type="fig">1</xref>a, b). However, the plot shows that this removal of local connectivity leads to an untangling of highly similar data (shown in dark green, orange, dark red, dark purple, and light blue). This behavior has been assessed and compared to UMAP in Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Figures S4 and S5, where it is shown that both TMAP and UMAP have to sacrifice locality preservation for more complex examples. For the MNIST and FMNIST data sets, the tree structure results in a higher resolution of both variances and errors within clusters as it becomes apparent how sub clusters (branches within clusters) are linked and which true positives connect to false positives (Fig. <xref rid="Fig1" ref-type="fig">1</xref>c–f).<fig id="Fig1" position="float" orientation="portrait"><label>Fig. 1</label><caption><p>Comparison between TMAP and UMAP on benchmark data sets. Please use the interactive versions of the TMAP visualizations at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link> to see images associated with each point on the map. TMAP explicitly visualizes the relations between as well as within clusters. <bold>a</bold>, <bold>b</bold> While UMAP represents the circular nature of the COIL20 subsets, TMAP cuts the circular clusters at the edge of largest difference and joins clusters through an edge of smallest difference. <bold>c</bold>–<bold>f</bold> For the MNIST and FMNIST data sets, the tree structure allows for a higher resolution of both variances and errors within clusters as it becomes apparent how sub clusters (branches within clusters) are linked and which true positives connect to false positives. The image data of all three sets was binarized using the average intensity per image as a threshold</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO2" position="float" orientation="portrait" xlink:href="13321_2020_416_Fig1_HTML.jpg"/></fig></p><p id="Par32">In a second, more applied comparison example, we visualize data from ChEMBL using TMAP and UMAP. For this analysis molecular structures are encoded using ECFP4 (extended connectivity fingerprint up to 4 bonds, 512-D binary vector), a molecular fingerprint encoding circular substructures and which performs well in virtual screening and target prediction [<xref ref-type="bibr" rid="CR46">46</xref>–<xref ref-type="bibr" rid="CR48">48</xref>]. We consider a subset <inline-formula id="IEq48"><alternatives><tex-math id="M95">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{t}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M96"><mml:msub><mml:mi>S</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq48.gif"/></alternatives></inline-formula> of the top 10,000 ChEMBL compounds by insertion date, as well as a random subset <inline-formula id="IEq49"><alternatives><tex-math id="M97">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{r}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M98"><mml:msub><mml:mi>S</mml:mi><mml:mi>r</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq49.gif"/></alternatives></inline-formula> of 10,000 ChEMBL molecules.</p><p id="Par33">Taking the more homogeneous set <inline-formula id="IEq50"><alternatives><tex-math id="M99">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{t}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M100"><mml:msub><mml:mi>S</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq50.gif"/></alternatives></inline-formula> as an input, the 2D-maps produced by each representation, plotted using the Python library matplotlib, illustrate that TMAP, which distributes clusters in branches and subbranches of the MST, produces a much more even distribution of compounds on the canvas compared to UMAP, thus enabling better visual resolution (Fig. <xref rid="Fig2" ref-type="fig">2</xref>a, b). Furthermore, in a visualization of the heterogeneous set <inline-formula id="IEq51"><alternatives><tex-math id="M101">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{r}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M102"><mml:msub><mml:mi>S</mml:mi><mml:mi>r</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq51.gif"/></alternatives></inline-formula>, nearest neighbor relationships (locality) are better preserved in TMAP compared to UMAP, as illustrated by the positioning of the 20 structurally nearest neighbors of compound CHEMBL370160 [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR49">49</xref>] reported as a potent inhibitor of human tyrosine-protein kinase SYK. The 20 structurally similar nearest neighbors are defined as 20 nearest neighbors in the original 512-dimensional fingerprint space. TMAP directly connects the query compound to three of the 20 nearest neighbors, CHEMBL3701630, CHEMBL3701611, and CHEMBL38911457, its nearest, second nearest, and 15th nearest neighbor respectively. The nearest neighbors 1 through 7 are all within a topological distance of 3 around the query (Fig. <xref rid="Fig2" ref-type="fig">2</xref>c). In contrast, UMAP has positioned nearest neighbors 2, 3, 9, and 18, among several even more distant data points, closer to the query than the nearest neighbor from the original space (Fig. <xref rid="Fig2" ref-type="fig">2</xref>d). Indeed, TMAP preserves locality in terms of retaining 1-nearest neighbor relationships much better than UMAP, applying both topological and Euclidean metrics (Fig. <xref rid="Fig2" ref-type="fig">2</xref>e, f; Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Fig. S6). The quality of the preservation of locality largely depends on parameter <inline-formula id="IEq52"><alternatives><tex-math id="M103">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M104"><mml:mi>d</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq52.gif"/></alternatives></inline-formula>, with adjustments to parameters <inline-formula id="IEq53"><alternatives><tex-math id="M105">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M106"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq53.gif"/></alternatives></inline-formula> and <inline-formula id="IEq54"><alternatives><tex-math id="M107">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{c}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M108"><mml:msub><mml:mi>k</mml:mi><mml:mi>c</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq54.gif"/></alternatives></inline-formula> only having a minor influence (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Fig. S7). Moreover, TMAP yields reproducible results when running on identical parameters and input data, whereas results of comparable algorithms such as UMAP change considerably with every run (Additional file <xref rid="MOESM1" ref-type="media">1</xref>: Fig. S8) [<xref ref-type="bibr" rid="CR26">26</xref>].<fig id="Fig2" position="float" orientation="portrait"><label>Fig. 2</label><caption><p>Comparing TMAP and UMAP for visualizing ChEMBL. The first <inline-formula id="IEq96"><alternatives><tex-math id="M109">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M110"><mml:mi>n</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq96.gif"/></alternatives></inline-formula> compounds <inline-formula id="IEq97"><alternatives><tex-math id="M111">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{t}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M112"><mml:msub><mml:mi>S</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq97.gif"/></alternatives></inline-formula> (<bold>a</bold>, <bold>b</bold>, <bold>e</bold>) and a random sample <inline-formula id="IEq98"><alternatives><tex-math id="M113">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{r}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M114"><mml:msub><mml:mi>S</mml:mi><mml:mi>r</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq98.gif"/></alternatives></inline-formula> (<bold>c</bold>, <bold>d</bold>, <bold>f</bold>), each of size <inline-formula id="IEq99"><alternatives><tex-math id="M115">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 10,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M116"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>10</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq99.gif"/></alternatives></inline-formula>, were drawn from the 512-D ECFP-encoded ChEMBL data set to visualize the distribution of biological entity classes and k-nearest neighbors respectively. <bold>a</bold> TMAP lays out the data as a single connected tree, whereas (<bold>b</bold>) UMAP draws what appears to be a highly disconnected graph, with the connection between components becoming impossible to assert. TMAP keeps the intra- and inter-cluster distances at the same magnitude, increasing the visual resolution of the plot. <bold>c</bold>, <bold>d</bold> The 20 nearest neighbors of a randomly selected compound from a random sample. <bold>c</bold> TMAP directly connects the query compound to three of the 20 nearest neighbors (1, 2, 15); nearest neighbors 1 through 7 are all within a topological distance of 3 around the query compound. <bold>d</bold> The closest nearest neighbors of the same query compound in the UMAP visualization are true nearest neighbors 2, 3, 18, 9, and 1, with 1 being the farthest of the five. <bold>e</bold>, <bold>f</bold> Ranked distances from true nearest neighbor in original high dimensional space after embedding based on topological and Euclidean distance for data sets <inline-formula id="IEq100"><alternatives><tex-math id="M117">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{t}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M118"><mml:msub><mml:mi>S</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq100.gif"/></alternatives></inline-formula> and <inline-formula id="IEq101"><alternatives><tex-math id="M119">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S_{r}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M120"><mml:msub><mml:mi>S</mml:mi><mml:mi>r</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq101.gif"/></alternatives></inline-formula> respectively. <bold>g</bold> Computing the coordinates for a random sample (<inline-formula id="IEq102"><alternatives><tex-math id="M121">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1,000,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M122"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq102.gif"/></alternatives></inline-formula>) highlights the running time behavior of TMAP and allows an inspection of the time and space requirements of the different phases of the algorithm. Four random samples increasing in size (<inline-formula id="IEq103"><alternatives><tex-math id="M123">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 10,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M124"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>10</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq103.gif"/></alternatives></inline-formula>, <inline-formula id="IEq104"><alternatives><tex-math id="M125">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 100,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M126"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>100</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq104.gif"/></alternatives></inline-formula>, <inline-formula id="IEq105"><alternatives><tex-math id="M127">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 500,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M128"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>500</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq105.gif"/></alternatives></inline-formula>, and <inline-formula id="IEq106"><alternatives><tex-math id="M129">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1,000,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M130"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq106.gif"/></alternatives></inline-formula>) detail the differences in memory usage (<bold>h</bold>) and running time (<bold>i</bold>) between TMAP and UMAP (<inline-formula id="IEq107"><alternatives><tex-math id="M131">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{TMAP} = 4.865{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M132"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>4.865</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq107.gif"/></alternatives></inline-formula>, <inline-formula id="IEq108"><alternatives><tex-math id="M133">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{TMAP} = 0.223{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M134"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.223</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq108.gif"/></alternatives></inline-formula>; <inline-formula id="IEq109"><alternatives><tex-math id="M135">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{UMAP} = 20.985{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M136"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>20.985</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq109.gif"/></alternatives></inline-formula>, <inline-formula id="IEq110"><alternatives><tex-math id="M137">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{UMAP} = 0.383{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M138"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.383</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq110.gif"/></alternatives></inline-formula> and <inline-formula id="IEq111"><alternatives><tex-math id="M139">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{TMAP} = 33.485{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M140"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>33.485</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq111.gif"/></alternatives></inline-formula>, <inline-formula id="IEq112"><alternatives><tex-math id="M141">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{TMAP} = 1.12{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M142"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>1.12</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq112.gif"/></alternatives></inline-formula>; <inline-formula id="IEq113"><alternatives><tex-math id="M143">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{UMAP} = 115.661{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M144"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>115.661</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq113.gif"/></alternatives></inline-formula>, <inline-formula id="IEq114"><alternatives><tex-math id="M145">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{UMAP} = 2.488{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M146"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>2.488</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq114.gif"/></alternatives></inline-formula> respectively) (<inline-formula id="IEq115"><alternatives><tex-math id="M147">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{TMAP} = 175.89{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M148"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>175.89</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq115.gif"/></alternatives></inline-formula>, <inline-formula id="IEq116"><alternatives><tex-math id="M149">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{TMAP} = 4.521{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M150"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>4.521</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq116.gif"/></alternatives></inline-formula>; <inline-formula id="IEq117"><alternatives><tex-math id="M151">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{UMAP} = 3,577.768{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M152"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>3</mml:mn><mml:mo>,</mml:mo><mml:mn>577.768</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq117.gif"/></alternatives></inline-formula>, <inline-formula id="IEq118"><alternatives><tex-math id="M153">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{UMAP} = 18.854{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M154"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>18.854</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq118.gif"/></alternatives></inline-formula> and <inline-formula id="IEq119"><alternatives><tex-math id="M155">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{TMAP} = 354.682{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M156"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>354.682</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq119.gif"/></alternatives></inline-formula>, <inline-formula id="IEq120"><alternatives><tex-math id="M157">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{TMAP} = 8.553{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M158"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">TMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>8.553</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq120.gif"/></alternatives></inline-formula>; <inline-formula id="IEq121"><alternatives><tex-math id="M159">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_{UMAP} = 41,325.944{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M160"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>41</mml:mn><mml:mo>,</mml:mo><mml:mn>325.944</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq121.gif"/></alternatives></inline-formula>, <inline-formula id="IEq122"><alternatives><tex-math id="M161">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{UMAP} = 48.507{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M162"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi mathvariant="italic">UMAP</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>48.507</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq122.gif"/></alternatives></inline-formula> respectively)</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO3" position="float" orientation="portrait" xlink:href="13321_2020_416_Fig2_HTML.jpg"/></fig></p><p id="Par34">In terms of calculation times, TMAP and UMAP have comparable running time <inline-formula id="IEq55"><alternatives><tex-math id="M163">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M164"><mml:mi>t</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq55.gif"/></alternatives></inline-formula> and memory usage <inline-formula id="IEq56"><alternatives><tex-math id="M165">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M166"><mml:mi>a</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq56.gif"/></alternatives></inline-formula> for small random subsets of the 512-D ECFP-encoded ChEMBL data set with sizes <inline-formula id="IEq57"><alternatives><tex-math id="M167">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 10,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M168"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>10</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq57.gif"/></alternatives></inline-formula> and <inline-formula id="IEq58"><alternatives><tex-math id="M169">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 100,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M170"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>100</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq58.gif"/></alternatives></inline-formula>, TMAP significantly outperforms UMAP for larger random subsets (<inline-formula id="IEq59"><alternatives><tex-math id="M171">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 500,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M172"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>500</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq59.gif"/></alternatives></inline-formula> and <inline-formula id="IEq60"><alternatives><tex-math id="M173">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1,000,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M174"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq60.gif"/></alternatives></inline-formula>) (Fig. <xref rid="Fig2" ref-type="fig">2</xref>h, i). Further insight into the computational behavior of TMAP is provided by analyzing running times for the different phases based on a larger subset (<inline-formula id="IEq61"><alternatives><tex-math id="M175">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1,000,000$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M176"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn><mml:mo>,</mml:mo><mml:mn>000</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq61.gif"/></alternatives></inline-formula>) of the ECFP4-encoded ChEMBL data set (Fig. <xref rid="Fig2" ref-type="fig">2</xref>g). During phase I of the algorithm, which accounts for <inline-formula id="IEq62"><alternatives><tex-math id="M177">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$180{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M178"><mml:mrow><mml:mn>180</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq62.gif"/></alternatives></inline-formula> of the execution time and approximately <inline-formula id="IEq63"><alternatives><tex-math id="M179">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$5{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M180"><mml:mrow><mml:mn>5</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq63.gif"/></alternatives></inline-formula> of main memory usage, data is loaded and indexed in the LSH Forest data structure in chunks of 100,000, as expressed by 10 distinct jumps in memory consumption. The construction of the <inline-formula id="IEq64"><alternatives><tex-math id="M181">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M182"><mml:mi>c</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq64.gif"/></alternatives></inline-formula>–<inline-formula id="IEq65"><alternatives><tex-math id="M183">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M184"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq65.gif"/></alternatives></inline-formula>-NNG during phase II requires a negligible amount of main memory and takes approximately <inline-formula id="IEq66"><alternatives><tex-math id="M185">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$110{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M186"><mml:mrow><mml:mn>110</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq66.gif"/></alternatives></inline-formula>. During 10 s of execution time, MST creation (phase III) occupies a further <inline-formula id="IEq67"><alternatives><tex-math id="M187">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$2{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M188"><mml:mrow><mml:mn>2</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq67.gif"/></alternatives></inline-formula> of main memory of which approximately <inline-formula id="IEq68"><alternatives><tex-math id="M189">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$1{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M190"><mml:mrow><mml:mn>1</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq68.gif"/></alternatives></inline-formula> is retained to store the tree data structure. The graph layout algorithm (phase IV) requires <inline-formula id="IEq69"><alternatives><tex-math id="M191">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$2{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M192"><mml:mrow><mml:mn>2</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq69.gif"/></alternatives></inline-formula> throughout <inline-formula id="IEq70"><alternatives><tex-math id="M193">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$55{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M194"><mml:mrow><mml:mn>55</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq70.gif"/></alternatives></inline-formula>, after which the algorithm completes with a total wall clock run time of <inline-formula id="IEq71"><alternatives><tex-math id="M195">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$355{\text{s}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M196"><mml:mrow><mml:mn>355</mml:mn><mml:mtext>s</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq71.gif"/></alternatives></inline-formula> and peak main memory usage of <inline-formula id="IEq72"><alternatives><tex-math id="M197">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$8.553{\text{GB}}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M198"><mml:mrow><mml:mn>8.553</mml:mn><mml:mtext>GB</mml:mtext></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq72.gif"/></alternatives></inline-formula>.</p><p id="Par35">Note that TMAP supports Jaccard similarity estimation through MinHash and weighted MinHash for binary and weighted sets, respectively. While the Jaccard metric is very suitable for chemical similarity calculations based on molecular fingerprints, the metric may not be the best option available to problems presented by other data sets. However, there exists a wide range of LSH families supporting distance and similarity metrics such as Hamming distance, <inline-formula id="IEq73"><alternatives><tex-math id="M199">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$l_{p}$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M200"><mml:msub><mml:mi>l</mml:mi><mml:mi>p</mml:mi></mml:msub></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq73.gif"/></alternatives></inline-formula> distance, Levenshtein distance, or cosine similarity, which are compatible with TMAP [<xref ref-type="bibr" rid="CR50">50</xref>, <xref ref-type="bibr" rid="CR51">51</xref>]. Furthermore, the modularity of TMAP allows to plug in arbitrary nearest-neighbor-graph creation techniques or load existing graphs from files.</p></sec><sec id="Sec5"><title>TMAPs of small molecule data sets: ChEMBL, FDB17, DSSTox, and the Natural Products Atlas</title><p id="Par36">The high performance and relatively low memory usage of TMAP, as well as the ability to generate highly detailed and interpretable representations of high-dimensional data sets, is illustrated here by interactive visualization of a series of small molecule data sets available in the public domain. In these examples we use MHFP6 (512 MinHash permutations), a molecular fingerprint related to ECFP4 but with better performance for virtual screening tasks and the ability to be directly indexed in an LSH Forest data structure, which considerably speeds up computation for large data sets [<xref ref-type="bibr" rid="CR45">45</xref>].</p><p id="Par37">As a first example, we discuss the TMAP of the full data set of the ChEMBL database containing the 1.13 million ChEMBL compounds associated with biological assay data. TMAP completes the calculation within 613 s with a peak memory usage of 20.562 GB. Note that approximately half of the main memory usage is accounted for by SMILES, activities, and biological entity classes which are loaded for later use in the visualization. To facilitate data analysis, the coordinates computed by TMAP are exported as an interactive portable HTML file using Faerun, where molecules are displayed using the JavaScript library SmilesDrawer (Fig. <xref rid="Fig3" ref-type="fig">3</xref>a) [<xref ref-type="bibr" rid="CR25">25</xref>, <xref ref-type="bibr" rid="CR52">52</xref>].<fig id="Fig3" position="float" orientation="portrait"><label>Fig. 3</label><caption><p>TMAP visualization of ChEMBL, FDB17, DSSTox, and the Natural Products Atlas in the MHFP6 chemical space. Please use the interactive versions at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://tmap.gdb.tools">https://tmap.gdb.tools</ext-link> to visualize molecular structures associated with each point. <bold>a</bold> Visualization of all ChEMBL compounds associated with biological assay data (<inline-formula id="IEq123"><alternatives><tex-math id="M201">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1,159,881$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M202"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>159</mml:mn><mml:mo>,</mml:mo><mml:mn>881</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq123.gif"/></alternatives></inline-formula>) colored by target class. The inset shows molecules with a high binding affinity for serotonin, norepinephrine, and dopamine neurotransmitters (cyan); inhibitors of the phenylethanolamine N-methyltransferase (orange); and structurally related compounds with high binding affinities for nicotinic acetylcholine receptors and inhibitory effects on cytochrome p450s (red, dark blue). <bold>b</bold> The ChEMBL data set was merged with fragment database (FDB17) compounds (<inline-formula id="IEq124"><alternatives><tex-math id="M203">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 11,261,085$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M204"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>11</mml:mn><mml:mo>,</mml:mo><mml:mn>261</mml:mn><mml:mo>,</mml:mo><mml:mn>085</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq124.gif"/></alternatives></inline-formula>) and visualized. FDB17 molecules are shown in light gray. The inset shows a branch of steroid and steroid-like ChEMBL compounds, as well as dominantly FDB17 branches which are sparsely populated by ChEMBL molecules. <bold>c</bold> Visualization of DSSTox compounds colored by reported toxicity level. The inset shows a subtree containing a high number of toxic compounds structurally similar or related to naphthalenes and other polycyclic aromatic hydrocarbons. <bold>d</bold> The Natural Products Atlas chemical space colored by origin genus of the 9 largest groups. The inset shows that structurally similar compounds are grouped into distinct branches and subbranches and are usually produced by plants and fungi from the same genus</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO4" position="float" orientation="portrait" xlink:href="13321_2020_416_Fig3_HTML.jpg"/></fig></p><p id="Par38">Analyzing the distribution of molecules on the tree shows that TMAP groups molecules according to their structure and their biological activity, accurately reflecting similarities calculated in the high-dimensional MHFP6 space. This is well illustrated for a subset of the map (Fig. <xref rid="Fig3" ref-type="fig">3</xref>a, insert). In this area of the map, data points in cyan indicate molecules with a high binding affinity for serotonin, norepinephrine, and dopamine neurotransmitters in two connected branches (right side of inset), while data points in orange show inhibitors of the phenylethanolamine N-methyltransferase (PNMT) (left side of inset), and red and dark blue data points indicate nicotinic acetylcholine receptor (nAChRs) ligands and cytochrome p450s (CYPs) inhibitors, respectively.</p><p id="Par39">As a second example, we visualize the ChEMBL set merged with FDB17 (<inline-formula id="IEq74"><alternatives><tex-math id="M205">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 10,101,204$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M206"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>10</mml:mn><mml:mo>,</mml:mo><mml:mn>101</mml:mn><mml:mo>,</mml:mo><mml:mn>204</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq74.gif"/></alternatives></inline-formula>) into a superset of size <inline-formula id="IEq75"><alternatives><tex-math id="M207">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 11,261,085$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M208"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>11</mml:mn><mml:mo>,</mml:mo><mml:mn>261</mml:mn><mml:mo>,</mml:mo><mml:mn>085</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq75.gif"/></alternatives></inline-formula> (Fig. <xref rid="Fig3" ref-type="fig">3</xref>b), which corresponds to the largest data set that TMAP can successfully handle. As above, the TMAP 2D-layout accurately reflects structural and functional similarities computed in the high-dimensional MHFP6 space. In this TMAP visualization, the majority of ChEMBL compounds accumulate in closely connected clusters (branches) due to the prevalence of aromatic carbocycles. A notable exception is a relatively sizable branch of steroids and steroid-like compounds, which is connected to a branch of FDB17 molecules containing non-aromatic 5-membered carbocycles and ketones (Fig. <xref rid="Fig3" ref-type="fig">3</xref>b, insert). Many more detailed insights can be gained by inspecting the interactive map in Faerun (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap-fdb.gdb.tools">http://tmap-fdb.gdb.tools</ext-link>).</p><p id="Par40">Further examples include MHFP6-encoded compounds from the Distributed Structure-Searchable Toxicity (DSSTox) Database (<inline-formula id="IEq76"><alternatives><tex-math id="M209">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 848,816$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M210"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>848</mml:mn><mml:mo>,</mml:mo><mml:mn>816</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq76.gif"/></alternatives></inline-formula>) and the Natural Products Atlas (<inline-formula id="IEq77"><alternatives><tex-math id="M211">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 24,594$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M212"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>24</mml:mn><mml:mo>,</mml:mo><mml:mn>594</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq77.gif"/></alternatives></inline-formula>). Visualizing DSSTox and coloring the resulting tree by toxicity rating, TMAP creates several subtrees and branches representing structural regions with a high incidence of highly toxic compounds (shown in red, Fig. <xref rid="Fig3" ref-type="fig">3</xref>c). An example of such a subtree contains naphthalenes and other polycyclic aromatic hydrocarbons (Fig. <xref rid="Fig3" ref-type="fig">3</xref>c, insert). The TMAP tree of the Natural Products Atlas was colored according to origin genus and reveals that branches and subbranches containing distinct substructures usually correlate with a certain genus such as various combinations of phenols, fused cyclopentanes, lactones and steroids produced by the fungi genus Ganoderma (colored purple in Fig. <xref rid="Fig3" ref-type="fig">3</xref>d, inset).</p></sec><sec id="Sec6"><title>Visualization of the MoleculeNet benchmark data sets</title><p id="Par41">We further illustrate TMAP to visualize the MoleculeNet, a benchmark for molecular machine learning which has found wide adaption in cheminformatics and encompasses 16 data sets ranging in size and composition (Table <xref rid="Tab1" ref-type="table">1</xref>) [<xref ref-type="bibr" rid="CR18">18</xref>]. As for the other small molecule data sets above, we computed MHFP6 fingerprints of the associated molecules and the corresponding TMAPs, which we then color-coded according to various numerical values available in the benchmarks. The procedure was applied with all MoleculeNet data sets except for <bold>QM7/b</bold>, where no SMILES have been provided.</p><p id="Par42">The resulting TMAP representations, accessible at the TMAP website (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link>), reveal the detailed structure of the data sets as well as the behaviour of methods applied to these data sets as a function of the chemical structures of the molecules. For example, TMAPs of the <bold>QM8</bold> and <bold>QM9</bold> (<inline-formula id="IEq78"><alternatives><tex-math id="M213">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 21,786$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M214"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>21</mml:mn><mml:mo>,</mml:mo><mml:mn>786</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq78.gif"/></alternatives></inline-formula> and <inline-formula id="IEq79"><alternatives><tex-math id="M215">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 133,885$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M216"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>133</mml:mn><mml:mo>,</mml:mo><mml:mn>885</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq79.gif"/></alternatives></inline-formula>), which contain small molecules and DFT-modelled parameters, reveal relationships between molecular structures and the various computed physico-chemical values. For instance the TMAP of the <bold>QM8</bold> data set color-coded by the oscillator strengths of the lowest two singlet electronic states reveals how the value correlates with molecular structure and explains the performance differences in machine learning models trained on Coulomb matrices versus those trained on structure-sensitive molecular fingerprints [<xref ref-type="bibr" rid="CR53">53</xref>]. In the case of the <bold>ESOL</bold> data set containing measured and calculated water solubility values of common small molecules (<inline-formula id="IEq80"><alternatives><tex-math id="M217">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 1128$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M218"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1128</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq80.gif"/></alternatives></inline-formula>), its TMAP color-coded with the difference between computed and measured values reveals the limitation of the <bold>ESOL</bold> model when estimating solubility of polycyclic aromatic hydrocarbons and compounds containing pyridines. For the <bold>FreeSolv</bold> data set (<inline-formula id="IEq81"><alternatives><tex-math id="M219">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 642$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M220"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>642</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq81.gif"/></alternatives></inline-formula>) containing small molecules and their measured and calculated hydration free energy in water, the TMAP visualization hints at possible limitations of the method when calculating hydration free energies of sugars. Finally, for the <bold>MUV</bold> data set (<inline-formula id="IEq82"><alternatives><tex-math id="M221">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 93,087$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M222"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>93</mml:mn><mml:mo>,</mml:mo><mml:mn>087</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq82.gif"/></alternatives></inline-formula>), which contains active small drug-like molecules against 17 different protein targets mixed in each case with inactive decoy molecules, the various TMAPs reveal differences in the structural distribution of actives among decoys. Actives are usually well distributed but appear to form clusters in certain subsets (e.g. MUV-548 and MUV-846), explaining the generally higher performance of fingerprint benchmarks for these subsets [<xref ref-type="bibr" rid="CR47">47</xref>].</p></sec><sec id="Sec7"><title>Application to other scientific data sets</title><p id="Par43">We further illustrate the general applicability of TMAP to visualize data sets from the fields of linguistics, biology, and particle physics. All produced maps are available as interactive Faerun plots on the TMAP website (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link>).</p><p id="Par44">Our first example concerns visualization of the RCSB Protein Data Bank, which contains experimental 3D-structures of proteins and nucleic acids (<inline-formula id="IEq83"><alternatives><tex-math id="M223">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 131,236$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M224"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>131</mml:mn><mml:mo>,</mml:mo><mml:mn>236</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq83.gif"/></alternatives></inline-formula>) [<xref ref-type="bibr" rid="CR54">54</xref>]. The PDB files were extracted from the Protein Data Bank and encoded using the protein shape fingerprint 3DP (136-D integer vector, 256 weighted MinHash samples) 3DP encodes the structural shape of large molecules stored as PDB files based on through-space distances of atoms [<xref ref-type="bibr" rid="CR22">22</xref>]. Processing data extracted from the PDB and indexed using a weighted variant of MinHash, demonstrates the ability of TMAP to visualize both global and local structure, improving on previous efforts on the visualization of the database [<xref ref-type="bibr" rid="CR22">22</xref>, <xref ref-type="bibr" rid="CR55">55</xref>]. The global structure of the 3DP-encoded PDB data is dominated by the size (heavy atom count) of the proteins (Fig. <xref rid="Fig4" ref-type="fig">4</xref>a), on the other hand, the local structure is defined by properties such as the fraction of negative charges (Fig. <xref rid="Fig4" ref-type="fig">4</xref>b).<fig id="Fig4" position="float" orientation="portrait"><label>Fig. 4</label><caption><p>TMAP visualizations of the RCSB Protein Data Bank (PDB), PANCAN, and ProteomeHD data. For <bold>a</bold> and <bold>b</bold>, please use the interactive versions at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://pdb-tmap.gdb.tools">http://pdb-tmap.gdb.tools</ext-link> to visualize protein structures associated with each point. 3DP-encoded PDB entries visualized using TMAP with weighted MinHash indexing, the color bars show the log–log distribution of the property values. <bold>a</bold> Colored according to the macromolecular size (heavy atom count). The resulting map reflects the size-sensitivity of the 3DP fingerprint. <bold>b</bold> Colored according to the fraction of negative charges in the molecules. Macromolecules with a high fraction of negatively charged atoms, predominantly nucleic acids, are visible as clusters of red branches. <bold>c</bold> The PANCAN data set (n = 801, d = 20,531) consists of gene expressions data of five types of tumors (PRAD, KIRC, LUAD, COAD, and BRCA) and was indexed using a weighted variant of the MinHash algorithm. <bold>d</bold> Visualization of the ProteomeHD data set (n = 5013, d = 5013) based on co-regulation scores of proteins. The data points have been colored according to the associated cellular location</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO5" position="float" orientation="portrait" xlink:href="13321_2020_416_Fig4_HTML.jpg"/></fig></p><p id="Par45">As an additional example from biology, we consider the PANCAN data set (<inline-formula id="IEq84"><alternatives><tex-math id="M225">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 800$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M226"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>800</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq84.gif"/></alternatives></inline-formula>, <inline-formula id="IEq85"><alternatives><tex-math id="M227">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d = 20,531$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M228"><mml:mrow><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>20</mml:mn><mml:mo>,</mml:mo><mml:mn>531</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq85.gif"/></alternatives></inline-formula>), which consists of gene expressions of patients having different types of tumors (PRAD, KIRC, LUAD, COAD, and BRCA), randomly extracted from the cancer genome atlas database [<xref ref-type="bibr" rid="CR56">56</xref>]. Here we index the PANCAN data directly using the LSH Forest data structure and weighted MinHash. The output produced by processing the PANCAN data set displays the successful differentiation of tumor types based on RNA sequencing data by the algorithm (Fig. <xref rid="Fig4" ref-type="fig">4</xref>c). We also visualize the ProteomeHD data set using TMAP [<xref ref-type="bibr" rid="CR57">57</xref>]. This data set consists of co-regulation scores of 5013 proteins, annotated with their respective cellular location. In addition to the ProteomeHD data set, Kustatscher et al. also released an R script to create a map of the set using t-SNE which took a total of 400 s to complete; in contrast, TMAP visualized the data set within 32 s (Fig. <xref rid="Fig4" ref-type="fig">4</xref>d), successfully clustering proteins by their cellular location based on co-regulation scores. As a further biology example, our TMAP webpage also features flow cytometry measurements (<inline-formula id="IEq86"><alternatives><tex-math id="M229">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 436,877, d = 14$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M230"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>436</mml:mn><mml:mo>,</mml:mo><mml:mn>877</mml:mn><mml:mo>,</mml:mo><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>14</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq86.gif"/></alternatives></inline-formula>), exemplifying the methods application for the visualization of relatively low dimensional data [<xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR58">58</xref>].</p><p id="Par46">As an example from physics, we represent the MiniBooNE data set (<inline-formula id="IEq87"><alternatives><tex-math id="M231">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 130,065$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M232"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>130</mml:mn><mml:mo>,</mml:mo><mml:mn>065</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq87.gif"/></alternatives></inline-formula>, <inline-formula id="IEq88"><alternatives><tex-math id="M233">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d = 50$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M234"><mml:mrow><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>50</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq88.gif"/></alternatives></inline-formula>), which consists of measurements extracted from Fermilab’s MiniBooNE experiment and contains the detection of signal (electron neutrinos) and background (muon neutrinos) events [<xref ref-type="bibr" rid="CR59">59</xref>]. As the attributes in MiniBooNE are real numbers, we use the Annoy indexing library which supports the cosine metric in phase I of the algorithm to index the data for <inline-formula id="IEq89"><alternatives><tex-math id="M235">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M236"><mml:mi>k</mml:mi></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq89.gif"/></alternatives></inline-formula>-NNG construction, which demonstrates the modularity of TMAP [<xref ref-type="bibr" rid="CR60">60</xref>]. This example reflects the independence of the MST and layout phases of the algorithm from the input data, displaying the distribution of the signal over the background data (Fig. <xref rid="Fig5" ref-type="fig">5</xref>a).<fig id="Fig5" position="float" orientation="portrait"><label>Fig. 5</label><caption><p>Visualizing linguistics, RNA sequencing, and particle physics data sets. <bold>a</bold> The MiniBooNE data set (<inline-formula id="IEq125"><alternatives><tex-math id="M237">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 130,065$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M238"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>130</mml:mn><mml:mo>,</mml:mo><mml:mn>065</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq125.gif"/></alternatives></inline-formula>, <inline-formula id="IEq126"><alternatives><tex-math id="M239">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d = 50$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M240"><mml:mrow><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>50</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq126.gif"/></alternatives></inline-formula>) consists of measurements extracted from Fermilab’s MiniBooNE experiment. TMAP visualizes the distribution of the signal data among the background. <bold>b</bold> The GUTENBERG data set is a selection of books by 142 authors (<inline-formula id="IEq127"><alternatives><tex-math id="M241">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 3036, d = 1,217,078)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M242"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>3036</mml:mn><mml:mo>,</mml:mo><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>217</mml:mn><mml:mo>,</mml:mo><mml:mn>078</mml:mn><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq127.gif"/></alternatives></inline-formula>. The works of five different authors are shown to occupy distinct branches. Interactive version of these maps and further examples can be found at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link></p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO6" position="float" orientation="portrait" xlink:href="13321_2020_416_Fig5_HTML.jpg"/></fig></p><p id="Par47">Outside of the natural sciences, we exemplify TMAP to visualize the GUTENBERG set as an example of a data set from linguistics. This data set features a selection of <inline-formula id="IEq90"><alternatives><tex-math id="M243">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 3036$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M244"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>3036</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq90.gif"/></alternatives></inline-formula> books by 142 authors written in English [<xref ref-type="bibr" rid="CR61">61</xref>]. To analyze this data, we define a book fingerprint as a dense-form binary vector indicating which words from the universe of all words extracted from all books occurred at least once in a given book (yielding a dimensionality of <inline-formula id="IEq91"><alternatives><tex-math id="M245">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d = 1,217,078$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M246"><mml:mrow><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>217</mml:mn><mml:mo>,</mml:mo><mml:mn>078</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq91.gif"/></alternatives></inline-formula>), and index this book fingerprint using the LSH Forest data structure with MinHash. The visualization of the GUTENBERG data set exemplifies the ability of TMAP to handle input with extremely high dimensionality (<inline-formula id="IEq92"><alternatives><tex-math id="M247">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d = 1,217,078)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M248"><mml:mrow><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>217</mml:mn><mml:mo>,</mml:mo><mml:mn>078</mml:mn><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq92.gif"/></alternatives></inline-formula> efficiently (Fig. <xref rid="Fig5" ref-type="fig">5</xref>b). The works of different authors tend to populate specific branches, with notable expected exceptions such as the autobiography of Charles Darwin, which does not lie on the same branch as all his other works. Meanwhile, the works of Alfred Russel Wallace are found on subbranches of the Darwin branch.</p><p id="Par48">Related to linguistics, the TMAP webpage further features a map of the distribution of different scientific journals (Nature, Cell, Angewandte Chemie, Science, the Journal of the American Chemical Society, and Demography) over the entire PubMed article space (<inline-formula id="IEq93"><alternatives><tex-math id="M249">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 327,628, d = 1,633,762$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M250"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>327</mml:mn><mml:mo>,</mml:mo><mml:mn>628</mml:mn><mml:mo>,</mml:mo><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>633</mml:mn><mml:mo>,</mml:mo><mml:mn>762</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq93.gif"/></alternatives></inline-formula>), perceiving specialization, diversification, and overlaps; as well as a TMAP of the NeurIPS conference papers (<inline-formula id="IEq94"><alternatives><tex-math id="M251">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 7,241, d = 225,423$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M252"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>7</mml:mn><mml:mo>,</mml:mo><mml:mn>241</mml:mn><mml:mo>,</mml:mo><mml:mi>d</mml:mi><mml:mo>=</mml:mo><mml:mn>225</mml:mn><mml:mo>,</mml:mo><mml:mn>423</mml:mn></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq94.gif"/></alternatives></inline-formula>), visualizing the increase in occurrence of the word “deep” in conference paper abstracts over time (1987–2016).</p></sec></sec><sec id="Sec8"><title>Conclusion</title><p id="Par49">In this study, we introduced TMAP as a visualization method for very large, high-dimensional data sets enabling high data interpretability by preserving and visualizing both global and local features. By using TMAP in combination with the MHFP6 fingerprint, we can visualize databases of millions of organic small molecules and the associated property data with a high degree of resolution, which was not possible with previous methods. TMAP is also well-suited to visualize arbitrary data sets such as images, text, or RNA-seq data, hinting at its usefulness in a wide range of fields including computational linguistics or biology.</p><p id="Par50">TMAP excels with its low memory usage and running time, with performance superior to other visualization algorithms such as t-SNE, UMAP or PCA. By adjusting the available parameters and leveraging output quality and memory usage, TMAP does not require specialized hardware for high-quality visualizations of data sets containing millions of data points. Most importantly, TMAP generates visualizations with an empirical sub-linear time complexity of <inline-formula id="IEq95"><alternatives><tex-math id="M253">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O\left( {n^{0.931} } \right)$$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M254"><mml:mrow><mml:mi>O</mml:mi><mml:mfenced close=")" open="("><mml:msup><mml:mi>n</mml:mi><mml:mrow><mml:mn>0.931</mml:mn></mml:mrow></mml:msup></mml:mfenced></mml:mrow></mml:math><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_Article_IEq95.gif"/></alternatives></inline-formula>, allowing to visualize much larger high dimensional data sets than previous methods.</p><p id="Par51">All the TMAP visualizations presented, including installation and usage instructions, are available as interactive online versions (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link>). The source code for TMAP is available on GitHub (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://github.com/reymond-group/tmap">https://github.com/reymond-group/tmap</ext-link>) and a Python package can be obtained using the conda package manager.</p></sec><sec sec-type="supplementary-material"><title>Supplementary information</title><sec id="Sec9"><p>
+<supplementary-material content-type="local-data" id="MOESM1" position="float" orientation="portrait"><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="13321_2020_416_MOESM1_ESM.docx" position="float" orientation="portrait"><caption><p><bold>Additional file 1.</bold> Additional figures.</p></caption></media></supplementary-material>
+</p></sec></sec></body><back><glossary><title>Abbreviations</title><def-list><def-item><term>DSSTox</term><def><p id="Par2">Distributed structure-searchable toxicity</p></def></def-item><def-item><term>ECFP</term><def><p id="Par3">Extended connectivity fingerprint</p></def></def-item><def-item><term>FDB17</term><def><p id="Par4">Fragment database 17</p></def></def-item><def-item><term>GDB17</term><def><p id="Par5">Generated database 17</p></def></def-item><def-item><term>GTM</term><def><p id="Par6">Generative topographic maps</p></def></def-item><def-item><term>LSH</term><def><p id="Par7">Locality sensitive hashing</p></def></def-item><def-item><term>MHFP</term><def><p id="Par8">MinHash fingerprint</p></def></def-item><def-item><term>MST</term><def><p id="Par9">Minimum spanning tree</p></def></def-item><def-item><term>NLPCA</term><def><p id="Par10">Nonliner prinicipal component analysis</p></def></def-item><def-item><term>NN</term><def><p id="Par11">Nearest neighbor</p></def></def-item><def-item><term>NNG</term><def><p id="Par12">Nearest neighbor graph</p></def></def-item><def-item><term>OGDF</term><def><p id="Par13">Open graph drawing framework</p></def></def-item><def-item><term>PANCAN</term><def><p id="Par14">Pancreatic cancer action network</p></def></def-item><def-item><term>PCA</term><def><p id="Par15">Principal component analysis</p></def></def-item><def-item><term>PDB</term><def><p id="Par16">Protein data bank</p></def></def-item><def-item><term>SMILES</term><def><p id="Par17">Simplified molecular input line entry specification</p></def></def-item><def-item><term>SOM</term><def><p id="Par18">Self-organizing maps</p></def></def-item><def-item><term>TMAP</term><def><p id="Par19">Tree MAP</p></def></def-item><def-item><term>t-SNE</term><def><p id="Par20">t-distributed stochastic neighbor embedding</p></def></def-item><def-item><term>UMAP</term><def><p id="Par21">Uniform manifold approximation and projection</p></def></def-item></def-list></glossary><fn-group><fn><p><bold>Publisher's Note</bold></p><p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p></fn></fn-group><sec><title>Supplementary information</title><p><bold>Supplementary information</bold> accompanies this paper at 10.1186/s13321-020-0416-x.</p></sec><ack><title>Acknowledgements</title><p>This work was supported financially by the Swiss National Science Foundation, NCCR TransCure (Grant No. 51NF40-185544).</p></ack><notes notes-type="author-contribution"><title>Authors’ contributions</title><p>DP designed and realized the study and wrote the paper. JLR supervised the study and wrote the paper. Both authors read and approved the final manuscript.</p></notes><notes notes-type="data-availability"><title>Availability of data and materials</title><p>The datasets generated during and/or analysed during the current study are available in the tmap repository, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://tmap.gdb.tools">http://tmap.gdb.tools</ext-link>.</p></notes><notes notes-type="COI-statement"><title>Competing interests</title><p id="Par52">The authors declare that they have no competing interests.</p></notes><ref-list id="Bib1"><title>References</title><ref id="CR1"><label>1.</label><mixed-citation publication-type="other">Callahan SP, et al (2006) VisTrails: Visualization meets data management. In: Proceedings of the 2006 ACM SIGMOD international conference on management of data. ACM. pp 745–747. 10.1145/1142473.1142574</mixed-citation></ref><ref id="CR2"><label>2.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Fox</surname><given-names>P</given-names></name><name name-style="western"><surname>Hendler</surname><given-names>J</given-names></name></person-group><article-title>Changing the equation on scientific data visualization</article-title><source>Science</source><year>2011</year><volume>331</volume><fpage>705</fpage><lpage>708</lpage><pub-id pub-id-type="doi">10.1126/science.1197654</pub-id><pub-id pub-id-type="pmid">21311008</pub-id></element-citation></ref><ref id="CR3"><label>3.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Michel</surname><given-names>J-B</given-names></name><etal/></person-group><article-title>Quantitative analysis of culture using millions of digitized books</article-title><source>Science</source><year>2011</year><volume>331</volume><fpage>176</fpage><lpage>182</lpage><pub-id pub-id-type="doi">10.1126/science.1199644</pub-id><pub-id pub-id-type="pmid">21163965</pub-id><pub-id pub-id-type="pmcid">PMC3279742</pub-id></element-citation></ref><ref id="CR4"><label>4.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Keim</surname><given-names>D</given-names></name><name name-style="western"><surname>Qu</surname><given-names>H</given-names></name><name name-style="western"><surname>Ma</surname><given-names>K</given-names></name></person-group><article-title>Big-data visualization</article-title><source>IEEE Comput Graphics Appl</source><year>2013</year><volume>33</volume><fpage>20</fpage><lpage>21</lpage><pub-id pub-id-type="doi">10.1109/MCG.2013.54</pub-id><pub-id pub-id-type="pmid">24921095</pub-id></element-citation></ref><ref id="CR5"><label>5.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Costa</surname><given-names>FF</given-names></name></person-group><article-title>Big data in biomedicine</article-title><source>Drug Disc Today</source><year>2014</year><volume>19</volume><fpage>433</fpage><lpage>440</lpage><pub-id pub-id-type="doi">10.1016/j.drudis.2013.10.012</pub-id><pub-id pub-id-type="pmid">24183925</pub-id></element-citation></ref><ref id="CR6"><label>6.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Stephens</surname><given-names>ZD</given-names></name><etal/></person-group><article-title>Big data: astronomical or genomical?</article-title><source>PLoS Biol</source><year>2015</year><volume>13</volume><fpage>e1002195</fpage><pub-id pub-id-type="doi">10.1371/journal.pbio.1002195</pub-id><pub-id pub-id-type="pmid">26151137</pub-id><pub-id pub-id-type="pmcid">PMC4494865</pub-id></element-citation></ref><ref id="CR7"><label>7.</label><mixed-citation publication-type="other">Bikakis N, Sellis T (2016) Exploration and visualization in the web of big linked data: a survey of the state of the art. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://arxiv.org/abs/1601.08059">arXiv:1601.08059</ext-link></mixed-citation></ref><ref id="CR8"><label>8.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kahles</surname><given-names>A</given-names></name><etal/></person-group><article-title>Comprehensive analysis of alternative splicing across tumors from 8,705 patients</article-title><source>Cancer Cell</source><year>2018</year><volume>34</volume><fpage>211</fpage><lpage>224.e6</lpage><pub-id pub-id-type="doi">10.1016/j.ccell.2018.07.001</pub-id><pub-id pub-id-type="pmid">30078747</pub-id><pub-id pub-id-type="pmcid">PMC9844097</pub-id></element-citation></ref><ref id="CR9"><label>9.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Arús-Pous</surname><given-names>J</given-names></name><etal/></person-group><article-title>Exploring the GDB-13 chemical space using deep generative models</article-title><source>J Cheminform</source><year>2019</year><volume>11</volume><fpage>20</fpage><pub-id pub-id-type="doi">10.1186/s13321-019-0341-z</pub-id><pub-id pub-id-type="pmid">30868314</pub-id><pub-id pub-id-type="pmcid">PMC6419837</pub-id></element-citation></ref><ref id="CR10"><label>10.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>van der Maaten</surname><given-names>L</given-names></name><name name-style="western"><surname>Postma</surname><given-names>EO</given-names></name><name name-style="western"><surname>van der Herik</surname><given-names>HJ</given-names></name></person-group><article-title>Dimensionality reduction : a comparative review</article-title><source>J Mach Learn Res</source><year>2009</year><volume>10</volume><fpage>66</fpage><lpage>71</lpage></element-citation></ref><ref id="CR11"><label>11.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Gaulton</surname><given-names>A</given-names></name><etal/></person-group><article-title>The ChEMBL database in 2017</article-title><source>Nucleic Acids Res</source><year>2017</year><volume>45</volume><fpage>D945</fpage><lpage>D954</lpage><pub-id pub-id-type="doi">10.1093/nar/gkw1074</pub-id><pub-id pub-id-type="pmid">27899562</pub-id><pub-id pub-id-type="pmcid">PMC5210557</pub-id></element-citation></ref><ref id="CR12"><label>12.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Ruddigkeit</surname><given-names>L</given-names></name><name name-style="western"><surname>van Deursen</surname><given-names>R</given-names></name><name name-style="western"><surname>Blum</surname><given-names>LC</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Enumeration of 166 billion organic small molecules in the chemical universe database GDB-17</article-title><source>J Chem Inf Model</source><year>2012</year><volume>52</volume><fpage>2864</fpage><lpage>2875</lpage><pub-id pub-id-type="doi">10.1021/ci300415d</pub-id><pub-id pub-id-type="pmid">23088335</pub-id></element-citation></ref><ref id="CR13"><label>13.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Visini</surname><given-names>R</given-names></name><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Fragment database FDB-17</article-title><source>J Chem Inf Model</source><year>2017</year><volume>57</volume><fpage>700</fpage><lpage>709</lpage><pub-id pub-id-type="doi">10.1021/acs.jcim.7b00020</pub-id><pub-id pub-id-type="pmid">28375006</pub-id></element-citation></ref><ref id="CR14"><label>14.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Visini</surname><given-names>R</given-names></name><name name-style="western"><surname>Probst</surname><given-names>D</given-names></name><name name-style="western"><surname>Arús-Pous</surname><given-names>J</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Chemical space: big data challenge for molecular diversity</article-title><source>Chimia</source><year>2017</year><volume>71</volume><fpage>661</fpage><lpage>666</lpage><pub-id pub-id-type="doi">10.2533/chimia.2017.661</pub-id><pub-id pub-id-type="pmid">29070411</pub-id></element-citation></ref><ref id="CR15"><label>15.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Richard</surname><given-names>AM</given-names></name><name name-style="western"><surname>Williams</surname><given-names>CR</given-names></name></person-group><article-title>Distributed structure-searchable toxicity (DSSTox) public database network: a proposal</article-title><source>Mutat Res</source><year>2002</year><volume>499</volume><fpage>27</fpage><lpage>52</lpage><pub-id pub-id-type="doi">10.1016/S0027-5107(01)00289-5</pub-id><pub-id pub-id-type="pmid">11804603</pub-id></element-citation></ref><ref id="CR16"><label>16.</label><mixed-citation publication-type="other">Natural Products Atlas. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://www.npatlas.org/joomla/">https://www.npatlas.org/joomla/</ext-link></mixed-citation></ref><ref id="CR17"><label>17.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Wishart</surname><given-names>DS</given-names></name><etal/></person-group><article-title>DrugBank 5.0: a major update to the DrugBank database for 2018</article-title><source>Nucleic Acids Res.</source><year>2018</year><volume>46</volume><fpage>D1074</fpage><lpage>D1082</lpage><pub-id pub-id-type="doi">10.1093/nar/gkx1037</pub-id><pub-id pub-id-type="pmid">29126136</pub-id><pub-id pub-id-type="pmcid">PMC5753335</pub-id></element-citation></ref><ref id="CR18"><label>18.</label><mixed-citation publication-type="other">Wu Z, et al (2017) MoleculeNet: A benchmark for molecular machine learning. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://arxiv.org/abs/1703.00564">arXiv:1703.00564</ext-link><italic toggle="yes">[physics, stat]</italic><pub-id pub-id-type="doi" assigning-authority="pmc">10.1039/c7sc02664a</pub-id><pub-id pub-id-type="pmcid">PMC5868307</pub-id><pub-id pub-id-type="pmid">29629118</pub-id></mixed-citation></ref><ref id="CR19"><label>19.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Oprea</surname><given-names>TI</given-names></name><name name-style="western"><surname>Gottfries</surname><given-names>J</given-names></name></person-group><article-title>Chemography: the art of navigating in chemical space</article-title><source>J Comb Chem</source><year>2001</year><volume>3</volume><fpage>157</fpage><lpage>166</lpage><pub-id pub-id-type="doi">10.1021/cc0000388</pub-id><pub-id pub-id-type="pmid">11300855</pub-id></element-citation></ref><ref id="CR20"><label>20.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>van Deursen</surname><given-names>R</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>MQN-Mapplet: visualization of chemical space with interactive maps of DrugBank, ChEMBL, PubChem, GDB-11, and GDB-13</article-title><source>J Chem Inf Model</source><year>2013</year><volume>53</volume><fpage>509</fpage><lpage>518</lpage><pub-id pub-id-type="doi">10.1021/ci300513m</pub-id><pub-id pub-id-type="pmid">23297797</pub-id></element-citation></ref><ref id="CR21"><label>21.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Similarity Mapplet: interactive visualization of the directory of useful decoys and ChEMBL in high dimensional chemical spaces</article-title><source>J Chem Inf Model</source><year>2015</year><volume>55</volume><fpage>1509</fpage><lpage>1516</lpage><pub-id pub-id-type="doi">10.1021/acs.jcim.5b00182</pub-id><pub-id pub-id-type="pmid">26207526</pub-id></element-citation></ref><ref id="CR22"><label>22.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Jin</surname><given-names>X</given-names></name><etal/></person-group><article-title>PDB-explorer: a web-based interactive map of the protein data bank in shape space</article-title><source>BMC Bioinform</source><year>2015</year><volume>16</volume><fpage>339</fpage><pub-id pub-id-type="doi">10.1186/s12859-015-0776-9</pub-id><pub-id pub-id-type="pmcid">PMC4619230</pub-id><pub-id pub-id-type="pmid">26493835</pub-id></element-citation></ref><ref id="CR23"><label>23.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Web-based 3D-visualization of the DrugBank chemical space</article-title><source>J. Cheminform</source><year>2016</year><volume>8</volume><fpage>25</fpage><pub-id pub-id-type="doi">10.1186/s13321-016-0138-2</pub-id><pub-id pub-id-type="pmid">27148409</pub-id><pub-id pub-id-type="pmcid">PMC4855437</pub-id></element-citation></ref><ref id="CR24"><label>24.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Probst</surname><given-names>D</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>WebMolCS: a web-based interface for visualizing molecules in three-dimensional chemical spaces</article-title><source>J Chem Inf Model</source><year>2017</year><volume>57</volume><fpage>643</fpage><lpage>649</lpage><pub-id pub-id-type="doi">10.1021/acs.jcim.6b00690</pub-id><pub-id pub-id-type="pmid">28316236</pub-id></element-citation></ref><ref id="CR25"><label>25.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Probst</surname><given-names>D</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>FUn: a framework for interactive visualizations of large, high-dimensional datasets on the web</article-title><source>Bioinformatics</source><year>2018</year><volume>34</volume><fpage>1433</fpage><lpage>1435</lpage><pub-id pub-id-type="doi">10.1093/bioinformatics/btx760</pub-id><pub-id pub-id-type="pmid">29186333</pub-id></element-citation></ref><ref id="CR26"><label>26.</label><mixed-citation publication-type="other">McInnes L, Healy J, Melville J (2018) UMAP: Uniform manifold approximation and projection for dimension reduction. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://arxiv.org/abs/1802.03426">arXiv:1802.03426</ext-link> [cs, stat]</mixed-citation></ref><ref id="CR27"><label>27.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>van der Maaten</surname><given-names>L</given-names></name><name name-style="western"><surname>Hinton</surname><given-names>G</given-names></name></person-group><article-title>Visualizing data using t-SNE</article-title><source>J Mach Learn Res</source><year>2008</year><volume>9</volume><fpage>2579</fpage><lpage>2605</lpage></element-citation></ref><ref id="CR28"><label>28.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Hinton</surname><given-names>GE</given-names></name><name name-style="western"><surname>Salakhutdinov</surname><given-names>RR</given-names></name></person-group><article-title>Reducing the dimensionality of data with neural networks</article-title><source>Science</source><year>2006</year><volume>313</volume><fpage>504</fpage><lpage>507</lpage><pub-id pub-id-type="doi">10.1126/science.1127647</pub-id><pub-id pub-id-type="pmid">16873662</pub-id></element-citation></ref><ref id="CR29"><label>29.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bishop</surname><given-names>CM</given-names></name><name name-style="western"><surname>Svensén</surname><given-names>M</given-names></name><name name-style="western"><surname>Williams</surname><given-names>CKIGTM</given-names></name></person-group><article-title>The generative topographic mapping</article-title><source>Neural Comput</source><year>1998</year><volume>10</volume><fpage>215</fpage><lpage>234</lpage><pub-id pub-id-type="doi">10.1162/089976698300017953</pub-id></element-citation></ref><ref id="CR30"><label>30.</label><mixed-citation publication-type="other">Kohonen T (1997) Exploration of very large databases by self-organizing maps. In: Proceedings of international conference on neural networks (ICNN’97) vol. 1 PL1-PL6 vol.1</mixed-citation></ref><ref id="CR31"><label>31.</label><mixed-citation publication-type="other">Dong W, Moses C, Li K (2011) Efficient k-nearest neighbor graph construction for generic similarity measures. In: Proceedings of the 20th international conference on World wide web—WWW’11 577, ACM Press. 10.1145/1963405.1963487</mixed-citation></ref><ref id="CR32"><label>32.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Saitou</surname><given-names>N</given-names></name><name name-style="western"><surname>Nei</surname><given-names>M</given-names></name></person-group><article-title>The neighbor-joining method: a new method for reconstructing phylogenetic trees</article-title><source>Mol Biol Evol</source><year>1987</year><volume>4</volume><fpage>406</fpage><lpage>425</lpage><pub-id pub-id-type="pmid">3447015</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/oxfordjournals.molbev.a040454</pub-id></element-citation></ref><ref id="CR33"><label>33.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Zhou</surname><given-names>Z</given-names></name><etal/></person-group><article-title>GrapeTree: visualization of core genomic relationships among 100,000 bacterial pathogens</article-title><source>Genome Res</source><year>2018</year><volume>28</volume><fpage>1395</fpage><lpage>1404</lpage><pub-id pub-id-type="doi">10.1101/gr.232397.117</pub-id><pub-id pub-id-type="pmid">30049790</pub-id><pub-id pub-id-type="pmcid">PMC6120633</pub-id></element-citation></ref><ref id="CR34"><label>34.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Lu</surname><given-names>J</given-names></name><name name-style="western"><surname>Carlson</surname><given-names>HA</given-names></name></person-group><article-title>ChemTreeMap: an interactive map of biochemical similarity in molecular datasets</article-title><source>Bioinformatics</source><year>2016</year><volume>32</volume><fpage>3584</fpage><lpage>3592</lpage><pub-id pub-id-type="pmid">27515740</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btw523</pub-id><pub-id pub-id-type="pmcid">PMC5181537</pub-id></element-citation></ref><ref id="CR35"><label>35.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>P’ng</surname><given-names>C</given-names></name><etal/></person-group><article-title>BPG: seamless, automated and interactive visualization of scientific data</article-title><source>BMC Bioinform.</source><year>2019</year><volume>20</volume><fpage>42</fpage><pub-id pub-id-type="doi">10.1186/s12859-019-2610-2</pub-id><pub-id pub-id-type="pmcid">PMC6341661</pub-id><pub-id pub-id-type="pmid">30665349</pub-id></element-citation></ref><ref id="CR36"><label>36.</label><mixed-citation publication-type="other">Idreos S, Papaemmanouil O, Chaudhuri S (2015) Overview of data exploration techniques. In: Proceedings of the 2015 ACM SIGMOD international conference on management of data. ACM, pp 277–281. 10.1145/2723372.2731084</mixed-citation></ref><ref id="CR37"><label>37.</label><mixed-citation publication-type="other">Andoni A, Razenshteyn I, Nosatzki NS (2017) LSH Forest: practical algorithms made theoretical. In: Proceedings of the twenty-eighth annual ACM-SIAM symposium on discrete algorithms. Society for Industrial and Applied Mathematics, pp 67–78 10.1137/1.9781611974782.5</mixed-citation></ref><ref id="CR38"><label>38.</label><mixed-citation publication-type="other">Bawa M, Condie T, Ganesan P (2005) LSH forest: self-tuning indexes for similarity search. In: Proceedings of the 14th international conference on World Wide Web—WWW’05 651. ACM Press. 10.1145/1060745.1060840</mixed-citation></ref><ref id="CR39"><label>39.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kruskal</surname><given-names>JB</given-names></name></person-group><article-title>On the shortest spanning subtree of a graph and the traveling salesman problem</article-title><source>Proc Am Math Soc</source><year>1956</year><volume>7</volume><fpage>48</fpage><pub-id pub-id-type="doi">10.1090/S0002-9939-1956-0078686-7</pub-id></element-citation></ref><ref id="CR40"><label>40.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Chimani</surname><given-names>M</given-names></name><etal/></person-group><article-title>The open graph drawing framework (OGDF)</article-title><source>Handbook Graph Draw Vis</source><year>2013</year><volume>2011</volume><fpage>543</fpage><lpage>569</lpage></element-citation></ref><ref id="CR41"><label>41.</label><mixed-citation publication-type="other">Broder AZ ((1997) On the resemblance and containment of documents. In: Proceedings. Compression and Complexity of SEQUENCES 1997 (Cat. No. 97TB100171) 21–29. 10.1109/sequen.1997.666900</mixed-citation></ref><ref id="CR42"><label>42.</label><mixed-citation publication-type="other">Manber U (1994) Finding similar files in a large file system. In: Usenix Winter 1994 technical conference 1–10</mixed-citation></ref><ref id="CR43"><label>43.</label><mixed-citation publication-type="other">Wu W, Li B, Chen L, Zhang C, Yu P (2017). Improved consistent weighted sampling revisited. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://arxiv.org/abs/1706.01172">arXiv:1706.01172</ext-link> [cs]</mixed-citation></ref><ref id="CR44"><label>44.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bajusz</surname><given-names>D</given-names></name><name name-style="western"><surname>Rácz</surname><given-names>A</given-names></name><name name-style="western"><surname>Héberger</surname><given-names>K</given-names></name></person-group><article-title>Why is Tanimoto index an appropriate choice for fingerprint-based similarity calculations?</article-title><source>J Cheminform</source><year>2015</year><volume>7</volume><fpage>20</fpage><pub-id pub-id-type="doi">10.1186/s13321-015-0069-3</pub-id><pub-id pub-id-type="pmid">26052348</pub-id><pub-id pub-id-type="pmcid">PMC4456712</pub-id></element-citation></ref><ref id="CR45"><label>45.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Probst</surname><given-names>D</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>A probabilistic molecular fingerprint for big data settings</article-title><source>J Cheminform</source><year>2018</year><volume>10</volume><fpage>66</fpage><pub-id pub-id-type="doi">10.1186/s13321-018-0321-8</pub-id><pub-id pub-id-type="pmid">30564943</pub-id><pub-id pub-id-type="pmcid">PMC6755601</pub-id></element-citation></ref><ref id="CR46"><label>46.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Rogers</surname><given-names>D</given-names></name><name name-style="western"><surname>Hahn</surname><given-names>M</given-names></name></person-group><article-title>Extended-connectivity fingerprints</article-title><source>J Chem Inf Model</source><year>2010</year><volume>50</volume><fpage>742</fpage><lpage>754</lpage><pub-id pub-id-type="doi">10.1021/ci100050t</pub-id><pub-id pub-id-type="pmid">20426451</pub-id></element-citation></ref><ref id="CR47"><label>47.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Riniker</surname><given-names>S</given-names></name><name name-style="western"><surname>Landrum</surname><given-names>GA</given-names></name></person-group><article-title>Open-source platform to benchmark fingerprints for ligand-based virtual screening</article-title><source>J Cheminform.</source><year>2013</year><volume>5</volume><fpage>26</fpage><pub-id pub-id-type="doi">10.1186/1758-2946-5-26</pub-id><pub-id pub-id-type="pmid">23721588</pub-id><pub-id pub-id-type="pmcid">PMC3686626</pub-id></element-citation></ref><ref id="CR48"><label>48.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Polypharmacology Browser PPB2: target prediction combining nearest neighbors with machine learning</article-title><source>J Chem Inf Model</source><year>2019</year><volume>59</volume><fpage>10</fpage><lpage>17</lpage><pub-id pub-id-type="doi">10.1021/acs.jcim.8b00524</pub-id><pub-id pub-id-type="pmid">30558418</pub-id></element-citation></ref><ref id="CR49"><label>49.</label><mixed-citation publication-type="other">Binding DB (2014) BindingDB Entry 6310: Compounds and compositions as Syk kinase inhibitors. 10.7270/q24q7sns</mixed-citation></ref><ref id="CR50"><label>50.</label><mixed-citation publication-type="other">Wang J, Shen HT, Song J, Ji J (2014) Hashing for similarity search: a survey. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://arxiv.org/abs/1408.2927">arXiv:1408.2927</ext-link><italic toggle="yes">[cs]</italic></mixed-citation></ref><ref id="CR51"><label>51.</label><mixed-citation publication-type="other">Marcais G, DeBlasio D, Pandey P, Kingsford C (2019) Locality sensitive hashing for the edit distance. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://biorxiv.org/lookup/doi/10.1101/534446">http://biorxiv.org/lookup/doi/10.1101/534446</ext-link>10.1101/534446<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btz354</pub-id><pub-id pub-id-type="pmcid">PMC6612865</pub-id><pub-id pub-id-type="pmid">31510667</pub-id></mixed-citation></ref><ref id="CR52"><label>52.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Probst</surname><given-names>D</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>SmilesDrawer: parsing and drawing SMILES-encoded molecular structures using client-side JavaScript</article-title><source>J Chem Inf Model</source><year>2018</year><volume>58</volume><fpage>1</fpage><lpage>7</lpage><pub-id pub-id-type="doi">10.1021/acs.jcim.7b00425</pub-id><pub-id pub-id-type="pmid">29257869</pub-id></element-citation></ref><ref id="CR53"><label>53.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Ramakrishnan</surname><given-names>R</given-names></name><name name-style="western"><surname>Hartmann</surname><given-names>M</given-names></name><name name-style="western"><surname>Tapavicza</surname><given-names>E</given-names></name><name name-style="western"><surname>von Lilienfeld</surname><given-names>OA</given-names></name></person-group><article-title>Electronic spectra from TDDFT and machine learning in chemical space</article-title><source>J Chem Phys</source><year>2015</year><volume>143</volume><fpage>084111</fpage><pub-id pub-id-type="doi">10.1063/1.4928757</pub-id><pub-id pub-id-type="pmid">26328822</pub-id></element-citation></ref><ref id="CR54"><label>54.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Berman</surname><given-names>HM</given-names></name><etal/></person-group><article-title>The protein data bank</article-title><source>Nucleic Acids Res</source><year>2000</year><volume>28</volume><fpage>235</fpage><lpage>242</lpage><pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id><pub-id pub-id-type="pmid">10592235</pub-id><pub-id pub-id-type="pmcid">PMC102472</pub-id></element-citation></ref><ref id="CR55"><label>55.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Awale</surname><given-names>M</given-names></name><name name-style="western"><surname>Reymond</surname><given-names>J-L</given-names></name></person-group><article-title>Atom pair 2D-fingerprints perceive 3D-molecular shape and pharmacophores for very fast virtual screening of ZINC and GDB-17</article-title><source>J Chem Inf Model</source><year>2014</year><volume>54</volume><fpage>1892</fpage><lpage>1907</lpage><pub-id pub-id-type="doi">10.1021/ci500232g</pub-id><pub-id pub-id-type="pmid">24988038</pub-id></element-citation></ref><ref id="CR56"><label>56.</label><element-citation publication-type="journal"><person-group person-group-type="author"><collab>The Cancer Genome Atlas Research Network</collab><etal/></person-group><article-title>The Cancer Genome Atlas Pan-Cancer analysis project</article-title><source>Nat Genet</source><year>2013</year><volume>45</volume><fpage>1113</fpage><lpage>1120</lpage><pub-id pub-id-type="doi">10.1038/ng.2764</pub-id><pub-id pub-id-type="pmid">24071849</pub-id><pub-id pub-id-type="pmcid">PMC3919969</pub-id></element-citation></ref><ref id="CR57"><label>57.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kustatscher</surname><given-names>G</given-names></name><etal/></person-group><article-title>Co-regulation map of the human proteome enables identification of protein functions</article-title><source>Nat Biotechnol</source><year>2019</year><volume>37</volume><fpage>1361</fpage><lpage>1371</lpage><pub-id pub-id-type="doi">10.1038/s41587-019-0298-5</pub-id><pub-id pub-id-type="pmid">31690884</pub-id><pub-id pub-id-type="pmcid">PMC6901355</pub-id></element-citation></ref><ref id="CR58"><label>58.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Hanley</surname><given-names>MB</given-names></name><name name-style="western"><surname>Lomas</surname><given-names>W</given-names></name><name name-style="western"><surname>Mittar</surname><given-names>D</given-names></name><name name-style="western"><surname>Maino</surname><given-names>V</given-names></name><name name-style="western"><surname>Park</surname><given-names>E</given-names></name></person-group><article-title>Detection of low abundance RNA molecules in individual cells by flow cytometry</article-title><source>PLoS ONE</source><year>2013</year><volume>8</volume><fpage>e57002</fpage><pub-id pub-id-type="doi">10.1371/journal.pone.0057002</pub-id><pub-id pub-id-type="pmid">23441230</pub-id><pub-id pub-id-type="pmcid">PMC3575505</pub-id></element-citation></ref><ref id="CR59"><label>59.</label><element-citation publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Roe</surname><given-names>BP</given-names></name><etal/></person-group><article-title>Boosted decision trees as an alternative to artificial neural networks for particle identification</article-title><source>Nucl Instrum Methods Phys Res</source><year>2005</year><volume>543</volume><fpage>577</fpage><lpage>584</lpage><pub-id pub-id-type="doi">10.1016/j.nima.2004.12.018</pub-id></element-citation></ref><ref id="CR60"><label>60.</label><mixed-citation publication-type="other">Bernhardsson E. Annoy (Approximate Nearest Neighbors Oh Yeah). <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://github.com/spotify/annoy">https://github.com/spotify/annoy</ext-link></mixed-citation></ref><ref id="CR61"><label>61.</label><mixed-citation publication-type="other">Lahiri S (2013) Complexity of word collocation networks: a preliminary structural analysis. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://arxiv.org/abs/1310.5111">arXiv:1310.5111</ext-link><italic toggle="yes">[physics]</italic></mixed-citation></ref></ref-list></back></article></pmc-articleset>

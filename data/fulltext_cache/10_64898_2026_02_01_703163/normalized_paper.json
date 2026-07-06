@@ -1,0 +1,39 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1227315",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.02.01.703163",
+  "title": "PepMCP: A Graph-Based Membrane Contact Probability Predictor for Membrane-Lytic Antimicrobial Peptides",
+  "abstract": "<h4>Motivation</h4>  The membrane-lytic mechanism of antimicrobial peptides (AMPs) is often overlooked during their in silico discovery process, largely due to the lack of a suitable metric for the membrane-binding propensity of peptides. Previously, we proposed a characteristic called membrane contact probability (MCP) and applied it to the identification of membrane proteins and membrane-lytic AMPs. However, previous MCP predictors were not trained on short peptides targeting bacterial membranes, which may result in unsatisfactory performance for peptide studies. <h4>Results</h4>  In this study, we present PepMCP, a peptide-tailored model for predicting MCP values of short peptides. We collected more than 500 membrane-lytic AMPs from the literature, conducted coarse-grained molecular dynamics (MD) simulations for these AMPs, and extracted their residue MCP labels from MD trajectories to train PepMCP. PepMCP employs the GraphSAGE framework to address this node regression task, encoding each peptide sequence as a graph with 4-hop edges. PepMCP achieved a Pearson correlation coefficient of 0. 883 and an RMSE of 0. 123 on th e node-level test set. It can recognize membrane-lytic AMPs with the predicted MCP values for each sequence, thereby facilitating mechanism-driven AMP discovery. Additionally, we provide a database, MemAMPdb, which includes the membrane-lytic AMPs, as well as the PepMCP web server for easy access. <h4>Availability and Implementation</h4>  The code and data are available at  https://github.com/ComputBiophys/PepMCP .  <h4>Contact</h4>  c.song@pku.edu.cn <h4>Supplementary Information</h4>  Supplementary data are available online.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Dong R",
+    "Awang T",
+    "Cao Q",
+    "Kang K",
+    "Wang L",
+    "Zhu Z",
+    "Song C."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.02.01.703163"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europe-pmc-preprints",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model) AND (SRC:PPR)",
+  "candidate_key": "doi:10 64898 2026 02 01 703163"
+}

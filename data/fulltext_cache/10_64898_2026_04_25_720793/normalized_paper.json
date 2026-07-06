@@ -1,0 +1,61 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "crossref",
+    "europe_pmc",
+    "semantic_scholar"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1212934",
+    "pmid": null,
+    "crossref": "10.64898/2026.04.25.720793",
+    "semantic_scholar": "2b4fa2436796f70ec12c96454fa5efa0890e4a5f"
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.04.25.720793",
+  "title": "GenPept-Curated-2025: A Benchmark Dataset for Antimicrobial Peptide Prediction with Homology-Controlled Partitioning",
+  "abstract": "Antimicrobial peptides (AMPs) are promising therapeutic candidates against rising antimicrobial resistance, yet progress in AMP prediction is hampered by the lack of benchmark datasets that address homology leakage, negative set reliability, and distributional diversity. Existing AMP databases, designed as biological repositories, do not enforce the controlled partitioning required for rigorous machine learning evaluation. We present  GenPept-Curated-2025 , a curated, class-balanced benchmark of 11,000 peptide sequences (5,500 AMP / 5,500 non-AMP) derived from Bacteria, Archaea, and Fungi, and sourced exclusively from GenPept/NCBI Protein. The dataset was constructed through a reproducible pipeline comprising taxonomic scoping, quality control, precursor handling, annotation-based labeling, and Identical Protein Groups (IPG)-based deduplication, with sequence length restricted to 10–200 aa. The AMP proportion varies substantially across length bins (14.2% in [10, 50] aa to 77.1% in [101, 150] aa), identifying length-dependent class imbalance as a distribution shift that benchmarking must account for. The dataset is openly released to support standardized, reproducible, and leakage-free evaluation of AMP prediction models.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": "bioRxiv",
+  "year": "2026",
+  "authors": [
+    "Pham HT",
+    "Huynh B",
+    "Nguyen-Vo T."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.04.25.720793",
+    "https://www.semanticscholar.org/paper/2b4fa2436796f70ec12c96454fa5efa0890e4a5f"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europepmc_dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+  "candidate_key": "doi:10 64898 2026 04 25 720793",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2026,
+            4,
+            29
+          ]
+        ],
+        "date-time": "2026-04-29T00:00:00Z",
+        "timestamp": 1777420800000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  ],
+  "semantic_scholar_id": "2b4fa2436796f70ec12c96454fa5efa0890e4a5f",
+  "citation_count": 0,
+  "reference_count": 15
+}

@@ -1,0 +1,38 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41849223",
+    "pmid": "41849223"
+  },
+  "pmid": "41849223",
+  "pmcid": "PMC12998437",
+  "doi": "10.1093/bib/bbag115",
+  "title": "Biochemical-knowledge-driven machine learning pipeline for generating potent antimicrobial peptides.",
+  "abstract": "The growing threat of antimicrobial resistance (AMR) necessitates the rapid discovery of novel antimicrobial peptides (AMPs) as alternative therapeutics. However, most computational approaches rely on binary AMP or non-AMP classification or permissive MIC thresholds (e.g. ≤128 μg/mL), offering limited biological interpretability and translational value. We present CVAE-BIO, a biochemical-knowledge-driven, multi-module pipeline for the discovery of AMPs targeting drug-resistant Escherichia coli as a model pathogen yet generalisable to other bacterial targets. The model integrates a conditional variational autoencoder (CVAE) constrained by key biochemical properties (MIC≤10 μg/mL, net charge > + 2, peptide length < 40 residues, instability index <40, and Boman index <0) with a Random Forest classifier trained on 30 biochemical descriptors. In vitro validation showed that 18.5% of generated peptides exhibited strong activity (MIC≤10 μg/mL), with 38.9% reaching MIC ≤50 μg/mL while maintaining key biochemical properties. Most validated novel peptides are narrow-spectrum AMP targeting E. coli. Wet-lab results also showed that highly active cationic-amphipathic AMPs are characterized by significantly low counts of tiny and small residues, suggesting that avoiding using these residues or limiting them to a maximum of 2 and 3, respectively, might improve the activity of AMP. Taking both antimicrobial activity and hemolytic toxicity into account, 9 peptides were identified as non-toxic and active AMP candidates. This explainable framework enables efficient AMP discovery under biochemical constraints and yields experimentally validated candidates with translational potential.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Yang D",
+    "Li Y",
+    "Li C",
+    "Zhang Q",
+    "Huang J",
+    "Li X",
+    "Gao P."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1093/bib/bbag115",
+    "https://pubmed.ncbi.nlm.nih.gov/41849223/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12998437/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "open-access-full-text",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR machine learning) AND (OPEN_ACCESS:Y)",
+  "candidate_key": "doi:10 1093 bib bbag115"
+}

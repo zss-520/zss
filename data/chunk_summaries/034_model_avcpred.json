@@ -1,0 +1,259 @@
+{
+  "chunk_id": "model_avcpred",
+  "chunk_type": "model",
+  "chunk_name": "AVCpred",
+  "compression_status": "ok",
+  "main_entities": [
+    "AVCpred",
+    "AVPpred",
+    "CAMPR3",
+    "Deep-AmPEP30",
+    "APD3"
+  ],
+  "papers": [
+    {
+      "title": "Identification of Antimicrobial Peptides Isolated From the Skin Mucus of African Catfish, Clarias gariepinus (Burchell, 1822)",
+      "pmid": "34987491",
+      "pmcid": "PMC8721588",
+      "doi": "10.3389/fmicb.2021.794631",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "In silico Approaches for the Design and Optimization of Interfering Peptides Against Protein–Protein Interactions",
+      "pmid": "33996914",
+      "pmcid": "PMC8113820",
+      "doi": "10.3389/fmolb.2021.669431",
+      "year": "2021",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "CAMPR3",
+      "canonical_name": "Collection of Anti-Microbial Peptides (CAMPR3)",
+      "aliases": [
+        "CAMPR3"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Discriminant Analysis (DA) and other machine learning techniques (SVM, Random Forest, etc.)",
+      "input_features": "peptide sequence features",
+      "source_pmid": "34987491;33996914",
+      "source_pmcid": "PMC8721588;PMC8113820",
+      "source_doi": "10.3389/fmicb.2021.794631;10.3389/fmolb.2021.669431",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP预测模型，在实验和综述中均被使用，具备基准测试潜力",
+      "blocking_issues": [],
+      "evidence_level": "mixed",
+      "confidence": 0.85,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "webserver_or_tool_only",
+      "representative_reason": "CAMPR3 是广泛使用的 AMP 预测工具，包含多种 ML 算法，可作为传统 ML 方法的代表。"
+    },
+    {
+      "model_name": "Deep-AmPEP30",
+      "canonical_name": "Deep-AmPEP30",
+      "aliases": [
+        "Deep-AMPEP30"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "convolutional neural network (CNN) with PseKRAAC and reduced amino acid composition features",
+      "input_features": "peptide sequence (short-length AMPs)",
+      "source_pmid": "34987491;33996914",
+      "source_pmcid": "PMC8721588;PMC8113820",
+      "source_doi": "10.3389/fmicb.2021.794631;10.3389/fmolb.2021.669431",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://cbbio.online/AxPEP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "深度学习AMP预测方法，有公开 web server，在实验和综述中均被提及，具备基准测试潜力",
+      "blocking_issues": [],
+      "evidence_level": "mixed",
+      "confidence": 0.85,
+      "model_category_hint": "deep_learning_sequence_model",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Deep-AmPEP30 是短肽 AMP 预测的典型 CNN 方法，可作为深度学习模型的代表。"
+    },
+    {
+      "model_name": "APD3",
+      "canonical_name": "Antimicrobial Peptide Database (APD3)",
+      "aliases": [
+        "APD3"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "parameter space-based classification and prediction",
+      "input_features": "peptide sequence and properties",
+      "source_pmid": "33996914",
+      "source_pmcid": "PMC8113820",
+      "source_doi": "10.3389/fmolb.2021.669431",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "抗菌肽数据库和预测工具，广泛引用，具备基准测试潜力",
+      "blocking_issues": [
+        "review_only",
+        "original_paper_needed"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "not_applicable",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "APD3 是 AMP 数据库和预测工具，可作为数据库类方法的代表。"
+    },
+    {
+      "model_name": "AVPpred",
+      "canonical_name": "AVPpred",
+      "aliases": [],
+      "task_type": "antiviral peptide prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "machine learning-based prediction",
+      "input_features": "peptide sequence",
+      "source_pmid": "33996914",
+      "source_pmcid": "PMC8113820",
+      "source_doi": "10.3389/fmolb.2021.669431",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "专门针对抗病毒肽预测，不属于通用AMP预测，可能超出范围",
+      "blocking_issues": [
+        "out_of_scope_antiviral_only",
+        "review_only"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "model_category_hint": "cross_functional_or_out_of_scope",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "代表抗病毒肽预测，可能不在 AMP 基准范围内。"
+    },
+    {
+      "model_name": "AVCpred",
+      "canonical_name": "AVCpred",
+      "aliases": [],
+      "task_type": "antiviral peptide prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "machine learning-based prediction",
+      "input_features": "peptide sequence",
+      "source_pmid": "33996914",
+      "source_pmcid": "PMC8113820",
+      "source_doi": "10.3389/fmolb.2021.669431",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "专门针对抗病毒肽预测，不属于通用AMP预测",
+      "blocking_issues": [
+        "out_of_scope_antiviral_only",
+        "review_only"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "model_category_hint": "cross_functional_or_out_of_scope",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "代表抗病毒肽预测，可能不在 AMP 基准范围内。"
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Deep-AmPEP30 web server",
+      "url": "https://cbbio.online/AxPEP/",
+      "repository_type": "webserver",
+      "matched_model_name": "Deep-AmPEP30",
+      "source_pmid": "34987491",
+      "source_doi": "10.3389/fmicb.2021.794631",
+      "evidence_level": "fulltext",
+      "evidence": "Deep-AmPEP30 server at https://cbbio.online/AxPEP/ (Yan et al., 2020)"
+    }
+  ],
+  "datasets": [],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "CAMPR3",
+      "dataset_name": "not_reported_in_available_evidence",
+      "dataset_role": "unknown",
+      "dataset_status": "not_reported",
+      "source_pmid": "34987491;33996914",
+      "source_doi": "10.3389/fmicb.2021.794631;10.3389/fmolb.2021.669431"
+    },
+    {
+      "model_name": "Deep-AmPEP30",
+      "dataset_name": "not_reported_in_available_evidence",
+      "dataset_role": "unknown",
+      "dataset_status": "not_reported",
+      "source_pmid": "34987491;33996914",
+      "source_doi": "10.3389/fmicb.2021.794631;10.3389/fmolb.2021.669431"
+    },
+    {
+      "model_name": "APD3",
+      "dataset_name": "not_reported_in_available_evidence",
+      "dataset_role": "unknown",
+      "dataset_status": "not_reported",
+      "source_pmid": "33996914",
+      "source_doi": "10.3389/fmolb.2021.669431"
+    },
+    {
+      "model_name": "AVPpred",
+      "dataset_name": "not_reported_in_available_evidence",
+      "dataset_role": "unknown",
+      "dataset_status": "not_reported",
+      "source_pmid": "33996914",
+      "source_doi": "10.3389/fmolb.2021.669431"
+    },
+    {
+      "model_name": "AVCpred",
+      "dataset_name": "not_reported_in_available_evidence",
+      "dataset_role": "unknown",
+      "dataset_status": "not_reported",
+      "source_pmid": "33996914",
+      "source_doi": "10.3389/fmolb.2021.669431"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "Using FASTA file input, all the identified peptides from different precursor proteins were subjected to a Discriminant Analysis (DA) machine learning algorithm at the Collection of Anti-Microbial Peptides (CAMPR3) server (Waghu et al., 2016), to reveal their antimicrobial probability.",
+    "Subsequently, the FASTA file sequences of AMPs with the highest score ... were then inputted to a more rigorous and accurate the Deep Learning algorithm cross-validation using Deep-AmPEP30 server at https://cbbio.online/AxPEP/ (Yan et al., 2020).",
+    "The APD3 (Wang et al., 2016) and CAMPR3 (Waghu et al., 2016) databases are among the general method predictors. They are designed to predict whether a given peptide is AMP or non-AMP.",
+    "Deep-AmPEP30 (Yan et al., 2020) is a recently developed method that is used to predict bioactive sequences from genomes. This tool uses a short-length AMP prediction method based on the optimal feature set of PseKRAAC, reduced amino acid composition, and convolutional neural networks.",
+    "The second group of methods is designed to predict AMPs, specifically on viruses, fungi, bacteria, or parasites. AVPpred (Thakur et al., 2012), AVCpred (Qureshi et al., 2017)..."
+  ],
+  "uncertainties": [
+    "AVCpred and AVPpred are specifically designed for antiviral peptides, not general AMP prediction; their inclusion in an AMP benchmark is questionable.",
+    "All models lack reported code repositories, model weights, and dataset links in the provided evidence.",
+    "CAMPR3 and APD3 are mentioned as databases/predictors but their exact web server URLs and version details are not in this chunk.",
+    "Deep-AmPEP30 web server URL is available, but code/weights availability remains unclear.",
+    "APD3 and AVCpred/AVPpred originate from a review paper; original research papers are needed for full verification."
+  ],
+  "source_pmids": [
+    "34987491",
+    "33996914"
+  ],
+  "source_dois": [
+    "10.3389/fmicb.2021.794631",
+    "10.3389/fmolb.2021.669431"
+  ],
+  "urls": [
+    "https://cbbio.online/AxPEP/",
+    "https://doi.org/10.3389/fmicb.2021.794631",
+    "https://doi.org/10.3389/fmolb.2021.669431"
+  ]
+}

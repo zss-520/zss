@@ -1,0 +1,318 @@
+{
+  "chunk_id": "model_ampgan_v2",
+  "chunk_type": "model",
+  "chunk_name": "AMPGAN v2",
+  "compression_status": "ok",
+  "main_entities": [
+    "GAC-BiTCNN-AMP",
+    "CVAE-BIO",
+    "HydrAMP",
+    "AMPGAN",
+    "Macrel",
+    "iAMPpred",
+    "AntiBP"
+  ],
+  "papers": [
+    {
+      "title": "A generative explainable model for antimicrobial peptide prediction using bidirectional temporal convolutional neural network.",
+      "pmid": "41844874",
+      "pmcid": "PMC13128923",
+      "doi": "10.1038/s41598-026-43370-6",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Biochemical-knowledge-driven machine learning pipeline for generating potent antimicrobial peptides.",
+      "pmid": "41849223",
+      "pmcid": "PMC12998437",
+      "doi": "10.1093/bib/bbag115",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Harnessing Machine Learning Approaches for the Identification, Characterization, and Optimization of Novel Antimicrobial Peptides.",
+      "pmid": "41463765",
+      "pmcid": "PMC12730010",
+      "doi": "10.3390/antibiotics14121263",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Artificial Intelligence-Driven Discovery and Optimization of Antimicrobial Peptides Targeting ESKAPE Pathogens and Multidrug-Resistant Fungi.",
+      "pmid": "41900351",
+      "pmcid": "PMC13029496",
+      "doi": "10.3390/microorganisms14030591",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "GAC-BiTCNN-AMP",
+      "canonical_name": "GAC-BiTCNN-AMP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Hybrid: Generative Adversarial Network (GAN) + Capsule Network (CapsNet) + Bidirectional Temporal Convolutional Neural Network (BiTCNN), with embeddings from ProtTrans-T5, UniRep, ESM-2 and PsePSSM-DCT evolutionary descriptor; XGBoost feature selection",
+      "input_features": "Amino acid sequences, ProtTrans-T5, UniRep, ESM-2 embeddings, PsePSSM-DCT evolutionary features",
+      "source_pmid": "41844874",
+      "source_pmcid": "PMC13128923",
+      "source_doi": "10.1038/s41598-026-43370-6",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence (likely dbAMP 3.0 or similar)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP prediction model with deep learning architecture, reported performance on independent test, full text available",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "CVAE-BIO",
+      "canonical_name": "CVAE-BIO",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification (generation and classification pipeline)",
+      "method_family": "ML/DL",
+      "architecture_or_algorithm": "Conditional Variational Autoencoder (CVAE) for peptide generation; Random Forest classifier on 30 biochemical descriptors for activity prediction",
+      "input_features": "Amino acid sequences, biochemical properties (net charge, hydrophobicity, instability index, etc.), MIC condition",
+      "source_pmid": "41849223",
+      "source_pmcid": "PMC12998437",
+      "source_doi": "10.1093/bib/bbag115",
+      "code_repository_url": "https://github.com/scan2030 (unclear if contains code for this pipeline)",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "APD3 (http://aps.unmc.edu/)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Multi-module pipeline includes AMP activity classifier; validated experimentally; full text available",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.85
+    },
+    {
+      "model_name": "HydrAMP",
+      "canonical_name": "HydrAMP",
+      "aliases": [],
+      "task_type": "AMP prediction / generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Variational autoencoder (VAE) for AMP generation and classification",
+      "input_features": "Peptide sequences",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Review mentions HydrAMP as a VAE-based AMP prediction/generation model; requires original paper verification",
+      "blocking_issues": [],
+      "evidence_level": "review",
+      "confidence": 0.4
+    },
+    {
+      "model_name": "AMPGAN",
+      "canonical_name": "AMPGAN",
+      "aliases": [
+        "AMP-GAN",
+        "AMPGAN v2"
+      ],
+      "task_type": "AMP generation / prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Generative Adversarial Network (GAN)",
+      "input_features": "Peptide sequences",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Review mentions AMPGAN as a GAN-based AMP model; needs original paper",
+      "blocking_issues": [],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest classifier",
+      "input_features": "Biochemical descriptors",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Review mentions Macrel as a Random Forest-based AMP predictor; needs original paper",
+      "blocking_issues": [],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "iAMPpred",
+      "canonical_name": "iAMPpred",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine (SVM)",
+      "input_features": "Sequence-based features",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Review mentions iAMPpred as an early SVM-based AMP predictor; needs original paper",
+      "blocking_issues": [],
+      "evidence_level": "review",
+      "confidence": 0.35
+    },
+    {
+      "model_name": "AntiBP",
+      "canonical_name": "AntiBP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine",
+      "input_features": "Sequence-based features",
+      "source_pmid": "41463765",
+      "source_pmcid": "PMC12730010",
+      "source_doi": "10.3390/antibiotics14121263",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Review mentions AntiBP as an SVM-based AMP predictor; needs original paper",
+      "blocking_issues": [],
+      "evidence_level": "review",
+      "confidence": 0.35
+    }
+  ],
+  "repositories": [
+    {
+      "name": "scan2030 GitHub (potential CVAE-BIO code)",
+      "url": "https://github.com/scan2030",
+      "repository_type": "code",
+      "matched_model_name": "CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence_level": "fulltext",
+      "evidence": "The extracted links include 'https://github.com/scan2030' as a dataset_url, but no explicit statement of code availability in the full text."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "APD3",
+      "dataset_url": "http://aps.unmc.edu/",
+      "dataset_source": "Antimicrobial Peptide Database (APD)",
+      "linked_model": "CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "CVAE-BIO trained on APD3 peptides with activity against E. coli; URL extracted from links."
+    },
+    {
+      "dataset_name": "scan2030",
+      "dataset_url": "https://github.com/scan2030",
+      "matched_paper_title": "Biochemical-knowledge-driven machine learning pipeline for generating potent antimicrobial peptides.",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Cross-validation and independent test for GAC-BiTCNN-AMP",
+      "source_pmid": "41844874",
+      "source_doi": "10.1038/s41598-026-43370-6",
+      "evidence": "97.42% cross-validation, 95.32% independent test"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "Cross-validation and independent test for GAC-BiTCNN-AMP",
+      "source_pmid": "41844874",
+      "source_doi": "10.1038/s41598-026-43370-6",
+      "evidence": "0.923 cross-validation, 0.914 independent test"
+    },
+    {
+      "metric_name": "AUROC",
+      "usage": "RF classifier in CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence": "0.793 (95% CI: 0.740-0.834)"
+    },
+    {
+      "metric_name": "AUPRC",
+      "usage": "RF classifier in CVAE-BIO",
+      "source_pmid": "41849223",
+      "source_doi": "10.1093/bib/bbag115",
+      "evidence": "0.634 (95% CI: 0.545-0.732)"
+    }
+  ],
+  "important_evidence": [
+    "GAC-BiTCNN-AMP: cross-validation accuracy 97.42%, MCC 0.923; independent test accuracy 95.32%, MCC 0.914.",
+    "CVAE-BIO: RF classifier AUROC 0.793, AUPRC 0.634; in vitro 18.5% of generated peptides active (MIC≤10 μg/mL) against E. coli.",
+    "Review (PMID 41463765) mentions HydrAMP, AMPGAN, Macrel, iAMPpred, AntiBP as AMP predictors but lacks performance details."
+  ],
+  "uncertainties": [
+    "GAC-BiTCNN-AMP: code repository not provided; explicit dataset source unknown.",
+    "CVAE-BIO: GitHub link (https://github.com/scan2030) unclear whether it contains full code and trained weights.",
+    "HydrAMP, AMPGAN, Macrel, iAMPpred, AntiBP: only mentioned in review; need original papers to verify code availability, datasets, and benchmark eligibility."
+  ],
+  "source_pmids": [
+    "41844874",
+    "41849223",
+    "41463765",
+    "41900351"
+  ],
+  "source_dois": [
+    "10.1038/s41598-026-43370-6",
+    "10.1093/bib/bbag115",
+    "10.3390/antibiotics14121263",
+    "10.3390/microorganisms14030591"
+  ],
+  "urls": [
+    "https://doi.org/10.1038/s41598-026-43370-6",
+    "https://openalex.org/W7138089475",
+    "https://pubmed.ncbi.nlm.nih.gov/41844874",
+    "https://pubmed.ncbi.nlm.nih.gov/41844874/",
+    "https://www.nature.com/articles/s41598-026-43370-6_reference.pdf",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13128923/",
+    "https://doi.org/10.1093/bib/bbag115",
+    "https://pubmed.ncbi.nlm.nih.gov/41849223/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12998437/",
+    "https://doi.org/10.3390/antibiotics14121263",
+    "https://openalex.org/W4417316577",
+    "https://pubmed.ncbi.nlm.nih.gov/41463765",
+    "https://pubmed.ncbi.nlm.nih.gov/41463765/",
+    "https://www.mdpi.com/2079-6382/14/12/1263/pdf?version=1765720932",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12730010/",
+    "https://doi.org/10.3390/microorganisms14030591",
+    "https://openalex.org/W7134038439",
+    "https://pubmed.ncbi.nlm.nih.gov/41900351",
+    "https://pubmed.ncbi.nlm.nih.gov/41900351/",
+    "https://www.mdpi.com/2076-2607/14/3/591/pdf?version=1772770274",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13029496/",
+    "https://github.com/scan2030",
+    "http://aps.unmc.edu/"
+  ]
+}

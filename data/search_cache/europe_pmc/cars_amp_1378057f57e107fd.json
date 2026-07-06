@@ -1,0 +1,311 @@
+{
+  "version": "6.9",
+  "hitCount": 1,
+  "request": {
+    "queryString": "\"CARS-AMP\"",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 20,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "42066253",
+        "source": "MED",
+        "pmid": "42066253",
+        "doi": "10.1021/acs.jcim.6c00362",
+        "title": "CARS-AMP: A Simple and Efficient Deep Learning Model for Antimicrobial Peptide Prediction.",
+        "authorString": "Guan X, Lin R, Yan H, Pei P, Chen L, Luo SZ.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Guan X",
+              "firstName": "Xinyao",
+              "lastName": "Guan",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Green Biomanufacturing, Beijing Key Laboratory of Green Chemicals Biomanufacturing, College of Life Science and Technology, Beijing University of Chemical Technology, Beijing 100029, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lin R",
+              "firstName": "Ruichen",
+              "lastName": "Lin",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Green Biomanufacturing, Beijing Key Laboratory of Green Chemicals Biomanufacturing, College of Life Science and Technology, Beijing University of Chemical Technology, Beijing 100029, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yan H",
+              "firstName": "Huangzi",
+              "lastName": "Yan",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Computer Science, Wuhan Donghu University, Wuhan 430212, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Pei P",
+              "firstName": "Pengfei",
+              "lastName": "Pei",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Green Biomanufacturing, Beijing Key Laboratory of Green Chemicals Biomanufacturing, College of Life Science and Technology, Beijing University of Chemical Technology, Beijing 100029, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen L",
+              "firstName": "Long",
+              "lastName": "Chen",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3812-1815"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Green Biomanufacturing, Beijing Key Laboratory of Green Chemicals Biomanufacturing, College of Life Science and Technology, Beijing University of Chemical Technology, Beijing 100029, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Luo SZ",
+              "firstName": "Shi-Zhong",
+              "lastName": "Luo",
+              "initials": "SZ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "State Key Laboratory of Green Biomanufacturing, Beijing Key Laboratory of Green Chemicals Biomanufacturing, College of Life Science and Technology, Beijing University of Chemical Technology, Beijing 100029, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3812-1815"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "issue": "10",
+          "volume": "66",
+          "journalIssueId": 4194691,
+          "dateOfPublication": "2026 May",
+          "monthOfPublication": 5,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-05-01",
+          "journal": {
+            "title": "Journal of chemical information and modeling",
+            "medlineAbbreviation": "J Chem Inf Model",
+            "issn": "1549-9596",
+            "essn": "1549-960X",
+            "isoabbreviation": "J Chem Inf Model",
+            "nlmid": "101230060"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "5778-5787",
+        "abstractText": "With the increase in global antibiotic resistance, there is an urgent demand for antibiotic substitutes, for which antimicrobial peptides (AMPs) have attracted a lot of attention due to their unique mechanism of action that makes it difficult for bacteria to develop drug resistance. Beyond the natural discovery of AMPs, artificial intelligence techniques have become powerful tools to explore larger chemical spaces and accelerate the process of AMPs discovery. In this study, we construct a deep learning model, CARS-AMP, containing convolutional neural networks, recurrent neural networks, and self-attention, for the classification of anti-<i>Staphylococcus aureus</i> peptides. The model is trained with a small but concentrated data set and exhibits near-best performance in predicting anti-<i>S. aureus</i> peptides. The results show that the model can achieve 92.4% accuracy in predicting anti-<i>S. aureus</i> peptides. In addition, we further test the ability of the model to distinguish similar sequences by comparing it with the experimental results of the ZXR-2 series of peptides, and the results suggest that the model may need improvement to discern the differences in side chain size and sequence length. The CARS-AMP model provides a simple predictor with high efficiency and could be further improved to achieve better performance and wider application in identifying AMPs.",
+        "affiliation": "State Key Laboratory of Green Biomanufacturing, Beijing Key Laboratory of Green Chemicals Biomanufacturing, College of Life Science and Technology, Beijing University of Chemical Technology, Beijing 100029, China.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "22261132513",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "XK2023-14",
+              "agency": "China-Japan Friendship Hospital",
+              "orderIn": 0
+            },
+            {
+              "grantId": "22277009",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "XK2022-07",
+              "agency": "China-Japan Friendship Hospital",
+              "orderIn": 0
+            },
+            {
+              "grantId": "XK2023-14",
+              "agency": "Beijing University of Chemical Technology",
+              "orderIn": 0
+            },
+            {
+              "grantId": "7242196",
+              "agency": "Natural Science Foundation of Beijing Municipality",
+              "orderIn": 0
+            },
+            {
+              "grantId": "XK2022-07",
+              "agency": "Beijing University of Chemical Technology",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2021YFC2103900",
+              "agency": "National Key Research and Development Program of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "22422701",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "22407014",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Staphylococcus aureus",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "DE",
+                    "qualifierName": "drug effects",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Amino Acid Sequence"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Deep Learning"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Neural Networks, Computer"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Predictive Learning Models"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Prediction Algorithms"
+            }
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1021/acs.jcim.6c00362"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-06-23",
+        "dateOfCreation": "2026-05-01",
+        "firstIndexDate": "2026-05-02",
+        "dateOfRevision": "2026-06-23",
+        "electronicPublicationDate": "2026-05-01",
+        "firstPublicationDate": "2026-05-01"
+      }
+    ]
+  }
+}

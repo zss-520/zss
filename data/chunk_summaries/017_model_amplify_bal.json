@@ -1,0 +1,249 @@
+{
+  "chunk_id": "model_amplify_bal",
+  "chunk_type": "model",
+  "chunk_name": "AMPlify_bal",
+  "compression_status": "ok",
+  "main_entities": [
+    "Macrel",
+    "AmPEP",
+    "AMP Scanner V2",
+    "AMPlify_bal",
+    "AMPlify_imbal",
+    "AMPGenix"
+  ],
+  "papers": [
+    {
+      "title": "Evaluation of LLM-generated peptide as foundation template for discovery of effective encrypted AMPs against clinical superbugs.",
+      "pmid": "40891852",
+      "pmcid": "PMC12502564",
+      "doi": "10.1128/spectrum.01504-25",
+      "year": "2025",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial Peptide Arsenal Predicted from the Venom Gland Transcriptome of the Tropical Trap-Jaw Ant Odontomachus chelifer.",
+      "pmid": "37235379",
+      "pmcid": "PMC10221683",
+      "doi": "10.3390/toxins15050345",
+      "year": "2023",
+      "role": "dataset_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "40891852",
+      "source_pmcid": "PMC12502564",
+      "source_doi": "10.1128/spectrum.01504-25",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Existing AMP prediction model used for validation in the paper (Fig 1i).",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Classic AMP predictor; widely cited; may represent traditional ML-based AMP classifiers."
+    },
+    {
+      "model_name": "AmPEP",
+      "canonical_name": "AmPEP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "40891852",
+      "source_pmcid": "PMC12502564",
+      "source_doi": "10.1128/spectrum.01504-25",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Existing AMP prediction model used for validation in the paper (Fig 1i).",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Well-known AMP prediction tool; could serve as baseline for sequence-based classification."
+    },
+    {
+      "model_name": "AMP Scanner V2",
+      "canonical_name": "AMP Scanner V2",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "40891852",
+      "source_pmcid": "PMC12502564",
+      "source_doi": "10.1128/spectrum.01504-25",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Existing AMP prediction model used for validation in the paper (Fig 1i).",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Deep learning-based AMP scanner; represents a generation of DL models for AMP classification."
+    },
+    {
+      "model_name": "AMPlify_bal",
+      "canonical_name": "AMPlify_bal",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "40891852",
+      "source_pmcid": "PMC12502564",
+      "source_doi": "10.1128/spectrum.01504-25",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Existing AMP prediction model used for validation in the paper (Fig 1i).",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "AMPlify family model; represents a balanced training data approach in AMP prediction."
+    },
+    {
+      "model_name": "AMPlify_imbal",
+      "canonical_name": "AMPlify_imbal",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "40891852",
+      "source_pmcid": "PMC12502564",
+      "source_doi": "10.1128/spectrum.01504-25",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Existing AMP prediction model used for validation in the paper (Fig 1i).",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "AMPlify family model; represents an imbalanced data training variant."
+    },
+    {
+      "model_name": "AMPGenix",
+      "canonical_name": "AMPGenix",
+      "aliases": [],
+      "task_type": "other",
+      "method_family": "DL",
+      "architecture_or_algorithm": "LLM fine-tuned for AMP generation (based on ProteoGPT)",
+      "input_features": "protein sequences",
+      "source_pmid": "40891852",
+      "source_pmcid": "PMC12502564",
+      "source_doi": "10.1128/spectrum.01504-25",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "AMP generation model, not a prediction/classification model. Not suitable for standard AMP prediction benchmark.",
+      "blocking_issues": [
+        "task_type is generation, not prediction"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "model_category_hint": "generative_or_design_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Not applicable for prediction benchmark; out of scope."
+    }
+  ],
+  "repositories": [],
+  "datasets": [],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "Macrel",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AmPEP",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AMP Scanner V2",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AMPlify_bal",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AMPlify_imbal",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AMPGenix",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "The five c_AMPs were all predicted as AMP with high probabilities across five different models (Fig. 1i), including Macrel, AmPEP, AMP Scanner V2, AMPlify_bal, AMPlify_imbal.",
+    "AMPGenix is a generative LLM fine-tuned from ProteoGPT, used to generate template peptide g_AMP41."
+  ],
+  "uncertainties": [
+    "Exact architectures and code availability for Macrel, AmPEP, AMP Scanner V2, AMPlify_bal, AMPlify_imbal were not provided in the reviewed paper; need to retrieve from original sources.",
+    "The six AMP classifiers used in the ant venom study are not named; verification of exact models would require full review of that paper's methods.",
+    "AMPGenix code and weights are not reported; access may be limited to the original authors."
+  ],
+  "source_pmids": [
+    "40891852",
+    "37235379"
+  ],
+  "source_dois": [
+    "10.1128/spectrum.01504-25",
+    "10.3390/toxins15050345"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/40891852/",
+    "https://doi.org/10.1128/spectrum.01504-25",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12502564/",
+    "https://pubmed.ncbi.nlm.nih.gov/37235379/",
+    "https://doi.org/10.3390/toxins15050345",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10221683/"
+  ]
+}

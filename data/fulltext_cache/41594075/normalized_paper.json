@@ -1,0 +1,36 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41594075",
+    "pmid": "41594075"
+  },
+  "pmid": "41594075",
+  "pmcid": "PMC12837384",
+  "doi": "10.3390/antibiotics15010039",
+  "title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+  "abstract": "<h4>Background</h4>Machine learning models have been shown to be a time-saving and cost-effective tool for peptide-based drug discovery. In this regard, different graph learning-driven frameworks have been introduced to exploit graph representations derived from predicted peptide structures. Such graphs are always derived by applying a Euclidean distance threshold between amino acid pairs, despite the fact that there is no evidence other than intuitive reasoning that supports the Euclidean distance as the most suitable.<h4>Objective</h4>In this work, we examined the use of different distance functions to derive graph representations from predicted peptide structures to train deep graph learning-based models to predict antiviral peptides.<h4>Methods</h4>To this end, we first analyzed how differently the closeness of the amino acids is characterized by different distance functions. Then, we studied the similarity between the graphs derived with several distance functions, as well as between them and random graphs. Finally, we trained several models with the best graph representations and analyzed how different they are regarding their predictions. Comparisons regarding state-of-the-art models were also performed.<h4>Results and conclusion</h4>We demonstrated that only using Euclidean distance thresholds is not sufficient criterion to build graphs representing structural features of predicted peptide structures, since other distance functions enabled building dissimilar graphs codifying different chemical spaces, which were useful in the construction of better discriminative models.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Cordoves-Delgado G",
+    "García-Jacas CR",
+    "Marrero-Ponce Y",
+    "Aguila SA",
+    "Lizama-Uc G."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.3390/antibiotics15010039",
+    "https://pubmed.ncbi.nlm.nih.gov/41594075/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12837384/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_samppred_gat",
+  "query_text": "\"sAMPpred-GAT\"",
+  "candidate_key": "doi:10 3390 antibiotics15010039"
+}

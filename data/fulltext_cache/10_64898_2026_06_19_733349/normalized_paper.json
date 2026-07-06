@@ -1,0 +1,49 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc",
+    "semantic_scholar_citations"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1258952",
+    "pmid": null,
+    "semantic_scholar": "d0e0c8ab030e71d55806dc7c625b6762a8e3a717"
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.06.19.733349",
+  "title": "BATTLE-AMP: Benchmarking Antimicrobial Peptide Predictors",
+  "abstract": "As antimicrobial resistance outpaces antibiotic development, antimicrobial peptides (AMPs) have emerged as a promising class of alternative antibacterials, and computational predictors are increasingly used to prioritize AMP candidates. Such predictors are typically evaluated on binary AMP/non-AMP classification, which does not test whether they can identify peptides with clinically relevant potency against specific pathogens. We present BATTLE-AMP, a benchmarking framework that evaluates AMP predictors against experimentally measured minimum inhibitory concentrations (MICs) across clinically relevant bacterial species and strains. We surveyed 48 published methods, finding fewer than 25% reproducible, and benchmarked 10 model families (21 variants) using experimental MIC data, synthetic sequence perturbations, activity cliff analyses, and all-atom molecular dynamics (MD) simulations. Four findings emerge: (i) models trained on MIC data outperform binary classifiers regardless of architecture; (ii) the best model depends on the target pathogen, so model selection must be guided by the biological question; (iii) most models cannot distinguish active peptides from inactive sequences with identical amino acid composition; and (iv) activity cliffs remain unresolved by both machine learning and MD, marking a limit of current computational methods. BATTLE-AMP is released as an open Snakemake framework at  https://github.com/szczurek-lab/battleamp-snakemake for benchmarking new models and scoring novel candidate libraries.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": "bioRxiv",
+  "year": "2026",
+  "authors": [
+    "Szymczak P",
+    "Bukała A",
+    "Zarzecki W",
+    "Sala M",
+    "Borišek J",
+    "Fadavi S",
+    "Olayo-Alarcon R",
+    "Sroka J",
+    "Colomé-Tatché M",
+    "Gambin A",
+    "Müller CL",
+    "Setny P",
+    "Szczurek E."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.06.19.733349",
+    "https://www.semanticscholar.org/paper/d0e0c8ab030e71d55806dc7c625b6762a8e3a717"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europe-pmc-preprints",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model) AND (SRC:PPR)",
+  "candidate_key": "doi:10 64898 2026 06 19 733349",
+  "semantic_scholar_id": "d0e0c8ab030e71d55806dc7c625b6762a8e3a717"
+}

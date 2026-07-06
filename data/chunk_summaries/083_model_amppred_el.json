@@ -1,0 +1,162 @@
+{
+  "chunk_id": "model_amppred_el",
+  "chunk_type": "model",
+  "chunk_name": "AMPpred-EL",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPpred-EL",
+    "MIC prediction ensemble model (BiLSTM-CNN-MBM)"
+  ],
+  "papers": [
+    {
+      "title": "An ensemble deep learning model for predicting minimum inhibitory concentrations of antimicrobial peptides against pathogenic bacteria.",
+      "pmid": "39262770",
+      "pmcid": "PMC4702849",
+      "doi": "10.48550/arXiv.1810.11363",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "AMPpred-EL: An effective antimicrobial peptide prediction model based on ensemble learning.",
+      "pmid": "35576825",
+      "pmcid": "PMC13044805",
+      "doi": "10.1016/j.compbiomed.2022.105577",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Age-sex differences in the global burden of lower respiratory infections and risk factors, 1990-2019: results from the Global Burden of Disease Study 2019.",
+      "pmid": "35964613",
+      "pmcid": "PMC8807230",
+      "doi": "10.1093/cid/ciab1051",
+      "year": "2022",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "Biomedical evidence engineering for data-driven discovery.",
+      "pmid": "36227057",
+      "pmcid": "PMC11182767",
+      "doi": "10.1093/bioinformatics/btac675",
+      "year": "2022",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "MIC prediction ensemble model (BiLSTM-CNN-MBM)",
+      "canonical_name": "MIC prediction ensemble model",
+      "aliases": [],
+      "task_type": "AMP prediction / MIC prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Ensemble of BiLSTM, CNN, and multi-branch model (MBM) using protein language model embeddings",
+      "input_features": "AMP sequence-based features and genomic features",
+      "source_pmid": "39262770",
+      "source_pmcid": "PMC4702849",
+      "source_doi": "10.48550/arXiv.1810.11363",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel regression model for AMP minimum inhibitory concentration prediction; directly relevant to AMP benchmark.",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "AMPpred-EL",
+      "canonical_name": "AMPpred-EL",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Ensemble learning combining LightGBM and logistic regression",
+      "input_features": "Sequence-derived features (not detailed in abstract)",
+      "source_pmid": "35576825",
+      "source_pmcid": "PMC13044805",
+      "source_doi": "10.1016/j.compbiomed.2022.105577",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Explicit AMP prediction model with reported benchmark performance, suitable for inclusion.",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Antifreeze-Peptide-Discovery.",
+      "url": "https://github.com/imamabi/Antifreeze-Peptide-Discovery.",
+      "matched_paper_title": "AMPpred-EL: An effective antimicrobial peptide prediction model based on ensemble learning.",
+      "source_pmid": "35576825",
+      "source_doi": "10.1016/j.compbiomed.2022.105577",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "Antifreeze-Peptide-Discovery.",
+      "dataset_url": "https://github.com/imamabi/Antifreeze-Peptide-Discovery.",
+      "matched_paper_title": "AMPpred-EL: An effective antimicrobial peptide prediction model based on ensemble learning.",
+      "source_pmid": "35576825",
+      "source_doi": "10.1016/j.compbiomed.2022.105577",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "SendongZhao.",
+      "dataset_url": "https://github.com/SendongZhao.",
+      "matched_paper_title": "Biomedical evidence engineering for data-driven discovery.",
+      "source_pmid": "36227057",
+      "source_doi": "10.1093/bioinformatics/btac675",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Pearson correlation coefficient",
+      "usage": "Evaluate regression performance of MIC prediction",
+      "source_pmid": "39262770",
+      "source_doi": "10.48550/arXiv.1810.11363",
+      "evidence": "The ensemble model showed superior performance with Pearson correlation coefficients of 0.756, 0.781, and 0.802 for the bacterial strains."
+    }
+  ],
+  "important_evidence": [
+    "AMPpred-EL outperforms several state-of-the-art methods on benchmark datasets.",
+    "MIC ensemble model achieved Pearson correlation coefficients of 0.756, 0.781, and 0.802 for S. aureus, E. coli, and P. aeruginosa respectively."
+  ],
+  "uncertainties": [
+    "Fulltext excerpt for PMID 39262770 appears unrelated to MIC prediction model; actual fulltext may contain different details.",
+    "No code or dataset links found for AMPpred-EL or MIC ensemble model.",
+    "GitHub repository 'Antifreeze-Peptide-Discovery' linked to AMPpred-EL paper but name suggests unrelated content."
+  ],
+  "source_pmids": [
+    "39262770",
+    "35576825",
+    "35964613",
+    "36227057"
+  ],
+  "source_dois": [
+    "10.48550/arXiv.1810.11363",
+    "10.1016/j.compbiomed.2022.105577",
+    "10.1093/cid/ciab1051",
+    "10.1093/bioinformatics/btac675"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/39262770/",
+    "https://doi.org/10.48550/arXiv.1810.11363",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4702849/",
+    "https://pubmed.ncbi.nlm.nih.gov/35576825/",
+    "https://doi.org/10.1016/j.compbiomed.2022.105577",
+    "https://github.com/imamabi/Antifreeze-Peptide-Discovery.",
+    "https://github.com/SendongZhao."
+  ]
+}

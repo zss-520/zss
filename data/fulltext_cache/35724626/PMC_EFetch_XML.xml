@@ -1,0 +1,1982 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs11087" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="nlm-id">101664569</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC11967820</article-id><article-id pub-id-type="pmcid-ver">PMC11967820.1</article-id><article-id pub-id-type="pmcaid">11967820</article-id><article-id pub-id-type="pmcaiid">11967820</article-id><article-id pub-id-type="pmid">39921483</article-id><article-id pub-id-type="doi">10.1002/advs.202412488</article-id><article-id pub-id-type="publisher-id">ADVS11087</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Deep Learning Combined with Quantitative Structure‒Activity Relationship Accelerates <italic toggle="yes">De Novo</italic> Design of Antifungal Peptides</article-title></title-group><contrib-group><contrib id="advs11087-cr-0001" contrib-type="author"><name name-style="western"><surname>Yin</surname><given-names initials="K">Kedong</given-names></name><xref rid="advs11087-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs11087-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs11087-cr-0002" contrib-type="author" corresp="yes"><name name-style="western"><surname>Li</surname><given-names initials="R">Ruifang</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-4824-0930</contrib-id><xref rid="advs11087-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs11087-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><address><email>lrf@haut.edu.cn</email></address></contrib><contrib id="advs11087-cr-0003" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="S">Shaojie</given-names></name><xref rid="advs11087-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs11087-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs11087-cr-0004" contrib-type="author"><name name-style="western"><surname>Sun</surname><given-names initials="Y">Yiqing</given-names></name><xref rid="advs11087-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs11087-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs11087-cr-0005" contrib-type="author"><name name-style="western"><surname>Huang</surname><given-names initials="L">Liang</given-names></name><xref rid="advs11087-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs11087-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs11087-cr-0006" contrib-type="author"><name name-style="western"><surname>Jiang</surname><given-names initials="M">Mengwan</given-names></name><xref rid="advs11087-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="advs11087-cr-0007" contrib-type="author" corresp="yes"><name name-style="western"><surname>Xu</surname><given-names initials="D">Degang</given-names></name><xref rid="advs11087-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>xudegang@haut.edu.cn</email></address></contrib><contrib id="advs11087-cr-0008" contrib-type="author" corresp="yes"><name name-style="western"><surname>Xu</surname><given-names initials="W">Wen</given-names></name><xref rid="advs11087-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs11087-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref><address><email>xw@haut.edu.cn</email></address></contrib></contrib-group><aff id="advs11087-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Zhengzhou Key Laboratory of Functional Molecules for Biomedical Research</named-content>
+<institution>Henan University of Technology</institution>
+<city>Zhengzhou</city>
+<named-content content-type="country-part">Henan</named-content>
+<postal-code>450001</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs11087-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">College of Information Science and Engineering</named-content>
+<institution>Henan University of Technology</institution>
+<city>Zhengzhou</city>
+<named-content content-type="country-part">Henan</named-content>
+<postal-code>450001</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs11087-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">School of Biological Engineering</named-content>
+<institution>Henan University of Technology</institution>
+<city>Zhengzhou</city>
+<named-content content-type="country-part">Henan</named-content>
+<postal-code>450001</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs11087-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">School of Artificial Intelligence and Big Data</named-content>
+<institution>Henan University of Technology</institution>
+<city>Zhengzhou</city>
+<named-content content-type="country-part">Henan</named-content>
+<postal-code>450001</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs11087-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Law College</named-content>
+<institution>Henan University of Technology</institution>
+<city>Zhengzhou</city>
+<named-content content-type="country-part">Henan</named-content>
+<postal-code>450001</postal-code>
+<country country="CN">P. R. China</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>E‐mail: <email>lrf@haut.edu.cn</email>; <email>xudegang@haut.edu.cn</email>; <email>xw@haut.edu.cn</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>08</day><month>2</month><year>2025</year></pub-date><pub-date pub-type="collection"><month>4</month><year>2025</year></pub-date><volume>12</volume><issue seq="490">13</issue><issue-id pub-id-type="pmc-issue-id">485951</issue-id><issue-id pub-id-type="doi">10.1002/advs.v12.13</issue-id><elocation-id>2412488</elocation-id><history><date date-type="rev-recd"><day>20</day><month>1</month><year>2025</year></date><date date-type="received"><day>07</day><month>10</month><year>2024</year></date></history><pub-history><event event-type="pmc-release"><date><day>08</day><month>02</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>04</day><month>04</month><year>2025</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2025-04-04 18:25:14.390"><day>04</day><month>04</month><year>2025</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2025 The Author(s). Advanced Science published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-12-2412488.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-12-2412488.pdf"/><abstract><title>Abstract</title><p>Novel antifungal drugs that evade resistance are urgently needed for <italic toggle="yes">Candida</italic> infections. Antifungal peptides (AFPs) are potential candidates due to their specific mechanism of action, which makes them less prone to developing drug resistance. An AFP <italic toggle="yes">de novo</italic> design method, Deep Learning‐Quantitative Structure‒Activity Relationship Empirical Screening (DL‐QSARES), is developed by integrating deep learning and quantitative structure‒activity relationship  empirical screening. After generating candidate AFPs (c_AFPs) through the recombination of dominant amino acids and dipeptide compositions, natural language processing models are utilized and quantitative structure‒activity relationship (QSAR) approaches based on physicochemical properties to screen for promising c_AFPs. Forty‐nine promising c_AFPs are screened, and their minimum inhibitory concentrations (MICs) against <italic toggle="yes">C. albicans</italic> are determined to be 3.9–125 µg mL<sup>−1</sup>, of which four leading c_AFPs (AFP‐8, −10, −11, and −13) has MICs of &lt;10 µg mL<sup>−1</sup> against the four tested pathogenic fungi, and AFP‐13 has excellent therapeutic efficacy in the animal model.</p></abstract><abstract id="advs11087-abs-0001" abstract-type="graphical"><p>Drug resistance remains a serious threat to human health and the planet's ecology. Using deep learning integrated with quantitative structure‒activity relationship, 49 highly active antifungal peptides are <italic toggle="yes">de novo</italic> designed. In vitro and in vivo studies demonstrate these peptides' potential to minimize the risk of resistance development in pathogens, positioning them as promising candidates for treating fungal infections.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-12-2412488-g002.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs11087-kwd-0001">antifungal peptide</kwd><kwd id="advs11087-kwd-0002">
+<italic toggle="yes">de novo</italic> design</kwd><kwd id="advs11087-kwd-0003">deep learning</kwd><kwd id="advs11087-kwd-0004">protein language model</kwd><kwd id="advs11087-kwd-0005">QSAR</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source><institution-wrap><institution>National Natural Science Foundation of China
+</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap></funding-source><award-id>32471309</award-id></award-group><award-group id="funding-0002"><funding-source><institution-wrap><institution>Natural Science Foundation of Henan Province
+</institution><institution-id institution-id-type="doi">10.13039/501100006407</institution-id></institution-wrap></funding-source><award-id>232300421165</award-id></award-group></funding-group><counts><fig-count count="8"/><table-count count="6"/><page-count count="14"/><word-count count="8868"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>April 3, 2025</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.5.4 mode:remove_FC converted:03.04.2025</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="advs11087-cit-0001">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xu</surname>
+</string-name>, <article-title>Deep Learning Combined with Quantitative Structure‒Activity Relationship Accelerates <italic toggle="yes">De Novo</italic> Design of Antifungal Peptides</article-title>. <source>Adv. Sci.</source>
+<year>2025</year>, <volume>12</volume>, <elocation-id>2412488</elocation-id>. <pub-id pub-id-type="doi">10.1002/advs.202412488</pub-id>
+<pub-id pub-id-type="pmcid">PMC11967820</pub-id><pub-id pub-id-type="pmid">39921483</pub-id></mixed-citation>
+</p></notes></front><body><sec id="advs11087-sec-0010"><label>1</label><title>Introduction</title><p>In recent years, microbial infections have continued to cause 1.27 million deaths per year. Unfortunately, despite extensive work on antimicrobial resistance worldwide, drug resistance remains a serious threat to human health and the planet's ecology.<sup>[</sup>
+<xref rid="advs11087-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+<sup>]</sup>
+<italic toggle="yes">Candida albicans</italic>, <italic toggle="yes">Candida tropicalis</italic>, and <italic toggle="yes">Cryptococcus neoformans</italic> are the primary fungal pathogens that infect humans and animals. Only four main classes of antifungal drugs, azoles, polyenes, echinocandins, and fluorinated pyrimidines, are currently available to treat fungal infections,<sup>[</sup>
+<xref rid="advs11087-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>
+<sup>]</sup> and <italic toggle="yes">Candida species</italic> are prone to developing resistance, resulting in difficult‐to‐treat bloodstream infections with a mortality rate of ≈40%.<sup>[</sup>
+<xref rid="advs11087-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+<sup>]</sup> Therefore, the development of new antifungal drugs that are less likely to induce resistance in pathogenic fungi is urgent.</p><p>Antifungal peptides (AFPs), as emerging antimicrobial drugs, have become the focus of anti‐infective research because of their unique mechanism of action. Unlike traditional antibiotics, AFPs are usually composed of shorter amino acid sequences and have broad‐spectrum antimicrobial activity. They act mainly by disrupting the integrity of the microbial cell wall and cell membrane, biological enzyme activity, deoxyribonucleic acid function, or induction of apoptosis, thus effectively fighting fungal infections.<sup>[</sup>
+<xref rid="advs11087-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>
+<sup>]</sup> More importantly, it is difficult for pathogenic fungi to develop drug resistance. Despite the theoretical potential of AFPs, their development for practical applications still faces many challenges.</p><p>Traditional routes for AFP discovery include identifying AFPs following rules of thumb, which usually rely on trial‐and‐error processes and extensive experimental validation. The traditional AFP discovery routes are time‐consuming, laborious, and costly. Notably, with the development of artificial intelligence and computational biology, several high‐throughput computational methods have recently been introduced into the <italic toggle="yes">de novo</italic> design and virtual screening of antimicrobial peptides.<sup>[</sup>
+<xref rid="advs11087-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="advs11087-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>
+<sup>]</sup> For example, Das et al. used deep learning classifiers and molecular dynamics simulations, among other methods, to screen generated antimicrobial peptides (AMPs).<sup>[</sup>
+<xref rid="advs11087-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+<sup>]</sup> Ma et al. combined several natural language processing models to identify candidate AMPs from human gut microbiome data.<sup>[</sup>
+<xref rid="advs11087-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+<sup>]</sup> Cheong et al. identified potent anticancer peptides from the <italic toggle="yes">Candida albicans</italic> genome using a machine‐learning approach.<sup>[</sup>
+<xref rid="advs11087-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+<sup>]</sup> Huang et al. used a machine learning model to mine hundreds of billions of sequences consisting of 6–9 amino acids from the entire virtual peptide library to identify valid AMPs.<sup>[</sup>
+<xref rid="advs11087-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> Yan et al. used Multi‐Branch‐Convolutional Neural Network and Attention for classification and regression prediction of peptides with different functions, respectively.<sup>[</sup>
+<xref rid="advs11087-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="advs11087-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+<sup>]</sup> Cao et al. identified and characterized a variety of AMPs by combining multiple approaches, such as a sequence generation adversarial network, multiple natural language processing models such as Bidirectional Encoder Representations from Transformers (BERT), AlphaFold2, and molecular dynamics simulation.<sup>[</sup>
+<xref rid="advs11087-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+<sup>]</sup> Zhang et al. established an effective quantitative structure‒activity relationship (QSAR) model to screen antifungal peptides, which was applied to more than 3 million candidate peptides and identified three prominent peptides.<sup>[</sup>
+<xref rid="advs11087-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup> Although some research has identified AMPs with high antimicrobial activity against a wide range of test pathogens, there are still many shortcomings in the clinical application of AMPs, such as the low precision of the classification model, the blindness of the antimicrobial spectrum screening of the designed AMPs and the high computational cost of mining the whole virtual peptide library.</p><p>The combination of deep learning and QSAR is beneficial in antimicrobial peptide screening.<sup>[</sup>
+<xref rid="advs11087-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>
+<sup>]</sup> In this study, an integrated classification approach of deep learning and QSAR empirical screening (DL‐QSARES) was developed to <italic toggle="yes">de novo</italic> design 49 candidate AFPs (c_AFPs) with high antimicrobial activity against a wide range of tested pathogens, including <italic toggle="yes">C. albicans</italic>, <italic toggle="yes">C. tropicalis</italic>, and <italic toggle="yes">C. parapsilosis</italic>, by computationally analyzing 1237 anti‐<italic toggle="yes">Candida</italic> peptides in databases such as Data Repository of Antimicrobial Peptides (DRAMP) and Antimicrobial Peptide Database 3 (APD3). Notably, these sequences of c_AFPs have not been reported yet. The leading candidates demonstrated excellent therapeutic efficacy in animal models. In conclusion, our work demonstrates the effectiveness of the integrated approach of deep learning and QSAR empirical screening in the field of antifungal peptide <italic toggle="yes">de novo</italic> design and, at the same time, provides new ideas and methods for developing antimicrobial peptide drugs.</p></sec><sec id="advs11087-sec-0020"><label>2</label><title>Results</title><sec id="advs11087-sec-0030"><label>2.1</label><title>Generation of c_AFPs</title><p>By calculating the frequency of occurrence of amino acids and dipeptide compositions at each position of the known anti‐<italic toggle="yes">Candida</italic> dodecapeptides, we regarded the parts that met the set threshold at each position as the dominant amino acids or dominant dipeptide compositions and then arranged and combined these amino acids to generate 7776 candidate peptides, listed on Sheet 1 in Data <xref rid="advs11087-supinfo-0001" ref-type="">S1</xref> (Supporting Information). These sequences subsequently underwent a series of virtual screening steps, including screening based on deep learning prediction models, the density distribution of three physicochemical properties, and the Basic Local Alignment Search Tool (BLAST) sequence novelty. The candidate peptides obtained after all the screening steps were subjected to wet experiments to verify their In vitro and in vivo activities. The candidate peptides screened in each step are listed in Sheets 2–4 in Data <xref rid="advs11087-supinfo-0001" ref-type="">S1</xref> (Supporting Information). The framework for c_AFP sequence generation is shown in <bold>Figure</bold>
+<xref rid="advs11087-fig-0001" ref-type="fig">
+<bold>1</bold>A</xref>. <bold>Figure</bold>
+<xref rid="advs11087-fig-0002" ref-type="fig">
+<bold>2</bold>
+</xref> shows the distribution of the dominant amino acids at each position of the 48 anti‐<italic toggle="yes">Candida</italic> dodecapeptides used for c_AFP sequence generation and the density distributions of three physicochemical properties， Net Charge, Grand Average of Hydropathy (GRAVY), and Wimley‐White hydrophobicity, of the anti‐<italic toggle="yes">Candida</italic> peptides in the APD3 and DRAMP databases. The specific dominant amino acid settings and physicochemical property thresholds are shown in Tables <xref rid="advs11087-supinfo-0001" ref-type="">S1–S3</xref> (Supporting Information).</p><fig position="float" fig-type="Figure" id="advs11087-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>Workflow of the <italic toggle="yes">de novo</italic> design of AFPs using deep learning combined with quantitative structure‒activity relationships. A) New c_AFPs are generated by calculating the amino acid composition (AAC) and dipeptide composition (DPC) parameters at each position of the reported antifungal peptide sequence. B) The Evolutionary Scale Modeling 2‐based antifungal peptide predictor (ESM2‐AFPpred) model consists of two parts, namely, the ESM‐2 and the multilayer perceptron (MLP). ESM‐2 is a protein language model based on BERT pretraining. It receives the contextual semantic information of peptides, processes it into a vector representation, and outputs the predicted probability of the AFP after MLP. C) The novel c_AFPs that successfully passed the ESM2‐AFPpred model and QSAR empirical screening were subjected to In vitro and in vivo experiments to validate their effects.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-12-2412488-g001.jpg"/></fig><fig position="float" fig-type="Figure" id="advs11087-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>Appearance frequency of amino acids at each position of the anti‐<italic toggle="yes">Candida</italic> dodecapeptide sequence and the distribution of physicochemical properties. A) The frequency of amino acid residues at each position of the 48 anti‐<italic toggle="yes">Candida</italic> dodecapeptide sequences used for the <italic toggle="yes">de novo</italic> design of c_AFP sequences. B) Density plot of the Net Charge data distribution of 1237 anti‐<italic toggle="yes">Candida</italic> peptides. C) Density plot of the GRAVY data distribution of 1237 anti‐<italic toggle="yes">Candida</italic> peptides. D) Density plot of the Wimley‐White hydrophobicity data distribution of 1237 anti‐<italic toggle="yes">Candida</italic> peptides.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-12-2412488-g005.jpg"/></fig></sec><sec id="advs11087-sec-0040"><label>2.2</label><title>Model Training</title><p>The underfitting or overfitting during model training can be effectively judged by comparing the learning curves with the number of epochs. <bold>Figure</bold>
+<xref rid="advs11087-fig-0003" ref-type="fig">
+<bold>3</bold>A,B</xref> shows the model's learning accuracy and loss curves on the training and validation sets. As the number of training rounds increases, the training accuracy continues to increase, and the model's accuracy on the validation set reaches a maximum after 124 epochs and then decreases slightly. The training loss of the model continues to decrease, whereas the validation loss starts to increase slowly after it drops to the lowest point. This indicates that the model reaches its optimal performance after 124 epochs, and the model file with the highest validation accuracy was saved for subsequent screening of c_AFPs. The framework of the model is shown in Figure <xref rid="advs11087-fig-0001" ref-type="fig">1B</xref>. The model runtime environment and hyperparameter settings are shown in Table <xref rid="advs11087-supinfo-0001" ref-type="">S4</xref> (Supporting Information). The Supplementary text and Figures <xref rid="advs11087-supinfo-0001" ref-type="">S1–S3</xref> (Supporting Information) provides more information on the model hyperparameter tuning method.</p><fig position="float" fig-type="Figure" id="advs11087-fig-0003" orientation="portrait"><label>Figure 3</label><caption><p>Learning curves of the ESM2‐AFPpred model and confusion matrix plots of the four models. A) Accuracy curves of the ESM2‐AFPpred model. B) Loss curves of the ESM2‐AFPpred model. C) Confusion matrix plots of Antifp_Main (a support vector machine predictor based on compositional features of peptides), AI4AMP (a deep learning predictor based on protein‐encoding method), Deep‐AFPpred (a deep learning algorithm‐based predictor), and ESM2‐AFPpred (an Evolutionary Scale Modeling 2‐based antifungal peptide predictor) confusion matrix plots on the validation set. D) Confusion matrix plots of Antifp_Main, AI4AMP, Deep‐AFPpred, and ESM2‐AFPpred on the independent test set.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-12-2412488-g003.jpg"/></fig></sec><sec id="advs11087-sec-0050"><label>2.3</label><title>Comparison with the State‐Of‐The‐Art (SOTA) Model</title><p>
+<bold>Tables</bold>
+<xref rid="advs11087-tbl-0001" ref-type="table">
+<bold>1</bold>
+</xref>,<xref rid="advs11087-tbl-0002" ref-type="table">
+<bold>2</bold>
+</xref> and Figure <xref rid="advs11087-fig-0003" ref-type="fig">3C,D</xref>, show that our proposed model ESM2‐AFPpred (an Evolutionary Scale Modeling 2‐based antifungal peptide predictor) performs well compared with the SOTA model in terms of almost all the performance metrics on the validation set and the independent test set. For the validation set, the second‐best performer is Deep‐AFPpred (a deep learning algorithm‐based predictor),<sup>[</sup>
+<xref rid="advs11087-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> which achieves a Recall of 86.05%, which is 0.58% higher than that of our proposed model. However, our model outperforms Deep‐AFPpred in all three other performance metrics. On the independent test set, the second‐best performer is AI4AMP (a deep learning predictor based on protein‐encoding method),<sup>[</sup>
+<xref rid="advs11087-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+<sup>]</sup> which achieves a Precision of 94.48%, which is 0.48% higher than that of our proposed model, but our proposed model is the best in terms of the other three performance metrics. The poor performance of Antifp_Main (a support vector machine predictor based on compositional features of peptides) may be due to its use of a limited dataset of only 1585 AFPs from the DRAMP database and does not consider the length of the AFPs used for training,<sup>[</sup>
+<xref rid="advs11087-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+<sup>]</sup> whereas the testing data used for other models contain multiple sources of AFPs from different databases, where the peptide length is confined to 5–30 amino acid.</p><table-wrap position="float" id="advs11087-tbl-0001" content-type="Table" orientation="portrait"><label>Table 1</label><caption><p>Performance comparison of the models on the validation set. Deep‐AFPpred is a deep learning algorithm‐based predictor; AI4AMP is a deep learning predictor based on protein‐encoding method; Antifp_Main is a support vector machine predictor based on compositional features of peptides; ESM2‐AFPpred is an Evolutionary Scale Modeling 2‐based antifungal peptide predictor.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1">Acc[%]</th><th align="center" rowspan="1" colspan="1">Pre[%]</th><th align="center" rowspan="1" colspan="1">Rec[%]</th><th align="center" rowspan="1" colspan="1">MCC</th><th align="center" rowspan="1" colspan="1">Algorithm</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">Deep‐AFPpred<sup>[</sup>
+<xref rid="advs11087-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">89.03%</td><td align="center" rowspan="1" colspan="1">91.50%</td><td align="center" rowspan="1" colspan="1">
+<bold>86.05</bold>%</td><td align="center" rowspan="1" colspan="1">0.7819</td><td align="center" rowspan="1" colspan="1">1DCNN‐BiLSTM</td></tr><tr><td align="left" rowspan="1" colspan="1">AI4AMP<sup>[</sup>
+<xref rid="advs11087-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">82.70%</td><td align="center" rowspan="1" colspan="1">84.19%</td><td align="center" rowspan="1" colspan="1">80.52%</td><td align="center" rowspan="1" colspan="1">0.6547</td><td align="center" rowspan="1" colspan="1">CNN‐LSTM</td></tr><tr><td align="left" rowspan="1" colspan="1">Antifp_Main<sup>[</sup>
+<xref rid="advs11087-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">54.43%</td><td align="center" rowspan="1" colspan="1">59.38%</td><td align="center" rowspan="1" colspan="1">28.05%</td><td align="center" rowspan="1" colspan="1">0.1044</td><td align="center" rowspan="1" colspan="1">SVM</td></tr><tr><td align="left" rowspan="1" colspan="1">ESM2‐AFPpred</td><td align="center" rowspan="1" colspan="1">
+<bold>89.17</bold>%</td><td align="center" rowspan="1" colspan="1">
+<bold>92.31</bold>%</td><td align="center" rowspan="1" colspan="1">85.47%</td><td align="center" rowspan="1" colspan="1">
+<bold>0.7856</bold>
+</td><td align="center" rowspan="1" colspan="1">BERT‐MLP</td></tr></tbody></table><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><table-wrap position="float" id="advs11087-tbl-0002" content-type="Table" orientation="portrait"><label>Table 2</label><caption><p>Performance comparison of the models on the independent test set. Deep‐AFPpred is a deep learning algorithm‐based predictor; AI4AMP is a deep learning predictor based on protein‐encoding method; Antifp_Main is a support vector machine predictor based on compositional features of peptides; ESM2‐AFPpred is an Evolutionary Scale Modeling 2‐based antifungal peptide predictor.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1">TP</th><th align="center" rowspan="1" colspan="1">FP</th><th align="center" rowspan="1" colspan="1">TN</th><th align="center" rowspan="1" colspan="1">FN</th><th align="center" rowspan="1" colspan="1">Acc[%]</th><th align="center" rowspan="1" colspan="1">Pre[%]</th><th align="center" rowspan="1" colspan="1">Rec[%]</th><th align="center" rowspan="1" colspan="1">MCC</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">Deep‐AFPpred<sup>[</sup>
+<xref rid="advs11087-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">639</td><td align="center" rowspan="1" colspan="1">63</td><td align="center" rowspan="1" colspan="1">597</td><td align="center" rowspan="1" colspan="1">21</td><td align="center" rowspan="1" colspan="1">93.64%</td><td align="center" rowspan="1" colspan="1">91.03%</td><td align="center" rowspan="1" colspan="1">96.82%</td><td align="center" rowspan="1" colspan="1">0.8745</td></tr><tr><td align="left" rowspan="1" colspan="1">AI4AMP<sup>[</sup>
+<xref rid="advs11087-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">616</td><td align="center" rowspan="1" colspan="1">36</td><td align="center" rowspan="1" colspan="1">624</td><td align="center" rowspan="1" colspan="1">44</td><td align="center" rowspan="1" colspan="1">93.94%</td><td align="center" rowspan="1" colspan="1">
+<bold>94.48</bold>%</td><td align="center" rowspan="1" colspan="1">93.33%</td><td align="center" rowspan="1" colspan="1">0.8789</td></tr><tr><td align="left" rowspan="1" colspan="1">Antifp_Main<sup>[</sup>
+<xref rid="advs11087-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">111</td><td align="center" rowspan="1" colspan="1">150</td><td align="center" rowspan="1" colspan="1">510</td><td align="center" rowspan="1" colspan="1">549</td><td align="center" rowspan="1" colspan="1">47.05%</td><td align="center" rowspan="1" colspan="1">42.53%</td><td align="center" rowspan="1" colspan="1">16.82%</td><td align="center" rowspan="1" colspan="1">−0.0742</td></tr><tr><td align="left" rowspan="1" colspan="1">ESM2‐AFPpred</td><td align="center" rowspan="1" colspan="1">642</td><td align="center" rowspan="1" colspan="1">41</td><td align="center" rowspan="1" colspan="1">619</td><td align="center" rowspan="1" colspan="1">18</td><td align="center" rowspan="1" colspan="1">
+<bold>95.53</bold>%</td><td align="center" rowspan="1" colspan="1">94.00%</td><td align="center" rowspan="1" colspan="1">
+<bold>97.27</bold>%</td><td align="center" rowspan="1" colspan="1">
+<bold>0.9112</bold>
+</td></tr></tbody></table><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="advs11087-sec-0060"><label>2.4</label><title>Screening of c_AFPs</title><p>Of the 7776 candidate dodecapeptides generated by our ESM2‐AFPpred model, 3609 were excluded because the model predicted them to be non‐AFPs or predicted them to be AFPs with a probability &lt;0.9. Subsequent screening based on the density distributions of the three physicochemical properties (Net Charge, GRAVY, and Wimley‐White hydrophobicity) revealed 359 c_AFPs that simultaneously met the thresholds for all three. BLAST was used to eliminate sequences with high similarity to known sequences in the nonredundant protein sequence (nr) database to ensure the novelty of the <italic toggle="yes">de novo</italic> designed c_AFPs. Ultimately, 49 c_AFPs were retained. The BLAST results of all 49 c_AFPs are detailed on Sheet 4 of Data <xref rid="advs11087-supinfo-0001" ref-type="">S1</xref> (Supporting Information). The detailed c_AFP parameters are shown in Sheets 1–4 of Data <xref rid="advs11087-supinfo-0001" ref-type="">S1</xref> (Supporting Information).</p></sec><sec id="advs11087-sec-0070"><label>2.5</label><title>Antifungal Activity and Structural Analysis of c_AFPs</title><p>The antifungal activity of the final 49 c_AFPs was measured experimentally using <italic toggle="yes">C. albicans</italic> as the primary test pathogen. Notably, all 49 c_AFPs show varying degrees of anticandidal activity, with minimum inhibitory concentrations (MICs) below 125 µg mL<sup>−1</sup>, as detailed in Table <xref rid="advs11087-supinfo-0001" ref-type="">S5</xref> (Supporting Information). The four most promising c_AFPs with MICs below 10 µg mL<sup>−1</sup> are AFP‐8, AFP‐10, AFP‐11, and AFP‐13. Their MICs against <italic toggle="yes">C. tropicalis</italic>, <italic toggle="yes">C. parapsilosis</italic>, and <italic toggle="yes">C. neoformans</italic> were subsequently tested. As shown in <bold>Table</bold>
+<xref rid="advs11087-tbl-0003" ref-type="table">
+<bold>3</bold>
+</xref>, the MICs of these four c_AFPs were below 10 µg mL<sup>−1</sup> against all the tested pathogens. Among them, AFP‐10 had the greatest inhibitory effect, with a MIC of 3.51 µg mL<sup>−1</sup> against <italic toggle="yes">C. albicans</italic>. The four peptides inhibited <italic toggle="yes">C. tropicalis</italic>, with MICs ranging from 2.29–3.62 µg mL<sup>−1</sup>. The best inhibitory agent against <italic toggle="yes">C. parapsilosis</italic> is AFP‐10, with a MIC of 2.61 µg mL<sup>−1</sup>, and the most significant inhibitory agent against <italic toggle="yes">C. neoformans</italic> is AFP‐13, with a strikingly low MIC of 1.89 µg mL<sup>−1</sup>.</p><table-wrap position="float" id="advs11087-tbl-0003" content-type="Table" orientation="portrait"><label>Table 3</label><caption><p>Antifungal and hemolytic activities of c_AFPs.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr><th align="left" rowspan="1" colspan="1">Peptide</th><th colspan="4" style="border-bottom:solid 1px #000000" align="center" rowspan="1">MIC<sub>100</sub> [µg mL<sup>−1</sup>]</th><th align="center" rowspan="1" colspan="1">MHC<sub>5</sub> [µg/mL]<xref rid="advs11087-tbl3-note-0001" ref-type="table-fn">
+<sup>a)</sup>
+</xref>
+</th><th align="center" rowspan="1" colspan="1">TI<xref rid="advs11087-tbl3-note-0002" ref-type="table-fn">
+<sup>b)</sup>
+</xref>
+</th></tr><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. albicans</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. tropicalis</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. parapsilosis</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. neoformans</italic>
+</th><th align="center" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1"/></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">AFP‐8</td><td align="center" rowspan="1" colspan="1">7.67 ± 0.10</td><td align="center" rowspan="1" colspan="1">3.62 ± 0.14</td><td align="center" rowspan="1" colspan="1">2.86 ± 0.41</td><td align="center" rowspan="1" colspan="1">3.77 ± 0.07</td><td align="center" rowspan="1" colspan="1">41.81 ± 1.88</td><td align="center" rowspan="1" colspan="1">5.45</td></tr><tr><td align="left" rowspan="1" colspan="1">AFP‐10</td><td align="center" rowspan="1" colspan="1">3.51 ± 0.09</td><td align="center" rowspan="1" colspan="1">2.32 ± 0.12</td><td align="center" rowspan="1" colspan="1">2.61 ± 0.33</td><td align="center" rowspan="1" colspan="1">3.80 ± 0.04</td><td align="center" rowspan="1" colspan="1">48.11 ± 1.54</td><td align="center" rowspan="1" colspan="1">13.71</td></tr><tr><td align="left" rowspan="1" colspan="1">AFP‐11</td><td align="center" rowspan="1" colspan="1">7.48 ± 0.32</td><td align="center" rowspan="1" colspan="1">2.35 ± 0.27</td><td align="center" rowspan="1" colspan="1">5.80 ± 0.88</td><td align="center" rowspan="1" colspan="1">2.92 ± 0.37</td><td align="center" rowspan="1" colspan="1">46.51 ± 2.24</td><td align="center" rowspan="1" colspan="1">6.22</td></tr><tr><td align="left" rowspan="1" colspan="1">AFP‐13</td><td align="center" rowspan="1" colspan="1">6.26 ± 0.34</td><td align="center" rowspan="1" colspan="1">2.29 ± 0.21</td><td align="center" rowspan="1" colspan="1">9.32 ± 0.28</td><td align="center" rowspan="1" colspan="1">1.89 ± 0.04</td><td align="center" rowspan="1" colspan="1">99.50 ± 3.28</td><td align="center" rowspan="1" colspan="1">15.89</td></tr></tbody></table><table-wrap-foot><fn id="advs11087-tbl3-note-0001"><label>
+<sup>a)</sup>
+</label><p>MHC<sub>5</sub>, the minimal hemolytic concentration of the peptide that results in 5% human erythrocyte hemolysis;</p></fn><fn id="advs11087-tbl3-note-0002"><label>
+<sup>b)</sup>
+</label><p>TI indicates the therapeutic index of c_AFPs against <italic toggle="yes">C. albicans</italic>, TI = MHC<sub>5</sub>/MIC<sub>100</sub>.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>3D structures of the four leading c_AFPs (AFP‐8, −10, −11, and −13) were predicted and generated with AlphaFold 3 (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://golgi.sandbox.google.com/" ext-link-type="uri">https://golgi.sandbox.google.com/</ext-link>),<sup>[</sup>
+<xref rid="advs11087-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref>
+<sup>]</sup> their helical wheel diagrams were predicted and generated by HeliQuest (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://heliquest.ipmc.cnrs.fr/cgi-bin/ComputParams.py/" ext-link-type="uri">https://heliquest.ipmc.cnrs.fr/cgi‐bin/ComputParams.py/</ext-link>),<sup>[</sup>
+<xref rid="advs11087-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>
+<sup>]</sup> and their physicochemical properties were predicted by ExPASy (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://web.expasy.org/protparam/" ext-link-type="uri">https://web.expasy.org/protparam/</ext-link>).<sup>[</sup>
+<xref rid="advs11087-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>
+<sup>]</sup> The results are shown in <bold>Table</bold>
+<xref rid="advs11087-tbl-0004" ref-type="table">
+<bold>4</bold>
+</xref> and <bold>Figure</bold>
+<xref rid="advs11087-fig-0004" ref-type="fig">
+<bold>4</bold>
+</xref>. All four c_AFPs display α‐helical structures and similar physicochemical properties, with both hydrophobic and hydrophilic amino acid residues arranged in two different planes, a structure that favors the activity of these c_AFPs. Notably, the helical wheel diagram of AFP‐13 differs significantly from those of the other three, in which the hydrophilic and hydrophobic amino acids are concentrated on either side of the helical wheel to form a hydrophilic surface and a hydrophobic surface (Figure <xref rid="advs11087-fig-0004" ref-type="fig">4H</xref>) and display a significantly stronger hydrophobic moment. This may be one reason why AFP‐13 has the highest antifungal activity among the four peptides.</p><table-wrap position="float" id="advs11087-tbl-0004" content-type="Table" orientation="portrait"><label>Table 4</label><caption><p>BLAST results and physicochemical properties of c_AFPs.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr><th align="left" rowspan="1" colspan="1">Peptide</th><th align="center" rowspan="1" colspan="1">Amino acid sequence</th><th colspan="4" style="border-bottom:solid 1px #000000" align="center" rowspan="1">Physicochemical properties</th><th colspan="3" style="border-bottom:solid 1px #000000" align="center" rowspan="1">BLAST results<xref rid="advs11087-tbl4-note-0001" ref-type="table-fn">
+<sup>a)</sup>
+</xref>
+</th></tr><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1">Molecular weight</th><th align="center" rowspan="1" colspan="1">Net charge</th><th align="center" rowspan="1" colspan="1">GRAVY</th><th align="center" rowspan="1" colspan="1">Isoelectric point</th><th align="center" rowspan="1" colspan="1">Max Score</th><th align="center" rowspan="1" colspan="1">Total Score</th><th align="center" rowspan="1" colspan="1">Query Cover</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">AFP‐8</td><td align="center" rowspan="1" colspan="1">RLWRIVVIRRAR</td><td align="center" rowspan="1" colspan="1">1593.99</td><td align="center" rowspan="1" colspan="1">5</td><td align="center" rowspan="1" colspan="1">−0.033</td><td align="center" rowspan="1" colspan="1">12.60</td><td align="center" rowspan="1" colspan="1">34.1</td><td align="center" rowspan="1" colspan="1">34.1</td><td align="center" rowspan="1" colspan="1">75%</td></tr><tr><td align="left" rowspan="1" colspan="1">AFP‐10</td><td align="center" rowspan="1" colspan="1">RLWRIVLIRRAK</td><td align="center" rowspan="1" colspan="1">1580.00</td><td align="center" rowspan="1" colspan="1">5</td><td align="center" rowspan="1" colspan="1">−0.017</td><td align="center" rowspan="1" colspan="1">12.48</td><td align="center" rowspan="1" colspan="1">38.0</td><td align="center" rowspan="1" colspan="1">38.0</td><td align="center" rowspan="1" colspan="1">83%</td></tr><tr><td align="left" rowspan="1" colspan="1">AFP‐11</td><td align="center" rowspan="1" colspan="1">RLWRIVLIRKAR</td><td align="center" rowspan="1" colspan="1">1580.00</td><td align="center" rowspan="1" colspan="1">5</td><td align="center" rowspan="1" colspan="1">−0.017</td><td align="center" rowspan="1" colspan="1">12.48</td><td align="center" rowspan="1" colspan="1">34.6</td><td align="center" rowspan="1" colspan="1">34.6</td><td align="center" rowspan="1" colspan="1">75%</td></tr><tr><td align="left" rowspan="1" colspan="1">AFP‐13</td><td align="center" rowspan="1" colspan="1">VRWRIRLIRKLA</td><td align="center" rowspan="1" colspan="1">1580.00</td><td align="center" rowspan="1" colspan="1">5</td><td align="center" rowspan="1" colspan="1">−0.017</td><td align="center" rowspan="1" colspan="1">12.48</td><td align="center" rowspan="1" colspan="1">33.3</td><td align="center" rowspan="1" colspan="1">33.3</td><td align="center" rowspan="1" colspan="1">83%</td></tr></tbody></table><table-wrap-foot><fn id="advs11087-tbl4-note-0001"><label>
+<sup>a)</sup>
+</label><p>The BLAST results listed are those with the highest Max score values among all the compared sequences.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><fig position="float" fig-type="Figure" id="advs11087-fig-0004" orientation="portrait"><label>Figure 4</label><caption><p>Helical structure diagrams of c_AFPs. A–D) Three‐dimensional structures of the four c_AFPs (AFP‐8, −10, −11, and −13) generated by AlphaFold 3. E–H) Helical wheel diagrams of the four c_AFPs generated by HeliQuest, with positively charged amino acid residues shown in blue and hydrophobic ones in yellow. The arrows indicate helical hydrophobic moments, and the length of the arrow is positively correlated with the hydrophobic moment.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-12-2412488-g008.jpg"/></fig><p>An alanine scanning experiment was performed to determine the structure‒activity relationship of the amino acid sequence of AFP‐13. As shown in <bold>Table</bold>
+<xref rid="advs11087-tbl-0005" ref-type="table">
+<bold>5</bold>
+</xref>, the activities of the 11 mutant peptides of AFP‐13 against the four tested pathogenic fungi were lower than those of AFP‐13, which indicated that the sequence structure of AFP‐13 was effective.</p><table-wrap position="float" id="advs11087-tbl-0005" content-type="Table" orientation="portrait"><label>Table 5</label><caption><p>Antifungal activities of Alanine mutants of AFP‐13.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr><th align="left" rowspan="1" colspan="1">Amino acid sequence</th><th align="center" rowspan="1" colspan="1">Peptide</th><th colspan="4" style="border-bottom:solid 1px #000000" align="center" rowspan="1">MIC<sub>100</sub> [µg mL<sup>−1</sup>]<xref rid="advs11087-tbl5-note-0001" ref-type="table-fn">
+<sup>a)</sup>
+</xref>
+</th></tr><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. albicans</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. tropicalis</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. parapsilosis</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. neoformans</italic>
+</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">
+<underline underline-style="single">A</underline>RWRIRLIRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[1VA]</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td></tr><tr><td align="left" rowspan="1" colspan="1">V<underline underline-style="single">A</underline>WRIRLIRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[2RA]</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td></tr><tr><td align="left" rowspan="1" colspan="1">VR<underline underline-style="single">A</underline>RIRLIRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[3WA]</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">7.81</td></tr><tr><td align="left" rowspan="1" colspan="1">VRW<underline underline-style="single">A</underline>IRLIRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[4RA]</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWR<underline underline-style="single">A</underline>RLIRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[5IA]</td><td align="center" rowspan="1" colspan="1">62.50</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">62.50</td><td align="center" rowspan="1" colspan="1">3.91</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWRI<underline underline-style="single">A</underline>LIRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[6RA]</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">1.95</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWRIR<underline underline-style="single">A</underline>IRKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[7LA]</td><td align="center" rowspan="1" colspan="1">125</td><td align="center" rowspan="1" colspan="1">7.81</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">15.63</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWRIRL<underline underline-style="single">A</underline>RKLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[8IA]</td><td align="center" rowspan="1" colspan="1">125</td><td align="center" rowspan="1" colspan="1">7.81</td><td align="center" rowspan="1" colspan="1">62.50</td><td align="center" rowspan="1" colspan="1">7.81</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWRIRLI<underline underline-style="single">A</underline>KLA</td><td align="center" rowspan="1" colspan="1">AFP‐13[9RA]</td><td align="center" rowspan="1" colspan="1">125</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">7.81</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWRIRLIR<underline underline-style="single">A</underline>LA</td><td align="center" rowspan="1" colspan="1">AFP‐13[10KA]</td><td align="center" rowspan="1" colspan="1">15.63</td><td align="center" rowspan="1" colspan="1">3.91</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">3.91</td></tr><tr><td align="left" rowspan="1" colspan="1">VRWRIRLIRK<underline underline-style="single">A</underline>A</td><td align="center" rowspan="1" colspan="1">AFP‐13[11LA]</td><td align="center" rowspan="1" colspan="1">62.50</td><td align="center" rowspan="1" colspan="1">7.81</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">7.81</td></tr></tbody></table><table-wrap-foot><fn id="advs11087-tbl5-note-0001"><label>
+<sup>a)</sup>
+</label><p>The MIC<sub>100</sub> is the concentration of the drug in ungrown fungus wells measured in 96‐well plates by the microdilution method.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="advs11087-sec-0080"><label>2.6</label><title>Generalizability of DL‐QSARES</title><p>To demonstrate the generalizability of the DL‐QSARES method developed in this paper for peptides of different lengths, a tridecapeptide library was <italic toggle="yes">de novo</italic> designed. The experimental results revealed that all 37 c_AFPs have antifungal activity against the three tested <italic toggle="yes">Candida spp</italic>. (<italic toggle="yes">C. albicans</italic>, <italic toggle="yes">C. tropicalis</italic> and <italic toggle="yes">C. parapsilosis</italic>), four of which have MICs of &lt;10 µg mL<sup>−1</sup> against <italic toggle="yes">C. albicans</italic>, and almost all of which have MICs of &lt;10 µg mL<sup>−1</sup> against <italic toggle="yes">C. tropicalis</italic>. The detailed antifungal profiles can be found in Table <xref rid="advs11087-supinfo-0001" ref-type="">S6</xref> (Supporting Information).</p><p>In addition, we randomly shuffled the sequences of 4 tridecapeptides (AFP‐T3, AFP‐T12, AFP‐T21, and AFP‐T22) with MICs less than 10 µgmL<sup>−1</sup> to obtain r_AFP‐T3, r_AFP‐T12, r_AFP‐T21, and r_AFP‐T22. The activities of the four reshuffled peptides against the three tested pathogenic fungi (<italic toggle="yes">C. albicans</italic>, <italic toggle="yes">C. tropicalis</italic>, and <italic toggle="yes">C. parapsilosis</italic>) decreased (<bold>Table</bold>
+<xref rid="advs11087-tbl-0006" ref-type="table">
+<bold>6</bold>
+</xref>), indicating that the DL‐QSARES method is efficient.</p><table-wrap position="float" id="advs11087-tbl-0006" content-type="Table" orientation="portrait"><label>Table 6</label><caption><p>Antifungal activity of r_AFPs with shuffled sequences.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr><th rowspan="2" align="left" colspan="1">Amino acid sequence</th><th rowspan="2" align="center" colspan="1">Peptide</th><th colspan="3" style="border-bottom:solid 1px #000000" align="center" rowspan="1">MIC<sub>100</sub> [µg mL<sup>−1</sup>]<xref rid="advs11087-tbl6-note-0001" ref-type="table-fn">
+<sup>a)</sup>
+</xref>
+</th></tr><tr style="border-bottom:solid 1px #000000"><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. albicans</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. tropicalis</italic>
+</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">C. parapsilosis</italic>
+</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">HGALKFLHLLFKP</td><td align="center" rowspan="1" colspan="1">r_AFP‐T3</td><td align="center" rowspan="1" colspan="1">250</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">62.50</td></tr><tr><td align="left" rowspan="1" colspan="1">IRFPLFLKAKGIK</td><td align="center" rowspan="1" colspan="1">r_AFP‐T12</td><td align="center" rowspan="1" colspan="1">125</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">125</td></tr><tr><td align="left" rowspan="1" colspan="1">KRLFAKKLVFLPG</td><td align="center" rowspan="1" colspan="1">r_AFP‐T21</td><td align="center" rowspan="1" colspan="1">125</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">62.50</td></tr><tr><td align="left" rowspan="1" colspan="1">GAKKLLFPFLLKK</td><td align="center" rowspan="1" colspan="1">r_AFP‐T22</td><td align="center" rowspan="1" colspan="1">125</td><td align="center" rowspan="1" colspan="1">31.25</td><td align="center" rowspan="1" colspan="1">62.50</td></tr></tbody></table><table-wrap-foot><fn id="advs11087-tbl6-note-0001"><label>
+<sup>a)</sup>
+</label><p>The MIC<sub>100</sub> is the concentration of the drug in ungrown fungus wells measured in 96‐well plates by the microdilution method.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="advs11087-sec-0090"><label>2.7</label><title>Assessment of Resistance Induction and Inhibition of Fluconazole‐Resistant <italic toggle="yes">C. Albicans</italic> by c_AFPs</title><p>Fluconazole resistance is one of the significant challenges in current clinical drug development for treating <italic toggle="yes">Candida</italic> infections. We evaluated the c_AFP resistance propensity of <italic toggle="yes">C. albicans</italic> by a continuous passaging culture method. The results are shown in <bold>Figure</bold>
+<xref rid="advs11087-fig-0005" ref-type="fig">
+<bold>5</bold>A</xref>; the c_AFP groups presented unchanged MICs within 50 generations. In contrast, the MIC of fluconazole (1.9 µg mL<sup>−1</sup>) remained unchanged for the first 20 generations but increased twofold at the 25th generation and eightfold at the 40th generation. These findings suggest that c_AFPs have a lower tendency to induce resistance than fluconazole does. As shown in Figure <xref rid="advs11087-fig-0005" ref-type="fig">5B</xref>, compared with fluconazole, which fails to kill fluconazole‐resistant <italic toggle="yes">C. albicans</italic> at even 50 × MIC, the minimum fungicidal concentrations (MFC) are 2 × MIC for both AFP‐10 and AFP‐13, 4 × MIC for AFP‐8 and 8 × MIC for AFP‐11. The inhibitory activity of c_AFPs against fluconazole‐resistant <italic toggle="yes">C. albicans</italic> was further investigated. The results (Figure <xref rid="advs11087-fig-0005" ref-type="fig">5C</xref>) revealed that compared with the other two peptides, AFP‐10 and AFP‐13 inhibited the growth of fluconazole‐resistant <italic toggle="yes">C. albicans</italic> by more than 99% at 1 × MIC, demonstrating that they have greater antifungal activity.</p><fig position="float" fig-type="Figure" id="advs11087-fig-0005" orientation="portrait"><label>Figure 5</label><caption><p>Resistance induction and killing activity against fluconazole‐resistant <italic toggle="yes">C. albicans</italic>. A) Resistance induction of <italic toggle="yes">C. albicans</italic> to c_AFPs. <sup>****</sup>
+<italic toggle="yes">p</italic> &lt; 0.0001. B) Growth of fluconazole‐resistant <italic toggle="yes">C. albicans</italic> after treatment with c_AFPs. C) Inhibition rate of fluconazole‐resistant <italic toggle="yes">C. albicans</italic> by c_AFPs.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-12-2412488-g007.jpg"/></fig></sec><sec id="advs11087-sec-0100"><label>2.8</label><title>In Vitro Hemolysis Evaluation of c_AFPs</title><p>The effects of c_AFPs on fresh human erythrocytes were evaluated (<bold>Figure</bold>
+<xref rid="advs11087-fig-0006" ref-type="fig">
+<bold>6</bold>A,B</xref>), and the 5% minimum hemolytic concentrations (MHC<sub>5</sub>) of AFP‐8, AFP‐10, and AFP‐11 ranged from 41.81–48.11 µg/mL, with increased hemolysis and decreased biosafety. In contrast, AFP‐13 has high biosafety, with a therapeutic index (TI) of ≈15.89. Safety is positively related to the TI value, which is the ratio of MHC<sub>5</sub> to MIC<sub>100</sub> used to assess the biosafety of antifungal peptides. Therefore, AFP‐13 is the most promising candidate for development.</p><fig position="float" fig-type="Figure" id="advs11087-fig-0006" orientation="portrait"><label>Figure 6</label><caption><p>Hemolytic activity of c_AFPs and microstructural changes in <italic toggle="yes">C. albicans</italic> after treatment with AFP‐13. A) Visualization of the hemolytic effect of c_AFPs. B) MHC<sub>5</sub>, the concentration of compounds causing 5% hemolysis of human erythrocytes. C–F) Morphological changes in <italic toggle="yes">C. albicans</italic> after treatment with AFP‐13 for 0, 3, 6, and 9 h under SEM. G–J) Morphological changes in <italic toggle="yes">C. albicans</italic> after treatment with AFP‐13 for 0, 3, 6, and 9 h under TEM.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="ADVS-12-2412488-g004.jpg"/></fig></sec><sec id="advs11087-sec-0110"><label>2.9</label><title>Mechanisms of Action</title><p>Morphological and ultrastructural changes in <italic toggle="yes">C. albicans</italic> cells after AFP‐13 treatment were observed by scanning electron microscopy (SEM) and transmission electron microscopy (TEM). The SEM results are shown in Figure <xref rid="advs11087-fig-0006" ref-type="fig">6C–F</xref>. As the treatment time increased, the degree of cell shrinkage increased (Figure <xref rid="advs11087-fig-0006" ref-type="fig">6D,E</xref>, orange arrows). After 9 h of treatment, the cell wall and membrane ruptured, and the intracellular contents leaked out (Figure <xref rid="advs11087-fig-0006" ref-type="fig">6F</xref>, red arrows). The TEM results are shown in Figure <xref rid="advs11087-fig-0006" ref-type="fig">6G–J</xref>. Compared with the control group, <italic toggle="yes">C. albicans</italic> cells treated with AFP‐13 for 3 h (Figure <xref rid="advs11087-fig-0006" ref-type="fig">6H</xref>) and 6 hours (Figure <xref rid="advs11087-fig-0006" ref-type="fig">6I</xref>) showed loose cell walls (blue arrow), unevenly stained cytoplasm, and leakage of intracellular content (red arrow). After 9 h of treatment (Figure <xref rid="advs11087-fig-0006" ref-type="fig">6J</xref>), the integrity of the cell membrane was disrupted (green arrow). These results indicate that AFP‐13 exerts its effects by disrupting the cell wall and membrane of fungi in a time‐dependent manner.</p></sec><sec id="advs11087-sec-0120"><label>2.10</label><title>In Vivo Therapeutic Efficacy of c_AFPs</title><p>The in vivo therapeutic efficacy of AFP‐13 was tested in a Kunming mouse model of systemic <italic toggle="yes">C. albicans</italic> infection. <bold>Figure</bold>
+<xref rid="advs11087-fig-0007" ref-type="fig">
+<bold>7</bold>A</xref> shows the construction of the mouse infection model and the drug administration scheme. Figure <xref rid="advs11087-fig-0007" ref-type="fig">7B,C</xref> shows that the survival rate of the mice after AFP‐13 treatment was significantly greater than the 50% survival rate of the infected group. The survival rate of the group treated with 0.8 mg kg<sup>−1</sup> AFP‐13 reached 90%, which was greater than that of the fluconazole group. In addition, the weights of the mice were significantly greater after 14 days of treatment than those of the infected group; the average increased weights of the 0.4 and 0.8 mg kg<sup>−1</sup> dose groups were 7.58 and 8.00 g, respectively, and that of the fluconazole group was 8.16 g, whereas that of the infected group was 0.76 g.</p><fig position="float" fig-type="Figure" id="advs11087-fig-0007" orientation="portrait"><label>Figure 7</label><caption><p>The therapeutic effect of AFP‐13 on a mouse model of <italic toggle="yes">C. albicans</italic> infection. A) Schematic diagram of the construction of the <italic toggle="yes">C. albicans</italic>‐infected mouse model and treatment with AFP‐13. B) Survival rate, <italic toggle="yes">n</italic> = 10. C) Body weight, <italic toggle="yes">n</italic> = 10. D) Splenic index, <italic toggle="yes">n</italic> = 3. E) Thymic index, <italic toggle="yes">n</italic> = 3. F) Tissue sections of the liver, lung, kidney, and spleen after 14 days of treatment. Differently colored arrows indicate nuclear dissolution (red arrow), narrowing of the alveolar lumen (blue arrow), bleeding (white arrow), and macrophages (yellow arrow), respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-15" orientation="portrait" xlink:href="ADVS-12-2412488-g006.jpg"/></fig><p>The immune organ index is an essential indicator of the body's immune function. An increase in the relative weight of immune organs against body weight usually indicates enhanced immune function and increased ability of the immune system to fight pathogenic microorganisms.<sup>[</sup>
+<xref rid="advs11087-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>
+<sup>]</sup> As shown in Figure <xref rid="advs11087-fig-0007" ref-type="fig">7D</xref>, AFP‐13 significantly increased the spleen index on Day 7 of treatment. Compared with the splenic index (7.64 mg g<sup>−1</sup>) in the infected group, the values reached 10.89 and 11.51 mg g<sup>−1</sup> in the 0.4 mg kg<sup>−1</sup> and the 0.8 mg kg<sup>−1</sup> AFP‐13 groups, respectively. That of the fluconazole group was 9.89 mg g<sup>−1</sup>. On Days 7 and 14 of treatment, the spleen indices of the AFP and fluconazole groups tended to decrease because of the relatively slower increase in spleen weight and the rapid increase in body weight of the mice. In contrast, the spleen index was relatively stable in the infected group of mice because of the slow increase in body weight. The effects on the thymic index are shown in Figure <xref rid="advs11087-fig-0007" ref-type="fig">7E</xref>. On Day 7, the thymic indices of the mice in the 0.4 and 0.8 mg kg<sup>−1</sup> AFP‐13 groups were 2.85 and 2.96 mg g<sup>−1</sup> greater than that of the fluconazole group, which was 2.45 mg g<sup>−1</sup>. On Day 14, the thymic indices of the mice in the 0.4 and 0.8 mg kg<sup>−1</sup> dose groups reached 5.66 and 5.11 mg g<sup>−1</sup>, respectively, which were significantly greater than the 2.85 mg g<sup>−1</sup> in the infected group and comparable to the 5.16 mg g<sup>−1</sup> in the fluconazole group. These results indicate that AFP‐13 can significantly stimulate the function of immune organs and thus promote the recovery of infected mice.</p><p>Finally, the mouse organ sections on the 14th day of treatment were observed and analyzed. The pathological changes in the internal organs of the mice in each group were observed under a light microscope. The results are shown in Figure <xref rid="advs11087-fig-0007" ref-type="fig">7F</xref>. The mice in the infected group presented the most severe tissue lesions. The liver tissue sections exhibited nuclear lysis and the disappearance of typical lobular structures. Lung tissue sections show severe alveolar interstitial lymphocytic infiltration with congestion. In splenic tissue, macrophages are scattered throughout the splenic parenchyma, with a blurred border between the red and white medulla. Hemorrhage was observed in renal tissue sections with glomerular swelling. In contrast, the organ tissues of the mice in the fluconazole and AFP‐13 groups normalized after treatment. Compared with that in the infected group, the hepatic tissue structure in the 0.4 and 0.8 mg kg<sup>−1</sup> AFP‐13 groups improved after 14 days of treatment. Interstitial lung congestion was reduced, and the alveolar lumen was enlarged. There was no significant hemorrhage in the renal tissue, and the glomerular structure normalized. The germinal center of the spleen was visible. These results indicate that AFP‐13 can effectively reduce the pathological damage to organs caused by systemic <italic toggle="yes">C. albicans</italic> infection.</p></sec></sec><sec id="advs11087-sec-0130"><label>3</label><title>Discussion</title><p>An antifungal tridecapeptide library was <italic toggle="yes">de novo</italic> designed using the DL‐QSARES method established in this study. Five tridecapeptides (ACP1–ACP5) were the most promising, with notable MICs of 3.9–15.6 µg mL<sup>−1</sup> against <italic toggle="yes">C. albicans</italic>. These peptides also showed killing effects on <italic toggle="yes">C. albicans</italic> within 8 h at concentrations ranging from 2 to 4 × MIC,<sup>[</sup>
+<xref rid="advs11087-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+<sup>]</sup> indicating that the DL‐QSARES method we established is reliable.</p><p>The application of artificial intelligence (AI) in the field of drug design is expanding, significantly accelerating the process of new drug discovery and development.<sup>[</sup>
+<xref rid="advs11087-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>
+<sup>]</sup> Traditional drug design usually takes a long time and many resources. AI can efficiently process massive amounts of chemical and biological data to mine potential drug molecules from them through machine learning, deep learning, etc. AI can play an essential role in compound screening, drug target identification, and prediction of drug‐target interactions.<sup>[</sup>
+<xref rid="advs11087-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="advs11087-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="advs11087-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="advs11087-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+<sup>]</sup> Through deep learning models, AI can predict the physicochemical properties and biological activities of molecules, optimize the structure of lead compounds, and improve the efficiency of drug development.<sup>[</sup>
+<xref rid="advs11087-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="advs11087-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+<sup>]</sup> In addition, AI has also shown great potential in personalized drug design, assisting in the development of precision drugs for specific patient groups by analyzing patients' genomic data.<sup>[</sup>
+<xref rid="advs11087-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>, <xref rid="advs11087-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+<sup>]</sup> Although the application of AI in drug design still faces challenges, such as data quality and model interpretability, with technology advancements and data accumulation, AI is expected to become an essential tool for drug development in the future, further promoting innovation and marketability of new drugs.</p><p>The goal of the deep learning‐based <italic toggle="yes">de novo</italic> design framework for AFPs is to screen c_AFPs with specific functions in the massive peptide sequence space. Most AMPs consist of 5–30 amino acids. Taking the virtual search space of octapeptides as an example, there will be more than 20 billion possibilities for random permutations and combinations of 20 natural amino acids, and the search space will grow exponentially with the length of the peptide chain. The screening of c_AFPs with specific functions is challenging, even with the addition of ultrahigh‐precision deep learning prediction models. Compared with Huang et al., who identified effective antimicrobial peptides among hundreds of billions of sequences in the entire virtual peptide library,<sup>[</sup>
+<xref rid="advs11087-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> the DL‐QSARES developed in this study narrows the search space of the practical virtual peptide library and identified 49 effective AFPs from the search space consisting of only 7776 sequences, which is less computationally expensive and more efficient. Compared with the identification of candidate AMPs from human gut microbiome data by Ma et al.,<sup>[</sup>
+<xref rid="advs11087-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+<sup>]</sup> the method proposed in this study is more selective for the subject pathogens of functional peptides, which enables specific <italic toggle="yes">de novo</italic> design of specified functional peptides with excellent therapeutic effects. Das et al. used deep generative models combined with molecular dynamics simulations to generate and screen 20 candidate antimicrobial peptides within 48 days and ultimately identified two peptides with high activity (7.8–125 µg mL<sup>−1</sup>); our method is more efficient than theirs, and the resulting peptides have better activity.<sup>[</sup>
+<xref rid="advs11087-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+<sup>]</sup> Compared with the research of Jin et al., which used molecular docking and molecular dynamics simulations to design functional peptides, our method has obvious advantages in design efficiency. However, in the research of Jin et al., molecular docking and molecular dynamics simulations were used to evaluate the interaction stability and binding affinity between peptides and target proteins, yielding high biological interpretability.<sup>[</sup>
+<xref rid="advs11087-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>
+<sup>]</sup> Wang et al. designed a variety of broad‐spectrum peptides by combining generative models with predictive models. In comparison, our method can generate candidate peptides of specific lengths and functions by controlling the generation algorithm, which is more conducive to the <italic toggle="yes">de novo</italic> design of specific peptides.<sup>[</sup>
+<xref rid="advs11087-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>
+<sup>]</sup>
+</p><p>Deep learning models have shown significant advantages in prediction and design tasks. However, the transparency of their internal decision‐making process is insufficient, especially in extracting key sequence features and activity prediction. It is still difficult to clearly explain how the model identifies and utilizes these features. In the future, we will explore the integration of several methods, including deep learning, molecular docking, and molecular dynamics simulations, to achieve efficient <italic toggle="yes">de novo</italic> design of highly active antifungal peptides. Moreover, we strive to improve the transparency of the model's decision‐making process and analyze the specific mechanism of the model in key sequence feature extraction and activity prediction through feature visualization and causal analysis.</p></sec><sec id="advs11087-sec-0140"><label>4</label><title>Conclusion</title><p>We successfully developed a <italic toggle="yes">de novo</italic> design method for c_AFPs called DL‐QSARES. This pipeline generates sequences through the compositions of dominant amino acids and dipeptides, followed by sequence screening using a combination of deep learning and QSAR empirical screening. Using the DL‐QSARES approach, we <italic toggle="yes">de novo</italic> designed 49 c_AFPs, and remarkably, all of them exhibited high antifungal activity (positive rate = 100%) against a wide range of tested pathogens (<italic toggle="yes">C. albicans</italic>, <italic toggle="yes">C. tropicalis</italic>, and <italic toggle="yes">C. parapsilosis</italic>). The AFP prediction model we developed, ESM2‐AFPpred, outperformed SOTA models such as Deep‐AFPpred, AI4AMP, and Antifp_Main in terms of comprehensive performance, which was crucial to our success. In addition, we evaluated the generalizability of the developed DL‐QSARES method using tridecapeptides, and the results demonstrated that our method was effective. Among the 49 promising c_AFPs selected in the final screening, four of the major candidates (AFP‐8, ‐10, ‐11, and ‐13) presented MICs of &lt;10 µg mL<sup>−1</sup> against the four tested pathogenic fungi. Notably, AFP‐13 demonstrated excellent therapeutic efficacy in a <italic toggle="yes">Candida albicans</italic> infection mouse model. The sequences of these c_AFPs have not been reported, indicating their novelty and potential application. Our study not only provides innovative ideas and methods for the development of antifungal peptides but also lays the foundation for future research in related fields and promotes the development of antifungal drugs.</p></sec><sec id="advs11087-sec-0150"><label>5</label><title>Experimental Section</title><sec id="advs11087-sec-0180"><title>Dataset</title><p>This study's training and validation sets were taken from Deep‐AFPpred.<sup>[</sup>
+<xref rid="advs11087-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>
+<sup>]</sup> In the Deep‐AFPpred dataset, positive samples were collected from the CAMP,<sup>[</sup>
+<xref rid="advs11087-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>
+<sup>]</sup> DRAMP,<sup>[</sup>
+<xref rid="advs11087-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>
+<sup>]</sup> and StarPep<sup>[</sup>
+<xref rid="advs11087-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref>
+<sup>]</sup> databases for AFP sequences of length ∈ [5,30], and negative samples were randomly generated from the Swiss‐Prot database. Positive samples for the independent test set were screened from the APD3 database<sup>[</sup>
+<xref rid="advs11087-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref>
+<sup>]</sup> for AFP sequences of length ∈ [5,30] that were not duplicated from the training and validation sets. Negative samples were composed of manually reviewed and annotated proteins from the UniPort database that did not contain any of the following keywords: Activator [KW‐0010], Antibiotic [KW‐0044], Antioxidant [KW‐0049], Bacteriolytic enzyme [KW‐0081], Fungicide [KW‐0295], Hormone [KW‐0372], Hypotensive agent [KW‐0382], Lantibiotic [KW‐0425], Antimicrobial [KW‐0929], Antiviral protein [KW‐0930], Antiviral defense [KW‐0051], Repressor [KW‐0678], Protease inhibitor [KW‐0646], Defensin [KW‐0211], Insecticide resistance [KW‐0978], Chemotaxis [KW‐0145], Antifungal, Effector, Wound healing, Spermicidal, Antibacterial Spermicidal, Antibacterial, Antimalarial, Antiparastal, Anticancer, Anti‐HIV. Notably, unlike Deep‐AFPpred, this study repartitioned the training and validation sets at an 8:2 ratio. The former was used to train the model for the classification task of the AFP, and the latter was used to tune the model's hyperparameters. The positive and negative samples in the training and validation sets in this study have the same distribution, and the dataset details are shown in Table <xref rid="advs11087-supinfo-0001" ref-type="">S7</xref> and Figure <xref rid="advs11087-supinfo-0001" ref-type="">S4</xref> (Supporting Information).</p></sec><sec id="advs11087-sec-0190"><title>Antifungal Peptide De Novo Design</title><p>The anti‐<italic toggle="yes">Candida</italic> dodecapeptides in APD3 and DRAMP (48 in total) were analyzed by AAC and DPC calculations to obtain the dominant amino acid and dominant dipeptide compositions at each position. AAC and DPC are the basis for determining whether the amino acids present in the fixed positions of existing dodecapeptides are dominant amino acids:
+<disp-formula id="advs11087-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mrow><mml:mi>AAC</mml:mi><mml:mspace width="0.33em"/></mml:mrow><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mi>A</mml:mi><mml:mfenced open="(" close=")"><mml:mi>x</mml:mi></mml:mfenced></mml:mrow><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>x</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mn>20</mml:mn></mml:msubsup><mml:mi>A</mml:mi><mml:mfenced open="(" close=")"><mml:mi>x</mml:mi></mml:mfenced></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<disp-formula id="advs11087-disp-0002">
+<label>(2)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="block"><mml:mrow><mml:mrow><mml:mrow><mml:mi>DPC</mml:mi><mml:mspace width="0.33em"/></mml:mrow><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mi>D</mml:mi><mml:mfenced open="(" close=")"><mml:mi>x</mml:mi></mml:mfenced></mml:mrow><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>x</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mn>400</mml:mn></mml:msubsup><mml:mi>D</mml:mi><mml:mfenced open="(" close=")"><mml:mi>x</mml:mi></mml:mfenced></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>Among them, <italic toggle="yes">A</italic>(<italic toggle="yes">x</italic>) represents all amino acids appearing at each position, and <italic toggle="yes">D</italic>(<italic toggle="yes">x</italic>) represents all dipeptide compositions. In order to reduce the calculation demands and obtain peptides with the highest theoretically predicted antifungal activity, the number of dominant amino acids at each position is controlled to be 1–4. Therefore, the threshold value of the dominant amino acid is set to 10%, and the threshold value of the dominant dipeptide composition is set to 30%.<sup>[</sup>
+<xref rid="advs11087-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref>
+<sup>]</sup> Amino acids that satisfy the set threshold were used as the dominant amino acid at each position of c_AFPs, and c_AFP sequences were generated according to the following rules:
+<disp-formula id="advs11087-disp-0003">
+<label>(3)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="block"><mml:mrow><mml:mrow><mml:mi>A</mml:mi><mml:mn>1</mml:mn><mml:mo linebreak="badbreak">×</mml:mo><mml:mi>A</mml:mi><mml:mn>2</mml:mn><mml:mo linebreak="goodbreak">×</mml:mo><mml:mtext>…</mml:mtext><mml:mo linebreak="goodbreak">×</mml:mo><mml:mi>A</mml:mi><mml:mi>n</mml:mi><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfenced separators="" open="{" close="}"><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>x</mml:mi><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mtext>…</mml:mtext><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mi>n</mml:mi></mml:mrow></mml:mfenced><mml:mo stretchy="false">|</mml:mo><mml:mi>x</mml:mi><mml:mi>i</mml:mi><mml:mo>∈</mml:mo><mml:mi>A</mml:mi><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>i</mml:mi><mml:mo linebreak="goodbreak">=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mtext>…</mml:mtext><mml:mo>,</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <italic toggle="yes">An</italic> represents the set of dominant amino acids at the <italic toggle="yes">n</italic>th position of the c_AFPs to be generated. The number of generated c_AFPs is determined by the number of dominant amino acids at each position.</p><p>Notably, to ensure that the predicted antifungal activity against <italic toggle="yes">Candida spp</italic>. of the c_AFPs obtained from the <italic toggle="yes">de novo</italic> design was greater, the density distributions of three physicochemical properties were analyzed, namely, Net Charge,<sup>[</sup>
+<xref rid="advs11087-bib-0040" ref-type="bibr">
+<sup>40</sup>
+</xref>
+<sup>]</sup> GRAVY,<sup>[</sup>
+<xref rid="advs11087-bib-0041" ref-type="bibr">
+<sup>41</sup>
+</xref>
+<sup>]</sup> and Wimley‐White hydrophobicity,<sup>[</sup>
+<xref rid="advs11087-bib-0042" ref-type="bibr">
+<sup>42</sup>
+</xref>
+<sup>]</sup> for all lengths of anti‐<italic toggle="yes">Candida</italic> peptides from ADP3 and DRAMP. These analyses were then used as a reference for screening c_AFPs.</p><p>BLAST (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" ext-link-type="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</ext-link>) from the National Center for Biotechnology Information for proteins is a commonly used bioinformatics tool for comparing the similarity of protein sequences. BLAST identifies sequences that are highly similar to the designed sequence by aligning them with known protein sequences in the database.<sup>[</sup>
+<xref rid="advs11087-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref>
+<sup>]</sup> Therefore, BLAST helps to screen the designed peptides with novel sequences. Here, BLAST was used to compare the sequences of <italic toggle="yes">de novo</italic> designed c_AFPs with those in the nr database.</p></sec><sec id="advs11087-sec-0200"><title>AFP Classification Model</title><p>The architecture of the classifier consists of two modules: feature extraction and classification. In the feature extraction module, inspired by the successful application of the transformer‐based pre‐trained model in various protein sequence representation tasks, the pre‐trained protein model ESM‐2 was chosen as a feature extractor for contextual semantic information of peptides.<sup>[</sup>
+<xref rid="advs11087-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="advs11087-bib-0044" ref-type="bibr">
+<sup>44</sup>
+</xref>, <xref rid="advs11087-bib-0045" ref-type="bibr">
+<sup>45</sup>
+</xref>, <xref rid="advs11087-bib-0046" ref-type="bibr">
+<sup>46</sup>
+</xref>
+<sup>]</sup> ESM‐2 is a protein model trained on a masked language modeling target, and features learned using millions of sequences in the Uniref50 dataset are implemented for classifying AFPs. Then, a MLP was used to obtain the feature representations generated by ESM‐2 and obtain classification results for the AFPs. ESM‐2 automatically extracts high‐dimensional features from peptide sequences that include contextual information about the amino acid sequence and potential functional properties. Additional filtering on these features was not performed but directly used the features extracted by ESM‐2 as input to the MLP for training. The MLP uses contextual semantic features extracted by ESM‐2 as the basis for antifungal peptide classification. The combination of the above two algorithms enables the prediction of antifungal activity for novel sequences.</p><p>In this study, Accuracy (Acc), Precision (Pre), Recall (Rec), and Matthews correlation coefficient (MCC) were used as model evaluation metrics, which were calculated as follows:
+<disp-formula id="advs11087-disp-0004">
+<label>(4)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="block"><mml:mrow><mml:mrow><mml:mi>Acc</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mi>TP</mml:mi><mml:mo>+</mml:mo><mml:mi>TN</mml:mi></mml:mrow><mml:mrow><mml:mi>TP</mml:mi><mml:mo>+</mml:mo><mml:mi>TN</mml:mi><mml:mo>+</mml:mo><mml:mi>FP</mml:mi><mml:mo>+</mml:mo><mml:mi>FN</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<disp-formula id="advs11087-disp-0005">
+<label>(5)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="block"><mml:mrow><mml:mrow><mml:mi>Pre</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mi>TP</mml:mi><mml:mrow><mml:mi>TP</mml:mi><mml:mo>+</mml:mo><mml:mi>FP</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<disp-formula id="advs11087-disp-0006">
+<label>(6)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-6" display="block"><mml:mrow><mml:mrow><mml:mi>Rec</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mi>TP</mml:mi><mml:mrow><mml:mi>TP</mml:mi><mml:mo>+</mml:mo><mml:mi>FN</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<disp-formula id="advs11087-disp-0007">
+<label>(7)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-7" display="block"><mml:mrow><mml:mrow><mml:mi>MCC</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>TP</mml:mi><mml:mo>×</mml:mo><mml:mi>TN</mml:mi></mml:mrow></mml:mfenced><mml:mo>−</mml:mo><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>FP</mml:mi><mml:mo>×</mml:mo><mml:mi>FN</mml:mi></mml:mrow></mml:mfenced></mml:mrow><mml:msqrt><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>TP</mml:mi><mml:mo>+</mml:mo><mml:mi>FP</mml:mi></mml:mrow></mml:mfenced><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>TP</mml:mi><mml:mo>+</mml:mo><mml:mi>FN</mml:mi></mml:mrow></mml:mfenced><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>TN</mml:mi><mml:mo>+</mml:mo><mml:mi>FP</mml:mi></mml:mrow></mml:mfenced><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>TN</mml:mi><mml:mo>+</mml:mo><mml:mi>FN</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msqrt></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>TP, TN, FP, and FN represent the numbers of true positives, true negatives, false positives, and false negatives, respectively.</p></sec><sec id="advs11087-sec-0210"><title>Peptide Synthesis and Purification</title><p>The final screened c_AFPs were synthesized by a solid‐phase peptide synthesis method using an amino resin as a carrier and amino acids with protecting groups as raw materials.<sup>[</sup>
+<xref rid="advs11087-bib-0047" ref-type="bibr">
+<sup>47</sup>
+</xref>
+<sup>]</sup> The Rinkamide‐AM resin was first shaking swelled with Dichloromethane (DCM) in a synthesis tube overnight and then incubated with 20% piperidine in N, N‐dimethylformamide (DMF) for 0.5 h to remove the protecting group Fmoc from the resin. The resin was then cross‐cleaned using DCM and DMF three times. Amino acids were sequentially coupled to the resin using DMF as solvent and 1‐Hydroxybenzotriazole /N, N′‐Diisopropylcarbodiimide as coupling agent. After each splicing of amino acids, the Fmoc protecting group was removed with 20% piperidine in DMF, and the process was repeated until all amino acids were coupled and Fmoc was completely spliced. At last, the polypeptides were cleaved from the resin using 1,3‐dimethoxy benzene/triisopropylsilane/methyl phenyl sulfide/phenol/water/trifluoroacetic acid (1:1:2:3:1:35). The peptides were finally precipitated by ice ether to obtain the crude c_AFPs in powder form. The c_AFPs crudes were purified by semi‐preparative high‐performance liquid chromatography (GX‐271, GILSON, USA) on a CAPCELL PAK C18 column (9.4 × 250 mm, 5 µm) using ultrapure water and ethyl ether as mobile phases, with a detection wavelength of 214 nm and a sub‐wavelength of 254 nm.<sup>[</sup>
+<xref rid="advs11087-bib-0048" ref-type="bibr">
+<sup>48</sup>
+</xref>
+<sup>]</sup>
+</p></sec><sec id="advs11087-sec-0220"><title>Minimal Inhibitory Concentration (MIC) Measurement</title><p>The microdilution method was used to determine the MIC of c_AFPs.<sup>[</sup>
+<xref rid="advs11087-bib-0049" ref-type="bibr">
+<sup>49</sup>
+</xref>
+<sup>]</sup> In 96‐well plates, the candidate peptides were serially diluted in two folds with 100 µL phosphate‐buffered saline (PBS, 20 m<sc>m</sc>, pH 6.0 for fungi) at the 0–1000 µg mL<sup>−1</sup> concentration range in each well line. Subsequently, an equal volume of the tested fungal suspension in the logarithmic growth phase(1 × 10<sup>6</sup> colony forming units mL<sup>−1</sup>, CFU mL<sup>−1</sup>) was added and incubated for 20 h at 30 °C. Sabouraud's Dextrose (SD) broth was set as a blank control, and the fungi suspension without peptides was set as a negative control. The Methylthialazole Tetrazolium staining method was used to calculate the MIC of the screened c_AFPs. Each experiment was replicated three times.</p></sec><sec id="advs11087-sec-0230"><title>Hemolysis Assay</title><p>A 2% fresh human red blood cells (HRBCs) suspension was used in the hemolysis assay of c_AFPs.<sup>[</sup>
+<xref rid="advs11087-bib-0048" ref-type="bibr">
+<sup>48</sup>
+</xref>, <xref rid="advs11087-bib-0050" ref-type="bibr">
+<sup>50</sup>
+</xref>
+<sup>]</sup> The c_AFPs solution was prepared in saline with a concentration range of 0–0.5 mg mL<sup>−1</sup>. Then, 2% HRBCs suspension was incubated with different concentrations of c_AFPs in a 96‐well plate (37 °C, 30 min). Finally, the amount of hemoglobin released after erythrocyte lysis was measured at 540 nm to calculate the minimum hemolytic concentration of the peptide that results in 5% human erythrocyte hemolysis (MHC<sub>5</sub>). Saline was used as a negative control, and Triton X‐100 (1%) was used as a positive control. Each experiment was replicated three times.</p></sec><sec id="advs11087-sec-0240"><title>Assessment of Resistance Induction and Inhibition of Fluconazole‐Resistant <italic toggle="yes">C. albicans</italic> by c_AFPs</title><p>The resistance tendency of c_AFPs developed in <italic toggle="yes">C. albicans</italic> was assessed utilizing a continuous passaging culture.<sup>[</sup>
+<xref rid="advs11087-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="advs11087-bib-0051" ref-type="bibr">
+<sup>51</sup>
+</xref>
+<sup>]</sup> 20 µL of <italic toggle="yes">C. albicans</italic> suspension was added to 2 mL of SD broth containing 0.5 × MIC c_AFPs/antibiotic and incubated for 24 h (28 °C, 180 rpm). Subsequently, 20 µL of culture was transferred to a fresh SD broth with the same concentration of c_AFPs/antibiotic. The concentrations of c_AFPs/antibiotic in the SD broth were doubled every 10 generations, and the MICs of the c_AFPs/antibiotic were detected every 5 generations. Each 24‐hour incubation was considered one generation. PBS (pH 6.0) was used as a blank control, and fluconazole was used as an antibiotic control. Each experiment was performed three times.</p><p>Fluconazole‐resistant <italic toggle="yes">C. albicans</italic> was prepared following the established methods.<sup>[</sup>
+<xref rid="advs11087-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="advs11087-bib-0051" ref-type="bibr">
+<sup>51</sup>
+</xref>, <xref rid="advs11087-bib-0052" ref-type="bibr">
+<sup>52</sup>
+</xref>
+<sup>]</sup>
+<italic toggle="yes">C. albicans</italic> were cultivated in an SD broth medium containing fluconazole (100 × MIC) for 24 h (28 °C, 180 rpm), and the surviving cells were fluconazole‐resistant <italic toggle="yes">C. albicans</italic>. 1 × 10<sup>6</sup> CFU mL<sup>−1</sup> of the fluconazole‐resistant <italic toggle="yes">C. albicans</italic> were treated with c_AFPs (1.9–500 µg mL<sup>−1</sup>) in 96‐well plates (28 °C, 12 h), and the survival rate of the cells at different multiplicities of MIC was determined by the absorbance at 540 nm. Meanwhile, 20 µL of the culture at different multiplicities of MIC was coated on SD agar medium to record the grown colonies (37 °C, 16 h), and the minimum fungicidal concentration, which was the lowest concentration for killing fluconazole‐resistant <italic toggle="yes">C. albicans</italic>, was calculated.</p></sec><sec id="advs11087-sec-0250"><title>Mechanism of Action</title><p>The morphology and ultrastructure of <italic toggle="yes">C. albicans</italic> cells post‐treatment of c_AFPs were investigated using a previous method.<sup>[</sup>
+<xref rid="advs11087-bib-0053" ref-type="bibr">
+<sup>53</sup>
+</xref>
+<sup>]</sup>
+<italic toggle="yes">C. albicans</italic> suspension (1 × 10<sup>6</sup> CFU mL<sup>−1</sup>) was centrifuged and washed with PBS buffer to remove the supernatant. The precipitated cells were incubated with c_AFPs solution (1 × MIC) in SD broth at 28 °C for 3, 6, and 9 h. At the end of the incubation, the supernatant was removed by centrifugation (4 °C, 3000 rpm, 5 min), and the precipitate was subsequently performed SEM and TEM.</p><p>For SEM, the cell precipitate was dehydrated in serious concentrations of ethanol (30%, 50%, 70%, 90%, and 100%), ethanol and tert‐butanol mixture (1:1), and pure tert‐butanol. Finally, the samples were freeze‐dried and observed under SEM (Quanta FEG 250, FEI, USA). PBS (0.02 M, pH 7.2) was used as a control.</p><p>For TEM, the cell precipitate was successively freeze‐dried, embedded in resin, and sectioned. Subsequently, they were stained using lead and uranium and dried overnight at room temperature before being observed using TEM (Talos L120C, Thermofisher, USA). PBS (0.02 M, pH 7.2) was used as a control.</p></sec><sec id="advs11087-sec-0260"><title>In Vivo Therapeutic Efficacy of c_AFPs</title><p>The systemic <italic toggle="yes">C. albicans</italic> infection mouse model was established following the reported reference.<sup>[</sup>
+<xref rid="advs11087-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>
+<sup>]</sup> Cyclophosphamide (150 mg kg<sup>−1</sup> d<sup>−1</sup>) was first injected intraperitoneally for 3 days to disrupt the immunity of female Kunming mice (Experimental Animal Center of Zhengzhou University, SCXK Yu 2021–0009). Five groups were set for in vivo therapeutic efficacy detection of AFP‐13: a negative control group, injected intraperitoneally with 200 µL of 0.9% NaCl, <italic toggle="yes">n</italic> = 30; a fluconazole group, injected intraperitoneally with 0.12 mg kg<sup>−1</sup> of fluconazole, 200 µL, <italic toggle="yes">n</italic> = 30; and 0.4 mg kg<sup>−1</sup> dose of AFP‐13 group, injected intraperitoneally with 0.4 mg kg<sup>−1</sup> of AFP‐13, 200 µL, <italic toggle="yes">n</italic> = 30; 0.8 mg kg<sup>−1</sup> dose of AFP‐13 group, injected intraperitoneally with 0.8 mg kg<sup>−1</sup> of AFP‐13, 200 µL, <italic toggle="yes">n</italic> = 30; and a normal mice group, which the health mice were intraperitoneally injected with 0.9% NaCl, 200 µL, <italic toggle="yes">n</italic> = 30. The injections were given once every 24 h during the first week and once every 48 h during the second week. Survival rates and body weights of the mice in each group were recorded during treatment. At 0, 7, and 14 d of treatment, duplicate samples (<italic toggle="yes">n</italic> = 3) of the spleen and thymus were collected from each group to determine the immune organ index.<sup>[</sup>
+<xref rid="advs11087-bib-0054" ref-type="bibr">
+<sup>54</sup>
+</xref>
+<sup>]</sup> The ratio of organ weight to body weight was adopted to describe the immune organ index. At 14 d of treatment, liver, lung, kidney, and spleen tissues were collected from each group of mice and immersed in 4% paraformaldehyde fixative. Subsequently, the tissue samples were embedded in paraffin, followed by sectioned and stained with hematoxylin‐eosin (H&amp;E). Finally, optical microscopy was used to observe the pathological changes in the organ tissues of the mice.</p><p>All animal experiments were performed according to the protocols approved by the Institutional Animal Care and Use Committee of Zhengzhou University (Approval No: ZZUIRB 2023–007).</p></sec><sec id="advs11087-sec-0270"><title>Statistical Analysis</title><p>In this study, Origin 2022 and GraphPad Prism 10.1.2 were used for data processing. The results are presented as the mean ± standard deviation of three independent experiments and evaluated for statistical significance using a one‐way analysis of variance. Intergroup differences are defined as statistically significant when <italic toggle="yes">p</italic> &lt; 0.05 and are represented by different letters. When <italic toggle="yes">p</italic> ≥ 0.05, there is no significant difference between the groups, represented by the same letter.</p></sec></sec><sec sec-type="COI-statement" id="advs11087-sec-0290"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec><sec id="advs11087-sec-0300"><title>Author Contributions</title><p>K.Y. and R.L. contributed equally to this work. R.L., D.X., W.X., and L.H. performed conceptualization; K.Y., S.Z., Y.S., and M.J. performed methodology; K.Y., S.Z., and Y.S. performed investigation; K.Y. and R.L. performed visualization; R.L., D.X., and W.X. performed supervision; K.Y. and R.L. write‒original draft; R.L. wrote and reviewed the original draft and edited the manuscript.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs11087-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs11087-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>Supporting Information</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-12-2412488-s002.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs11087-supitem-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>Supporting Data</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-12-2412488-s001.xlsx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs11087-sec-0280"><title>Acknowledgements</title><p>This work was supported by the National Natural Science Foundation of China (32471309) and the Natural Science Foundation of Henan Province (2323000421165). The authors extend sincere gratitude to Anna Du and Pei Zhang of the Institutional Center for Shared Technologies and Facilities of Wuhan Institute of Virology for their technical support in transmission electron microscopy.</p></ack><sec sec-type="data-availability" id="advs11087-sec-0320"><title>Data Availability Statement</title><p>The data that support the findings of this study are openly available in GitHub at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/DongYin521/AFP_DL-QSARES" ext-link-type="uri" specific-use="software is-supplemented-by">https://github.com/DongYin521/AFP_DL‐QSARES</ext-link>.</p></sec><ref-list id="advs11087-bibl-0001"><ref id="advs11087-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs11087-cite-0001">
+<string-name name-style="western">
+<given-names>C. J. L.</given-names>
+<surname>Murray</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. S.</given-names>
+<surname>Ikuta</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Sharara</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Swetschinski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Robles Aguilar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Gray</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Bisignano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Rao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Wool</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. C.</given-names>
+<surname>Johnson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Browne</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. G.</given-names>
+<surname>Chipeta</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Fell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hackett</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Haines‐Woodhouse</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. H.</given-names>
+<surname>Kashef Hamadani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. A. P.</given-names>
+<surname>Kumaran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>McManigal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Achalapong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Agarwal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Akech</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Albertson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Amuasi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Andrews</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Aravkin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Ashley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.‐X.</given-names>
+<surname>Babin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Bailey</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Baker</surname>
+</string-name>, et al., <source>Lancet</source>
+<year>2022</year>, <volume>399</volume>, <fpage>629</fpage>.35065702
+</mixed-citation></ref><ref id="advs11087-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs11087-cite-0002">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Cui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Lü</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Yue</surname>
+</string-name>, <source>J. Infect. Public Health</source>
+<year>2022</year>, <volume>15</volume>, <fpage>986</fpage>.<pub-id pub-id-type="pmid">35981408</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jiph.2022.08.004</pub-id></mixed-citation></ref><ref id="advs11087-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs11087-cite-0003">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Puumala</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Robbins</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. E.</given-names>
+<surname>Cowen</surname>
+</string-name>, <source>Chem. Rev.</source>
+<year>2021</year>, <volume>121</volume>, <fpage>3390</fpage>.<pub-id pub-id-type="pmid">32441527</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.chemrev.0c00199</pub-id><pub-id pub-id-type="pmcid">PMC8519031</pub-id></mixed-citation></ref><ref id="advs11087-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs11087-cite-0004">
+<string-name name-style="western">
+<given-names>Q.‐Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.‐B.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐M.</given-names>
+<surname>Meng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.‐Y.</given-names>
+<surname>Hong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Shao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐J.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.‐R.</given-names>
+<surname>Cheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Kang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Fu</surname>
+</string-name>, <source>Mil. Med. Res.</source>
+<year>2021</year>, <volume>8</volume>, <fpage>48</fpage>.<pub-id pub-id-type="pmid">34496967</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s40779-021-00343-2</pub-id><pub-id pub-id-type="pmcid">PMC8425997</pub-id></mixed-citation></ref><ref id="advs11087-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs11087-cite-0005">
+<string-name name-style="western">
+<given-names>J. R.</given-names>
+<surname>Randall</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. C.</given-names>
+<surname>Vieira</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. O.</given-names>
+<surname>Wilke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. W.</given-names>
+<surname>Davies</surname>
+</string-name>, <source>Nat. Biomed. Eng.</source>
+<year>2024</year>, <volume>8</volume>, <fpage>842</fpage>.<pub-id pub-id-type="pmid">39085646</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41551-024-01243-1</pub-id><pub-id pub-id-type="pmcid">PMC12044605</pub-id></mixed-citation></ref><ref id="advs11087-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs11087-cite-0006">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Yao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐R.</given-names>
+<surname>Chung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Guan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.</given-names>
+<surname>Chiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐Y.</given-names>
+<surname>Lee</surname>
+</string-name>, <source>Protein Sci.</source>
+<year>2023</year>, <volume>32</volume>, <fpage>4758</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/pro.4758</pub-id><pub-id pub-id-type="pmcid">PMC10503419</pub-id><pub-id pub-id-type="pmid">37595093</pub-id></mixed-citation></ref><ref id="advs11087-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs11087-cite-0007">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Das</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Sercu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Wadhawan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Padhi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Gehrmann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Cipcigan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Chenthamarakshan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Strobelt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>dos Santos</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.‐Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P. K.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Hedrick</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Crain</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Mojsilovic</surname>
+</string-name>, <source>Nat. Biomed. Eng.</source>
+<year>2021</year>, <volume>5</volume>, <fpage>613</fpage>.<pub-id pub-id-type="pmid">33707779</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41551-021-00689-x</pub-id></mixed-citation></ref><ref id="advs11087-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs11087-cite-0008">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Xia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Tong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Nat. Biotechnol.</source>
+<year>2022</year>, <volume>40</volume>, <fpage>921</fpage>.<pub-id pub-id-type="pmid">35241840</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41587-022-01226-0</pub-id></mixed-citation></ref><ref id="advs11087-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs11087-cite-0009">
+<string-name name-style="western">
+<given-names>H.‐H.</given-names>
+<surname>Cheong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zuo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐W.</given-names>
+<surname>Un</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐W.</given-names>
+<surname>Si</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. H.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. F.</given-names>
+<surname>Kwok</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. W. I.</given-names>
+<surname>Siu</surname>
+</string-name>, <source>J. Chem. Inf. Model.</source>
+<year>2024</year>, <volume>64</volume>, <fpage>6174</fpage>.<pub-id pub-id-type="pmid">39008832</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jcim.4c00501</pub-id></mixed-citation></ref><ref id="advs11087-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs11087-cite-0010">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ji</surname>
+</string-name>, <source>Nat. Biomed. Eng.</source>
+<year>2023</year>, <volume>7</volume>, <fpage>797</fpage>.<pub-id pub-id-type="pmid">36635418</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41551-022-00991-2</pub-id></mixed-citation></ref><ref id="advs11087-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs11087-cite-0011">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. F.</given-names>
+<surname>Kwok</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. W. I.</given-names>
+<surname>Siu</surname>
+</string-name>, <source>Comput. Biol. Med.</source>
+<year>2022</year>, <volume>147</volume>, <elocation-id>105717</elocation-id>.<pub-id pub-id-type="pmid">35752114</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.compbiomed.2022.105717</pub-id></mixed-citation></ref><ref id="advs11087-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs11087-cite-0012">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.‐X.</given-names>
+<surname>Campbell‐Valois</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. I.</given-names>
+<surname>Siu Shirley</surname>
+</string-name>, <source>mSystems</source>
+<year>2023</year>, <volume>8</volume>, <elocation-id>00345</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1128/msystems.00345-23</pub-id><pub-id pub-id-type="pmcid">PMC10506472</pub-id><pub-id pub-id-type="pmid">37431995</pub-id></mixed-citation></ref><ref id="advs11087-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs11087-cite-0013">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Cao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ge</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. J.</given-names>
+<surname>Harvey</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Jia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Mobli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. J.</given-names>
+<surname>Craik</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Chang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Yu</surname>
+</string-name>, <source>Briefings Bioinf.</source>
+<year>2023</year>, <volume>24</volume>, <elocation-id>bbad058</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbad058</pub-id><pub-id pub-id-type="pmid">36857616</pub-id></mixed-citation></ref><ref id="advs11087-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs11087-cite-0014">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Tian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Liang</surname>
+</string-name>, <source>ACS Med. Chem. Lett.</source>
+<year>2022</year>, <volume>13</volume>, <fpage>99</fpage>.<pub-id pub-id-type="pmid">35059128</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsmedchemlett.1c00556</pub-id><pub-id pub-id-type="pmcid">PMC8762751</pub-id></mixed-citation></ref><ref id="advs11087-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs11087-cite-0015">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Tropsha</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Isayev</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Varnek</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Schneider</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Cherkasov</surname>
+</string-name>, <source>Nat. Rev. Drug Discovery</source>
+<year>2024</year>, <volume>23</volume>, <fpage>141</fpage>.<pub-id pub-id-type="pmid">38066301</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41573-023-00832-0</pub-id></mixed-citation></ref><ref id="advs11087-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs11087-cite-0016">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Sharma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Shrivastava</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. K</given-names>
+<surname>Singh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kumar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Saxena</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. K</given-names>
+<surname>Singh</surname>
+</string-name>, <source>Briefings Bioinf.</source>
+<year>2022</year>, <volume>23</volume>, <elocation-id>bbab422</elocation-id>.</mixed-citation></ref><ref id="advs11087-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs11087-cite-0017">
+<string-name name-style="western">
+<given-names>T.‐T.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.‐Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I. H.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.‐C.</given-names>
+<surname>Cheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.‐R.</given-names>
+<surname>Hsu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.‐H.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Lin</surname>
+</string-name>, <source>mSystems</source>
+<year>2021</year>, <volume>6</volume>, <elocation-id>00299</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1128/mSystems.00299-21</pub-id><pub-id pub-id-type="pmcid">PMC8594441</pub-id><pub-id pub-id-type="pmid">34783578</pub-id></mixed-citation></ref><ref id="advs11087-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs11087-cite-0018">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Agrawal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Bhalla</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Chaudhary</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Kumar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Sharma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. P. S.</given-names>
+<surname>Raghava</surname>
+</string-name>, <source>Front. Microbiol.</source>
+<year>2018</year>, <volume>9</volume>, <fpage>323</fpage>.<pub-id pub-id-type="pmid">29535692</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fmicb.2018.00323</pub-id><pub-id pub-id-type="pmcid">PMC5834480</pub-id></mixed-citation></ref><ref id="advs11087-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs11087-cite-0019">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Abramson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Adler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Dunger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Evans</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Green</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Pritzel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Ronneberger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Willmore</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Ballard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Bambrick</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. W.</given-names>
+<surname>Bodenstein</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. A.</given-names>
+<surname>Evans</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐C.</given-names>
+<surname>Hung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>O'Neill</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Reiman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Tunyasuvunakool</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Žemgulytė</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Arvaniti</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Beattie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Bertolli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Bridgland</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Cherepanov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Congreve</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. I.</given-names>
+<surname>Cowen‐Rivers</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Cowie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Figurnov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. B.</given-names>
+<surname>Fuchs</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Gladman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Jain</surname>
+</string-name>, et al., <source>Nature</source>
+<year>2024</year>, <volume>630</volume>, <fpage>493</fpage>.<pub-id pub-id-type="pmid">38718835</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-024-07487-w</pub-id><pub-id pub-id-type="pmcid">PMC11168924</pub-id></mixed-citation></ref><ref id="advs11087-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs11087-cite-0020">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Gautier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Douguet</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Antonny</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Drin</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2008</year>, <volume>24</volume>, <fpage>2101</fpage>.<pub-id pub-id-type="pmid">18662927</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btn392</pub-id></mixed-citation></ref><ref id="advs11087-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs11087-cite-0021">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Artimo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jonnalagedda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Arnold</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Baratin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Csardi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>de Castro</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Duvaud</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Flegel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Fortier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Gasteiger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Grosdidier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Hernandez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Ioannidis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Kuznetsov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Liechti</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Moretti</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Mostaguir</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Redaschi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Rossier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Xenarios</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Stockinger</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2012</year>, <volume>40</volume>, <fpage>W597</fpage>.<pub-id pub-id-type="pmid">22661580</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gks400</pub-id><pub-id pub-id-type="pmcid">PMC3394269</pub-id></mixed-citation></ref><ref id="advs11087-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs11087-cite-0022">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yi</surname>
+</string-name>, <source>Biochem. Pharmacol.</source>
+<year>2023</year>, <volume>211</volume>, <elocation-id>115535</elocation-id>.<pub-id pub-id-type="pmid">37019190</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.bcp.2023.115535</pub-id></mixed-citation></ref><ref id="advs11087-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs11087-cite-0023">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Zou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <source>Life Sci.</source>
+<year>2024</year>, <volume>350</volume>, <elocation-id>122767</elocation-id>.<pub-id pub-id-type="pmid">38843993</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.lfs.2024.122767</pub-id></mixed-citation></ref><ref id="advs11087-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs11087-cite-0024">
+<string-name name-style="western">
+<given-names>R. S. K.</given-names>
+<surname>Vijayan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Kihlberg</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. B.</given-names>
+<surname>Cross</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Poongavanam</surname>
+</string-name>, <source>Drug Discovery Today</source>
+<year>2022</year>, <volume>27</volume>, <fpage>967</fpage>.<pub-id pub-id-type="pmid">34838731</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.drudis.2021.11.023</pub-id></mixed-citation></ref><ref id="advs11087-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs11087-cite-0025">
+<string-name name-style="western">
+<given-names>J.‐L.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.‐Q.</given-names>
+<surname>Dai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.‐B.</given-names>
+<surname>Li</surname>
+</string-name>, <source>Drug Discovery Today</source>
+<year>2022</year>, <volume>27</volume>, <fpage>1796</fpage>.<pub-id pub-id-type="pmid">34718208</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.drudis.2021.10.010</pub-id></mixed-citation></ref><ref id="advs11087-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs11087-cite-0026">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. M.</given-names>
+<surname>Saravanan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Yi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. Z. H.</given-names>
+<surname>Zhang</surname>
+</string-name>, <source>Briefings Bioinf.</source>
+<year>2022</year>, <volume>23</volume>, <elocation-id>bbac226</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbac226</pub-id><pub-id pub-id-type="pmid">35724626</pub-id></mixed-citation></ref><ref id="advs11087-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs11087-cite-0027">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Li</surname>
+</string-name>, <source>Briefings Bioinf.</source>
+<year>2023</year>, <volume>24</volume>, <elocation-id>bbac526</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbac526</pub-id><pub-id pub-id-type="pmid">36527428</pub-id></mixed-citation></ref><ref id="advs11087-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs11087-cite-0028">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xiang</surname>
+</string-name>, <source>Comput. Meth. Prog. Bio.</source>
+<year>2024</year>, <volume>244</volume>, <elocation-id>108003</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cmpb.2023.108003</pub-id><pub-id pub-id-type="pmid">38181572</pub-id></mixed-citation></ref><ref id="advs11087-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs11087-cite-0029">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Shen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, <source>Briefings Bioinf.</source>
+<year>2023</year>, <volume>24</volume>, <elocation-id>bbac605</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbac605</pub-id><pub-id pub-id-type="pmid">36575826</pub-id></mixed-citation></ref><ref id="advs11087-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs11087-cite-0030">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Cao</surname>
+</string-name>, <source>Briefings Bioinf</source>
+<year>2024</year>, <volume>25</volume>, <elocation-id>bbae133</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbae133</pub-id><pub-id pub-id-type="pmcid">PMC10985285</pub-id><pub-id pub-id-type="pmid">38561979</pub-id></mixed-citation></ref><ref id="advs11087-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs11087-cite-0031">
+<string-name name-style="western">
+<given-names>R. K.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Xie</surname>
+</string-name>, <source>Expert Opin. Drug Discovery</source>
+<year>2022</year>, <volume>17</volume>, <fpage>849</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/17460441.2022.2072288</pub-id><pub-id pub-id-type="pmcid">PMC9824901</pub-id><pub-id pub-id-type="pmid">35510835</pub-id></mixed-citation></ref><ref id="advs11087-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs11087-cite-0032">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Thirunavukarasu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. P. D. C</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>G. R.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Gopikrishnan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Palanisamy</surname>
+</string-name>, <source>Comput. Biol. Med.</source>
+<year>2022</year>, <volume>149</volume>, <elocation-id>106020</elocation-id>.<pub-id pub-id-type="pmid">36088715</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.compbiomed.2022.106020</pub-id></mixed-citation></ref><ref id="advs11087-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs11087-cite-0033">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Jin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Alsaikhan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Ahmad</surname>
+</string-name>, <source>J. Mol. Liq.</source>
+<year>2024</year>, <volume>398</volume>, <elocation-id>124193</elocation-id>.</mixed-citation></ref><ref id="advs11087-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs11087-cite-0034">
+<string-name name-style="western">
+<given-names>X.‐F.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐Y.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dorje</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐Q.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.‐W.</given-names>
+<surname>Ji</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.‐E.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.‐B.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Adv. Sci.</source>
+<year>2024</year>, <volume>11</volume>, <elocation-id>2406305</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/advs.202406305</pub-id><pub-id pub-id-type="pmcid">PMC11578372</pub-id><pub-id pub-id-type="pmid">39319609</pub-id></mixed-citation></ref><ref id="advs11087-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs11087-cite-0035">
+<string-name name-style="western">
+<given-names>F. H.</given-names>
+<surname>Waghu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Barai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Gurung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Idicula‐Thomas</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2016</year>, <volume>44</volume>, <elocation-id>D1094</elocation-id>.<pub-id pub-id-type="pmid">26467475</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkv1051</pub-id><pub-id pub-id-type="pmcid">PMC4702787</pub-id></mixed-citation></ref><ref id="advs11087-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs11087-cite-0036">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Kang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Dong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zheng</surname>
+</string-name>, <source>Sci. Data</source>
+<year>2019</year>, <volume>6</volume>, <fpage>148</fpage>.<pub-id pub-id-type="pmid">31409791</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41597-019-0154-y</pub-id><pub-id pub-id-type="pmcid">PMC6692298</pub-id></mixed-citation></ref><ref id="advs11087-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="advs11087-cite-0037">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Aguilera‐Mendoza</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Marrero‐Ponce</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Beltran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. T</given-names>
+<surname>Ibarra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. A.</given-names>
+<surname>Guillen‐Ramirez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Brizuela</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2019</year>, <volume>35</volume>, <fpage>4739</fpage>.<pub-id pub-id-type="pmid">30994884</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btz260</pub-id></mixed-citation></ref><ref id="advs11087-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="advs11087-cite-0038">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2016</year>, <volume>44</volume>, <elocation-id>D1087</elocation-id>.<pub-id pub-id-type="pmid">26602694</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkv1278</pub-id><pub-id pub-id-type="pmcid">PMC4702905</pub-id></mixed-citation></ref><ref id="advs11087-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="advs11087-cite-0039">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <source>Interdiscip. Sci.: Comput. Life Sci.</source>
+<year>2024</year>, <volume>16</volume>, <fpage>392</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s12539-024-00612-3</pub-id><pub-id pub-id-type="pmid">38416364</pub-id></mixed-citation></ref><ref id="advs11087-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="advs11087-cite-0040">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. I.</given-names>
+<surname>Vasil</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Hale</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. E. W.</given-names>
+<surname>Hancock</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. L.</given-names>
+<surname>Vasil</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Hodges</surname>
+</string-name>, <source>Pept. Sci.</source>
+<year>2008</year>, <volume>90</volume>, <fpage>369</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/bip.20911</pub-id><pub-id pub-id-type="pmcid">PMC2761230</pub-id><pub-id pub-id-type="pmid">18098173</pub-id></mixed-citation></ref><ref id="advs11087-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="advs11087-cite-0041">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Kyte</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. F.</given-names>
+<surname>Doolittle</surname>
+</string-name>, <source>J. Mol. Biol.</source>
+<year>1982</year>, <volume>157</volume>, <fpage>105</fpage>.<pub-id pub-id-type="pmid">7108955</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0022-2836(82)90515-0</pub-id></mixed-citation></ref><ref id="advs11087-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="advs11087-cite-0042">
+<string-name name-style="western">
+<given-names>W. C.</given-names>
+<surname>Wimley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>White</surname>
+</string-name>, <source>Nat. Struct. Biol.</source>
+<year>1996</year>, <volume>3</volume>, <fpage>842</fpage>.<pub-id pub-id-type="pmid">8836100</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nsb1096-842</pub-id></mixed-citation></ref><ref id="advs11087-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="advs11087-cite-0043">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Johnson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Zaretskaya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Raytselis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Merezhuk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>McGinnis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. L.</given-names>
+<surname>Madden</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2008</year>, <volume>36</volume>, <fpage>W5</fpage>.<pub-id pub-id-type="pmid">18440982</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkn201</pub-id><pub-id pub-id-type="pmcid">PMC2447716</pub-id></mixed-citation></ref><ref id="advs11087-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="advs11087-cite-0044">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Fang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Yuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.‐Q.</given-names>
+<surname>Wei</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2023</year>, <volume>39</volume>, <elocation-id>btad718</elocation-id>.<pub-id pub-id-type="pmid">38015872</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btad718</pub-id><pub-id pub-id-type="pmcid">PMC10723037</pub-id></mixed-citation></ref><ref id="advs11087-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="advs11087-cite-0045">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Akin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Rao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Hie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Smetanin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Verkuil</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Kabeli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Shmueli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>dos Santos Costa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Fazel‐Zarandi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Sercu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Candido</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Rives</surname>
+</string-name>, <source>Science</source>
+<year>2023</year>, <volume>379</volume>, <fpage>1123</fpage>.<pub-id pub-id-type="pmid">36927031</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.ade2574</pub-id></mixed-citation></ref><ref id="advs11087-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="advs11087-cite-0046">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Yuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <source>Briefings Bioinf</source>
+<year>2023</year>, <volume>24</volume>, <elocation-id>bbad117</elocation-id>.</mixed-citation></ref><ref id="advs11087-bib-0047"><label>47</label><mixed-citation publication-type="book" id="advs11087-cite-0047">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kremsmayr</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Muttenthaler</surname>
+</string-name>, in <source>Oxytocin, Methods in Molecular Biology</source>, (Eds.: <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>E. L.</given-names>
+<surname>Werry</surname>
+</string-name>
+</person-group>, <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>T. A.</given-names>
+<surname>Reekie</surname>
+</string-name>
+</person-group>, <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kassiou</surname>
+</string-name>
+</person-group>), vol <volume>2384</volume>, <publisher-name>Springer US</publisher-name>, <publisher-loc>New York, NY</publisher-loc>
+<year>2022</year>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/978-1-0716-1759-5_11</pub-id><pub-id pub-id-type="pmid">34550575</pub-id></mixed-citation></ref><ref id="advs11087-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="advs11087-cite-0048">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.‐H.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Zhang</surname>
+</string-name>, <source>Bioorg. Chem.</source>
+<year>2023</year>, <volume>132</volume>, <elocation-id>106355</elocation-id>.<pub-id pub-id-type="pmid">36669359</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.bioorg.2023.106355</pub-id></mixed-citation></ref><ref id="advs11087-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="advs11087-cite-0049">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Humphries Romney</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ambler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Mitchell Stephanie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Castanheira</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Dingle</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Hindler Janet</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Koeth</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Sei</surname>
+</string-name>, <source>J. Clin. Microbiol.</source>
+<year>2018</year>, <volume>56</volume>, <elocation-id>01934</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1128/JCM.01934-17</pub-id><pub-id pub-id-type="pmcid">PMC5869819</pub-id><pub-id pub-id-type="pmid">29367292</pub-id></mixed-citation></ref><ref id="advs11087-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="advs11087-cite-0050">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Shi</surname>
+</string-name>, <source>Biochem. J.</source>
+<year>2019</year>, <volume>476</volume>, <fpage>483</fpage>.<pub-id pub-id-type="pmid">30610128</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1042/BCJ20180801</pub-id><pub-id pub-id-type="pmcid">PMC6362824</pub-id></mixed-citation></ref><ref id="advs11087-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="advs11087-cite-0051">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Mwangi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Lai</surname>
+</string-name>, <source>Proc. Natl. Acad. Sci. USA</source>
+<year>2019</year>, <volume>116</volume>, <elocation-id>26516</elocation-id>.<pub-id pub-id-type="pmid">31843919</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.1909585117</pub-id><pub-id pub-id-type="pmcid">PMC6936460</pub-id></mixed-citation></ref><ref id="advs11087-bib-0052"><label>52</label><mixed-citation publication-type="journal" id="advs11087-cite-0052">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>de Breij</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Riool</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. A.</given-names>
+<surname>Cordfunke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Malanovic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>de Boer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. I.</given-names>
+<surname>Koning</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Ravensbergen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Franken</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>van der Heijde</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. K.</given-names>
+<surname>Boekema</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. H. S.</given-names>
+<surname>Kwakman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Kamp</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>El Ghalbzouri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Lohner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. A. J.</given-names>
+<surname>Zaat</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Drijfhout</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. H.</given-names>
+<surname>Nibbering</surname>
+</string-name>, <source>Sci. Transl. Med.</source>
+<year>2018</year>, <volume>10</volume>, <elocation-id>eaan4044</elocation-id>.<pub-id pub-id-type="pmid">29321257</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/scitranslmed.aan4044</pub-id></mixed-citation></ref><ref id="advs11087-bib-0053"><label>53</label><mixed-citation publication-type="journal" id="advs11087-cite-0053">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Shen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Ye</surname>
+</string-name>, <source>Food Control</source>
+<year>2015</year>, <volume>47</volume>, <fpage>196</fpage>.</mixed-citation></ref><ref id="advs11087-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="advs11087-cite-0054">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Qiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Tao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Shen</surname>
+</string-name>, <source>Int. J. Pept. Res. Ther.</source>
+<year>2022</year>, <volume>28</volume>, <fpage>58</fpage>.</mixed-citation></ref></ref-list></back></article></pmc-articleset>

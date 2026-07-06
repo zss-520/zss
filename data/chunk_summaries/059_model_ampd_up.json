@@ -1,0 +1,222 @@
+{
+  "chunk_id": "model_ampd_up",
+  "chunk_type": "model",
+  "chunk_name": "AMPd-Up.",
+  "compression_status": "ok",
+  "main_entities": [
+    "iMFP-LG"
+  ],
+  "papers": [
+    {
+      "title": "Integrated convolution and self-attention for improving peptide toxicity prediction",
+      "pmid": "38696758",
+      "pmcid": "PMC11654579",
+      "doi": "10.1093/bioinformatics/btae297",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "iMFP-LG: Identify Novel Multi-functional Peptides Using Protein Language Models and Graph-based Deep Learning",
+      "pmid": "39585308",
+      "pmcid": "PMC12011362",
+      "doi": "10.1093/gpbjnl/qzae084",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Legume Plant Peptides as Sources of Novel Antimicrobial Molecules Against Human Pathogens",
+      "pmid": "35755814",
+      "pmcid": "PMC9218685",
+      "doi": "10.3389/fmolb.2022.870460",
+      "year": "2022",
+      "role": "dataset_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "De novo synthetic antimicrobial peptide design with a recurrent neural network",
+      "pmid": "38988311",
+      "pmcid": "PMC11237553",
+      "doi": "10.1002/pro.5088",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "citation_expansion"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "iMFP-LG",
+      "canonical_name": "iMFP-LG",
+      "aliases": [],
+      "task_type": "multi-functional peptide prediction including antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Protein language model (pLM) for feature extraction, Graph Attention Networks (GAT) for capturing functional relationships, adversarial training",
+      "input_features": "amino acid sequences",
+      "source_pmid": "39585308",
+      "source_pmcid": "PMC12011362",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "code_repository_url": "https://github.com/chen-bioinfo/iMFP-LG",
+      "web_server_url": "https://ngdc.cncb.ac.cn/biocode/tools/BT007494",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Directly predicts antimicrobial peptide function as part of multi-functional peptide identification; outperforms state-of-the-art methods on public benchmarks; code available",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    }
+  ],
+  "repositories": [
+    {
+      "name": "iMFP-LG GitHub",
+      "url": "https://github.com/chen-bioinfo/iMFP-LG",
+      "repository_type": "code",
+      "matched_model_name": "iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence_level": "fulltext",
+      "evidence": "The source code for iMFP-LG is available at https://github.com/chen-bioinfo/iMFP-LG."
+    },
+    {
+      "name": "iMFP-LG BioCode Tool",
+      "url": "https://ngdc.cncb.ac.cn/biocode/tools/BT007494",
+      "repository_type": "webserver",
+      "matched_model_name": "iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence_level": "fulltext",
+      "evidence": "Web server link extracted from the manuscript: https://ngdc.cncb.ac.cn/biocode/tools/BT007494."
+    },
+    {
+      "name": "CAPTP GitHub",
+      "url": "https://github.com/jiaoshihu/CAPTP.",
+      "repository_type": "code",
+      "matched_model_name": "CAPTP (peptide toxicity prediction)",
+      "source_pmid": "38696758",
+      "source_doi": "10.1093/bioinformatics/btae297",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Repository detected via regex matching; confidence 0.7",
+      "confidence": 0.7
+    },
+    {
+      "name": "AMPd-Up GitHub",
+      "url": "https://github.com/bcgsc/AMPd-Up.",
+      "repository_type": "code",
+      "matched_model_name": "AMPd-Up (de novo AMP design)",
+      "source_pmid": "38988311",
+      "source_doi": "10.1002/pro.5088",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Repository detected via regex matching; confidence 0.7",
+      "confidence": 0.7
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "MFBP (Multi-functional Bioactive Peptide dataset)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Assembled from previous studies; details in iMFP-LG paper",
+      "linked_model": "iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "positive_samples": "not specified in available evidence",
+      "negative_samples": "not specified in available evidence",
+      "deduplication_method": "not reported in available evidence",
+      "evidence_level": "fulltext",
+      "evidence": "Used for training and testing iMFP-LG; consists of 5 bioactive functions including AMP."
+    },
+    {
+      "dataset_name": "MFTP (Multi-functional Therapeutic Peptide dataset)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Assembled from previous studies; details in iMFP-LG paper",
+      "linked_model": "iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "positive_samples": "not specified in available evidence",
+      "negative_samples": "not specified in available evidence",
+      "deduplication_method": "not reported in available evidence",
+      "evidence_level": "fulltext",
+      "evidence": "Used for training and testing iMFP-LG; contains 21 therapeutic functions."
+    },
+    {
+      "dataset_name": "104 NCR peptides antimicrobial activity dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Lima et al. 2022, Frontiers in Molecular Biosciences, PMID:35755814",
+      "linked_model": "not_applicable",
+      "source_pmid": "35755814",
+      "source_doi": "10.3389/fmolb.2022.870460",
+      "positive_samples": "50 NCRs with antimicrobial activity",
+      "negative_samples": "54 NCRs without antimicrobial activity",
+      "deduplication_method": "not applicable",
+      "evidence_level": "fulltext",
+      "evidence": "50 NCRs showed antimicrobial activity against human pathogens; the remaining 54 were inactive."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Precision",
+      "usage": "Multi-label classification performance for iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence": "iMFP-LG achieved precision of 0.797 on MFBP and 0.730 on MFTP."
+    },
+    {
+      "metric_name": "Coverage",
+      "usage": "Multi-label classification performance for iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence": "iMFP-LG achieved coverage of 0.803 on MFBP and 0.730 on MFTP."
+    },
+    {
+      "metric_name": "Accuracy",
+      "usage": "Multi-label classification performance for iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence": "iMFP-LG achieved accuracy of 0.796 on MFBP and 0.689 on MFTP."
+    },
+    {
+      "metric_name": "Absolute true",
+      "usage": "Evaluation metric for iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence": "iMFP-LG achieved absolute true of 0.788 on MFBP and 0.616 on MFTP."
+    },
+    {
+      "metric_name": "Absolute false",
+      "usage": "Evaluation metric for iMFP-LG",
+      "source_pmid": "39585308",
+      "source_doi": "10.1093/gpbjnl/qzae084",
+      "evidence": "iMFP-LG achieved absolute false of 0.078 on MFBP and 0.032 on MFTP."
+    }
+  ],
+  "important_evidence": [
+    "iMFP-LG outperformed the state-of-the-art methods in identifying both multi-functional bioactive peptides and multi-functional therapeutic peptides.",
+    "Source code at https://github.com/chen-bioinfo/iMFP-LG.",
+    "Used MFBP and MFTP datasets for training and testing.",
+    "NCR peptide dataset: 50 active, 54 inactive."
+  ],
+  "uncertainties": [
+    "Model weights for iMFP-LG are not reported.",
+    "Dataset URLs for MFBP and MFTP are not available.",
+    "Some repositories (CAPTP, AMPd-Up) were identified via regex matching with lower confidence.",
+    "The chunk is named AMPd-Up but the main model extracted is iMFP-LG; AMPd-Up is a de novo design tool, not a prediction model, and is not included as a benchmark candidate."
+  ],
+  "source_pmids": [
+    "38696758",
+    "39585308",
+    "35755814",
+    "38988311"
+  ],
+  "source_dois": [
+    "10.1093/bioinformatics/btae297",
+    "10.1093/gpbjnl/qzae084",
+    "10.3389/fmolb.2022.870460",
+    "10.1002/pro.5088"
+  ],
+  "urls": [
+    "https://github.com/chen-bioinfo/iMFP-LG",
+    "https://ngdc.cncb.ac.cn/biocode/tools/BT007494",
+    "https://github.com/jiaoshihu/CAPTP.",
+    "https://github.com/bcgsc/AMPd-Up."
+  ]
+}

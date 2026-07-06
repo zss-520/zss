@@ -1,0 +1,274 @@
+{
+  "chunk_id": "model_ann_based_amp_prediction_model_torrent_et_al_2011",
+  "chunk_type": "model",
+  "chunk_name": "ANN-based AMP prediction model (Torrent et al. 2011)",
+  "compression_status": "ok",
+  "main_entities": [
+    "Torrent-2011-ANN",
+    "Witten-2019-CNN",
+    "AMP-zGSM",
+    "PeptideBERT (unclear role)"
+  ],
+  "papers": [
+    {
+      "title": "Connecting Peptide Physicochemical and Antimicrobial Properties by a Rational Prediction Model",
+      "pmid": "21347392",
+      "pmcid": "PMC3036733",
+      "doi": "10.1371/journal.pone.0016968",
+      "year": "2011",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Deep learning regression model for antimicrobial peptide design",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.1101/692681",
+      "year": "2019",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "AMP-zGSM: A z-Scoring Enhanced Grouping--Scoring--Modeling Framework for Antimicrobial Peptide Prediction",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.5220/0014457300004070",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "PeptideBERT: A Language Model Based on Transformers for Peptide Property Prediction",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.1021/acs.jpclett.3c02398.s001",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "ANN-based AMP prediction model (Torrent et al. 2011)",
+      "canonical_name": "Torrent-2011-ANN",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Artificial neural network (50 hidden neurons) using 8 physicochemical features (isoelectric point, length, secondary structure propensities, in vitro/in vivo aggregation, hydrophobicity). SVM was also tested but less accurate.",
+      "input_features": "8 physicochemical properties: pI, peptide length, α-helix propensity, β-sheet propensity, turn propensity, in vitro aggregation (TANGO), in vivo aggregation (AGGRESCAN), hydrophobicity (GRAVY)",
+      "source_pmid": "21347392",
+      "source_pmcid": "PMC3036733",
+      "source_doi": "10.1371/journal.pone.0016968",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "CAMP database (http://www.camp.bicnirrh.res.in/) and Uniprot; no direct download link provided",
+      "benchmark_candidate": true,
+      "candidate_reason": "Early AMP prediction model (2011) widely cited; full-text available; classification accuracy 90%; can serve as historical baseline.",
+      "blocking_issues": [
+        "No code or web server available",
+        "Uses old feature set (8 physicochemical descriptors)"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "Deep learning regression model for antimicrobial peptide design (Witten & Witten 2019)",
+      "canonical_name": "Witten-2019-CNN",
+      "aliases": [
+        "GRAMPA CNN model"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional neural network (CNN) performing combined classification and regression on peptide sequences to predict MIC against E. coli.",
+      "input_features": "Amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.1101/692681",
+      "code_repository_url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "Giant Repository of AMP Activities (GRAMPA); not directly linked but likely included in the GitHub repository",
+      "benchmark_candidate": true,
+      "candidate_reason": "Provides code and dataset; CNN model for AMP activity prediction; outperformed state-of-the-art at classification; includes regression capability.",
+      "blocking_issues": [
+        "Preprint status (no peer-reviewed publication yet)",
+        "Full text not available to confirm details"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "AMP-zGSM",
+      "canonical_name": "AMP-zGSM",
+      "aliases": [
+        "AMP-zGSM framework"
+      ],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Statistical feature-ranking model (z-scores) with multiple ML algorithms (RF, SVM, Naive Bayes, XGBoost, AdaBoost, CatBoost, GradientBoost, ensembles) using q-value selected feature subsets.",
+      "input_features": "Sequence-derived features; feature groups are ranked by q-values from z-scores",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "code_repository_url": "https://github.com/DemetParlakSonmez/amp-zGSM",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel feature-ranking framework; high AUCs (0.9737, 0.8846, 0.97); code and datasets publicly available.",
+      "blocking_issues": [
+        "Conference paper (may not be exhaustive)",
+        "Year listed as 2026 (potential future publication or error)",
+        "Full text unavailable for detailed method verification"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Antimicrobial-Peptides (Witten & Witten)",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "repository_type": "code",
+      "matched_model_name": "Witten-2019-CNN",
+      "source_pmid": "",
+      "source_doi": "10.1101/692681",
+      "evidence_level": "abstract",
+      "evidence": "Repository URL extracted from the article's metadata."
+    },
+    {
+      "name": "amp-zGSM",
+      "url": "https://github.com/DemetParlakSonmez/amp-zGSM",
+      "repository_type": "code",
+      "matched_model_name": "AMP-zGSM",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "evidence_level": "abstract",
+      "evidence": "Repository URL provided in the abstract."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "CAMP (Collection of Anti-Microbial Peptides)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "http://www.camp.bicnirrh.res.in/",
+      "linked_model": "Torrent-2011-ANN",
+      "source_pmid": "21347392",
+      "source_doi": "10.1371/journal.pone.0016968",
+      "positive_samples": "1157 AMPs",
+      "negative_samples": "991 non-AMPs (from Uniprot)",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "We have used the CAMP peptide database to build the positive dataset and the Uniprot database to construct the negative dataset."
+    },
+    {
+      "dataset_name": "GRAMPA (Giant Repository of AMP Activities)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Possibly included in the GitHub repository",
+      "linked_model": "Witten-2019-CNN",
+      "source_pmid": "",
+      "source_doi": "10.1101/692681",
+      "positive_samples": "",
+      "negative_samples": "",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "abstract",
+      "evidence": "We collected a large database, Giant Repository of AMP Activities (GRAMPA), containing AMP sequences and associated MICs."
+    },
+    {
+      "dataset_name": "Dataset 1 (3145 peptides)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "AMP-zGSM",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "positive_samples": "total 3145 peptides",
+      "negative_samples": "not specified",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "abstract",
+      "evidence": "The model was trained on three large peptide datasets containing 3145, 12022, and 8346 peptides, respectively."
+    },
+    {
+      "dataset_name": "Dataset 2 (12022 peptides)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "AMP-zGSM",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "positive_samples": "total 12022 peptides",
+      "negative_samples": "not specified",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "abstract",
+      "evidence": "The model was trained on three large peptide datasets containing 3145, 12022, and 8346 peptides, respectively."
+    },
+    {
+      "dataset_name": "Dataset 3 (8346 peptides)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "AMP-zGSM",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "positive_samples": "total 8346 peptides",
+      "negative_samples": "not specified",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "abstract",
+      "evidence": "The model was trained on three large peptide datasets containing 3145, 12022, and 8346 peptides, respectively."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Overall classification accuracy of ANN model",
+      "source_pmid": "21347392",
+      "source_doi": "10.1371/journal.pone.0016968",
+      "evidence": "The overall accuracy of the method was 90%."
+    },
+    {
+      "metric_name": "AUC",
+      "usage": "AMP-zGSM performance on Dataset 1",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "evidence": "achieving the highest AUC values of 0.9737, 0.8846, and 0.97 on Datasets 1, 2, and 3, respectively."
+    },
+    {
+      "metric_name": "AUC",
+      "usage": "AMP-zGSM performance on Dataset 2",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "evidence": "achieving the highest AUC values of 0.9737, 0.8846, and 0.97 on Datasets 1, 2, and 3, respectively."
+    },
+    {
+      "metric_name": "AUC",
+      "usage": "AMP-zGSM performance on Dataset 3",
+      "source_pmid": "",
+      "source_doi": "10.5220/0014457300004070",
+      "evidence": "achieving the highest AUC values of 0.9737, 0.8846, and 0.97 on Datasets 1, 2, and 3, respectively."
+    }
+  ],
+  "important_evidence": [
+    "Torrent-2011-ANN achieved 90% accuracy using 8 physicochemical features and CAMP dataset; full-text available.",
+    "Witten-2019-CNN uses CNN for regression and classification on GRAMPA; GitHub repository available.",
+    "AMP-zGSM achieved AUC up to 0.9737 on datasets; code available at GitHub.",
+    "PeptideBERT may be a transformer-based peptide property predictor, but role in AMP prediction is unconfirmed due to missing abstract."
+  ],
+  "uncertainties": [
+    "PeptideBERT (doi:10.1021/acs.jpclett.3c02398.s001) appears to be a transformer-based model for peptide property prediction, but the supplementary material contains no abstract or full text. It is unclear if it covers AMP prediction. The main article (likely doi:10.1021/acs.jpclett.3c02398) should be retrieved to verify.",
+    "For Witten & Witten 2019, the GRAMPA dataset is not directly linked; the GitHub repository should be inspected for data availability.",
+    "AMP-zGSM paper's year is 2026, which may be a metadata error or a future publication; requires verification.",
+    "Torrent et al. 2011 model uses 8 hand-crafted features; its relevance as a modern benchmark may be limited but could serve as a historical baseline."
+  ],
+  "source_pmids": [
+    "21347392"
+  ],
+  "source_dois": [
+    "10.1371/journal.pone.0016968",
+    "10.1101/692681",
+    "10.5220/0014457300004070",
+    "10.1021/acs.jpclett.3c02398.s001"
+  ],
+  "urls": [
+    "https://github.com/zswitten/Antimicrobial-Peptides",
+    "https://github.com/DemetParlakSonmez/amp-zGSM",
+    "http://www.camp.bicnirrh.res.in/"
+  ]
+}

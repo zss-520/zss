@@ -1,0 +1,56 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "crossref",
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1222116",
+    "pmid": null,
+    "crossref": "10.64898/2026.02.24.707610"
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.02.24.707610",
+  "title": "Integrative Multi-Scale Sequence–Structure Modeling for Antimicrobial Peptide Prediction and Design",
+  "abstract": "Antimicrobial resistance (AMR) is accelerating worldwide, undermining frontline antibiotics and making the need for novel agents more urgent than ever. Antimicrobial peptides (AMPs) are promising therapeutics against multidrug-resistant pathogens, as they are less prone to inducing resistance. However, current AMP prediction approaches often treat sequence and structure in isolation and at a single scale, leading to mediocre performance. Here, we propose MultiAMP, a framework that integrates multi-level information for predicting AMPs. The model captures evolutionary and contextual information from sequences alongside global and fine-grained information from structures, synergistically combining these features to enhance predictive power. MultiAMP achieves state-of-the-art performance, outperforming existing methods by over 10% in MCC when identifying distant AMPs sharing less than 40% sequence identity with known AMPs. To discover novel AMPs, we applied MultiAMP to marine organism data, discovering 484 high-confidence peptides with sequences that are highly divergent from known AMPs. Notably, MultiAMP accurately recognizes various structural types of peptides. In addition, our approach reveals functional patterns of AMPs, providing interpretable insights into their mechanisms. Building on these findings, we employed a gradient-based strategy and achieved the design of AMPs with specific motifs. We believe MultiAMP empowers both the rational discovery and mechanistic understanding of AMPs, facilitating future experimental validation and therapeutic design. The codebase is available at  https://github.com/jiayili11/multi-amp .",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Li J",
+    "Shao Y",
+    "Li Y",
+    "Yu Q."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.02.24.707610"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europe-pmc-preprints",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model) AND (SRC:PPR)",
+  "candidate_key": "doi:10 64898 2026 02 24 707610",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2026,
+            2,
+            25
+          ]
+        ],
+        "date-time": "2026-02-25T00:00:00Z",
+        "timestamp": 1771977600000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+    }
+  ]
+}

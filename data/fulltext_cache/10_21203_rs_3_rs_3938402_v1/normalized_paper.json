@@ -1,0 +1,54 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "crossref",
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR808657",
+    "pmid": null,
+    "crossref": "10.21203/rs.3.rs-3938402/v1"
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.21203/rs.3.rs-3938402/v1",
+  "title": "Structure-aware machine learning strategies for antimicrobial peptide discovery",
+  "abstract": "Machine learning models are revolutionizing our approaches to discovering and designing bioactive peptides. However, these models often need protein structure awareness, as they heavily rely on sequential data. The models excel at identifying sequences of a particular biological nature or activity, but they frequently fail to comprehend their intricate mechanism(s) of action. To solve two problems at once, we studied the mechanisms of action and structural landscape of antimicrobial peptides as (i) membrane-disrupting peptides, (ii) membrane-penetrating peptides, and (iii) protein-affine peptides. Our in-depth analysis revealed that our preliminary best-performing classifiers (86–88% accuracy) trained on datasets with an over-represented distribution of α-helical and coiled structures. Consequently, our models would predict the antimicrobial activity of these structure classes more accurately. We mitigated this structural bias by implementing two strategies: subset selection and data reduction. The former gave three structure-specific models predicting the mechanisms of action of peptide sequences likely to fold into α-helices, coils, or mixed structures. The latter depleted over-represented structures, leading to general structure-agnostic predictors.",
+  "journal": {
+    "publisher": "Research Square",
+    "yearOfPublication": 2024
+  },
+  "venue": null,
+  "year": "2024",
+  "authors": [
+    "Aguilera-Puga MdC",
+    "Plisson F."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.21203/rs.3.rs-3938402/v1"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "preprint_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\") AND SRC:PPR",
+  "candidate_key": "doi:10 21203 rs 3 rs 3938402 v1",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2024,
+            2,
+            20
+          ]
+        ],
+        "date-time": "2024-02-20T00:00:00Z",
+        "timestamp": 1708387200000
+      },
+      "content-version": "unspecified",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

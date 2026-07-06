@@ -1,0 +1,444 @@
+{
+  "offset": 0,
+  "next": 10,
+  "data": [
+    {
+      "citingPaper": {
+        "paperId": "986afd3916b4bcdefb53ec64a99287534b7e5159",
+        "externalIds": {
+          "DOI": "10.1021/acssynbio.6c00173",
+          "CorpusId": 289486069,
+          "PubMed": "42338220"
+        },
+        "url": "https://www.semanticscholar.org/paper/986afd3916b4bcdefb53ec64a99287534b7e5159",
+        "title": "LysePred: A Multiscale Convolutional Neural Network for Predicting Hemolytic Activity of Antimicrobial Peptides.",
+        "venue": "ACS Synthetic Biology",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1021/acssynbio.6c00173?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1021/acssynbio.6c00173, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "2370725134",
+            "name": "Changhang Lin"
+          },
+          {
+            "authorId": "2356791891",
+            "name": "Jinjin Li"
+          },
+          {
+            "authorId": "2439558800",
+            "name": "Chen Su"
+          },
+          {
+            "authorId": "2348564667",
+            "name": "Shuwen Xiong"
+          },
+          {
+            "authorId": "2372111249",
+            "name": "Xiaorui Kang"
+          },
+          {
+            "authorId": "2284631898",
+            "name": "Junwen Lu"
+          },
+          {
+            "authorId": "2387024149",
+            "name": "Leyi Wei"
+          }
+        ],
+        "abstract": "Antimicrobial peptides (AMPs) represent promising alternatives to conventional antibiotics, yet hemolytic toxicity remains a critical barrier to clinical translation, with approximately 70% of known AMPs exhibiting high or moderate hemolytic activity. Existing computational prediction methods are often constrained by deficiencies, including high computational complexities, the inability to capture multiscale sequence patterns, and insufficient generalization across diverse datasets. We present LysePred, a multiscale convolutional neural network to address these deficiencies concurrently by employing parallel branches with exponentially spaced kernel sizes to simultaneously capture local amino acid motifs (bigrams, 4-g) and longer-range amphipathic patterns (8- to 32-g). LysePred achieves top-tier performance on six benchmark datasets, exceeding the performance of the second-best method by 9.13% in MCC and 3.65% in ACC on average, while maintaining exceptional stability (MCC CV < 6.92%, ACC CV < 2.73%). Furthermore, independent validation on the HemoPI2 dataset demonstrates that LysePred delivers highly competitive results with a computationally parsimonious design (∼0.55 M parameters). This represents a reduction in parameter density of 1 to 2 orders of magnitude compared to Transformer-based approaches, such as the 8M-parameter ESM-2 or the 110M-parameter BERT Base while maintaining linear complexity for high-throughput screening. Ablation studies validate that the multiscale architecture contributes meaningfully to performance, with single-scale variants showing up to 13.35% MCC degradation. Interpretability analyses via t-SNE visualization and SHAP feature importance reveal that LysePred learns biologically meaningful representations integrating both local sequence motifs and global structural patterns. LysePred offers a practical, efficient, and interpretable tool for rapid hemolytic toxicity prediction in antimicrobial peptide development. Code and data are available at https://github.com/lincubator/LysePred."
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "6bfbde5ccc64ffd8c11b5a0ad22d5f1c6d7bc59d",
+        "externalIds": {
+          "DOI": "10.64898/2026.05.28.728246",
+          "CorpusId": 288905145
+        },
+        "url": "https://www.semanticscholar.org/paper/6bfbde5ccc64ffd8c11b5a0ad22d5f1c6d7bc59d",
+        "title": "Species- and Topic-aware Representation Learning for Antimicrobial Peptide Discovery",
+        "venue": "bioRxiv",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.64898/2026.05.28.728246?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.64898/2026.05.28.728246, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "34957948",
+            "name": "Sarala Padi"
+          },
+          {
+            "authorId": "2283615005",
+            "name": "Kinjal Mondal"
+          },
+          {
+            "authorId": "2345454924",
+            "name": "Navleen Kaur"
+          },
+          {
+            "authorId": "6833966",
+            "name": "D. Hoogerheide"
+          },
+          {
+            "authorId": "2283673035",
+            "name": "Frank Heinrich"
+          },
+          {
+            "authorId": "2261016942",
+            "name": "Mihaela Mihailescu"
+          },
+          {
+            "authorId": "2323465521",
+            "name": "Jeffery B Klauda"
+          },
+          {
+            "authorId": "2283732182",
+            "name": "Antonio Cardone"
+          },
+          {
+            "authorId": "2302984",
+            "name": "Walid Keyrouz"
+          }
+        ],
+        "abstract": null
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "9c1396c96f12323f58fef71b81e5221dec5eb8ba",
+        "externalIds": {
+          "DOI": "10.37349/eds.2026.1008161",
+          "CorpusId": 288933698
+        },
+        "url": "https://www.semanticscholar.org/paper/9c1396c96f12323f58fef71b81e5221dec5eb8ba",
+        "title": "AI-driven discovery of antimicrobial peptides and derivatives: database and tools",
+        "venue": "Exploration of Drug Science",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.37349/eds.2026.1008161?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.37349/eds.2026.1008161, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "2381232103",
+            "name": "Yunuo Zhou"
+          },
+          {
+            "authorId": "2344193295",
+            "name": "Zihan Wang"
+          },
+          {
+            "authorId": "143877475",
+            "name": "Heng Zheng"
+          }
+        ],
+        "abstract": "The global rise of antimicrobial resistance (AMR) has emerged as one of the most pressing threats to public health. This crisis calls for the urgent development of alternative therapeutic agents against antibiotic-resistant pathogens. Antimicrobial peptides (AMPs) are widely present in nature, with a broad range of effects and a low risk of causing drug resistance. Therefore, they are an ideal choice for the development of the next generation of antimicrobial drugs. To overcome the inefficiencies of traditional AMP discovery, artificial intelligence (AI) and machine learning (ML) technologies have been increasingly used to predict and design AMPs. Multiple AMP databases were used to train ML models for predicting the activity of AMPs or generating AMP sequences. This review briefly provides a comprehensive overview of AMP databases and computational tools, highlighting their capabilities and challenges. Future work should integrate larger datasets and experimental validation to accelerate clinical translation."
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "e91d3fcc5143cea9dbf72a8c33ef062ffce4a4b3",
+        "externalIds": {
+          "DOI": "10.2147/idr.s602699",
+          "CorpusId": 289510331
+        },
+        "url": "https://www.semanticscholar.org/paper/e91d3fcc5143cea9dbf72a8c33ef062ffce4a4b3",
+        "title": "Antimicrobial Peptides Against Antimicrobial-Resistant Bacteria: Focus on Machine Learning",
+        "venue": "Infection and Drug Resistance",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.2147/idr.s602699?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2147/idr.s602699, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "52560910",
+            "name": "H. Tahmasebi"
+          },
+          {
+            "authorId": "4541356",
+            "name": "M. Arabestani"
+          }
+        ],
+        "abstract": ": Antimicrobial resistance (AMR) represents a pressing public health threat of the 21st century, with an estimated ten million deaths annually from drug-resistant infections by 2050. Diminishing pipelines and the accelerating emergence of multidrug-resistant pathogens make the development of novel antibacterials more urgent than ever. Antimicrobial peptides (AMPs) are among the most promising alternatives to conventional drugs, exhibiting broad antimicrobial spectra, rapid kinetics, and mechanisms that are difficult for bacteria to circumvent. However, the problem of discovering and engineering clinically useful AMPs with desirable properties out of large sequence spaces remains unsolved by traditional approaches. Machine learning (ML) enables fast screening of millions of compounds, generation of de novo sequences with predicted therapeutic potential, and simultaneous multiobjective optimisation of efficacy, safety, stability, and manufacturability. This review provides a critical appraisal of the current advances and prospective directions in computational discovery of AMPs that can combat resistant strains, focusing on available resources for machine learning in the domain of bioinformatics, evaluation of existing approaches to modeling peptide structure, activity, and interactions ranging from classical ML algorithms to DL and generative artificial intelligence (AI) models, and a practical roadmap of how the AMP discovery pipeline could proceed towards animal studies and clinical application through the use of active learning, fine-tuned protein language models, structural graph neural networks, and other modern techniques. Finally, we discuss challenges that may hinder a successful transition from ML-assisted design to the clinic and offer actionable recommendations to overcome them"
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "bed3474e66b1ba154d2bf25c4f36f0f7afec64e4",
+        "externalIds": {
+          "PubMedCentral": "13267055",
+          "DOI": "10.1038/s44386-026-00045-6",
+          "CorpusId": 287976198
+        },
+        "url": "https://www.semanticscholar.org/paper/bed3474e66b1ba154d2bf25c4f36f0f7afec64e4",
+        "title": "Deep learning-driven integrated pipeline for de novo design and synthesis of antimicrobial peptides",
+        "venue": "npj Drug Discovery",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC13267055, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "2144131494",
+            "name": "Jiahui Liu"
+          },
+          {
+            "authorId": "2317004650",
+            "name": "Yun Chen"
+          },
+          {
+            "authorId": "2115856604",
+            "name": "J. Tang"
+          },
+          {
+            "authorId": "2410819160",
+            "name": "Xupu Xing"
+          },
+          {
+            "authorId": "2355322096",
+            "name": "Jinrong Lin"
+          },
+          {
+            "authorId": "2402557535",
+            "name": "Juping Sun"
+          },
+          {
+            "authorId": "2410819162",
+            "name": "Xin-Hui Xing"
+          },
+          {
+            "authorId": "2358408804",
+            "name": "Juan Li"
+          },
+          {
+            "authorId": "2334332395",
+            "name": "Can Yang Zhang"
+          }
+        ],
+        "abstract": "Antimicrobial peptides (AMPs) are promising alternatives to conventional antibiotics against bacterial infections. However, the discovery of AMPs is impeded by the limitations of biochemical screening and the difficulty computational approaches face in balancing efficacy with structural diversity. We proposed an integrated “generation-evaluation-validation” framework to facilitate de novo discovery of AMPs. First, we constructed a soft prompt-tuned ProtGPT2 to efficiently generate candidates AMPs with both novel structures and promising therapeutic potential. Secondly, we adopted a multiple-choice learning ensemble model that enables high-confidence evaluation of candidates via a dynamic voting network. Finally, antimicrobial experiments were used to validate the activity of top-ranked de novo AMPs by monitoring bacterial surface changes. Out of nine candidates, four exhibited potent strain-specific activity, while two demonstrated broad-spectrum efficacy. All tested AMPs exhibited strong biofilm inhibition, potent membrane disruption, and minimal hemolysis, indicating significant therapeutic potential. With strong generalizability and versatility beyond AMPs, the proposed framework’s modular design will facilitate adaptation to diverse peptide design tasks in the future. By integrating soft prompt tuning, multimodal ensemble learning, and experimental verification, this framework presents a practical and scalable strategy for rapid, resource-efficient de novo peptide discovery, particularly suited for applications where experimental throughput and cost are critical constraints."
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "065bf63020b4ab9edca26d13cd8c5781fab83aa2",
+        "externalIds": {
+          "DOI": "10.1007/s12602-026-11013-x",
+          "CorpusId": 287714675,
+          "PubMed": "42020672"
+        },
+        "url": "https://www.semanticscholar.org/paper/065bf63020b4ab9edca26d13cd8c5781fab83aa2",
+        "title": "Artificial Intelligence-Driven Antimicrobial Peptide Discovery: Prediction, Generation, Mining and Optimization.",
+        "venue": "Probiotics and Antimicrobial Proteins",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s12602-026-11013-x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s12602-026-11013-x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "145525740",
+            "name": "Ji Lv"
+          },
+          {
+            "authorId": "2294668188",
+            "name": "Guixia Liu"
+          },
+          {
+            "authorId": "2345040048",
+            "name": "Xiangrun Zhou"
+          },
+          {
+            "authorId": "2331856186",
+            "name": "Yueh-Ying Chen"
+          }
+        ],
+        "abstract": null
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "f7ff6424c27402b3f09f0ced9010b906b811f5ff",
+        "externalIds": {
+          "DOI": "10.1007/s12602-026-11022-w",
+          "CorpusId": 287728934,
+          "PubMed": "42020675"
+        },
+        "url": "https://www.semanticscholar.org/paper/f7ff6424c27402b3f09f0ced9010b906b811f5ff",
+        "title": "Towards Safer Antimicrobial Peptide Therapeutics: A Predictive-Generative Framework Targeting ESKAPE Pathogens.",
+        "venue": "Probiotics and Antimicrobial Proteins",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s12602-026-11022-w?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s12602-026-11022-w, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "1478394114",
+            "name": "Z. Rashid"
+          },
+          {
+            "authorId": "2338986926",
+            "name": "Hania Ahmed"
+          },
+          {
+            "authorId": "2393612276",
+            "name": "Kashif Saleem"
+          },
+          {
+            "authorId": "2431270870",
+            "name": "M. R. Siddiqui"
+          }
+        ],
+        "abstract": null
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "986895f4f888ab5f18c1fcdda8ecac3cbee08059",
+        "externalIds": {
+          "DOI": "10.1016/j.tifs.2026.105594",
+          "CorpusId": 285234978
+        },
+        "url": "https://www.semanticscholar.org/paper/986895f4f888ab5f18c1fcdda8ecac3cbee08059",
+        "title": "Use of artificial intelligence for assessing chemistry and safety of edible insects: A roadmap for functional innovation",
+        "venue": "Trends in Food Science &amp; Technology",
+        "year": 2026,
+        "citationCount": 1,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.tifs.2026.105594?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.tifs.2026.105594, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "2332384918",
+            "name": "Fernando E. Alejandro Ruiz"
+          },
+          {
+            "authorId": "2292177340",
+            "name": "Eduardo Tejera"
+          },
+          {
+            "authorId": "2394004825",
+            "name": "Andrea M. Liceaga"
+          },
+          {
+            "authorId": "1416696571",
+            "name": "J. Álvarez-Suarez"
+          }
+        ],
+        "abstract": null
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "1e268c65676990b6605c5c1057cb9ba9a77cf915",
+        "externalIds": {
+          "DOI": "10.1016/j.progpolymsci.2026.102119",
+          "CorpusId": 287570270
+        },
+        "url": "https://www.semanticscholar.org/paper/1e268c65676990b6605c5c1057cb9ba9a77cf915",
+        "title": "Advances in Computational and Data-driven Methodologies for Accelerating Antimicrobial Peptide Design and Discovery",
+        "venue": "Progress in polymer science",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.progpolymsci.2026.102119?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.progpolymsci.2026.102119, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "2294719717",
+            "name": "Amal Jayawardena"
+          },
+          {
+            "authorId": "2294719809",
+            "name": "Andrew Hung"
+          },
+          {
+            "authorId": "2256754121",
+            "name": "Greg G. Qiao"
+          },
+          {
+            "authorId": "11460644",
+            "name": "E. Hajizadeh"
+          }
+        ],
+        "abstract": null
+      }
+    },
+    {
+      "citingPaper": {
+        "paperId": "e1beb59ecb7434b83a2e248f7a3a6a7cf54faefc",
+        "externalIds": {
+          "DOI": "10.64898/2026.02.09.704773",
+          "CorpusId": 285551043
+        },
+        "url": "https://www.semanticscholar.org/paper/e1beb59ecb7434b83a2e248f7a3a6a7cf54faefc",
+        "title": "A Systematic Benchmark for Peptide Property Prediction",
+        "venue": "bioRxiv",
+        "year": 2026,
+        "citationCount": 0,
+        "openAccessPdf": {
+          "url": "",
+          "status": null,
+          "license": null,
+          "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.64898/2026.02.09.704773?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.64898/2026.02.09.704773, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+        },
+        "authors": [
+          {
+            "authorId": "2410578204",
+            "name": "Xiaoying Dong"
+          },
+          {
+            "authorId": "2385926285",
+            "name": "Kai Yang"
+          },
+          {
+            "authorId": "2410985196",
+            "name": "Tianxiang Wu"
+          },
+          {
+            "authorId": "81229965",
+            "name": "Pengyong Li"
+          },
+          {
+            "authorId": "2410937754",
+            "name": "Gao Lin"
+          }
+        ],
+        "abstract": null
+      }
+    }
+  ]
+}

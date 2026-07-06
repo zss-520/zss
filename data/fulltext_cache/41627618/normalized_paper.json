@@ -1,0 +1,38 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41627618",
+    "pmid": "41627618"
+  },
+  "pmid": "41627618",
+  "pmcid": "PMC12864603",
+  "doi": "10.1186/s40643-025-01004-1",
+  "title": "Multi-AOP: a lightweight multi-view deep learning framework for antioxidant peptide discovery.",
+  "abstract": "Antioxidant peptides (AOPs), with their strong free radical scavenging ability and health benefits, have emerged as promising candidates for disease prevention and food preservation. However, traditional experimental approaches to AOP discovery remain hindered by inefficiencies and substantial resource demands. Here, we present Multi-AOP, a parameter lightweight multi-view deep learning framework (0.75 million parameters) that enhances AOP discovery through integrated sequence and graph learning. We employ Extended Long Short-Term Memory (xLSTM) to generate sequence embeddings. Concurrently, we transform peptide sequences into SMILES representations and extract molecular graph features using a Message Passing Neural Network (MPNN), capturing intrinsic physicochemical properties. By leveraging both sequence patterns and structural information through hierarchical fusion, Multi-AOP achieves accuracies of 0.8043, 0.9684, and 0.9043 on the AnOxPePred, AnOxPP, and AOPP benchmark datasets, respectively, consistently outperforming conventional machine learning algorithms and state-of-the-art deep learning approaches. Furthermore, we constructed a unified AOP dataset by integrating these benchmark datasets, facilitating the future development of generalizable AOP models. All datasets and the optimized predictive model are publicly accessible at https://github.com/CaiJianxiu/Multi-AOP .",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Cai J",
+    "Lou X",
+    "Chong CF",
+    "Alex D",
+    "Arrais JP",
+    "Wang Y",
+    "Siu SWI."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1186/s40643-025-01004-1",
+    "https://pubmed.ncbi.nlm.nih.gov/41627618/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12864603/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\" OR \"web server\")",
+  "candidate_key": "doi:10 1186 s40643 025 01004 1"
+}

@@ -1,0 +1,239 @@
+{
+  "chunk_id": "model_amptrans_lstm",
+  "chunk_type": "model",
+  "chunk_name": "AMPTrans-lstm",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPTrans-lstm",
+    "CL-ACP",
+    "ACP736",
+    "ACP240",
+    "ACP539",
+    "AMPTrans-lstm training AMP dataset"
+  ],
+  "papers": [
+    {
+      "title": "CL-ACP: a parallel combination of CNN and LSTM anticancer peptide recognition model",
+      "pmid": "34670488",
+      "pmcid": "PMC8527680",
+      "doi": "10.1186/s12859-021-04433-9",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Application of a deep generative model produces novel and diverse functional peptides against microbial resistance",
+      "pmid": "36618982",
+      "pmcid": "PMC9804011",
+      "doi": "10.1016/j.csbj.2022.12.029",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "A Survey of Forex and Stock Price Prediction Using Deep Learning",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.3390/asi4010009",
+      "year": "2021",
+      "role": "review_or_secondary",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "Deep Generative Modelling: A Comparative Review of VAEs, GANs, Normalizing Flows, Energy-Based and Autoregressive Models",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.1109/tpami.2021.3116668",
+      "year": "2021",
+      "role": "review_or_secondary",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "CL-ACP",
+      "canonical_name": "CL-ACP",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Parallel CNN and LSTM with multi-head self-attention; input includes peptide sequences and secondary structures",
+      "input_features": "Peptide primary sequences and predicted secondary structures",
+      "source_pmid": "34670488",
+      "source_pmcid": "PMC8527680",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Explicit AMP/ACP prediction model; evaluated on standard datasets with published metrics; suitable for benchmark comparison",
+      "blocking_issues": [
+        "No code repository or web server provided"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "AMPTrans-lstm",
+      "canonical_name": "AMPTrans-lstm",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep generative model (LSTM sampler + Transformer converter) combined with QSAR classifiers (RF and SVM) for activity prediction",
+      "input_features": "Amino acid sequences",
+      "source_pmid": "36618982",
+      "source_pmcid": "PMC9804011",
+      "source_doi": "10.1016/j.csbj.2022.12.029",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Contains AMP activity prediction component (QSAR classifiers) and generates novel AMPs; could be used for benchmarking AMP prediction pipelines",
+      "blocking_issues": [
+        "Primary purpose is AMP generation, not classification; no standard benchmark testing; no code available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7
+    }
+  ],
+  "repositories": [],
+  "datasets": [
+    {
+      "dataset_name": "ACP736",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Yi et al. 2019 (reference [31] in CL-ACP paper)",
+      "linked_model": "CL-ACP",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "positive_samples": "Not reported",
+      "negative_samples": "Not reported",
+      "deduplication_method": "Not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Used as benchmark dataset for CL-ACP; five-fold cross-validation results reported."
+    },
+    {
+      "dataset_name": "ACP240",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Yi et al. 2019",
+      "linked_model": "CL-ACP",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "positive_samples": "Not reported",
+      "negative_samples": "Not reported",
+      "deduplication_method": "Not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Used as benchmark dataset for CL-ACP; achieved AUC 0.935."
+    },
+    {
+      "dataset_name": "ACP539",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Constructed by CL-ACP authors (imbalanced, 1:2 positive:negative)",
+      "linked_model": "CL-ACP",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "positive_samples": "Not reported",
+      "negative_samples": "Not reported",
+      "deduplication_method": "Not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Newly constructed dataset with noise in negative samples; used for additional validation of CL-ACP."
+    },
+    {
+      "dataset_name": "AMPTrans-lstm training AMP dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "12 AMP databases: APD, BACTIBASE, CyBase, DADP, DBAASP, dbAMP, EnzyBase, LAMP, Peptaibol, PhytAMP, YADAMP, AVPdb",
+      "linked_model": "AMPTrans-lstm",
+      "source_pmid": "36618982",
+      "source_doi": "10.1016/j.csbj.2022.12.029",
+      "positive_samples": "36,088 AMP sequences",
+      "negative_samples": "747,352 non-AMP sequences (PDB + UniProt)",
+      "deduplication_method": "Not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Collected from 12 AMP databases; pre-training on PDB and UniProt; fine-tuning on AMP data."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "AUC",
+      "usage": "CL-ACP: reported for ACP736 (0.909), ACP240 (0.935), ACP539 (0.921)",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "evidence": "CL-ACP achieved AUC values of 0.909, 0.935, 0.921 on ACP736, ACP240, ACP539 respectively."
+    },
+    {
+      "metric_name": "Accuracy (Acc)",
+      "usage": "CL-ACP: average Acc 83.83% (ACP736), 87.92% (ACP240), 84.41% (ACP539)",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "evidence": "Five-fold cross-validation average Acc reported."
+    },
+    {
+      "metric_name": "Sensitivity (Sens)",
+      "usage": "CL-ACP: average Sens 82.93% (ACP736), 90.74% (ACP240), 77.48% (ACP539)",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "evidence": "Five-fold cross-validation average Sens reported."
+    },
+    {
+      "metric_name": "Specificity (Spec)",
+      "usage": "CL-ACP: average Spec 84.76% (ACP736), 84.76% (ACP240), 88.23% (ACP539)",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "evidence": "Five-fold cross-validation average Spec reported."
+    },
+    {
+      "metric_name": "Precision (Prec)",
+      "usage": "CL-ACP: average Prec 85.15% (ACP736), 88.41% (ACP240), 78.46% (ACP539)",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "evidence": "Five-fold cross-validation average Prec reported."
+    },
+    {
+      "metric_name": "Matthews Correlation Coefficient (MCC)",
+      "usage": "CL-ACP: average MCC 67.86% (ACP736), 76.56% (ACP240), 65.98% (ACP539)",
+      "source_pmid": "34670488",
+      "source_doi": "10.1186/s12859-021-04433-9",
+      "evidence": "Five-fold cross-validation average MCC reported."
+    },
+    {
+      "metric_name": "MCC (for QSAR)",
+      "usage": "AMPTrans-lstm: used to evaluate the QSAR classifiers",
+      "source_pmid": "36618982",
+      "source_doi": "10.1016/j.csbj.2022.12.029",
+      "evidence": "MCC was used to evaluate the QSAR model."
+    }
+  ],
+  "important_evidence": [
+    "CL-ACP uses parallel CNN and LSTM with multi-head self-attention on peptide sequences and secondary structures, achieving AUC 0.909-0.935 on ACP datasets.",
+    "AMPTrans-lstm is a deep generative model (LSTM+Transformer) combined with QSAR classifiers (RF, SVM) for AMP activity prediction.",
+    "No code repositories or web servers were found for either model.",
+    "CL-ACP evaluated on five-fold cross-validation with six metrics (AUC, Acc, Sens, Spec, Prec, MCC).",
+    "AMPTrans-lstm trained on 36k AMPs and 747k non-AMPs from 12 databases."
+  ],
+  "uncertainties": [
+    "AMPTrans-lstm is primarily a generative model, not a standard classification benchmark; its QSAR component may be used for prediction but lacks standard external testing.",
+    "Dataset URLs or direct download links are not provided in the available evidence."
+  ],
+  "source_pmids": [
+    "34670488",
+    "36618982"
+  ],
+  "source_dois": [
+    "10.1186/s12859-021-04433-9",
+    "10.1016/j.csbj.2022.12.029",
+    "10.3390/asi4010009",
+    "10.1109/tpami.2021.3116668"
+  ],
+  "urls": [
+    "https://doi.org/10.1186/s12859-021-04433-9",
+    "https://bmcbioinformatics.biomedcentral.com/track/pdf/10.1186/s12859-021-04433-9",
+    "https://pubmed.ncbi.nlm.nih.gov/34670488",
+    "https://doi.org/10.3390/asi4010009",
+    "https://www.mdpi.com/2571-5577/4/1/9/pdf?version=1612405944",
+    "https://durham-repository.worktribe.com/output/1232078",
+    "https://doi.org/10.1109/tpami.2021.3116668",
+    "https://doi.org/10.1016/j.csbj.2022.12.029",
+    "http://www.csbj.org/article/S2001037022005864/pdf",
+    "https://pubmed.ncbi.nlm.nih.gov/36618982"
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "chunk_id": "model_amper_web_server",
+  "chunk_type": "model",
+  "chunk_name": "AMPer web server",
+  "compression_status": "ok",
+  "main_entities": [
+    "PeptideRanker",
+    "AMPer",
+    "CAMP",
+    "AntiBP2"
+  ],
+  "papers": [
+    {
+      "title": "Towards the Improved Discovery and Design of Functional Peptides: Common Features of Diverse Classes Permit Generalized Prediction of Bioactivity",
+      "pmid": "23056189",
+      "pmcid": "PMC3466233",
+      "doi": "10.1371/journal.pone.0045012",
+      "year": "2012",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "PEP-FOLD: an online resource for de novo peptide structure prediction",
+      "pmid": "19433514",
+      "pmcid": null,
+      "doi": "10.1093/nar/gkp323",
+      "year": "2009",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "PeptideRanker",
+      "canonical_name": "PeptideRanker",
+      "aliases": [],
+      "task_type": "general peptide bioactivity prediction (including antimicrobial)",
+      "method_family": "DL",
+      "architecture_or_algorithm": "N-to-1 Neural Network",
+      "input_features": "amino acid composition, peptide length (short ≤20, long >20 residues)",
+      "source_pmid": "23056189",
+      "source_pmcid": "PMC3466233",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://bioware.ucd.ie/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "BIOPEP, PeptideDB, APD2, CAMP (positive); UniProt secreted and non-secreted sequences (negative control)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Compared directly to AMP-specific predictors (CAMP, AntiBP2) and can serve as a general baseline for AMP prediction benchmarks.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "deep_learning_sequence_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "ready_candidate",
+      "representative_reason": "General peptide bioactivity predictor compared against AMP-specific tools; useful as a baseline for AMP benchmarks."
+    },
+    {
+      "model_name": "AMPer",
+      "canonical_name": "AMPer",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "feature-engineering",
+      "architecture_or_algorithm": "Hidden Markov Models (HMMs)",
+      "input_features": "sequence-based HMM profiles",
+      "source_pmid": "23056189",
+      "source_pmcid": "PMC3466233",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://marray.cmdr.ubc.ca/cgi-bin/amp.pl",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "known antimicrobial peptides (not further specified in this evidence)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Specific AMP predictor with a publicly accessible web server; can be included in benchmark comparisons.",
+      "blocking_issues": [
+        "original paper not provided; details rely on this reference"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "webserver_only",
+      "representative_reason": "Specific AMP predictor using HMMs with a publicly accessible web server."
+    },
+    {
+      "model_name": "CAMP",
+      "canonical_name": "CAMP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "machine learning techniques (unspecified in this evidence)",
+      "input_features": "amino acid composition",
+      "source_pmid": "23056189",
+      "source_pmcid": "PMC3466233",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "CAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "Widely used AMP predictor; included in the comparative study.",
+      "blocking_issues": [
+        "original paper not provided; no link available in this evidence"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.6,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Widely used AMP predictor; original paper not available."
+    },
+    {
+      "model_name": "AntiBP2",
+      "canonical_name": "AntiBP2",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine (SVM)",
+      "input_features": "15 N- and C-terminal residues, amino acid composition of whole peptide",
+      "source_pmid": "23056189",
+      "source_pmcid": "PMC3466233",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "Antimicrobial Peptide Database (APD)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Specific AMP predictor compared in the study; can be used in benchmarks.",
+      "blocking_issues": [
+        "original paper not provided; no link available in this evidence"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.6,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Specific AMP predictor compared in the study; original paper not available."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "PeptideRanker web server",
+      "url": "http://bioware.ucd.ie/",
+      "repository_type": "webserver",
+      "matched_model_name": "PeptideRanker",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    },
+    {
+      "name": "AMPer web server",
+      "url": "http://marray.cmdr.ubc.ca/cgi-bin/amp.pl",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPer",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "BIOPEP",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "database of biologically active peptide sequences",
+      "linked_model": "PeptideRanker",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "unknown",
+      "negative_samples": "N/A",
+      "deduplication_method": "not reported",
+      "split_method": "five-fold cross-validation, 70% sequence similarity reduction",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "PeptideDB",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "database of bioactive peptides (cytokines, hormones, antimicrobials, toxins, etc.)",
+      "linked_model": "PeptideRanker",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "unknown",
+      "negative_samples": "N/A",
+      "deduplication_method": "not reported",
+      "split_method": "five-fold cross-validation, 70% sequence similarity reduction",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "APD2",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Antimicrobial Peptide Database",
+      "linked_model": "PeptideRanker",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "unknown",
+      "negative_samples": "N/A",
+      "deduplication_method": "not reported",
+      "split_method": "five-fold cross-validation, 70% sequence similarity reduction",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "CAMP database",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Collection of Antimicrobial Peptides",
+      "linked_model": "PeptideRanker",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "unknown",
+      "negative_samples": "N/A",
+      "deduplication_method": "not reported",
+      "split_method": "five-fold cross-validation, 70% sequence similarity reduction",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "UniProt secreted/non-secreted control peptides",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "UniProt",
+      "linked_model": "PeptideRanker",
+      "dataset_role": "training",
+      "dataset_status": "source_database_named",
+      "positive_samples": "0 (negative control set)",
+      "negative_samples": "unknown total, selected from secreted and non-secreted proteins",
+      "deduplication_method": "70% sequence similarity reduction",
+      "split_method": "five-fold cross-validation",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "Known antimicrobial peptides (unspecified)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "not specified",
+      "linked_model": "AMPer",
+      "dataset_role": "training",
+      "dataset_status": "described_no_link",
+      "positive_samples": "unknown",
+      "negative_samples": "unknown",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "PeptideRanker",
+      "dataset_name": "BIOPEP",
+      "role": "training"
+    },
+    {
+      "model_name": "PeptideRanker",
+      "dataset_name": "PeptideDB",
+      "role": "training"
+    },
+    {
+      "model_name": "PeptideRanker",
+      "dataset_name": "APD2",
+      "role": "training"
+    },
+    {
+      "model_name": "PeptideRanker",
+      "dataset_name": "CAMP database",
+      "role": "training"
+    },
+    {
+      "model_name": "PeptideRanker",
+      "dataset_name": "UniProt secreted/non-secreted control peptides",
+      "role": "training"
+    },
+    {
+      "model_name": "AMPer",
+      "dataset_name": "Known antimicrobial peptides (unspecified)",
+      "role": "training"
+    },
+    {
+      "model_name": "CAMP",
+      "dataset_name": "CAMP database",
+      "role": "training",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AntiBP2",
+      "dataset_name": "APD2",
+      "role": "training",
+      "dataset_status": "not_reported"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "AUC",
+      "usage": "model evaluation; used to compare PeptideRanker, CAMP, AntiBP2",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "model evaluation; Matthews Correlation Coefficient",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012"
+    },
+    {
+      "metric_name": "Sensitivity",
+      "usage": "model evaluation",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012"
+    },
+    {
+      "metric_name": "Specificity",
+      "usage": "model evaluation",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012"
+    },
+    {
+      "metric_name": "Accuracy",
+      "usage": "model evaluation",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012"
+    },
+    {
+      "metric_name": "False Positive Rate",
+      "usage": "model evaluation",
+      "source_pmid": "23056189",
+      "source_doi": "10.1371/journal.pone.0045012"
+    }
+  ],
+  "important_evidence": [
+    "PeptideRanker is a general bioactive peptide predictor trained on multiple databases and compared directly to AMP-specific tools.",
+    "AMPer is an AMP predictor based on HMMs and has a functional web server at http://marray.cmdr.ubc.ca/cgi-bin/amp.pl.",
+    "CAMP and AntiBP2 are referenced but lack direct links to code, weights, or web servers.",
+    "All models originate from the same publication (PMID 23056189)."
+  ],
+  "uncertainties": [
+    "Original papers for AMPer, CAMP, and AntiBP2 are not provided; details are based on the 2012 PLOS ONE paper, which may be incomplete.",
+    "The exact training data size, positive/negative splits, and performance for AMPer, CAMP, and AntiBP2 are not described in this chunk.",
+    "The PEP-FOLD paper (doi:10.1093/nar/gkp323) is unrelated to AMP prediction and appears as a false positive in the batch."
+  ],
+  "source_pmids": [
+    "23056189",
+    "19433514"
+  ],
+  "source_dois": [
+    "10.1371/journal.pone.0045012",
+    "10.1093/nar/gkp323"
+  ],
+  "urls": [
+    "http://bioware.ucd.ie/",
+    "http://marray.cmdr.ubc.ca/cgi-bin/amp.pl",
+    "https://doi.org/10.1371/journal.pone.0045012",
+    "https://doi.org/10.1093/nar/gkp323"
+  ]
+}

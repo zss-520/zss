@@ -1,0 +1,5362 @@
+{
+  "meta": {
+    "count": 3,
+    "db_response_time_ms": 31,
+    "page": 1,
+    "per_page": 20,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text has DLFea4AMPGen",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "fulltext.search",
+            "value": "DLFea4AMPGen",
+            "operator": "has"
+          }
+        ],
+        "per_page": 20
+      },
+      "url": "/works?filter=fulltext.search:DLFea4AMPGen&per_page=20"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W4415208914",
+      "doi": "https://doi.org/10.1038/s41467-025-64378-y",
+      "title": "DLFea4AMPGen de novo design of antimicrobial peptides by integrating features learned from deep learning models",
+      "display_name": "DLFea4AMPGen de novo design of antimicrobial peptides by integrating features learned from deep learning models",
+      "relevance_score": 438.25668,
+      "publication_year": 2025,
+      "publication_date": "2025-10-15",
+      "ids": {
+        "openalex": "https://openalex.org/W4415208914",
+        "doi": "https://doi.org/10.1038/s41467-025-64378-y",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41093853"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1038/s41467-025-64378-y",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1038/s41467-025-64378-y",
+        "pdf_url": "https://www.nature.com/articles/s41467-025-64378-y.pdf",
+        "source": {
+          "id": "https://openalex.org/S64187185",
+          "display_name": "Nature Communications",
+          "issn_l": "2041-1723",
+          "issn": [
+            "2041-1723"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310319908",
+          "host_organization_name": "Nature Portfolio",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310319908",
+            "https://openalex.org/P4310319965"
+          ],
+          "host_organization_lineage_names": [
+            "Nature Portfolio",
+            "Springer Nature"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Nature Communications",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "doaj",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://www.nature.com/articles/s41467-025-64378-y.pdf",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": null,
+            "display_name": "Han Gao",
+            "orcid": "https://orcid.org/0009-0000-7099-6294"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2722730",
+              "display_name": "Inner Mongolia University",
+              "ror": "https://ror.org/0106qb496",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2722730"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Han Gao",
+          "raw_affiliation_strings": [
+            "School of Life Sciences, Inner Mongolia University, Hohhot, Inner Mongolia, China",
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0009-0000-7099-6294",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Life Sciences, Inner Mongolia University, Hohhot, Inner Mongolia, China",
+              "institution_ids": [
+                "https://openalex.org/I2722730"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5057131874",
+            "display_name": "Feifei Guan",
+            "orcid": "https://orcid.org/0000-0003-3421-2768"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210167153",
+              "display_name": "Biotechnology Research Institute",
+              "ror": "https://ror.org/05vm76w92",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Feifei Guan",
+          "raw_affiliation_strings": [
+            "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0003-3421-2768",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5078490642",
+            "display_name": "Boyu Luo",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2802541053",
+              "display_name": "Academy of Military Medical Sciences",
+              "ror": "https://ror.org/02bv3c993",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I2802541053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Boyu Luo",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I2802541053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5100416386",
+            "display_name": "Dongdong Zhang",
+            "orcid": "https://orcid.org/0000-0003-0833-7903"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2802939634",
+              "display_name": "Chinese PLA General Hospital",
+              "ror": "https://ror.org/04gw3ra78",
+              "country_code": "CN",
+              "type": "healthcare",
+              "lineage": [
+                "https://openalex.org/I2802939634"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Dongdong Zhang",
+          "raw_affiliation_strings": [
+            "Western Medical Branch of PLA General Hospital, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Western Medical Branch of PLA General Hospital, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I2802939634"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5112635815",
+            "display_name": "Wei Liu",
+            "orcid": "https://orcid.org/0000-0002-2348-3952"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2802939634",
+              "display_name": "Chinese PLA General Hospital",
+              "ror": "https://ror.org/04gw3ra78",
+              "country_code": "CN",
+              "type": "healthcare",
+              "lineage": [
+                "https://openalex.org/I2802939634"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Wei Liu",
+          "raw_affiliation_strings": [
+            "Laboratory Department of the Second Medical Center of the General Hospital of the PLA, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Laboratory Department of the Second Medical Center of the General Hospital of the PLA, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I2802939634"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102839218",
+            "display_name": "Yuying Shen",
+            "orcid": "https://orcid.org/0000-0003-4241-3180"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210167153",
+              "display_name": "Biotechnology Research Institute",
+              "ror": "https://ror.org/05vm76w92",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Yuying Shen",
+          "raw_affiliation_strings": [
+            "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5104175971",
+            "display_name": "Lingxi Fan",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210167153",
+              "display_name": "Biotechnology Research Institute",
+              "ror": "https://ror.org/05vm76w92",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Lingxi Fan",
+          "raw_affiliation_strings": [
+            "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102600976",
+            "display_name": "Guoshun Xu",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Guoshun Xu",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5101535707",
+            "display_name": "Wang Yuan",
+            "orcid": "https://orcid.org/0000-0003-4338-2259"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Yuan Wang",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5045650547",
+            "display_name": "Tao Tu",
+            "orcid": "https://orcid.org/0000-0002-1661-0386"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Tao Tu",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-1661-0386",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5043789811",
+            "display_name": "Ningfeng Wu",
+            "orcid": "https://orcid.org/0000-0002-7782-9920"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210167153",
+              "display_name": "Biotechnology Research Institute",
+              "ror": "https://ror.org/05vm76w92",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ningfeng Wu",
+          "raw_affiliation_strings": [
+            "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "National Key Laboratory of Agricultural Microbiology, Biotechnology Research Institute, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210167153"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5008371533",
+            "display_name": "Bin Yao",
+            "orcid": "https://orcid.org/0000-0002-5425-3260"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Bin Yao",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5032931209",
+            "display_name": "Huiying Luo",
+            "orcid": "https://orcid.org/0000-0002-4596-2639"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210149494",
+              "display_name": "Institute of Animal Sciences",
+              "ror": "https://ror.org/04tcthy91",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210149494",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Huiying Luo",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China. luohuiying@caas.cn",
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-4596-2639",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China. luohuiying@caas.cn",
+              "institution_ids": [
+                "https://openalex.org/I4210149494",
+                "https://openalex.org/I4210138501"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102791092",
+            "display_name": "Yue Teng",
+            "orcid": "https://orcid.org/0000-0002-1566-9685"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2802541053",
+              "display_name": "Academy of Military Medical Sciences",
+              "ror": "https://ror.org/02bv3c993",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I2802541053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Yue Teng",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical Sciences, Beijing, China. yueteng@me.com",
+            "State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-1566-9685",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical Sciences, Beijing, China. yueteng@me.com",
+              "institution_ids": [
+                "https://openalex.org/I2802541053"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I2802541053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5011692902",
+            "display_name": "Jian Tian",
+            "orcid": "https://orcid.org/0000-0002-9997-6518"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210149494",
+              "display_name": "Institute of Animal Sciences",
+              "ror": "https://ror.org/04tcthy91",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210149494",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Jian Tian",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China. tianjian@caas.cn",
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-9997-6518",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China. tianjian@caas.cn",
+              "institution_ids": [
+                "https://openalex.org/I4210149494",
+                "https://openalex.org/I4210138501"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5052310341",
+            "display_name": "Huoqing Huang",
+            "orcid": "https://orcid.org/0000-0003-3197-6631"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210138501",
+              "display_name": "Chinese Academy of Agricultural Sciences",
+              "ror": "https://ror.org/0313jb750",
+              "country_code": "CN",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210151987"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210149494",
+              "display_name": "Institute of Animal Sciences",
+              "ror": "https://ror.org/04tcthy91",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210127390",
+                "https://openalex.org/I4210138501",
+                "https://openalex.org/I4210149494",
+                "https://openalex.org/I4210151987"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Huoqing Huang",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China. huoqinghuang@126.com",
+            "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0003-3197-6631",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China. huoqinghuang@126.com",
+              "institution_ids": [
+                "https://openalex.org/I4210149494",
+                "https://openalex.org/I4210138501"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Animal Nutrition and Feeding, Institute of Animal Science, Chinese Academy of Agricultural Sciences, Beijing, China",
+              "institution_ids": [
+                "https://openalex.org/I4210138501"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 16,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5011692902",
+        "https://openalex.org/A5032931209",
+        "https://openalex.org/A5052310341",
+        "https://openalex.org/A5102791092"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I2802541053",
+        "https://openalex.org/I4210138501",
+        "https://openalex.org/I4210149494"
+      ],
+      "apc_list": {
+        "value": 3920,
+        "currency": "GBP",
+        "value_usd": 4808
+      },
+      "apc_paid": {
+        "value": 3920,
+        "currency": "GBP",
+        "value_usd": 4808
+      },
+      "fwci": 10.4182,
+      "has_fulltext": true,
+      "cited_by_count": 13,
+      "citation_normalized_percentile": {
+        "value": 0.98679213,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 96,
+        "max": 100
+      },
+      "biblio": {
+        "volume": "16",
+        "issue": "1",
+        "first_page": "9134",
+        "last_page": "9134"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11103",
+        "display_name": "Antimicrobial Peptides and Activities",
+        "score": 1.0,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2404",
+          "display_name": "Microbiology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/24",
+          "display_name": "Immunology and Microbiology"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/1",
+          "display_name": "Life Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11103",
+          "display_name": "Antimicrobial Peptides and Activities",
+          "score": 1.0,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2404",
+            "display_name": "Microbiology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/24",
+            "display_name": "Immunology and Microbiology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13326",
+          "display_name": "Biochemical and Structural Characterization",
+          "score": 0.996399998664856,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12576",
+          "display_name": "vaccines and immunoinformatics approaches",
+          "score": 0.9819999933242798,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/deep-learning",
+          "display_name": "Deep learning",
+          "score": 0.7846999764442444
+        },
+        {
+          "id": "https://openalex.org/keywords/antimicrobial-peptides",
+          "display_name": "Antimicrobial peptides",
+          "score": 0.6535000205039978
+        },
+        {
+          "id": "https://openalex.org/keywords/peptide",
+          "display_name": "Peptide",
+          "score": 0.5541999936103821
+        },
+        {
+          "id": "https://openalex.org/keywords/amino-acid",
+          "display_name": "Amino acid",
+          "score": 0.49570000171661377
+        },
+        {
+          "id": "https://openalex.org/keywords/antimicrobial",
+          "display_name": "Antimicrobial",
+          "score": 0.4390999972820282
+        },
+        {
+          "id": "https://openalex.org/keywords/deep-sequencing",
+          "display_name": "Deep sequencing",
+          "score": 0.39089998602867126
+        },
+        {
+          "id": "https://openalex.org/keywords/key",
+          "display_name": "Key (lock)",
+          "score": 0.38989999890327454
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C108583219",
+          "wikidata": "https://www.wikidata.org/wiki/Q197536",
+          "display_name": "Deep learning",
+          "level": 2,
+          "score": 0.7846999764442444
+        },
+        {
+          "id": "https://openalex.org/C70721500",
+          "wikidata": "https://www.wikidata.org/wiki/Q177005",
+          "display_name": "Computational biology",
+          "level": 1,
+          "score": 0.6678000092506409
+        },
+        {
+          "id": "https://openalex.org/C540938839",
+          "wikidata": "https://www.wikidata.org/wiki/Q1201508",
+          "display_name": "Antimicrobial peptides",
+          "level": 3,
+          "score": 0.6535000205039978
+        },
+        {
+          "id": "https://openalex.org/C154945302",
+          "wikidata": "https://www.wikidata.org/wiki/Q11660",
+          "display_name": "Artificial intelligence",
+          "level": 1,
+          "score": 0.6198999881744385
+        },
+        {
+          "id": "https://openalex.org/C2779281246",
+          "wikidata": "https://www.wikidata.org/wiki/Q172847",
+          "display_name": "Peptide",
+          "level": 2,
+          "score": 0.5541999936103821
+        },
+        {
+          "id": "https://openalex.org/C515207424",
+          "wikidata": "https://www.wikidata.org/wiki/Q8066",
+          "display_name": "Amino acid",
+          "level": 2,
+          "score": 0.49570000171661377
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.4821000099182129
+        },
+        {
+          "id": "https://openalex.org/C4937899",
+          "wikidata": "https://www.wikidata.org/wiki/Q68541106",
+          "display_name": "Antimicrobial",
+          "level": 2,
+          "score": 0.4390999972820282
+        },
+        {
+          "id": "https://openalex.org/C86803240",
+          "wikidata": "https://www.wikidata.org/wiki/Q420",
+          "display_name": "Biology",
+          "level": 0,
+          "score": 0.4129999876022339
+        },
+        {
+          "id": "https://openalex.org/C119857082",
+          "wikidata": "https://www.wikidata.org/wiki/Q2539",
+          "display_name": "Machine learning",
+          "level": 1,
+          "score": 0.4075999855995178
+        },
+        {
+          "id": "https://openalex.org/C132917006",
+          "wikidata": "https://www.wikidata.org/wiki/Q5250436",
+          "display_name": "Deep sequencing",
+          "level": 4,
+          "score": 0.39089998602867126
+        },
+        {
+          "id": "https://openalex.org/C26517878",
+          "wikidata": "https://www.wikidata.org/wiki/Q228039",
+          "display_name": "Key (lock)",
+          "level": 2,
+          "score": 0.38989999890327454
+        },
+        {
+          "id": "https://openalex.org/C167625842",
+          "wikidata": "https://www.wikidata.org/wiki/Q899763",
+          "display_name": "Peptide sequence",
+          "level": 3,
+          "score": 0.385699987411499
+        },
+        {
+          "id": "https://openalex.org/C32834561",
+          "wikidata": "https://www.wikidata.org/wiki/Q660730",
+          "display_name": "Subspace topology",
+          "level": 2,
+          "score": 0.37549999356269836
+        },
+        {
+          "id": "https://openalex.org/C2776401178",
+          "wikidata": "https://www.wikidata.org/wiki/Q12050496",
+          "display_name": "Feature (linguistics)",
+          "level": 2,
+          "score": 0.352400004863739
+        },
+        {
+          "id": "https://openalex.org/C191908910",
+          "wikidata": "https://www.wikidata.org/wiki/Q862838",
+          "display_name": "Synthetic biology",
+          "level": 2,
+          "score": 0.3107999861240387
+        },
+        {
+          "id": "https://openalex.org/C74187038",
+          "wikidata": "https://www.wikidata.org/wiki/Q1418791",
+          "display_name": "Drug discovery",
+          "level": 2,
+          "score": 0.30329999327659607
+        },
+        {
+          "id": "https://openalex.org/C60644358",
+          "wikidata": "https://www.wikidata.org/wiki/Q128570",
+          "display_name": "Bioinformatics",
+          "level": 1,
+          "score": 0.3001999855041504
+        },
+        {
+          "id": "https://openalex.org/C189206191",
+          "wikidata": "https://www.wikidata.org/wiki/Q222046",
+          "display_name": "Genomics",
+          "level": 4,
+          "score": 0.28769999742507935
+        },
+        {
+          "id": "https://openalex.org/C55493867",
+          "wikidata": "https://www.wikidata.org/wiki/Q7094",
+          "display_name": "Biochemistry",
+          "level": 1,
+          "score": 0.27459999918937683
+        },
+        {
+          "id": "https://openalex.org/C59404180",
+          "wikidata": "https://www.wikidata.org/wiki/Q17013334",
+          "display_name": "Feature learning",
+          "level": 2,
+          "score": 0.26089999079704285
+        },
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.259799987077713
+        },
+        {
+          "id": "https://openalex.org/C2776471321",
+          "wikidata": "https://www.wikidata.org/wiki/Q7166526",
+          "display_name": "Peptide library",
+          "level": 4,
+          "score": 0.2531999945640564
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D000077321",
+          "descriptor_name": "Deep Learning",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000077321",
+          "descriptor_name": "Deep Learning",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000077321",
+          "descriptor_name": "Deep Learning",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000077321",
+          "descriptor_name": "Deep Learning",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000595",
+          "descriptor_name": "Amino Acid Sequence",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000595",
+          "descriptor_name": "Amino Acid Sequence",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000595",
+          "descriptor_name": "Amino Acid Sequence",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000595",
+          "descriptor_name": "Amino Acid Sequence",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000818",
+          "descriptor_name": "Animals",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000818",
+          "descriptor_name": "Animals",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000818",
+          "descriptor_name": "Animals",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000818",
+          "descriptor_name": "Animals",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000900",
+          "descriptor_name": "Anti-Bacterial Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008826",
+          "descriptor_name": "Microbial Sensitivity Tests",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008826",
+          "descriptor_name": "Microbial Sensitivity Tests",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008826",
+          "descriptor_name": "Microbial Sensitivity Tests",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008826",
+          "descriptor_name": "Microbial Sensitivity Tests",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015195",
+          "descriptor_name": "Drug Design",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D015195",
+          "descriptor_name": "Drug Design",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D015195",
+          "descriptor_name": "Drug Design",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D015195",
+          "descriptor_name": "Drug Design",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        }
+      ],
+      "locations_count": 4,
+      "locations": [
+        {
+          "id": "doi:10.1038/s41467-025-64378-y",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.1038/s41467-025-64378-y",
+          "pdf_url": "https://www.nature.com/articles/s41467-025-64378-y.pdf",
+          "source": {
+            "id": "https://openalex.org/S64187185",
+            "display_name": "Nature Communications",
+            "issn_l": "2041-1723",
+            "issn": [
+              "2041-1723"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310319908",
+            "host_organization_name": "Nature Portfolio",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310319908",
+              "https://openalex.org/P4310319965"
+            ],
+            "host_organization_lineage_names": [
+              "Nature Portfolio",
+              "Springer Nature"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Nature Communications",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:41093853",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/41093853",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Nature communications",
+          "raw_type": null
+        },
+        {
+          "id": "pmh:oai:doaj.org/article:9eb56ab48451471793511a3ae6921a3f",
+          "is_oa": true,
+          "landing_page_url": "https://doaj.org/article/9eb56ab48451471793511a3ae6921a3f",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306401280",
+            "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-sa",
+          "license_id": "https://openalex.org/licenses/cc-by-sa",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Nature Communications, Vol 16, Iss 1, Pp 1-14 (2025)",
+          "raw_type": "article"
+        },
+        {
+          "id": "pmh:oai:europepmc.org:11333933",
+          "is_oa": true,
+          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/12528727",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400806",
+            "display_name": "Europe PMC (PubMed Central)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1303153112",
+            "host_organization_name": "European Bioinformatics Institute",
+            "host_organization_lineage": [
+              "https://openalex.org/I1303153112"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "other-oa",
+          "license_id": "https://openalex.org/licenses/other-oa",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "Text"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.1038/s41467-025-64378-y",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1038/s41467-025-64378-y",
+        "pdf_url": "https://www.nature.com/articles/s41467-025-64378-y.pdf",
+        "source": {
+          "id": "https://openalex.org/S64187185",
+          "display_name": "Nature Communications",
+          "issn_l": "2041-1723",
+          "issn": [
+            "2041-1723"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310319908",
+          "host_organization_name": "Nature Portfolio",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310319908",
+            "https://openalex.org/P4310319965"
+          ],
+          "host_organization_lineage_names": [
+            "Nature Portfolio",
+            "Springer Nature"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Nature Communications",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [],
+      "awards": [
+        {
+          "id": "https://openalex.org/G1068449461",
+          "display_name": null,
+          "funder_award_id": "32130101",
+          "funder_id": "https://openalex.org/F4320321001",
+          "funder_display_name": "National Natural Science Foundation of China"
+        },
+        {
+          "id": "https://openalex.org/G2601717526",
+          "display_name": null,
+          "funder_award_id": "CAAS-ZDRW202304",
+          "funder_id": "https://openalex.org/F4320335848",
+          "funder_display_name": "Agricultural Science and Technology Innovation Program"
+        },
+        {
+          "id": "https://openalex.org/G3772691703",
+          "display_name": null,
+          "funder_award_id": "CARS-41",
+          "funder_id": "https://openalex.org/F4320323155",
+          "funder_display_name": "Chinese Academy of Agricultural Sciences"
+        },
+        {
+          "id": "https://openalex.org/G4495568545",
+          "display_name": null,
+          "funder_award_id": "CARS-41",
+          "funder_id": "https://openalex.org/F4320335848",
+          "funder_display_name": "Agricultural Science and Technology Innovation Program"
+        },
+        {
+          "id": "https://openalex.org/G5464361591",
+          "display_name": null,
+          "funder_award_id": "CAAS-ZDRW202304",
+          "funder_id": "https://openalex.org/F4320323155",
+          "funder_display_name": "Chinese Academy of Agricultural Sciences"
+        },
+        {
+          "id": "https://openalex.org/G5575628457",
+          "display_name": null,
+          "funder_award_id": "32270813",
+          "funder_id": "https://openalex.org/F4320321001",
+          "funder_display_name": "National Natural Science Foundation of China"
+        },
+        {
+          "id": "https://openalex.org/G6620813850",
+          "display_name": null,
+          "funder_award_id": "CARS-41",
+          "funder_id": "https://openalex.org/F4320321001",
+          "funder_display_name": "National Natural Science Foundation of China"
+        }
+      ],
+      "funders": [
+        {
+          "id": "https://openalex.org/F4320321001",
+          "display_name": "National Natural Science Foundation of China",
+          "ror": "https://ror.org/01h0zpd94"
+        },
+        {
+          "id": "https://openalex.org/F4320323155",
+          "display_name": "Chinese Academy of Agricultural Sciences",
+          "ror": "https://ror.org/0313jb750"
+        },
+        {
+          "id": "https://openalex.org/F4320335848",
+          "display_name": "Agricultural Science and Technology Innovation Program",
+          "ror": null
+        }
+      ],
+      "has_content": {
+        "pdf": true,
+        "grobid_xml": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4415208914.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W4415208914.grobid-xml"
+      },
+      "referenced_works_count": 52,
+      "referenced_works": [
+        "https://openalex.org/W1709815505",
+        "https://openalex.org/W1995002572",
+        "https://openalex.org/W2025785025",
+        "https://openalex.org/W2084845164",
+        "https://openalex.org/W2097099115",
+        "https://openalex.org/W2099476122",
+        "https://openalex.org/W2155208388",
+        "https://openalex.org/W2160780417",
+        "https://openalex.org/W2279705572",
+        "https://openalex.org/W2562261325",
+        "https://openalex.org/W2593090067",
+        "https://openalex.org/W3023413280",
+        "https://openalex.org/W3027325047",
+        "https://openalex.org/W3040996852",
+        "https://openalex.org/W3118904632",
+        "https://openalex.org/W3133726952",
+        "https://openalex.org/W3135156311",
+        "https://openalex.org/W3201580298",
+        "https://openalex.org/W4213250816",
+        "https://openalex.org/W4214943162",
+        "https://openalex.org/W4220710932",
+        "https://openalex.org/W4224997444",
+        "https://openalex.org/W4225460848",
+        "https://openalex.org/W4226358716",
+        "https://openalex.org/W4235106149",
+        "https://openalex.org/W4285606919",
+        "https://openalex.org/W4292403471",
+        "https://openalex.org/W4308615919",
+        "https://openalex.org/W4315784590",
+        "https://openalex.org/W4318071656",
+        "https://openalex.org/W4322718303",
+        "https://openalex.org/W4362657509",
+        "https://openalex.org/W4366767049",
+        "https://openalex.org/W4372333115",
+        "https://openalex.org/W4376648549",
+        "https://openalex.org/W4382198814",
+        "https://openalex.org/W4385691358",
+        "https://openalex.org/W4386151602",
+        "https://openalex.org/W4387164872",
+        "https://openalex.org/W4387865568",
+        "https://openalex.org/W4388492286",
+        "https://openalex.org/W4388694364",
+        "https://openalex.org/W4388977037",
+        "https://openalex.org/W4389275083",
+        "https://openalex.org/W4391849809",
+        "https://openalex.org/W4392162030",
+        "https://openalex.org/W4392352514",
+        "https://openalex.org/W4399367032",
+        "https://openalex.org/W4399544572",
+        "https://openalex.org/W4399830285",
+        "https://openalex.org/W4408410901",
+        "https://openalex.org/W6930998858"
+      ],
+      "related_works": [],
+      "abstract_inverted_index": {
+        "Deep": [
+          0
+        ],
+        "learning": [
+          1,
+          44
+        ],
+        "models": [
+          2,
+          45
+        ],
+        "show": [
+          3,
+          142
+        ],
+        "promise": [
+          4
+        ],
+        "in": [
+          5,
+          83,
+          170,
+          173,
+          196
+        ],
+        "accelerating": [
+          6
+        ],
+        "the": [
+          7,
+          60,
+          69,
+          77,
+          98,
+          147,
+          179,
+          182
+        ],
+        "design": [
+          8,
+          39,
+          187
+        ],
+        "and": [
+          9,
+          48,
+          90,
+          104,
+          172,
+          188
+        ],
+        "optimization": [
+          10
+        ],
+        "of": [
+          11,
+          62,
+          79,
+          146,
+          154,
+          181,
+          190
+        ],
+        "antimicrobial": [
+          12,
+          54,
+          160
+        ],
+        "peptides": [
+          13,
+          85
+        ],
+        "(AMPs),": [
+          14
+        ],
+        "but": [
+          15
+        ],
+        "current": [
+          16
+        ],
+        "methods": [
+          17
+        ],
+        "face": [
+          18
+        ],
+        "challenges,": [
+          19
+        ],
+        "such": [
+          20
+        ],
+        "as": [
+          21
+        ],
+        "low": [
+          22
+        ],
+        "success": [
+          23
+        ],
+        "rates,": [
+          24
+        ],
+        "or": [
+          25
+        ],
+        "large": [
+          26
+        ],
+        "virtual": [
+          27
+        ],
+        "library": [
+          28
+        ],
+        "scales.": [
+          29
+        ],
+        "In": [
+          30
+        ],
+        "this": [
+          31
+        ],
+        "study,": [
+          32
+        ],
+        "we": [
+          33,
+          75
+        ],
+        "introduce": [
+          34
+        ],
+        "DLFea4AMPGen,": [
+          35
+        ],
+        "a": [
+          36,
+          123
+        ],
+        "bioactive": [
+          37,
+          191
+        ],
+        "peptide": [
+          38,
+          55,
+          63
+        ],
+        "strategy": [
+          40
+        ],
+        "that": [
+          41,
+          143
+        ],
+        "leverages": [
+          42
+        ],
+        "deep": [
+          43
+        ],
+        "to": [
+          46,
+          121
+        ],
+        "identify": [
+          47
+        ],
+        "extract": [
+          49
+        ],
+        "key": [
+          50
+        ],
+        "features": [
+          51
+        ],
+        "associated": [
+          52
+        ],
+        "with": [
+          53,
+          65,
+          86,
+          97
+        ],
+        "activity.": [
+          56,
+          155
+        ],
+        "This": [
+          57,
+          175
+        ],
+        "approach": [
+          58
+        ],
+        "enables": [
+          59
+        ],
+        "generation": [
+          61
+        ],
+        "sequences": [
+          64,
+          134,
+          148
+        ],
+        "potential": [
+          66,
+          87,
+          180
+        ],
+        "bioactivities.": [
+          67
+        ],
+        "Using": [
+          68
+        ],
+        "SHapley": [
+          70
+        ],
+        "Additive": [
+          71
+        ],
+        "exPlanations": [
+          72
+        ],
+        "(SHAP)": [
+          73
+        ],
+        "method,": [
+          74
+        ],
+        "quantify": [
+          76
+        ],
+        "contribution": [
+          78
+        ],
+        "each": [
+          80
+        ],
+        "amino": [
+          81,
+          111,
+          116
+        ],
+        "acid": [
+          82,
+          112
+        ],
+        "multifunctional": [
+          84
+        ],
+        "antibacterial,": [
+          88
+        ],
+        "antifungal,": [
+          89
+        ],
+        "antioxidant": [
+          91
+        ],
+        "activities.": [
+          92
+        ],
+        "Key": [
+          93
+        ],
+        "feature": [
+          94
+        ],
+        "fragments": [
+          95
+        ],
+        "(KFFs)": [
+          96
+        ],
+        "highest": [
+          99
+        ],
+        "average": [
+          100
+        ],
+        "contributions": [
+          101
+        ],
+        "are": [
+          102,
+          118
+        ],
+        "extracted": [
+          103
+        ],
+        "classified": [
+          105
+        ],
+        "into": [
+          106
+        ],
+        "four": [
+          107
+        ],
+        "subfamilies": [
+          108
+        ],
+        "based": [
+          109
+        ],
+        "on": [
+          110
+        ],
+        "frequency.": [
+          113
+        ],
+        "These": [
+          114
+        ],
+        "high-frequency": [
+          115
+        ],
+        "acids": [
+          117
+        ],
+        "systematically": [
+          119
+        ],
+        "arranged": [
+          120
+        ],
+        "generate": [
+          122
+        ],
+        "plausible": [
+          124
+        ],
+        "sequence": [
+          125
+        ],
+        "subspace": [
+          126
+        ],
+        "for": [
+          127,
+          137,
+          185
+        ],
+        "candidate": [
+          128
+        ],
+        "peptides,": [
+          129,
+          192
+        ],
+        "from": [
+          130
+        ],
+        "which": [
+          131
+        ],
+        "16": [
+          132
+        ],
+        "representative": [
+          133
+        ],
+        "were": [
+          135
+        ],
+        "selected": [
+          136
+        ],
+        "experimental": [
+          138
+        ],
+        "validation.": [
+          139
+        ],
+        "The": [
+          140
+        ],
+        "results": [
+          141
+        ],
+        "75%": [
+          144
+        ],
+        "(12/16)": [
+          145
+        ],
+        "exhibited": [
+          149
+        ],
+        "at": [
+          150
+        ],
+        "least": [
+          151
+        ],
+        "two": [
+          152
+        ],
+        "types": [
+          153
+        ],
+        "Notably,": [
+          156
+        ],
+        "D1": [
+          157
+        ],
+        "exhibits": [
+          158
+        ],
+        "broad-spectrum": [
+          159
+        ],
+        "activity,": [
+          161
+        ],
+        "including": [
+          162
+        ],
+        "efficacy": [
+          163
+        ],
+        "against": [
+          164
+        ],
+        "multidrug-resistant": [
+          165
+        ],
+        "clinical": [
+          166
+        ],
+        "pathogenic": [
+          167
+        ],
+        "isolates": [
+          168
+        ],
+        "both": [
+          169
+        ],
+        "vitro": [
+          171
+        ],
+        "vivo.": [
+          174
+        ],
+        "proof-of-concept": [
+          176
+        ],
+        "study": [
+          177
+        ],
+        "underscores": [
+          178
+        ],
+        "DLFea4AMPGen": [
+          183
+        ],
+        "platform": [
+          184
+        ],
+        "efficient": [
+          186
+        ],
+        "screening": [
+          189
+        ],
+        "showcasing": [
+          193
+        ],
+        "its": [
+          194
+        ],
+        "value": [
+          195
+        ],
+        "AMP": [
+          197
+        ],
+        "research.": [
+          198
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 3
+        }
+      ],
+      "updated_date": "2026-06-18T10:00:31.954636",
+      "created_date": "2025-10-16T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W7162005749",
+      "doi": "https://doi.org/10.64898/2026.05.19.726290",
+      "title": "Antimicrobial peptide databases and prediction tools: Toward a standard evaluation framework",
+      "display_name": "Antimicrobial peptide databases and prediction tools: Toward a standard evaluation framework",
+      "relevance_score": 2.124046,
+      "publication_year": 2026,
+      "publication_date": "2026-05-21",
+      "ids": {
+        "openalex": "https://openalex.org/W7162005749",
+        "doi": "https://doi.org/10.64898/2026.05.19.726290"
+      },
+      "language": null,
+      "primary_location": {
+        "id": "doi:10.64898/2026.05.19.726290",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.64898/2026.05.19.726290",
+        "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/05/21/2026.05.19.726290.full.pdf",
+        "source": {
+          "id": "https://openalex.org/S4306402567",
+          "display_name": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I2750212522",
+          "host_organization_name": "Cold Spring Harbor Laboratory",
+          "host_organization_lineage": [
+            "https://openalex.org/I2750212522"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "acceptedVersion",
+        "is_accepted": true,
+        "is_published": false,
+        "raw_source_name": "bioRxiv",
+        "raw_type": "posted-content"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://www.biorxiv.org/content/biorxiv/early/2026/05/21/2026.05.19.726290.full.pdf",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5052463742",
+            "display_name": "Alejandro Cisterna‐García",
+            "orcid": "https://orcid.org/0000-0002-9927-7178"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I35440088",
+              "display_name": "ETH Zurich",
+              "ror": "https://ror.org/05a28rw58",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210090941",
+              "display_name": "Institute for Biomedical Engineering",
+              "ror": "https://ror.org/00baskk38",
+              "country_code": "CH",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I202697423",
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210090941"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210122261",
+              "display_name": "Swiss Data Science Center",
+              "ror": "https://ror.org/02hdt9m26",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210122261",
+                "https://openalex.org/I5124864"
+              ]
+            }
+          ],
+          "countries": [
+            "CH"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Alejandro Cisterna-García",
+          "raw_affiliation_strings": [
+            "Biomedical Data Science Lab, ETH Zürich, Zürich, Switzerland"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-9927-7178",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Biomedical Data Science Lab, ETH Zürich, Zürich, Switzerland",
+              "institution_ids": [
+                "https://openalex.org/I4210122261",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210090941"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5136648580",
+            "display_name": "Alvaro Maximo Gonzalez Lopez",
+            "orcid": "https://orcid.org/0009-0007-4065-8834"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I80180929",
+              "display_name": "Universidad de Murcia",
+              "ror": "https://ror.org/03p3aeb86",
+              "country_code": "ES",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ],
+          "countries": [
+            "ES"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Alvaro M. González-López",
+          "raw_affiliation_strings": [
+            "Departamento de Ingeniería de la Información y las Comunicaciones, Universidad de Murcia, Murcia, Spain"
+          ],
+          "raw_orcid": "https://orcid.org/0009-0007-4065-8834",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Departamento de Ingeniería de la Información y las Comunicaciones, Universidad de Murcia, Murcia, Spain",
+              "institution_ids": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5106700508",
+            "display_name": "Aspasia Vozi",
+            "orcid": "https://orcid.org/0000-0001-6363-7162"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I35440088",
+              "display_name": "ETH Zurich",
+              "ror": "https://ror.org/05a28rw58",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210090941",
+              "display_name": "Institute for Biomedical Engineering",
+              "ror": "https://ror.org/00baskk38",
+              "country_code": "CH",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I202697423",
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210090941"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210122261",
+              "display_name": "Swiss Data Science Center",
+              "ror": "https://ror.org/02hdt9m26",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210122261",
+                "https://openalex.org/I5124864"
+              ]
+            }
+          ],
+          "countries": [
+            "CH"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Aspasia Vozi",
+          "raw_affiliation_strings": [
+            "Biomedical Data Science Lab, ETH Zürich, Zürich, Switzerland"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0001-6363-7162",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Biomedical Data Science Lab, ETH Zürich, Zürich, Switzerland",
+              "institution_ids": [
+                "https://openalex.org/I4210122261",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210090941"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5048150087",
+            "display_name": "María Ángeles Esteban",
+            "orcid": "https://orcid.org/0000-0002-6264-1458"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I80180929",
+              "display_name": "Universidad de Murcia",
+              "ror": "https://ror.org/03p3aeb86",
+              "country_code": "ES",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ],
+          "countries": [
+            "ES"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "María A. Esteban",
+          "raw_affiliation_strings": [
+            "Departamento de Biología Celular e Histología, Facultad de Biología, Universidad de Murcia, 30100 Murcia, Spain"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-6264-1458",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Departamento de Biología Celular e Histología, Facultad de Biología, Universidad de Murcia, 30100 Murcia, Spain",
+              "institution_ids": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5053893299",
+            "display_name": "Adrian Egli",
+            "orcid": "https://orcid.org/0000-0002-3564-8603"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I202697423",
+              "display_name": "University of Zurich",
+              "ror": "https://ror.org/02crff812",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I202697423"
+              ]
+            }
+          ],
+          "countries": [
+            "CH"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Adrian Egli",
+          "raw_affiliation_strings": [
+            "Institute of Medical Microbiology, University of Zurich, Zurich, Switzerland"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-3564-8603",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Medical Microbiology, University of Zurich, Zurich, Switzerland",
+              "institution_ids": [
+                "https://openalex.org/I202697423"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5136657013",
+            "display_name": "Catherine Jutzeler",
+            "orcid": "https://orcid.org/0000-0001-7167-8271"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I35440088",
+              "display_name": "ETH Zurich",
+              "ror": "https://ror.org/05a28rw58",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210090941",
+              "display_name": "Institute for Biomedical Engineering",
+              "ror": "https://ror.org/00baskk38",
+              "country_code": "CH",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I202697423",
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210090941"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210122261",
+              "display_name": "Swiss Data Science Center",
+              "ror": "https://ror.org/02hdt9m26",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I2799323385",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210122261",
+                "https://openalex.org/I5124864"
+              ]
+            }
+          ],
+          "countries": [
+            "CH"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Catherine Jutzeler",
+          "raw_affiliation_strings": [
+            "Biomedical Data Science Lab, ETH Zürich, Zürich, Switzerland"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0001-7167-8271",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Biomedical Data Science Lab, ETH Zürich, Zürich, Switzerland",
+              "institution_ids": [
+                "https://openalex.org/I4210122261",
+                "https://openalex.org/I35440088",
+                "https://openalex.org/I4210090941"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5009305191",
+            "display_name": "José Palma",
+            "orcid": "https://orcid.org/0000-0003-2502-4378"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I80180929",
+              "display_name": "Universidad de Murcia",
+              "ror": "https://ror.org/03p3aeb86",
+              "country_code": "ES",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ],
+          "countries": [
+            "ES"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jose Palma",
+          "raw_affiliation_strings": [
+            "Departamento de Ingeniería de la Información y las Comunicaciones, Universidad de Murcia, Murcia, Spain"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0003-2502-4378",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Departamento de Ingeniería de la Información y las Comunicaciones, Universidad de Murcia, Murcia, Spain",
+              "institution_ids": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5058850197",
+            "display_name": "Álvaro Sánchez‐Ferrer",
+            "orcid": "https://orcid.org/0000-0001-7266-4402"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I80180929",
+              "display_name": "Universidad de Murcia",
+              "ror": "https://ror.org/03p3aeb86",
+              "country_code": "ES",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ],
+          "countries": [
+            "ES"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Alvaro Sánchez-Ferrer",
+          "raw_affiliation_strings": [
+            "Departamento de Bioquímica y Biología Molecular-A, Facultad de Biología, Universidad de Murcia, 30100 Murcia, Spain"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0001-7266-4402",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Departamento de Bioquímica y Biología Molecular-A, Facultad de Biología, Universidad de Murcia, 30100 Murcia, Spain",
+              "institution_ids": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5025988686",
+            "display_name": "Juan A. Botía",
+            "orcid": "https://orcid.org/0000-0002-6992-598X"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I80180929",
+              "display_name": "Universidad de Murcia",
+              "ror": "https://ror.org/03p3aeb86",
+              "country_code": "ES",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I80180929"
+              ]
+            }
+          ],
+          "countries": [
+            "ES",
+            "GB"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Juan A. Botía",
+          "raw_affiliation_strings": [
+            "Departamento de Ingeniería de la Información y las Comunicaciones, Universidad de Murcia, Murcia, Spain",
+            "Department of Neurodegenerative Disease, UCL Institute of Neurology, London WC1E 6BT, UK"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-6992-598X",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Departamento de Ingeniería de la Información y las Comunicaciones, Universidad de Murcia, Murcia, Spain",
+              "institution_ids": [
+                "https://openalex.org/I80180929"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Neurodegenerative Disease, UCL Institute of Neurology, London WC1E 6BT, UK",
+              "institution_ids": [
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 3,
+      "institutions_distinct_count": 9,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5025988686"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I45129253",
+        "https://openalex.org/I80180929"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.0,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": {
+        "value": 0.90519561,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11103",
+        "display_name": "Antimicrobial Peptides and Activities",
+        "score": 0.9725000262260437,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2404",
+          "display_name": "Microbiology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/24",
+          "display_name": "Immunology and Microbiology"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/1",
+          "display_name": "Life Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11103",
+          "display_name": "Antimicrobial Peptides and Activities",
+          "score": 0.9725000262260437,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2404",
+            "display_name": "Microbiology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/24",
+            "display_name": "Immunology and Microbiology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12254",
+          "display_name": "Machine Learning in Bioinformatics",
+          "score": 0.003800000064074993,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12576",
+          "display_name": "vaccines and immunoinformatics approaches",
+          "score": 0.002400000113993883,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/benchmark",
+          "display_name": "Benchmark (surveying)",
+          "score": 0.5745000243186951
+        },
+        {
+          "id": "https://openalex.org/keywords/antimicrobial-peptides",
+          "display_name": "Antimicrobial peptides",
+          "score": 0.39259999990463257
+        },
+        {
+          "id": "https://openalex.org/keywords/antimicrobial",
+          "display_name": "Antimicrobial",
+          "score": 0.34950000047683716
+        },
+        {
+          "id": "https://openalex.org/keywords/antibiotic-resistance",
+          "display_name": "Antibiotic resistance",
+          "score": 0.34279999136924744
+        },
+        {
+          "id": "https://openalex.org/keywords/human-health",
+          "display_name": "Human health",
+          "score": 0.3393000066280365
+        },
+        {
+          "id": "https://openalex.org/keywords/key",
+          "display_name": "Key (lock)",
+          "score": 0.33660000562667847
+        },
+        {
+          "id": "https://openalex.org/keywords/computational-model",
+          "display_name": "Computational model",
+          "score": 0.30809998512268066
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.6011000275611877
+        },
+        {
+          "id": "https://openalex.org/C185798385",
+          "wikidata": "https://www.wikidata.org/wiki/Q1161707",
+          "display_name": "Benchmark (surveying)",
+          "level": 2,
+          "score": 0.5745000243186951
+        },
+        {
+          "id": "https://openalex.org/C2522767166",
+          "wikidata": "https://www.wikidata.org/wiki/Q2374463",
+          "display_name": "Data science",
+          "level": 1,
+          "score": 0.43479999899864197
+        },
+        {
+          "id": "https://openalex.org/C77088390",
+          "wikidata": "https://www.wikidata.org/wiki/Q8513",
+          "display_name": "Database",
+          "level": 1,
+          "score": 0.41029998660087585
+        },
+        {
+          "id": "https://openalex.org/C119857082",
+          "wikidata": "https://www.wikidata.org/wiki/Q2539",
+          "display_name": "Machine learning",
+          "level": 1,
+          "score": 0.39419999718666077
+        },
+        {
+          "id": "https://openalex.org/C540938839",
+          "wikidata": "https://www.wikidata.org/wiki/Q1201508",
+          "display_name": "Antimicrobial peptides",
+          "level": 3,
+          "score": 0.39259999990463257
+        },
+        {
+          "id": "https://openalex.org/C154945302",
+          "wikidata": "https://www.wikidata.org/wiki/Q11660",
+          "display_name": "Artificial intelligence",
+          "level": 1,
+          "score": 0.36910000443458557
+        },
+        {
+          "id": "https://openalex.org/C112930515",
+          "wikidata": "https://www.wikidata.org/wiki/Q4389547",
+          "display_name": "Risk analysis (engineering)",
+          "level": 1,
+          "score": 0.365200012922287
+        },
+        {
+          "id": "https://openalex.org/C4937899",
+          "wikidata": "https://www.wikidata.org/wiki/Q68541106",
+          "display_name": "Antimicrobial",
+          "level": 2,
+          "score": 0.34950000047683716
+        },
+        {
+          "id": "https://openalex.org/C94665300",
+          "wikidata": "https://www.wikidata.org/wiki/Q63391344",
+          "display_name": "Antibiotic resistance",
+          "level": 3,
+          "score": 0.34279999136924744
+        },
+        {
+          "id": "https://openalex.org/C2987857752",
+          "wikidata": "https://www.wikidata.org/wiki/Q12147",
+          "display_name": "Human health",
+          "level": 2,
+          "score": 0.3393000066280365
+        },
+        {
+          "id": "https://openalex.org/C26517878",
+          "wikidata": "https://www.wikidata.org/wiki/Q228039",
+          "display_name": "Key (lock)",
+          "level": 2,
+          "score": 0.33660000562667847
+        },
+        {
+          "id": "https://openalex.org/C66024118",
+          "wikidata": "https://www.wikidata.org/wiki/Q1122506",
+          "display_name": "Computational model",
+          "level": 2,
+          "score": 0.30809998512268066
+        },
+        {
+          "id": "https://openalex.org/C9652623",
+          "wikidata": "https://www.wikidata.org/wiki/Q190109",
+          "display_name": "Field (mathematics)",
+          "level": 2,
+          "score": 0.3052000105381012
+        },
+        {
+          "id": "https://openalex.org/C124101348",
+          "wikidata": "https://www.wikidata.org/wiki/Q172491",
+          "display_name": "Data mining",
+          "level": 1,
+          "score": 0.29429998993873596
+        },
+        {
+          "id": "https://openalex.org/C70721500",
+          "wikidata": "https://www.wikidata.org/wiki/Q177005",
+          "display_name": "Computational biology",
+          "level": 1,
+          "score": 0.2865999937057495
+        },
+        {
+          "id": "https://openalex.org/C74187038",
+          "wikidata": "https://www.wikidata.org/wiki/Q1418791",
+          "display_name": "Drug discovery",
+          "level": 2,
+          "score": 0.2808000147342682
+        },
+        {
+          "id": "https://openalex.org/C72634772",
+          "wikidata": "https://www.wikidata.org/wiki/Q386824",
+          "display_name": "Data integration",
+          "level": 2,
+          "score": 0.28029999136924744
+        },
+        {
+          "id": "https://openalex.org/C168167062",
+          "wikidata": "https://www.wikidata.org/wiki/Q1117970",
+          "display_name": "Component (thermodynamics)",
+          "level": 2,
+          "score": 0.26840001344680786
+        },
+        {
+          "id": "https://openalex.org/C12174686",
+          "wikidata": "https://www.wikidata.org/wiki/Q1058438",
+          "display_name": "Risk assessment",
+          "level": 2,
+          "score": 0.26350000500679016
+        },
+        {
+          "id": "https://openalex.org/C3019249092",
+          "wikidata": "https://www.wikidata.org/wiki/Q274493",
+          "display_name": "Antibacterial agent",
+          "level": 3,
+          "score": 0.25589999556541443
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.64898/2026.05.19.726290",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.64898/2026.05.19.726290",
+          "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/05/21/2026.05.19.726290.full.pdf",
+          "source": {
+            "id": "https://openalex.org/S4306402567",
+            "display_name": "bioRxiv (Cold Spring Harbor Laboratory)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I2750212522",
+            "host_organization_name": "Cold Spring Harbor Laboratory",
+            "host_organization_lineage": [
+              "https://openalex.org/I2750212522"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "acceptedVersion",
+          "is_accepted": true,
+          "is_published": false,
+          "raw_source_name": "bioRxiv",
+          "raw_type": "posted-content"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.64898/2026.05.19.726290",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.64898/2026.05.19.726290",
+        "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/05/21/2026.05.19.726290.full.pdf",
+        "source": {
+          "id": "https://openalex.org/S4306402567",
+          "display_name": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I2750212522",
+          "host_organization_name": "Cold Spring Harbor Laboratory",
+          "host_organization_lineage": [
+            "https://openalex.org/I2750212522"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "acceptedVersion",
+        "is_accepted": true,
+        "is_published": false,
+        "raw_source_name": "bioRxiv",
+        "raw_type": "posted-content"
+      },
+      "sustainable_development_goals": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "pdf": true,
+        "grobid_xml": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W7162005749.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W7162005749.grobid-xml"
+      },
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [],
+      "abstract_inverted_index": {
+        "Abstract": [
+          0
+        ],
+        "Antimicrobial": [
+          1,
+          42
+        ],
+        "resistance": [
+          2
+        ],
+        "(AMR)": [
+          3
+        ],
+        "has": [
+          4,
+          72
+        ],
+        "a": [
+          5,
+          26,
+          48,
+          124,
+          211
+        ],
+        "profound": [
+          6
+        ],
+        "impact": [
+          7
+        ],
+        "on": [
+          8,
+          105,
+          154,
+          206
+        ],
+        "animal": [
+          9
+        ],
+        "and": [
+          10,
+          13,
+          20,
+          50,
+          80,
+          108,
+          118,
+          130,
+          139,
+          170,
+          175,
+          201,
+          220,
+          234
+        ],
+        "human": [
+          11
+        ],
+        "health": [
+          12,
+          22
+        ],
+        "is": [
+          14,
+          25
+        ],
+        "associated": [
+          15
+        ],
+        "with": [
+          16
+        ],
+        "substantial": [
+          17
+        ],
+        "morbidity,": [
+          18
+        ],
+        "mortality": [
+          19
+        ],
+        "public": [
+          21,
+          70
+        ],
+        "costs.": [
+          23
+        ],
+        "There": [
+          24
+        ],
+        "clear": [
+          27
+        ],
+        "need": [
+          28
+        ],
+        "to": [
+          29,
+          58,
+          84,
+          115,
+          135,
+          167,
+          192,
+          196,
+          216,
+          238
+        ],
+        "develop": [
+          30
+        ],
+        "novel,": [
+          31
+        ],
+        "effective": [
+          32
+        ],
+        "antibiotic": [
+          33
+        ],
+        "agents,": [
+          34
+        ],
+        "which": [
+          35
+        ],
+        "can": [
+          36,
+          97
+        ],
+        "overcome": [
+          37
+        ],
+        "the": [
+          38,
+          63,
+          74,
+          244
+        ],
+        "current": [
+          39
+        ],
+        "AMR": [
+          40
+        ],
+        "crisis.": [
+          41
+        ],
+        "peptides": [
+          43,
+          156
+        ],
+        "(AMPs)": [
+          44
+        ],
+        "may": [
+          45,
+          113
+        ],
+        "offer": [
+          46
+        ],
+        "such": [
+          47
+        ],
+        "solution": [
+          49
+        ],
+        "have": [
+          51
+        ],
+        "attracted": [
+          52
+        ],
+        "growing": [
+          53,
+          64
+        ],
+        "attention": [
+          54
+        ],
+        "for": [
+          55,
+          185,
+          231
+        ],
+        "their": [
+          56,
+          172
+        ],
+        "potential": [
+          57
+        ],
+        "combat": [
+          59
+        ],
+        "AMR.": [
+          60
+        ],
+        "In": [
+          61
+        ],
+        "parallel,": [
+          62
+        ],
+        "availability": [
+          65
+        ],
+        "of": [
+          66,
+          76,
+          143,
+          163,
+          247
+        ],
+        "peptide": [
+          67
+        ],
+        "sequences": [
+          68
+        ],
+        "in": [
+          69,
+          223,
+          243
+        ],
+        "databases": [
+          71,
+          165,
+          233
+        ],
+        "stimulated": [
+          73
+        ],
+        "development": [
+          75,
+          237
+        ],
+        "numerous": [
+          77
+        ],
+        "machine": [
+          78
+        ],
+        "learning": [
+          79,
+          82
+        ],
+        "deep": [
+          81
+        ],
+        "tools": [
+          83,
+          96,
+          184
+        ],
+        "predict": [
+          85
+        ],
+        "antimicrobial": [
+          86
+        ],
+        "activity": [
+          87,
+          169
+        ],
+        "computationally.": [
+          88
+        ],
+        "However,": [
+          89
+        ],
+        "it": [
+          90
+        ],
+        "remains": [
+          91
+        ],
+        "unclear": [
+          92
+        ],
+        "how": [
+          93
+        ],
+        "reliably": [
+          94
+        ],
+        "these": [
+          95,
+          207
+        ],
+        "be": [
+          98
+        ],
+        "compared,": [
+          99
+        ],
+        "as": [
+          100
+        ],
+        "existing": [
+          101,
+          182
+        ],
+        "studies": [
+          102
+        ],
+        "often": [
+          103
+        ],
+        "rely": [
+          104
+        ],
+        "heterogeneous": [
+          106
+        ],
+        "datasets": [
+          107
+        ],
+        "inconsistent": [
+          109,
+          202
+        ],
+        "evaluation": [
+          110,
+          128,
+          213
+        ],
+        "protocols": [
+          111
+        ],
+        "that": [
+          112
+        ],
+        "lead": [
+          114
+        ],
+        "data": [
+          116,
+          199
+        ],
+        "leakage": [
+          117
+        ],
+        "inflated": [
+          119
+        ],
+        "performance": [
+          120,
+          203
+        ],
+        "estimates.": [
+          121
+        ],
+        "This": [
+          122
+        ],
+        "raises": [
+          123
+        ],
+        "central": [
+          125
+        ],
+        "question:": [
+          126
+        ],
+        "what": [
+          127
+        ],
+        "criteria": [
+          129
+        ],
+        "benchmark": [
+          131
+        ],
+        "resources": [
+          132
+        ],
+        "are": [
+          133
+        ],
+        "needed": [
+          134
+        ],
+        "enable": [
+          136
+        ],
+        "fair,": [
+          137
+        ],
+        "reproducible,": [
+          138
+        ],
+        "biologically": [
+          140
+        ],
+        "meaningful": [
+          141
+        ],
+        "assessment": [
+          142
+        ],
+        "AMP": [
+          144,
+          164,
+          232
+        ],
+        "prediction": [
+          145
+        ],
+        "tools?": [
+          146
+        ],
+        "We": [
+          147,
+          158,
+          178
+        ],
+        "address": [
+          148
+        ],
+        "this": [
+          149
+        ],
+        "question": [
+          150
+        ],
+        "by": [
+          151
+        ],
+        "focusing": [
+          152
+        ],
+        "specifically": [
+          153
+        ],
+        "antibacterial": [
+          155,
+          168
+        ],
+        "(ABPs).": [
+          157
+        ],
+        "first": [
+          159
+        ],
+        "provide": [
+          160,
+          228
+        ],
+        "an": [
+          161
+        ],
+        "overview": [
+          162
+        ],
+        "relevant": [
+          166
+        ],
+        "compare": [
+          171
+        ],
+        "content,": [
+          173
+        ],
+        "redundancy,": [
+          174
+        ],
+        "experimental": [
+          176
+        ],
+        "metadata.": [
+          177
+        ],
+        "then": [
+          179
+        ],
+        "critically": [
+          180
+        ],
+        "assess": [
+          181
+        ],
+        "computational": [
+          183,
+          245
+        ],
+        "ABP": [
+          186,
+          224
+        ],
+        "prediction,": [
+          187
+        ],
+        "highlighting": [
+          188
+        ],
+        "key": [
+          189
+        ],
+        "limitations": [
+          190
+        ],
+        "related": [
+          191
+        ],
+        "dataset": [
+          193
+        ],
+        "construction,": [
+          194
+        ],
+        "affinity": [
+          195
+        ],
+        "certain": [
+          197
+        ],
+        "sequences,": [
+          198
+        ],
+        "leakage,": [
+          200
+        ],
+        "reporting.": [
+          204
+        ],
+        "Based": [
+          205
+        ],
+        "limitations,": [
+          208
+        ],
+        "we": [
+          209,
+          227
+        ],
+        "propose": [
+          210
+        ],
+        "reference": [
+          212
+        ],
+        "framework": [
+          214
+        ],
+        "designed": [
+          215
+        ],
+        "improve": [
+          217
+        ],
+        "comparability,": [
+          218
+        ],
+        "reproducibility,": [
+          219
+        ],
+        "practical": [
+          221
+        ],
+        "utility": [
+          222
+        ],
+        "prediction.": [
+          225
+        ],
+        "Finally,": [
+          226
+        ],
+        "targeted": [
+          229
+        ],
+        "recommendations": [
+          230
+        ],
+        "future": [
+          235
+        ],
+        "tool": [
+          236
+        ],
+        "support": [
+          239
+        ],
+        "more": [
+          240
+        ],
+        "robust": [
+          241
+        ],
+        "progress": [
+          242
+        ],
+        "discovery": [
+          246
+        ],
+        "ABPs.": [
+          248
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-05-26T06:15:08.310788",
+      "created_date": "2026-05-22T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W7165028949",
+      "doi": "https://doi.org/10.1093/bib/bbag318",
+      "title": "MAPLE: interpretable deep learning identifies selective antimicrobial peptides using joint evolutionary–physicochemical analysis",
+      "display_name": "MAPLE: interpretable deep learning identifies selective antimicrobial peptides using joint evolutionary–physicochemical analysis",
+      "relevance_score": 1.4975461,
+      "publication_year": 2026,
+      "publication_date": "2026-05-01",
+      "ids": {
+        "openalex": "https://openalex.org/W7165028949",
+        "doi": "https://doi.org/10.1093/bib/bbag318",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/42308420"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1093/bib/bbag318",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1093/bib/bbag318",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S91767247",
+          "display_name": "Briefings in Bioinformatics",
+          "issn_l": "1467-5463",
+          "issn": [
+            "1467-5463",
+            "1477-4054"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310311648",
+          "host_organization_name": "Oxford University Press",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310311648",
+            "https://openalex.org/P4310311647"
+          ],
+          "host_organization_lineage_names": [
+            "Oxford University Press",
+            "University of Oxford"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Briefings in Bioinformatics",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "doaj",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://doi.org/10.1093/bib/bbag318",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5100458741",
+            "display_name": "Hao Liu",
+            "orcid": "https://orcid.org/0000-0001-5293-1024"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Hao Liu",
+          "raw_affiliation_strings": [
+            "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+            "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5138808536",
+            "display_name": "Yi Shi",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I200845125",
+              "display_name": "Nanjing University of Information Science and Technology",
+              "ror": "https://ror.org/02y0rxk19",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I200845125"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210128418",
+              "display_name": "Nanjing Xiaozhuang University",
+              "ror": "https://ror.org/03fnv7n42",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210128418"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Yi Shi",
+          "raw_affiliation_strings": [
+            "Institute of Innovative Drug, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+            "National Key Laboratory for Novel Software Technology, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+            "School of Artificial Intelligence, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+            "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Innovative Drug, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            },
+            {
+              "raw_affiliation_string": "National Key Laboratory for Novel Software Technology, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+              "institution_ids": [
+                "https://openalex.org/I200845125"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Artificial Intelligence, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+              "institution_ids": [
+                "https://openalex.org/I4210128418"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5138774090",
+            "display_name": "Feiyu Guo",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Feiyu Guo",
+          "raw_affiliation_strings": [
+            "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5108047889",
+            "display_name": "Yi-Xiang Wang",
+            "orcid": "https://orcid.org/0000-0001-5697-0717"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jinyi Wang",
+          "raw_affiliation_strings": [
+            "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5138805225",
+            "display_name": "Jiaqian Li",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jiaqian Li",
+          "raw_affiliation_strings": [
+            "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5027092407",
+            "display_name": "G Wang",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Guangji Wang",
+          "raw_affiliation_strings": [
+            "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5138803340",
+            "display_name": "De-Chuan Zhan",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I200845125",
+              "display_name": "Nanjing University of Information Science and Technology",
+              "ror": "https://ror.org/02y0rxk19",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I200845125"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210128418",
+              "display_name": "Nanjing Xiaozhuang University",
+              "ror": "https://ror.org/03fnv7n42",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210128418"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "De-Chuan Zhan",
+          "raw_affiliation_strings": [
+            "National Key Laboratory for Novel Software Technology, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+            "School of Artificial Intelligence, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "National Key Laboratory for Novel Software Technology, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+              "institution_ids": [
+                "https://openalex.org/I200845125"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Artificial Intelligence, Nanjing University , No. 163 Xianlin Avenue, Qixia District, Nanjing 210023 ,",
+              "institution_ids": [
+                "https://openalex.org/I4210128418"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5138817898",
+            "display_name": "Haiping Hao",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Haiping Hao",
+          "raw_affiliation_strings": [
+            "Institute of Innovative Drug, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+            "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Innovative Drug, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5002733535",
+            "display_name": "Guo Yu",
+            "orcid": "https://orcid.org/0000-0001-6685-2167"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161716053",
+              "display_name": "China Pharmaceutical University",
+              "ror": "https://ror.org/01sfm2718",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Guo Yu",
+          "raw_affiliation_strings": [
+            "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+            "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0001-6685-2167",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Basic Medicine and Clinical Pharmacy, China Pharmaceutical University , No. 639 Longmian Avenue, Jiangning District, Nanjing 211198 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            },
+            {
+              "raw_affiliation_string": "State Key Laboratory of Natural Medicines, Key Laboratory of Drug Metabolism, China Pharmaceutical University , No. 24 Tongjiaxiang, Gulou District, Nanjing 210009 ,",
+              "institution_ids": [
+                "https://openalex.org/I161716053"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 9,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": {
+        "value": 4011,
+        "currency": "USD",
+        "value_usd": 4011
+      },
+      "apc_paid": {
+        "value": 4011,
+        "currency": "USD",
+        "value_usd": 4011
+      },
+      "fwci": 0.0,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": {
+        "value": 0.90552275,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": "27",
+        "issue": "3",
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11103",
+        "display_name": "Antimicrobial Peptides and Activities",
+        "score": 0.9765999913215637,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2404",
+          "display_name": "Microbiology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/24",
+          "display_name": "Immunology and Microbiology"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/1",
+          "display_name": "Life Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11103",
+          "display_name": "Antimicrobial Peptides and Activities",
+          "score": 0.9765999913215637,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2404",
+            "display_name": "Microbiology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/24",
+            "display_name": "Immunology and Microbiology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10252",
+          "display_name": "Microbial Natural Products and Biosynthesis",
+          "score": 0.004100000020116568,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2736",
+            "display_name": "Pharmacology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13326",
+          "display_name": "Biochemical and Structural Characterization",
+          "score": 0.003800000064074993,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/prioritization",
+          "display_name": "Prioritization",
+          "score": 0.6674000024795532
+        },
+        {
+          "id": "https://openalex.org/keywords/workflow",
+          "display_name": "Workflow",
+          "score": 0.6237999796867371
+        },
+        {
+          "id": "https://openalex.org/keywords/deep-learning",
+          "display_name": "Deep learning",
+          "score": 0.5435000061988831
+        },
+        {
+          "id": "https://openalex.org/keywords/toolbox",
+          "display_name": "Toolbox",
+          "score": 0.4828000068664551
+        },
+        {
+          "id": "https://openalex.org/keywords/profiling",
+          "display_name": "Profiling (computer programming)",
+          "score": 0.47369998693466187
+        },
+        {
+          "id": "https://openalex.org/keywords/benchmark",
+          "display_name": "Benchmark (surveying)",
+          "score": 0.45590001344680786
+        },
+        {
+          "id": "https://openalex.org/keywords/identification",
+          "display_name": "Identification (biology)",
+          "score": 0.4268999993801117
+        },
+        {
+          "id": "https://openalex.org/keywords/antimicrobial-peptides",
+          "display_name": "Antimicrobial peptides",
+          "score": 0.4244000017642975
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2777615720",
+          "wikidata": "https://www.wikidata.org/wiki/Q11888847",
+          "display_name": "Prioritization",
+          "level": 2,
+          "score": 0.6674000024795532
+        },
+        {
+          "id": "https://openalex.org/C177212765",
+          "wikidata": "https://www.wikidata.org/wiki/Q627335",
+          "display_name": "Workflow",
+          "level": 2,
+          "score": 0.6237999796867371
+        },
+        {
+          "id": "https://openalex.org/C154945302",
+          "wikidata": "https://www.wikidata.org/wiki/Q11660",
+          "display_name": "Artificial intelligence",
+          "level": 1,
+          "score": 0.6157000064849854
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.5945000052452087
+        },
+        {
+          "id": "https://openalex.org/C70721500",
+          "wikidata": "https://www.wikidata.org/wiki/Q177005",
+          "display_name": "Computational biology",
+          "level": 1,
+          "score": 0.557699978351593
+        },
+        {
+          "id": "https://openalex.org/C108583219",
+          "wikidata": "https://www.wikidata.org/wiki/Q197536",
+          "display_name": "Deep learning",
+          "level": 2,
+          "score": 0.5435000061988831
+        },
+        {
+          "id": "https://openalex.org/C2777655017",
+          "wikidata": "https://www.wikidata.org/wiki/Q1501161",
+          "display_name": "Toolbox",
+          "level": 2,
+          "score": 0.4828000068664551
+        },
+        {
+          "id": "https://openalex.org/C187191949",
+          "wikidata": "https://www.wikidata.org/wiki/Q1138496",
+          "display_name": "Profiling (computer programming)",
+          "level": 2,
+          "score": 0.47369998693466187
+        },
+        {
+          "id": "https://openalex.org/C185798385",
+          "wikidata": "https://www.wikidata.org/wiki/Q1161707",
+          "display_name": "Benchmark (surveying)",
+          "level": 2,
+          "score": 0.45590001344680786
+        },
+        {
+          "id": "https://openalex.org/C119857082",
+          "wikidata": "https://www.wikidata.org/wiki/Q2539",
+          "display_name": "Machine learning",
+          "level": 1,
+          "score": 0.4408999979496002
+        },
+        {
+          "id": "https://openalex.org/C116834253",
+          "wikidata": "https://www.wikidata.org/wiki/Q2039217",
+          "display_name": "Identification (biology)",
+          "level": 2,
+          "score": 0.4268999993801117
+        },
+        {
+          "id": "https://openalex.org/C540938839",
+          "wikidata": "https://www.wikidata.org/wiki/Q1201508",
+          "display_name": "Antimicrobial peptides",
+          "level": 3,
+          "score": 0.4244000017642975
+        },
+        {
+          "id": "https://openalex.org/C74187038",
+          "wikidata": "https://www.wikidata.org/wiki/Q1418791",
+          "display_name": "Drug discovery",
+          "level": 2,
+          "score": 0.36880001425743103
+        },
+        {
+          "id": "https://openalex.org/C202264299",
+          "wikidata": "https://www.wikidata.org/wiki/Q905695",
+          "display_name": "UniProt",
+          "level": 3,
+          "score": 0.35690000653266907
+        },
+        {
+          "id": "https://openalex.org/C132677234",
+          "wikidata": "https://www.wikidata.org/wiki/Q3273544",
+          "display_name": "Structural motif",
+          "level": 2,
+          "score": 0.34380000829696655
+        },
+        {
+          "id": "https://openalex.org/C66905080",
+          "wikidata": "https://www.wikidata.org/wiki/Q17005494",
+          "display_name": "Binary classification",
+          "level": 3,
+          "score": 0.2964000105857849
+        },
+        {
+          "id": "https://openalex.org/C2780414537",
+          "wikidata": "https://www.wikidata.org/wiki/Q42292",
+          "display_name": "Maple",
+          "level": 2,
+          "score": 0.28529998660087585
+        },
+        {
+          "id": "https://openalex.org/C2780801425",
+          "wikidata": "https://www.wikidata.org/wiki/Q5164392",
+          "display_name": "Construct (python library)",
+          "level": 2,
+          "score": 0.2831000089645386
+        },
+        {
+          "id": "https://openalex.org/C103637391",
+          "wikidata": "https://www.wikidata.org/wiki/Q5308921",
+          "display_name": "Drug repositioning",
+          "level": 3,
+          "score": 0.2694999873638153
+        },
+        {
+          "id": "https://openalex.org/C2778160393",
+          "wikidata": "https://www.wikidata.org/wiki/Q18670161",
+          "display_name": "Mascot",
+          "level": 2,
+          "score": 0.26570001244544983
+        },
+        {
+          "id": "https://openalex.org/C66746571",
+          "wikidata": "https://www.wikidata.org/wiki/Q1134833",
+          "display_name": "ENCODE",
+          "level": 3,
+          "score": 0.26460000872612
+        },
+        {
+          "id": "https://openalex.org/C2775905019",
+          "wikidata": "https://www.wikidata.org/wiki/Q192572",
+          "display_name": "In silico",
+          "level": 3,
+          "score": 0.25859999656677246
+        },
+        {
+          "id": "https://openalex.org/C51632099",
+          "wikidata": "https://www.wikidata.org/wiki/Q3985153",
+          "display_name": "Training set",
+          "level": 2,
+          "score": 0.25600001215934753
+        },
+        {
+          "id": "https://openalex.org/C2779281246",
+          "wikidata": "https://www.wikidata.org/wiki/Q172847",
+          "display_name": "Peptide",
+          "level": 2,
+          "score": 0.25429999828338623
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D000077321",
+          "descriptor_name": "Deep Learning",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000089882",
+          "descriptor_name": "Antimicrobial Peptides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000595",
+          "descriptor_name": "Amino Acid Sequence",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006461",
+          "descriptor_name": "Hemolysis",
+          "qualifier_ui": "Q000187",
+          "qualifier_name": "drug effects",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D019295",
+          "descriptor_name": "Computational Biology",
+          "qualifier_ui": "Q000379",
+          "qualifier_name": "methods",
+          "is_major_topic": true
+        }
+      ],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "doi:10.1093/bib/bbag318",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.1093/bib/bbag318",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S91767247",
+            "display_name": "Briefings in Bioinformatics",
+            "issn_l": "1467-5463",
+            "issn": [
+              "1467-5463",
+              "1477-4054"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310311648",
+            "host_organization_name": "Oxford University Press",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310311648",
+              "https://openalex.org/P4310311647"
+            ],
+            "host_organization_lineage_names": [
+              "Oxford University Press",
+              "University of Oxford"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Briefings in Bioinformatics",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:42308420",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/42308420",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Briefings in bioinformatics",
+          "raw_type": null
+        },
+        {
+          "id": "pmh:oai:pubmedcentral.nih.gov:13274993",
+          "is_oa": true,
+          "landing_page_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13274993/",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S2764455111",
+            "display_name": "PubMed Central",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Brief Bioinform",
+          "raw_type": "Text"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.1093/bib/bbag318",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1093/bib/bbag318",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S91767247",
+          "display_name": "Briefings in Bioinformatics",
+          "issn_l": "1467-5463",
+          "issn": [
+            "1467-5463",
+            "1477-4054"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310311648",
+          "host_organization_name": "Oxford University Press",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310311648",
+            "https://openalex.org/P4310311647"
+          ],
+          "host_organization_lineage_names": [
+            "Oxford University Press",
+            "University of Oxford"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Briefings in Bioinformatics",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "pdf": false,
+        "grobid_xml": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 91,
+      "referenced_works": [
+        "https://openalex.org/W1964557084",
+        "https://openalex.org/W1981312603",
+        "https://openalex.org/W1989998611",
+        "https://openalex.org/W1997152791",
+        "https://openalex.org/W1998064689",
+        "https://openalex.org/W2012523084",
+        "https://openalex.org/W2054602599",
+        "https://openalex.org/W2083416546",
+        "https://openalex.org/W2097099115",
+        "https://openalex.org/W2097606916",
+        "https://openalex.org/W2110065044",
+        "https://openalex.org/W2133425057",
+        "https://openalex.org/W2153099927",
+        "https://openalex.org/W2156125289",
+        "https://openalex.org/W2158482458",
+        "https://openalex.org/W2160780417",
+        "https://openalex.org/W2170747616",
+        "https://openalex.org/W2175270296",
+        "https://openalex.org/W2511835277",
+        "https://openalex.org/W2588467130",
+        "https://openalex.org/W2610345163",
+        "https://openalex.org/W2739999456",
+        "https://openalex.org/W2884561390",
+        "https://openalex.org/W2889326414",
+        "https://openalex.org/W2944095447",
+        "https://openalex.org/W2984592028",
+        "https://openalex.org/W2999569426",
+        "https://openalex.org/W3007285729",
+        "https://openalex.org/W3025501158",
+        "https://openalex.org/W3047157985",
+        "https://openalex.org/W3048752454",
+        "https://openalex.org/W3097405028",
+        "https://openalex.org/W3136918052",
+        "https://openalex.org/W3137064251",
+        "https://openalex.org/W3164941572",
+        "https://openalex.org/W3177500196",
+        "https://openalex.org/W3177828909",
+        "https://openalex.org/W3214417866",
+        "https://openalex.org/W4205773061",
+        "https://openalex.org/W4206677002",
+        "https://openalex.org/W4211054902",
+        "https://openalex.org/W4226068113",
+        "https://openalex.org/W4250482878",
+        "https://openalex.org/W4283220848",
+        "https://openalex.org/W4292678539",
+        "https://openalex.org/W4307361029",
+        "https://openalex.org/W4308052938",
+        "https://openalex.org/W4308834846",
+        "https://openalex.org/W4311539894",
+        "https://openalex.org/W4318670996",
+        "https://openalex.org/W4318897997",
+        "https://openalex.org/W4322754081",
+        "https://openalex.org/W4324344300",
+        "https://openalex.org/W4327550249",
+        "https://openalex.org/W4360858913",
+        "https://openalex.org/W4362657509",
+        "https://openalex.org/W4377223989",
+        "https://openalex.org/W4377695333",
+        "https://openalex.org/W4382198814",
+        "https://openalex.org/W4387393200",
+        "https://openalex.org/W4387780708",
+        "https://openalex.org/W4388492286",
+        "https://openalex.org/W4389450648",
+        "https://openalex.org/W4392162030",
+        "https://openalex.org/W4396721167",
+        "https://openalex.org/W4396885931",
+        "https://openalex.org/W4398177119",
+        "https://openalex.org/W4399013224",
+        "https://openalex.org/W4400864148",
+        "https://openalex.org/W4401966068",
+        "https://openalex.org/W4402295125",
+        "https://openalex.org/W4402940960",
+        "https://openalex.org/W4402949285",
+        "https://openalex.org/W4403963480",
+        "https://openalex.org/W4404260604",
+        "https://openalex.org/W4404343420",
+        "https://openalex.org/W4404458588",
+        "https://openalex.org/W4405316192",
+        "https://openalex.org/W4406066491",
+        "https://openalex.org/W4406268612",
+        "https://openalex.org/W4406536366",
+        "https://openalex.org/W4407127289",
+        "https://openalex.org/W4407160027",
+        "https://openalex.org/W4407301244",
+        "https://openalex.org/W4408147599",
+        "https://openalex.org/W4408948518",
+        "https://openalex.org/W4412192160",
+        "https://openalex.org/W4414062513",
+        "https://openalex.org/W4414905414",
+        "https://openalex.org/W4415208914",
+        "https://openalex.org/W4416536096"
+      ],
+      "related_works": [],
+      "abstract_inverted_index": {
+        "Antimicrobial": [
+          0
+        ],
+        "peptides": [
+          1
+        ],
+        "(AMPs)": [
+          2
+        ],
+        "are": [
+          3,
+          32
+        ],
+        "promising": [
+          4
+        ],
+        "alternatives": [
+          5
+        ],
+        "to": [
+          6,
+          35,
+          128,
+          204
+        ],
+        "conventional": [
+          7
+        ],
+        "antibiotics,": [
+          8
+        ],
+        "yet": [
+          9
+        ],
+        "early": [
+          10
+        ],
+        "translation": [
+          11
+        ],
+        "is": [
+          12,
+          137
+        ],
+        "often": [
+          13
+        ],
+        "hindered": [
+          14
+        ],
+        "by": [
+          15,
+          159
+        ],
+        "the": [
+          16,
+          97,
+          206
+        ],
+        "perceived": [
+          17
+        ],
+        "coupling": [
+          18,
+          136
+        ],
+        "between": [
+          19
+        ],
+        "antibacterial": [
+          20,
+          147
+        ],
+        "potency": [
+          21
+        ],
+        "and": [
+          22,
+          65,
+          100,
+          132,
+          153,
+          164,
+          192,
+          201,
+          210
+        ],
+        "mammalian": [
+          23
+        ],
+        "toxicity.": [
+          24
+        ],
+        "This": [
+          25
+        ],
+        "assumption": [
+          26
+        ],
+        "complicates": [
+          27
+        ],
+        "prioritization:": [
+          28
+        ],
+        "highly": [
+          29
+        ],
+        "active": [
+          30
+        ],
+        "candidates": [
+          31
+        ],
+        "frequently": [
+          33
+        ],
+        "suspected": [
+          34
+        ],
+        "be": [
+          36
+        ],
+        "hemolytic,": [
+          37
+        ],
+        "while": [
+          38
+        ],
+        "existing": [
+          39
+        ],
+        "multi-task": [
+          40
+        ],
+        "predictors": [
+          41
+        ],
+        "rarely": [
+          42
+        ],
+        "reveal": [
+          43
+        ],
+        "where": [
+          44
+        ],
+        "selectivity": [
+          45,
+          131
+        ],
+        "resides": [
+          46
+        ],
+        "in": [
+          47
+        ],
+        "sequence": [
+          48
+        ],
+        "space.": [
+          49
+        ],
+        "Here,": [
+          50
+        ],
+        "we": [
+          51,
+          123
+        ],
+        "present": [
+          52
+        ],
+        "Multifunctional": [
+          53
+        ],
+        "AMP": [
+          54,
+          63
+        ],
+        "Learning": [
+          55
+        ],
+        "Engine": [
+          56
+        ],
+        "(MAPLE),": [
+          57
+        ],
+        "an": [
+          58
+        ],
+        "interpretable": [
+          59
+        ],
+        "dual-stream": [
+          60
+        ],
+        "framework": [
+          61
+        ],
+        "for": [
+          62,
+          146
+        ],
+        "identification": [
+          64
+        ],
+        "systematic": [
+          66,
+          125
+        ],
+        "category-specific": [
+          67
+        ],
+        "functional": [
+          68
+        ],
+        "profiling": [
+          69
+        ],
+        "across": [
+          70
+        ],
+        "14": [
+          71
+        ],
+        "activity": [
+          72,
+          148
+        ],
+        "categories": [
+          73
+        ],
+        "directly": [
+          74
+        ],
+        "from": [
+          75
+        ],
+        "peptide": [
+          76
+        ],
+        "sequences.": [
+          77
+        ],
+        "MAPLE": [
+          78,
+          106,
+          196
+        ],
+        "combines": [
+          79
+        ],
+        "protein": [
+          80
+        ],
+        "language": [
+          81
+        ],
+        "model": [
+          82
+        ],
+        "embeddings": [
+          83
+        ],
+        "with": [
+          84,
+          177,
+          183
+        ],
+        "explicit": [
+          85
+        ],
+        "physicochemical": [
+          86,
+          156
+        ],
+        "descriptors,": [
+          87
+        ],
+        "enabling": [
+          88
+        ],
+        "robust": [
+          89
+        ],
+        "task-specific": [
+          90
+        ],
+        "prediction": [
+          91
+        ],
+        "under": [
+          92
+        ],
+        "severe": [
+          93
+        ],
+        "label": [
+          94
+        ],
+        "imbalance.": [
+          95
+        ],
+        "Across": [
+          96
+        ],
+        "benchmark": [
+          98
+        ],
+        "dataset": [
+          99
+        ],
+        "a": [
+          101,
+          155,
+          170
+        ],
+        "sequence-non-overlapping": [
+          102
+        ],
+        "independent": [
+          103
+        ],
+        "validation": [
+          104
+        ],
+        "set,": [
+          105
+        ],
+        "achieves": [
+          107
+        ],
+        "consistently": [
+          108
+        ],
+        "well-balanced": [
+          109
+        ],
+        "performance,": [
+          110
+        ],
+        "including": [
+          111
+        ],
+        "on": [
+          112,
+          119
+        ],
+        "low-prevalence": [
+          113
+        ],
+        "but": [
+          114
+        ],
+        "clinically": [
+          115
+        ],
+        "relevant": [
+          116
+        ],
+        "endpoints.": [
+          117
+        ],
+        "Building": [
+          118
+        ],
+        "this": [
+          120
+        ],
+        "predictive": [
+          121
+        ],
+        "basis,": [
+          122
+        ],
+        "conduct": [
+          124
+        ],
+        "k-mer": [
+          126
+        ],
+        "enrichment": [
+          127
+        ],
+        "map": [
+          129
+        ],
+        "motif-level": [
+          130
+        ],
+        "show": [
+          133
+        ],
+        "that": [
+          134
+        ],
+        "potency-hemolysis": [
+          135
+        ],
+        "motif-regime-dependent": [
+          138
+        ],
+        "rather": [
+          139
+        ],
+        "than": [
+          140
+        ],
+        "universal.": [
+          141
+        ],
+        "Motifs": [
+          142
+        ],
+        "most": [
+          143
+        ],
+        "strongly": [
+          144
+        ],
+        "enriched": [
+          145
+        ],
+        "exhibit": [
+          149
+        ],
+        "reduced": [
+          150
+        ],
+        "hemolytic": [
+          151
+        ],
+        "overlap": [
+          152
+        ],
+        "occupy": [
+          154
+        ],
+        "regime": [
+          157
+        ],
+        "characterized": [
+          158
+        ],
+        "moderate": [
+          160
+        ],
+        "cationicity,": [
+          161
+        ],
+        "lower": [
+          162
+        ],
+        "hydrophobicity,": [
+          163
+        ],
+        "higher": [
+          165
+        ],
+        "amphipathicity.": [
+          166
+        ],
+        "We": [
+          167
+        ],
+        "further": [
+          168
+        ],
+        "provide": [
+          169
+        ],
+        "proof-of-concept": [
+          171
+        ],
+        "prioritization": [
+          172,
+          202
+        ],
+        "workflow": [
+          173
+        ],
+        "leveraging": [
+          174
+        ],
+        "antibacterial-selective": [
+          175
+        ],
+        "motifs,": [
+          176
+        ],
+        "structural": [
+          178,
+          194
+        ],
+        "modeling": [
+          179
+        ],
+        "yielding": [
+          180
+        ],
+        "conformations": [
+          181
+        ],
+        "consistent": [
+          182
+        ],
+        "amphipathic": [
+          184
+        ],
+        "α-helices.": [
+          185
+        ],
+        "Despite": [
+          186
+        ],
+        "limitations": [
+          187
+        ],
+        "of": [
+          188,
+          208
+        ],
+        "predominantly": [
+          189
+        ],
+        "binary": [
+          190
+        ],
+        "annotations": [
+          191
+        ],
+        "incomplete": [
+          193
+        ],
+        "integration,": [
+          195
+        ],
+        "offers": [
+          197
+        ],
+        "reproducible": [
+          198
+        ],
+        "sequence-level": [
+          199
+        ],
+        "hypotheses": [
+          200
+        ],
+        "principles": [
+          203
+        ],
+        "support": [
+          205
+        ],
+        "engineering": [
+          207
+        ],
+        "potent": [
+          209
+        ],
+        "safer": [
+          211
+        ],
+        "AMPs.": [
+          212
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-06-22T08:00:12.763002",
+      "created_date": "2026-06-18T00:00:00"
+    }
+  ],
+  "group_by": []
+}

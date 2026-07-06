@@ -1,0 +1,1896 @@
+{
+  "hits": {
+    "hits": [
+      {
+        "created": "2026-06-18T09:46:21.990539+00:00",
+        "modified": "2026-06-18T09:53:51.699163+00:00",
+        "id": 20740473,
+        "conceptrecid": "18626919",
+        "doi": "10.5281/zenodo.20740473",
+        "conceptdoi": "10.5281/zenodo.18626919",
+        "doi_url": "https://doi.org/10.5281/zenodo.20740473",
+        "metadata": {
+          "title": "Dataset and trained models for Gated Modulation Protein Language Model for Prediction of Antimicrobial Peptide Activity",
+          "doi": "10.5281/zenodo.20740473",
+          "publication_date": "2026-06-18",
+          "description": "<p>This dataset supplements our research work entitled <em>&ldquo;Gated Protein Language Modeling for Accurate Prediction of Antimicrobial Peptide Activity.&rdquo;</em></p>\n<p>The database follows the directory structure described below:</p>\n<p><strong>five_fold_ecoli:</strong><br>Computational datasets constructed for model training, stored in <code>.pkl</code> format.<br><br></p>\n<p><strong>five_fold_s_aureus:</strong><br>Five-fold cross-validation datasets for <em>Staphylococcus aureus</em>.</p>\n<p>&nbsp;</p>\n<p><strong>five_fold_p_aeruginosa:&nbsp;</strong></p>\n<p>Five-fold cross-validation datasets for <em>P. Aeruginosa&nbsp;</em></p>\n<p><strong>embed:</strong><br>Residue-level peptide embeddings for <em>E. coli</em> and <em>S. aureus and P. aeruginosa</em> peptides computed using Protein Language models..</p>\n<p><strong>grampa.csv:</strong><br>The original peptide sequence database containing antimicrobial peptides across multiple bacterial species, including <em>E. coli, P. Aeruginosa,</em>&nbsp;and <em>S. aureus</em>. All derived datasets were constructed from this base file.</p>\n<p>The original <code>grampa.csv</code> dataset is attributed to the study:</p>\n<p><em>Deep learning regression model for antimicrobial peptide design</em><br><a href=\"https://www.biorxiv.org/content/10.1101/692681v1.full\" rel=\"noopener\">https://www.biorxiv.org/content/10.1101/692681v1.full</a></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Singh Bist, Prem",
+              "affiliation": null,
+              "orcid": "0000-0002-0551-9106"
+            }
+          ],
+          "custom": {
+            "code:programmingLanguage": [
+              {
+                "id": "python",
+                "title": {
+                  "en": "Python"
+                }
+              }
+            ]
+          },
+          "resource_type": {
+            "title": "Dataset",
+            "type": "dataset"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "relations": {
+            "version": [
+              {
+                "index": 2,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "18626919"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Dataset and trained models for Gated Modulation Protein Language Model for Prediction of Antimicrobial Peptide Activity",
+        "links": {
+          "self": "https://zenodo.org/api/records/20740473",
+          "self_html": "https://zenodo.org/records/20740473",
+          "preview_html": "https://zenodo.org/records/20740473?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.20740473",
+          "self_doi": "https://doi.org/10.5281/zenodo.20740473",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20740473",
+          "reserve_doi": "https://zenodo.org/api/records/20740473/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/18626919",
+          "parent_html": "https://zenodo.org/records/18626919",
+          "parent_doi": "https://doi.org/10.5281/zenodo.18626919",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18626919",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:20740473/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:20740473/sequence/default",
+          "files": "https://zenodo.org/api/records/20740473/files",
+          "media_files": "https://zenodo.org/api/records/20740473/media-files",
+          "archive": "https://zenodo.org/api/records/20740473/files-archive",
+          "archive_media": "https://zenodo.org/api/records/20740473/media-files-archive",
+          "latest": "https://zenodo.org/api/records/20740473/versions/latest",
+          "latest_html": "https://zenodo.org/records/20740473/latest",
+          "versions": "https://zenodo.org/api/records/20740473/versions",
+          "draft": "https://zenodo.org/api/records/20740473/draft",
+          "access_links": "https://zenodo.org/api/records/20740473/access/links",
+          "access_grants": "https://zenodo.org/api/records/20740473/access/grants",
+          "access_users": "https://zenodo.org/api/records/20740473/access/users",
+          "access_request": "https://zenodo.org/api/records/20740473/access/request",
+          "access": "https://zenodo.org/api/records/20740473/access",
+          "communities": "https://zenodo.org/api/records/20740473/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/20740473/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/20740473/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/20740473/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/20740473/quota-increase",
+          "requests": "https://zenodo.org/api/records/20740473/requests"
+        },
+        "updated": "2026-06-18T09:53:51.699163+00:00",
+        "recid": "20740473",
+        "revision": 6,
+        "files": [
+          {
+            "id": "80080333-c730-4788-aed4-338ea8679f5b",
+            "key": "dataset.tar",
+            "size": 4240220160,
+            "checksum": "md5:0366fc8bf8e594ff3ef312e877621cd7",
+            "links": {
+              "self": "https://zenodo.org/api/records/20740473/files/dataset.tar/content"
+            }
+          },
+          {
+            "id": "aac15ace-2786-4e88-a2dc-0428da844a06",
+            "key": "models.tar",
+            "size": 11181445120,
+            "checksum": "md5:b9d4b077f8da783410de87520b38c733",
+            "links": {
+              "self": "https://zenodo.org/api/records/20740473/files/models.tar/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "407131"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 40,
+          "unique_downloads": 36,
+          "views": 120,
+          "unique_views": 110,
+          "version_downloads": 3,
+          "version_unique_downloads": 3,
+          "version_unique_views": 10,
+          "version_views": 13
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2025-09-11T00:57:37.182777+00:00",
+        "modified": "2025-09-11T00:57:37.486282+00:00",
+        "id": 17096068,
+        "conceptrecid": "17096067",
+        "doi": "10.5281/zenodo.17096068",
+        "conceptdoi": "10.5281/zenodo.17096067",
+        "doi_url": "https://doi.org/10.5281/zenodo.17096068",
+        "metadata": {
+          "title": "Deep learning model for antimicrobial peptide (AMP)screening",
+          "doi": "10.5281/zenodo.17096068",
+          "publication_date": "2025-09-11",
+          "description": "<p>Kepler Optimization Algorithm (KOA)-Convolutional Neural Network (CNN)-Bidirectional Long Short-Term Memory (BiLSTM)- Attention mechanism (Att)-Random Forest (RF) Deep learning models. <span><span><span>We pioneered the integrated deep learning framework capable of direct regression prediction for antimicrobial peptide efficacy against Salmonella Typhimurium, quantified by minimum inhibitory concentration (MIC).</span></span></span><span><span><span> This model emerged from systematic benchmarking of 17 individual machine learning/deep learning algorithms, 13 ensemble architectures, and strategic integration of them with attention mechanisms and 16 intelligent optimization algorithms.</span></span></span><span><span><span> The final deep learning composite model (R&sup2; = 0.82176) was established through hyperparameter tuning, 10-fold cross-validation, and prediction within confidence intervals.</span></span></span><span><span><span>&nbsp;</span></span></span></p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Yang, Ziyi",
+              "affiliation": "Nanjing Agricultural University",
+              "orcid": "0009-0006-1935-9090"
+            }
+          ],
+          "keywords": [
+            "Antimicrobial Peptide (AMP)",
+            "Deep learning",
+            "Minimum Inhibitory Concentration (MIC)"
+          ],
+          "language": "eng",
+          "custom": {
+            "code:programmingLanguage": [
+              {
+                "id": "matlab",
+                "title": {
+                  "en": "MATLAB"
+                }
+              }
+            ],
+            "code:developmentStatus": {
+              "id": "active",
+              "title": {
+                "en": "Active"
+              }
+            }
+          },
+          "resource_type": {
+            "title": "Model",
+            "type": "model"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "relations": {
+            "version": [
+              {
+                "index": 0,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "17096067"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Deep learning model for antimicrobial peptide (AMP)screening",
+        "links": {
+          "self": "https://zenodo.org/api/records/17096068",
+          "self_html": "https://zenodo.org/records/17096068",
+          "preview_html": "https://zenodo.org/records/17096068?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.17096068",
+          "self_doi": "https://doi.org/10.5281/zenodo.17096068",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.17096068",
+          "reserve_doi": "https://zenodo.org/api/records/17096068/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/17096067",
+          "parent_html": "https://zenodo.org/records/17096067",
+          "parent_doi": "https://doi.org/10.5281/zenodo.17096067",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.17096067",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:17096068/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:17096068/sequence/default",
+          "files": "https://zenodo.org/api/records/17096068/files",
+          "media_files": "https://zenodo.org/api/records/17096068/media-files",
+          "archive": "https://zenodo.org/api/records/17096068/files-archive",
+          "archive_media": "https://zenodo.org/api/records/17096068/media-files-archive",
+          "latest": "https://zenodo.org/api/records/17096068/versions/latest",
+          "latest_html": "https://zenodo.org/records/17096068/latest",
+          "versions": "https://zenodo.org/api/records/17096068/versions",
+          "draft": "https://zenodo.org/api/records/17096068/draft",
+          "access_links": "https://zenodo.org/api/records/17096068/access/links",
+          "access_grants": "https://zenodo.org/api/records/17096068/access/grants",
+          "access_users": "https://zenodo.org/api/records/17096068/access/users",
+          "access_request": "https://zenodo.org/api/records/17096068/access/request",
+          "access": "https://zenodo.org/api/records/17096068/access",
+          "communities": "https://zenodo.org/api/records/17096068/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/17096068/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/17096068/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/17096068/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/17096068/quota-increase",
+          "requests": "https://zenodo.org/api/records/17096068/requests"
+        },
+        "updated": "2025-09-11T00:57:37.486282+00:00",
+        "recid": "17096068",
+        "revision": 4,
+        "files": [
+          {
+            "id": "7ccbc90e-7911-4d34-ad14-8303f41ce98a",
+            "key": "Model_training_code.m",
+            "size": 12489,
+            "checksum": "md5:f85ea8d92c1265bc76878e2d886b4dd7",
+            "links": {
+              "self": "https://zenodo.org/api/records/17096068/files/Model_training_code.m/content"
+            }
+          },
+          {
+            "id": "51d7cc32-082e-49c0-8e1f-8a8bb235ec19",
+            "key": "Dataset.xlsx",
+            "size": 1584194,
+            "checksum": "md5:41ae7f2cad06eb97c057552d92b2e793",
+            "links": {
+              "self": "https://zenodo.org/api/records/17096068/files/Dataset.xlsx/content"
+            }
+          },
+          {
+            "id": "d39ddeee-0c54-42b8-b624-f022bf7f241c",
+            "key": "optimize_fitrCNN_BILSTM_att.m",
+            "size": 13815,
+            "checksum": "md5:7433f00dcbe09bb80b19630a4341915f",
+            "links": {
+              "self": "https://zenodo.org/api/records/17096068/files/optimize_fitrCNN_BILSTM_att.m/content"
+            }
+          },
+          {
+            "id": "5f5ff58c-ab83-4817-83eb-372a2392e8a4",
+            "key": "Predicted Data.xlsx",
+            "size": 2342767,
+            "checksum": "md5:e739f171057b3747f6f723e86c2986a9",
+            "links": {
+              "self": "https://zenodo.org/api/records/17096068/files/Predicted%20Data.xlsx/content"
+            }
+          },
+          {
+            "id": "427c58a9-601a-4073-9dda-50ecf440d66b",
+            "key": "KCBAR.mat",
+            "size": 43709207,
+            "checksum": "md5:a7a96fed6a54ae6e0816b439861c2c03",
+            "links": {
+              "self": "https://zenodo.org/api/records/17096068/files/KCBAR.mat/content"
+            }
+          },
+          {
+            "id": "25956022-035c-47a2-a164-be5c446ac88e",
+            "key": "optimize_fitrtreebag1.m",
+            "size": 10387,
+            "checksum": "md5:2f2d5787c402ab9fe6a5252e76b8d1eb",
+            "links": {
+              "self": "https://zenodo.org/api/records/17096068/files/optimize_fitrtreebag1.m/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "1406999"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 42,
+          "unique_downloads": 42,
+          "views": 31,
+          "unique_views": 31,
+          "version_downloads": 42,
+          "version_unique_downloads": 42,
+          "version_unique_views": 31,
+          "version_views": 31
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2025-03-18T01:50:14.185651+00:00",
+        "modified": "2025-03-18T01:50:14.322589+00:00",
+        "id": 15042903,
+        "conceptrecid": "14201669",
+        "doi": "10.5281/zenodo.15042903",
+        "conceptdoi": "10.5281/zenodo.14201669",
+        "doi_url": "https://doi.org/10.5281/zenodo.15042903",
+        "metadata": {
+          "title": "Computational dataset, scripts and models for 'Lipid shape as a membrane activity modulator of a model antimicrobial peptide'",
+          "doi": "10.5281/zenodo.15042903",
+          "publication_date": "2025-03-18",
+          "description": "<p>Analysis scripts and computational models used in the manuscript 'Lipid shape as a membrane activity modulator of a model antimicrobial peptide', by Marcin Makowski, Oct&aacute;vio L. Franco, Nuno C. Santos and Manuel N. Melo.</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Makowski, Marcin",
+              "affiliation": "Universidad Complutense de Madrid",
+              "orcid": "0000-0001-6929-6143"
+            },
+            {
+              "name": "Melo, Manuel Nuno",
+              "affiliation": "Universidade Nova de Lisboa Instituto de Tecnologia Química e Biológica",
+              "orcid": "0000-0001-6567-0513"
+            }
+          ],
+          "resource_type": {
+            "title": "Dataset",
+            "type": "dataset"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "relations": {
+            "version": [
+              {
+                "index": 1,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "14201669"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Computational dataset, scripts and models for 'Lipid shape as a membrane activity modulator of a model antimicrobial peptide'",
+        "links": {
+          "self": "https://zenodo.org/api/records/15042903",
+          "self_html": "https://zenodo.org/records/15042903",
+          "preview_html": "https://zenodo.org/records/15042903?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.15042903",
+          "self_doi": "https://doi.org/10.5281/zenodo.15042903",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15042903",
+          "reserve_doi": "https://zenodo.org/api/records/15042903/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/14201669",
+          "parent_html": "https://zenodo.org/records/14201669",
+          "parent_doi": "https://doi.org/10.5281/zenodo.14201669",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.14201669",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:15042903/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:15042903/sequence/default",
+          "files": "https://zenodo.org/api/records/15042903/files",
+          "media_files": "https://zenodo.org/api/records/15042903/media-files",
+          "archive": "https://zenodo.org/api/records/15042903/files-archive",
+          "archive_media": "https://zenodo.org/api/records/15042903/media-files-archive",
+          "latest": "https://zenodo.org/api/records/15042903/versions/latest",
+          "latest_html": "https://zenodo.org/records/15042903/latest",
+          "versions": "https://zenodo.org/api/records/15042903/versions",
+          "draft": "https://zenodo.org/api/records/15042903/draft",
+          "access_links": "https://zenodo.org/api/records/15042903/access/links",
+          "access_grants": "https://zenodo.org/api/records/15042903/access/grants",
+          "access_users": "https://zenodo.org/api/records/15042903/access/users",
+          "access_request": "https://zenodo.org/api/records/15042903/access/request",
+          "access": "https://zenodo.org/api/records/15042903/access",
+          "communities": "https://zenodo.org/api/records/15042903/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/15042903/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/15042903/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/15042903/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/15042903/quota-increase",
+          "requests": "https://zenodo.org/api/records/15042903/requests"
+        },
+        "updated": "2025-03-18T01:50:14.322589+00:00",
+        "recid": "15042903",
+        "revision": 4,
+        "files": [
+          {
+            "id": "4709e534-1a10-4baf-9ca6-f448f294cb3e",
+            "key": "data_models_and_scripts.zip",
+            "size": 14117225,
+            "checksum": "md5:b5ebc5157b5c2d41d909edaa9358dc65",
+            "links": {
+              "self": "https://zenodo.org/api/records/15042903/files/data_models_and_scripts.zip/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "1112841"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 38,
+          "unique_downloads": 36,
+          "views": 69,
+          "unique_views": 58,
+          "version_downloads": 23,
+          "version_unique_downloads": 23,
+          "version_unique_views": 29,
+          "version_views": 34
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2026-05-08T11:36:11.604645+00:00",
+        "modified": "2026-05-08T11:40:26.930420+00:00",
+        "id": 20083673,
+        "conceptrecid": "20083672",
+        "doi": "10.5281/zenodo.20083673",
+        "conceptdoi": "10.5281/zenodo.20083672",
+        "doi_url": "https://doi.org/10.5281/zenodo.20083673",
+        "metadata": {
+          "title": "Antifp: In Silico Approach for Prediction of Antifungal Peptides",
+          "doi": "10.5281/zenodo.20083673",
+          "publication_date": "2026-05-08",
+          "description": "<p>Welcome to the official repository for Antifp, a computational method and web server for predicting and designing antifungal peptides (AFPs) from amino acid sequences. This resource is designed to support researchers in antifungal therapeutics, antimicrobial peptide research, and computational drug discovery.</p>\n<p>Web Server: <a href=\"http://webs.iiitd.edu.in/raghava/antifp\">http://webs.iiitd.edu.in/raghava/antifp</a> Standalone Software: Available via the Download menu on the web server Mobile App (Android): Available via the Download menu on the web server</p>\n<p>Citation Agrawal, P., Bhalla, S., Chaudhary, K., Kumar, R., Sharma, M., &amp; Raghava, G. P. S. (2018). In Silico Approach for Prediction of Antifungal Peptides. Frontiers in Microbiology, 9:323. <a href=\"https://doi.org/10.3389/fmicb.2018.00323\">https://doi.org/10.3389/fmicb.2018.00323</a></p>\n<p>About the Tool Antifp is a sequence-based computational method developed to predict and design antifungal peptides using Support Vector Machine (SVM) and other machine learning classifiers. It is built on the largest AFP dataset to date (1459 unique AFPs) and employs a wide range of peptide features including amino acid composition, dipeptide composition, binary profiles, and terminus-based patterns.</p>\n<p>The tool integrates data from:</p>\n<p>DRAMP &mdash; Data Repository of Antimicrobial Peptides (1585 AFPs extracted, 1459 unique after filtering) SwissProt (for randomly generated negative peptides in DS2 and Main datasets) AMPs with no antifungal activity (for negative dataset in DS1)</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Agrawal, Piyush",
+              "affiliation": null
+            },
+            {
+              "name": "Bhalla, Sherry",
+              "affiliation": null
+            },
+            {
+              "name": "Raghava, Gajendra",
+              "affiliation": "Indraprastha Institute of Information Technology Delhi",
+              "orcid": "0000-0002-8902-2876"
+            }
+          ],
+          "related_identifiers": [
+            {
+              "identifier": "https://github.com/sachini-tech/Antifp/tree/V1",
+              "relation": "isSupplementTo",
+              "resource_type": "software",
+              "scheme": "url"
+            }
+          ],
+          "version": "V1",
+          "custom": {
+            "code:codeRepository": "https://github.com/sachini-tech/Antifp"
+          },
+          "resource_type": {
+            "title": "Dataset",
+            "type": "dataset"
+          },
+          "license": {
+            "id": "mit-license"
+          },
+          "communities": [
+            {
+              "id": "raghavagps"
+            }
+          ],
+          "relations": {
+            "version": [
+              {
+                "index": 0,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "20083672"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Antifp: In Silico Approach for Prediction of Antifungal Peptides",
+        "links": {
+          "self": "https://zenodo.org/api/records/20083673",
+          "self_html": "https://zenodo.org/records/20083673",
+          "preview_html": "https://zenodo.org/records/20083673?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.20083673",
+          "self_doi": "https://doi.org/10.5281/zenodo.20083673",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20083673",
+          "reserve_doi": "https://zenodo.org/api/records/20083673/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/20083672",
+          "parent_html": "https://zenodo.org/records/20083672",
+          "parent_doi": "https://doi.org/10.5281/zenodo.20083672",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20083672",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:20083673/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:20083673/sequence/default",
+          "files": "https://zenodo.org/api/records/20083673/files",
+          "media_files": "https://zenodo.org/api/records/20083673/media-files",
+          "archive": "https://zenodo.org/api/records/20083673/files-archive",
+          "archive_media": "https://zenodo.org/api/records/20083673/media-files-archive",
+          "latest": "https://zenodo.org/api/records/20083673/versions/latest",
+          "latest_html": "https://zenodo.org/records/20083673/latest",
+          "versions": "https://zenodo.org/api/records/20083673/versions",
+          "draft": "https://zenodo.org/api/records/20083673/draft",
+          "access_links": "https://zenodo.org/api/records/20083673/access/links",
+          "access_grants": "https://zenodo.org/api/records/20083673/access/grants",
+          "access_users": "https://zenodo.org/api/records/20083673/access/users",
+          "access_request": "https://zenodo.org/api/records/20083673/access/request",
+          "access": "https://zenodo.org/api/records/20083673/access",
+          "communities": "https://zenodo.org/api/records/20083673/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/20083673/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/20083673/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/20083673/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/20083673/quota-increase",
+          "requests": "https://zenodo.org/api/records/20083673/requests"
+        },
+        "updated": "2026-05-08T11:40:26.930420+00:00",
+        "recid": "20083673",
+        "revision": 6,
+        "files": [
+          {
+            "id": "9dd96fb4-d654-45df-b682-a5f006415250",
+            "key": "sachini-tech/Antifp-V1.zip",
+            "size": 742943,
+            "checksum": "md5:e6e00893132bbb97c2a1df40b817a47a",
+            "links": {
+              "self": "https://zenodo.org/api/records/20083673/files/sachini-tech/Antifp-V1.zip/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "1636348"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 4,
+          "unique_downloads": 4,
+          "views": 22,
+          "unique_views": 17,
+          "version_downloads": 4,
+          "version_unique_downloads": 4,
+          "version_unique_views": 17,
+          "version_views": 22
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2023-05-10T05:13:19.952057+00:00",
+        "modified": "2024-10-12T08:16:18.088296+00:00",
+        "id": 7917446,
+        "conceptrecid": "7905591",
+        "doi": "10.5281/zenodo.7917446",
+        "conceptdoi": "10.5281/zenodo.7905591",
+        "doi_url": "https://doi.org/10.5281/zenodo.7917446",
+        "metadata": {
+          "title": "Model files of AMPd-Up: a tool for antimicrobial peptide sequence generation",
+          "doi": "10.5281/zenodo.7917446",
+          "publication_date": "2023-05-09",
+          "description": "<p>AMPd-Up is a recurrent neural network based tool for <em>de novo</em> antimicrobial peptide (AMP) sequence generation. Here we provide the 1,000 trained model instances used to generate the peptide sequences presented in the following publication:&nbsp;</p>\n<p>Li, C., Sutherland, D., Richter, A. et al. <em>De novo</em> synthetic antimicrobial peptide design with a recurrent neural network. Protein Science 33, e5088 (2024). <a href=\"https://doi.org/10.1002/pro.5088\">https://doi.org/10.1002/pro.5088</a></p>\n<p>&nbsp;</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Li, Chenkai",
+              "affiliation": "Canada's Michael Smith Genome Sciences Centre, BC Cancer Agency, Vancouver, BC, V5Z 4S6, Canada",
+              "orcid": "0000-0002-8748-0099"
+            },
+            {
+              "name": "Birol, Inanc",
+              "affiliation": "Canada's Michael Smith Genome Sciences Centre, BC Cancer Agency, Vancouver, BC, V5Z 4S6, Canada"
+            }
+          ],
+          "resource_type": {
+            "title": "Other",
+            "type": "other"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "relations": {
+            "version": [
+              {
+                "index": 1,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "7905591"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Model files of AMPd-Up: a tool for antimicrobial peptide sequence generation",
+        "links": {
+          "self": "https://zenodo.org/api/records/7917446",
+          "self_html": "https://zenodo.org/records/7917446",
+          "preview_html": "https://zenodo.org/records/7917446?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.7917446",
+          "self_doi": "https://doi.org/10.5281/zenodo.7917446",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7917446",
+          "reserve_doi": "https://zenodo.org/api/records/7917446/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/7905591",
+          "parent_html": "https://zenodo.org/records/7905591",
+          "parent_doi": "https://doi.org/10.5281/zenodo.7905591",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7905591",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:7917446/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:7917446/sequence/default",
+          "files": "https://zenodo.org/api/records/7917446/files",
+          "media_files": "https://zenodo.org/api/records/7917446/media-files",
+          "archive": "https://zenodo.org/api/records/7917446/files-archive",
+          "archive_media": "https://zenodo.org/api/records/7917446/media-files-archive",
+          "latest": "https://zenodo.org/api/records/7917446/versions/latest",
+          "latest_html": "https://zenodo.org/records/7917446/latest",
+          "versions": "https://zenodo.org/api/records/7917446/versions",
+          "draft": "https://zenodo.org/api/records/7917446/draft",
+          "access_links": "https://zenodo.org/api/records/7917446/access/links",
+          "access_grants": "https://zenodo.org/api/records/7917446/access/grants",
+          "access_users": "https://zenodo.org/api/records/7917446/access/users",
+          "access_request": "https://zenodo.org/api/records/7917446/access/request",
+          "access": "https://zenodo.org/api/records/7917446/access",
+          "communities": "https://zenodo.org/api/records/7917446/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/7917446/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/7917446/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/7917446/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/7917446/quota-increase",
+          "requests": "https://zenodo.org/api/records/7917446/requests"
+        },
+        "updated": "2024-10-12T08:16:18.088296+00:00",
+        "recid": "7917446",
+        "revision": 8,
+        "files": [
+          {
+            "id": "a22fb145-272d-43ea-ba70-6646db4094df",
+            "key": "AMPd-Up_models.zip",
+            "size": 96186065,
+            "checksum": "md5:465132b0d4924aee60ec9983d7a38c06",
+            "links": {
+              "self": "https://zenodo.org/api/records/7917446/files/AMPd-Up_models.zip/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "393559"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 56,
+          "unique_downloads": 52,
+          "views": 267,
+          "unique_views": 227,
+          "version_downloads": 37,
+          "version_unique_downloads": 34,
+          "version_unique_views": 177,
+          "version_views": 202
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2022-11-22T01:38:46.369990+00:00",
+        "modified": "2024-10-12T08:19:32.796192+00:00",
+        "id": 7320306,
+        "conceptrecid": "7008778",
+        "doi": "10.5281/zenodo.7320306",
+        "conceptdoi": "10.5281/zenodo.7008778",
+        "doi_url": "https://doi.org/10.5281/zenodo.7320306",
+        "metadata": {
+          "title": "Model files and data sets of AMPlify: a deep learning tool for antimicrobial peptide prediction",
+          "doi": "10.5281/zenodo.7320306",
+          "publication_date": "2022-08-19",
+          "description": "<p>The model files and data sets are related to publications of:</p>\n\n<p>1) the research article&nbsp;&quot;Li, C., Sutherland, D., Hammond, S.A. et al. AMPlify: attentive deep learning model for discovery of novel antimicrobial peptides effective against WHO priority pathogens. BMC Genomics 23, 77 (2022).&nbsp;<a href=\"https://doi.org/10.1186/s12864-022-08310-4\">https://doi.org/10.1186/s12864-022-08310-4</a>&quot;</p>\n\n<p>2) the data note &quot;Li, C., Warren, R.L. &amp; Birol, I. Models and data of AMPlify: a deep learning tool for antimicrobial peptide prediction.&nbsp;BMC Res Notes&nbsp;16, 11 (2023).&nbsp;<a href=\"https://doi.org/10.1186/s13104-023-06279-1\">https://doi.org/10.1186/s13104-023-06279-1</a>&quot;.&nbsp;</p>\n\n<p>The research article introduces the balanced model with balanced training/test sets, while the data note additionally provides an imbalanced model with imbalanced training/test sets.</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Li, Chenkai",
+              "affiliation": "Canada's Michael Smith Genome Sciences Centre, BC Cancer Agency, Vancouver, BC, V5Z 4S6, Canada",
+              "orcid": "0000-0002-8748-0099"
+            },
+            {
+              "name": "Warren, René L.",
+              "affiliation": "Canada's Michael Smith Genome Sciences Centre, BC Cancer Agency, Vancouver, BC, V5Z 4S6, Canada"
+            },
+            {
+              "name": "Birol, Inanc",
+              "affiliation": "Canada's Michael Smith Genome Sciences Centre, BC Cancer Agency, Vancouver, BC, V5Z 4S6, Canada"
+            }
+          ],
+          "resource_type": {
+            "title": "Other",
+            "type": "other"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "relations": {
+            "version": [
+              {
+                "index": 1,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "7008778"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Model files and data sets of AMPlify: a deep learning tool for antimicrobial peptide prediction",
+        "links": {
+          "self": "https://zenodo.org/api/records/7320306",
+          "self_html": "https://zenodo.org/records/7320306",
+          "preview_html": "https://zenodo.org/records/7320306?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.7320306",
+          "self_doi": "https://doi.org/10.5281/zenodo.7320306",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7320306",
+          "reserve_doi": "https://zenodo.org/api/records/7320306/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/7008778",
+          "parent_html": "https://zenodo.org/records/7008778",
+          "parent_doi": "https://doi.org/10.5281/zenodo.7008778",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7008778",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:7320306/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:7320306/sequence/default",
+          "files": "https://zenodo.org/api/records/7320306/files",
+          "media_files": "https://zenodo.org/api/records/7320306/media-files",
+          "thumbnails": {
+            "10": "https://zenodo.org/api/iiif/record:7320306:AMPlify_data_note_supplementary_materials.pdf/full/%5E10,/0/default.jpg",
+            "50": "https://zenodo.org/api/iiif/record:7320306:AMPlify_data_note_supplementary_materials.pdf/full/%5E50,/0/default.jpg",
+            "100": "https://zenodo.org/api/iiif/record:7320306:AMPlify_data_note_supplementary_materials.pdf/full/%5E100,/0/default.jpg",
+            "250": "https://zenodo.org/api/iiif/record:7320306:AMPlify_data_note_supplementary_materials.pdf/full/%5E250,/0/default.jpg",
+            "750": "https://zenodo.org/api/iiif/record:7320306:AMPlify_data_note_supplementary_materials.pdf/full/%5E750,/0/default.jpg",
+            "1200": "https://zenodo.org/api/iiif/record:7320306:AMPlify_data_note_supplementary_materials.pdf/full/%5E1200,/0/default.jpg"
+          },
+          "archive": "https://zenodo.org/api/records/7320306/files-archive",
+          "archive_media": "https://zenodo.org/api/records/7320306/media-files-archive",
+          "latest": "https://zenodo.org/api/records/7320306/versions/latest",
+          "latest_html": "https://zenodo.org/records/7320306/latest",
+          "versions": "https://zenodo.org/api/records/7320306/versions",
+          "draft": "https://zenodo.org/api/records/7320306/draft",
+          "access_links": "https://zenodo.org/api/records/7320306/access/links",
+          "access_grants": "https://zenodo.org/api/records/7320306/access/grants",
+          "access_users": "https://zenodo.org/api/records/7320306/access/users",
+          "access_request": "https://zenodo.org/api/records/7320306/access/request",
+          "access": "https://zenodo.org/api/records/7320306/access",
+          "communities": "https://zenodo.org/api/records/7320306/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/7320306/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/7320306/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/7320306/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/7320306/quota-increase",
+          "requests": "https://zenodo.org/api/records/7320306/requests"
+        },
+        "updated": "2024-10-12T08:19:32.796192+00:00",
+        "recid": "7320306",
+        "revision": 8,
+        "files": [
+          {
+            "id": "064f73ae-5dde-4ada-a9b8-d6ec538b3932",
+            "key": "AMPlify_imbalanced_model.zip",
+            "size": 138433687,
+            "checksum": "md5:3bc112a62510e7e57d05c40d8f32a315",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_imbalanced_model.zip/content"
+            }
+          },
+          {
+            "id": "267f2059-314f-489c-b3ab-78335b4189a8",
+            "key": "AMPlify_non_AMP_train_imbalanced.fa",
+            "size": 14927731,
+            "checksum": "md5:7f4d2514935597b0c0a073bd2acbb5a6",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_non_AMP_train_imbalanced.fa/content"
+            }
+          },
+          {
+            "id": "68977f51-b6f1-406c-b421-9587fd571b79",
+            "key": "AMPlify_non_AMP_test_imbalanced.fa",
+            "size": 3735227,
+            "checksum": "md5:35c764b23c325e0ff0c5b0741ecc1f6f",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_non_AMP_test_imbalanced.fa/content"
+            }
+          },
+          {
+            "id": "70435aa6-8391-4b07-b45d-5e5d4ecc38d6",
+            "key": "AMPlify_data_note_supplementary_materials.pdf",
+            "size": 141712,
+            "checksum": "md5:01ae71cd14ef8c12785c7cc26fc4b19f",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_data_note_supplementary_materials.pdf/content"
+            }
+          },
+          {
+            "id": "6e20cda4-f3f6-4ce6-8262-7ed99297d993",
+            "key": "AMPlify_AMP_train_common.fa",
+            "size": 141696,
+            "checksum": "md5:67470a4ac0e0356c2f756ce2831a536d",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_AMP_train_common.fa/content"
+            }
+          },
+          {
+            "id": "ee2e95ec-dd6c-45ba-9342-9ed327c78a01",
+            "key": "AMPlify_non_AMP_train_balanced.fa",
+            "size": 154709,
+            "checksum": "md5:7652c9ab3b42404d8a037ed22825bd97",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_non_AMP_train_balanced.fa/content"
+            }
+          },
+          {
+            "id": "8cfe782c-7193-4b37-b583-ad262ce216b7",
+            "key": "AMPlify_AMP_test_common.fa",
+            "size": 32687,
+            "checksum": "md5:9251af687acaa4b55db56a656d8f33bd",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_AMP_test_common.fa/content"
+            }
+          },
+          {
+            "id": "10eda961-ebfe-4798-83da-3332164d265c",
+            "key": "AMPlify_non_AMP_test_balanced.fa",
+            "size": 40176,
+            "checksum": "md5:7dbc53abf6fcd66c0ad64d9e7925b476",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_non_AMP_test_balanced.fa/content"
+            }
+          },
+          {
+            "id": "9341e572-d1e0-4a23-8861-77e8825426e0",
+            "key": "AMPlify_balanced_model.zip",
+            "size": 138364560,
+            "checksum": "md5:c9ec958e8df7ab786419172b209ac310",
+            "links": {
+              "self": "https://zenodo.org/api/records/7320306/files/AMPlify_balanced_model.zip/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "393559"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 772,
+          "unique_downloads": 706,
+          "views": 607,
+          "unique_views": 549,
+          "version_downloads": 610,
+          "version_unique_downloads": 550,
+          "version_unique_views": 485,
+          "version_views": 536
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2022-12-09T22:50:43.833144+00:00",
+        "modified": "2022-12-10T14:26:41.528509+00:00",
+        "id": 7420189,
+        "conceptrecid": "7420188",
+        "doi": "10.5281/zenodo.7420189",
+        "conceptdoi": "10.5281/zenodo.7420188",
+        "doi_url": "https://doi.org/10.5281/zenodo.7420189",
+        "metadata": {
+          "title": "szczurek-lab/hydramp: HydrAMP v1.2.0",
+          "doi": "10.5281/zenodo.7420189",
+          "publication_date": "2022-12-09",
+          "description": "HydrAMP: a deep generative model for antimicrobial peptide discovery",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "prokotg",
+              "affiliation": null
+            },
+            {
+              "name": "Paulina Szymczak",
+              "affiliation": "@szczurek-lab"
+            }
+          ],
+          "related_identifiers": [
+            {
+              "identifier": "https://github.com/szczurek-lab/hydramp/tree/v1.2.0",
+              "relation": "isSupplementTo",
+              "scheme": "url"
+            }
+          ],
+          "version": "v1.2.0",
+          "resource_type": {
+            "title": "Software",
+            "type": "software"
+          },
+          "license": {
+            "id": "other-open"
+          },
+          "relations": {
+            "version": [
+              {
+                "index": 0,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "7420188"
+                }
+              }
+            ]
+          }
+        },
+        "title": "szczurek-lab/hydramp: HydrAMP v1.2.0",
+        "links": {
+          "self": "https://zenodo.org/api/records/7420189",
+          "self_html": "https://zenodo.org/records/7420189",
+          "preview_html": "https://zenodo.org/records/7420189?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.7420189",
+          "self_doi": "https://doi.org/10.5281/zenodo.7420189",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7420189",
+          "reserve_doi": "https://zenodo.org/api/records/7420189/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/7420188",
+          "parent_html": "https://zenodo.org/records/7420188",
+          "parent_doi": "https://doi.org/10.5281/zenodo.7420188",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.7420188",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:7420189/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:7420189/sequence/default",
+          "files": "https://zenodo.org/api/records/7420189/files",
+          "media_files": "https://zenodo.org/api/records/7420189/media-files",
+          "archive": "https://zenodo.org/api/records/7420189/files-archive",
+          "archive_media": "https://zenodo.org/api/records/7420189/media-files-archive",
+          "latest": "https://zenodo.org/api/records/7420189/versions/latest",
+          "latest_html": "https://zenodo.org/records/7420189/latest",
+          "versions": "https://zenodo.org/api/records/7420189/versions",
+          "draft": "https://zenodo.org/api/records/7420189/draft",
+          "access_links": "https://zenodo.org/api/records/7420189/access/links",
+          "access_grants": "https://zenodo.org/api/records/7420189/access/grants",
+          "access_users": "https://zenodo.org/api/records/7420189/access/users",
+          "access_request": "https://zenodo.org/api/records/7420189/access/request",
+          "access": "https://zenodo.org/api/records/7420189/access",
+          "communities": "https://zenodo.org/api/records/7420189/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/7420189/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/7420189/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/7420189/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/7420189/quota-increase",
+          "requests": "https://zenodo.org/api/records/7420189/requests"
+        },
+        "updated": "2022-12-10T14:26:41.528509+00:00",
+        "recid": "7420189",
+        "revision": 3,
+        "files": [
+          {
+            "id": "b9e1cbe8-ea32-45a4-bf61-ed0233f9a0c6",
+            "key": "szczurek-lab/hydramp-v1.2.0.zip",
+            "size": 1895943,
+            "checksum": "md5:16a3a1e6100564b8690956c1eefbab12",
+            "links": {
+              "self": "https://zenodo.org/api/records/7420189/files/szczurek-lab/hydramp-v1.2.0.zip/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "457214"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 107,
+          "unique_downloads": 102,
+          "views": 724,
+          "unique_views": 689,
+          "version_downloads": 107,
+          "version_unique_downloads": 102,
+          "version_unique_views": 688,
+          "version_views": 723
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2026-05-08T11:10:04.668245+00:00",
+        "modified": "2026-05-09T16:38:21.618894+00:00",
+        "id": 20083260,
+        "conceptrecid": "20083259",
+        "doi": "10.5281/zenodo.20083260",
+        "conceptdoi": "10.5281/zenodo.20083259",
+        "doi_url": "https://doi.org/10.5281/zenodo.20083260",
+        "metadata": {
+          "title": "AntiBP2: improved version of antibacterial peptide prediction",
+          "doi": "10.5281/zenodo.20083260",
+          "publication_date": "2010-01-18",
+          "description": "<p>Welcome to the official repository for AntiBP2, an improved and robust computational method for predicting and classifying antibacterial peptides (ABPs) from amino acid sequences. This resource is designed to support researchers in antimicrobial peptide therapeutics, innate immunity, and computational drug discovery.</p>\n<p>Web Server: <a href=\"https://webs.iiitd.edu.in/raghava/antibp2/\">https://webs.iiitd.edu.in/raghava/antibp2/</a></p>\n<p>Citation Lata, S., Mishra, N. K., &amp; Raghava, G. P. S. (2010). AntiBP2: improved version of antibacterial peptide prediction. BMC Bioinformatics, 11(Suppl 1):S19. <a href=\"https://doi.org/10.1186/1471-2105-11-S1-S19\">https://doi.org/10.1186/1471-2105-11-S1-S19</a></p>\n<p>About the Tool AntiBP2 is an updated version of the original AntiBP method, developed to predict and classify antibacterial peptides using Support Vector Machine (SVM) models trained on a significantly larger dataset. It consolidates sequence-level features into a unified prediction framework, enabling systematic identification of antibacterial peptides from raw amino acid sequences.</p>\n<p>The tool integrates data from:</p>\n<p>Antimicrobial Peptide Database (APD) Swiss-Prot / UniProt MitPred dataset (for negative peptide generation) Key Features Large Dataset</p>\n<p>999 unique antibacterial peptides (positive set) 999 randomly extracted non-antibacterial peptides (negative set) Nearly double the dataset size compared to the original AntiBP Multiple Prediction Models</p>\n<p>NT15 &mdash; binary pattern of first 15 N-terminal residues CT15 &mdash; binary pattern of last 15 C-terminal residues NTCT15 &mdash; combined N- and C-terminal binary patterns Whole Peptide &mdash; amino acid composition of full-length peptide Source Classification</p>\n<p>5 biological sources: Bacteria, Frog, Insects, Mammals, Plants Overall classification accuracy up to 98.95% Subfamily Classification</p>\n<p>Insect families: Apidaecin, Attacin, Cecropin, Invertebrate Defensin, Lebocin Mammalian families: Alpha-defensin, Beta-defensin, Cathelicidin, Hepcidin, Histatin Frog families: Bombinin, Brevinin, Caerin, Dermaseptin, Other Rich Performance Metrics</p>\n<p>Sensitivity, Specificity, Accuracy, and MCC for every model Validated on an independent blind dataset of 466 sequences</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Lata, Sneh",
+              "affiliation": null
+            },
+            {
+              "name": "Raghava, Gajendra",
+              "affiliation": "Indraprastha Institute of Information Technology Delhi",
+              "orcid": "0000-0002-8902-2876"
+            }
+          ],
+          "related_identifiers": [
+            {
+              "identifier": "https://github.com/sachini-tech/AntiBP2/tree/V1",
+              "relation": "isSupplementTo",
+              "resource_type": "software",
+              "scheme": "url"
+            }
+          ],
+          "version": "V1",
+          "custom": {
+            "code:codeRepository": "https://github.com/sachini-tech/AntiBP2"
+          },
+          "resource_type": {
+            "title": "Dataset",
+            "type": "dataset"
+          },
+          "license": {
+            "id": "mit-license"
+          },
+          "communities": [
+            {
+              "id": "raghavagps"
+            }
+          ],
+          "relations": {
+            "version": [
+              {
+                "index": 0,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "20083259"
+                }
+              }
+            ]
+          }
+        },
+        "title": "AntiBP2: improved version of antibacterial peptide prediction",
+        "links": {
+          "self": "https://zenodo.org/api/records/20083260",
+          "self_html": "https://zenodo.org/records/20083260",
+          "preview_html": "https://zenodo.org/records/20083260?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.20083260",
+          "self_doi": "https://doi.org/10.5281/zenodo.20083260",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20083260",
+          "reserve_doi": "https://zenodo.org/api/records/20083260/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/20083259",
+          "parent_html": "https://zenodo.org/records/20083259",
+          "parent_doi": "https://doi.org/10.5281/zenodo.20083259",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20083259",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:20083260/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:20083260/sequence/default",
+          "files": "https://zenodo.org/api/records/20083260/files",
+          "media_files": "https://zenodo.org/api/records/20083260/media-files",
+          "archive": "https://zenodo.org/api/records/20083260/files-archive",
+          "archive_media": "https://zenodo.org/api/records/20083260/media-files-archive",
+          "latest": "https://zenodo.org/api/records/20083260/versions/latest",
+          "latest_html": "https://zenodo.org/records/20083260/latest",
+          "versions": "https://zenodo.org/api/records/20083260/versions",
+          "draft": "https://zenodo.org/api/records/20083260/draft",
+          "access_links": "https://zenodo.org/api/records/20083260/access/links",
+          "access_grants": "https://zenodo.org/api/records/20083260/access/grants",
+          "access_users": "https://zenodo.org/api/records/20083260/access/users",
+          "access_request": "https://zenodo.org/api/records/20083260/access/request",
+          "access": "https://zenodo.org/api/records/20083260/access",
+          "communities": "https://zenodo.org/api/records/20083260/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/20083260/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/20083260/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/20083260/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/20083260/quota-increase",
+          "requests": "https://zenodo.org/api/records/20083260/requests"
+        },
+        "updated": "2026-05-09T16:38:21.618894+00:00",
+        "recid": "20083260",
+        "revision": 8,
+        "files": [
+          {
+            "id": "c0de5ccf-404b-438a-a626-fb894095b4da",
+            "key": "sachini-tech/AntiBP2-V1.zip",
+            "size": 85228,
+            "checksum": "md5:deae7f2632edbc090ad55dad251139cb",
+            "links": {
+              "self": "https://zenodo.org/api/records/20083260/files/sachini-tech/AntiBP2-V1.zip/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "1636348"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 7,
+          "unique_downloads": 7,
+          "views": 25,
+          "unique_views": 22,
+          "version_downloads": 7,
+          "version_unique_downloads": 7,
+          "version_unique_views": 22,
+          "version_views": 25
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2023-11-18T06:47:08.236844+00:00",
+        "modified": "2024-07-10T20:05:22.784631+00:00",
+        "id": 10148444,
+        "conceptrecid": "10148443",
+        "doi": "10.5281/zenodo.10148444",
+        "conceptdoi": "10.5281/zenodo.10148443",
+        "doi_url": "https://doi.org/10.5281/zenodo.10148444",
+        "metadata": {
+          "title": "Human antimicrobial peptide inactivation mechanism of enveloped viruses",
+          "doi": "10.5281/zenodo.10148444",
+          "publication_date": "2023-11-17",
+          "description": "<p>This dataset provides the raw data supporting the paper: Human antimicrobial peptide inactivation mechanism of enveloped viruses. <a href=\"https://doi.org/10.1016/j.jcis.2023.11.055\">https://doi.org/10.1016/j.jcis.2023.11.055</a></p><p>It comprises the infectivity data (Figure 1), DLS data (Figure 2 and Figures S1-5), cryo-TEM images (Figure 2), SAXS data (Figure 3), SANS data (Figure 3), and the Zeta-potential measurement (in text).</p><p>Setup and conditions for the experiments are described in the experimental section of the published (open access) manuscript.</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Watts, Samuel",
+              "affiliation": "University of Fribourg",
+              "orcid": "0000-0002-5224-845X"
+            },
+            {
+              "name": "Hänni, Eliane",
+              "affiliation": "University of Fribourg"
+            },
+            {
+              "name": "Smith, Gregory N.",
+              "affiliation": "ISIS Neutron and Muon Source",
+              "orcid": "0000-0002-0074-5657"
+            },
+            {
+              "name": "Mahmoudi, Najet",
+              "affiliation": "ISIS Neutron and Muon Source"
+            },
+            {
+              "name": "Freire, Rafael V.M.",
+              "affiliation": "University of Fribourg",
+              "orcid": "0000-0001-7759-8264"
+            },
+            {
+              "name": "Lim, Sierin",
+              "affiliation": "Nanyang Technological University",
+              "orcid": "0000-0001-7455-6771"
+            },
+            {
+              "name": "Salentinig, Stefan",
+              "affiliation": "University of Fribourg",
+              "orcid": "0000-0002-7541-2734"
+            }
+          ],
+          "resource_type": {
+            "title": "Dataset",
+            "type": "dataset"
+          },
+          "journal": {
+            "title": "Journal of Colloid and Interface Science",
+            "volume": "2023 (https://doi.org/10.1016/j.jcis.2023.11.055)"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "grants": [
+            {
+              "code": "206638",
+              "internal_id": "10.13039/501100001711::206638",
+              "funder": {
+                "name": "Swiss National Science Foundation",
+                "doi": "10.13039/501100001711",
+                "acronym": "SNSF"
+              },
+              "title": "Antibacterial Emulsion Based on Bacteriophage Pickering Stabilization",
+              "program": "Careers"
+            },
+            {
+              "code": "205603",
+              "internal_id": "10.13039/501100001711::205603",
+              "funder": {
+                "name": "Swiss National Science Foundation",
+                "doi": "10.13039/501100001711",
+                "acronym": "SNSF"
+              },
+              "title": "NCCR Bio-Inspired Materials: Using Concepts from Nature to Create ‚Smart' Materials (phase III)",
+              "program": "Programmes"
+            },
+            {
+              "code": "192944",
+              "internal_id": "10.13039/501100001711::192944",
+              "funder": {
+                "name": "Swiss National Science Foundation",
+                "doi": "10.13039/501100001711",
+                "acronym": "SNSF"
+              },
+              "title": "Research Exchange UniFR-NTU: Protein-Nanocage Stabilized Pickering Emulsions for Nutrient Delivery",
+              "program": "Science communication"
+            },
+            {
+              "code": "186251",
+              "internal_id": "10.13039/501100001711::186251",
+              "funder": {
+                "name": "Swiss National Science Foundation",
+                "doi": "10.13039/501100001711",
+                "acronym": "SNSF"
+              },
+              "title": "Brushing Bacteria: Polymer Brush Coatings for Bacteria Free Drinking Water",
+              "program": "Programmes"
+            }
+          ],
+          "relations": {
+            "version": [
+              {
+                "index": 0,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "10148443"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Human antimicrobial peptide inactivation mechanism of enveloped viruses",
+        "links": {
+          "self": "https://zenodo.org/api/records/10148444",
+          "self_html": "https://zenodo.org/records/10148444",
+          "preview_html": "https://zenodo.org/records/10148444?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.10148444",
+          "self_doi": "https://doi.org/10.5281/zenodo.10148444",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.10148444",
+          "reserve_doi": "https://zenodo.org/api/records/10148444/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/10148443",
+          "parent_html": "https://zenodo.org/records/10148443",
+          "parent_doi": "https://doi.org/10.5281/zenodo.10148443",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.10148443",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:10148444/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:10148444/sequence/default",
+          "files": "https://zenodo.org/api/records/10148444/files",
+          "media_files": "https://zenodo.org/api/records/10148444/media-files",
+          "thumbnails": {
+            "10": "https://zenodo.org/api/iiif/record:10148444:cryo-TEM%20Phi6.tif/full/%5E10,/0/default.jpg",
+            "50": "https://zenodo.org/api/iiif/record:10148444:cryo-TEM%20Phi6.tif/full/%5E50,/0/default.jpg",
+            "100": "https://zenodo.org/api/iiif/record:10148444:cryo-TEM%20Phi6.tif/full/%5E100,/0/default.jpg",
+            "250": "https://zenodo.org/api/iiif/record:10148444:cryo-TEM%20Phi6.tif/full/%5E250,/0/default.jpg",
+            "750": "https://zenodo.org/api/iiif/record:10148444:cryo-TEM%20Phi6.tif/full/%5E750,/0/default.jpg",
+            "1200": "https://zenodo.org/api/iiif/record:10148444:cryo-TEM%20Phi6.tif/full/%5E1200,/0/default.jpg"
+          },
+          "archive": "https://zenodo.org/api/records/10148444/files-archive",
+          "archive_media": "https://zenodo.org/api/records/10148444/media-files-archive",
+          "latest": "https://zenodo.org/api/records/10148444/versions/latest",
+          "latest_html": "https://zenodo.org/records/10148444/latest",
+          "versions": "https://zenodo.org/api/records/10148444/versions",
+          "draft": "https://zenodo.org/api/records/10148444/draft",
+          "access_links": "https://zenodo.org/api/records/10148444/access/links",
+          "access_grants": "https://zenodo.org/api/records/10148444/access/grants",
+          "access_users": "https://zenodo.org/api/records/10148444/access/users",
+          "access_request": "https://zenodo.org/api/records/10148444/access/request",
+          "access": "https://zenodo.org/api/records/10148444/access",
+          "communities": "https://zenodo.org/api/records/10148444/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/10148444/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/10148444/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/10148444/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/10148444/quota-increase",
+          "requests": "https://zenodo.org/api/records/10148444/requests"
+        },
+        "updated": "2024-07-10T20:05:22.784631+00:00",
+        "recid": "10148444",
+        "revision": 6,
+        "files": [
+          {
+            "id": "4226fb43-2a8b-4c5f-9b0b-0e20e6c6a4c8",
+            "key": "DLS Data.zip",
+            "size": 101263,
+            "checksum": "md5:7de958d3c34b355e775c9b1410e8f483",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/DLS%20Data.zip/content"
+            }
+          },
+          {
+            "id": "4479f394-76b5-400f-af03-ffbbf744e0a4",
+            "key": "SANS Data.zip",
+            "size": 6144,
+            "checksum": "md5:9f1e4d7d9c1280227dc7c7980ccc81a1",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/SANS%20Data.zip/content"
+            }
+          },
+          {
+            "id": "5a70c91c-d156-49f9-9e6f-8a1997d9019f",
+            "key": "infectivity_NTU.xlsx",
+            "size": 11898,
+            "checksum": "md5:8ff3571d338d4ffa1772be6d0d537db0",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/infectivity_NTU.xlsx/content"
+            }
+          },
+          {
+            "id": "2251ab9a-a5b8-4b61-b43e-acff8af5a01e",
+            "key": "SAXS Data.zip",
+            "size": 97827,
+            "checksum": "md5:ff15a5ecaf9e036ba897a2689ede142d",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/SAXS%20Data.zip/content"
+            }
+          },
+          {
+            "id": "49f4db52-439a-41be-a10d-76b91690fa23",
+            "key": "README.txt",
+            "size": 1838,
+            "checksum": "md5:d835d120cd7b768fa973878da9f3f767",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/README.txt/content"
+            }
+          },
+          {
+            "id": "ceb005a0-86bc-4046-802f-cc88f58e97bd",
+            "key": "cryo-TEM Phi6.tif",
+            "size": 4335436,
+            "checksum": "md5:e575802dee460546d19bea2e8db87221",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/cryo-TEM%20Phi6.tif/content"
+            }
+          },
+          {
+            "id": "75d18ffc-239e-4996-9d73-62932c60ba88",
+            "key": "Zeta-Potential Data.xlsx",
+            "size": 9328,
+            "checksum": "md5:9eefa4cbd284408a81f8c71a5bdc86d6",
+            "links": {
+              "self": "https://zenodo.org/api/records/10148444/files/Zeta-Potential%20Data.xlsx/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "1026859"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 263,
+          "unique_downloads": 263,
+          "views": 326,
+          "unique_views": 321,
+          "version_downloads": 263,
+          "version_unique_downloads": 263,
+          "version_unique_views": 321,
+          "version_views": 326
+        },
+        "state": "done",
+        "submitted": true
+      },
+      {
+        "created": "2024-08-26T13:14:48.255613+00:00",
+        "modified": "2024-08-27T17:16:27.996367+00:00",
+        "id": 13374927,
+        "conceptrecid": "13374926",
+        "doi": "10.5281/zenodo.13374927",
+        "conceptdoi": "10.5281/zenodo.13374926",
+        "doi_url": "https://doi.org/10.5281/zenodo.13374927",
+        "metadata": {
+          "title": "Arena assay and gene expression of stingless bees",
+          "doi": "10.5281/zenodo.13374927",
+          "publication_date": "2024-08-26",
+          "description": "<p>The dataset includes behavioral data collected from arena experiments with workers of stingless bee species <em>Scaptotrigona postica</em>, <em>Frieseomelitta varia</em>, and <em>Melipona quadrifasciata</em>. Additionally, it contains gene expression data (CT values) for these species across different life stages and tissues.</p>",
+          "access_right": "open",
+          "creators": [
+            {
+              "name": "Anonymous",
+              "affiliation": null
+            }
+          ],
+          "dates": [
+            {
+              "type": "copyrighted"
+            }
+          ],
+          "references": [
+            "Lourenço, A.P., Florecki, M.M., Simões, Z.L.P., Evans, J.D., 2018. Silencing of Apis mellifera dorsal genes reveals their role in expression of the antimicrobial peptide defensin-1. Insect Mol Biol 27, 577–589.",
+            "Chandrasekaran, S., Ament, S.A., Eddy, J.A., Rodriguez-Zas, S.L., Schatz, B.R., Price, N.D., Robinson, G.E., 2011. Behavior-specific changes in transcriptional modules lead to distinct and predictable neurogenomic states. Proc Natl Acad Sci U S A 108, 18020–18025."
+          ],
+          "language": "eng",
+          "resource_type": {
+            "title": "Dataset",
+            "type": "dataset"
+          },
+          "license": {
+            "id": "cc-by-4.0"
+          },
+          "grants": [
+            {
+              "code": "2020/13296-9",
+              "internal_id": "02ddkpn78::2020/13296-9",
+              "funder": {
+                "name": "Fundação de Amparo à Pesquisa do Estado de São Paulo"
+              },
+              "title": "\tBases moleculares da plasticidade de comportamento e das estratégias reprodutivas na evolução das histórias de vida em abelhas sem ferrão neotropicais (Meliponini)"
+            }
+          ],
+          "relations": {
+            "version": [
+              {
+                "index": 0,
+                "is_last": true,
+                "parent": {
+                  "pid_type": "recid",
+                  "pid_value": "13374926"
+                }
+              }
+            ]
+          }
+        },
+        "title": "Arena assay and gene expression of stingless bees",
+        "links": {
+          "self": "https://zenodo.org/api/records/13374927",
+          "self_html": "https://zenodo.org/records/13374927",
+          "preview_html": "https://zenodo.org/records/13374927?preview=1",
+          "doi": "https://doi.org/10.5281/zenodo.13374927",
+          "self_doi": "https://doi.org/10.5281/zenodo.13374927",
+          "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.13374927",
+          "reserve_doi": "https://zenodo.org/api/records/13374927/draft/pids/doi",
+          "parent": "https://zenodo.org/api/records/13374926",
+          "parent_html": "https://zenodo.org/records/13374926",
+          "parent_doi": "https://doi.org/10.5281/zenodo.13374926",
+          "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.13374926",
+          "self_iiif_manifest": "https://zenodo.org/api/iiif/record:13374927/manifest",
+          "self_iiif_sequence": "https://zenodo.org/api/iiif/record:13374927/sequence/default",
+          "files": "https://zenodo.org/api/records/13374927/files",
+          "media_files": "https://zenodo.org/api/records/13374927/media-files",
+          "archive": "https://zenodo.org/api/records/13374927/files-archive",
+          "archive_media": "https://zenodo.org/api/records/13374927/media-files-archive",
+          "latest": "https://zenodo.org/api/records/13374927/versions/latest",
+          "latest_html": "https://zenodo.org/records/13374927/latest",
+          "versions": "https://zenodo.org/api/records/13374927/versions",
+          "draft": "https://zenodo.org/api/records/13374927/draft",
+          "access_links": "https://zenodo.org/api/records/13374927/access/links",
+          "access_grants": "https://zenodo.org/api/records/13374927/access/grants",
+          "access_users": "https://zenodo.org/api/records/13374927/access/users",
+          "access_request": "https://zenodo.org/api/records/13374927/access/request",
+          "access": "https://zenodo.org/api/records/13374927/access",
+          "communities": "https://zenodo.org/api/records/13374927/communities",
+          "communities-suggestions": "https://zenodo.org/api/records/13374927/communities-suggestions",
+          "request_deletion": "https://zenodo.org/api/records/13374927/request-deletion",
+          "file_modification": "https://zenodo.org/api/records/13374927/file-modification",
+          "quota_increase": "https://zenodo.org/api/records/13374927/quota-increase",
+          "requests": "https://zenodo.org/api/records/13374927/requests"
+        },
+        "updated": "2024-08-27T17:16:27.996367+00:00",
+        "recid": "13374927",
+        "revision": 6,
+        "files": [
+          {
+            "id": "71722401-6ff5-4ae7-aa00-f36ea041775a",
+            "key": "RawData.xlsx",
+            "size": 67989,
+            "checksum": "md5:b74fc1ab68c2273f35cddbdb53749fb0",
+            "links": {
+              "self": "https://zenodo.org/api/records/13374927/files/RawData.xlsx/content"
+            }
+          }
+        ],
+        "swh": null,
+        "owners": [
+          {
+            "id": "1179793"
+          }
+        ],
+        "status": "published",
+        "stats": {
+          "downloads": 30,
+          "unique_downloads": 29,
+          "views": 104,
+          "unique_views": 94,
+          "version_downloads": 30,
+          "version_unique_downloads": 29,
+          "version_unique_views": 94,
+          "version_views": 104
+        },
+        "state": "done",
+        "submitted": true
+      }
+    ],
+    "total": 84
+  },
+  "aggregations": {
+    "publication_date": {
+      "buckets": [
+        {
+          "key": "2007",
+          "doc_count": 1,
+          "label": "2007",
+          "is_selected": false
+        },
+        {
+          "key": "2008",
+          "doc_count": 0,
+          "label": "2008",
+          "is_selected": false
+        },
+        {
+          "key": "2009",
+          "doc_count": 0,
+          "label": "2009",
+          "is_selected": false
+        },
+        {
+          "key": "2010",
+          "doc_count": 2,
+          "label": "2010",
+          "is_selected": false
+        },
+        {
+          "key": "2011",
+          "doc_count": 0,
+          "label": "2011",
+          "is_selected": false
+        },
+        {
+          "key": "2012",
+          "doc_count": 1,
+          "label": "2012",
+          "is_selected": false
+        },
+        {
+          "key": "2013",
+          "doc_count": 3,
+          "label": "2013",
+          "is_selected": false
+        },
+        {
+          "key": "2014",
+          "doc_count": 2,
+          "label": "2014",
+          "is_selected": false
+        },
+        {
+          "key": "2015",
+          "doc_count": 0,
+          "label": "2015",
+          "is_selected": false
+        },
+        {
+          "key": "2016",
+          "doc_count": 1,
+          "label": "2016",
+          "is_selected": false
+        },
+        {
+          "key": "2017",
+          "doc_count": 1,
+          "label": "2017",
+          "is_selected": false
+        },
+        {
+          "key": "2018",
+          "doc_count": 3,
+          "label": "2018",
+          "is_selected": false
+        },
+        {
+          "key": "2019",
+          "doc_count": 3,
+          "label": "2019",
+          "is_selected": false
+        },
+        {
+          "key": "2020",
+          "doc_count": 3,
+          "label": "2020",
+          "is_selected": false
+        },
+        {
+          "key": "2021",
+          "doc_count": 5,
+          "label": "2021",
+          "is_selected": false
+        },
+        {
+          "key": "2022",
+          "doc_count": 7,
+          "label": "2022",
+          "is_selected": false
+        },
+        {
+          "key": "2023",
+          "doc_count": 12,
+          "label": "2023",
+          "is_selected": false
+        },
+        {
+          "key": "2024",
+          "doc_count": 10,
+          "label": "2024",
+          "is_selected": false
+        },
+        {
+          "key": "2025",
+          "doc_count": 13,
+          "label": "2025",
+          "is_selected": false
+        },
+        {
+          "key": "2026",
+          "doc_count": 17,
+          "label": "2026",
+          "is_selected": false
+        }
+      ],
+      "label": "Publication date"
+    },
+    "access_status": {
+      "buckets": [
+        {
+          "key": "open",
+          "doc_count": 69,
+          "label": "Open",
+          "is_selected": false
+        },
+        {
+          "key": "restricted",
+          "doc_count": 14,
+          "label": "Restricted",
+          "is_selected": false
+        },
+        {
+          "key": "embargoed",
+          "doc_count": 1,
+          "label": "Embargoed",
+          "is_selected": false
+        }
+      ],
+      "label": "Access status"
+    },
+    "resource_type": {
+      "buckets": [
+        {
+          "key": "publication",
+          "doc_count": 48,
+          "label": "Publication",
+          "is_selected": false,
+          "inner": {
+            "buckets": [
+              {
+                "key": "publication-article",
+                "doc_count": 41,
+                "label": "Journal article",
+                "is_selected": false
+              },
+              {
+                "key": "publication-journal",
+                "doc_count": 2,
+                "label": "Journal",
+                "is_selected": false
+              },
+              {
+                "key": "publication-preprint",
+                "doc_count": 2,
+                "label": "Preprint",
+                "is_selected": false
+              },
+              {
+                "key": "publication-datapaper",
+                "doc_count": 1,
+                "label": "Data paper",
+                "is_selected": false
+              },
+              {
+                "key": "publication-peerreview",
+                "doc_count": 1,
+                "label": "Peer review",
+                "is_selected": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "dataset",
+          "doc_count": 24,
+          "label": "Dataset",
+          "is_selected": false,
+          "inner": {
+            "buckets": []
+          }
+        },
+        {
+          "key": "software",
+          "doc_count": 6,
+          "label": "Software",
+          "is_selected": false,
+          "inner": {
+            "buckets": []
+          }
+        },
+        {
+          "key": "other",
+          "doc_count": 3,
+          "label": "Other",
+          "is_selected": false,
+          "inner": {
+            "buckets": []
+          }
+        },
+        {
+          "key": "image",
+          "doc_count": 1,
+          "label": "Image",
+          "is_selected": false,
+          "inner": {
+            "buckets": [
+              {
+                "key": "image-diagram",
+                "doc_count": 1,
+                "label": "Diagram",
+                "is_selected": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "model",
+          "doc_count": 1,
+          "label": "Model",
+          "is_selected": false,
+          "inner": {
+            "buckets": []
+          }
+        },
+        {
+          "key": "poster",
+          "doc_count": 1,
+          "label": "Poster",
+          "is_selected": false,
+          "inner": {
+            "buckets": []
+          }
+        }
+      ],
+      "label": "Resource types"
+    },
+    "subject": {
+      "buckets": [
+        {
+          "key": "Biodiversity",
+          "doc_count": 20,
+          "label": "Biodiversity",
+          "is_selected": false
+        },
+        {
+          "key": "Taxonomy",
+          "doc_count": 20,
+          "label": "Taxonomy",
+          "is_selected": false
+        },
+        {
+          "key": "Animalia",
+          "doc_count": 6,
+          "label": "Animalia",
+          "is_selected": false
+        },
+        {
+          "key": "Arthropoda",
+          "doc_count": 5,
+          "label": "Arthropoda",
+          "is_selected": false
+        },
+        {
+          "key": "AMP",
+          "doc_count": 3,
+          "label": "AMP",
+          "is_selected": false
+        },
+        {
+          "key": "antimicrobial peptides",
+          "doc_count": 3,
+          "label": "antimicrobial peptides",
+          "is_selected": false
+        },
+        {
+          "key": "AMR",
+          "doc_count": 2,
+          "label": "AMR",
+          "is_selected": false
+        },
+        {
+          "key": "Antimicrobial peptides",
+          "doc_count": 2,
+          "label": "Antimicrobial peptides",
+          "is_selected": false
+        },
+        {
+          "key": "Antimicrobial resistance",
+          "doc_count": 2,
+          "label": "Antimicrobial resistance",
+          "is_selected": false
+        },
+        {
+          "key": "Arachnida",
+          "doc_count": 2,
+          "label": "Arachnida",
+          "is_selected": false
+        }
+      ],
+      "label": "Subjects"
+    },
+    "file_type": {
+      "buckets": [
+        {
+          "key": "pdf",
+          "doc_count": 36,
+          "label": "PDF",
+          "is_selected": false
+        },
+        {
+          "key": "zip",
+          "doc_count": 15,
+          "label": "ZIP",
+          "is_selected": false
+        },
+        {
+          "key": "xlsx",
+          "doc_count": 7,
+          "label": "XLSX",
+          "is_selected": false
+        },
+        {
+          "key": "csv",
+          "doc_count": 4,
+          "label": "CSV",
+          "is_selected": false
+        },
+        {
+          "key": "docx",
+          "doc_count": 4,
+          "label": "DOCX",
+          "is_selected": false
+        },
+        {
+          "key": "txt",
+          "doc_count": 4,
+          "label": "TXT",
+          "is_selected": false
+        },
+        {
+          "key": "xml",
+          "doc_count": 3,
+          "label": "XML",
+          "is_selected": false
+        },
+        {
+          "key": "bin",
+          "doc_count": 2,
+          "label": "BIN",
+          "is_selected": false
+        },
+        {
+          "key": "gz",
+          "doc_count": 2,
+          "label": "GZ",
+          "is_selected": false
+        },
+        {
+          "key": "fa",
+          "doc_count": 1,
+          "label": "FA",
+          "is_selected": false
+        }
+      ],
+      "label": "File type"
+    }
+  },
+  "links": {
+    "self": "https://zenodo.org/api/records?page=1&q=%22antimicrobial+peptide%22+AND+(prediction+OR+model+OR+software+OR+dataset)&size=10&sort=bestmatch",
+    "next": "https://zenodo.org/api/records?page=2&q=%22antimicrobial+peptide%22+AND+(prediction+OR+model+OR+software+OR+dataset)&size=10&sort=bestmatch"
+  }
+}

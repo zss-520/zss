@@ -1,0 +1,997 @@
+{"pmid": "35298806", "title": "Machine Learning Prediction of Antimicrobial Peptides.", "abstract": "Antibiotic resistance constitutes a global threat and could lead to a future pandemic. One strategy is to develop a new generation of antimicrobials. Naturally occurring antimicrobial peptides (AMPs) are recognized templates and some are already in clinical use. To accelerate the discovery of new antibiotics, it is useful to predict novel AMPs from the sequenced genomes of various organisms. The antimicrobial peptide database (APD) provided the first empirical peptide prediction program. It also facilitated the testing of the first machine-learning algorithms. This chapter provides an overview of machine-learning predictions of AMPs. Most of the predictors, such as AntiBP, CAMP, and iAMPpred, involve a single-label prediction of antimicrobial activity. This type of prediction has been expanded to antifungal, antiviral, antibiofilm, anti-TB, hemolytic, and anti-inflammatory peptides. The multiple functional roles of AMPs annotated in the APD also enabled multi-label predictions (iAMP-2L, MLAMP, and AMAP), which include antibacterial, antiviral, antifungal, antiparasitic, antibiofilm, anticancer, anti-HIV, antimalarial, insecticidal, antioxidant, chemotactic, spermicidal activities, and protease inhibiting activities. Also considered in predictions are peptide posttranslational modification, 3D structure, and microbial species-specific information. We compare important amino acids of AMPs implied from machine learning with the frequently occurring residues of the major classes of natural peptides. Finally, we discuss advances, limitations, and future directions of machine-learning predictions of antimicrobial peptides. Ultimately, we may assemble a pipeline of such predictions beyond antimicrobial activity to accelerate the discovery of novel AMP-based antimicrobials.", "journal": "Methods in molecular biology (Clifton, N.J.)", "year": "2022", "doi": "10.1007/978-1-0716-1855-4_1", "pmcid": "PMC9126312", "authors": ["Guangshun Wang", "Iosif I Vaisman", "Monique L van Hoek"], "keywords": ["Antimicrobial peptides", "Database", "Machine learning", "Multidrug resistance", "Peptide prediction"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "35298806", "mid": "NIHMS1801503", "pmc": "PMC9126312", "doi": "10.1007/978-1-0716-1855-4_1"}}
+{"pmid": "39850516", "title": "Machine learning for antimicrobial peptide identification and design.", "abstract": "Artificial intelligence (AI) and machine learning (ML) models are being deployed in many domains of society and have recently reached the field of drug discovery. Given the increasing prevalence of antimicrobial resistance, as well as the challenges intrinsic to antibiotic development, there is an urgent need to accelerate the design of new antimicrobial therapies. Antimicrobial peptides (AMPs) are therapeutic agents for treating bacterial infections, but their translation into the clinic has been slow owing to toxicity, poor stability, limited cellular penetration and high cost, among other issues. Recent advances in AI and ML have led to breakthroughs in our abilities to predict biomolecular properties and structures and to generate new molecules. The ML-based modelling of peptides may overcome some of the disadvantages associated with traditional drug discovery and aid the rapid development and translation of AMPs. Here, we provide an introduction to this emerging field and survey ML approaches that can be used to address issues currently hindering AMP development. We also outline important limitations that can be addressed for the broader adoption of AMPs in clinical practice, as well as new opportunities in data-driven peptide design.", "journal": "Nature reviews bioengineering", "year": "2024", "doi": "10.1038/s44222-024-00152-x", "pmcid": "PMC11756916", "authors": ["Fangping Wan", "Felix Wong", "James J Collins", "Cesar de la Fuente-Nunez"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "39850516", "mid": "NIHMS2008716", "pmc": "PMC11756916", "doi": "10.1038/s44222-024-00152-x"}}
+{"pmid": "35241840", "title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning.", "abstract": "The human gut microbiome encodes a large variety of antimicrobial peptides (AMPs), but the short lengths of AMPs pose a challenge for computational prediction. Here we combined multiple natural language processing neural network models, including LSTM, Attention and BERT, to form a unified pipeline for candidate AMP identification from human gut microbiome data. Of 2,349 sequences identified as candidate AMPs, 216 were chemically synthesized, with 181 showing antimicrobial activity (a positive rate of >83%). Most of these peptides have less than 40% sequence homology to AMPs in the training set. Further characterization of the 11 most potent AMPs showed high efficacy against antibiotic-resistant, Gram-negative pathogens and demonstrated significant efficacy in lowering bacterial load by more than tenfold against a mouse model of bacterial lung infection. Our study showcases the potential of machine learning approaches for mining functional peptides from metagenome data and accelerating the discovery of promising AMP candidate molecules for in-depth investigations.", "journal": "Nature biotechnology", "year": "2022", "doi": "10.1038/s41587-022-01226-0", "pmcid": "", "authors": ["Yue Ma", "Zhengyan Guo", "Binbin Xia", "Yuwei Zhang", "Xiaolin Liu", "Ying Yu", "Na Tang", "Xiaomei Tong", "Min Wang", "Xin Ye", "Jie Feng", "Yihua Chen", "Jun Wang"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "35241840", "doi": "10.1038/s41587-022-01226-0", "pii": "10.1038/s41587-022-01226-0"}}
+{"pmid": "39085646", "title": "Deep mutational scanning and machine learning for the analysis of antimicrobial-peptide features driving membrane selectivity.", "abstract": "Many antimicrobial peptides directly disrupt bacterial membranes yet can also damage mammalian membranes. It is therefore central to their therapeutic use that rules governing the membrane selectivity of antimicrobial peptides be deciphered. However, this is difficult even for short peptides owing to the large combinatorial space of amino acid sequences. Here we describe a method for measuring the loss or maintenance of antimicrobial-peptide activity for thousands of peptide-sequence variants simultaneously, and its application to Protegrin-1, a potent yet toxic antimicrobial peptide, to determine the positional importance and flexibility of residues across its sequence while identifying variants with changes in membrane selectivity. More bacterially selective variants maintained a membrane-bound secondary structure while avoiding aromatic residues and cysteine pairs. A machine-learning model trained with our datasets accurately predicted membrane-specific activities for over 5.7 million Protegrin-1 variants, and identified one variant that showed substantially reduced toxicity and retention of activity in a mouse model of intraperitoneal infection. The high-throughput methodology may help elucidate sequence-structure-function relationships in antimicrobial peptides and inform the design of peptide-based synthetic drugs.", "journal": "Nature biomedical engineering", "year": "2024", "doi": "10.1038/s41551-024-01243-1", "pmcid": "PMC12044605", "authors": ["Justin R Randall", "Luiz C Vieira", "Claus O Wilke", "Bryan W Davies"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "39085646", "mid": "NIHMS2068021", "pmc": "PMC12044605", "doi": "10.1038/s41551-024-01243-1", "pii": "10.1038/s41551-024-01243-1"}}
+{"pmid": "38865233", "title": "Novel Antimicrobial Peptide Design Using Motif Match Score Representation.", "abstract": "Antimicrobial peptides (AMPs) have drawn the interest of the researchers since they offer an alternative to the traditional antibiotics in the fight against antibiotic resistance and they exhibit additional pharmaceutically significant properties. Recently, computational approaches attemp to reveal how antibacterial activity is determined from a machine learning perspective and they aim to search and find the biological cues or characteristics that control antimicrobial activity via incorporating motif match scores. This study is dedicated to the development of a machine learning framework aimed at devising novel antimicrobial peptide (AMP) sequences potentially effective against Gram-positive /Gram-negative bacteria. In order to design newly generated sequences classified as either AMP or non-AMP, various classification models were trained. These novel sequences underwent validation utilizing the \"DBAASP:strain-specific antibacterial prediction based on machine learning approaches and data on AMP sequences\" tool. The findings presented herein represent a significant stride in this computational research, streamlining the process of AMP creation or modification within wet lab environments.", "journal": "IEEE/ACM transactions on computational biology and bioinformatics", "year": "2024", "doi": "10.1109/TCBB.2024.3413021", "pmcid": "", "authors": ["Ummu Gulsum Soylemez", "Malik Yousef", "Zulal Kesmen", "Burcu Bakir-Gungor"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "38865233", "doi": "10.1109/TCBB.2024.3413021"}}
+{"pmid": "40261713", "title": "Antimicrobial peptide developed with machine learning sequence optimization targets drug resistant Staphylococcus aureus in mice.", "abstract": "As antimicrobial resistance rises, new antibacterial candidates are urgently needed. Using sequence space information from over 14,743 functional antimicrobial peptides (AMPs), we improved the antimicrobial properties of citropin 1.1, an AMP with weak antimethicillin resistant Staphylococcus aureus (MRSA) activity, producing a short and potent antistaphylococcal peptide, CIT-8 (13 residues). At 40 μg/mL, CIT-8 eradicated 1 × 108 drug-resistant MRSA and vancomycin resistant S. aureus (VRSA) persister cells within 30 minutes of exposure and reduced the number of viable biofilm cells of MRSA and VRSA by 3 log10 and 4 log10 in established biofilms, respectively. CIT-8 (at 32 μg/mL) depolarized and permeated the S. aureus MW2 membrane. In a mouse model of MRSA skin infection, CIT-8 (2% w/w in petroleum jelly) significantly reduced the bacterial burden by 2.3 log10 (P < 0.0001). Our methodology accelerated AMP design by combining traditional peptide design strategies, such as truncation, substitution, and structure-guided alteration, with machine learning-backed sequence optimization.", "journal": "The Journal of clinical investigation", "year": "2025", "doi": "10.1172/JCI185430", "pmcid": "PMC12165799", "authors": ["Biswajit Mishra", "Anindya Basu", "Fadi Shehadeh", "LewisOscar Felix", "Sai Sundeep Kollala", "Yashpal Singh Chhonker", "Mandar T Naik", "Charilaos Dellis", "Liyang Zhang", "Narchonai Ganesan", "Daryl J Murry", "Jianhua Gu", "Michael B Sherman", "Frederick M Ausubel", "Paul P Sotiriadis", "Eleftherios Mylonakis"], "keywords": ["Bacterial infections", "Infectious disease", "Microbiology"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "40261713", "pmc": "PMC12165799", "doi": "10.1172/JCI185430", "pii": "185430"}}
+{"pmid": "38843834", "title": "Discovery of antimicrobial peptides in the global microbiome with machine learning.", "abstract": "Novel antibiotics are urgently needed to combat the antibiotic-resistance crisis. We present a machine-learning-based approach to predict antimicrobial peptides (AMPs) within the global microbiome and leverage a vast dataset of 63,410 metagenomes and 87,920 prokaryotic genomes from environmental and host-associated habitats to create the AMPSphere, a comprehensive catalog comprising 863,498 non-redundant peptides, few of which match existing databases. AMPSphere provides insights into the evolutionary origins of peptides, including by duplication or gene truncation of longer sequences, and we observed that AMP production varies by habitat. To validate our predictions, we synthesized and tested 100 AMPs against clinically relevant drug-resistant pathogens and human gut commensals both in vitro and in vivo. A total of 79 peptides were active, with 63 targeting pathogens. These active AMPs exhibited antibacterial activity by disrupting bacterial membranes. In conclusion, our approach identified nearly one million prokaryotic AMP sequences, an open-access resource for antibiotic discovery.", "journal": "Cell", "year": "2024", "doi": "10.1016/j.cell.2024.05.013", "pmcid": "PMC11666328", "authors": ["Célio Dias Santos-Júnior", "Marcelo D T Torres", "Yiqian Duan", "Álvaro Rodríguez Del Río", "Thomas S B Schmidt", "Hui Chong", "Anthony Fullam", "Michael Kuhn", "Chengkai Zhu", "Amy Houseman", "Jelena Somborski", "Anna Vines", "Xing-Ming Zhao", "Peer Bork", "Jaime Huerta-Cepas", "Cesar de la Fuente-Nunez", "Luis Pedro Coelho"], "keywords": ["antibiotic discovery", "antibiotic resistance", "antimicrobial activity", "antimicrobial peptides", "global microbiome", "machine learning", "metagenomics"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "38843834", "mid": "NIHMS2001122", "pmc": "PMC11666328", "doi": "10.1016/j.cell.2024.05.013", "pii": "S0092-8674(24)00522-1"}}
+{"pmid": "35298806", "title": "Machine Learning Prediction of Antimicrobial Peptides.", "abstract": "Antibiotic resistance constitutes a global threat and could lead to a future pandemic. One strategy is to develop a new generation of antimicrobials. Naturally occurring antimicrobial peptides (AMPs) are recognized templates and some are already in clinical use. To accelerate the discovery of new antibiotics, it is useful to predict novel AMPs from the sequenced genomes of various organisms. The antimicrobial peptide database (APD) provided the first empirical peptide prediction program. It also facilitated the testing of the first machine-learning algorithms. This chapter provides an overview of machine-learning predictions of AMPs. Most of the predictors, such as AntiBP, CAMP, and iAMPpred, involve a single-label prediction of antimicrobial activity. This type of prediction has been expanded to antifungal, antiviral, antibiofilm, anti-TB, hemolytic, and anti-inflammatory peptides. The multiple functional roles of AMPs annotated in the APD also enabled multi-label predictions (iAMP-2L, MLAMP, and AMAP), which include antibacterial, antiviral, antifungal, antiparasitic, antibiofilm, anticancer, anti-HIV, antimalarial, insecticidal, antioxidant, chemotactic, spermicidal activities, and protease inhibiting activities. Also considered in predictions are peptide posttranslational modification, 3D structure, and microbial species-specific information. We compare important amino acids of AMPs implied from machine learning with the frequently occurring residues of the major classes of natural peptides. Finally, we discuss advances, limitations, and future directions of machine-learning predictions of antimicrobial peptides. Ultimately, we may assemble a pipeline of such predictions beyond antimicrobial activity to accelerate the discovery of novel AMP-based antimicrobials.", "journal": "Methods in molecular biology (Clifton, N.J.)", "year": "2022", "doi": "10.1007/978-1-0716-1855-4_1", "pmcid": "PMC9126312", "authors": ["Guangshun Wang", "Iosif I Vaisman", "Monique L van Hoek"], "keywords": ["Antimicrobial peptides", "Database", "Machine learning", "Multidrug resistance", "Peptide prediction"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "35298806", "mid": "NIHMS1801503", "pmc": "PMC9126312", "doi": "10.1007/978-1-0716-1855-4_1"}}
+{"pmid": "38862735", "title": "Deep-learning-enabled antibiotic discovery through molecular de-extinction.", "abstract": "Molecular de-extinction aims at resurrecting molecules to solve antibiotic resistance and other present-day biological and biomedical problems. Here we show that deep learning can be used to mine the proteomes of all available extinct organisms for the discovery of antibiotic peptides. We trained ensembles of deep-learning models consisting of a peptide-sequence encoder coupled with neural networks for the prediction of antimicrobial activity and used it to mine 10,311,899 peptides. The models predicted 37,176 sequences with broad-spectrum antimicrobial activity, 11,035 of which were not found in extant organisms. We synthesized 69 peptides and experimentally confirmed their activity against bacterial pathogens. Most peptides killed bacteria by depolarizing their cytoplasmic membrane, contrary to known antimicrobial peptides, which tend to target the outer membrane. Notably, lead compounds (including mammuthusin-2 from the woolly mammoth, elephasin-2 from the straight-tusked elephant, hydrodamin-1 from the ancient sea cow, mylodonin-2 from the giant sloth and megalocerin-1 from the extinct giant elk) showed anti-infective activity in mice with skin abscess or thigh infections. Molecular de-extinction aided by deep learning may accelerate the discovery of therapeutic molecules.", "journal": "Nature biomedical engineering", "year": "2024", "doi": "10.1038/s41551-024-01201-x", "pmcid": "PMC11310081", "authors": ["Fangping Wan", "Marcelo D T Torres", "Jacqueline Peng", "Cesar de la Fuente-Nunez"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "38862735", "pmc": "PMC11310081", "doi": "10.1038/s41551-024-01201-x", "pii": "10.1038/s41551-024-01201-x"}}
+{"pmid": "39850516", "title": "Machine learning for antimicrobial peptide identification and design.", "abstract": "Artificial intelligence (AI) and machine learning (ML) models are being deployed in many domains of society and have recently reached the field of drug discovery. Given the increasing prevalence of antimicrobial resistance, as well as the challenges intrinsic to antibiotic development, there is an urgent need to accelerate the design of new antimicrobial therapies. Antimicrobial peptides (AMPs) are therapeutic agents for treating bacterial infections, but their translation into the clinic has been slow owing to toxicity, poor stability, limited cellular penetration and high cost, among other issues. Recent advances in AI and ML have led to breakthroughs in our abilities to predict biomolecular properties and structures and to generate new molecules. The ML-based modelling of peptides may overcome some of the disadvantages associated with traditional drug discovery and aid the rapid development and translation of AMPs. Here, we provide an introduction to this emerging field and survey ML approaches that can be used to address issues currently hindering AMP development. We also outline important limitations that can be addressed for the broader adoption of AMPs in clinical practice, as well as new opportunities in data-driven peptide design.", "journal": "Nature reviews bioengineering", "year": "2024", "doi": "10.1038/s44222-024-00152-x", "pmcid": "PMC11756916", "authors": ["Fangping Wan", "Felix Wong", "James J Collins", "Cesar de la Fuente-Nunez"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "39850516", "mid": "NIHMS2008716", "pmc": "PMC11756916", "doi": "10.1038/s44222-024-00152-x"}}
+{"pmid": "40796684", "title": "Deep learning reveals antibiotics in the archaeal proteome.", "abstract": "Antimicrobial resistance is one of the greatest threats facing humanity, making the need for new antibiotics more critical than ever. While most antibiotics originate from bacteria and fungi, archaea offer a largely untapped reservoir for antibiotic discovery. In this study, we leveraged deep learning to systematically explore the archaeome, uncovering promising candidates for combating antimicrobial resistance. By mining 233 archaeal proteomes, we identified 12,623 molecules with potential antimicrobial activity. These peptide compounds, termed archaeasins, have unique compositional features that differentiate them from traditional antimicrobial peptides, including a distinct amino acid profile. We synthesized 80 archaeasins, 93% of which showed antimicrobial activity in vitro against Acinetobacter baumannii, Escherichia coli, Klebsiella pneumoniae, Pseudomonas aeruginosa, Staphylococcus aureus and Enterococcus spp. Notably, in vivo validation identified archaeasin-73 as a lead candidate, significantly reducing A. baumannii loads in mouse infection models, with effectiveness comparable to that of established antibiotics such as polymyxin B. Our findings highlight the potential of archaea as a resource for developing next-generation antibiotics.", "journal": "Nature microbiology", "year": "2025", "doi": "10.1038/s41564-025-02061-0", "pmcid": "PMC12408343", "authors": ["Marcelo D T Torres", "Fangping Wan", "Cesar de la Fuente-Nunez"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "40796684", "pmc": "PMC12408343", "doi": "10.1038/s41564-025-02061-0", "pii": "10.1038/s41564-025-02061-0"}}
+{"pmid": "35241840", "title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning.", "abstract": "The human gut microbiome encodes a large variety of antimicrobial peptides (AMPs), but the short lengths of AMPs pose a challenge for computational prediction. Here we combined multiple natural language processing neural network models, including LSTM, Attention and BERT, to form a unified pipeline for candidate AMP identification from human gut microbiome data. Of 2,349 sequences identified as candidate AMPs, 216 were chemically synthesized, with 181 showing antimicrobial activity (a positive rate of >83%). Most of these peptides have less than 40% sequence homology to AMPs in the training set. Further characterization of the 11 most potent AMPs showed high efficacy against antibiotic-resistant, Gram-negative pathogens and demonstrated significant efficacy in lowering bacterial load by more than tenfold against a mouse model of bacterial lung infection. Our study showcases the potential of machine learning approaches for mining functional peptides from metagenome data and accelerating the discovery of promising AMP candidate molecules for in-depth investigations.", "journal": "Nature biotechnology", "year": "2022", "doi": "10.1038/s41587-022-01226-0", "pmcid": "", "authors": ["Yue Ma", "Zhengyan Guo", "Binbin Xia", "Yuwei Zhang", "Xiaolin Liu", "Ying Yu", "Na Tang", "Xiaomei Tong", "Min Wang", "Xin Ye", "Jie Feng", "Yihua Chen", "Jun Wang"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "35241840", "doi": "10.1038/s41587-022-01226-0", "pii": "10.1038/s41587-022-01226-0"}}
+{"pmid": "39825096", "title": "Explainable deep learning and virtual evolution identifies antimicrobial peptides with activity against multidrug-resistant human pathogens.", "abstract": "Artificial intelligence (AI) is a promising approach to identify new antimicrobial compounds in diverse microbial species. Here we developed an AI-based, explainable deep learning model, EvoGradient, that predicts the potency of antimicrobial peptides (AMPs) and virtually modifies peptide sequences to produce more potent AMPs, akin to in silico directed evolution. We applied this model to peptides encoded in low-abundance human oral bacteria, resulting in the virtual evolution of 32 peptides into potent AMPs. Of these, the 6 most effective were synthesized and tested against multidrug-resistant pathogens and demonstrated activity against carbapenem-resistant species Escherichia coli, Klebsiella pneumoniae and Acinetobacter baumannii, and vancomycin-resistant Enterococcus faecium. The most potent AMP, pep-19-mod, was validated in vivo, achieving over 95% reduction in bacterial loads in mouse models of thigh infection through both systemic and local administration. Our approach advances the automatic identification and optimization of AMPs.", "journal": "Nature microbiology", "year": "2025", "doi": "10.1038/s41564-024-01907-3", "pmcid": "", "authors": ["Beilun Wang", "Peijun Lin", "Yuwei Zhong", "Xiao Tan", "Yangyang Shen", "Yi Huang", "Kai Jin", "Yan Zhang", "Ying Zhan", "Dian Shen", "Meng Wang", "Zhou Yu", "Yihan Wu"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "39825096", "doi": "10.1038/s41564-024-01907-3", "pii": "10.1038/s41564-024-01907-3"}}
+{"pmid": "35963195", "title": "Combining network pharmacology, RNA-seq, and metabolomics strategies to reveal the mechanism of Cimicifugae Rhizoma - Smilax glabra Roxb herb pair for the treatment of psoriasis.", "abstract": "BACKGROUND: Psoriasis is a prevalent chronic inflammatory skin condition marked by immune cell infiltration and keratinocyte abnormal proliferation. Cimicifugae Rhizoma - Smilax glabra Roxb (CS) herb pair, the main component of Shengma Detoxification Decoction, has been proven effective for the treatment of psoriasis. However, the mechanism is yet to be deciphered.\nPURPOSE: To explore the mechanism of CS for the treatment of psoriasis.\nMETHODS: The imiquimod-induced psoriasis-like lesion mouse model was used to identify the targets and the molecular mechanisms of CS. Network pharmacology combined with RNA-seq strategy was employed to predict the targets and mechanisms of CS for psoriasis. Metabolomics approaches were used to demonstrate the complexity of CS for the treatment of psoriasis. Finally, a compound-response-enzyme-gene network was constructed based on the multi-omics results to elucidate potential connections.\nRESULTS: The CS herb pair could significantly improve psoriatic lesions and reduce the inflammatory cell infiltration and proliferation of keratinocytes in skin lesions. Network pharmacology predicted that TNF, JNK, IL-6, and IL-1β could be potential targets. RNA-seq data revealed that CS could significantly regulate genes and signaling pathways associated with Th17 responses, such as IL-36, IL-1β, CCl2, CXCL16, keratin 14, keratin 5, and antimicrobial peptides S100A8 and S100A9 well as MAPK, mTOR, and other signaling pathways. Further experimental data validated that CS treatment remarkably reduced the expression of inflammatory cytokines and factors, such as CCL2, CCL7, IL1F6, IL-17, IL-23, IL-1β, TNF-α, and IL-6, and inhibited the phosphorylation of p38 and ERK1/2. This indicated that CS exerts its therapeutic effect by inhibiting the MAPK signaling pathways. In addition, metabolomic analyses demonstrated that CS treatment improved seven metabolic pathways, these included phenylalanine, tyrosine, pyruvate metabolism, carnitine metabolism, etc. Four key metabolites (L-Arginine, L-Phenylalanine, L-Carnitine, O-Acetylcarnitine) and nine differential genes (CMA1, PCBD2, TPSAB1, TPSB2, etc.) were identified that affected amino acid metabolism, carnitine metabolism, and other pathways contributing to the infiltration of Th17 cells in psoriatic lesions.\nCONCLUSION: CS could alleviate IMQ-induced psoriasis-like dermatitis by reducing the expression of cytokines and chemokines mediated by the MAPK pathway, and improved amino acid and carnitine metabolism in vivo. Our study is the first to demonstrate the complex mechanism of CS for the treatment of psoriasis and provides a new paradigm to elucidate the pharmacological effects of Traditional Chinese Medicine (TCM) drugs for psoriasis from multiple perspectives.", "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology", "year": "2022", "doi": "10.1016/j.phymed.2022.154384", "pmcid": "", "authors": ["XueQing Hu", "Cong Qi", "Fang Feng", "Yan Wang", "TingTing Di", "YuJiao Meng", "Yazhuo Wang", "Ning Zhao", "XiaWei Zhang", "Ping Li", "Jingxia Zhao"], "keywords": ["Cimicifugae Rhizoma", "Metabolomics", "Network pharmacology", "Psoriasis", "RNA-seq", "Smilax glabra Roxb"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "35963195", "doi": "10.1016/j.phymed.2022.154384", "pii": "S0944-7113(22)00463-9"}}
+{"pmid": "40159831", "title": "AI-Guided Design of Antimicrobial Peptide Hydrogels for Precise Treatment of Drug-resistant Bacterial Infections.", "abstract": "Traditional biomaterial development lacks systematicity and predictability, posing significant challenges in addressing the intricate engineering issues related to infections with drug-resistant bacteria. The unprecedented ability of artificial intelligence (AI) to manage complex systems offers a novel paradigm for materials development. However, no AI model currently guides the development of antibacterial biomaterials based on an in-depth understanding of the interplay between biomaterials and bacteria. In this study, an AI-guided design platform (AMP-hydrogel-Designer) is developed to generate antibacterial biomaterials. This platform utilizes generative design and multi-objective constrained optimization to generate a novel thiol-containing high-efficiency antimicrobial peptide (AMP), that is functionally coupled with hydrogel to form a complex network structure. Additionally, Cu-modified barium titanate (Cu-BTO) is incorporated to facilitate further complex cross-linking via Cu2+/SH coordination to produce an AI-AMP-hydrogel. In vitro, the AI-AMP-hydrogel exhibits > 99.99% bactericidal efficacy against Methicillin-resistant Staphylococcus aureus (MRSA) and Escherichia coli (E. coli). Furthermore, Cu-BTO converts mechanical stimulation into electrical signals, thereby promoting the expression of growth factors and angiogenesis. In a rat model with dynamic wounds, the AI-AMP hydrogel significantly reduces the MRSA load and markedly accelerates wound healing. Therefore, the AI-guided biomaterial development strategy offers an innovative solution to precisely treat drug-resistant bacterial infections.", "journal": "Advanced materials (Deerfield Beach, Fla.)", "year": "2025", "doi": "10.1002/adma.202500043", "pmcid": "", "authors": ["Zhihui Jiang", "Jianwen Feng", "Fan Wang", "Jike Wang", "Ningtao Wang", "Mengmiao Zhang", "Chang-Yu Hsieh", "Tingjun Hou", "Wenguo Cui", "Limin Ma"], "keywords": ["antimicrobial peptides", "artificial intelligence", "dynamic wound healings", "hydrogels", "piezoelectricity"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "40159831", "doi": "10.1002/adma.202500043"}}
+{"pmid": "40501667", "title": "Proteasome-derived antimicrobial peptides discovered via deep learning.", "abstract": "Recent computational discoveries have identified numerous bioactive peptides within the human proteome, as well as across the broader tree of life, which were previously unrecognized for their roles in host immunity. These findings have led us to propose the \"cross-talk hypothesis\", suggesting that many molecules, such as proteins and peptides, traditionally viewed as extraneous to immune function may in fact actively contribute to immunity. Building on our earlier studies, which uncovered proteasome-derived peptides with putative antimicrobial activity in the human proteome, here we systematically interrogated the proteasome, a large protein complex responsible for degrading and recycling damaged or surplus proteins, for additional antimicrobial peptides. Using deep learning, we systematically mined ProteasomeDB, a curated repository of proteasomal cleavage and splicing events, to predict antibiotic activity against 11 clinically relevant pathogens. This deep learning approach uncovered 59 candidate peptides (\"proteasomins\") with a median minimum inhibitory concentration (MIC) of ≤64 μmol L ¹. Refinement yielded 21 sequence-diverse proteasomins, which were characterized for their physicochemical properties. These peptides were enriched in cationic residues and exhibit enhanced amphiphilicity, key attributes for disrupting microbial membranes. Dimensionality reduction via UMAP further showed that proteasomins are sequence-distinct from known antimicrobial peptides, underscoring their novelty and potential for unique mechanisms of action. Moreover, comparative analyses revealed that cis- and trans-spliced proteasomins exhibit similar predicted antimicrobial activities, suggesting that critical structural determinants remain conserved irrespective of splicing modality. Collectively, these findings expand our understanding of the proteasome, underscore the extensive, previously unrecognized repertoire of innate immune peptides, and provide a promising foundation for developing innovative therapeutics to combat multidrug-resistant pathogens.", "journal": "bioRxiv : the preprint server for biology", "year": "2025", "doi": "10.1101/2025.03.17.643752", "pmcid": "PMC12157623", "authors": ["Xiaoqiong Xia", "Marcelo D T Torres", "Cesar de la Fuente-Nunez"], "keywords": ["Proteasome", "antibiotics", "antimicrobial peptides", "artificial intelligence", "cross-talk hypothesis", "deep learning", "encrypted peptides", "host immunity", "innate immunity", "machine learning"], "publication_types": ["Journal Article", "Preprint"], "article_ids": {"pubmed": "40501667", "pmc": "PMC12157623", "doi": "10.1101/2025.03.17.643752", "pii": "2025.03.17.643752"}}
+{"pmid": "40568788", "title": "BroadAMP-GPT: AI-Driven generation of broad-spectrum antimicrobial peptides for combating multidrug-resistant ESKAPE pathogens.", "abstract": "Antimicrobial peptides (AMPs) are promising candidates to address the global antimicrobial resistance crisis, yet their traditional design remains labor-intensive and inefficient. Here, we developed BroadAMP-GPT, an integrated computational-experimental framework that combines AI-driven generation, multi-tiered screening, and experimental validation to rapidly discover potent AMPs with broad-spectrum activity. Using this platform, 57% of AI-generated candidates exhibited potent efficacy against ESKAPE pathogens - key culprits of multidrug-resistant infections. An outstanding candidate, AMP_S13, demonstrated exceptional stability under diverse physiological conditions, including extreme pH (2-10), proteolytic exposure, and elevated temperatures, while maintaining minimal cytotoxicity and low hemolytic activity. AMP_S13 also showed robust in vivo efficacy, reducing mortality in Galleria mellonella infection model and accelerating wound healing in a murine MRSA skin infection model. These results validate BroadAMP-GPT as a transformative tool for accelerating the discovery of stable, broad-spectrum and low-toxicity AMPs, offering a scalable strategy to address the urgent threat of multidrug-resistant pathogens.", "journal": "Gut microbes", "year": "2025", "doi": "10.1080/19490976.2025.2523811", "pmcid": "PMC12203862", "authors": ["Yanru Li", "Xianghan Xu", "Xiaohui Zhang", "Zhihui Xu", "Jiaqi Zhao", "Ruiyu Zhu", "Ziyu Wang", "Wei Ran", "Wenqian Zhao", "Ningyang Yan", "Yifan Leng", "Zexu Miao", "Xiaomin Wang", "Liping Wang", "Jinxin Liu", "Cong Pian", "Jinhu Huang"], "keywords": ["AMP generation and screening", "Antimicrobial peptides", "ESKAPE pathogens", "broad-spectrum activity", "experimental validation"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "40568788", "pmc": "PMC12203862", "doi": "10.1080/19490976.2025.2523811"}}
+{"pmid": "36670373", "title": "BADASS: BActeriocin-Diversity ASsessment Software.", "abstract": "BACKGROUND: Bacteriocins are defined as thermolabile peptides produced by bacteria with biological activity against taxonomically related species. These antimicrobial peptides have a wide application including disease treatment, food conservation, and probiotics. However, even with a large industrial and biotechnological application potential, these peptides are still poorly studied and explored. BADASS is software with a user-friendly graphical interface applied to the search and analysis of bacteriocin diversity in whole-metagenome shotgun sequencing data.\nRESULTS: The search for bacteriocin sequences is performed with tools such as BLAST or DIAMOND using the BAGEL4 database as a reference. The putative bacteriocin sequences identified are used to determine the abundance and richness of the three classes of bacteriocins. Abundance is calculated by comparing the reads identified as bacteriocins to the reads identified as 16S rRNA gene using SILVA database as a reference. BADASS has a complete pipeline that starts with the quality assessment of the raw data. At the end of the analysis, BADASS generates several plots of richness and abundance automatically as well as tabular files containing information about the main bacteriocins detected. The user is able to change the main parameters of the analysis in the graphical interface. To demonstrate how the software works, we used four datasets from WMS studies using default parameters. Lantibiotics were the most abundant bacteriocins in the four datasets. This class of bacteriocin is commonly produced by Streptomyces sp.\nCONCLUSIONS: With a user-friendly graphical interface and a complete pipeline, BADASS proved to be a powerful tool for prospecting bacteriocin sequences in Whole-Metagenome Shotgun Sequencing (WMS) data. This tool is publicly available at https://sourceforge.net/projects/badass/ .", "journal": "BMC bioinformatics", "year": "2023", "doi": "10.1186/s12859-022-05106-x", "pmcid": "PMC9854158", "authors": ["Sávio S Costa", "Gislenne da Silva Moia", "Artur Silva", "Rafael A Baraúna", "Adonney Allan de Oliveira Veras"], "keywords": ["Antimicrobial peptides", "Bacteriocin", "Metagenome mining", "Software development"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "36670373", "pmc": "PMC9854158", "doi": "10.1186/s12859-022-05106-x", "pii": "10.1186/s12859-022-05106-x"}}
+{"pmid": "35864258", "title": "PTPAMP: prediction tool for plant-derived antimicrobial peptides.", "abstract": "The emergence of antimicrobial peptides (AMPs) as a potential alternative to conventional antibiotics has led to the development of efficient computational methods for predicting AMPs. Among all organisms, the presence of multiple genes encoding AMPs in plants demands the development of a plant-based prediction tool. To this end, we developed models based on multiple peptide features like amino acid composition, dipeptide composition, and physicochemical attributes for predicting plant-derived AMPs. The selected compositional models are integrated into a web server termed PTPAMP. The designed web server is capable of classifying a query peptide sequence into four functional activities, i.e., antimicrobial (AMP), antibacterial (ABP), antifungal (AFP), and antiviral (AVP). Our models achieved an average area under the curve of 0.95, 0.91, 0.85, and 0.88 for AMP, ABP, AFP, and AVP, respectively, on benchmark datasets, which were ~ 6.75% higher than the state-of-the-art methods. Moreover, our analysis indicates the abundance of cysteine residues in plant-derived AMPs and the distribution of other residues like G, S, K, and R, which differ as per the peptide structural family. Finally, we have developed a user-friendly web server, available at the URL: http://www.nipgr.ac.in/PTPAMP/ . We expect the substantial input of this predictor for high-throughput identification of plant-derived AMPs followed by additional insights into their functions.", "journal": "Amino acids", "year": "2023", "doi": "10.1007/s00726-022-03190-0", "pmcid": "", "authors": ["Mohini Jaiswal", "Ajeet Singh", "Shailesh Kumar"], "keywords": ["Antimicrobial peptide", "Bioactive peptides", "Classification", "Machine learning", "Plant-derived", "Prediction tool"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "35864258", "doi": "10.1007/s00726-022-03190-0", "pii": "10.1007/s00726-022-03190-0"}}
+{"pmid": "41372414", "title": "Gene-drive-capable mosquitoes suppress patient-derived malaria in Tanzania.", "abstract": "Gene drive technology presents a transformative approach to combatting malaria by introducing genetic modifications into wild mosquito populations to reduce their vectorial capacity. Although effective modifications have been developed, these efforts have been confined to laboratories in the global north. We previously demonstrated that modifying Anopheles gambiae to express two exogenous antimicrobial peptides inhibits the sporogonic development of laboratory-cultured Plasmodium falciparum, with models predicting substantial contributions to malaria elimination in Africa when integrated with gene drive1-3. However, the effectiveness of this modification against genetically diverse, naturally circulating parasite isolates remained unknown. To address this critical gap, we adapted our technology for an African context by establishing infrastructural and research capacity in Tanzania, enabling the engineering of local A. gambiae under containment. Here we report the generation of a transgenic strain equipped with non-autonomous gene drive capabilities that robustly inhibits genetically diverse P. falciparum isolates obtained from naturally infected children. These genetic modifications were efficiently inherited by progeny when supplemented with Cas9 endonuclease provided by another locally engineered strain. Our work brings gene drive technology a critical step closer to application, providing a locally tailored and powerful tool for malaria eradication through the targeted dissemination of beneficial genetic traits in wild mosquito populations.", "journal": "Nature", "year": "2026", "doi": "10.1038/s41586-025-09685-6", "pmcid": "PMC12779567", "authors": ["Tibebu Habtewold", "Dickson Wilson Lwetoijera", "Astrid Hoermann", "Rajabu Mashauri", "Fatuma Matwewe", "Rehema Mwanga", "Prisca Kweyamba", "Gilbert Maganga", "Beatrice Philip Magani", "Rachel Mtama", "Moze Ally Mahonje", "Mgeni Mohamed Tambwe", "Felista Tarimo", "Pratima R Chennuri", "Julia A Cai", "Giuseppe Del Corsano", "Paolo Capriotti", "Peter Sasse", "Jason Moore", "Douglas Hudson", "Alphaxard Manjurano", "Brian Tarimo", "Dina Vlachou", "Sarah Moore", "Nikolai Windbichler", "George K Christophides"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "41372414", "pmc": "PMC12779567", "doi": "10.1038/s41586-025-09685-6", "pii": "10.1038/s41586-025-09685-6"}}
+{"pmid": "38934543", "title": "PyAMPA: a high-throughput prediction and optimization tool for antimicrobial peptides.", "abstract": "UNLABELLED: The alarming rise of antibiotic-resistant bacterial infections is driving efforts to develop alternatives to conventional antibiotics. In this context, antimicrobial peptides (AMPs) have emerged as promising candidates for their ability to target a broad range of microorganisms. However, the development of AMPs with optimal potency, selectivity, and/or stability profiles remains a challenge. To address it, computational tools for predicting AMP properties and designing novel peptides have gained increasing attention. PyAMPA is a novel platform for AMP discovery. It consists of five modules, namely AMPScreen, AMPValidate, AMPSolve, AMPMutate, and AMPOptimize, that allow high-throughput proteome inspection, candidate screening, and optimization through point-mutation and genetic algorithms. The platform also offers additional tools for predicting and evaluating AMP properties, including antimicrobial and cytotoxic activity, and peptide half-life. By providing innovative and accessible inroads into AMP motifs in proteomes, PyAMPA will enable advances in AMP development and potential translation into clinically useful molecules. PyAMPA is available at: https://github.com/SysBioUAB/PyAMPA.\nIMPORTANCE: This paper introduces PyAMPA, a new bioinformatics platform designed for the discovery and optimization of antimicrobial peptides (AMPs). It addresses the urgent need for new antimicrobials due to the rise of antibiotic-resistant infections. PyAMPA, with its five predictive modules -AMPScreen, AMPValidate, AMPSolve, AMPMutate and AMPOptimize, enables high-throughput screening of proteomes to identify potential AMP motifs and optimize them for clinical use. Its unique approach, combining prediction, design, and optimization tools, makes PyAMPA a robust solution for developing new AMP-based therapies, offering a significant advance in combatting antibiotic resistance.", "journal": "mSystems", "year": "2024", "doi": "10.1128/msystems.01358-23", "pmcid": "PMC11264690", "authors": ["Marc Ramos-Llorens", "Roberto Bello-Madruga", "Javier Valle", "David Andreu", "Marc Torrent"], "keywords": ["antimicrobial peptide"], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "38934543", "pmc": "PMC11264690", "doi": "10.1128/msystems.01358-23"}}
+{"pmid": "37120707", "title": "Antimicrobial peptides recognition using weighted physicochemical property encoding.", "abstract": "Antimicrobial resistance is a major public health concern. Antimicrobial peptides (AMPs) are one of the host defense mechanisms responding efficiently against multidrug-resistant microbes. Since the process of screening AMPs from a large number of peptides is still high-priced and time-consuming, the development of a precise and rapid computer-aided tool is essential for preliminary AMPs selection ahead of laboratory experiments. In this study, we proposed AMPs recognition models using a new peptide encoding method called amino acid index weight (AAIW). Four AMPs recognition models including antimicrobial, antibacterial, antiviral, and antifungal were trained based on datasets combined from the DRAMP and other published databases. These models achieved high performance compared to the preceding AMPs recognition models when evaluated on two independent test sets. All four models yielded over 93% in accuracy and 0.87 in Matthew's correlation coefficient (MCC). An online AMPs recognition server is accessible at https://amppred-aaiw.com.", "journal": "Journal of bioinformatics and computational biology", "year": "2023", "doi": "10.1142/S0219720023500063", "pmcid": "", "authors": ["Standa Na", "Dhammika Leshan Wannigama", "Thammakorn Saethang"], "keywords": ["Antimicrobial peptides", "artificial neural networks", "machine learning"], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "37120707", "doi": "10.1142/S0219720023500063"}}
+{"pmid": "31870207", "title": "A-CaMP: a tool for anti-cancer and antimicrobial peptide generation.", "abstract": "Anti-cancer peptides (ACPs) play a vital role in the cell signaling process. Antimicrobial peptides (AMPs) provide immunity against pathogenic microbes, AMPs present activity against pathogenic microbes. Some of them are known to possess both anticancer and antimicrobial activity. However, so far, no tools have been developed that could predict potential ACPs from wild and mutated cancerous protein sequences in the numerous public databases. In the present study, we developed a A-CaMP tool that allows rapid fingerprinting of the anti-cancer and antimicrobial peptides, which play a crucial role in current bioinformatics research. Besides, we compared the performance and functionality of our A-CaMP tool with those of other methods available online. A-CaMP scans the target protein sequences provided by the user against the datasets. It possesses a robust coding architecture, has been developed in PERL language and is scalable of therefore has extensive applications in bioinformatics. It was observed to achieve a prediction accuracy of 93.4%, which is much higher than that of any of the existing tools. Sequence alignment studies also highlight the potential use of A-CaMP as a tool for the identification of AMPs. A-CaMP is the first open source tool that uses clinical data and proposes final peptides along with the necessary information; this includes wild and mutant sequence and peptides, which lays the foundation for its application in therapies for cancer and bacterial infections. Communicated by Ramaswamy H. Sarma.", "journal": "Journal of biomolecular structure & dynamics", "year": "2021", "doi": "10.1080/07391102.2019.1708796", "pmcid": "", "authors": ["Aman Chandra Kaushik", "Aamir Mehmood", "Shaoliang Peng", "Yu-Juan Zhang", "Xiaofeng Dai", "Dong-Qing Wei"], "keywords": ["A-CaMP", "Anti-cancer", "antimicrobial peptides", "artificial neural network", "machine learning"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "31870207", "doi": "10.1080/07391102.2019.1708796"}}
+{"pmid": "41535683", "title": "Identification of antimicrobial peptides from ancient gut microbiomes.", "abstract": "Fecal coprolites preserve ancient microbiomes and are a potential source of extinct but highly efficacious antimicrobial peptides (AMPs). Here, we develop AMPLiT (AMP Lightweight Identification Tool), an efficient tool deployable to portable hardware for AMP screening in metagenomic datasets. AMPLiT demonstrates AUPRC performances of 0.9486 ± 0.0003 and reasonable overall training time of 3200 ± 53 s. By computationally utilizing AMPLiT, we analyze seven ancient human coprolite metagenomes, identifying 160 AMP candidates. Of 40 representative peptides synthesized, 36 (90%) peptides demonstrate measurable antimicrobial activity at 100 μM or less in vitro. Strikingly, approximately two-thirds of these peptides are sourced from Segatella copri, a dominant ancient gut commensal that is conspicuously underrepresented in modern populations, particularly those with Westernized lifestyles. Representative S. copri-derived AMPs exhibit disruptions against membranes of pathogenic bacteria, coupled with low cytotoxicity and hemolytic risk. In vivo, lead peptides demonstrate potent antibacterial and wound-healing efficacy comparable to traditional antibiotics, especially in combating gram-positive pathogens. Our findings highlight the ancient gut microbiomes as sources of novel AMPs, offering valuable insights into the historical role of S. copri in human health and its decline in contemporary populations.", "journal": "Nature communications", "year": "2026", "doi": "10.1038/s41467-026-68495-0", "pmcid": "PMC12917264", "authors": ["Sizhe Chen", "Yue Yuan", "Yun Wang", "Ye Peng", "Hein Min Tun", "Zhimin Jiang", "Yinglei Miao", "Sunjae Lee", "Xiaole Yin", "Xiaotao Shen", "Orlando DeLeon", "Eugene B Chang", "Francis Ka Leung Chan", "Yang Sun", "Siew Chien Ng", "Qi Su"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "41535683", "pmc": "PMC12917264", "doi": "10.1038/s41467-026-68495-0", "pii": "10.1038/s41467-026-68495-0"}}
+{"pmid": "35697698", "title": "A database of anti-coronavirus peptides.", "abstract": "Since 2019, the novel coronavirus (SARS-COV-2) disease (COVID-19) has caused a worldwide epidemic. Anti-coronavirus peptides (ACovPs), a type of antimicrobial peptides (AMPs), have demonstrated excellent inhibitory effects on coronaviruses. However, state-of-the-art AMP databases contain only a small number of ACovPs. Additionally, the fields of these databases are not uniform, and the units or evaluation standards of the same field are inconsistent. Most of these databases have not included the target domains of ACovPs and description of in vitro and in vivo assays to measure the inhibitory effects of ACovPs. Here, we present a database focused on ACovPs (ACovPepDB), which contains comprehensive and precise ACovPs information of 518 entries with 214 unique ACovPs manually collected from public databases and published peer-reviewed articles. We believe that ACovPepDB is of great significance for facilitating the development of new peptides and improving treatment for coronavirus infection. The database will become a portal for ACovPs and guide and help researchers perform further studies. The ACovPepDB is available at http://i.uestc.edu.cn/ACovPepDB/ .", "journal": "Scientific data", "year": "2022", "doi": "10.1038/s41597-022-01394-3", "pmcid": "PMC9192597", "authors": ["Qianyue Zhang", "Xue Chen", "Bowen Li", "Chunying Lu", "Shanshan Yang", "Jinjin Long", "Heng Chen", "Jian Huang", "Bifang He"], "keywords": [], "publication_types": ["Dataset", "Journal Article"], "article_ids": {"pubmed": "35697698", "pmc": "PMC9192597", "doi": "10.1038/s41597-022-01394-3", "pii": "10.1038/s41597-022-01394-3"}}
+{"pmid": "37652953", "title": "Intestinal microbiota links to allograft stability after lung transplantation: a prospective cohort study.", "abstract": "Whether the alternated microbiota in the gut contribute to the risk of allograft rejection (AR) and pulmonary infection (PI) in the setting of lung transplant recipients (LTRs) remains unexplored. A prospective multicenter cohort of LTRs was identified in the four lung transplant centers. Paired fecal and serum specimens were collected and divided into AR, PI, and event-free (EF) groups according to the diagnosis at sampling. Fecal samples were determined by metagenomic sequencing. And metabolites and cytokines were detected in the paired serum to analyze the potential effect of the altered microbiota community. In total, we analyzed 146 paired samples (AR = 25, PI = 43, and EF = 78). Notably, we found that the gut microbiome of AR followed a major depletion pattern with decreased 487 species and compositional diversity. Further multi-omics analysis showed depleted serum metabolites and increased inflammatory cytokines in AR and PI. Bacteroides uniformis, which declined in AR (2.4% vs 0.6%) and was negatively associated with serum IL-1β and IL-12, was identified as a driven specie in the network of gut microbiome of EF. Functionally, the EF specimens were abundant in probiotics related to mannose and cationic antimicrobial peptide metabolism. Furthermore, a support-vector machine classifier based on microbiome, metabolome, and clinical parameters highly predicted AR (AUPRC = 0.801) and PI (AUPRC = 0.855), whereby the microbiome dataset showed a particularly high diagnostic power. In conclusion, a disruptive gut microbiota showed a significant association with allograft rejection and infection and with systemic cytokines and metabolites in LTRs.", "journal": "Signal transduction and targeted therapy", "year": "2023", "doi": "10.1038/s41392-023-01515-3", "pmcid": "PMC10471611", "authors": ["Junqi Wu", "Chongwu Li", "Peigen Gao", "Chenhong Zhang", "Pei Zhang", "Lei Zhang", "Chenyang Dai", "Kunpeng Zhang", "Bowen Shi", "Mengyang Liu", "Junmeng Zheng", "Bo Pan", "Zhan Chen", "Chao Zhang", "Wanqing Liao", "Weihua Pan", "Wenjie Fang", "Chang Chen"], "keywords": [], "publication_types": ["Multicenter Study", "Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "37652953", "pmc": "PMC10471611", "doi": "10.1038/s41392-023-01515-3", "pii": "10.1038/s41392-023-01515-3"}}
+{"pmid": "36370097", "title": "CAMPR4: a database of natural and synthetic antimicrobial peptides.", "abstract": "There has been an exponential increase in the design of synthetic antimicrobial peptides (AMPs) for its use as novel antibiotics. Synthetic AMPs are substantially enriched in residues with physicochemical properties known to be critical for antimicrobial activity; such as positive charge, hydrophobicity, and higher alpha helical propensity. The current prediction algorithms for AMPs have been developed using AMP sequences from natural sources and hence do not perform well for synthetic peptides. In this version of CAMP database, along with updating sequence information of AMPs, we have created separate prediction algorithms for natural and synthetic AMPs. CAMPR4 holds 24243 AMP sequences, 933 structures, 2143 patents and 263 AMP family signatures. In addition to the data on sequences, source organisms, target organisms, minimum inhibitory and hemolytic concentrations, CAMPR4 provides information on N and C terminal modifications and presence of unusual amino acids, as applicable. The database is integrated with tools for AMP prediction and rational design (natural and synthetic AMPs), sequence (BLAST and clustal omega), structure (VAST) and family analysis (PRATT, ScanProsite, CAMPSign). The data along with the algorithms of CAMPR4 will aid to enhance AMP research. CAMPR4 is accessible at http://camp.bicnirrh.res.in/.", "journal": "Nucleic acids research", "year": "2023", "doi": "10.1093/nar/gkac933", "pmcid": "PMC9825550", "authors": ["Ulka Gawde", "Shuvechha Chakraborty", "Faiza Hanif Waghu", "Ram Shankar Barai", "Ashlesha Khanderkar", "Rishikesh Indraguru", "Tanmay Shirsat", "Susan Idicula-Thomas"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "36370097", "pmc": "PMC9825550", "doi": "10.1093/nar/gkac933", "pii": "6825344"}}
+{"pmid": "38958433", "title": "MyxoPortal: a database of myxobacterial genomic features.", "abstract": "Myxobacteria are predatory bacteria with antimicrobial activity, utilizing complex mechanisms to kill their prey and assimilate their macromolecules. Having large genomes encoding hundreds of secondary metabolites, hydrolytic enzymes and antimicrobial peptides, these organisms are widely studied for their antibiotic potential. MyxoPortal is a comprehensive genomic database hosting 262 genomes of myxobacterial strains. Datasets included provide genome annotations with gene locations, functions, amino acids and nucleotide sequences, allowing analysis of evolutionary and taxonomical relationships between strains and genes. Biosynthetic gene clusters are identified by AntiSMASH, and dbAMP-generated antimicrobial peptide sequences are included as a resource for novel antimicrobial discoveries, while curated datasets of CRISPR/Cas genes, regulatory protein sequences, and phage associated genes give useful insights into each strain's biological properties. MyxoPortal is an intuitive open-source database that brings together application-oriented genomic features that can be used in taxonomy, evolution, predation and antimicrobial research. MyxoPortal can be accessed at http://dicsoft1.physics.iisc.ac.in/MyxoPortal/. Database URL: http://dicsoft1.physics.iisc.ac.in/MyxoPortal/. Graphical Abstract.", "journal": "Database : the journal of biological databases and curation", "year": "2024", "doi": "10.1093/database/baae056", "pmcid": "PMC11219305", "authors": ["Rayapadi G Swetha", "Benita S Arakal", "Santhosh Rajendran", "K Sekar", "David E Whitworth", "Sudha Ramaiah", "Philip E James", "Paul G Livingstone", "Anand Anbarasu"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "38958433", "pmc": "PMC11219305", "doi": "10.1093/database/baae056", "pii": "7703125"}}
+{"pmid": "40517353", "title": "Antimicrobial peptide CRAMP/LL-37 mediates ferroptosis resistance in cardiomyocytes by inhibiting cathepsin L.", "abstract": "Ferroptosis is an important cause of cardiomyocyte loss and cardiac dysfunction. Cathelicidin-related antimicrobial peptide (CRAMP) is an endogenous polypeptide that regulates oxidative stress in the body and is involved in ferroptosis. However, its specific role and mechanism in ferroptosis are unclear. To analyze the role of CRAMP in ferroptosis, we first analyzed its expression in infarcted myocardial tissues, and verified its role in ferroptosis in vitro through overexpression and knock-down techniques. The activity and expression of cathepsin L (CTSL) and its effect on ferroptosis were analyzed to verify whether CTSL participated in ferroptosis as a downstream of CRAMP. Protein disulfide isomerase family A member 4 (PDIA4) was screened as an interacting protein of CTSL by using the database, and the role of PDIA4 in ferroptosis was analyzed by gene knockdown and overexpression. Finally, the regulatory mechanism of CRAMP in ferroptosis was verified in vivo by mouse myocardial infarction model. CRAMP levels were reduced in both infarcted cardiac tissues and cardiomyocytes exposed to ferroptosis inducers. The overexpression of CRAMP or pretreatment of LL-37 alleviated cardiomyocyte ferroptosis, whereas CRAMP knockdown exacerbated cell death. Under ferroptotic stress, the expression of CTSL was elevated. CRAMP inhibited ferroptosis by antagonizing the CTSL activity. Abnormal increase in CTSL activity and levels caused PDIA4 to decrease. Overexpression of PDIA4 inhibited ferroptosis induced by CTSL, while knocking down PDIA4 counteracted the protection of CRAMP. In vivo, both CRAMP overexpression and administration of CRAMP peptide significantly ameliorated myocardial injury and improved cardiac function. CRAMP increases PDIA4 levels by inhibiting the activity of CTSL and antagonizes ferroptosis in cardiomyocytes. Targeting CRAMP offers innovative therapeutic strategies and insights for the prevention and management of myocardial injury.", "journal": "Basic research in cardiology", "year": "2025", "doi": "10.1007/s00395-025-01122-z", "pmcid": "", "authors": ["Zhantao Liu", "Qingsong Zhang", "Dan Su", "Hong Chen", "Bowen Wang", "Lin Ye", "Peiyan Wang", "Jingnan Wu", "Wencan Jia", "Lijun Liu", "Jianxun Wang", "Shuo Miao"], "keywords": ["Cathelicidin-related antimicrobial peptide", "Cathepsin L", "Ferroptosis", "Myocardial injury", "Protein disulfide isomerase family A member 4"], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "40517353", "doi": "10.1007/s00395-025-01122-z", "pii": "10.1007/s00395-025-01122-z"}}
+{"pmid": "41305856", "title": "Stage-Specific Proteomic Profiles in Dental Caries.", "abstract": "This study investigated the proteomic landscape of sound and carious coronal dentin to uncover the molecular signatures of host response, including tissue degradation, inflammation, and repair, across progressive stages of caries lesions. Dentin from deidentified human molars, grouped into 6 clusters of 3 teeth each, was pulverized to obtain ~1 g of tissue per cluster (n = 6). G1 and G2 protein extracts were obtained using guanidine before and after demineralization. Extracts from sound (S), distinct dentin caries (DDC), and extensive dentin caries (EDC) lesions were digested with trypsin and analyzed by label-free relative quantification via liquid chromatography-tandem mass spectrometry (LC-MS/MS). Spectral data were matched against the UniProt Homo sapiens database using Mascot and Sequest HT in Proteome Discoverer. Statistical analysis using the limma package identified differentially expressed (DE) proteins (false discovery rate-adjusted P < 0.05), and ingenuity pathway analysis revealed key pathways, regulators, and networks. A total of 320 proteins were identified, with differential expression observed in 80 for EDC × S, 16 for EDC × DDC, and only 3 for DDC × S. In the G2 × G1 comparison, 200 proteins exhibited differential recovery in at least 1 of the extracts. Proteins such as S100A8, S100A12, DEFA1, SERPINB1, MPO, and PRTN3 were upregulated in EDC compared with DDC and S. TIMP3, MMP20, DMP1, and other collagen and matrix-associated proteins showed higher coverage in G2 than in G1, revealing extract-specific profiles. Functional analysis highlighted enrichment in immune and inflammatory pathways, with strong activation of neutrophil degranulation, antimicrobial peptides, neutrophil extracellular trap signaling, and macrophage alternative activation in carious tissues. In conclusion, this study reveals stage-specific proteomic signatures in caries, reflecting a dynamic interplay between microbial-induced degradation and host-driven defense and repair. These findings offer new molecular insights into caries pathophysiology and may inform future diagnostic and therapeutic strategies.", "journal": "Journal of dental research", "year": "2026", "doi": "10.1177/00220345251392212", "pmcid": "PMC12751097", "authors": ["C M P Vidal", "O Rysavy", "S Kulanthaivel", "E Zeng", "B Cavalcanti", "M R Carrilho", "E M S Araujo", "S R B Cunha", "D Drake", "X J Xie", "J Banas"], "keywords": ["dentin", "inflammation", "liquid chromatography-mass spectrometry", "proteins, pulpitis", "proteomics"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "41305856", "mid": "NIHMS2127754", "pmc": "PMC12751097", "doi": "10.1177/00220345251392212"}}
+{"pmid": "36769243", "title": "Optimization of the Hemolysis Assay for the Assessment of Cytotoxicity.", "abstract": "In vitro determination of hemolytic properties is a common and important method for preliminary evaluation of cytotoxicity of chemicals, drugs, or any blood-contacting medical device or material. The method itself is relatively straightforward, however, protocols used in the literature vary substantially. This leads to significant difficulties both in interpreting and in comparing the obtained values. Here, we examine how the different variables used under different experimental setups may affect the outcome of this assay. We find that certain key parameters affect the hemolysis measurements in a critical manner. The hemolytic effect of compounds tested here varied up to fourfold depending on the species of the blood source. The use of different types of detergents used for generating positive control samples (i.e., 100% hemolysis) produced up to 2.7-fold differences in the calculated hemolysis ratios. Furthermore, we find an expected, but substantial, increase in the number of hemolyzed erythrocytes with increasing erythrocyte concentration and with prolonged incubation time, which in turn affects the calculated hemolysis ratios. Based on our findings we propose an optimized protocol in an attempt to standardize future hemolysis studies.", "journal": "International journal of molecular sciences", "year": "2023", "doi": "10.3390/ijms24032914", "pmcid": "PMC9917735", "authors": ["Ingvill Pedersen Sæbø", "Magnar Bjørås", "Henrik Franzyk", "Emily Helgesen", "James Alexander Booth"], "keywords": ["antimicrobial peptides (AMPs)", "cytotoxicity", "hemolysis assay", "hemolysis ratio"], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "36769243", "pmc": "PMC9917735", "doi": "10.3390/ijms24032914", "pii": "ijms24032914"}}
+{"pmid": "35980829", "title": "Conditional Antimicrobial Peptide Therapeutics.", "abstract": "Antimicrobial peptides (AMPs) constitute a promising class of alternatives to antibiotics to curb antimicrobial resistance. Nonetheless, their utility as a systemic agent is hampered by short circulation time and toxicity. Infection sites, analogous to tumors, harbor an aberrant microenvironment that has the potential to be exploited to develop conditionally activated therapeutics with an improved therapeutic index. In particular, we identified strategies to prolong systemic circulation of small, cationic AMPs in a mouse model of bacterial pneumonia. Specifically, we report an albumin-binding domain (ABD)-AMP conjugate as a long-circulating conditional AMP therapeutic with a masked activity that can be liberated by proteases in the infected tissue microenvironment. Our systemically administered conjugate enhanced the pulmonary delivery of active AMP while also reducing AMP exposure to other off-target organs. Importantly, this reduction in off-target exposure improved the safety profile of the AMP. The framework we present can be generalized to quantify and optimize the performance of this emerging class of conditional therapeutics.", "journal": "ACS nano", "year": "2022", "doi": "10.1021/acsnano.2c04162", "pmcid": "PMC9619929", "authors": ["Chayanon Ngambenjawong", "Leslie W Chan", "Heather E Fleming", "Sangeeta N Bhatia"], "keywords": ["albumin", "antimicrobial peptide", "conditional therapeutic", "infection", "nanomedicine", "protease"], "publication_types": ["Journal Article", "Research Support, N.I.H., Extramural", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "35980829", "pmc": "PMC9619929", "doi": "10.1021/acsnano.2c04162"}}
+{"pmid": "39214978", "title": "A Foundation Model Identifies Broad-Spectrum Antimicrobial Peptides against Drug-Resistant Bacterial Infection.", "abstract": "Development of potent and broad-spectrum antimicrobial peptides (AMPs) could help overcome the antimicrobial resistance crisis. We develop a peptide language-based deep generative framework (deepAMP) for identifying potent, broad-spectrum AMPs. Using deepAMP to reduce antimicrobial resistance and enhance the membrane-disrupting abilities of AMPs, we identify, synthesize, and experimentally test 18 T1-AMP (Tier 1) and 11 T2-AMP (Tier 2) candidates in a two-round design and by employing cross-optimization-validation. More than 90% of the designed AMPs show a better inhibition than penetratin in both Gram-positive (i.e., S. aureus) and Gram-negative bacteria (i.e., K. pneumoniae and P. aeruginosa). T2-9 shows the strongest antibacterial activity, comparable to FDA-approved antibiotics. We show that three AMPs (T1-2, T1-5 and T2-10) significantly reduce resistance to S. aureus compared to ciprofloxacin and are effective against skin wound infection in a female wound mouse model infected with P. aeruginosa. In summary, deepAMP expedites discovery of effective, broad-spectrum AMPs against drug-resistant bacteria.", "journal": "Nature communications", "year": "2024", "doi": "10.1038/s41467-024-51933-2", "pmcid": "PMC11364768", "authors": ["Tingting Li", "Xuanbai Ren", "Xiaoli Luo", "Zhuole Wang", "Zhenlu Li", "Xiaoyan Luo", "Jun Shen", "Yun Li", "Dan Yuan", "Ruth Nussinov", "Xiangxiang Zeng", "Junfeng Shi", "Feixiong Cheng"], "keywords": [], "publication_types": ["Journal Article"], "article_ids": {"pubmed": "39214978", "pmc": "PMC11364768", "doi": "10.1038/s41467-024-51933-2", "pii": "10.1038/s41467-024-51933-2"}}
+{"pmid": "33469079", "title": "Antimicrobial effects of syndiotactic polypeptides.", "abstract": "We present design and antibacterial studies of stereochemically diversified antimicrobial peptides against multidrug-resistant bacterial pathogens. Syndiotactic polypeptides are polymers of alternating L and D amino acids with LDLD or DLDL backbone stereochemical sequence, which can form stable gramicidin like helical conformations. We designed, synthesized and characterized eight model molecular systems with varied electrostatic fingerprints, modulated through calibrated sequence positioning. Six out of eight model systems showed very impressive antimicrobial activity against three difficult to treat bacterial species, Gentamicin resistant MRSA, E. coli and Mycobacterium. More importantly, the designed LDLD peptides were equally potent in serum, an important drawback of poly L peptide sequences due to enzyme mediated degradation and ion sensitivity. Further, we tested the activity of the designed peptides against drug-resistant clinical isolates of Staphylococcus aureus and Escherichia coli. Molecular dynamics simulation studies suggest formation of an assembly of individual peptides, preceding the membrane interaction and deformation. The activity estimates are comparable with the available peptide based antimicrobials, and are also highly specific and less toxic as per standard estimates. Incorporation of D amino-acids can significantly expand the peptide design space, which can in turn manifest in future biomaterial designs, especially antimicrobials.", "journal": "Scientific reports", "year": "2021", "doi": "10.1038/s41598-021-81394-2", "pmcid": "PMC7815786", "authors": ["Prakash Kishore Hazam", "Chimanjita Phukan", "R Akhil", "Anjali Singh", "Vibin Ramakrishnan"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "33469079", "pmc": "PMC7815786", "doi": "10.1038/s41598-021-81394-2", "pii": "10.1038/s41598-021-81394-2"}}
+{"pmid": "35832082", "title": "Dual-sensitive antibacterial peptide nanoparticles prevent dental caries.", "abstract": "Background: Dental caries is the most prevalent bacterial biofilm-induced disease. Current clinical prevention and treatment agents often suffer from adverse effects on oral microbiota diversity and normal tissues, predominately arising from the poor biofilm-targeting property of the agents. Methods: To address this concern, we herein report dual-sensitive antibacterial peptide nanoparticles pHly-1 NPs upon acid and lipid-binding for treatment of dental caries. Amino acid substitutions were performed to design the peptide pHly-1. The potential, morphology and secondary structure of pHly-1 were characterized to elucidate the mechanisms of its pH and lipid sensitivity. Bacterial membrane integrity assay and RNA-seq were applied to uncover the antimicrobial mechanism of peptides under acidic condition. The in vitro and ex vivo antibiofilm assays were used to determine the antibiofilm performance of pHly-1 NPs. We also carried out the in vivo anti-caries treatment by pHly-1 NPs on dental caries animal model. Oral microbiome and histopathological analyses were performed to assess the in vivo safety of pHly-1 NPs. Results: The pHly-1 peptide underwent the coil-helix conformational transition upon binding to bacterial membranes in the acidic cariogenic biofilm microenvironment, thereby killing cariogenic bacteria. Under normal physiological conditions, pHly-1 adopted a β-sheet conformation and formed nanofibers, resulting in negligible cytotoxicity towards oral microbes. However, in acidic solution, pHly-1 NPs displayed reliable antibacterial activity against Streptococcus mutans, including standard and clinically isolated strains, mainly via cell membrane disruption, and also suppressed in vitro and human-derived ex vivo biofilm development. Compared to the clinical agent chlorhexidine, in vivo topical treatment with pHly-1 NPs showed an advanced effect on inhibiting rat dental caries development without adverse effects on oral microbiota diversity and normal oral or gastric tissues. Conclusion: Our results demonstrated the high efficacy of dual-sensitive antimicrobial peptides for the selective damage of bacterial biofilms, providing an efficient strategy for preventing and treating dental caries.", "journal": "Theranostics", "year": "2022", "doi": "10.7150/thno.73181", "pmcid": "PMC9254247", "authors": ["Peng Zhang", "Saizhi Wu", "Jinting Li", "Xiaoshuang Bu", "Xiaoping Dong", "Ninglin Chen", "Fengjiao Li", "Jingyu Zhu", "Longkang Sang", "Youlin Zeng", "Songping Liang", "Zhilin Yu", "Zhonghua Liu"], "keywords": ["antimicrobial peptides", "biofilms", "conformational transition", "dental caries", "nanoparticles", "stimuli-responsive"], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "35832082", "pmc": "PMC9254247", "doi": "10.7150/thno.73181", "pii": "thnov12p4818"}}
+{"pmid": "38135439", "title": "Multi-CGAN: Deep Generative Model-Based Multiproperty Antimicrobial Peptide Design.", "abstract": "Antimicrobial peptides are peptides that are effective against bacteria and viruses, and the discovery of new antimicrobial peptides is of great importance to human life and health. Although the design of antimicrobial peptides using machine learning methods has achieved good results in recent years, it remains a challenge to learn and design novel antimicrobial peptides with multiple properties of interest from peptide data with certain property labels. To this end, we propose Multi-CGAN, a deep generative model-based architecture that can learn from single-attribute peptide data and generate antimicrobial peptide sequences with multiple attributes that we need, which may have a potentially wide range of uses in drug discovery. In particular, we verified that our Multi-CGAN generated peptides with the desired properties have good performance in terms of generation rate. Moreover, a comprehensive statistical analysis demonstrated that our generated peptides are diverse and have a low probability of being homologous to the training data. Interestingly, we found that the performance of many popular deep learning methods on the antimicrobial peptide prediction task can be improved by using Multi-CGAN to expand the data on the training set of the original task, indicating the high quality of our generated peptides and the robust ability of our method. In addition, we also investigated whether it is possible to directionally generate peptide sequences with specified properties by controlling the input noise sampling for our model.", "journal": "Journal of chemical information and modeling", "year": "2024", "doi": "10.1021/acs.jcim.3c01881", "pmcid": "", "authors": ["Haoqing Yu", "Ruheng Wang", "Jianbo Qiao", "Leyi Wei"], "keywords": [], "publication_types": ["Journal Article", "Research Support, Non-U.S. Gov't"], "article_ids": {"pubmed": "38135439", "doi": "10.1021/acs.jcim.3c01881"}}
+{
+  "pmid": "38843834",
+  "title": "Discovery of antimicrobial peptides in the global microbiome with machine learning.",
+  "abstract": "Novel antibiotics are urgently needed to combat the antibiotic-resistance crisis. We present a machine-learning-based approach to predict antimicrobial peptides (AMPs) within the global microbiome and leverage a vast dataset of 63,410 metagenomes and 87,920 prokaryotic genomes from environmental and host-associated habitats to create the AMPSphere, a comprehensive catalog comprising 863,498 non-redundant peptides, few of which match existing databases. AMPSphere provides insights into the evolutionary origins of peptides, including by duplication or gene truncation of longer sequences, and we observed that AMP production varies by habitat. To validate our predictions, we synthesized and tested 100 AMPs against clinically relevant drug-resistant pathogens and human gut commensals both in vitro and in vivo. A total of 79 peptides were active, with 63 targeting pathogens. These active AMPs exhibited antibacterial activity by disrupting bacterial membranes. In conclusion, our approach identified nearly one million prokaryotic AMP sequences, an open-access resource for antibiotic discovery.",
+  "journal": "Cell",
+  "year": "2024",
+  "doi": "10.1016/j.cell.2024.05.013",
+  "pmcid": "PMC11666328",
+  "authors": [
+    "Célio Dias Santos-Júnior",
+    "Marcelo D T Torres",
+    "Yiqian Duan",
+    "Álvaro Rodríguez Del Río",
+    "Thomas S B Schmidt",
+    "Hui Chong",
+    "Anthony Fullam",
+    "Michael Kuhn",
+    "Chengkai Zhu",
+    "Amy Houseman",
+    "Jelena Somborski",
+    "Anna Vines",
+    "Xing-Ming Zhao",
+    "Peer Bork",
+    "Jaime Huerta-Cepas",
+    "Cesar de la Fuente-Nunez",
+    "Luis Pedro Coelho"
+  ],
+  "keywords": [
+    "antibiotic discovery",
+    "antibiotic resistance",
+    "antimicrobial activity",
+    "antimicrobial peptides",
+    "global microbiome",
+    "machine learning",
+    "metagenomics"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "38843834",
+    "mid": "NIHMS2001122",
+    "pmc": "PMC11666328",
+    "doi": "10.1016/j.cell.2024.05.013",
+    "pii": "S0092-8674(24)00522-1"
+  }
+}
+{
+  "pmid": "35298806",
+  "title": "Machine Learning Prediction of Antimicrobial Peptides.",
+  "abstract": "Antibiotic resistance constitutes a global threat and could lead to a future pandemic. One strategy is to develop a new generation of antimicrobials. Naturally occurring antimicrobial peptides (AMPs) are recognized templates and some are already in clinical use. To accelerate the discovery of new antibiotics, it is useful to predict novel AMPs from the sequenced genomes of various organisms. The antimicrobial peptide database (APD) provided the first empirical peptide prediction program. It also facilitated the testing of the first machine-learning algorithms. This chapter provides an overview of machine-learning predictions of AMPs. Most of the predictors, such as AntiBP, CAMP, and iAMPpred, involve a single-label prediction of antimicrobial activity. This type of prediction has been expanded to antifungal, antiviral, antibiofilm, anti-TB, hemolytic, and anti-inflammatory peptides. The multiple functional roles of AMPs annotated in the APD also enabled multi-label predictions (iAMP-2L, MLAMP, and AMAP), which include antibacterial, antiviral, antifungal, antiparasitic, antibiofilm, anticancer, anti-HIV, antimalarial, insecticidal, antioxidant, chemotactic, spermicidal activities, and protease inhibiting activities. Also considered in predictions are peptide posttranslational modification, 3D structure, and microbial species-specific information. We compare important amino acids of AMPs implied from machine learning with the frequently occurring residues of the major classes of natural peptides. Finally, we discuss advances, limitations, and future directions of machine-learning predictions of antimicrobial peptides. Ultimately, we may assemble a pipeline of such predictions beyond antimicrobial activity to accelerate the discovery of novel AMP-based antimicrobials.",
+  "journal": "Methods in molecular biology (Clifton, N.J.)",
+  "year": "2022",
+  "doi": "10.1007/978-1-0716-1855-4_1",
+  "pmcid": "PMC9126312",
+  "authors": [
+    "Guangshun Wang",
+    "Iosif I Vaisman",
+    "Monique L van Hoek"
+  ],
+  "keywords": [
+    "Antimicrobial peptides",
+    "Database",
+    "Machine learning",
+    "Multidrug resistance",
+    "Peptide prediction"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "35298806",
+    "mid": "NIHMS1801503",
+    "pmc": "PMC9126312",
+    "doi": "10.1007/978-1-0716-1855-4_1"
+  }
+}
+{
+  "pmid": "39850516",
+  "title": "Machine learning for antimicrobial peptide identification and design.",
+  "abstract": "Artificial intelligence (AI) and machine learning (ML) models are being deployed in many domains of society and have recently reached the field of drug discovery. Given the increasing prevalence of antimicrobial resistance, as well as the challenges intrinsic to antibiotic development, there is an urgent need to accelerate the design of new antimicrobial therapies. Antimicrobial peptides (AMPs) are therapeutic agents for treating bacterial infections, but their translation into the clinic has been slow owing to toxicity, poor stability, limited cellular penetration and high cost, among other issues. Recent advances in AI and ML have led to breakthroughs in our abilities to predict biomolecular properties and structures and to generate new molecules. The ML-based modelling of peptides may overcome some of the disadvantages associated with traditional drug discovery and aid the rapid development and translation of AMPs. Here, we provide an introduction to this emerging field and survey ML approaches that can be used to address issues currently hindering AMP development. We also outline important limitations that can be addressed for the broader adoption of AMPs in clinical practice, as well as new opportunities in data-driven peptide design.",
+  "journal": "Nature reviews bioengineering",
+  "year": "2024",
+  "doi": "10.1038/s44222-024-00152-x",
+  "pmcid": "PMC11756916",
+  "authors": [
+    "Fangping Wan",
+    "Felix Wong",
+    "James J Collins",
+    "Cesar de la Fuente-Nunez"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "39850516",
+    "mid": "NIHMS2008716",
+    "pmc": "PMC11756916",
+    "doi": "10.1038/s44222-024-00152-x"
+  }
+}
+{
+  "pmid": "35241840",
+  "title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning.",
+  "abstract": "The human gut microbiome encodes a large variety of antimicrobial peptides (AMPs), but the short lengths of AMPs pose a challenge for computational prediction. Here we combined multiple natural language processing neural network models, including LSTM, Attention and BERT, to form a unified pipeline for candidate AMP identification from human gut microbiome data. Of 2,349 sequences identified as candidate AMPs, 216 were chemically synthesized, with 181 showing antimicrobial activity (a positive rate of >83%). Most of these peptides have less than 40% sequence homology to AMPs in the training set. Further characterization of the 11 most potent AMPs showed high efficacy against antibiotic-resistant, Gram-negative pathogens and demonstrated significant efficacy in lowering bacterial load by more than tenfold against a mouse model of bacterial lung infection. Our study showcases the potential of machine learning approaches for mining functional peptides from metagenome data and accelerating the discovery of promising AMP candidate molecules for in-depth investigations.",
+  "journal": "Nature biotechnology",
+  "year": "2022",
+  "doi": "10.1038/s41587-022-01226-0",
+  "pmcid": "",
+  "authors": [
+    "Yue Ma",
+    "Zhengyan Guo",
+    "Binbin Xia",
+    "Yuwei Zhang",
+    "Xiaolin Liu",
+    "Ying Yu",
+    "Na Tang",
+    "Xiaomei Tong",
+    "Min Wang",
+    "Xin Ye",
+    "Jie Feng",
+    "Yihua Chen",
+    "Jun Wang"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "35241840",
+    "doi": "10.1038/s41587-022-01226-0",
+    "pii": "10.1038/s41587-022-01226-0"
+  }
+}
+{
+  "pmid": "39825096",
+  "title": "Explainable deep learning and virtual evolution identifies antimicrobial peptides with activity against multidrug-resistant human pathogens.",
+  "abstract": "Artificial intelligence (AI) is a promising approach to identify new antimicrobial compounds in diverse microbial species. Here we developed an AI-based, explainable deep learning model, EvoGradient, that predicts the potency of antimicrobial peptides (AMPs) and virtually modifies peptide sequences to produce more potent AMPs, akin to in silico directed evolution. We applied this model to peptides encoded in low-abundance human oral bacteria, resulting in the virtual evolution of 32 peptides into potent AMPs. Of these, the 6 most effective were synthesized and tested against multidrug-resistant pathogens and demonstrated activity against carbapenem-resistant species Escherichia coli, Klebsiella pneumoniae and Acinetobacter baumannii, and vancomycin-resistant Enterococcus faecium. The most potent AMP, pep-19-mod, was validated in vivo, achieving over 95% reduction in bacterial loads in mouse models of thigh infection through both systemic and local administration. Our approach advances the automatic identification and optimization of AMPs.",
+  "journal": "Nature microbiology",
+  "year": "2025",
+  "doi": "10.1038/s41564-024-01907-3",
+  "pmcid": "",
+  "authors": [
+    "Beilun Wang",
+    "Peijun Lin",
+    "Yuwei Zhong",
+    "Xiao Tan",
+    "Yangyang Shen",
+    "Yi Huang",
+    "Kai Jin",
+    "Yan Zhang",
+    "Ying Zhan",
+    "Dian Shen",
+    "Meng Wang",
+    "Zhou Yu",
+    "Yihan Wu"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "39825096",
+    "doi": "10.1038/s41564-024-01907-3",
+    "pii": "10.1038/s41564-024-01907-3"
+  }
+}
+{
+  "pmid": "40261713",
+  "title": "Antimicrobial peptide developed with machine learning sequence optimization targets drug resistant Staphylococcus aureus in mice.",
+  "abstract": "As antimicrobial resistance rises, new antibacterial candidates are urgently needed. Using sequence space information from over 14,743 functional antimicrobial peptides (AMPs), we improved the antimicrobial properties of citropin 1.1, an AMP with weak antimethicillin resistant Staphylococcus aureus (MRSA) activity, producing a short and potent antistaphylococcal peptide, CIT-8 (13 residues). At 40 μg/mL, CIT-8 eradicated 1 × 108 drug-resistant MRSA and vancomycin resistant S. aureus (VRSA) persister cells within 30 minutes of exposure and reduced the number of viable biofilm cells of MRSA and VRSA by 3 log10 and 4 log10 in established biofilms, respectively. CIT-8 (at 32 μg/mL) depolarized and permeated the S. aureus MW2 membrane. In a mouse model of MRSA skin infection, CIT-8 (2% w/w in petroleum jelly) significantly reduced the bacterial burden by 2.3 log10 (P < 0.0001). Our methodology accelerated AMP design by combining traditional peptide design strategies, such as truncation, substitution, and structure-guided alteration, with machine learning-backed sequence optimization.",
+  "journal": "The Journal of clinical investigation",
+  "year": "2025",
+  "doi": "10.1172/JCI185430",
+  "pmcid": "PMC12165799",
+  "authors": [
+    "Biswajit Mishra",
+    "Anindya Basu",
+    "Fadi Shehadeh",
+    "LewisOscar Felix",
+    "Sai Sundeep Kollala",
+    "Yashpal Singh Chhonker",
+    "Mandar T Naik",
+    "Charilaos Dellis",
+    "Liyang Zhang",
+    "Narchonai Ganesan",
+    "Daryl J Murry",
+    "Jianhua Gu",
+    "Michael B Sherman",
+    "Frederick M Ausubel",
+    "Paul P Sotiriadis",
+    "Eleftherios Mylonakis"
+  ],
+  "keywords": [
+    "Bacterial infections",
+    "Infectious disease",
+    "Microbiology"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "40261713",
+    "pmc": "PMC12165799",
+    "doi": "10.1172/JCI185430",
+    "pii": "185430"
+  }
+}
+{
+  "pmid": "41290594",
+  "title": "An antimicrobial peptide as a potential therapy for bacterial pneumonia that alleviates antimicrobial resistance.",
+  "abstract": "Bacterial pneumonia remains a global health threat that is worsened by drug-resistant bacteria, underscoring the need for the development of new antimicrobial agents. Antimicrobial peptides are promising new candidates with broad-spectrum activity and low potential for resistance development. Here, we report a linear antimicrobial peptide (AMP) that consists of four repeating units of (D-tryptophan)-(D-arginine)-(D-lysine). This peptide exhibits high stability and robust antimicrobial activity against multidrug-resistant bacteria, such as methicillin-resistant Staphylococcus aureus and Klebsiella pneumoniae, and improved biocompatibility. Furthermore, the AMP shows low potential for resistance development and the ability to alleviate resistance and restore antibiotic sensitivity due to multiple mechanisms, including membrane targeting and non-membrane lysis (DNA binding, reactive oxygen species accumulation, ATP depletion, metabolic interference). In vivo, the peptide showed promising therapeutic efficacy in a model of methicillin-resistant Staphylococcus aureus and K. pneumoniae pneumonia, as well as in a lipopolysaccharide-induced lung injury model.",
+  "journal": "Nature communications",
+  "year": "2025",
+  "doi": "10.1038/s41467-025-65449-w",
+  "pmcid": "PMC12647143",
+  "authors": [
+    "Chao Zhong",
+    "Yongtao He",
+    "Jing Zou",
+    "Luyang Gao",
+    "Jiahui Wang",
+    "Jingyi Zhu",
+    "Wenjing Xue",
+    "Sanhu Gou",
+    "Yun Zhang",
+    "Hui Liu",
+    "Jingman Ni"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "41290594",
+    "pmc": "PMC12647143",
+    "doi": "10.1038/s41467-025-65449-w",
+    "pii": "10.1038/s41467-025-65449-w"
+  }
+}
+{
+  "pmid": "40159831",
+  "title": "AI-Guided Design of Antimicrobial Peptide Hydrogels for Precise Treatment of Drug-resistant Bacterial Infections.",
+  "abstract": "Traditional biomaterial development lacks systematicity and predictability, posing significant challenges in addressing the intricate engineering issues related to infections with drug-resistant bacteria. The unprecedented ability of artificial intelligence (AI) to manage complex systems offers a novel paradigm for materials development. However, no AI model currently guides the development of antibacterial biomaterials based on an in-depth understanding of the interplay between biomaterials and bacteria. In this study, an AI-guided design platform (AMP-hydrogel-Designer) is developed to generate antibacterial biomaterials. This platform utilizes generative design and multi-objective constrained optimization to generate a novel thiol-containing high-efficiency antimicrobial peptide (AMP), that is functionally coupled with hydrogel to form a complex network structure. Additionally, Cu-modified barium titanate (Cu-BTO) is incorporated to facilitate further complex cross-linking via Cu2+/SH coordination to produce an AI-AMP-hydrogel. In vitro, the AI-AMP-hydrogel exhibits > 99.99% bactericidal efficacy against Methicillin-resistant Staphylococcus aureus (MRSA) and Escherichia coli (E. coli). Furthermore, Cu-BTO converts mechanical stimulation into electrical signals, thereby promoting the expression of growth factors and angiogenesis. In a rat model with dynamic wounds, the AI-AMP hydrogel significantly reduces the MRSA load and markedly accelerates wound healing. Therefore, the AI-guided biomaterial development strategy offers an innovative solution to precisely treat drug-resistant bacterial infections.",
+  "journal": "Advanced materials (Deerfield Beach, Fla.)",
+  "year": "2025",
+  "doi": "10.1002/adma.202500043",
+  "pmcid": "",
+  "authors": [
+    "Zhihui Jiang",
+    "Jianwen Feng",
+    "Fan Wang",
+    "Jike Wang",
+    "Ningtao Wang",
+    "Mengmiao Zhang",
+    "Chang-Yu Hsieh",
+    "Tingjun Hou",
+    "Wenguo Cui",
+    "Limin Ma"
+  ],
+  "keywords": [
+    "antimicrobial peptides",
+    "artificial intelligence",
+    "dynamic wound healings",
+    "hydrogels",
+    "piezoelectricity"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "40159831",
+    "doi": "10.1002/adma.202500043"
+  }
+}
+{
+  "pmid": "35980829",
+  "title": "Conditional Antimicrobial Peptide Therapeutics.",
+  "abstract": "Antimicrobial peptides (AMPs) constitute a promising class of alternatives to antibiotics to curb antimicrobial resistance. Nonetheless, their utility as a systemic agent is hampered by short circulation time and toxicity. Infection sites, analogous to tumors, harbor an aberrant microenvironment that has the potential to be exploited to develop conditionally activated therapeutics with an improved therapeutic index. In particular, we identified strategies to prolong systemic circulation of small, cationic AMPs in a mouse model of bacterial pneumonia. Specifically, we report an albumin-binding domain (ABD)-AMP conjugate as a long-circulating conditional AMP therapeutic with a masked activity that can be liberated by proteases in the infected tissue microenvironment. Our systemically administered conjugate enhanced the pulmonary delivery of active AMP while also reducing AMP exposure to other off-target organs. Importantly, this reduction in off-target exposure improved the safety profile of the AMP. The framework we present can be generalized to quantify and optimize the performance of this emerging class of conditional therapeutics.",
+  "journal": "ACS nano",
+  "year": "2022",
+  "doi": "10.1021/acsnano.2c04162",
+  "pmcid": "PMC9619929",
+  "authors": [
+    "Chayanon Ngambenjawong",
+    "Leslie W Chan",
+    "Heather E Fleming",
+    "Sangeeta N Bhatia"
+  ],
+  "keywords": [
+    "albumin",
+    "antimicrobial peptide",
+    "conditional therapeutic",
+    "infection",
+    "nanomedicine",
+    "protease"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "35980829",
+    "pmc": "PMC9619929",
+    "doi": "10.1021/acsnano.2c04162"
+  }
+}
+{
+  "pmid": "38843834",
+  "title": "Discovery of antimicrobial peptides in the global microbiome with machine learning.",
+  "abstract": "Novel antibiotics are urgently needed to combat the antibiotic-resistance crisis. We present a machine-learning-based approach to predict antimicrobial peptides (AMPs) within the global microbiome and leverage a vast dataset of 63,410 metagenomes and 87,920 prokaryotic genomes from environmental and host-associated habitats to create the AMPSphere, a comprehensive catalog comprising 863,498 non-redundant peptides, few of which match existing databases. AMPSphere provides insights into the evolutionary origins of peptides, including by duplication or gene truncation of longer sequences, and we observed that AMP production varies by habitat. To validate our predictions, we synthesized and tested 100 AMPs against clinically relevant drug-resistant pathogens and human gut commensals both in vitro and in vivo. A total of 79 peptides were active, with 63 targeting pathogens. These active AMPs exhibited antibacterial activity by disrupting bacterial membranes. In conclusion, our approach identified nearly one million prokaryotic AMP sequences, an open-access resource for antibiotic discovery.",
+  "journal": "Cell",
+  "year": "2024",
+  "doi": "10.1016/j.cell.2024.05.013",
+  "pmcid": "PMC11666328",
+  "authors": [
+    "Célio Dias Santos-Júnior",
+    "Marcelo D T Torres",
+    "Yiqian Duan",
+    "Álvaro Rodríguez Del Río",
+    "Thomas S B Schmidt",
+    "Hui Chong",
+    "Anthony Fullam",
+    "Michael Kuhn",
+    "Chengkai Zhu",
+    "Amy Houseman",
+    "Jelena Somborski",
+    "Anna Vines",
+    "Xing-Ming Zhao",
+    "Peer Bork",
+    "Jaime Huerta-Cepas",
+    "Cesar de la Fuente-Nunez",
+    "Luis Pedro Coelho"
+  ],
+  "keywords": [
+    "antibiotic discovery",
+    "antibiotic resistance",
+    "antimicrobial activity",
+    "antimicrobial peptides",
+    "global microbiome",
+    "machine learning",
+    "metagenomics"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "38843834",
+    "mid": "NIHMS2001122",
+    "pmc": "PMC11666328",
+    "doi": "10.1016/j.cell.2024.05.013",
+    "pii": "S0092-8674(24)00522-1"
+  }
+}
+{
+  "pmid": "35298806",
+  "title": "Machine Learning Prediction of Antimicrobial Peptides.",
+  "abstract": "Antibiotic resistance constitutes a global threat and could lead to a future pandemic. One strategy is to develop a new generation of antimicrobials. Naturally occurring antimicrobial peptides (AMPs) are recognized templates and some are already in clinical use. To accelerate the discovery of new antibiotics, it is useful to predict novel AMPs from the sequenced genomes of various organisms. The antimicrobial peptide database (APD) provided the first empirical peptide prediction program. It also facilitated the testing of the first machine-learning algorithms. This chapter provides an overview of machine-learning predictions of AMPs. Most of the predictors, such as AntiBP, CAMP, and iAMPpred, involve a single-label prediction of antimicrobial activity. This type of prediction has been expanded to antifungal, antiviral, antibiofilm, anti-TB, hemolytic, and anti-inflammatory peptides. The multiple functional roles of AMPs annotated in the APD also enabled multi-label predictions (iAMP-2L, MLAMP, and AMAP), which include antibacterial, antiviral, antifungal, antiparasitic, antibiofilm, anticancer, anti-HIV, antimalarial, insecticidal, antioxidant, chemotactic, spermicidal activities, and protease inhibiting activities. Also considered in predictions are peptide posttranslational modification, 3D structure, and microbial species-specific information. We compare important amino acids of AMPs implied from machine learning with the frequently occurring residues of the major classes of natural peptides. Finally, we discuss advances, limitations, and future directions of machine-learning predictions of antimicrobial peptides. Ultimately, we may assemble a pipeline of such predictions beyond antimicrobial activity to accelerate the discovery of novel AMP-based antimicrobials.",
+  "journal": "Methods in molecular biology (Clifton, N.J.)",
+  "year": "2022",
+  "doi": "10.1007/978-1-0716-1855-4_1",
+  "pmcid": "PMC9126312",
+  "authors": [
+    "Guangshun Wang",
+    "Iosif I Vaisman",
+    "Monique L van Hoek"
+  ],
+  "keywords": [
+    "Antimicrobial peptides",
+    "Database",
+    "Machine learning",
+    "Multidrug resistance",
+    "Peptide prediction"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "35298806",
+    "mid": "NIHMS1801503",
+    "pmc": "PMC9126312",
+    "doi": "10.1007/978-1-0716-1855-4_1"
+  }
+}
+{
+  "pmid": "38862735",
+  "title": "Deep-learning-enabled antibiotic discovery through molecular de-extinction.",
+  "abstract": "Molecular de-extinction aims at resurrecting molecules to solve antibiotic resistance and other present-day biological and biomedical problems. Here we show that deep learning can be used to mine the proteomes of all available extinct organisms for the discovery of antibiotic peptides. We trained ensembles of deep-learning models consisting of a peptide-sequence encoder coupled with neural networks for the prediction of antimicrobial activity and used it to mine 10,311,899 peptides. The models predicted 37,176 sequences with broad-spectrum antimicrobial activity, 11,035 of which were not found in extant organisms. We synthesized 69 peptides and experimentally confirmed their activity against bacterial pathogens. Most peptides killed bacteria by depolarizing their cytoplasmic membrane, contrary to known antimicrobial peptides, which tend to target the outer membrane. Notably, lead compounds (including mammuthusin-2 from the woolly mammoth, elephasin-2 from the straight-tusked elephant, hydrodamin-1 from the ancient sea cow, mylodonin-2 from the giant sloth and megalocerin-1 from the extinct giant elk) showed anti-infective activity in mice with skin abscess or thigh infections. Molecular de-extinction aided by deep learning may accelerate the discovery of therapeutic molecules.",
+  "journal": "Nature biomedical engineering",
+  "year": "2024",
+  "doi": "10.1038/s41551-024-01201-x",
+  "pmcid": "PMC11310081",
+  "authors": [
+    "Fangping Wan",
+    "Marcelo D T Torres",
+    "Jacqueline Peng",
+    "Cesar de la Fuente-Nunez"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "38862735",
+    "pmc": "PMC11310081",
+    "doi": "10.1038/s41551-024-01201-x",
+    "pii": "10.1038/s41551-024-01201-x"
+  }
+}
+{
+  "pmid": "39850516",
+  "title": "Machine learning for antimicrobial peptide identification and design.",
+  "abstract": "Artificial intelligence (AI) and machine learning (ML) models are being deployed in many domains of society and have recently reached the field of drug discovery. Given the increasing prevalence of antimicrobial resistance, as well as the challenges intrinsic to antibiotic development, there is an urgent need to accelerate the design of new antimicrobial therapies. Antimicrobial peptides (AMPs) are therapeutic agents for treating bacterial infections, but their translation into the clinic has been slow owing to toxicity, poor stability, limited cellular penetration and high cost, among other issues. Recent advances in AI and ML have led to breakthroughs in our abilities to predict biomolecular properties and structures and to generate new molecules. The ML-based modelling of peptides may overcome some of the disadvantages associated with traditional drug discovery and aid the rapid development and translation of AMPs. Here, we provide an introduction to this emerging field and survey ML approaches that can be used to address issues currently hindering AMP development. We also outline important limitations that can be addressed for the broader adoption of AMPs in clinical practice, as well as new opportunities in data-driven peptide design.",
+  "journal": "Nature reviews bioengineering",
+  "year": "2024",
+  "doi": "10.1038/s44222-024-00152-x",
+  "pmcid": "PMC11756916",
+  "authors": [
+    "Fangping Wan",
+    "Felix Wong",
+    "James J Collins",
+    "Cesar de la Fuente-Nunez"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "39850516",
+    "mid": "NIHMS2008716",
+    "pmc": "PMC11756916",
+    "doi": "10.1038/s44222-024-00152-x"
+  }
+}
+{
+  "pmid": "40796684",
+  "title": "Deep learning reveals antibiotics in the archaeal proteome.",
+  "abstract": "Antimicrobial resistance is one of the greatest threats facing humanity, making the need for new antibiotics more critical than ever. While most antibiotics originate from bacteria and fungi, archaea offer a largely untapped reservoir for antibiotic discovery. In this study, we leveraged deep learning to systematically explore the archaeome, uncovering promising candidates for combating antimicrobial resistance. By mining 233 archaeal proteomes, we identified 12,623 molecules with potential antimicrobial activity. These peptide compounds, termed archaeasins, have unique compositional features that differentiate them from traditional antimicrobial peptides, including a distinct amino acid profile. We synthesized 80 archaeasins, 93% of which showed antimicrobial activity in vitro against Acinetobacter baumannii, Escherichia coli, Klebsiella pneumoniae, Pseudomonas aeruginosa, Staphylococcus aureus and Enterococcus spp. Notably, in vivo validation identified archaeasin-73 as a lead candidate, significantly reducing A. baumannii loads in mouse infection models, with effectiveness comparable to that of established antibiotics such as polymyxin B. Our findings highlight the potential of archaea as a resource for developing next-generation antibiotics.",
+  "journal": "Nature microbiology",
+  "year": "2025",
+  "doi": "10.1038/s41564-025-02061-0",
+  "pmcid": "PMC12408343",
+  "authors": [
+    "Marcelo D T Torres",
+    "Fangping Wan",
+    "Cesar de la Fuente-Nunez"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "40796684",
+    "pmc": "PMC12408343",
+    "doi": "10.1038/s41564-025-02061-0",
+    "pii": "10.1038/s41564-025-02061-0"
+  }
+}
+{
+  "pmid": "35241840",
+  "title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning.",
+  "abstract": "The human gut microbiome encodes a large variety of antimicrobial peptides (AMPs), but the short lengths of AMPs pose a challenge for computational prediction. Here we combined multiple natural language processing neural network models, including LSTM, Attention and BERT, to form a unified pipeline for candidate AMP identification from human gut microbiome data. Of 2,349 sequences identified as candidate AMPs, 216 were chemically synthesized, with 181 showing antimicrobial activity (a positive rate of >83%). Most of these peptides have less than 40% sequence homology to AMPs in the training set. Further characterization of the 11 most potent AMPs showed high efficacy against antibiotic-resistant, Gram-negative pathogens and demonstrated significant efficacy in lowering bacterial load by more than tenfold against a mouse model of bacterial lung infection. Our study showcases the potential of machine learning approaches for mining functional peptides from metagenome data and accelerating the discovery of promising AMP candidate molecules for in-depth investigations.",
+  "journal": "Nature biotechnology",
+  "year": "2022",
+  "doi": "10.1038/s41587-022-01226-0",
+  "pmcid": "",
+  "authors": [
+    "Yue Ma",
+    "Zhengyan Guo",
+    "Binbin Xia",
+    "Yuwei Zhang",
+    "Xiaolin Liu",
+    "Ying Yu",
+    "Na Tang",
+    "Xiaomei Tong",
+    "Min Wang",
+    "Xin Ye",
+    "Jie Feng",
+    "Yihua Chen",
+    "Jun Wang"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "35241840",
+    "doi": "10.1038/s41587-022-01226-0",
+    "pii": "10.1038/s41587-022-01226-0"
+  }
+}
+{
+  "pmid": "39825096",
+  "title": "Explainable deep learning and virtual evolution identifies antimicrobial peptides with activity against multidrug-resistant human pathogens.",
+  "abstract": "Artificial intelligence (AI) is a promising approach to identify new antimicrobial compounds in diverse microbial species. Here we developed an AI-based, explainable deep learning model, EvoGradient, that predicts the potency of antimicrobial peptides (AMPs) and virtually modifies peptide sequences to produce more potent AMPs, akin to in silico directed evolution. We applied this model to peptides encoded in low-abundance human oral bacteria, resulting in the virtual evolution of 32 peptides into potent AMPs. Of these, the 6 most effective were synthesized and tested against multidrug-resistant pathogens and demonstrated activity against carbapenem-resistant species Escherichia coli, Klebsiella pneumoniae and Acinetobacter baumannii, and vancomycin-resistant Enterococcus faecium. The most potent AMP, pep-19-mod, was validated in vivo, achieving over 95% reduction in bacterial loads in mouse models of thigh infection through both systemic and local administration. Our approach advances the automatic identification and optimization of AMPs.",
+  "journal": "Nature microbiology",
+  "year": "2025",
+  "doi": "10.1038/s41564-024-01907-3",
+  "pmcid": "",
+  "authors": [
+    "Beilun Wang",
+    "Peijun Lin",
+    "Yuwei Zhong",
+    "Xiao Tan",
+    "Yangyang Shen",
+    "Yi Huang",
+    "Kai Jin",
+    "Yan Zhang",
+    "Ying Zhan",
+    "Dian Shen",
+    "Meng Wang",
+    "Zhou Yu",
+    "Yihan Wu"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "39825096",
+    "doi": "10.1038/s41564-024-01907-3",
+    "pii": "10.1038/s41564-024-01907-3"
+  }
+}
+{
+  "pmid": "40501667",
+  "title": "Proteasome-derived antimicrobial peptides discovered via deep learning.",
+  "abstract": "Recent computational discoveries have identified numerous bioactive peptides within the human proteome, as well as across the broader tree of life, which were previously unrecognized for their roles in host immunity. These findings have led us to propose the \"cross-talk hypothesis\", suggesting that many molecules, such as proteins and peptides, traditionally viewed as extraneous to immune function may in fact actively contribute to immunity. Building on our earlier studies, which uncovered proteasome-derived peptides with putative antimicrobial activity in the human proteome, here we systematically interrogated the proteasome, a large protein complex responsible for degrading and recycling damaged or surplus proteins, for additional antimicrobial peptides. Using deep learning, we systematically mined ProteasomeDB, a curated repository of proteasomal cleavage and splicing events, to predict antibiotic activity against 11 clinically relevant pathogens. This deep learning approach uncovered 59 candidate peptides (\"proteasomins\") with a median minimum inhibitory concentration (MIC) of ≤64 μmol L ¹. Refinement yielded 21 sequence-diverse proteasomins, which were characterized for their physicochemical properties. These peptides were enriched in cationic residues and exhibit enhanced amphiphilicity, key attributes for disrupting microbial membranes. Dimensionality reduction via UMAP further showed that proteasomins are sequence-distinct from known antimicrobial peptides, underscoring their novelty and potential for unique mechanisms of action. Moreover, comparative analyses revealed that cis- and trans-spliced proteasomins exhibit similar predicted antimicrobial activities, suggesting that critical structural determinants remain conserved irrespective of splicing modality. Collectively, these findings expand our understanding of the proteasome, underscore the extensive, previously unrecognized repertoire of innate immune peptides, and provide a promising foundation for developing innovative therapeutics to combat multidrug-resistant pathogens.",
+  "journal": "bioRxiv : the preprint server for biology",
+  "year": "2025",
+  "doi": "10.1101/2025.03.17.643752",
+  "pmcid": "PMC12157623",
+  "authors": [
+    "Xiaoqiong Xia",
+    "Marcelo D T Torres",
+    "Cesar de la Fuente-Nunez"
+  ],
+  "keywords": [
+    "Proteasome",
+    "antibiotics",
+    "antimicrobial peptides",
+    "artificial intelligence",
+    "cross-talk hypothesis",
+    "deep learning",
+    "encrypted peptides",
+    "host immunity",
+    "innate immunity",
+    "machine learning"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Preprint"
+  ],
+  "article_ids": {
+    "pubmed": "40501667",
+    "pmc": "PMC12157623",
+    "doi": "10.1101/2025.03.17.643752",
+    "pii": "2025.03.17.643752"
+  }
+}
+{
+  "pmid": "36972711",
+  "title": "Alleviate Periodontitis and Its Comorbidity Hypertension using a Nanoparticle-Embedded Functional Hydrogel System.",
+  "abstract": "Periodontitis and hypertension often occur as comorbidities, which need to be treated at the same time. To resolve this issue, a controlled-release composite hydrogel approach is proposed with dual antibacterial and anti-inflammatory activities as a resolution to achieve the goal of co-treatment of comorbidities. Specifically, chitosan (CS) with inherent antibacterial properties is cross-linked with antimicrobial peptide (AMP)-modified polyethylene glycol (PEG) to form a dual antibacterial hydrogel (CS-PA). Subsequently, curcumin loaded into biodegradable nanoparticles (CNP) are embedded in the hydrogel exhibiting high encapsulation efficiency and sustained release to achieve long-term anti-inflammatory activities. In a mouse model of periodontitis complicated with hypertension, CS-PA/CNP is applied to gingival sulcus and produced an optimal therapeutic effect on periodontitis and hypertension simultaneously. The therapeutic mechanisms are deeply studied and indicated that CS-PA/CNP exerted excellent immunoregulatory effects by suppressing the accumulation of lymphocytes and myeloid cells and enhanced the antioxidant capacity and thus the anti-inflammatory capacity of macrophages through the glutathione metabolism pathway. In conclusion, CS-PA/CNP has demonstrated its superior therapeutic effects and potential clinical translational value in the co-treatment of periodontitis and hypertension, and also serves as a drug delivery platform to provide combinatorial therapeutic options for periodontitis with complicated pathogenesis.",
+  "journal": "Advanced healthcare materials",
+  "year": "2023",
+  "doi": "10.1002/adhm.202203337",
+  "pmcid": "",
+  "authors": [
+    "Shuo Xu",
+    "Bin Hu",
+    "Ting Dong",
+    "Bo-Yan Chen",
+    "Xiao-Jian Xiong",
+    "Lin-Juan Du",
+    "Yu-Lin Li",
+    "Yan-Lin Chen",
+    "Guo-Cai Tian",
+    "Xue-Bing Bai",
+    "Ting Liu",
+    "Lu-Jun Zhou",
+    "Wu-Chang Zhang",
+    "Yan Liu",
+    "Qin-Feng Ding",
+    "Xue-Qing Zhang",
+    "Sheng-Zhong Duan"
+  ],
+  "keywords": [
+    "hydrogels",
+    "hypertension",
+    "immune dysregulation",
+    "inflammation",
+    "oxidative stress",
+    "periodontitis"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "36972711",
+    "doi": "10.1002/adhm.202203337"
+  }
+}
+{
+  "pmid": "40568788",
+  "title": "BroadAMP-GPT: AI-Driven generation of broad-spectrum antimicrobial peptides for combating multidrug-resistant ESKAPE pathogens.",
+  "abstract": "Antimicrobial peptides (AMPs) are promising candidates to address the global antimicrobial resistance crisis, yet their traditional design remains labor-intensive and inefficient. Here, we developed BroadAMP-GPT, an integrated computational-experimental framework that combines AI-driven generation, multi-tiered screening, and experimental validation to rapidly discover potent AMPs with broad-spectrum activity. Using this platform, 57% of AI-generated candidates exhibited potent efficacy against ESKAPE pathogens - key culprits of multidrug-resistant infections. An outstanding candidate, AMP_S13, demonstrated exceptional stability under diverse physiological conditions, including extreme pH (2-10), proteolytic exposure, and elevated temperatures, while maintaining minimal cytotoxicity and low hemolytic activity. AMP_S13 also showed robust in vivo efficacy, reducing mortality in Galleria mellonella infection model and accelerating wound healing in a murine MRSA skin infection model. These results validate BroadAMP-GPT as a transformative tool for accelerating the discovery of stable, broad-spectrum and low-toxicity AMPs, offering a scalable strategy to address the urgent threat of multidrug-resistant pathogens.",
+  "journal": "Gut microbes",
+  "year": "2025",
+  "doi": "10.1080/19490976.2025.2523811",
+  "pmcid": "PMC12203862",
+  "authors": [
+    "Yanru Li",
+    "Xianghan Xu",
+    "Xiaohui Zhang",
+    "Zhihui Xu",
+    "Jiaqi Zhao",
+    "Ruiyu Zhu",
+    "Ziyu Wang",
+    "Wei Ran",
+    "Wenqian Zhao",
+    "Ningyang Yan",
+    "Yifan Leng",
+    "Zexu Miao",
+    "Xiaomin Wang",
+    "Liping Wang",
+    "Jinxin Liu",
+    "Cong Pian",
+    "Jinhu Huang"
+  ],
+  "keywords": [
+    "AMP generation and screening",
+    "Antimicrobial peptides",
+    "ESKAPE pathogens",
+    "broad-spectrum activity",
+    "experimental validation"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "40568788",
+    "pmc": "PMC12203862",
+    "doi": "10.1080/19490976.2025.2523811"
+  }
+}
+{
+  "pmid": "40159831",
+  "title": "AI-Guided Design of Antimicrobial Peptide Hydrogels for Precise Treatment of Drug-resistant Bacterial Infections.",
+  "abstract": "Traditional biomaterial development lacks systematicity and predictability, posing significant challenges in addressing the intricate engineering issues related to infections with drug-resistant bacteria. The unprecedented ability of artificial intelligence (AI) to manage complex systems offers a novel paradigm for materials development. However, no AI model currently guides the development of antibacterial biomaterials based on an in-depth understanding of the interplay between biomaterials and bacteria. In this study, an AI-guided design platform (AMP-hydrogel-Designer) is developed to generate antibacterial biomaterials. This platform utilizes generative design and multi-objective constrained optimization to generate a novel thiol-containing high-efficiency antimicrobial peptide (AMP), that is functionally coupled with hydrogel to form a complex network structure. Additionally, Cu-modified barium titanate (Cu-BTO) is incorporated to facilitate further complex cross-linking via Cu2+/SH coordination to produce an AI-AMP-hydrogel. In vitro, the AI-AMP-hydrogel exhibits > 99.99% bactericidal efficacy against Methicillin-resistant Staphylococcus aureus (MRSA) and Escherichia coli (E. coli). Furthermore, Cu-BTO converts mechanical stimulation into electrical signals, thereby promoting the expression of growth factors and angiogenesis. In a rat model with dynamic wounds, the AI-AMP hydrogel significantly reduces the MRSA load and markedly accelerates wound healing. Therefore, the AI-guided biomaterial development strategy offers an innovative solution to precisely treat drug-resistant bacterial infections.",
+  "journal": "Advanced materials (Deerfield Beach, Fla.)",
+  "year": "2025",
+  "doi": "10.1002/adma.202500043",
+  "pmcid": "",
+  "authors": [
+    "Zhihui Jiang",
+    "Jianwen Feng",
+    "Fan Wang",
+    "Jike Wang",
+    "Ningtao Wang",
+    "Mengmiao Zhang",
+    "Chang-Yu Hsieh",
+    "Tingjun Hou",
+    "Wenguo Cui",
+    "Limin Ma"
+  ],
+  "keywords": [
+    "antimicrobial peptides",
+    "artificial intelligence",
+    "dynamic wound healings",
+    "hydrogels",
+    "piezoelectricity"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "40159831",
+    "doi": "10.1002/adma.202500043"
+  }
+}
+{
+  "pmid": "35697698",
+  "title": "A database of anti-coronavirus peptides.",
+  "abstract": "Since 2019, the novel coronavirus (SARS-COV-2) disease (COVID-19) has caused a worldwide epidemic. Anti-coronavirus peptides (ACovPs), a type of antimicrobial peptides (AMPs), have demonstrated excellent inhibitory effects on coronaviruses. However, state-of-the-art AMP databases contain only a small number of ACovPs. Additionally, the fields of these databases are not uniform, and the units or evaluation standards of the same field are inconsistent. Most of these databases have not included the target domains of ACovPs and description of in vitro and in vivo assays to measure the inhibitory effects of ACovPs. Here, we present a database focused on ACovPs (ACovPepDB), which contains comprehensive and precise ACovPs information of 518 entries with 214 unique ACovPs manually collected from public databases and published peer-reviewed articles. We believe that ACovPepDB is of great significance for facilitating the development of new peptides and improving treatment for coronavirus infection. The database will become a portal for ACovPs and guide and help researchers perform further studies. The ACovPepDB is available at http://i.uestc.edu.cn/ACovPepDB/ .",
+  "journal": "Scientific data",
+  "year": "2022",
+  "doi": "10.1038/s41597-022-01394-3",
+  "pmcid": "PMC9192597",
+  "authors": [
+    "Qianyue Zhang",
+    "Xue Chen",
+    "Bowen Li",
+    "Chunying Lu",
+    "Shanshan Yang",
+    "Jinjin Long",
+    "Heng Chen",
+    "Jian Huang",
+    "Bifang He"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Dataset",
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "35697698",
+    "pmc": "PMC9192597",
+    "doi": "10.1038/s41597-022-01394-3",
+    "pii": "10.1038/s41597-022-01394-3"
+  }
+}
+{
+  "pmid": "36670373",
+  "title": "BADASS: BActeriocin-Diversity ASsessment Software.",
+  "abstract": "BACKGROUND: Bacteriocins are defined as thermolabile peptides produced by bacteria with biological activity against taxonomically related species. These antimicrobial peptides have a wide application including disease treatment, food conservation, and probiotics. However, even with a large industrial and biotechnological application potential, these peptides are still poorly studied and explored. BADASS is software with a user-friendly graphical interface applied to the search and analysis of bacteriocin diversity in whole-metagenome shotgun sequencing data.\nRESULTS: The search for bacteriocin sequences is performed with tools such as BLAST or DIAMOND using the BAGEL4 database as a reference. The putative bacteriocin sequences identified are used to determine the abundance and richness of the three classes of bacteriocins. Abundance is calculated by comparing the reads identified as bacteriocins to the reads identified as 16S rRNA gene using SILVA database as a reference. BADASS has a complete pipeline that starts with the quality assessment of the raw data. At the end of the analysis, BADASS generates several plots of richness and abundance automatically as well as tabular files containing information about the main bacteriocins detected. The user is able to change the main parameters of the analysis in the graphical interface. To demonstrate how the software works, we used four datasets from WMS studies using default parameters. Lantibiotics were the most abundant bacteriocins in the four datasets. This class of bacteriocin is commonly produced by Streptomyces sp.\nCONCLUSIONS: With a user-friendly graphical interface and a complete pipeline, BADASS proved to be a powerful tool for prospecting bacteriocin sequences in Whole-Metagenome Shotgun Sequencing (WMS) data. This tool is publicly available at https://sourceforge.net/projects/badass/ .",
+  "journal": "BMC bioinformatics",
+  "year": "2023",
+  "doi": "10.1186/s12859-022-05106-x",
+  "pmcid": "PMC9854158",
+  "authors": [
+    "Sávio S Costa",
+    "Gislenne da Silva Moia",
+    "Artur Silva",
+    "Rafael A Baraúna",
+    "Adonney Allan de Oliveira Veras"
+  ],
+  "keywords": [
+    "Antimicrobial peptides",
+    "Bacteriocin",
+    "Metagenome mining",
+    "Software development"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "36670373",
+    "pmc": "PMC9854158",
+    "doi": "10.1186/s12859-022-05106-x",
+    "pii": "10.1186/s12859-022-05106-x"
+  }
+}
+{
+  "pmid": "35864258",
+  "title": "PTPAMP: prediction tool for plant-derived antimicrobial peptides.",
+  "abstract": "The emergence of antimicrobial peptides (AMPs) as a potential alternative to conventional antibiotics has led to the development of efficient computational methods for predicting AMPs. Among all organisms, the presence of multiple genes encoding AMPs in plants demands the development of a plant-based prediction tool. To this end, we developed models based on multiple peptide features like amino acid composition, dipeptide composition, and physicochemical attributes for predicting plant-derived AMPs. The selected compositional models are integrated into a web server termed PTPAMP. The designed web server is capable of classifying a query peptide sequence into four functional activities, i.e., antimicrobial (AMP), antibacterial (ABP), antifungal (AFP), and antiviral (AVP). Our models achieved an average area under the curve of 0.95, 0.91, 0.85, and 0.88 for AMP, ABP, AFP, and AVP, respectively, on benchmark datasets, which were ~ 6.75% higher than the state-of-the-art methods. Moreover, our analysis indicates the abundance of cysteine residues in plant-derived AMPs and the distribution of other residues like G, S, K, and R, which differ as per the peptide structural family. Finally, we have developed a user-friendly web server, available at the URL: http://www.nipgr.ac.in/PTPAMP/ . We expect the substantial input of this predictor for high-throughput identification of plant-derived AMPs followed by additional insights into their functions.",
+  "journal": "Amino acids",
+  "year": "2023",
+  "doi": "10.1007/s00726-022-03190-0",
+  "pmcid": "",
+  "authors": [
+    "Mohini Jaiswal",
+    "Ajeet Singh",
+    "Shailesh Kumar"
+  ],
+  "keywords": [
+    "Antimicrobial peptide",
+    "Bioactive peptides",
+    "Classification",
+    "Machine learning",
+    "Plant-derived",
+    "Prediction tool"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "35864258",
+    "doi": "10.1007/s00726-022-03190-0",
+    "pii": "10.1007/s00726-022-03190-0"
+  }
+}
+{
+  "pmid": "41535683",
+  "title": "Identification of antimicrobial peptides from ancient gut microbiomes.",
+  "abstract": "Fecal coprolites preserve ancient microbiomes and are a potential source of extinct but highly efficacious antimicrobial peptides (AMPs). Here, we develop AMPLiT (AMP Lightweight Identification Tool), an efficient tool deployable to portable hardware for AMP screening in metagenomic datasets. AMPLiT demonstrates AUPRC performances of 0.9486 ± 0.0003 and reasonable overall training time of 3200 ± 53 s. By computationally utilizing AMPLiT, we analyze seven ancient human coprolite metagenomes, identifying 160 AMP candidates. Of 40 representative peptides synthesized, 36 (90%) peptides demonstrate measurable antimicrobial activity at 100 μM or less in vitro. Strikingly, approximately two-thirds of these peptides are sourced from Segatella copri, a dominant ancient gut commensal that is conspicuously underrepresented in modern populations, particularly those with Westernized lifestyles. Representative S. copri-derived AMPs exhibit disruptions against membranes of pathogenic bacteria, coupled with low cytotoxicity and hemolytic risk. In vivo, lead peptides demonstrate potent antibacterial and wound-healing efficacy comparable to traditional antibiotics, especially in combating gram-positive pathogens. Our findings highlight the ancient gut microbiomes as sources of novel AMPs, offering valuable insights into the historical role of S. copri in human health and its decline in contemporary populations.",
+  "journal": "Nature communications",
+  "year": "2026",
+  "doi": "10.1038/s41467-026-68495-0",
+  "pmcid": "PMC12917264",
+  "authors": [
+    "Sizhe Chen",
+    "Yue Yuan",
+    "Yun Wang",
+    "Ye Peng",
+    "Hein Min Tun",
+    "Zhimin Jiang",
+    "Yinglei Miao",
+    "Sunjae Lee",
+    "Xiaole Yin",
+    "Xiaotao Shen",
+    "Orlando DeLeon",
+    "Eugene B Chang",
+    "Francis Ka Leung Chan",
+    "Yang Sun",
+    "Siew Chien Ng",
+    "Qi Su"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "41535683",
+    "pmc": "PMC12917264",
+    "doi": "10.1038/s41467-026-68495-0",
+    "pii": "10.1038/s41467-026-68495-0"
+  }
+}
+{
+  "pmid": "35980829",
+  "title": "Conditional Antimicrobial Peptide Therapeutics.",
+  "abstract": "Antimicrobial peptides (AMPs) constitute a promising class of alternatives to antibiotics to curb antimicrobial resistance. Nonetheless, their utility as a systemic agent is hampered by short circulation time and toxicity. Infection sites, analogous to tumors, harbor an aberrant microenvironment that has the potential to be exploited to develop conditionally activated therapeutics with an improved therapeutic index. In particular, we identified strategies to prolong systemic circulation of small, cationic AMPs in a mouse model of bacterial pneumonia. Specifically, we report an albumin-binding domain (ABD)-AMP conjugate as a long-circulating conditional AMP therapeutic with a masked activity that can be liberated by proteases in the infected tissue microenvironment. Our systemically administered conjugate enhanced the pulmonary delivery of active AMP while also reducing AMP exposure to other off-target organs. Importantly, this reduction in off-target exposure improved the safety profile of the AMP. The framework we present can be generalized to quantify and optimize the performance of this emerging class of conditional therapeutics.",
+  "journal": "ACS nano",
+  "year": "2022",
+  "doi": "10.1021/acsnano.2c04162",
+  "pmcid": "PMC9619929",
+  "authors": [
+    "Chayanon Ngambenjawong",
+    "Leslie W Chan",
+    "Heather E Fleming",
+    "Sangeeta N Bhatia"
+  ],
+  "keywords": [
+    "albumin",
+    "antimicrobial peptide",
+    "conditional therapeutic",
+    "infection",
+    "nanomedicine",
+    "protease"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "35980829",
+    "pmc": "PMC9619929",
+    "doi": "10.1021/acsnano.2c04162"
+  }
+}
+{
+  "pmid": "34021080",
+  "title": "Inoculum effect of antimicrobial peptides.",
+  "abstract": "The activity of many antibiotics depends on the initial density of cells used in bacterial growth inhibition assays. This phenomenon, termed the inoculum effect, can have important consequences for the therapeutic efficacy of the drugs, because bacterial loads vary by several orders of magnitude in clinically relevant infections. Antimicrobial peptides are a promising class of molecules in the fight against drug-resistant bacteria because they act mainly by perturbing the cell membranes rather than by inhibiting intracellular targets. Here, we report a systematic characterization of the inoculum effect for this class of antibacterial compounds. Minimum inhibitory concentration values were measured for 13 peptides (including all-D enantiomers) and peptidomimetics, covering more than seven orders of magnitude in inoculated cell density. In most cases, the inoculum effect was significant for cell densities above the standard inoculum of 5 × 105 cells/mL, while for lower densities the active concentrations remained essentially constant, with values in the micromolar range. In the case of membrane-active peptides, these data can be rationalized by considering a simple model, taking into account peptide-cell association, and hypothesizing that a threshold number of cell-bound peptide molecules is required in order to cause bacterial killing. The observed effect questions the clinical utility of activity and selectivity determinations performed at a fixed, standardized cell density. A routine evaluation of the dependence of the activity of antimicrobial peptides and peptidomimetics on the inoculum should be considered.",
+  "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+  "year": "2021",
+  "doi": "10.1073/pnas.2014364118",
+  "pmcid": "PMC8166072",
+  "authors": [
+    "Maria Rosa Loffredo",
+    "Filippo Savini",
+    "Sara Bobone",
+    "Bruno Casciaro",
+    "Henrik Franzyk",
+    "Maria Luisa Mangoni",
+    "Lorenzo Stella"
+  ],
+  "keywords": [
+    "antimicrobial activity",
+    "antimicrobial peptides",
+    "inoculum effect"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "34021080",
+    "pmc": "PMC8166072",
+    "doi": "10.1073/pnas.2014364118",
+    "pii": "2014364118"
+  }
+}
+{
+  "pmid": "37652953",
+  "title": "Intestinal microbiota links to allograft stability after lung transplantation: a prospective cohort study.",
+  "abstract": "Whether the alternated microbiota in the gut contribute to the risk of allograft rejection (AR) and pulmonary infection (PI) in the setting of lung transplant recipients (LTRs) remains unexplored. A prospective multicenter cohort of LTRs was identified in the four lung transplant centers. Paired fecal and serum specimens were collected and divided into AR, PI, and event-free (EF) groups according to the diagnosis at sampling. Fecal samples were determined by metagenomic sequencing. And metabolites and cytokines were detected in the paired serum to analyze the potential effect of the altered microbiota community. In total, we analyzed 146 paired samples (AR = 25, PI = 43, and EF = 78). Notably, we found that the gut microbiome of AR followed a major depletion pattern with decreased 487 species and compositional diversity. Further multi-omics analysis showed depleted serum metabolites and increased inflammatory cytokines in AR and PI. Bacteroides uniformis, which declined in AR (2.4% vs 0.6%) and was negatively associated with serum IL-1β and IL-12, was identified as a driven specie in the network of gut microbiome of EF. Functionally, the EF specimens were abundant in probiotics related to mannose and cationic antimicrobial peptide metabolism. Furthermore, a support-vector machine classifier based on microbiome, metabolome, and clinical parameters highly predicted AR (AUPRC = 0.801) and PI (AUPRC = 0.855), whereby the microbiome dataset showed a particularly high diagnostic power. In conclusion, a disruptive gut microbiota showed a significant association with allograft rejection and infection and with systemic cytokines and metabolites in LTRs.",
+  "journal": "Signal transduction and targeted therapy",
+  "year": "2023",
+  "doi": "10.1038/s41392-023-01515-3",
+  "pmcid": "PMC10471611",
+  "authors": [
+    "Junqi Wu",
+    "Chongwu Li",
+    "Peigen Gao",
+    "Chenhong Zhang",
+    "Pei Zhang",
+    "Lei Zhang",
+    "Chenyang Dai",
+    "Kunpeng Zhang",
+    "Bowen Shi",
+    "Mengyang Liu",
+    "Junmeng Zheng",
+    "Bo Pan",
+    "Zhan Chen",
+    "Chao Zhang",
+    "Wanqing Liao",
+    "Weihua Pan",
+    "Wenjie Fang",
+    "Chang Chen"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Multicenter Study",
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "37652953",
+    "pmc": "PMC10471611",
+    "doi": "10.1038/s41392-023-01515-3",
+    "pii": "10.1038/s41392-023-01515-3"
+  }
+}
+{
+  "pmid": "39163860",
+  "title": "Mining human microbiomes reveals an untapped source of peptide antibiotics.",
+  "abstract": "Drug-resistant bacteria are outpacing traditional antibiotic discovery efforts. Here, we computationally screened 444,054 previously reported putative small protein families from 1,773 human metagenomes for antimicrobial properties, identifying 323 candidates encoded in small open reading frames (smORFs). To test our computational predictions, 78 peptides were synthesized and screened for antimicrobial activity in vitro, with 70.5% displaying antimicrobial activity. As these compounds were different compared with previously reported antimicrobial peptides, we termed them smORF-encoded peptides (SEPs). SEPs killed bacteria by targeting their membrane, synergizing with each other, and modulating gut commensals, indicating a potential role in reconfiguring microbiome communities in addition to counteracting pathogens. The lead candidates were anti-infective in both murine skin abscess and deep thigh infection models. Notably, prevotellin-2 from Prevotella copri presented activity comparable to the commonly used antibiotic polymyxin B. Our report supports the existence of hundreds of antimicrobials in the human microbiome amenable to clinical translation.",
+  "journal": "Cell",
+  "year": "2024",
+  "doi": "10.1016/j.cell.2024.07.027",
+  "pmcid": "PMC12821620",
+  "authors": [
+    "Marcelo D T Torres",
+    "Erin F Brooks",
+    "Angela Cesaro",
+    "Hila Sberro",
+    "Matthew O Gill",
+    "Cosmos Nicolaou",
+    "Ami S Bhatt",
+    "Cesar de la Fuente-Nunez"
+  ],
+  "keywords": [
+    "SEPs",
+    "antibiotics",
+    "antimicrobial peptides",
+    "computational mining",
+    "human microbiome",
+    "microproteins",
+    "peptides",
+    "smORF-encoded peptides"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "39163860",
+    "mid": "NIHMS2131923",
+    "pmc": "PMC12821620",
+    "doi": "10.1016/j.cell.2024.07.027",
+    "pii": "S0092-8674(24)00802-X"
+  }
+}

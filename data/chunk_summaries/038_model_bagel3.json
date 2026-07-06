@@ -1,0 +1,440 @@
+{
+  "chunk_id": "model_bagel3",
+  "chunk_type": "model",
+  "chunk_name": "BAGEL3",
+  "compression_status": "ok",
+  "main_entities": [
+    "ADAM",
+    "CAMPR3(RF)",
+    "CAMPR3(SVM)",
+    "MLAMP",
+    "DBAASP",
+    "AntiBP",
+    "AntiBP2",
+    "BAGEL3",
+    "BACTIBASE",
+    "AMP prediction server (biosino)"
+  ],
+  "papers": [
+    {
+      "title": "Empirical comparison of web-based antimicrobial peptide prediction tools",
+      "pmid": "28203715",
+      "pmcid": "PMC5860510",
+      "doi": "10.1093/bioinformatics/btx081",
+      "year": "2017",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Prediction of Antimicrobial Peptides Based on Sequence Alignment and Feature Selection Methods",
+      "pmid": "21533231",
+      "pmcid": "PMC3076375",
+      "doi": "10.1371/journal.pone.0018476",
+      "year": "2011",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "ADAM",
+      "canonical_name": "ADAM",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "not reported in available evidence",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Listed as one of the ten publicly available AMP prediction methods evaluated in the benchmark study.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "General AMP classifier evaluated in benchmark; no original paper details available."
+    },
+    {
+      "model_name": "CAMPR3(RF)",
+      "canonical_name": "CAMPR3(RF)",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Identified as the best-performing general AMP prediction tool in the benchmark study.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Best-performing general AMP classifier (Random Forest) in benchmark study; could represent RF-based approach."
+    },
+    {
+      "model_name": "CAMPR3(SVM)",
+      "canonical_name": "CAMPR3(SVM)",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Evaluated as one of the general AMP prediction tools in the benchmark study.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "SVM-based AMP classifier evaluated in benchmark."
+    },
+    {
+      "model_name": "MLAMP",
+      "canonical_name": "MLAMP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "not reported in available evidence",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Listed as one of the six general AMP prediction tools evaluated.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Generic AMP classifier; details unknown."
+    },
+    {
+      "model_name": "DBAASP",
+      "canonical_name": "DBAASP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "not reported in available evidence",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Included in the general AMP prediction tool comparison.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "DBAASP database-linked method; details insufficient."
+    },
+    {
+      "model_name": "AntiBP",
+      "canonical_name": "AntiBP",
+      "aliases": [],
+      "task_type": "antibacterial peptide prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Artificial Neural Network, Quantitative Matrices, Support Vector Machine",
+      "input_features": "N and/or C terminus residues of peptides",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Evaluated for antibacterial prediction and significantly outperformed AntiBP2 on one benchmark.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Antibacterial peptide prediction method; outperformed AntiBP2 on one benchmark."
+    },
+    {
+      "model_name": "AntiBP2",
+      "canonical_name": "AntiBP2",
+      "aliases": [],
+      "task_type": "antibacterial peptide prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Artificial Neural Network, Quantitative Matrices, Support Vector Machine",
+      "input_features": "N and/or C terminus residues of peptides",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Original AntiBP significantly outperformed it on one dataset, but still a relevant antibacterial prediction tool.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Antibacterial peptide prediction method; predecessor to AntiBP."
+    },
+    {
+      "model_name": "BAGEL3",
+      "canonical_name": "BAGEL3",
+      "aliases": [],
+      "task_type": "bacteriocin prediction",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "not reported in available evidence",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "One of two bacteriocin prediction tools evaluated; outperformed BACTIBASE on the larger benchmark.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Bacteriocin prediction tool; outperformed BACTIBASE."
+    },
+    {
+      "model_name": "BACTIBASE",
+      "canonical_name": "BACTIBASE",
+      "aliases": [],
+      "task_type": "bacteriocin prediction",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "not reported in available evidence",
+      "input_features": "not reported in available evidence",
+      "source_pmid": "28203715",
+      "source_pmcid": "PMC5860510",
+      "source_doi": "10.1093/bioinformatics/btx081",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Bacteriocin prediction tool; outperformed by BAGEL3 on larger benchmark.",
+      "blocking_issues": [
+        "needs original paper verification"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.4,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "review_only",
+      "representative_reason": "Bacteriocin prediction tool; predecessor to BAGEL3."
+    },
+    {
+      "model_name": "AMP prediction server (biosino)",
+      "canonical_name": "AMP prediction server (biosino)",
+      "aliases": [
+        "Wang et al. AMP predictor"
+      ],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML/feature-engineering",
+      "architecture_or_algorithm": "Sequence alignment (BLASTP) + feature selection (mRMR, IFS) + Nearest Neighbor Algorithm (NNA)",
+      "input_features": "Amino acid composition, pseudo-amino acid composition (codon diversity, electrostatic charge, molecular volume, polarity, secondary structure)",
+      "source_pmid": "21533231",
+      "source_pmcid": "PMC3076375",
+      "source_doi": "10.1371/journal.pone.0018476",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://amp.biosino.org/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "CAMP database (http://www.camp.bicnirrh.res.in/) and UniProt",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP prediction method with a publicly available web server, evaluated via jackknife test on a benchmark dataset.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "pure_binary_amp_classifier",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "webserver_only",
+      "representative_reason": "Novel method using sequence alignment and feature selection; web server available; jackknife accuracy ~80.23%, MCC 0.73."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMP prediction server (biosino)",
+      "url": "http://amp.biosino.org/",
+      "repository_type": "webserver",
+      "matched_model_name": "AMP prediction server (biosino)",
+      "source_pmid": "21533231",
+      "source_doi": "10.1371/journal.pone.0018476",
+      "evidence_level": "fulltext",
+      "evidence": "a user-friendly web-server is provided at http://amp.biosino.org/."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "Wang et al. 2011 AMP benchmark dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "CAMP and UniProt",
+      "linked_model": "AMP prediction server (biosino)",
+      "dataset_role": "benchmark",
+      "dataset_status": "source_database_named",
+      "positive_samples": "870 AMPs",
+      "negative_samples": "8661 non-AMPs",
+      "deduplication_method": "CD-HIT at 70% sequence identity",
+      "split_method": "jackknife",
+      "source_pmid": "21533231",
+      "source_doi": "10.1371/journal.pone.0018476",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "ADAM",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "CAMPR3(RF)",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "CAMPR3(SVM)",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "MLAMP",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "DBAASP",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "AntiBP",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "AntiBP2",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "BAGEL3",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "BACTIBASE",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported",
+      "evidence": "Only reviewed in benchmark paper; no dataset info."
+    },
+    {
+      "model_name": "AMP prediction server (biosino)",
+      "dataset_name": "Wang et al. 2011 AMP benchmark dataset",
+      "dataset_status": "source_database_named",
+      "evidence": "CAMP and UniProt derived; no direct URL."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Overall jackknife success rate",
+      "source_pmid": "21533231",
+      "source_doi": "10.1371/journal.pone.0018476",
+      "evidence": "overall jackknife success rate by the new predictor on a newly constructed benchmark dataset was over 80.23%"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "Mathews correlation coefficient",
+      "source_pmid": "21533231",
+      "source_doi": "10.1371/journal.pone.0018476",
+      "evidence": "the Mathews correlation coefficient is 0.73"
+    }
+  ],
+  "important_evidence": [
+    "CAMPR3(RF) significantly outperformed other five general AMP prediction tools (ADAM, CAMPR3(SVM), MLAMP, DBAASP, MLAMP) in the benchmark study.",
+    "BAGEL3 outperformed BACTIBASE on the larger bacteriocin benchmark.",
+    "AMP prediction server (biosino) achieved 80.23% jackknife accuracy and MCC 0.73 on a dataset of 870 AMPs and 8661 non-AMPs from CAMP and UniProt.",
+    "AntiBP significantly outperformed AntiBP2 on one antibacterial benchmark dataset."
+  ],
+  "uncertainties": [
+    "Nine models (ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP, DBAASP, AntiBP, AntiBP2, BAGEL3, BACTIBASE) lack original papers in this evidence chunk; details, code, and weights unknown.",
+    "AMP prediction server (biosino) provides web server but no code/weights; benchmarking status limited to webserver.",
+    "Dataset for AMP prediction server is derived from CAMP and UniProt, but no direct download link; may need to be reconstructed."
+  ],
+  "source_pmids": [
+    "28203715",
+    "21533231"
+  ],
+  "source_dois": [
+    "10.1093/bioinformatics/btx081",
+    "10.1371/journal.pone.0018476"
+  ],
+  "urls": [
+    "http://amp.biosino.org/"
+  ]
+}

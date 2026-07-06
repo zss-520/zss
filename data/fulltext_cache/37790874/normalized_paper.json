@@ -1,0 +1,47 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "37790874"
+  },
+  "pmid": "37790874",
+  "pmcid": "PMC4038373",
+  "doi": "10.1038/415389a",
+  "title": "Hierarchical machine learning model predicts antimicrobial peptide activity against",
+  "abstract": "Introduction: Staphylococcus aureus is a dangerous pathogen which causes a vast selection of infections. Antimicrobial peptides have been demonstrated as a new hope for developing antibiotic agents against multi-drug-resistant bacteria such as S. aureus. Yet, most studies on developing classification tools for antimicrobial peptide activities do not focus on any specific species, and therefore, their applications are limited. Methods: Here, by using an up-to-date dataset, we have developed a hierarchical machine learning model for classifying peptides with antimicrobial activity against S. aureus. The first-level model classifies peptides into AMPs and non-AMPs. The second-level model classifies AMPs into those active against S. aureus and those not active against this species. Results: Results from both classifiers demonstrate the effectiveness of the hierarchical approach. A comprehensive set of physicochemical and linguistic-based features has been used, and after feature selection steps, only some physicochemical properties were selected. The final model showed the F1-score of 0.80, recall of 0.86, balanced accuracy of 0.80, and specificity of 0.73 on the test set. Discussion: The susceptibility to a single AMP is highly varied among different target species. Therefore, it cannot be concluded that AMP candidates suggested by AMP/non-AMP classifiers are able to show suitable activity against a specific species. Here, we addressed this issue by creating a hierarchical machine learning model which can be used in practical applications for extracting potential antimicrobial peptides against S. aureus from peptide libraries.",
+  "journal": "Frontiers in molecular biosciences",
+  "venue": "Frontiers in molecular biosciences",
+  "year": 2023,
+  "authors": [
+    "Hosein Khabaz",
+    "Mehdi Rahimi-Nasrabadi",
+    "Amir Homayoun Keihan"
+  ],
+  "keywords": [
+    "Staphylococcus aureus",
+    "antimicrobial activity",
+    "antimicrobial peptides",
+    "classification model",
+    "machine learning"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "11807545",
+    "pmc": "PMC4038373",
+    "doi": "10.1038/415389a",
+    "pii": "1238509"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/37790874/",
+    "https://doi.org/10.1038/415389a",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4038373/"
+  ],
+  "raw_source_files": [],
+  "query_name": "benchmark and dataset papers",
+  "query_text": "(\"benchmark\" OR \"dataset\" OR \"data set\" OR \"evaluation\" OR \"comparison\" OR \"survey\") AND (\"antimicrobial peptide\" OR \"AMP\" OR \"antimicrobial peptides\") AND (prediction OR model)",
+  "candidate_key": "doi:10 1038 415389a"
+}

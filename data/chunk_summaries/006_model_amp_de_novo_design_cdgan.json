@@ -1,0 +1,214 @@
+{
+  "chunk_id": "model_amp_de_novo_design_cdgan",
+  "chunk_type": "model",
+  "chunk_name": "amp_de_novo_design_cdGAN",
+  "compression_status": "ok",
+  "main_entities": [
+    "Multi-label weighted KNN-MLR model (Wang2017)",
+    "cdGAN (Tizoc2025)"
+  ],
+  "papers": [
+    {
+      "title": "Multi-label Learning for Predicting the Activities of Antimicrobial Peptides",
+      "pmid": "28526820",
+      "pmcid": "5438384",
+      "doi": "10.1038/s41598-017-01986-9",
+      "year": "2017",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Classifier-driven generative adversarial networks for enhanced antimicrobial peptide design",
+      "pmid": "41137855",
+      "pmcid": "12553139",
+      "doi": "10.1093/bib/bbaf500",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "Multi-label weighted KNN-MLR model",
+      "canonical_name": "Multi-label WKnn-MLR (Wang2017)",
+      "aliases": [
+        "Multi-label learning model for AMP activity prediction",
+        "WKnn-MLR"
+      ],
+      "task_type": "antimicrobial peptide activity prediction (multi-label classification)",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Weighted K-nearest neighbor (WKnn) for label score computation, followed by multiple linear regression (MLR) to incorporate label correlations and predict final label set.",
+      "input_features": "Amino acid composition (AAC, 20-dim) + dipeptide composition (DC, 400-dim) = 420-dimensional feature vector",
+      "source_pmid": "28526820",
+      "source_pmcid": "5438384",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "APD database (May 2016) filtered to 2222 AMPs with 5 activities; APD3 available at https://aps.unmc.edu/AP/",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel multi-label method for AMP activity prediction with clear methodology and publicly available dataset (APD), suitable for inclusion in benchmark comparison.",
+      "blocking_issues": [
+        "No code or web server available",
+        "No independent external test set"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.85,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "not_applicable",
+      "benchmark_entry_status": "ready_candidate",
+      "representative_reason": "A multi-label method for AMP activity prediction using amino acid composition; suitable as a baseline for multi-label classification."
+    },
+    {
+      "model_name": "cdGAN",
+      "canonical_name": "cdGAN (Tizoc2025)",
+      "aliases": [
+        "classifier-driven GAN for AMP design"
+      ],
+      "task_type": "antimicrobial peptide design (generative model with classifier)",
+      "method_family": "deep learning, GAN",
+      "architecture_or_algorithm": "Classifier-driven GAN with ESM2-based classifier integrated into loss function; generator produces peptide sequences, classifier evaluates antimicrobial probability.",
+      "input_features": "peptide sequences (10-50 residues), structural annotations from Porter 5",
+      "source_pmid": "41137855",
+      "source_pmcid": "12553139",
+      "source_doi": "10.1093/bib/bbaf500",
+      "code_repository_url": "https://github.com/aretiz/amp_de_novo_design_cdGAN",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "APD3 + UniProt (2600 AMPs, 2600 non-AMPs)",
+      "benchmark_candidate": false,
+      "candidate_reason": "Primarily a generative model; classifier may be reused for prediction but not directly benchmarked as a standalone AMP predictor.",
+      "blocking_issues": [
+        "Generative model, not a direct AMP predictor",
+        "Classifier weights not explicitly provided as standalone predictor"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "model_category_hint": "generative_or_design_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "cdGAN represents a classifier-driven generative approach for AMP design; could serve as a representative for generative models in design tasks."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "amp_de_novo_design_cdGAN",
+      "url": "https://github.com/aretiz/amp_de_novo_design_cdGAN",
+      "repository_type": "code",
+      "matched_model_name": "cdGAN",
+      "source_pmid": "41137855",
+      "source_doi": "10.1093/bib/bbaf500",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub repository linked in the paper: https://github.com/aretiz/amp_de_novo_design_cdGAN."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "APD (May 2016) filtered multi-label dataset",
+      "dataset_url": "https://aps.unmc.edu/AP/",
+      "dataset_source": "APD database (https://aps.unmc.edu/AP/), filtered to 2222 AMPs with 5 activities",
+      "linked_model": "Multi-label weighted KNN-MLR model",
+      "dataset_role": "training_and_validation",
+      "dataset_status": "source_database_named",
+      "positive_samples": "2222 AMPs",
+      "negative_samples": "none (multi-label dataset, no explicit negative class)",
+      "deduplication_method": "not described",
+      "split_method": "leave-one-out cross-validation",
+      "source_pmid": "28526820",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "APD3 + UniProt balanced dataset",
+      "dataset_url": "https://github.com/aretiz/amp_de_novo_design_cdGAN",
+      "dataset_source": "APD3 for AMPs, reviewed UniProt for non-AMPs, clustered with MMseqs2 at 50% identity",
+      "linked_model": "cdGAN",
+      "dataset_role": "training",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "2600 AMPs (10-50 residues)",
+      "negative_samples": "2600 non-AMPs (10-50 residues)",
+      "deduplication_method": "MMseqs2 clustering at 50% sequence identity for non-AMPs; average pairwise similarity 0.2",
+      "split_method": "not explicitly described (likely used for GAN training)",
+      "source_pmid": "41137855",
+      "source_doi": "10.1093/bib/bbaf500",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "Multi-label weighted KNN-MLR model",
+      "dataset_name": "APD (May 2016) filtered multi-label dataset",
+      "link_type": "training_and_validation",
+      "evidence": "Dataset used for leave-one-out cross-validation of multi-label activity prediction."
+    },
+    {
+      "model_name": "cdGAN",
+      "dataset_name": "APD3 + UniProt balanced dataset",
+      "link_type": "training",
+      "evidence": "Dataset used to train the classifier-driven GAN for AMP design."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Hamming loss",
+      "usage": "Multi-label evaluation of AMP activity prediction",
+      "source_pmid": "28526820",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "evidence": "Paper reports Hamming loss, one-error, coverage, ranking loss, average precision."
+    },
+    {
+      "metric_name": "One-error",
+      "usage": "Multi-label evaluation",
+      "source_pmid": "28526820",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "evidence": "Used in comparing multi-label algorithms."
+    },
+    {
+      "metric_name": "Coverage",
+      "usage": "Multi-label evaluation",
+      "source_pmid": "28526820",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "evidence": "Reported in results."
+    },
+    {
+      "metric_name": "Ranking loss",
+      "usage": "Multi-label evaluation",
+      "source_pmid": "28526820",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "evidence": "Reported in results."
+    },
+    {
+      "metric_name": "Average precision",
+      "usage": "Multi-label evaluation",
+      "source_pmid": "28526820",
+      "source_doi": "10.1038/s41598-017-01986-9",
+      "evidence": "Reported in results."
+    }
+  ],
+  "important_evidence": [
+    "Multi-label WKnn-MLR proposes a novel method for predicting five AMP activities simultaneously, using AAC and dipeptide composition features.",
+    "cdGAN introduces a classifier-driven GAN framework that integrates ESM2-based classifier into the loss function for AMP design; code and dataset are available on GitHub.",
+    "Both papers rely on APD-derived datasets; the first uses a filtered multi-label set (2222 AMPs), the second uses a balanced APD3+UniProt set (5200 sequences)."
+  ],
+  "uncertainties": [
+    "Is the multi-label WKnn-MLR model available as a web server or code?",
+    "Does the cdGAN classifier (ESM2-based) function as a standalone AMP prediction model worthy of separate benchmarking?",
+    "Are the filtered datasets from both papers directly downloadable from the APD version used or from the GitHub repository?"
+  ],
+  "source_pmids": [
+    "28526820",
+    "41137855"
+  ],
+  "source_dois": [
+    "10.1038/s41598-017-01986-9",
+    "10.1093/bib/bbaf500"
+  ],
+  "urls": [
+    "https://github.com/aretiz/amp_de_novo_design_cdGAN",
+    "https://aps.unmc.edu/AP/",
+    "https://www.nature.com/articles/s41598-017-01986-9.pdf",
+    "https://doi.org/10.1038/s41598-017-01986-9",
+    "https://doi.org/10.1093/bib/bbaf500"
+  ]
+}

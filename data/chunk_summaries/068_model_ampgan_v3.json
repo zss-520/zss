@@ -1,0 +1,171 @@
+{
+  "chunk_id": "model_ampgan_v3",
+  "chunk_type": "model",
+  "chunk_name": "AMPGAN v3",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPGAN v3",
+    "PepAnno"
+  ],
+  "papers": [
+    {
+      "title": "A mechanism-guided framework for prioritizing membrane-interaction anti-Vibrio peptides from peptidomics data.",
+      "pmid": "42364293",
+      "pmcid": null,
+      "doi": "10.1016/j.jmgm.2026.109497",
+      "year": "2026",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Agentic Discovery of Non-Canonical Antimicrobial Peptides with AMPGAN v3",
+      "pmid": null,
+      "pmcid": null,
+      "doi": null,
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "From Innate Immunity to Cancer Therapy: Antimicrobial Peptides as Emerging Anticancer Agents.",
+      "pmid": "42352904",
+      "pmcid": "PMC13299682",
+      "doi": "10.3390/ijms27125179",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "PepAnno: A structure-aware deep learning framework for bioactive peptide prediction, structural visualization, and physicochemical profiling.",
+      "pmid": "42228741",
+      "pmcid": null,
+      "doi": "10.1371/journal.pcbi.1014369",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPGAN v3",
+      "canonical_name": "AMPGAN v3",
+      "aliases": [
+        "AMPGANv3"
+      ],
+      "task_type": "other",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Multi-objective conditional GAN with two specialized discriminators (adversarial and activity-aware), generative vocabulary expanded to D-amino acids and N/C-terminus modifications",
+      "input_features": "Peptide sequences including D-amino acids and modifications",
+      "source_pmid": null,
+      "source_pmcid": null,
+      "source_doi": null,
+      "code_repository_url": "https://github.com/marszzibros/AMPGANv3",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel generative AMP model with code, in vitro validation, and reported superiority over prior models, suitable for AMP prediction benchmarks.",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "PepAnno",
+      "canonical_name": "PepAnno",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Structure-aware multi-view geometric deep learning; dual-stream combining Transformer and GATv2 with cross-modal attention",
+      "input_features": "Pre-trained sequence embeddings and predicted 3D structural graphs",
+      "source_pmid": "42228741",
+      "source_pmcid": null,
+      "source_doi": "10.1371/journal.pcbi.1014369",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://bis.zju.edu.cn/pepanno/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Comprehensive DL web server for AMP prediction among other bioactivities, competitive performance, publicly available.",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.8
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPGANv3",
+      "url": "https://github.com/marszzibros/AMPGANv3",
+      "repository_type": "code",
+      "matched_model_name": "AMPGAN v3",
+      "source_pmid": null,
+      "source_doi": null,
+      "evidence_level": "abstract",
+      "evidence": "Code: https://github.com/marszzibros/AMPGANv3"
+    },
+    {
+      "name": "PepAnno",
+      "url": "https://bis.zju.edu.cn/pepanno/",
+      "repository_type": "webserver",
+      "matched_model_name": "PepAnno",
+      "source_pmid": "42228741",
+      "source_doi": "10.1371/journal.pcbi.1014369",
+      "evidence_level": "abstract",
+      "evidence": "https://bis.zju.edu.cn/pepanno/"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AMPGAN v3 dataset",
+      "dataset_url": "https://github.com/marszzibros/AMPGANv3",
+      "dataset_source": "GitHub repository",
+      "linked_model": "AMPGAN v3",
+      "source_pmid": null,
+      "source_doi": null,
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "abstract",
+      "evidence": "Repository likely contains training data"
+    },
+    {
+      "dataset_name": "PepAnno curated bioactivity datasets",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "mentioned in PepAnno paper",
+      "linked_model": "PepAnno",
+      "source_pmid": "42228741",
+      "source_doi": "10.1371/journal.pcbi.1014369",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "abstract",
+      "evidence": "seven curated bioactivity datasets"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "AMPGAN v3: multi-objective conditional GAN with D-amino acids and modifications, in vitro validation, outperforms prior generative AMP models on external classifiers.",
+    "PepAnno: structure-aware multi-view geometric deep learning, web server for multi-task peptide bioactivity prediction including AMP, competitive performance."
+  ],
+  "uncertainties": [
+    "AMPGAN v3: no DOI or PMID available; dataset details not reported; model weights not available.",
+    "PepAnno: code repository not reported; training data details not available."
+  ],
+  "source_pmids": [
+    "42364293",
+    "42228741",
+    "42352904"
+  ],
+  "source_dois": [
+    "10.1016/j.jmgm.2026.109497",
+    "10.1371/journal.pcbi.1014369",
+    "10.3390/ijms27125179"
+  ],
+  "urls": [
+    "https://github.com/marszzibros/AMPGANv3",
+    "https://bis.zju.edu.cn/pepanno/",
+    "https://www.semanticscholar.org/paper/a590dfb8fa04f5553d1a44a1828a17335144b949",
+    "https://www.semanticscholar.org/paper/619194c382234bf6db3f45a4a7006ff6edd2241d",
+    "https://www.semanticscholar.org/paper/8cd7162af374696b2d346e046867f0e458836500",
+    "https://www.semanticscholar.org/paper/253ce654d36d723dcbb4d0edac9d3465e51b9ef4"
+  ]
+}

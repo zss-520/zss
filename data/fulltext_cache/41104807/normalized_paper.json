@@ -1,0 +1,36 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41104807",
+    "pmid": "41104807"
+  },
+  "pmid": "41104807",
+  "pmcid": "PMC12531984",
+  "doi": "10.1093/bib/bbaf548",
+  "title": "Pepxml: ESM2-based extreme multilabel classification of pathogen-targeted antimicrobial peptides.",
+  "abstract": "In recent years, antimicrobial peptides (AMPs) have attracted interest as potential peptide antibiotic due to their broad-spectrum antibacterial activity and high target specificity. However, existing research on AMP prediction mainly focuses on their functional properties, such as antibacterial, antiviral, and anticancer. This emphasis has created a significant gap in identifying AMPs that specifically target pathogens. Given the large variety of pathogens and the sparsity and imbalance of labels, it is challenging to determine which specific pathogens AMPs can effective against. To address this issue, we present PepXML, a large language model-based tool for extreme multilabel classification of pathogen-targeted AMPs. Our first step involved constructing a benchmark dataset of AMPs and their corresponding targeted pathogens, sourced from public databases. In PepXML, the peptides are embedded using ESM2. Further, clustering on a specifically designed label co-occurrence graph and hard negative sampling were employed to address challenges on data sparsity and label imbalance. To validate the reliability of our predictive results, we conducted molecular docking studies focused on peptide-bilayer membrane interactions and performed molecular dynamics simulations to elucidate the mechanisms of peptide-pathogen interactions. We anticipate that PepXML will be a valuable resource for advancing peptide-based therapeutics. The data and Python codes of the PepXML model are available at https://github.com/YannanBin/PepXML.git.",
+  "journal": null,
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Bin Y",
+    "Zhang D",
+    "Hu Z",
+    "Xu C",
+    "Su Y."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/41104807/",
+    "https://doi.org/10.1093/bib/bbaf548",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12531984/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+  "candidate_key": "doi:10 1093 bib bbaf548"
+}

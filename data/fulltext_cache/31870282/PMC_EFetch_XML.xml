@@ -1,0 +1,498 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article article-type="research-article" xml:lang="en" dtd-version="1.4"><front><journal-meta><journal-id journal-id-type="nlm-ta">Bioinformatics</journal-id><journal-id journal-id-type="iso-abbrev">Bioinformatics</journal-id><journal-id journal-id-type="pmc-domain-id">716</journal-id><journal-id journal-id-type="pmc-domain">bioinfo</journal-id><journal-id journal-id-type="publisher-id">bioinformatics</journal-id><journal-title-group><journal-title>Bioinformatics</journal-title></journal-title-group><issn pub-type="ppub">1367-4803</issn><issn pub-type="epub">1367-4811</issn><publisher><publisher-name>Oxford University Press</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC6192215</article-id><article-id pub-id-type="pmcid-ver">PMC6192215.1</article-id><article-id pub-id-type="pmcaid">6192215</article-id><article-id pub-id-type="pmcaiid">6192215</article-id><article-id pub-id-type="pmid">29069282</article-id><article-id pub-id-type="doi">10.1093/bioinformatics/btx679</article-id><article-id pub-id-type="publisher-id">btx679</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Original Papers</subject><subj-group subj-group-type="category-toc-heading"><subject>Genome Analysis</subject></subj-group></subj-group></article-categories><title-group><article-title>Chromatin accessibility prediction via a hybrid deep convolutional neural
+network</article-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="Q">Qiao</given-names></name><xref ref-type="aff" rid="btx679-aff1">1</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Xia</surname><given-names initials="F">Fei</given-names></name><xref ref-type="aff" rid="btx679-aff2">2</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Yin</surname><given-names initials="Q">Qijin</given-names></name><xref ref-type="aff" rid="btx679-aff1">1</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Jiang</surname><given-names initials="R">Rui</given-names></name><xref ref-type="aff" rid="btx679-aff1">1</xref><xref ref-type="corresp" rid="btx679-cor1"/></contrib></contrib-group><contrib-group><contrib contrib-type="editor"><name name-style="western"><surname>Birol</surname><given-names initials="I">Inanc</given-names></name><role>Associate Editor</role></contrib></contrib-group><aff id="btx679-aff1"><label>1</label>MOE Key Laboratory of Bioinformatics; Bioinformatics Division and Center
+for Synthetic &amp; Systems Biology, TNLIST; Department of Automation, Tsinghua University,
+Beijing, China</aff><aff id="btx679-aff2"><label>2</label>Department of Electrical Engineering, Stanford University, Stanford, CA,
+USA</aff><author-notes><corresp id="btx679-cor1">To whom correspondence should be addressed. Email:
+<email>ruijiang@tsinghua.edu.cn</email></corresp></author-notes><pub-date pub-type="ppub"><day>01</day><month>3</month><year>2018</year></pub-date><pub-date pub-type="epub" iso-8601-date="2017-10-23"><day>23</day><month>10</month><year>2017</year></pub-date><volume>34</volume><issue>5</issue><issue-id pub-id-type="pmc-issue-id">316319</issue-id><fpage>732</fpage><lpage>738</lpage><history><date date-type="received"><day>08</day><month>6</month><year>2017</year></date><date date-type="rev-recd"><day>18</day><month>9</month><year>2017</year></date><date date-type="accepted"><day>20</day><month>10</month><year>2017</year></date></history><pub-history><event event-type="pmc-release"><date><day>01</day><month>03</month><year>2019</year></date></event><event event-type="pmc-live"><date><day>01</day><month>03</month><year>2019</year></date></event><event event-type="pmc-released-under-embargo"><date><day>24</day><month>10</month><year>2018</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-10-15 21:25:17.100"><day>15</day><month>10</month><year>2024</year></date></event></pub-history><permissions><copyright-statement>© The Author 2017. Published by Oxford University Press. All rights
+reserved. For Permissions, please e-mail:
+journals.permissions@oup.com</copyright-statement><copyright-year>2017</copyright-year><license xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://creativecommons.org/licenses/by/4.0/" license-type="cc-by"><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an Open Access article distributed under the terms of the Creative
+Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted
+reuse, distribution, and reproduction in any medium, provided the original work is
+properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="btx679.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="btx679.pdf"/><abstract><title>Abstract</title><sec id="s1"><title>Motivation</title><p>A majority of known genetic variants associated with human-inherited diseases lie in
+non-coding regions that lack adequate interpretation, making it indispensable to
+systematically discover functional sites at the whole genome level and precisely
+decipher their implications in a comprehensive manner. Although computational approaches
+have been complementing high-throughput biological experiments towards the annotation of
+the human genome, it still remains a big challenge to accurately annotate regulatory
+elements in the context of a specific cell type via automatic learning of the DNA
+sequence code from large-scale sequencing data. Indeed, the development of an accurate
+and interpretable model to learn the DNA sequence signature and further enable the
+identification of causative genetic variants has become essential in both genomic and
+genetic studies.</p></sec><sec id="s2"><title>Results</title><p>We proposed Deopen, a hybrid framework mainly based on a deep convolutional neural
+network, to automatically learn the regulatory code of DNA sequences and predict
+chromatin accessibility. In a series of comparison with existing methods, we show the
+superior performance of our model in not only the classification of accessible regions
+against background sequences sampled at random, but also the regression of DNase-seq
+signals. Besides, we further visualize the convolutional kernels and show the match of
+identified sequence signatures and known motifs. We finally demonstrate the sensitivity
+of our model in finding causative noncoding variants in the analysis of a breast cancer
+dataset. We expect to see wide applications of Deopen with either public or in-house
+chromatin accessibility data in the annotation of the human genome and the
+identification of non-coding variants associated with diseases.</p></sec><sec id="s3"><title>Availability and implementation</title><p>Deopen is freely available at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://github.com/kimmo1019/Deopen">https://github.com/kimmo1019/Deopen</ext-link>.</p></sec><sec id="s5"><title>Supplementary information</title><p>
+<xref ref-type="supplementary-material" rid="sup1">Supplementary data</xref> are
+available at <italic toggle="yes">Bioinformatics</italic> online.</p></sec></abstract><funding-group><award-group award-type="grant"><funding-source><named-content content-type="funder-name">National Natural Science Foundation of
+China</named-content><named-content content-type="funder-identifier">10.13039/501100001809</named-content></funding-source><award-id>61721003, 61573207 and 61175002</award-id></award-group></funding-group><counts><page-count count="7"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec><title>1 Introduction</title><p>Over the past decade, genome-wide association studies (GWAS) have provided genome-wide
+profiles about the genetic basis of complex traits and common diseases (<xref rid="btx679-B23" ref-type="bibr">Manolio, 2010</xref>; <xref rid="btx679-B30" ref-type="bibr">Stranger <italic toggle="yes">et al.</italic>, 2011</xref>). However, building
+accurate models to interpret functions and properties of the identified genetic variants is
+still a challenging task due to the complicated mechanism of eukaryotic gene expression,
+especially the incomplete understanding of non-coding DNA (<xref rid="btx679-B33" ref-type="bibr">Ward and Kellis, 2012</xref>a). Systematic annotations of functional
+elements could help us understand regulatory mechanisms underlying genetic signals that are
+statistically associated with a disease (<xref rid="btx679-B25" ref-type="bibr">Paul
+<italic toggle="yes">et al.</italic>, 2014</xref>). It has been argued that the occurrence of a
+genetic variant may result in the disruption of its hosting regulatory element, and hence
+cause the development of a disease (<xref rid="btx679-B1" ref-type="bibr">Alexander
+<italic toggle="yes">et al.</italic>, 2010</xref>). Consequently, the current inability to precisely
+predict the implication of regulatory elements directly impedes the progress towards precise
+medicine and personal medical treatment.</p><p>Putative accessible regions in the genome often work together with transcription factors
+(TFs), RNA polymerases and other cellular machines to regulate gene expression (<xref rid="btx679-B15" ref-type="bibr">Kellis <italic toggle="yes">et al.</italic>, 2014</xref>). This
+understanding, together with the fact that disease-associated genetic variants tend to
+enrich in accessible regions, makes the deciphering of DNA sequence signature such as
+chromatin accessibility essential for studying functional implications of genetic variants.
+The identification of chromatin accessibility can be traced back to a class of methods based
+on the comparison the sequence conservation across different species (<xref rid="btx679-B19" ref-type="bibr">Lee <italic toggle="yes">et al.</italic>, 2011</xref>). However, the fact that
+accessibility could not be determined by sequence conservation alone impairs accuracy of
+these methods and restricts their applications. Recently, the development of high-throughput
+sequencing technologies, such as DNase-seq, MNase-seq and ATAC-seq, has enabled the
+accumulation of a vast amount of chromatin profiles across different cell lines. Given
+chromatin profiles as training data, machine learning models could effectively predict the
+chromatin accessibility, transcription factor binding sites (TFBS), histone markers and DNA
+methylation from genome sequences (<xref rid="btx679-B9" ref-type="bibr">Ghandi <italic toggle="yes">et
+al.</italic>, 2014</xref>; <xref rid="btx679-B17" ref-type="bibr">Kircher <italic toggle="yes">et
+al.</italic>, 2014</xref>; <xref rid="btx679-B19" ref-type="bibr">Lee <italic toggle="yes">et
+al.</italic>, 2011</xref>, <xref rid="btx679-B18" ref-type="bibr">2015</xref>; <xref rid="btx679-B20" ref-type="bibr">Liu <italic toggle="yes">et al.</italic>, 2017</xref>; <xref rid="btx679-B34" ref-type="bibr">Ward and Kellis, 2012b</xref>; <xref rid="btx679-B35" ref-type="bibr">Whitaker <italic toggle="yes">et al.</italic>, 2015</xref>). A powerful predictive
+method could help us annotate effects of genetic variants with single-nucleotide
+sensitivity, especially for rare variants whose functional implications are still
+unknown.</p><p>Over the past 5 years, artificial neural networks with stacked layers have achieved
+unprecedented performance in many fields including but not limited to computer vision (<xref rid="btx679-B31" ref-type="bibr">Sun <italic toggle="yes">et al.</italic>, 2014</xref>) and natural
+language processing (<xref rid="btx679-B38" ref-type="bibr">Collobert <italic toggle="yes">et
+al</italic>., 2011</xref>). Previous applications of deep learning models have achieved
+great success in predicting protein-binding sites, histone markers and DNA accessibility
+(<xref rid="btx679-B2" ref-type="bibr">Alipanahi <italic toggle="yes">et al.</italic>, 2015</xref>;
+<xref rid="btx679-B14" ref-type="bibr">Kelley <italic toggle="yes">et al.</italic>, 2016</xref>; <xref rid="btx679-B28" ref-type="bibr">Quang and Xie, 2016</xref>; <xref rid="btx679-B37" ref-type="bibr">Zhou and Troyanskaya, 2015</xref>). It inspires us that building such
+predictive models could help us dissect regulatory code of accessible genome which could
+improve the interpretation of functional genomic sites.</p><p>In this article, we introduce Deopen (<bold>De</bold>ep <bold>open</bold>ness prediction
+network), a computational framework that applies a hybrid deep convolutional neural network
+(CNN) to learn regulatory sequence code and predict chromatin accessibility at the whole
+genome level. Through comprehensive experiments, we demonstrate that Deopen not only
+achieves state-of-the-art performance in the chromatin accessibility classification problem,
+but also successfully recovers continuous degree of chromatin accessibility for an input
+sequence, thereby filling the gap of predicting DNA accessibility signals in continuous
+values. To make Deopen more understandable, we propose a strategy to visualize motifs
+discovered by our model and successfully find their counterparts in the JASPAR database. To
+demonstrate applications of Deopen, we focus on a GWAS dataset of breast cancer and show the
+ability of our method to explain functional implications of putative disease-associated
+single nucleotide polymorphisms (SNPs). We finally summarize that Deopen, as an effective
+predictive model for learning DNA regulatory code, could shed light on the understanding of
+gene regulation mechanisms and the deciphering of genetic basis of human complex
+diseases.</p></sec><sec><title>2 Materials and methods</title><sec><title>2.1 Data preparation and preprocessing</title><p>In order to learn DNA sequence codes that determine accessible (open) and inaccessible
+(closed) chromatins, we randomly select 50 DNase-seq experiments (see detail in <xref ref-type="supplementary-material" rid="sup1">Supplementary Table.xls</xref>) from the
+ENCODE Project (<xref rid="btx679-B6" ref-type="bibr">Dunham, 2012</xref>) across 50
+different human cell lines as suggested in Basset (<xref rid="btx679-B14" ref-type="bibr">Kelley <italic toggle="yes">et al.</italic>, 2016</xref>). Considering that an experiment may have
+one or more replicates, we merge all sequencing reads for different replicates that
+correspond to an experiment and apply Hotspot (<xref rid="btx679-B13" ref-type="bibr">John
+<italic toggle="yes">et al.</italic>, 2011</xref>), a peak calling tool, to extract putative open
+regions with FDR equals 0.01 from the merged data. Cell-type specificity can be observed
+as the cover rate of open regions for different cell types range from 4.6 to 19.8%, which
+intuitively inspires us that cell-type specific model should be established. To further
+preprocess the data, we extract 1000 bp from the midpoint of each open region with hg19
+reference genome for each DNase I hypersensitive site (DHS), forming the positive training
+samples. Negative training samples are randomly selected from background sequences in hg19
+reference genome. In classification and regression experiments, the original dataset of
+each cell line is randomly down-sampled to 100k sites due to the limited scalability of
+gkm-SVM (<xref rid="btx679-B18" ref-type="bibr">Lee <italic toggle="yes">et al.</italic>, 2015</xref>).
+We then use 90% of the resulting data for training and the rest 10% for test. All the
+assessment and analysis are performed on the test set.</p></sec><sec><title>2.2 Design of Deopen</title><p>Deopen has a hybrid architecture which consists of a deep convolutional neural network
+(CNN) and a typical three-layer feed forward network (<xref ref-type="fig" rid="btx679-F1">Fig. 1</xref>). The deep CNN is organized in a sequential layer-by-layer structure
+where convolution layers and pooling layers play a key role in extracting input features
+at different spatial scales. The three-layer feed forward network consists of neurons that
+are connected to every neuron in the next layer. We concatenate the outputs of the above
+two networks to form a hybrid feature vector as the input of a fully connected layer. The
+output layer of Deopen consists of a softmax classifier which could estimate the chromatin
+open probability (see detailed parameters in <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S5</xref>). Deopen not only considers spatial interactions
+and orientations between sequence patterns but also takes high-level representation of
+<italic toggle="yes">k</italic>-mers into account. In the implementation of Deopen, we calculate the
+one-hot matrix and <italic toggle="yes">k</italic>-mer features of input DNA sequences in advance, then
+we reshape all the inputs into one matrix which is convenient for model training. Besides,
+we randomly drop half of units in hybrid fully connected layer using dropout (<xref rid="btx679-B11" ref-type="bibr">Hinton <italic toggle="yes">et al.</italic>, 2012</xref>). More
+importantly, we introduce a strategy to better initialize weights of convolutional
+kernels. Briefly, we first generate five models with identical architecture and initialize
+each model with different weights at random. Then we train each model for three epochs
+respectively to obtain a rough evaluation of these models. Finally, we select the model
+with the highest performance in the internal validation and use this model as the starting
+point to conduct the training procedure. </p><fig id="btx679-F1" orientation="portrait" position="float"><label>Fig. 1.</label><caption><p>The schematic of Deopen. On the left, a convolutional neural network is applied to
+automatically learn the DNA sequence feature. On the right, a typical three-layer feed
+forward neural network is constructed to learn high-level representation of
+<italic toggle="yes">k</italic>-mer features. We concatenate outputs of the above two networks to
+form the hybrid fully connected layer. The output layer estimates open probability
+using a softmax classifier and update through the backpropagation strategy</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="btx679f1.jpg"/></fig><p>The convolution operation in CNN could be denoted as <disp-formula id="E1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M1" overflow="scroll"><mml:mrow><mml:mtext>Convolution</mml:mtext><mml:msub><mml:mrow><mml:mo stretchy="true">(</mml:mo><mml:mi mathvariant="bold">X</mml:mi><mml:mo stretchy="true">)</mml:mo></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mtext>Relu</mml:mtext><mml:mo stretchy="true">(</mml:mo><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>M</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:munderover><mml:mrow><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>N</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:munderover><mml:mrow><mml:msubsup><mml:mi>w</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>n</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>+</mml:mo><mml:mi>m</mml:mi><mml:mo>,</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mrow><mml:mo stretchy="true">)</mml:mo><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula> where <inline-formula id="IE1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM1" overflow="scroll"><mml:mi mathvariant="bold">X</mml:mi></mml:math></inline-formula> is the input matrix, <italic toggle="yes">M</italic> the size of the
+sliding window, <italic toggle="yes">N</italic> the number of input channels, <inline-formula id="IE2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM2" overflow="scroll"><mml:msup><mml:mrow><mml:mi mathvariant="bold-italic">W</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:msubsup><mml:mrow><mml:mi mathvariant="bold-italic">w</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">m</mml:mi><mml:mi mathvariant="bold-italic">n</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">k</mml:mi></mml:mrow></mml:msubsup><mml:mo>)</mml:mo></mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">M</mml:mi><mml:mo>×</mml:mo><mml:mi mathvariant="bold-italic">N</mml:mi></mml:mrow></mml:msub></mml:math></inline-formula> the weight matrix of the <italic toggle="yes">k</italic>th convolution
+kernel with size <inline-formula id="IE3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM3" overflow="scroll"><mml:mi>M</mml:mi><mml:mo>×</mml:mo><mml:mi>N</mml:mi></mml:math></inline-formula>. For the first convolution layer, <italic toggle="yes">N</italic> is
+equal to 4. For other layers, <italic toggle="yes">N</italic> is equal to the number of convolutional
+kernels of the previous layer. <inline-formula id="IE4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM4" overflow="scroll"><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">e</mml:mi><mml:mi mathvariant="normal">l</mml:mi><mml:mi mathvariant="normal">u</mml:mi></mml:math></inline-formula> represents rectified linear unit, which sets negative
+values to zeros, as <disp-formula id="E2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M2" overflow="scroll"><mml:mrow><mml:mtext>Relu</mml:mtext><mml:mo stretchy="true">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="true">)</mml:mo><mml:mo>=</mml:mo><mml:mrow><mml:mo stretchy="true">{</mml:mo><mml:mrow><mml:mtable><mml:mtr columnalign="left"><mml:mtd columnalign="left"><mml:mi>x</mml:mi></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mtext>if</mml:mtext><mml:mo> </mml:mo><mml:mi>x</mml:mi><mml:mo>≥</mml:mo><mml:mn>0</mml:mn></mml:mrow></mml:mtd></mml:mtr><mml:mtr columnalign="left"><mml:mtd columnalign="left"><mml:mn>0</mml:mn></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mtext>otherwise</mml:mtext></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:mrow><mml:mo>.</mml:mo></mml:mrow></mml:math></disp-formula> The maximum value in a window of adjacent positions is
+calculated for each kernel, for the purpose of reducing the output size and integrate
+features in a higher level. The pooling operation is denoted as <disp-formula id="E3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M3" overflow="scroll"><mml:mrow><mml:mtext>pooling</mml:mtext><mml:msub><mml:mrow><mml:mo stretchy="true">(</mml:mo><mml:mi mathvariant="bold">X</mml:mi><mml:mo stretchy="true">)</mml:mo></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi>max</mml:mi><mml:mo>⁡</mml:mo><mml:mo stretchy="true">(</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>M</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>M</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>M</mml:mi><mml:mo>+</mml:mo><mml:mi>M</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="true">)</mml:mo><mml:mo>.</mml:mo></mml:mrow></mml:math></disp-formula> The fully connected layers integrate high-level features of
+DNA sequences and transform the features into a fixed dimension space. The output layer
+estimates the accessible probability using the softmax regression. The solution to the
+Deopen classification model can then be regarded as an optimization problem with the
+objective function <disp-formula id="E4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M4" overflow="scroll"><mml:mrow><mml:mtext>arg</mml:mtext><mml:mo> </mml:mo><mml:mtext>max</mml:mtext><mml:mo> </mml:mo><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:mtext>CE</mml:mtext><mml:mo>(</mml:mo><mml:msub><mml:mi>Y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mrow><mml:mover accent="true"><mml:mi>Y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mo>)</mml:mo></mml:mrow><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula> where <inline-formula id="IE5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM5" overflow="scroll"><mml:mrow><mml:msub><mml:mi>Y</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> and <inline-formula id="IE6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM6" overflow="scroll"><mml:mrow><mml:msub><mml:mrow><mml:mover accent="true"><mml:mi>Y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> denote the true label and the predicted value of the
+<italic toggle="yes">i</italic>th sample, respectively, <inline-formula id="IE7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM7" overflow="scroll"><mml:mrow><mml:mi>C</mml:mi><mml:mi>E</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>Y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mrow><mml:mover accent="true"><mml:mi>Y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="true">)</mml:mo><mml:mo>=</mml:mo><mml:mo>−</mml:mo><mml:msub><mml:mi>Y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo> </mml:mo><mml:mtext>log</mml:mtext><mml:mo> </mml:mo><mml:mo>⁡</mml:mo><mml:msub><mml:mrow><mml:mover accent="true"><mml:mi>Y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mo>−</mml:mo><mml:mo stretchy="true">(</mml:mo><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:msub><mml:mi>Y</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="true">)</mml:mo><mml:mo> </mml:mo><mml:mtext>log</mml:mtext><mml:mo> </mml:mo><mml:mo>⁡</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>−</mml:mo><mml:msub><mml:mrow><mml:mover accent="true"><mml:mi>Y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="true">)</mml:mo></mml:mrow></mml:math></inline-formula><sub>,</sub> the cross entropy of <inline-formula id="IE8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM8" overflow="scroll"><mml:mrow><mml:msub><mml:mi>Y</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula> and <inline-formula id="IE9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM9" overflow="scroll"><mml:mrow><mml:msub><mml:mrow><mml:mover accent="true"><mml:mi>Y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math></inline-formula>, and <italic toggle="yes">n</italic> the number of training samples. We
+use Adam (<xref rid="btx679-B16" ref-type="bibr">Kingma and Ba, 2014</xref>) as the
+optimizer for updating kernel weights.</p><p>For the Deopen regression model, instead of binary label, we define openness as below
+<disp-formula id="E5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M5" overflow="scroll"><mml:mrow><mml:mtext>openness</mml:mtext><mml:mo stretchy="true">(</mml:mo><mml:msub><mml:mi>S</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="true">)</mml:mo><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi>L</mml:mi></mml:mfrac><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mi>L</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula> where <italic toggle="yes">L</italic> is the length of a region (1000 bp
+for Deopen) and <inline-formula id="IE10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM10" overflow="scroll"><mml:mrow><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math></inline-formula> the number of reads that mapped to sequence region
+<italic toggle="yes">S<sub>i</sub></italic><inline-formula id="IE11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM11" overflow="scroll"><mml:mi mathvariant="normal"> </mml:mi></mml:math></inline-formula>in the reference genome.</p><p>There are two major differences in the neural network architecture in Deopen regression
+model. (i) The output layer directly applies a linear transformation as <inline-formula id="IE12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM12" overflow="scroll"><mml:mi>Y</mml:mi><mml:mo>=</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="bold">W</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">T</mml:mi></mml:mrow></mml:msup><mml:mi mathvariant="bold">X</mml:mi></mml:math></inline-formula>, since there is no discrete label available. (ii) Mean
+square error (MSE) is used as the loss function, since cross entropy is often used in the
+case of classification.</p><p>We implement the above models using the Theano framework (<xref rid="btx679-B4" ref-type="bibr">Bastien <italic toggle="yes">et al.</italic>, 2012</xref>) on a Linux platform. All
+experiments are carried out on a workstation equipped with 4 Nvidia K80 GPUs which
+significantly accelerated the training process compared to training on CPU.</p></sec><sec><title>2.3 Baseline models</title><p>We use two baseline models in classification. First, we download Basset, a deep learning
+method for predicting the genome accessibility (<xref rid="btx679-B14" ref-type="bibr">Kelley <italic toggle="yes">et al.</italic>, 2016</xref>), from its web site (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://github.com/davek44/Basset">https://github.com/davek44/Basset</ext-link>). Second, we download gkm-SVM (<xref rid="btx679-B18" ref-type="bibr">Lee <italic toggle="yes">et al.</italic>, 2015</xref>) from its web
+site (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://github.com/Dongwon-Lee/lsgkm">https://github.com/Dongwon-Lee/lsgkm</ext-link>). Default parameters are used for both
+methods.</p><p>We use three regression models (Linear, Ridge, Lasso) from the Scikit-learn library
+(<xref rid="btx679-B26" ref-type="bibr">Pedregosa <italic toggle="yes">et al.</italic>, 2011</xref>)
+with default parameters. Since these methods are not capable of automatically learning
+features from DNA sequences, we regress the openness value against manually extracted
+<italic toggle="yes">k</italic>-mer features, where <italic toggle="yes">k</italic> is changed from 6 to 10, and
+the one with the highest performance is selected.</p></sec><sec><title>2.4 Evaluating SNPs using Deopen</title><p>We apply Deopen to evaluate functional effects of genetic variants. Given a specific cell
+line, we train a Deopen regression model with related DNase-seq data. For a SNP, we
+determine a region of 1000 bp long around the SNP and predict openness values,
+<inline-formula id="IE13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM13" overflow="scroll"><mml:mrow><mml:msup><mml:mi>p</mml:mi><mml:mrow><mml:mtext>ref</mml:mtext></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula> and <inline-formula id="IE14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM14" overflow="scroll"><mml:mrow><mml:msup><mml:mi>p</mml:mi><mml:mrow><mml:mtext>alt</mml:mtext></mml:mrow></mml:msup></mml:mrow></mml:math></inline-formula>, for the corresponding reference and alteration sequences,
+respectively. We then define a functional implication score, <inline-formula id="IE15"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM15" overflow="scroll"><mml:mrow><mml:mo>Δ</mml:mo><mml:mi>p</mml:mi></mml:mrow></mml:math></inline-formula>, for the SNP as the absolute value of the difference
+between the two predictions, i.e. <inline-formula id="IE16"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM16" overflow="scroll"><mml:mrow><mml:mo>Δ</mml:mo><mml:mi>p</mml:mi><mml:mo>=</mml:mo><mml:mo>|</mml:mo><mml:msup><mml:mi>p</mml:mi><mml:mrow><mml:mtext>ref</mml:mtext></mml:mrow></mml:msup><mml:mo>−</mml:mo><mml:msup><mml:mi>p</mml:mi><mml:mrow><mml:mtext>alt</mml:mtext></mml:mrow></mml:msup><mml:mo>|</mml:mo></mml:mrow></mml:math></inline-formula>.</p></sec><sec><title>2.5 Deopen motif visualization strategy</title><p>We convert a kernel of the first convolutional layer into a PWM by scanning along input
+sequences for activated positions of the kernel and then calculating the PWM by pooling
+corresponding regions. We regard a position <italic toggle="yes">i</italic> as being activated if
+<disp-formula id="E6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M6" overflow="scroll"><mml:mrow><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>M</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:munderover><mml:mrow><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>N</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:munderover><mml:mrow><mml:msubsup><mml:mi>w</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>n</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>+</mml:mo><mml:mi>m</mml:mi><mml:mo>,</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mrow><mml:mo>&gt;</mml:mo><mml:mo>α</mml:mo><mml:mo>⋅</mml:mo><mml:mtext>EAV</mml:mtext><mml:mo>,</mml:mo></mml:mrow></mml:math></disp-formula> where <inline-formula id="IE17"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM17" overflow="scroll"><mml:mo>α</mml:mo></mml:math></inline-formula> is the control coefficient (<inline-formula id="IE18"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM18" overflow="scroll"><mml:mn>0</mml:mn><mml:mo>&lt;</mml:mo><mml:mo>α</mml:mo><mml:mo>&lt;</mml:mo><mml:mn>1</mml:mn></mml:math></inline-formula>) and EAV the extreme activation value defined as
+<disp-formula id="E7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M7" overflow="scroll"><mml:mrow><mml:mtext>EAV</mml:mtext><mml:mo>=</mml:mo><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mi>M</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:munderover><mml:mrow><mml:mi>max</mml:mi><mml:mo>⁡</mml:mo><mml:mo stretchy="true">(</mml:mo><mml:msubsup><mml:mi>w</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>n</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:mo> </mml:mo><mml:mo>|</mml:mo><mml:mo> </mml:mo><mml:mn>0</mml:mn><mml:mo>≤</mml:mo><mml:mi>n</mml:mi><mml:mo>≤</mml:mo><mml:mi>N</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="true">)</mml:mo></mml:mrow><mml:mo>.</mml:mo></mml:mrow></mml:math></disp-formula> We set length of filters in the first convolutional layer to
+20 and <inline-formula id="IE19"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IM19" overflow="scroll"><mml:mi mathvariant="bold-italic">α</mml:mi></mml:math></inline-formula> to 0.7 in our visualization experiments. We identify
+putative motifs using the tool TomTom 4.11.2 (<xref rid="btx679-B10" ref-type="bibr">Gupta
+<italic toggle="yes">et al.</italic>, 2007</xref>) with <italic toggle="yes">E</italic>-value threshold 0.05 to
+match PWMs identified by our method to the JASPAR database (<xref rid="btx679-B24" ref-type="bibr">Mathelier <italic toggle="yes">et al.</italic>, 2016</xref>).</p></sec></sec><sec><title>3 Results</title><sec><title>3.1 Deopen predicts binary accessibility status</title><p>We first designed a series of experiments to systematically evaluate the performance of
+Deopen in capturing genome accessibility codes from the viewpoint of binary
+classification. For this objective, we selected 50 cell lines at random from the ENCODE
+Project (<xref rid="btx679-B6" ref-type="bibr">Dunham, 2012</xref>), trained Deopen,
+Basset (<xref rid="btx679-B14" ref-type="bibr">Kelley <italic toggle="yes">et al.</italic>,
+2016</xref>) and gkm-SVM (<xref rid="btx679-B18" ref-type="bibr">Lee <italic toggle="yes">et
+al.</italic>, 2015</xref>) on each of these cell lines, and then assessed these
+methods in terms of two criteria: the area under the receiver operating characteristic
+curve (AUC) and the area under the precision-recall curve (auPR).</p><p>According to these criteria, Deopen achieves the highest performance among all the three
+methods with the mean AUC of 0.906 across all the 50 cell lines, compared to 0.869 of
+Basset and 0.852 of gkm-SVM. The mean auPR of Deopen (0.899) also surpasses both Basset
+(0.863) and gkm-SVM (0.851) (see <xref ref-type="fig" rid="btx679-F2">Fig. 2</xref> and
+<xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S1</xref>). With a
+false-positive rate (FPR) cutoff 0.1, Deopen achieves a mean true positive (TPR) of 0.489,
+relative to 0.413 of Basset and 0.437 of gkm-SVM. All these results support the
+superiority of our method over existing state-of-the-art approaches. Besides, both a
+binomial exact test and a Mann–Whitney test suggest that the advantage of our method is
+statistically significant (<xref ref-type="supplementary-material" rid="sup1">Supplementary Table S1</xref>). Furthermore, considering that accessible regions
+account for only a small fraction of the human genome, we conducted the above comparison
+on unbalanced datasets (positive: negative = 1: 10) and found that our method also
+achieves the highest performance with an average F1-score of 0.678, relative to 0.498 of
+Basset (<xref ref-type="supplementary-material" rid="sup1">Supplementary Table S2</xref>). </p><fig id="btx679-F2" orientation="portrait" position="float"><label>Fig. 2.</label><caption><p>The performance of Deopen and existing state-of-the-art methods in DNA accessibility
+classification experiments. Deopen outperforms the state-of-the-art methods Basset
+(<xref rid="btx679-B14" ref-type="bibr">Kelley <italic toggle="yes">et al.</italic>, 2016</xref>)
+and gkm-SVM (<xref rid="btx679-B18" ref-type="bibr">Lee <italic toggle="yes">et al.</italic>,
+2015</xref>) in all 50 randomly selected cell lines. We only show the results in
+nine typical cell lines here (See all the results in <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S1</xref>).
+(<bold>A</bold>) The receiver operating characteristic (ROC) curve of three
+approaches. (<bold>B</bold>) The precision-recall (PR) curve of three approaches</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="btx679f2.jpg"/></fig><p>In order to evaluate contributions of CNN and <italic toggle="yes">k</italic>-mer features to Deopen,
+respectively, we performed a model ablation analysis where we ran Deopen in the same 50
+cell lines without CNN or <italic toggle="yes">k</italic>-mer features (<xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S2</xref>). After
+removing the three-layer feed forward neural network with <italic toggle="yes">k</italic>-mer input,
+the mean AUC decreases about 1%. However, the mean AUC drops about 9% when removing the
+CNN architecture. Obviously, CNN is the most importance component in the architecture of
+Deopen.</p><p>To sum up, Deopen is superior to baseline methods in binary classification tasks,
+implying that the integration of different representations of high level features, such as
+<italic toggle="yes">k</italic>-mer features and those extracted by CNN, could better learn the DNA
+sequence code.</p></sec><sec><title>3.2 Deopen recovers continuous degree of accessibility</title><p>In the above classification experiments, we simply consider the binary status, open
+(accessible) and closed (inaccessible), of an input DNA sequence. However, degrees of
+accessibility of DNA sequences may differ from each other even when they have the same
+binary labels. Such difference in the degree of accessibility implicates that binary
+classification models are unable to discriminate putative open regions with different
+accessibility. To address this problem, we built a Deopen regression model to further
+recover the degree of accessibility of a DNA sequence. With the consideration that the
+accessible regions tend to contain more mapped reads. We define ‘openness’ (see formula in
+Methods), the degree of accessibility of a region, as the average reads mapped back to the
+region, thus providing a continuous measure for chromatin accessibility. We then modified
+the structure of our Deopen model by replacing the softmax layer with a linear
+transformation layer. Besides, we use mean square error (MSE) as the loss function, thus
+forming the Deopen regression model.</p><p>Similar to the experiments in classification, we used Deopen regression model to recover
+the openness of input DNA sequences with the same datasets. Note that accessible regions
+of human genome only cover a small proportion (<xref rid="btx679-B15" ref-type="bibr">Kellis <italic toggle="yes">et al.</italic>, 2014</xref>). Therefore, we first predicted the
+openness of DNA sequences from the original test datasets, with both positive and negative
+samples included, across different cell lines (<xref ref-type="fig" rid="btx679-F3">Fig.
+3A</xref>). The obvious distribution around a straight line implicates the effectiveness
+of our regression model. Our Deopen regression model achieves a mean Pearson Correlation
+Coefficient (PCC) of 0.809 across all cell lines. The PCCs surpass 0.8 in more than half
+of the cell lines. </p><fig id="btx679-F3" orientation="portrait" position="float"><label>Fig. 3.</label><caption><p>Scatter plots of regression experiments using Deopen across different cell lines. The
+<italic toggle="yes">x</italic>-coordinate denotes the openness we defined in Methods, and the
+<italic toggle="yes">y</italic>-coordinate denotes the openness our model predicted (both are in
+logarithmic coordinates). The Pearson Correlation Coefficient is marked in each plot.
+We only show the results in nine typical cell lines. (<bold>A</bold>) We predicted
+openness of both positive samples and negative samples in balanced dataset.
+(<bold>B</bold>) We predicted openness of only positive samples</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="btx679f3.jpg"/></fig><p>Since people are more interested in the degree of accessibility for open regions, we
+removed negative samples in test datasets and directly predicted openness for the positive
+samples (<xref ref-type="fig" rid="btx679-F3">Fig. 3B</xref>). Due to the significant
+difference in openness value of positive and negative samples, it is more challenging to
+predict the openness of positive samples alone. However, our Deopen regression model still
+achieves a decent outcome with a mean Pearson Correlation Coefficient of 0.648 across all
+cell lines. It even achieves PCC higher than 0.7 in 34% of the cell lines.</p><p>As there is no published work to predict open chromatin signals in continuous value. we
+compared our Deopen regression model with three regression models, Linear Regression
+(<xref rid="btx679-B8" ref-type="bibr">Galton, 1886</xref>), Ridge (<xref rid="btx679-B12" ref-type="bibr">Hoerl and Kennard, 1970</xref>) and Lasso (<xref rid="btx679-B32" ref-type="bibr">Tibshirani, 1996</xref>). We used
+<italic toggle="yes">k</italic>-mer feature as the input of the three baseline models. For regression
+with mixed samples, Deopen outperforms three baseline methods by a large margin with an
+average PCC 0.809 (<xref rid="btx679-T1" ref-type="table">Table 1</xref>). The small
+<italic toggle="yes">P</italic>-values of binomial exact test and Mann–Whitney test further support
+the superiority of our method (<xref ref-type="supplementary-material" rid="sup1">Supplementary Table S3</xref>). To verify the robustness of Deopen, we changed ratio
+between negative and positive samples from 1 to 10. Our method also achieves the best
+performance in regression experiment in all cases (<xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S3C</xref>). Classification models we stated before could
+help us judge whether the input DNA sequence is accessible. However, with Deopen
+regression model, we could further determine and quantify the open degree of the input DNA
+sequence with a continuous value. Deopen regression model hence provides us a broader way
+of predicting genome accessibility and inferring genome state. <table-wrap id="btx679-T1" orientation="portrait" position="float"><label>Table 1.</label><caption><p>Deopen regression compared to other three methods</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col valign="top" align="left" span="1"/><col valign="top" align="char" char="." span="1"/><col valign="top" align="char" char="." span="1"/><col valign="top" align="char" char="." span="1"/><col valign="top" align="char" char="." span="1"/><col valign="top" align="char" char="." span="1"/><col valign="top" align="char" char="." span="1"/></colgroup><thead><tr><th rowspan="2" colspan="1">Methods</th><th colspan="3" rowspan="1">Mixed samples<hr/></th><th colspan="3" rowspan="1">Positive samples only<hr/></th></tr><tr><th rowspan="1" colspan="1">Mean</th><th rowspan="1" colspan="1">Median</th><th rowspan="1" colspan="1">Max</th><th rowspan="1" colspan="1">Mean</th><th rowspan="1" colspan="1">Median</th><th rowspan="1" colspan="1">Max</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Deopen</td><td rowspan="1" colspan="1"><bold>0.809</bold></td><td rowspan="1" colspan="1"><bold>0.805</bold></td><td rowspan="1" colspan="1"><bold>0.859</bold></td><td rowspan="1" colspan="1"><bold>0.648</bold></td><td rowspan="1" colspan="1"><bold>0.645</bold></td><td rowspan="1" colspan="1"><bold>0.755</bold></td></tr><tr><td rowspan="1" colspan="1">LR</td><td rowspan="1" colspan="1">0.750</td><td rowspan="1" colspan="1">0.752</td><td rowspan="1" colspan="1">0.813</td><td rowspan="1" colspan="1">0.613</td><td rowspan="1" colspan="1">0.604</td><td rowspan="1" colspan="1">0.726</td></tr><tr><td rowspan="1" colspan="1">Ridge</td><td rowspan="1" colspan="1">0.753</td><td rowspan="1" colspan="1">0.755</td><td rowspan="1" colspan="1">0.813</td><td rowspan="1" colspan="1">0.616</td><td rowspan="1" colspan="1">0.604</td><td rowspan="1" colspan="1">0.727</td></tr><tr><td rowspan="1" colspan="1">Lasso</td><td rowspan="1" colspan="1">0.620</td><td rowspan="1" colspan="1">0.638</td><td rowspan="1" colspan="1">0.715</td><td rowspan="1" colspan="1">0.503</td><td rowspan="1" colspan="1">0.423</td><td rowspan="1" colspan="1">0.632</td></tr></tbody></table><table-wrap-foot><fn id="tblfn1"><p><italic toggle="yes">Note</italic>: Deopen regression could achieve significant higher Pearson
+Correlation Coefficient than other three methods in both two types of experiments.
+The best PCC is showed in bold. See detailed distribution of PCCs in <xref ref-type="supplementary-material" rid="sup1">Supplementary Figures S3A and
+S3B</xref>.</p></fn></table-wrap-foot></table-wrap></p></sec><sec><title>3.3 Deopen recovers known TF binding motifs</title><p>To make Deopen model more interpretable and convincing, we proposed a strategy to
+visualize motifs learned from the first convolution layer (see Methods). We then compared
+these motifs with known Vertebrates motifs in the JASPAR database (<xref rid="btx679-B24" ref-type="bibr">Mathelier <italic toggle="yes">et al.</italic>, 2016</xref>). Using motif comparison
+tool TomTom (<xref rid="btx679-B10" ref-type="bibr">Gupta <italic toggle="yes">et al.</italic>,
+2007</xref>) with significant <italic toggle="yes">E</italic>-value threshold 0.05, we match about 28
+to 43% of motifs learned by Deopen in the first convolution layer to known motifs in
+different cell lines (see <xref ref-type="fig" rid="btx679-F4">Fig. 4</xref> for some
+examples). To name a few, Deopen recovers CTCF, a common architectural protein which
+prefers to bind in open regions (<xref rid="btx679-B29" ref-type="bibr">Shlyueva
+<italic toggle="yes">et al.</italic>, 2014</xref>), in a stem cell line (H1-HESC). In a prostate
+cancer cell line (LN-CaP), Deopen recovers EGR1 which is believed to be the potential
+target of gene therapy for prostate cancer (<xref rid="btx679-B3" ref-type="bibr">Baron
+<italic toggle="yes">et al.</italic>, 2006</xref>). In another liver cancer cell line (HepG2),
+Deopen recovers POU2F1 which could promote cell proliferation and inhibit apoptosis of
+liver cancer cells (<xref rid="btx679-B21" ref-type="bibr">Liu <italic toggle="yes">et al.</italic>,
+2016</xref>). To sum up, the powerful learning ability of Deopen could not only help us
+find potential TFs binding in specific cell line, but also guide us to find novel motifs
+which are not discovered by experiments yet. </p><fig id="btx679-F4" orientation="portrait" position="float"><label>Fig. 4.</label><caption><p>Visualization of motifs learned by Deopen from the first convolutional kernels. For
+each cell type, we display matched motifs with a <italic toggle="yes">E</italic>-value threshold
+0.05 in the format of sequence logos (above: known motif from the JASPAR database,
+below: motif learned by Deopen)</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="btx679f4.jpg"/></fig></sec><sec><title>3.4 Applications of Deopen to GWAS</title><p>To demonstrate the application of Deopen to GWAS, we collected a set of genetic variants
+associated with breast cancer from a previous study (<xref rid="btx679-B5" ref-type="bibr">Cowper-Sal <italic toggle="yes">et al.</italic>, 2012</xref>). Briefly, this dataset contains 44
+SNPs associated with breast cancer, among which 29 are related to the modulation of FOXA1,
+a DNA-binding proteins crucial for nucleosome positioning and chromatin accessibility
+(<xref rid="btx679-B7" ref-type="bibr">Eeckhoute, 2006</xref>; <xref rid="btx679-B22" ref-type="bibr">Long <italic toggle="yes">et al.</italic>, 2010</xref>). Besides, there are 1057
+SNPs having strong linkage disequilibrium (<italic toggle="yes">r</italic><sup>2</sup> &gt; 0.8) with
+the 29 SNPs.</p><p>To show the ability of our method in discriminating the 29 SNPs against the 1057 SNPs, we
+identified a breast cancer cell line (MCF-7) in the ENCODE project and trained a Deopen
+regression model using DNase-seq data of this cell line. We then calculated functional
+implication scores for these SNPs and drew box plots for the 29 and 1057 SNPs,
+respectively. As shown in <xref ref-type="fig" rid="btx679-F5">Figure 5A</xref>, scores
+for the 29 SNPs related with the modulation of FOXA1 are apparently higher than those of
+the 1057 SNPs (one-sided Mann–Whitney U test
+<italic toggle="yes">P</italic>-value = 1.63 × 10<sup>−3</sup>). In contrast, deltaSVM, a similar
+scoring method proposed in gkm-SVM (<xref rid="btx679-B18" ref-type="bibr">Lee <italic toggle="yes">et
+al.</italic>, 2015</xref>), yields a <italic toggle="yes">P</italic>-value of only 0.19.</p><p>Among the 29 SNPs, rs4784227 is believed to disrupt the binding of FOXA1 (<xref rid="btx679-B5" ref-type="bibr">Cowper-Sal <italic toggle="yes">et al.</italic>, 2012</xref>; <xref rid="btx679-B22" ref-type="bibr">Long <italic toggle="yes">et al.</italic>, 2010</xref>). In our
+dataset, there are three SNPs (rs3803662, rs17271951, rs309564) in strong linkage
+disequilibrium with rs4784227. According to our method, the functional implication score
+of rs4784227 is much higher than those of the other three SNPs (<xref ref-type="fig" rid="btx679-F5">Fig. 5B</xref>). In contrast, deltaSVM is unable to correctly prioritize
+rs4784227 (<xref ref-type="fig" rid="btx679-F5">Fig. 5C</xref>).</p><p>Furthermore, it has been shown that the risk allele, rs4784227[T], yields a 9% affinity
+increase when compared to the reference allele, rs4784227[C] (6.24 versus 5.73) (<xref rid="btx679-B5" ref-type="bibr">Cowper-Sal <italic toggle="yes">et al.</italic>, 2012</xref>). With
+the use of Deopen, we predict that the risk allele has a 13.8% increase of the functional
+implication score when compared to the reference one (0.445 versus 0.391). This result
+hence indicates that our method can also well predict the direction of affinity change in
+SNP evaluation. </p><fig id="btx679-F5" orientation="portrait" position="float"><label>Fig. 5.</label><caption><p>(<bold>A</bold>) Deopen could well discriminate 29 SNPs which modulate FOXA1 binding
+from the rest of 1057 SNPs that have strong linkage disequilibrium with the 29 SNPs
+(One-sided Mann–Whitney U test, <italic toggle="yes">P</italic>-value = 1.63 × 10<sup>-3</sup>,
+versus 0.19 in deltaSVM). (<bold>BC</bold>) Deopen correctly prioritizes the causal
+SNP rs4784227 which are believed to disrupt the binding of FOXA1 among its linked SNPs
+while deltaSVM failed</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="btx679f5.jpg"/></fig></sec></sec><sec><title>4 Discussion</title><p>Predicting functional elements in the genome has become a fundamental problem in
+computational biology. Our work has implicated that the evolution in software (CNNs),
+hardware (GPUs) and genomic big data have enabled drastically performance boost on such
+problems. Specifically, we introduced Deopen, an open source framework that integrates a
+deep convolutional neural network (CNN) and a feed forward neural network, to automatically
+learn the regulatory code of DNA sequence and implicate nucleotide driving activities. Our
+model has substantially surpassed the present state-of-the-art methods in the prediction
+accuracy. The downstream applications have already given us two scenarios with
+considerations of both genomics and genetics. Researchers can not only use our method to
+learn the chromatin accessibility code of different cell lines but also evaluate genetic
+variants with potential influence on the accessibility.</p><p>Besides, we have designed a series of extra experiments to verify the extensibility,
+scalability and robustness of Deopen. First, we further test Deopen on MNase-seq datasets
+which supposed to be more accurate than Dnase-seq datasets. Our method also achieves higher
+performance than all baseline methods (see <xref ref-type="supplementary-material" rid="sup1">Supplementary Fig. S4</xref>). Second, instead of using samples selected from
+background genome at random as the negative set, we applied two new background models (see
+<xref ref-type="supplementary-material" rid="sup1">Supplementary text S1 and S2</xref>)
+with considerations of GC content and cell line specificity, respectively. Deopen
+outperforms other methods under both new background models (see <xref ref-type="supplementary-material" rid="sup1">Supplementary Figs S6 and S7</xref>).</p><p>Certainly, our model can further be improved from many aspects. First, the great ability of
+Deopen to capture the regulatory code of DNA sequence could help us to identify other
+functional elements in genome, including enhancers, silencers, repressors, insulators and so
+forth. Second, Deopen could also be generalized to predict the impact of mutations and
+prioritize functional variants, thereby facilitating both research and practice of precision
+medicine. Third, our current model mainly focuses on the identification of accessible
+regions in a cell line, with the incorporation of informative data from biological
+experiments such as RNA-seq and ChIP-seq, it is hopeful that our model can be generalized to
+make cross cell-type predictions of regulatory elements. Finally, our motif analysis has
+showed that the first layer convolutional architecture is an effective motif discoverer.
+Researchers could use our method to learn the complex grammar of TFs binding in specific
+cell lines. It is also interesting to see whether higher layers of CNNs contain information
+about interactions of motifs.</p><p>To sum up, with Deopen, researcher could perform a single sequencing assay (DNase-seq,
+ATAC-seq, MNase-seq, etc.) of the cell type with interests. Then, one can simultaneously
+learn the regulatory code of genome and annotate the impact of every possible mutation in
+the genome. Using large-scale pubic data, one could train an accurate and interpretable
+model to predicting the impact of genetic variants associated with human diseases,
+especially the variants that lack enough interpretation in non-coding regions. We hope our
+approach could help unveil the regulatory mechanism underlying genetic signals and
+contribute to understanding the potential functions of SNPs.</p></sec><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material content-type="local-data" id="sup1" position="float" orientation="portrait"><label>Supplementary Data</label><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="btx679_supp.zip" position="float" orientation="portrait"><caption><p>Click here for additional data file.</p></caption></media></supplementary-material></sec></body><back><ack><title>Acknowledgements</title><p>We thank Mengmeng Wu and Wanwen Zeng for their helpful comments and discussion.</p><sec><title>Funding</title><p>This research was partially supported by the National Natural Science Foundation of China
+(Nos. 61721003, 61573207 and 61175002). Rui Jiang is a RONG professor at the Institute for
+Data Science, Tsinghua University.</p><p>
+<italic toggle="yes">Conflict of Interest</italic>: none declared.</p></sec></ack><ref-list><title>References</title><ref id="btx679-B1"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Alexander</surname><given-names>R.P.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) <article-title>Annotating non-coding regions of the
+genome</article-title>. <source>Nat. Rev. Genet</source>., <volume>11</volume>,
+<fpage>559</fpage>–<lpage>571</lpage>.<pub-id pub-id-type="pmid">20628352</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nrg2814</pub-id></mixed-citation></ref><ref id="btx679-B2"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Alipanahi</surname><given-names>B.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) <article-title>Predicting the sequence
+specificities of DNA- and RNA-binding proteins by deep learning</article-title>.
+<source>Nat. Biotechnol</source>., <volume>33</volume>,
+<fpage>831</fpage>–<lpage>838</lpage>.<pub-id pub-id-type="pmid">26213851</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nbt.3300</pub-id></mixed-citation></ref><ref id="btx679-B3"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Baron</surname><given-names>V.</given-names></name></person-group>
+<etal>et al</etal> (<year>2006</year>) <article-title>The transcription factor Egr1 is a
+direct regulator of multiple tumor suppressors including TGFβ1, PTEN, p53 and
+fibronectin: Egr1 is a potential target of</article-title>. <source>Gene Ther. Prostate
+Cancer Cancer Gene Ther</source>., <volume>13</volume>,
+<fpage>115</fpage>.<pub-id pub-id-type="pmid">16138117</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/sj.cgt.7700896</pub-id><pub-id pub-id-type="pmcid">PMC2455793</pub-id></mixed-citation></ref><ref id="btx679-B4"><mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Bastien</surname><given-names>F.</given-names></name></person-group>
+<etal>et al</etal> (<year>2012</year>) Theano: new features and speed improvements. arXiv
+Preprint arXiv. 1211.5590.</mixed-citation></ref><ref id="btx679-B38"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Collobert</surname><given-names>R.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) <article-title>Natural language processing (almost)
+from scratch</article-title>. <source>J Mach, Learn. Res</source>., <volume>12</volume>,
+<fpage>2493</fpage>–<lpage>2537</lpage>.</mixed-citation></ref><ref id="btx679-B5"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Cowper-Sal</surname><given-names>R.</given-names></name></person-group>
+<etal>et al</etal> (<year>2012</year>) <article-title>Breast cancer risk-associated SNPs
+modulate the affinity of chromatin for FOXA1 and alter gene expression</article-title>.
+<source>Nat. Genet</source>., <volume>44</volume>,
+<fpage>1191</fpage>–<lpage>1198</lpage>.<pub-id pub-id-type="pmid">23001124</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/ng.2416</pub-id><pub-id pub-id-type="pmcid">PMC3483423</pub-id></mixed-citation></ref><ref id="btx679-B6"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Dunham</surname><given-names>I.</given-names></name></person-group>
+<etal>et al</etal> (<year>2012</year>) <article-title>An integrated encyclopedia of DNA
+elements in the human genome</article-title>. <source>Nature</source>,
+<volume>489</volume>, <fpage>57</fpage>–<lpage>74</lpage>.<pub-id pub-id-type="pmid">22955616</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nature11247</pub-id><pub-id pub-id-type="pmcid">PMC3439153</pub-id></mixed-citation></ref><ref id="btx679-B7"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Eeckhoute</surname><given-names>J.</given-names></name></person-group> (<year>2006</year>) <article-title>A cell-type-specific transcriptional
+network required for estrogen regulation of cyclin D1 and cell cycle progression in
+breast cancer</article-title>. <source>Genes Dev</source>., <volume>20</volume>,
+<fpage>2513</fpage>–<lpage>2526</lpage>.<pub-id pub-id-type="pmid">16980581</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1101/gad.1446006</pub-id><pub-id pub-id-type="pmcid">PMC1578675</pub-id></mixed-citation></ref><ref id="btx679-B8"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Galton</surname><given-names>F.</given-names></name></person-group> (<year>1886</year>) <article-title>Regression towards mediocrity in
+hereditary stature</article-title>. <source>J. Anthropol. Inst. Great Britain
+Ireland</source>, <volume>15</volume>,
+<fpage>246</fpage>–<lpage>263</lpage>.</mixed-citation></ref><ref id="btx679-B9"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ghandi</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) <article-title>Enhanced regulatory sequence
+prediction using gapped k-mer features</article-title>. <source>PLoS Comput.
+Biol</source>., <volume>10</volume>, <fpage>e1003711</fpage>.<pub-id pub-id-type="pmid">25033408</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pcbi.1003711</pub-id><pub-id pub-id-type="pmcid">PMC4102394</pub-id></mixed-citation></ref><ref id="btx679-B10"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Gupta</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2007</year>) <article-title>Quantifying similarity between
+motifs</article-title>. <source>Genome Biol</source>., <volume>8</volume>,
+<fpage>R24</fpage>.<pub-id pub-id-type="pmid">17324271</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/gb-2007-8-2-r24</pub-id><pub-id pub-id-type="pmcid">PMC1852410</pub-id></mixed-citation></ref><ref id="btx679-B11"><mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Hinton</surname><given-names>G.E.</given-names></name></person-group>
+<etal>et al</etal> (<year>2012</year>) Improving neural networks by preventing
+co-adaptation of feature detectors. arXiv Preprint arXiv, 1207.0580.</mixed-citation></ref><ref id="btx679-B12"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Hoerl</surname><given-names>A.E.</given-names></name>, <name name-style="western"><surname>Kennard</surname><given-names>R.W.</given-names></name></person-group>
+(<year>1970</year>) <article-title>Ridge regression: Biased estimation for nonorthogonal
+problems</article-title>. <source>Technometrics</source>, <volume>12</volume>,
+<fpage>55</fpage>–<lpage>67</lpage>.</mixed-citation></ref><ref id="btx679-B13"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>John</surname><given-names>S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) <article-title>Chromatin accessibility
+pre-determines glucocorticoid receptor binding patterns</article-title>. <source>Nat.
+Genet</source>., <volume>43</volume>,
+<fpage>264</fpage>–<lpage>268</lpage>.<pub-id pub-id-type="pmid">21258342</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/ng.759</pub-id><pub-id pub-id-type="pmcid">PMC6386452</pub-id></mixed-citation></ref><ref id="btx679-B14"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kelley</surname><given-names>D.R.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) <article-title>Basset: learning the regulatory code
+of the accessible genome with deep convolutional neural networks</article-title>.
+<source>Genome Res</source>., <volume>26</volume>,
+<fpage>990</fpage>–<lpage>999</lpage>.<pub-id pub-id-type="pmid">27197224</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1101/gr.200535.115</pub-id><pub-id pub-id-type="pmcid">PMC4937568</pub-id></mixed-citation></ref><ref id="btx679-B15"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kellis</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) <article-title>Defining functional DNA elements in
+the human genome</article-title>. <source>Proc. Natl. Acad. Sci. USA</source>,
+<volume>111</volume>, <fpage>6131</fpage>–<lpage>6138</lpage>.<pub-id pub-id-type="pmid">24753594</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.1318948111</pub-id><pub-id pub-id-type="pmcid">PMC4035993</pub-id></mixed-citation></ref><ref id="btx679-B16"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kingma</surname><given-names>D.</given-names></name>, <name name-style="western"><surname>Ba</surname><given-names>J.</given-names></name></person-group>
+(<year>2014</year>) <article-title>Adam: a method for stochastic
+optimization</article-title>. <source>arXiv Preprint arXiv</source>,
+<italic toggle="yes">1412.6980.</italic></mixed-citation></ref><ref id="btx679-B17"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Kircher</surname><given-names>M.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) <article-title>A general framework for estimating
+the relative pathogenicity of human genetic variants</article-title>. <source>Nat.
+Genet</source>., <volume>46</volume>,
+<fpage>310</fpage>–<lpage>315</lpage>.<pub-id pub-id-type="pmid">24487276</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/ng.2892</pub-id><pub-id pub-id-type="pmcid">PMC3992975</pub-id></mixed-citation></ref><ref id="btx679-B18"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lee</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) <article-title>A method to predict the impact of
+regulatory variants from DNA sequence</article-title>. <source>Nat. Genet</source>.,
+<volume>47</volume>, <fpage>955</fpage>–<lpage>961</lpage>.<pub-id pub-id-type="pmid">26075791</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/ng.3331</pub-id><pub-id pub-id-type="pmcid">PMC4520745</pub-id></mixed-citation></ref><ref id="btx679-B19"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Lee</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) <article-title>Discriminative prediction of
+mammalian enhancers from DNA sequence</article-title>. <source>Genome Res</source>.,
+<volume>21</volume>, <fpage>2167</fpage>–<lpage>2180</lpage>.<pub-id pub-id-type="pmid">21875935</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1101/gr.121905.111</pub-id><pub-id pub-id-type="pmcid">PMC3227105</pub-id></mixed-citation></ref><ref id="btx679-B20"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Liu</surname><given-names>Q.</given-names></name></person-group>
+<etal>et al</etal> (<year>2017</year>) <article-title>A sequence-based method to predict
+the impact of regulatory variants using random forest</article-title>. <source>BMC Syst.
+Biol</source>., <volume>11</volume>, <fpage>7</fpage>.<pub-id pub-id-type="pmid">28361702</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12918-017-0389-1</pub-id><pub-id pub-id-type="pmcid">PMC5374684</pub-id></mixed-citation></ref><ref id="btx679-B21"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Liu</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) <article-title>miR-449a promotes liver cancer cell
+apoptosis by downregulation of Calpain 6 and POU2F1</article-title>.
+<source>Oncotarget</source>, <volume>7</volume>,
+<fpage>13491</fpage>–<lpage>13501</lpage>.<pub-id pub-id-type="pmid">26375440</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.18632/oncotarget.4821</pub-id><pub-id pub-id-type="pmcid">PMC4924656</pub-id></mixed-citation></ref><ref id="btx679-B22"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Long</surname><given-names>J.</given-names></name></person-group>
+<etal>et al</etal> (<year>2010</year>) <article-title>Identification of a functional
+genetic variant at 16q12. 1 for breast cancer risk: results from the Asia Breast Cancer
+Consortium</article-title>. <source>PLoS Genet</source>., <volume>6</volume>,
+<fpage>e1001002</fpage>.<pub-id pub-id-type="pmid">20585626</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pgen.1001002</pub-id><pub-id pub-id-type="pmcid">PMC2891809</pub-id></mixed-citation></ref><ref id="btx679-B23"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Manolio</surname><given-names>T.A.</given-names></name></person-group> (<year>2010</year>) <article-title>Genomewide association studies and
+assessment of the risk of disease</article-title>. <source>N. Engl. J. Med</source>.,
+<volume>363</volume>, <fpage>166</fpage>–<lpage>176</lpage>.<pub-id pub-id-type="pmid">20647212</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1056/NEJMra0905980</pub-id></mixed-citation></ref><ref id="btx679-B24"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Mathelier</surname><given-names>A.</given-names></name></person-group>
+<etal>et al</etal> (<year>2016</year>) <article-title>JASPAR 2016: a major expansion and
+update of the open-access database of transcription factor binding
+profiles</article-title>. <source>Nucleic Acids Res</source>., <volume>44</volume>,
+<fpage>D110</fpage>–<lpage>D115</lpage>.<pub-id pub-id-type="pmid">26531826</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkv1176</pub-id><pub-id pub-id-type="pmcid">PMC4702842</pub-id></mixed-citation></ref><ref id="btx679-B25"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Paul</surname><given-names>D.S.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) <article-title>Functional interpretation of
+non-coding sequence variation: concepts and challenges</article-title>.
+<source>Bioessays</source>, <volume>36</volume>,
+<fpage>191</fpage>–<lpage>199</lpage>.<pub-id pub-id-type="pmid">24311363</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/bies.201300126</pub-id><pub-id pub-id-type="pmcid">PMC3992842</pub-id></mixed-citation></ref><ref id="btx679-B26"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Pedregosa</surname><given-names>F.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) <article-title>Scikit-learn: machine learning in
+Python</article-title>. <source>J. Mach. Learn. Res</source>., <volume>12</volume>,
+<fpage>2825</fpage>–<lpage>2830</lpage>.</mixed-citation></ref><ref id="btx679-B28"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Quang</surname><given-names>D.</given-names></name>, <name name-style="western"><surname>Xie</surname><given-names>X.</given-names></name></person-group>
+(<year>2016</year>) DanQ: a hybrid convolutional and recurrent deep neural network for
+quantifying the function of DNA sequences. <italic toggle="yes">Nucleic Acids Res.</italic>,
+<volume>44</volume>, e107.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkw226</pub-id><pub-id pub-id-type="pmcid">PMC4914104</pub-id><pub-id pub-id-type="pmid">27084946</pub-id></mixed-citation></ref><ref id="btx679-B29"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Shlyueva</surname><given-names>D.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) <article-title>Transcriptional enhancers: from
+properties to genome-wide predictions</article-title>. <source>Nat. Rev.
+Genet</source>., <volume>15</volume>,
+<fpage>272</fpage>–<lpage>286</lpage>.<pub-id pub-id-type="pmid">24614317</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nrg3682</pub-id></mixed-citation></ref><ref id="btx679-B30"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Stranger</surname><given-names>B.E.</given-names></name></person-group>
+<etal>et al</etal> (<year>2011</year>) <article-title>Progress and promise of genome-wide
+association studies for human complex trait genetics</article-title>.
+<source>Genetics</source>, <volume>187</volume>,
+<fpage>367</fpage>–<lpage>383</lpage>.<pub-id pub-id-type="pmid">21115973</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1534/genetics.110.120907</pub-id><pub-id pub-id-type="pmcid">PMC3030483</pub-id></mixed-citation></ref><ref id="btx679-B31"><mixed-citation publication-type="other">
+<person-group person-group-type="author"><name name-style="western"><surname>Sun</surname><given-names>Y.</given-names></name></person-group>
+<etal>et al</etal> (<year>2014</year>) Deep learning face representation from predicting
+10,000 classes. In: <italic toggle="yes">Proceedings of the IEEE Conference on Computer Vision and
+Pattern Recognition</italic> pp.
+<fpage>1891</fpage>–<lpage>1898</lpage>.</mixed-citation></ref><ref id="btx679-B32"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Tibshirani</surname><given-names>R.</given-names></name></person-group> (<year>1996</year>) <article-title>Regression shrinkage and selection via
+the lasso</article-title>. <source>J. R. Stat. Soc. Ser. B (Methodological)</source>,
+<volume>58</volume>, <fpage>267</fpage>–<lpage>288</lpage>.</mixed-citation></ref><ref id="btx679-B34"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ward</surname><given-names>L.D.</given-names></name>, <name name-style="western"><surname>Kellis</surname><given-names>M.</given-names></name></person-group>
+(<year>2012a</year>) <article-title>Interpreting noncoding genetic variation in complex
+traits and human disease</article-title>. <source>Nat. Biotechnol</source>.,
+<volume>30</volume>, <fpage>1095</fpage>–<lpage>1106</lpage>.<pub-id pub-id-type="pmid">23138309</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nbt.2422</pub-id><pub-id pub-id-type="pmcid">PMC3703467</pub-id></mixed-citation></ref><ref id="btx679-B33"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Ward</surname><given-names>L.D.</given-names></name>, <name name-style="western"><surname>Kellis</surname><given-names>M.</given-names></name></person-group>
+(<year>2012b</year>) <article-title>HaploReg: a resource for exploring chromatin states,
+conservation, and regulatory motif alterations within sets of genetically linked
+variants</article-title>. <source>Nucleic Acids Res</source>., <volume>40</volume>,
+<fpage>D930</fpage>–<lpage>D934</lpage>.<pub-id pub-id-type="pmid">22064851</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkr917</pub-id><pub-id pub-id-type="pmcid">PMC3245002</pub-id></mixed-citation></ref><ref id="btx679-B35"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Whitaker</surname><given-names>J.W.</given-names></name></person-group>
+<etal>et al</etal> (<year>2015</year>) <article-title>Predicting the human epigenome from
+DNA motifs</article-title>. <source>Nat. Methods</source>, <volume>12</volume>,
+<fpage>265</fpage>–<lpage>272</lpage>.<pub-id pub-id-type="pmid">25240437</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nmeth.3065</pub-id><pub-id pub-id-type="pmcid">PMC4344378</pub-id></mixed-citation></ref><ref id="btx679-B37"><mixed-citation publication-type="journal">
+<person-group person-group-type="author"><name name-style="western"><surname>Zhou</surname><given-names>J.</given-names></name>, <name name-style="western"><surname>Troyanskaya</surname><given-names>O.G.</given-names></name></person-group>
+(<year>2015</year>) <article-title>Predicting effects of noncoding variants with deep
+learning-based sequence model</article-title>. <source>Nat. Methods</source>,
+<volume>12</volume>, <fpage>931</fpage>–<lpage>934</lpage>.<pub-id pub-id-type="pmid">26301843</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nmeth.3547</pub-id><pub-id pub-id-type="pmcid">PMC4768299</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

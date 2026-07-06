@@ -1,0 +1,442 @@
+{
+  "chunk_id": "model_amp_rnnpro",
+  "chunk_type": "model",
+  "chunk_name": "AMP-RNNpro",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP-RNNpro",
+    "iAMPCN",
+    "AP_Sin",
+    "AMP-Detector",
+    "DDM",
+    "UniAMP"
+  ],
+  "papers": [
+    {
+      "title": "Machine Learning-Driven Discovery and Evaluation of Antimicrobial Peptides from Crassostrea gigas Mucus",
+      "pmid": "39330266",
+      "pmcid": "PMC9917735",
+      "doi": "10.3390/ijms24032914",
+      "year": "2024",
+      "role": "unclear",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Machine Learning Accelerates De Novo Design of Antimicrobial Peptides.",
+      "pmid": "38416364",
+      "pmcid": "5902452",
+      "doi": "10.1038/s41467-018-03746-3",
+      "year": "2024",
+      "role": "model_original",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Protein Language Models and Machine Learning Facilitate the Identification of Antimicrobial Peptides.",
+      "pmid": "39201537",
+      "pmcid": "PMC5834480",
+      "doi": "10.3389/fmicb.2018.00323",
+      "year": "2024",
+      "role": "model_original",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "AMP-RNNpro: a two-stage approach for identification of antimicrobials using probabilistic features.",
+      "pmid": "38839785",
+      "pmcid": "PMC9421197",
+      "doi": "10.1016/j.csbj.2022.07.043",
+      "year": "2024",
+      "role": "model_original",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "A dual diffusion model-based representation learning framework for antimicrobial peptides classification.",
+      "pmid": "41692989",
+      "pmcid": "PMC12960902",
+      "doi": "10.1093/bioinformatics/btag077",
+      "year": "2026",
+      "role": "model_original",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "UniAMP: enhancing AMP prediction using deep neural networks with inferred information of peptides.",
+      "pmid": "39799358",
+      "pmcid": "PMC11725221",
+      "doi": "10.1186/s12859-025-06033-3",
+      "year": "2025",
+      "role": "model_original",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "AMP-RNNpro: a two-stage approach for identification of antimicrobials using probabilistic features.",
+      "pmid": "38839785",
+      "pmcid": "PMC11153637",
+      "doi": "10.1038/s41598-024-63461-6",
+      "year": "2024",
+      "role": "model_original",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "pmid": "41594075",
+      "pmcid": "PMC12837384",
+      "doi": "10.3390/antibiotics15010039",
+      "year": "2026",
+      "role": "unclear (antiviral peptide prediction, not AMP)",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "iAMPCN",
+      "canonical_name": "iAMPCN",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide sequences (8-50 amino acids)",
+      "source_pmid": "39330266",
+      "source_pmcid": "PMC9917735",
+      "source_doi": "10.3390/ijms24032914",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "明确用于 AMP 活性预测，且被用于下游实验验证，具有 benchmark 潜力，但原始训练信息缺失",
+      "blocking_issues": [
+        "原始模型出处不明，训练数据、代码均未提供，仅作为工具被引用"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "evidence": "used the iAMPCN model for peptide activity prediction (abstract)"
+    },
+    {
+      "model_name": "AP_Sin",
+      "canonical_name": "AP_Sin",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "trained on 1160 AMP and 1160 non-AMP sequences; outperformed Antimicrobial Peptide Scanner vr.2, iAMPpred, AMPlify",
+      "input_features": "peptide sequence (composition-based features)",
+      "source_pmid": "38416364",
+      "source_pmcid": "5902452",
+      "source_doi": "10.1038/s41467-018-03746-3",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "新提出的 AMP 预测模型，在论文中与主流工具对比并展现优势，但代码和数据集未公开",
+      "blocking_issues": [
+        "无代码仓库，训练数据未公开"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "evidence": "AP_Sin correctly classified 94.61% of AMPs on a comprehensive dataset, outperforming the mainstream and open-source models (abstract)"
+    },
+    {
+      "model_name": "AMP-Detector",
+      "canonical_name": "AMP-Detector",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL/ML",
+      "architecture_or_algorithm": "integrates protein language models and machine learning algorithms; 21 models targeting antimicrobial, antiviral, antibacterial activity",
+      "input_features": "peptide sequences (sequence-based features from protein language models)",
+      "source_pmid": "39201537",
+      "source_pmcid": "PMC5834480",
+      "source_doi": "10.3389/fmicb.2018.00323",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "Peptide Atlas (used for discovery)",
+      "benchmark_candidate": true,
+      "candidate_reason": "提出了新的 AMP 检测流程，使用蛋白语言模型，性能优于现有方法，但代码和训练数据未公开",
+      "blocking_issues": [
+        "无代码仓库，训练数据描述不完整"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "evidence": "AMP-Detector average precision exceeding 83% (abstract)"
+    },
+    {
+      "model_name": "AMP-RNNpro",
+      "canonical_name": "AMP-RNNpro",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "two-stage approach with Recurrent Neural Network (RNN), 8 feature encodings (AAC, grouped AAC, autocorrelation, pseudo-amino acid compositional), final meta-model using probabilistic features",
+      "input_features": "protein sequences (multiple feature encodings: AAC, ASDC, CKSAAGP, etc.)",
+      "source_pmid": "38839785",
+      "source_pmcid": "PMC9421197",
+      "source_doi": "10.1016/j.csbj.2022.07.043",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://13.126.159.30/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "新提出的 AMP 检测模型，准确率 97.15%，提供 web 服务，但缺少代码和训练数据，可作 benchmark 候选",
+      "blocking_issues": [
+        "无代码仓库，训练数据未公开"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "evidence": "AMP-RNNpro excels in the identification of novel AMPs with 97.15% accuracy, 96.48% sensitivity, and 97.87% specificity (abstract)"
+    },
+    {
+      "model_name": "DDM",
+      "canonical_name": "DDM",
+      "aliases": [
+        "dual diffusion model"
+      ],
+      "task_type": "AMP classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Dual diffusion model with sequence diffusion (Transformer-based denoising) and structure diffusion (Graph Attention Network), multi-view feature construction, multi-head cross-attention fusion, single-modal and dual-modal contrastive learning.",
+      "input_features": "Amino acid sequence (ESM2 embeddings, BLOSUM62, PAM120, hydrophobicity, helical tendency, AAindex) and predicted tertiary structure (PDB, graph with node features from amino acid type, coordinates, AAindex, edge features from distances, potentials).",
+      "source_pmid": "41692989",
+      "source_pmcid": "PMC12960902",
+      "source_doi": "10.1093/bioinformatics/btag077",
+      "code_repository_url": "https://github.com/kww567upup/DDM",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/kww567upup/DDM (data provided in repository)",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP classification model with code and data available, suitable for inclusion in benchmark comparison.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95,
+      "evidence": "The data and source codes are available in GitHub at https://github.com/kww567upup/DDM. ... propose a dual diffusion model-based representation learning framework for classifying AMPs."
+    },
+    {
+      "model_name": "UniAMP",
+      "canonical_name": "UniAMP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep neural network with fully connected layers and transformer encoders, using feature vectors inferred by UniRep and ProtT5.",
+      "input_features": "Feature vectors from UniRep (1900D) and ProtT5 (1024D) inferred from amino acid sequences.",
+      "source_pmid": "39799358",
+      "source_pmcid": "PMC11725221",
+      "source_doi": "10.1186/s12859-025-06033-3",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://amp.starhelix.cn",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence (dataset constructed from public AMP databases, no direct download link)",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model with web server, published results, useful for benchmark.",
+      "blocking_issues": [
+        "No code repository found, only web server; reproducibility may be limited."
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "evidence": "UniAMP publicly available (https://amp.starhelix.cn) ... proposed a systematic prediction framework for discovering AMPs."
+    },
+    {
+      "model_name": "AMP-RNNpro",
+      "canonical_name": "AMP-RNNpro",
+      "aliases": [],
+      "task_type": "AMP identification",
+      "method_family": "ML/DL",
+      "architecture_or_algorithm": "Two-stage meta-model: probabilistic features from 6 best base classifiers (KNN, RF, XGB, EX, Voting, RNN) on 8 feature encodings, then final RNN meta-model with SMOTE.",
+      "input_features": "Eight feature encodings (AAC, ASDC, DP, GAAC, CKSAAGP, Moran, NMBroto, PseKRAAC) and probabilistic features from base models.",
+      "source_pmid": "38839785",
+      "source_pmcid": "PMC11153637",
+      "source_doi": "10.1038/s41598-024-63461-6",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://13.126.159.30/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence (combined dataset from XUAMP, DBAASP, LAMP, DRAMP)",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP identification model with web server, high reported accuracy, suitable for benchmark.",
+      "blocking_issues": [
+        "No code repository; web server only, may not be suitable for large-scale offline benchmarking."
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "evidence": "We built a user-friendly website ... at http://13.126.159.30/ ... AMP-RNNpro excels in identification of novel Amps with 97.15% accuracy, 96.48% sensitivity, and 97.87% specificity."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMP-RNNpro web server",
+      "url": "http://13.126.159.30/",
+      "repository_type": "webserver",
+      "matched_model_name": "AMP-RNNpro",
+      "source_pmid": "38839785",
+      "source_doi": "10.1016/j.csbj.2022.07.043",
+      "evidence_level": "fulltext",
+      "evidence": "We built a user-friendly website ... http://13.126.159.30/ (abstract)"
+    },
+    {
+      "name": "DDM GitHub",
+      "url": "https://github.com/kww567upup/DDM",
+      "repository_type": "code",
+      "matched_model_name": "DDM",
+      "source_pmid": "41692989",
+      "source_doi": "10.1093/bioinformatics/btag077",
+      "evidence_level": "fulltext",
+      "evidence": "The data and source codes are available in GitHub at https://github.com/kww567upup/DDM."
+    },
+    {
+      "name": "UniAMP web server",
+      "url": "https://amp.starhelix.cn",
+      "repository_type": "webserver",
+      "matched_model_name": "UniAMP",
+      "source_pmid": "39799358",
+      "source_doi": "10.1186/s12859-025-06033-3",
+      "evidence_level": "fulltext",
+      "evidence": "we make UniAMP publicly available (https://amp.starhelix.cn)."
+    },
+    {
+      "name": "PepProtGraphAnalyzer",
+      "url": "https://github.com/cicese-biocom/PepProtGraphAnalyzer",
+      "repository_type": "code",
+      "matched_paper_title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "source_pmid": "41594075",
+      "source_doi": "10.3390/antibiotics15010039",
+      "evidence_level": "fulltext",
+      "evidence": "regex_fulltext_or_metadata"
+    },
+    {
+      "name": "esm-AxP-GDL",
+      "url": "https://github.com/cicese-biocom/esm-AxP-GDL",
+      "repository_type": "code",
+      "matched_paper_title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "source_pmid": "41594075",
+      "source_doi": "10.3390/antibiotics15010039",
+      "evidence_level": "fulltext",
+      "evidence": "regex_fulltext_or_metadata"
+    },
+    {
+      "name": "esm",
+      "url": "https://github.com/facebookresearch/esm",
+      "repository_type": "code",
+      "matched_paper_title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "source_pmid": "41594075",
+      "source_doi": "10.3390/antibiotics15010039",
+      "evidence_level": "fulltext",
+      "evidence": "regex_fulltext_or_metadata"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "ADAM (Antimicrobial Peptide Database)",
+      "dataset_url": "https://bioinformatics.cs.ntou.edu.tw/ADAM",
+      "dataset_source": "mentioned in fulltext of PMID 38839785 (extracted from MLACP 2.0 context, but not directly linked to AMP-RNNpro)",
+      "linked_model": "not directly linked",
+      "source_pmid": "38839785",
+      "source_doi": "10.1016/j.csbj.2022.07.043",
+      "positive_samples": "not_specified",
+      "negative_samples": "not_specified",
+      "deduplication_method": "not_specified",
+      "evidence_level": "fulltext",
+      "evidence": "ADAM (https://bioinformatics.cs.ntou.edu.tw/ADAM) appeared in the fulltext as a database source"
+    },
+    {
+      "dataset_name": "DDM AMP dataset",
+      "dataset_url": "https://github.com/kww567upup/DDM",
+      "dataset_source": "GitHub repository for DDM model",
+      "linked_model": "DDM",
+      "source_pmid": "41692989",
+      "source_doi": "10.1093/bioinformatics/btag077",
+      "positive_samples": "not reported",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Data and source codes are available in GitHub."
+    },
+    {
+      "dataset_name": "PepProtGraphAnalyzer",
+      "dataset_url": "https://github.com/cicese-biocom/PepProtGraphAnalyzer",
+      "matched_paper_title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "source_pmid": "41594075",
+      "source_doi": "10.3390/antibiotics15010039",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "esm-AxP-GDL",
+      "dataset_url": "https://github.com/cicese-biocom/esm-AxP-GDL",
+      "matched_paper_title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "source_pmid": "41594075",
+      "source_doi": "10.3390/antibiotics15010039",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "esm",
+      "dataset_url": "https://github.com/facebookresearch/esm",
+      "matched_paper_title": "Leveraging Different Distance Functions to Predict Antiviral Peptides with Geometric Deep Learning from ESMFold-Predicted Tertiary Structures.",
+      "source_pmid": "41594075",
+      "source_doi": "10.3390/antibiotics15010039",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Accuracy",
+      "usage": "Reported performance of AMP-RNNpro",
+      "source_pmid": "38839785",
+      "source_doi": "10.1038/s41598-024-63461-6",
+      "evidence": "97.15% accuracy"
+    },
+    {
+      "metric_name": "Sensitivity",
+      "usage": "Reported performance of AMP-RNNpro",
+      "source_pmid": "38839785",
+      "source_doi": "10.1038/s41598-024-63461-6",
+      "evidence": "96.48% sensitivity"
+    },
+    {
+      "metric_name": "Specificity",
+      "usage": "Reported performance of AMP-RNNpro",
+      "source_pmid": "38839785",
+      "source_doi": "10.1038/s41598-024-63461-6",
+      "evidence": "97.87% specificity"
+    }
+  ],
+  "important_evidence": [
+    "iAMPCN used for peptide activity prediction (PMID 39330266)",
+    "AP_Sin classified 94.61% of AMPs, outperforming existing tools (PMID 38416364)",
+    "AMP-Detector average precision >83% using protein language models (PMID 39201537)",
+    "AMP-RNNpro achieved 97.15% accuracy, 96.48% sensitivity, 97.87% specificity (PMID 38839785)",
+    "DDM provides code and data on GitHub (https://github.com/kww567upup/DDM) (PMID 41692989)",
+    "UniAMP web server available at https://amp.starhelix.cn (PMID 39799358)"
+  ],
+  "uncertainties": [
+    "iAMPCN 的原始文献和训练数据是什么？",
+    "AP_Sin 和 AMP-Detector 是否公开了代码或数据集？",
+    "AMP-RNNpro 的 web 服务是否仍可访问，其训练数据来源？",
+    "AMP-RNNpro 存在两个可能来源/DOI 冲突 (10.1016/j.csbj.2022.07.043 和 10.1038/s41598-024-63461-6)，两者均指向同一 PMID 38839785，需核实正确版本",
+    "DDM 论文发表于 2026 年，是否已正式发表？",
+    "Antiviral peptide 论文 (PMID 41594075) 与 AMP 分类不直接相关，其模型是否适用于 AMP 需进一步确认"
+  ],
+  "source_pmids": [
+    "39330266",
+    "38416364",
+    "39201537",
+    "38839785",
+    "41692989",
+    "39799358",
+    "41594075"
+  ],
+  "source_dois": [
+    "10.3390/ijms24032914",
+    "10.1038/s41467-018-03746-3",
+    "10.3389/fmicb.2018.00323",
+    "10.1016/j.csbj.2022.07.043",
+    "10.1093/bioinformatics/btag077",
+    "10.1186/s12859-025-06033-3",
+    "10.1038/s41598-024-63461-6",
+    "10.3390/antibiotics15010039"
+  ],
+  "urls": [
+    "http://13.126.159.30/",
+    "https://github.com/kww567upup/DDM",
+    "https://amp.starhelix.cn",
+    "https://github.com/cicese-biocom/PepProtGraphAnalyzer",
+    "https://github.com/cicese-biocom/esm-AxP-GDL",
+    "https://github.com/facebookresearch/esm",
+    "https://bioinformatics.cs.ntou.edu.tw/ADAM"
+  ]
+}

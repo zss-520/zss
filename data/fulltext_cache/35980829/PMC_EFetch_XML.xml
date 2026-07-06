@@ -1,0 +1,859 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="EN" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">ACS Nano</journal-id><journal-id journal-id-type="iso-abbrev">ACS Nano</journal-id><journal-id journal-id-type="pmc-domain-id">822</journal-id><journal-id journal-id-type="pmc-domain">acssd</journal-id><journal-id journal-id-type="nlm-id">101313589</journal-id><journal-id journal-id-type="publisher-id">nn</journal-id><journal-title-group><journal-title>ACS Nano</journal-title></journal-title-group><issn pub-type="ppub">1936-0851</issn><issn pub-type="epub">1936-086X</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>ACS AuthorChoice</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC9619929</article-id><article-id pub-id-type="pmcid-ver">PMC9619929.1</article-id><article-id pub-id-type="pmcaid">9619929</article-id><article-id pub-id-type="pmcaiid">9619929</article-id><article-id pub-id-type="pmid">35980829</article-id><article-id pub-id-type="doi">10.1021/acsnano.2c04162</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group><subject>Article</subject></subj-group></article-categories><title-group><article-title>Conditional Antimicrobial
+Peptide Therapeutics</article-title></title-group><contrib-group><contrib contrib-type="author" id="ath1"><contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0002-2342-7977</contrib-id><name name-style="western"><surname>Ngambenjawong</surname><given-names initials="C">Chayanon</given-names></name><xref rid="aff1" ref-type="aff">†</xref><xref rid="aff1" ref-type="aff">‡</xref></contrib><contrib contrib-type="author" id="ath2"><contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0002-0999-6890</contrib-id><name name-style="western"><surname>Chan</surname><given-names initials="LW">Leslie W.</given-names></name><xref rid="aff1" ref-type="aff">†</xref><xref rid="notes-1" ref-type="notes">∇</xref></contrib><contrib contrib-type="author" id="ath3"><name name-style="western"><surname>Fleming</surname><given-names initials="HE">Heather E.</given-names></name><xref rid="aff1" ref-type="aff">†</xref><xref rid="aff2" ref-type="aff">∥</xref></contrib><contrib contrib-type="author" corresp="yes" id="ath4"><contrib-id contrib-id-type="orcid" authenticated="true">https://orcid.org/0000-0002-1293-2097</contrib-id><name name-style="western"><surname>Bhatia</surname><given-names initials="SN">Sangeeta N.</given-names></name><xref rid="cor1" ref-type="other">*</xref><xref rid="aff1" ref-type="aff">†</xref><xref rid="aff1" ref-type="aff">‡</xref><xref rid="aff2" ref-type="aff">∥</xref><xref rid="aff1" ref-type="aff">§</xref><xref rid="aff3" ref-type="aff">⊥</xref><xref rid="aff4" ref-type="aff">#</xref></contrib><aff id="aff1"><sup>†</sup>Koch
+Institute for Integrative Cancer Research, <sup>‡</sup>Institute for Medical Engineering
+and Science, and <sup>§</sup>Department of Electrical Engineering and Computer Science, <institution>Massachusetts Institute of Technology</institution>, Cambridge, Massachusetts 02139, <country>United States</country></aff><aff id="aff2"><label>∥</label><institution>Howard
+Hughes Medical Institute</institution>, Cambridge, Massachusetts 02139, <country>United States</country></aff><aff id="aff3"><label>⊥</label>Department
+of Medicine, <institution>Brigham and Women’s
+Hospital and Harvard Medical School</institution>, Boston Massachusetts 02115, <country>United States</country></aff><aff id="aff4"><label>#</label><institution>Broad Institute
+of Massachusetts Institute of Technology and Harvard</institution>, Cambridge, Massachusetts 02139, <country>United States</country></aff></contrib-group><author-notes><corresp id="cor1"><label>*</label>Email: <email>sbhatia@mit.edu</email>. Phone: <phone>617-253-0893</phone>. Fax: <fax>617-324-0740</fax>.</corresp></author-notes><pub-date pub-type="epub"><day>18</day><month>08</month><year>2022</year></pub-date><pub-date pub-type="ppub"><day>25</day><month>10</month><year>2022</year></pub-date><volume>16</volume><issue>10</issue><issue-id pub-id-type="pmc-issue-id">420369</issue-id><fpage>15779</fpage><lpage>15791</lpage><history><date date-type="received"><day>28</day><month>04</month><year>2022</year></date><date date-type="accepted"><day>03</day><month>08</month><year>2022</year></date></history><pub-history><event event-type="pmc-release"><date><day>31</day><month>10</month><year>2022</year></date></event><event event-type="pmc-live"><date><day>01</day><month>11</month><year>2022</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-05-25 18:25:15.013"><day>25</day><month>05</month><year>2024</year></date></event></pub-history><permissions><copyright-statement>© 2022 The Authors. Published by American Chemical Society</copyright-statement><copyright-year>2022</copyright-year><copyright-holder>The Authors</copyright-holder><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>Permits the broadest form of re-use including for commercial purposes, provided that author attribution and integrity are maintained (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="nn2c04162.pdf"/><abstract><p content-type="toc-graphic"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="ab-tgr1" position="float" orientation="portrait" xlink:href="nn2c04162_0006.jpg"/></p><p>Antimicrobial peptides (AMPs) constitute a promising
+class of alternatives
+to antibiotics to curb antimicrobial resistance. Nonetheless, their
+utility as a systemic agent is hampered by short circulation time
+and toxicity. Infection sites, analogous to tumors, harbor an aberrant
+microenvironment that has the potential to be exploited to develop
+conditionally activated therapeutics with an improved therapeutic
+index. In particular, we identified strategies to prolong systemic
+circulation of small, cationic AMPs in a mouse model of bacterial
+pneumonia. Specifically, we report an albumin-binding domain (ABD)-AMP
+conjugate as a long-circulating conditional AMP therapeutic with a
+masked activity that can be liberated by proteases in the infected
+tissue microenvironment. Our systemically administered conjugate enhanced
+the pulmonary delivery of active AMP while also reducing AMP exposure
+to other off-target organs. Importantly, this reduction in off-target
+exposure improved the safety profile of the AMP. The framework we
+present can be generalized to quantify and optimize the performance
+of this emerging class of conditional therapeutics.</p></abstract><kwd-group><kwd>nanomedicine</kwd><kwd>conditional therapeutic</kwd><kwd>antimicrobial
+peptide</kwd><kwd>albumin</kwd><kwd>protease</kwd><kwd>infection</kwd></kwd-group><funding-group><award-group><funding-source><institution-wrap><institution>National Cancer Institute</institution><institution-id institution-id-type="doi">10.13039/100000054</institution-id></institution-wrap></funding-source><award-id>P30-CA14051</award-id></award-group></funding-group><funding-group><award-group><funding-source><institution-wrap><institution>National Institute of Environmental Health Sciences</institution><institution-id institution-id-type="doi">10.13039/100000066</institution-id></institution-wrap></funding-source><award-id>P30-ES002109</award-id></award-group></funding-group><funding-group><award-group><funding-source><institution-wrap><institution>National Institute of Allergy and Infectious Diseases</institution><institution-id institution-id-type="doi">10.13039/100000060</institution-id></institution-wrap></funding-source><award-id>U19 AI142780</award-id></award-group></funding-group><funding-group><award-group><funding-source><institution-wrap><institution>National Institute of Allergy and Infectious Diseases</institution><institution-id institution-id-type="doi">10.13039/100000060</institution-id></institution-wrap></funding-source><award-id>R01 AI132413</award-id></award-group></funding-group><funding-group><award-group><funding-source><institution-wrap><institution>National Institute of Allergy and Infectious Diseases</institution><institution-id institution-id-type="doi">10.13039/100000060</institution-id></institution-wrap></funding-source><award-id>K99 EB28311</award-id></award-group></funding-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>document-id-old-9</meta-name><meta-value>nn2c04162</meta-value></custom-meta><custom-meta><meta-name>document-id-new-14</meta-name><meta-value>nn2c04162</meta-value></custom-meta><custom-meta><meta-name>ccc-price</meta-name><meta-value/></custom-meta></custom-meta-group></article-meta></front><body><p id="sec1">Antimicrobial resistance represents
+a global threat that calls for innovative solutions. Several alternatives
+to antibiotics are in development at both preclinical and clinical
+stages.<sup><xref ref-type="bibr" rid="ref1">1</xref>,<xref ref-type="bibr" rid="ref2">2</xref></sup> In particular, antimicrobial peptides (AMPs)
+have garnered attention due to their diverse mechanisms of action
+ranging from direct bacteria membrane/biofilm disruption to modulation
+of host immune responses.<sup><xref ref-type="bibr" rid="ref3">3</xref>−<xref ref-type="bibr" rid="ref5">5</xref></sup> Nonetheless, clinical translation
+of AMPs has been sluggish, with colistin being the only cationic AMP
+approved for parenteral administration to treat multidrug-resistant
+(MDR) Gram-negative bacteria infection. Most cationic AMPs in clinical
+trials are formulated for topical administration,<sup><xref ref-type="bibr" rid="ref3">3</xref></sup> allowing for high drug concentrations to be readily achieved.
+Major limitations of AMPs that prevent effective intravenous treatment
+include their high toxicity, poor serum stability, and rapid clearance
+due to their cationic amphipathic nature and low molecular weight.<sup><xref ref-type="bibr" rid="ref4">4</xref>,<xref ref-type="bibr" rid="ref6">6</xref></sup> Additional strategies are needed to optimize and/or reformulate
+AMPs to enable their successful clinical translation.</p><p>Significant
+progress has been made in terms of AMP discovery and
+sequence optimization in order to improve clinical translation. Genome
+mining, machine learning, and structure–activity relationship
+(SAR) optimization strategies have been employed to derive AMPs with
+potent activity, improved serum stability, and reduced mammalian toxicity.<sup><xref ref-type="bibr" rid="ref7">7</xref>−<xref ref-type="bibr" rid="ref9">9</xref></sup> On the other hand, opportunities exist to leverage diverse drug
+delivery technologies that have been more conventionally employed
+by the oncology field to improve the efficacy and therapeutic index
+of toxic chemotherapeutics or biologics.<sup><xref ref-type="bibr" rid="ref10">10</xref>−<xref ref-type="bibr" rid="ref12">12</xref></sup> One notable
+approach is the development of microenvironment-responsive therapeutics,
+where active compounds are administered in a pro-formulation and subsequently
+activated by conditions specific to the tumor microenvironment such
+as altered proteolysis, acidosis, and hypoxia.<sup><xref ref-type="bibr" rid="ref13">13</xref>,<xref ref-type="bibr" rid="ref14">14</xref></sup> Similarly, infection sites also possesses an aberrant microenvironment<sup><xref ref-type="bibr" rid="ref15">15</xref>−<xref ref-type="bibr" rid="ref17">17</xref></sup> that can be leveraged for the strategic formulation of infection-responsive
+pro-therapeutics.<sup><xref ref-type="bibr" rid="ref18">18</xref></sup></p><p>In this work,
+we report the development of an albumin-binding domain
+(ABD)-AMP conjugate which, upon association with serum albumin, enables
+prolonged circulation with a masked antibacterial activity. Importantly,
+this long-circulating masked AMP can be conditionally activated by
+protease cleavage of the ABD tether when in an infected organ. We
+describe a pipeline of <italic toggle="yes">ex vivo</italic> and <italic toggle="yes">in vivo</italic> assays for cleavable linker selection that we created to identify
+peptide substrates that are readily cleaved in an infected organ with
+less background cleavage in other nontarget organs. Finally, we comprehensively
+evaluated the kinetic behavior of our conjugate with respect to organ
+biodistribution and activation over time. Using a <sc>d</sc>-stereoisomer
+version of pexiganan ((<sc>d</sc>)Pex) as a model AMP in a murine <italic toggle="yes">Pseudomonas aeruginosa</italic> PAO1 lung infection model, we observed
+that delivery via our ABD-AMP conjugate could yield a higher fraction
+of active AMP in infected lungs while reducing exposure of the active
+fraction to off-target organs compared to the free AMP treatment group.
+The reduction in off-target organ exposure led to an improved safety
+profile of the AMP. Our initial report on the design and <italic toggle="yes">in
+vivo</italic> characterization of these ABD-AMP conjugates informs
+key parameters that favor distribution of active AMP to the target
+diseased organ after systemic administration and complements the established
+pool of knowledge in the AMP delivery field to lead to improved understanding
+and development of protease-activated therapeutics that are not limited
+to infectious disease applications.</p><sec id="sec2"><title>Results and Discussion</title><sec id="sec2.1"><title>Design and Synthesis of ABD-AMP Conjugates</title><p>Major limitations
+of AMPs during systemic application include their rapid clearance
+and toxicity to mammalian cells, both of which contribute to their
+lack of therapeutic efficacy, to date. We envisioned that these challenges
+could be addressed by formulating a conditional AMP therapeutic that
+is long-circulating with masked activity, that readily accumulates
+at the site of infection, and that is subsequently activated in response
+to infection by disease-associated proteases to enable localized antimicrobial
+activity (<xref rid="fig1" ref-type="fig">Figure <xref rid="fig1" ref-type="fig">1</xref></xref>A).
+To achieve these features, we engineered an ABD-AMP conjugate which
+comprises a concatenation of (1) ABD, (2) anionic block, (3) protease-cleavable
+linker, and (4) AMP (<xref rid="fig1" ref-type="fig">Figure <xref rid="fig1" ref-type="fig">1</xref></xref>B). Upon hitchhiking to serum albumin via the ABD, the conjugate’s
+effective size becomes larger than the renal filtration cutoff, thereby
+reducing renal clearance. In addition, association with albumin also
+provides steric masking of the AMP activity. To ensure effective activity
+masking, an anionic block was included in the design to electrostatically
+complex with AMP cargos, which are typically cationic. Finally, a
+protease-cleavable linker was inserted between the anionic block and
+the AMP to enable conditional release of the AMP from the anionic
+block by active proteases present in the infected microenvironment.</p><fig id="fig1" position="float" orientation="portrait"><label>Figure 1</label><caption><p>Concept
+and synthesis of ABD-AMP conjugates. (A) Desirable features
+of conditional AMP therapeutics include (1) long circulation with
+masked activity, (2) accumulation at infection site either by passive
+or active targeting, (3) activation by infection microenvironmental
+trigger (e.g., infection site proteases), and (4) exhibition of on-target
+antimicrobial activity. (B) Designed components of ABD-AMP conjugates
+include (1) albumin-binding domain (ABD), (2) anionic block, (3) cleavable
+linker, and (4) antimicrobial peptide. (C) Synthesis schematic of
+ABD-AMP conjugates. ABD-anionic block-cleavable linker-GC was recombinantly
+expressed in <italic toggle="yes">E. coli.</italic> The C-terminal cysteine was
+reacted with DBCO-Maleimide cross-linker, followed by strain-promoted
+alkyne–azide cycloaddition (SPAAC) conjugation with chemically
+synthesized, azidoacetylated AMP. (D) SDS-PAGE analysis of ABD-AMP
+conjugates. The conjugates were detected with Coomassie blue staining
+and imaged on an Odyssey CLx imager. (E) Molecular weights of ABD-AMP
+conjugates were measured via matrix-assisted laser desorption/ionization-time-of-flight
+(MALDI-ToF) mass spectrometry (MS) shown as mass-to-charge ratio (<italic toggle="yes">m</italic>/<italic toggle="yes">z</italic>). N-terminal methionine was spontaneously
+removed during ABD expression.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="gr1" position="float" orientation="portrait" xlink:href="nn2c04162_0001.jpg"/></fig><p>To synthesize the ABD-AMP conjugate, we segmented
+the construct
+into two components; (1) the recombinantly expressed “carrier
+domain” consisting of the ABD, anionic block, and cleavable
+linker in tandem and (2) the chemically synthesized, azide-functionalized
+AMP (<xref rid="fig1" ref-type="fig">Figure <xref rid="fig1" ref-type="fig">1</xref></xref>C). A
+free cysteine was introduced at the C-terminus of the carrier domain
+to enable site-specific conjugation to the azide-functionalized AMP
+via a dibenzocyclooctyne (DBCO)-maleimide cross-linker. ABDcon was
+chosen as our ABD-based albumin binder in this construct due to its
+high affinity to both mouse and human albumins, as well as the absence
+of cysteine in the sequence.<sup><xref ref-type="bibr" rid="ref19">19</xref></sup> Our anionic
+block was designed as repeats of Glu-Glu-Gly ((EEG)<sub><italic toggle="yes">x</italic></sub>) where Glu provides a negative charge and Gly provides flexibility
+to broadly facilitate complexation with cationic AMPs of diverse sequences
+and secondary structures. Our initial choice of the cleavable linker
+(S1) includes a tandem sequence of matrix metalloproteinase (MMP)
+(PLGVRGK) and thrombin (LVPR)-responsive substrates, considering the
+biology of <italic toggle="yes">P. aeruginosa</italic> infection which often evokes
+an injury-associated MMP response as well as thrombosis.<sup><xref ref-type="bibr" rid="ref20">20</xref>−<xref ref-type="bibr" rid="ref22">22</xref></sup> The proteolytically stable <sc>d</sc>-stereoisomer version of pexiganan
+((<sc>d</sc>)Pex) was chosen as a model AMP to represent a cationic,
+helical AMP (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S1</ext-link>). A His6 tag was
+included as a purification tag due to its small size and low p<italic toggle="yes">K</italic><sub>a</sub> of the imidazole side chain (∼6) which
+should not interfere with albumin-ABD interaction or anionic block-AMP
+complexation in physiological environment. Each functional element
+of the conjugate is modular and multiple constructs with different
+anionic blocks, cleavable linkers, or AMPs can be readily synthesized
+(<xref rid="fig1" ref-type="fig">Figure <xref rid="fig1" ref-type="fig">1</xref></xref>D,E) to investigate
+the contribution of each component on the conjugates’ <italic toggle="yes">in vitro</italic> and <italic toggle="yes">in vivo</italic> behaviors.</p></sec><sec id="sec2.2"><title>ABD-AMP Conjugates with Anionic Block Exhibit Activity Masking
+with Improved <italic toggle="yes">In Vivo</italic> Lung Accumulation</title><p>To verify protease-dependent activity of ABD-AMP conjugates, we first
+confirmed their cleavage following incubation with thrombin, a model
+protease. Three ABD-(EEG)<sub><italic toggle="yes">x</italic></sub>-S1-(<sc>d</sc>)Pex-Cy7 constructs with varying lengths of the anionic block ((EEG)<sub><italic toggle="yes">x</italic></sub>) were incubated in thrombin-supplemented
+phosphate-buffered saline (PBS) for 4 h. Cy7 was attached on the (<sc>d</sc>)Pex to enable resolution of the intact conjugates from the
+cleaved AMPs by detecting Cy7 signal following SDS-PAGE analysis of
+the samples. Indeed, all three conjugates could be readily cleaved
+by thrombin to release (<sc>d</sc>)Pex-Cy7 (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>A). Both albumin association and anionic
+block were found to influence cleavage kinetics of the S1 linker (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S2</ext-link>). After confirming cleavability of
+the conjugates, we next performed microdilution assays in the presence
+of human serum albumin (HSA) (500 μM) to evaluate antibacterial
+activity of our conjugates on <italic toggle="yes">P. aeruginosa</italic> PAO1.
+Steric masking with albumin-associated ABD conferred a 16- to 32-fold
+change in the minimum inhibitory concentration (MIC) between the intact
+and cleaved conjugates (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>B, solid versus dotted lines), depending on the length of
+the anionic block. Specifically, the longest anionic block, (EEG)<sub>6</sub>, improved activity masking by an additional 2-fold (blue
+lines). Similarly, all masked ABD-AMP conjugates exhibited reduced
+mammalian toxicity, when tested for killing of L929 fibroblasts (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>C) or hemolysis (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>D). Selectivity index
+(defined as a ratio of IC50 of intact conjugate on L929 fibroblasts
+over MIC of activated conjugate on PAO1) was found to increase by
+at least 9 fold from 5.7 with free (<sc>d</sc>)Pex to 51.9–64.7
+with the conjugates (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Table S1</ext-link>). In addition,
+we observed parallel activity masking outcomes when alternative AMPs,
+(<sc>d</sc>)CAMEL0 and Tachyplesin I, were tested in the ABD-(EEG)<sub>6</sub>-S1-AMP formulation (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S3</ext-link>).
+Prior studies to develop pro-AMPs based on anionic masking peptides
+have been limited to linear AMPs.<sup><xref ref-type="bibr" rid="ref23">23</xref>−<xref ref-type="bibr" rid="ref25">25</xref></sup> Here, we demonstrated,
+with Tachyplesin I as an example, that the anionic peptide block could
+also be optimized for masking the activity of cyclic AMPs (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S3B</ext-link>).</p><fig id="fig2" position="float" orientation="portrait"><label>Figure 2</label><caption><p>ABD-AMP conjugates with anionic block
+exhibit activity masking
+with improved biodistribution. (A) Activation of ABD-AMP conjugates
+upon incubation with a model protease is shown via SDS-PAGE analysis
+of ABD-(EEG)<sub><italic toggle="yes">x</italic></sub>-S1-(<sc>d</sc>)Pex-Cy7 without
+or with thrombin preincubation. The Cy7 signals on intact conjugates
+and released AMP were detected via an Odyssey CLx imager. (B) Antibacterial
+activity masking was assessed via microdilution assays on PAO1. Bacteria
+viabilities following conjugate treatments were measured based on
+bacterial turbidity at 600 nm (OD600) and normalized to the nontreated
+control. Fold changes in activity masking were based on the ratios
+of the minimum inhibitory concentrations (MIC) of the intact and cleaved
+conjugates. (C) Mammalian toxicity masking was assessed via MTS cell
+viability assay on L929 fibroblasts. Fold changes in activity masking
+were based on the ratios of the 50% inhibitory concentrations (IC50)
+of the intact and cleaved conjugates. (D) Hemolysis masking was assessed
+via hemolysis assay on mouse red blood cells. (E) Experimental timeline
+for biodistribution study of ABD-(EEG)<sub><italic toggle="yes">x</italic></sub>-S1-(<sc>d</sc>)Pex-Cy7 conjugates (F) Representative <italic toggle="yes">ex
+vivo</italic> fluorescence images of conjugate accumulation in different
+organs imaged on an Odyssey CLx imager (<italic toggle="yes">n</italic> = 3). (G)
+Quantification of total lung fluorescence signals normalized to (<sc>d</sc>)Pex-Cy7 control group. (H) Quantification of lung-to-liver
+fluorescence signals. Panels D, G, and H were plotted as mean ±
+SD (<italic toggle="yes">n</italic> = 3) and analyzed with One-way ANOVA with Tukey
+posthoc tests. * denotes statistical significance (<italic toggle="yes">P</italic> &lt; 0.05). IP, intraperitoneal injection; IT, intratracheal instillation;
+IV, intravenous injection.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="gr2" position="float" orientation="portrait" xlink:href="nn2c04162_0002.jpg"/></fig><p>Our goal was to develop ABD-AMP conjugates that
+would be suitable
+for systemic application. Hence, we next investigated how our ABD-AMP
+conjugates are distributed <italic toggle="yes">in vivo</italic> following intravenous
+administration. To establish a neutropenic mouse model of PAO1 lung
+infection, cyclophosphamide-treated mice were intratracheally inoculated
+with PAO1, and 6 h later ABD-(EEG)<sub><italic toggle="yes">x</italic></sub>-S1-(<sc>d</sc>)Pex-Cy7 conjugates with different anionic blocks or free unconjugated
+(<sc>d</sc>)Pex-Cy7 were administered via tail vein injection. The
+mice were euthanized after 2 h and organs were harvested for near-infrared
+fluorescence imaging with an Odyssey CLx imager (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>E). Despite having a molecular
+weight below the renal filtration cutoff, (<sc>d</sc>)Pex-Cy7 was
+found to accumulate more readily in liver and spleen versus kidneys
+(<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>F). The preferential
+liver accumulation of some cationic, amphipathic peptides/peptoids
+was also previously reported, highlighting yet another under-appreciated
+challenge facing systemic delivery of certain cationic peptides, in
+addition to renal clearance via kidney filtration.<sup><xref ref-type="bibr" rid="ref26">26</xref>−<xref ref-type="bibr" rid="ref28">28</xref></sup> Despite exhibiting
+antibacterial activity masking <italic toggle="yes">in vitro</italic>, the ABD-S1-(<sc>d</sc>)Pex-Cy7 conjugate formulated without an anionic block accumulated
+primarily in liver and spleen, similar to the free peptide control
+group, implying that the steric masking with serum albumin was not
+sufficient to mitigate the effect of cationic (<sc>d</sc>)Pex on liver/spleen
+accumulation. A similar preferential liver accumulation was also observed
+in the mice that were administered (<sc>d</sc>)Pex-conjugated mouse
+serum albumin (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S4</ext-link>). This observation
+is consistent with a previous study that reported a cationic charge-dependent
+liver accumulation of cationic small molecule-derivatized albumin.<sup><xref ref-type="bibr" rid="ref29">29</xref></sup> Encouragingly, when the anionic block was included,
+we observed relative redistribution of the conjugate accumulation
+to favor other organs, including the infected lungs (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>F). Specifically, by adding
+(EEG)<sub><italic toggle="yes">x</italic></sub> block to electrostatically complex
+the cationic cargo, an approximately 6-fold increase in fluorescence
+intensity was observed in the lungs of mice treated with ABD-(EEG)<sub>6</sub>-S1-(<sc>d</sc>)Pex-Cy7 compared to those treated with (<sc>d</sc>)Pex-Cy7 (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>G). Relative lung-to-liver fluorescence increased from 6.4% in the
+(<sc>d</sc>)Pex-Cy7 group to 23.8% in the ABD-(EEG)<sub>6</sub>-S1-(<sc>d</sc>)Pex-Cy7 group (<xref rid="fig2" ref-type="fig">Figure <xref rid="fig2" ref-type="fig">2</xref></xref>H). Extending the length of the anionic block beyond (EEG)<sub>6</sub> did not further improve lung accumulation or the ratio of
+lung-to-liver distribution (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S5</ext-link>).
+To examine the generality of our platform in improving biodistribution
+of cationic AMPs, we extended our study to test the distribution of
+(<sc>d</sc>)KLA (an α-helical AMP) and Tachyplesin I (a β-sheet
+cyclic AMP) when formulated as an ABD-AMP conjugate (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S6</ext-link>). For both cases, the ABD-AMP-Cy7 conjugates with
+(EEG)<sub>4</sub> and (EEG)<sub>6</sub> anionic blocks were found
+to readily increase lung fluorescence and lung-to-liver distribution
+relative to their free AMP-Cy7 controls. Thus, our ABD-based carrier
+with generalized (EEG)<sub><italic toggle="yes">x</italic></sub> anionic block
+is favorable for activity masking and biodistribution optimization
+of AMPs.</p></sec><sec id="sec2.3"><title>Optimization of a Cleavable Linker Increases on-Target Activation
+in Infected Lungs</title><p>Biodistribution of the active fraction
+determines the efficacy and toxicity of conditional therapeutics.
+Therefore, it is desirable that the cleavable linker selected for
+our ABD-AMP conjugates be preferentially cleaved in the target diseased
+organ and only minimally released in other organs. We started an initial
+round of substrate screening with a library of peptide substrates
+that are responsive to MMPs, thrombin, neutrophil elastase, cathepsins,
+and PA-secreted proteases (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Table S2</ext-link>). Bronchoalveolar
+lavage fluid samples (BALFs) from noninfected and PA (PAO1, PA14,
+and PAK)-infected neutropenic mice were used as biofluids representative
+of lung proteolytic microenvironment for a Förster resonance
+energy transfer (FRET) cleavage assay. We flanked the peptide substrates
+with a fluorophore (Cy5)-quencher (QSY21) pair, such that cleavage
+of the substrates upon incubation with the BALFs could be tracked
+via a fluorescence signal (<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>A). Overall, the BALFs from the PA-infected mice were
+more proteolytic than those from the healthy mice. Unexpectedly, we
+did not observe good cleavage signals from substrates S4 and S5 which
+are reported substrates for PA proteases imelysin and elastase (LasB).<sup><xref ref-type="bibr" rid="ref30">30</xref>,<xref ref-type="bibr" rid="ref31">31</xref></sup> In addition, we performed FRET cleavage studies using the PAO1-infected
+BALFs in the presence of different protease class inhibitors and determined
+serine proteases and aspartyl proteases to be primary drivers of the
+cleavage activity observed (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S7</ext-link>).
+From the initial list of substrates, we selected a smaller set of
+hits and synthesized ABD-AMP conjugates in the ABD-(EEG)<sub>6</sub>-Sx-(<sc>d</sc>)Pex-Cy7 format to assess cleavage efficiency of the
+candidate therapeutic constructs (<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>B). Cleavage assays of the conjugates were
+performed by incubation with BALFs, followed by SDS-PAGE analysis
+to resolve and quantify the amount of the intact conjugate from the
+cleaved (<sc>d</sc>)Pex-Cy7. We observed some differences in relative
+cleavage efficiency between the FRET substrates and the ABD-AMP conjugates.
+Specifically, substrate S10 exhibited higher cleavage rates than substrate
+S15 in the FRET format, whereas the trend was opposite in the conjugate
+format where ABD-(EEG)<sub>6</sub>-S15-(<sc>d</sc>)Pex-Cy7 was more
+efficiently cleaved. This difference is possibly due to additional
+factors such as higher steric hindrance or a more highly charged environment
+near the cleavage site of the conjugate, thus emphasizing the importance
+of validating cleavage efficiency in the actual therapeutic construct.
+Nonetheless, the FRET assay serves as a valuable higher-throughput
+first-pass screen to narrow down the list of potential hit substrates
+for subsequent validation in the therapeutic conjugate format.</p><fig id="fig3" position="float" orientation="portrait"><label>Figure 3</label><caption><p>Optimization
+of cleavable linker improves on-target activation
+of ABD-AMP conjugate. (A) FRET substrates were screened by incubation
+with BALFs from healthy and PA-infected mice and monitored for cleavage
+via Cy5 fluorescence. The average initial cleavage rates of each substrate
+are represented on the heat map (<italic toggle="yes">n</italic> = 3). (B) ABD-(EEG)<sub>6</sub>-Sx-(<sc>d</sc>)Pex-Cy7 with different cleavable linkers were
+screened by incubation in BALFs from healthy and PA-infected mice
+and analyzed by SDS-PAGE based on Cy7 fluorescence. The average cleavage
+percentages are represented on the heat map (<italic toggle="yes">n</italic> =
+2). (C) Experimental workflow and timeline for <italic toggle="yes">in vivo</italic> evaluation of ABD-AMP conjugate activation. Quantification of total
+and active fractions of ABD-(EEG)<sub>6</sub>-Sx-(<sc>d</sc>)Pex-Cy7
+in (D) lungs, (E) kidneys, and (F) liver (<italic toggle="yes">n</italic> = 3).
+Panels D–F were plotted as mean ± SD and analyzed with
+One-way ANOVA with Tukey posthoc tests. * denotes statistical significance
+(<italic toggle="yes">P</italic> &lt; 0.05). On-target activation was analyzed
+based on the lungs/organ % ID/g ratios of each conjugate’s
+active fraction represented on the heat maps in (G) lungs/kidneys
+and (H) lungs/liver. Panels B and C were partly created with BioRender.com.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="gr3" position="float" orientation="portrait" xlink:href="nn2c04162_0003.jpg"/></fig><p>Next, we selected the four hit substrates (S10,
+S12, S15, and S17)
+from the <italic toggle="yes">ex vivo</italic> conjugate cleavage assay for evaluation
+of <italic toggle="yes">in vivo</italic> activation in a PAO1 lung infection model.
+The conjugate with substrate S1, which was our initial substrate choice,
+as well as the noncleavable (NC) control were also included in this
+study for comparison. Six hours after intratracheal instillation of
+PAO1, ABD-(EEG)<sub>6</sub>-Sx-(<sc>d</sc>)Pex-Cy7 with different
+linker substrates and (<sc>d</sc>)Pex-Cy7 control were intravenously
+administered and the mice were euthanized 2 h later (<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>C). Subsequently, lungs, liver,
+and kidneys were homogenized and supernatants were collected for SDS-PAGE
+analysis. When quantified in terms of percentage of injected dose/gram
+(% ID/g), the NC control had the least activated fraction, confirming
+the necessity of a cleavable linker to enable payload release (<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>D). Among the cleavable
+conjugates, the S12, S15, and S17 conjugates yielded the highest %
+ID/g of released (<sc>d</sc>)Pex-Cy7 in the lungs. When analyzing
+the released AMP fraction in kidneys, the S12 and S15 conjugates led
+to lower % ID/g than the S17 conjugate and are therefore preferred
+(<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>E). Favorably,
+when looking at the liver, the primary sequestration organ of (<sc>d</sc>)Pex-Cy7, we observed the lowest levels of the active fraction
+when S12, S15, and S17 conjugates were used, compared to the free
+(<sc>d</sc>)Pex-Cy7 control group (<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>F). Thus, S12 and S15 conjugates represent
+our two best hits in terms of higher released AMP % ID/g in the lungs,
+paired with lower released AMP % ID/g in liver and kidneys, also illustrated
+by their higher % ID/g ratios when comparing the active fractions
+in lungs versus off-target organs (<xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>G, kidney and <xref rid="fig3" ref-type="fig">Figure <xref rid="fig3" ref-type="fig">3</xref></xref>H, liver). It is worth noting that substrate
+S12 was not the best hit in either <italic toggle="yes">ex vivo</italic> FRET or
+conjugate cleavage assays, thus highlighting additional complicating
+factors in the <italic toggle="yes">in vivo</italic> environment, such as the lung-specific
+physiological milieu, which could differ from PBS-flushed BALF samples
+used in the <italic toggle="yes">ex vivo</italic> assays. Therefore, the <italic toggle="yes">in vivo</italic> study of conjugate activation provides valuable
+information in determining the best conjugate that is more preferentially
+activated in the diseased organ (infected lungs) over the other clearance
+organs (liver and kidneys), which is a crucial trait in maximizing
+efficacy and therapeutic index of conditional therapeutics. Our current <italic toggle="yes">ex vivo</italic> substrate screening was based solely on the substrates
+that were efficiently cleaved in infected BALFs (on-target activation).
+In the future, it should be possible to expand our <italic toggle="yes">ex vivo</italic> substrate screening and also include screening against kidney/liver
+homogenates (off-target activation) to further inform substrates that
+are likely to be more preferentially activated in the infected lungs
+with less off-target activation for <italic toggle="yes">in vivo</italic> evaluation.</p></sec><sec id="sec2.4"><title>Optimized ABD-AMP Conjugate Exhibits Time-Dependent Activation
+with High Infected Lung-to-off-Target Organ Selectivity</title><p>Central
+to the conditional therapeutic concept is preferential activation
+at the diseased site with minimized off-target exposure. However,
+to our knowledge no known study to date has comprehensively evaluated
+the multiorgan kinetics of conditional AMP therapeutic accumulation
+and activation to quantitatively demonstrate whether the desirable
+shift in active compound exposure was indeed achieved <italic toggle="yes">in vivo</italic>. Hence, we set out to evaluate our ABD-AMP conjugate <italic toggle="yes">in
+vivo</italic> with regard to biodistribution and extent of activation
+over time in different organs. With our optimized cleavable linker,
+we focused our study on divalent (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex-Cy7 (<xref rid="fig4" ref-type="fig">Figures <xref rid="fig4" ref-type="fig">4</xref></xref>A, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">S8, and S9</ext-link>) which is
+our most long-circulating construct (<xref rid="fig4" ref-type="fig">Figures <xref rid="fig4" ref-type="fig">4</xref></xref>B and <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">S10, and Table S3</ext-link>) with enhanced activity masking (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S11 and Table S1</ext-link>). The conjugate exhibited similar <italic toggle="yes">in vitro</italic> cleavage kinetics as the monovalent conjugate (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S12</ext-link>) but was found to better deliver active
+AMP to PAO1-infected lungs compared to both monovalent and nonalbumin-binding
+conjugates (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figures S13 and S14</ext-link>). In the
+PAO1 lung infection model, (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex-Cy7 and (<sc>d</sc>)Pex-Cy7 control were administered
+to the infected mice at 6 h post infection (<xref rid="fig4" ref-type="fig">Figure <xref rid="fig4" ref-type="fig">4</xref></xref>C). After different time points up to 8 h
+post treatment, cohorts of 3–4 mice were euthanized and organs
+were harvested for quantification of the total conjugate versus released
+(<sc>d</sc>)Pex-Cy7. In the infected lungs, we observed an increase
+in both total and active fractions of the conjugate over time, while
+the amount of (<sc>d</sc>)Pex-Cy7 in the free AMP control group remained
+steady for the first 4 h before gradually declining (<xref rid="fig4" ref-type="fig">Figure <xref rid="fig4" ref-type="fig">4</xref></xref>D). Over the 8 h time frame,
+we did not observe a complete activation of the conjugate, pointing
+out room for further optimization of the cleavable linker. The increase
+in the released AMP of the conjugate over time was confirmed to be
+driven by infection in the lungs, as the released AMP content remained
+steady at the 5 min time point level throughout the course of study
+in the lungs of the noninfected mice (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S15</ext-link>). In addition, infection-dependent preferential activation of the
+conjugate was also observed in other lung infection models using different
+PA strains including clinical isolates (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S16</ext-link>) as well as in a PAO1 thigh infection model (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S17</ext-link>). In kidneys, liver, and spleen, the
+amount of released (<sc>d</sc>)Pex-Cy7 remained below that of the
+free AMP control throughout the time-course of study (<xref rid="fig4" ref-type="fig">Figure <xref rid="fig4" ref-type="fig">4</xref></xref>E–G). When quantified
+using an area under the concentration–time curve (AUC) analysis,
+(ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex-Cy7 delivered
+2.6-fold more active (<sc>d</sc>)Pex-Cy7 to the infected lungs compared
+to the free (<sc>d</sc>)Pex-Cy7 control, while also reducing free
+AMP exposure to kidneys, liver, and spleen by 1.2-, 3.6-, and 1.6-fold,
+respectively (<xref rid="fig4" ref-type="fig">Figure <xref rid="fig4" ref-type="fig">4</xref></xref>H and <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Table S4</ext-link>). At the equivalent levels
+of exposure to active (<sc>d</sc>)Pex-Cy7 in the infected lungs, the
+conjugate is estimated to reduce off-target exposure to the active
+AMP by 3.1, 9.3, and 4.2 fold in kidneys, liver, and spleen, respectively
+(<xref rid="fig4" ref-type="fig">Figure <xref rid="fig4" ref-type="fig">4</xref></xref>I). This estimation
+was further confirmed by a follow-up dose-varying biodistribution
+study, such that doses of 5, 15, and 45 nmol were administered, which
+allows us to directly compare the levels of active AMP present in
+different organs at different doses (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S18</ext-link>). Of note, the degree of reduction in off-target exposure is dependent
+on the inherent biodistribution of the formulated AMP, given that
+when we conducted the biodistribution study using another model AMP
+(<sc>d</sc>)KLA, we observed that the reduction in kidney exposure
+to active AMP was even more pronounced than what was detected in the
+(<sc>d</sc>)Pex conjugate study, due to a higher inherent accumulation
+of (<sc>d</sc>)KLA in kidneys (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figures S6 and S19</ext-link>). Taken together, our ABD-AMP formulation is a promising
+conditional AMP platform that can effectively redistribute active
+AMP toward organ of interest (infected lungs) away from off-target
+organs following systemic administration. It is worth noting that
+we employed serum-stable AMPs (either <sc>d</sc>-stereoisomers or
+cyclic AMPs) in our current studies and hence, the accumulated amounts
+could be less for other AMPs that are susceptible to serum degradation.
+We envision that selection and/or optimization of proteolytically
+stable AMPs would be essential in complementing our ABD-AMP formulation.</p><fig id="fig4" position="float" orientation="portrait"><label>Figure 4</label><caption><p>Optimized
+ABD-AMP conjugate improves circulation time and longitudinal
+on-target accumulation of active AMP. (A) Schematic of divalent ABD-AMP
+conjugate. (B) Pharmacokinetics of ABD-AMP conjugates. (<italic toggle="yes">n</italic> = 4). (C) Experimental timeline for longitudinal biodistribution
+study. Accumulation over time of (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex-Cy7 (released and total fractions) and (<sc>d</sc>)Pex-Cy7 in (D) lungs, (E) kidneys, (F) liver, and (G) spleen.
+(<italic toggle="yes">n</italic> = 3–4). (D–G) were plotted as mean
+% ID/g ± SD (H) Fold change in accumulation (AUC) of the released
+(<sc>d</sc>)Pex-Cy7 fraction of the conjugate relative to the free
+(<sc>d</sc>)Pex-Cy7 control in different organs. Reduced accumulations
+relative to the control were plotted as negative fold change. (I)
+Estimated fold change in accumulation (AUC) of the released (<sc>d</sc>)Pex-Cy7 fraction of the conjugate relative to the free (<sc>d</sc>)Pex-Cy7 control in off-target organs at equivalent lung exposure.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="gr4" position="float" orientation="portrait" xlink:href="nn2c04162_0004.jpg"/></fig></sec><sec id="sec2.5"><title>Optimized ABD-AMP Conjugate Improves Safety Profile of AMP</title><p>Systemic toxicity poses a critical challenge to clinical translation
+of AMP therapeutics. Nephrotoxicity is a well-documented side effect
+of polymyxins used in clinics.<sup><xref ref-type="bibr" rid="ref32">32</xref></sup> In addition,
+mammalian cell toxicity and hemolysis were also observed in several
+preclinical AMPs.<sup><xref ref-type="bibr" rid="ref33">33</xref></sup> In order to improve
+therapeutic index of AMPs, it is important that the AMPs be modified
+or formulated to reduce off-target toxicity. Given favorable <italic toggle="yes">in vitro</italic> toxicity masking and reduction in off-target organ
+exposure of the systemically administered ABD-AMP conjugate, we next
+evaluated whether this shift in biodistribution could lead to an improved
+safety profile of the formulated AMP. Mice were intravenously administered
+(<sc>d</sc>)Pex or (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex at 5 and 10 mg/kg AMP eq and were monitored for 24 h. At the
+end point, the mice were euthanized and serum and organs were collected
+for serum chemistry analysis and histology evaluation, respectively.
+Over the observation period, signs of distress were only observed
+in the mice treated with (<sc>d</sc>)Pex at 10 mg/kg and 3 of 5 mice
+in this group did not survive to the study end point (<xref rid="fig5" ref-type="fig">Figure <xref rid="fig5" ref-type="fig">5</xref></xref>A). In contrast, the mice that
+were treated with the conjugate at 10 mg/kg AMP eq exhibited no sign
+of distress. Maximum tolerated dose (MTD) of (<sc>d</sc>)Pex was determined
+to be 5 mg/kg whereas MTD of (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex was not reached at the highest dose tested (10 mg/kg AMP
+eq) which is near the solubility limit of the conjugate. Serum levels
+of alanine aminotransferase (ALT), aspartate aminotransferase (AST),
+blood nitrogen urea (BUN), and creatinine were elevated beyond a normal
+reference range in the mice treated with 10 mg/kg (<sc>d</sc>)Pex,
+indicating liver and kidney dysfunction in this treatment group (<xref rid="fig5" ref-type="fig">Figures <xref rid="fig5" ref-type="fig">5</xref></xref>B and <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">S20A</ext-link>). The levels of these analytes remained
+within the reference range for the other treatment groups. Alkaline
+phosphatase and serum albumin levels were not statistically altered
+in any of the treatment groups compared to the PBS control group (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S20B,C</ext-link>) and mouse body weight remained
+higher than 95% of the starting weight for all treatment groups (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S20D</ext-link>). Pro-inflammatory cytokine IL-6
+was found to be significantly elevated only in the serum samples of
+the mice treated with 10 mg/kg (<sc>d</sc>)Pex (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S21</ext-link>). With regard to histology, the harvested organs
+were fixed, sectioned, stained with hematoxylin and eosin (H&amp;E),
+and evaluated by a veterinary pathologist blind to the treatment groups.
+Pathological damage was observed in kidneys and spleen of the mice
+treated with 10 mg/kg (<sc>d</sc>)Pex. Specifically, in this treatment
+group, dilated renal tubules with protein casts and apoptotic epithelial
+cells were observed in the kidney sections, and patches of apoptotic
+lymphocytes were observed in the spleen sections (<xref rid="fig5" ref-type="fig">Figure <xref rid="fig5" ref-type="fig">5</xref></xref>C). On the other hand, treatment
+with (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex at 10
+mg/kg AMP eq did not result in any observable histological damage
+in any evaluated organs (<xref rid="fig5" ref-type="fig">Figures <xref rid="fig5" ref-type="fig">5</xref></xref>C and <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">S22</ext-link>). We did not observe
+abnormalities in the liver sections of the (<sc>d</sc>)Pex (10 mg/kg)
+group despite high serum levels of ALT and AST (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S22</ext-link>). To ensure broad applicability of the platform,
+improved tolerability of AMP with the ABD-AMP formulation was demonstrated
+in another model AMP (<sc>d</sc>)KLA (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S23</ext-link>). Altogether, we showed that ABD-AMP conjugate formulation improves
+the safety profile of AMPs, which, together with enhanced bioavailability
+at the diseased site, supports further investigation of the conjugate
+as a systemic conditional antimicrobial agent.</p><fig id="fig5" position="float" orientation="portrait"><label>Figure 5</label><caption><p>Optimized ABD-AMP conjugate
+exhibits enhanced safety profile. (A)
+Treatment groups and status of the treated mice. Each circle represents
+a mouse. (B) Serum chemistry analysis of the mice in different treatment
+groups. The serum levels are shown for ALT, AST, and BUN plotted as
+mean ± SD and analyzed with One-way ANOVA with Tukey posthoc
+tests. * denotes statistical significance (<italic toggle="yes">P</italic> &lt;
+0.05). (<italic toggle="yes">n</italic> = 3–5). Blue area indicates a normal
+reference range. The serum levels of additional analytes are reported
+in <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S20</ext-link>. (C) Histological evaluation
+of organ sections (kidneys and spleen) stained with H&amp;E (<italic toggle="yes">n</italic> = 3). Scale bar represents 100 μm. Magenta arrows
+indicate protein casts. Black arrows indicate apoptotic cells. The
+sections of the other organs (heart, lungs, and liver) are shown in <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S22</ext-link>.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="gr5" position="float" orientation="portrait" xlink:href="nn2c04162_0005.jpg"/></fig></sec></sec><sec id="sec3"><title>Conclusions</title><p>We report the development of a long-circulating
+ABD-AMP conjugate
+that enhances active AMP accumulation in the infected organ while
+lowering its exposure in the other organs. The modulation in biodistribution,
+together with the masked mammalian toxicity and hemolysis, improved
+safety profiles of the formulated AMPs. Future iterations of this
+conjugate could incorporate active-targeting domains to promote target
+organ accumulation/bacteria engagement and could be further refined
+in terms of the selection of more efficient/specific cleavable linkers
+(either disease or organ-specific). Our effort in conditional AMP
+formulation would go hand in hand with efforts from other groups focused
+on the discovery and optimization of potent AMPs<sup><xref ref-type="bibr" rid="ref34">34</xref>−<xref ref-type="bibr" rid="ref38">38</xref></sup> as well as exploration of AMP/AMP or AMP/antibiotic
+synergistic combinations,<sup><xref ref-type="bibr" rid="ref39">39</xref>−<xref ref-type="bibr" rid="ref41">41</xref></sup> all of which would help accelerate
+clinical translation of AMPs for systemic administration. Extending
+beyond a model AMP (<sc>d</sc>)Pex, future exploration on different
+AMP candidates will take into account their potential immunomodulation
+and antibiofilm properties which are increasingly recognized as important
+attributes to improve antibacterial efficacy.<sup><xref ref-type="bibr" rid="ref42">42</xref>−<xref ref-type="bibr" rid="ref45">45</xref></sup> Given that the currently used
+acute infection mouse model develops more rapidly than the course
+of acute infection in humans, future work will look into evaluation
+of our conjugate in a chronic infection model that might provide a
+more relevant context for therapeutic efficacy assessment of our pro-therapeutic
+which takes longer than free AMP to reach maximal concentration. As
+a first step, our current contribution delineates features that improve <italic toggle="yes">in vivo</italic> characteristics and safety profiles of the conditional
+AMP therapeutic supporting its future optimization and investigation
+for clinical translation. Although our current investigation was focused
+on lung infection models, our systemic formulation should be applicable
+to other infection contexts where topical administration of therapeutic
+is not viable. Additionally, several cationic, amphipathic AMPs are
+also regarded as anticancer peptides due to their preferential cytolytic
+activity on cancer cells, which possess more negatively charged cell
+membrane than that of normal cells.<sup><xref ref-type="bibr" rid="ref46">46</xref></sup> We
+envision that our conjugate formulation could be tailored to more
+selectively deliver these anticancer peptides to tumors for oncology
+applications. More broadly, our platform could be adapted for enhanced
+on-target delivery of peptide therapeutics in various diseases with
+aberrant microenvironments. The developmental framework may be useful
+in guiding optimization of other conditional/stimuli-responsive therapeutics
+with alternative carrier proteins or polymers.</p></sec><sec id="sec4"><title>Methods</title><sec id="sec4.1"><title>Molecular Cloning of ABD Backbone</title><p>Double-stranded DNA
+gBlocks gene fragments encoding ABD, anionic block, cleavable linker,
+and C-terminal cysteine with flanking NcoI and XhoI restriction sites
+were ordered from Integrated DNA Technologies (IA, U.S.A.). The gene
+fragments were cloned into Novogen pET28a(+) vector at the NcoI and
+XhoI restriction sites and transformed into DH5α competent <italic toggle="yes">E. coli</italic> cells (New England Biolabs Inc., MA, U.S.A.). Selection
+of the correctly cloned bacterial colonies was confirmed by Sanger
+sequencing (Quintara Biosciences, CA, U.S.A.). The corresponding plasmids
+were harvested and transformed into BL21(DE3) competent <italic toggle="yes">E.
+coli</italic> cells (New England Biolabs Inc., MA, U.S.A.) for protein
+expression.</p></sec><sec id="sec4.2"><title>Recombinant Expression of ABD Backbone</title><p>A secondary
+culture of BL21(DE3) <italic toggle="yes">E. coli</italic> encoding ABD backbone
+(500 mL in LB broth supplemented with 50 μg/mL of kanamycin)
+was grown at 37 °C from an overnight primary culture (3 mL) until
+optical density at 600 nm (OD600) reached about 0.6–0.8. Protein
+expression was induced with an addition of isopropyl β-<sc>d</sc>-1-thiogalactopyranoside (IPTG) (1 mM final concentration) followed
+by a 2 h incubation at 37 °C. The bacteria were then pelleted
+and stored in a −80 °C freezer. For purification, the
+bacteria pellet was first thawed on a 37 °C water bath, lyzed
+with B-PER complete bacteria protein extraction reagent (ThermoFisher
+Scientific, MA, U.S.A.) and centrifuged at 11 000 rpm for 20 min.
+ABD in the clarified supernatant was purified via a standard immobilized
+metal affinity chromatography (IMAC) with Ni-NTA agarose (Qiagen,
+MD, U.S.A.) in Tris buffer. The product was confirmed via SDS-PAGE
+analysis.</p></sec><sec id="sec4.3"><title>Synthesis of ABD-AMP Conjugates</title><p>All AMPs (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Table S5</ext-link>) were synthesized via a standard Fmoc
+solid-phase peptide synthesis from CPC Scientific (CA, U.S.A.) with
+at least 95% purity (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S24</ext-link>). ABD was
+first incubated with tris(2-carboxyethyl)phosphine (TCEP) (20 equiv)
+for 1 h at room temperature (RT) to reduce its C-terminal cysteine.
+The reduced protein solution was then centrifuge-filtered with a 10-kDa
+Amicon centrifugal filter unit (MilliporeSigma, MA, U.S.A.) (4 times)
+to remove free TCEP and exchange its buffer into PBS (pH 6.5, 1 mM
+EDTA). Subsequently, the reduced protein was reacted with DBCO-Maleimide
+cross-linker (Click Chemistry Tools, AZ, U.S.A.) (5 equiv) for 5 h
+at RT. The DBCO-functionalized ABD was purified with a disposable
+PD-10 desalting column (GE Healthcare Bio-Sciences, PA, U.S.A.) to
+remove unreacted cross-linker and exchange its buffer into PBS (pH
+7.4). AMP conjugation step was performed on solid phase support as
+follows. First, the DBCO-functionalized ABD was preadsorbed onto Ni-NTA
+agarose for 15 min after which a stock solution of AMP in water (1.5
+equiv) was added to the mixture. The reaction was incubated overnight
+at RT. Next, excess AMP was extensively washed off with Tris buffer
+(pH 8) and the product was eluted with Tris buffer (500 mM imidazole,
+pH 8). Finally, the product was buffer-exchanged into PBS (pH 7.4)
+with a disposable PD-10 desalting column and concentrated with a 10-kDa
+Amicon centrifugal filter unit. All synthesized conjugates were confirmed
+via SDS-PAGE analysis and quantified by either 220 nm absorption for
+unlabeled conjugates or 740 nm absorption for Cy7-labeled conjugates.
+Molecular weights of the conjugates were confirmed via MALDI-ToF MS
+(Bruker Autoflex) using α-cyano-4-hydroxycinnamic acid as a
+matrix (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Table S6</ext-link>). Lead conjugates were
+additionally characterized via analytical high pressure liquid chromatography
+(HPLC) using a C4 analytical HPLC column (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Figure S25</ext-link>).</p></sec><sec id="sec4.4"><title>Microdilution Assay</title><p><italic toggle="yes">P. aeruginosa</italic> PAO1
+was a generous gift from the Ribbeck Lab at the Massachusetts Institute
+of Technology. ABD-AMP conjugates were 2-fold serially diluted in
+MHB media on 96-well plates with triplicates per treatment. For assessment
+of the cleaved conjugates, the conjugates were incubated with human
+thrombin (Haematologic Technologies, VT, U.S.A.) (125 nM) for 4 h
+prior to the serial dilutions. An equal volume of PAO1 suspension
+in HSA-supplemented MHB was added to the 96-well plates to achieve
+a final concentration of 5 × 10<sup>5</sup> cfu/mL PAO1 in 500
+μM HSA for each treatment well. The plates were incubated at
+37 °C for 16 h after which OD600 was measured by Infinite 200
+PRO plate reader (Tecan, Switzerland) to determine MIC.</p></sec><sec id="sec4.5"><title>Mammalian Toxicity Assay</title><p>L929 fibroblasts were seeded
+on tissue culture-treated 96-well plates at 10 000 cells/well in Dulbecco’s
+modified Eagle medium (DMEM) media (10% fetal bovine serum, 1% penicillin-streptomycin
+solution) and cultured in an incubator at 37 °C, 5% CO<sub>2</sub>. After 24 h, the culture media was replaced with treatment media
+containing 2-fold serially diluted ABD-AMP conjugate solutions in
+DMEM (500 μM HSA) and incubated for 4 h. Cell viability was
+measured after 24 h using MTS-based CellTiter 96 aqueous one solution
+cell proliferation assay (Promega, WI, U.S.A.).</p></sec><sec id="sec4.6"><title>Hemolysis Assay</title><p>Fresh blood was collected from a CD-1
+mouse via cardiac puncture using a syringe precoated with 0.1 mL EDTA
+solution (50 mM). Red blood cells were separated from plasma components
+via centrifugation and further washed with 150 mM sodium chloride
+solution. The final red blood cell suspension was added to 96-well
+plates and treated with 2-fold serially diluted ABD-AMP conjugate
+solutions for 1 h at 37 °C. Then, red blood cells were pelleted
+and supernatants were transferred to new 96-well plates for measurement
+of 541 nm absorbance to quantify released hemoglobin. Triton-X 100
+treatment (0.1%) was used as a positive control to normalize percent
+hemolysis.</p></sec><sec id="sec4.7"><title>Mouse Model of PAO1 Lung Infection and BALF Collection</title><p>All animal studies were approved by the Massachusetts Institute of
+Technology’s Committee on Animal Care (MIT protocol 0619-034-22).
+CD-1 mice (11–12 weeks old) were rendered neutropenic by intraperitoneal
+injections of cyclophosphamide at 4 d (150 mg/kg) and 1 d (100 mg/kg)
+prior to infection. PAO1 inoculation was performed by intratracheal
+instillation of PAO1 suspension (2 × 10<sup>5</sup> cfu in 50
+μL PBS) via a 22G blunt-end catheter (EXCEL International).
+For BALF collection, the mice were first euthanized. An incision into
+the trachea was made with a needle puncture where lavage was performed
+with PBS (1 mL) via a catheter-fitted syringe. BALFs were centrifuged
+to remove cells, aliquoted, and stored in a −20 °C freezer.</p></sec><sec id="sec4.8"><title>BALF Cleavage Assay</title><p>FRET peptide substrates in PBS
+(15 μL, 40 μM) as listed in <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">Table S2</ext-link> were incubated with an equal volume of BALFs in a 384-well
+plate. Fluorescence signal of Cy5 was monitored for 2 h by a plate
+reader. Cleavage rate of each substrate was calculated from the initial
+slope of the Cy5 signal. Cleavage assay on ABD-AMP-Cy7 conjugates
+was performed by incubation of the conjugate solutions (15 μL,
+20 μM) with an equal volume of BALFs in the presence of HSA
+(500 μM) for 24 h followed by SDS-PAGE analysis using NuPAGE
+4 to 12% Bis-Tris protein gels in a MES running buffer. Signals of
+the intact conjugates and cleaved AMPs were measured using an Odyssey
+CLx imager at the 800 nm channel (LI-COR Biosciences, NE, U.S.A.)
+and calculated for percent cleavage.</p></sec><sec id="sec4.9"><title>Biodistribution Study</title><p>ABD-AMP-Cy7 conjugates (15 nmol)
+were intravenously administered at 6 h post infection. The mice were
+euthanized 2 h after and organs were harvested for imaging with an
+Odyssey CLx imager. After imaging, organs were homogenized in PBS
+supplemented with Halt protease inhibitor cocktail (ThermoFisher Scientific,
+MA, U.S.A.) using a gentleMAC dissociator (Miltenyi Biotec, CA, U.S.A.).
+The homogenates were pelleted and the supernatants were used for SDS-PAGE
+analysis.</p></sec><sec id="sec4.10"><title>Pharmacokinetics Study</title><p>ABD-AMP-Cy7 conjugates (15 nmol)
+were intravenously administered to CD-1 mice. At different time intervals,
+blood samples (5 μL) were collected via saphenous vein bleeding
+using heparin-coated capillary tubes. Blood samples were diluted 10-fold
+in PBS supplemented with Halt protease inhibitor cocktail and EDTA
+and centrifuged to remove cells. The supernatants were used to quantify
+conjugate concentration via SDS-PAGE analysis.</p></sec><sec id="sec4.11"><title>Toxicity Evaluation</title><p>ABD-AMP conjugates at different
+doses were intravenously administered to CD-1 mice. The mice were
+closely monitored for 24 h before euthanization unless significant
+morbidity was observed that necessitated early euthanization. Blood
+samples were drawn via cardiac puncture and dispensed into serum separator
+tubes (BD Microtainer). The samples were left to clot for at least
+30 min and spun at 15 000 rcf for 1.5 min to separate serum. The serum
+samples were frozen in a −20 °C freezer and submitted
+for serum chemistry analysis by MIT Diagnostic Laboratory (MIT Division
+of Comparative Medicine). Serum levels of pro-inflammatory cytokine
+IL-6 and TNF-α were quantified using ELISA MAX standard sets
+(BioLegend, CA, U.S.A.) following the manufacturer’s protocol.
+Organs were harvested, fixed in 10% formalin at RT for 24 h, sectioned
+into 5 μm slices, and stained with H&amp;E for analysis. The
+slides were evaluated by a veterinary pathologist blind to the treatment
+groups and were digitized using a Pannoramic digital slide scanner
+at 20× magnification.</p></sec><sec id="sec4.12"><title>Statistical Analysis and Schematic Representation</title><p>All
+statistical analysis was performed on GraphPad Prism software (GraphPad
+Software Inc., CA, U.S.A.). Data were plotted as mean ± standard
+deviation. Comparison among different treatment groups was based on
+One-way ANOVA with Tukey posthoc tests. <italic toggle="yes">P</italic> &lt; 0.05
+was considered statistical significance. Schematics were partly created
+with BioRender.com (Toronto, Canada).</p></sec></sec></body><back><notes id="notes-2" notes-type="si"><title>Supporting Information Available</title><p>The Supporting Information
+is available free of charge at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/10.1021/acsnano.2c04162?goto=supporting-info">https://pubs.acs.org/doi/10.1021/acsnano.2c04162</ext-link>.<list id="silist" list-type="simple"><list-item><p>Supplementary methods, Figure S1; stability of (<sc>l</sc>)Pex and (<sc>d</sc>)Pex in thrombin, Figure S2; albumin association
+and anionic block affect cleavage kinetics of ABD-S1-AMP conjugates
+by thrombin and mouse serum, Figure S3; ABD-AMP conjugates exhibit
+activity masking across multiple model AMPs, Figure S4; conjugation
+of (<sc>d</sc>)Pex to MSA increased liver accumulation, Figure S5;
+improvement in biodistribution of ABD-AMP conjugate is saturated after
+reaching the threshold anionic block length, Figure S6; ABD-AMP conjugates
+with anionic block improves biodistribution of multiple model AMPs,
+Figure S7; proteolytic activities of BALFs on FRET substrates were
+inhibited by multiple class-specific protease inhibitors, Figure S8;
+schematic and characterization of divalent ABD-AMP conjugate, Figure
+S9; characterization of albumin binding by ABD and ABD-AMP conjugates,
+Figure S10; (ZHER2)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex-Cy7,
+as a nonalbumin-binding control conjugate with anionic block, exhibits
+short circulation time, Figure S11; divalent ABD-AMP conjugate exhibits
+enhanced activity masking, Figure S12; divalent association with two
+albumins did not affect cleavage kinetics of (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex-Cy7, Figure S13; divalent ABD-AMP conjugate
+delivers more active AMP to bacteria-infected lungs, Figure S14; albumin
+association of ABD-AMP conjugate is necessary for enhanced delivery
+of active AMP to bacteria-infected lungs, Figure S15; The level of
+active AMP remains steady in the noninfected lungs, Figure S16; ABD-AMP
+conjugate is preferentially activated in bacteria-infected lungs,
+Figure S17; optimized ABD-AMP conjugate improves longitudinal on-target
+accumulation of active AMP in PAO1-infected thighs, Figure S18; ABD-AMP
+exhibits on-target activation across multiple dose range while retaining
+lung-to-off-target organ selectivity, Figure S19; (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)KLA-Cy7 increases accumulation
+of active (<sc>d</sc>)KLA-Cy7 in the infected lungs while reducing
+exposure in kidneys and liver, Figure S20; (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex exhibits a good safety profile based
+on serum chemistry analysis and body weight change, Figure S21; (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex exhibits a good safety
+profile based on serum analysis of pro-inflammatory cytokines, Figure
+S22; (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)Pex exhibits
+a good safety profile based on histology evaluation, Figure S23; (ABD)<sub>2</sub>-(EEG)<sub>6</sub>-S12-(<sc>d</sc>)KLA exhibits a good safety
+profile, Figure S24; LC-MS analysis of (<sc>d</sc>)Pex-azide, Figure
+S25; LC-MS analysis of ABD-(<sc>d</sc>)Pex conjugates, Table S1; selectivity
+indices (IC50/MIC and HE50/MIC) of ABD-AMP conjugates, Table S2; list
+of peptide substrates and sequences, Table S3; pharmacokinetics evaluation
+of ABD-AMP conjugates, Table S4; AUC table of longitudinal biodistribution
+study in PAO1-infected mice, Table S5; list of AMPs and sequences,
+Table S6; list of ABD-AMP conjugates, sequences, and molecular weights
+(<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://pubs.acs.org/doi/suppl/10.1021/acsnano.2c04162/suppl_file/nn2c04162_si_001.pdf">PDF</ext-link>)</p></list-item></list></p></notes><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material content-type="local-data" id="sifile1" position="float" orientation="portrait"><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="nn2c04162_si_001.pdf" position="float" orientation="portrait"><caption><p>nn2c04162_si_001.pdf</p></caption></media></supplementary-material></sec><notes notes-type="" id="notes-1"><title>Author Present Address</title><p><sup>∇</sup> Wallace
+H. Coulter Department of Biomedical Engineering, Georgia
+Institute of Technology and Emory School of Medicine, Atlanta, Georgia
+30332, United States</p></notes><notes notes-type="" id="notes-3"><title>Author Contributions</title><p>C.N. and
+S.N.B. conceived the project. C.N. designed the conjugates, planned,
+and performed all experiments. L.W.C. and S.N.B. assisted with planning
+of experiments. S.N.B. supervised the research. C.N., H.E.F., and
+S.N.B. wrote the paper with edits from all authors.</p></notes><notes notes-type="funding-statement" id="notes-4"><p>This study was
+supported by a SPARC grant from the Broad Institute and by R01 AI132413
+and U19 <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmc:entrez-nucleotide" xlink:href="AI142780">AI142780</ext-link> grants from the National Institute of Allergy and
+Infectious Diseases. This study was supported in part by a Koch Institute
+Support Grant P30-CA14051 from the National Cancer Institute (Swanson
+Biotechnology Center) and a Core Center Grant P30-ES002109 from the
+National Institute of Environmental Health Sciences. S.N.B. is a Howard
+Hughes Institute Investigator. L.W.C. acknowledges support from the
+National Institutes of Health Pathway to Independence Award (K99EB028311).</p></notes><notes notes-type="COI-statement" id="notes-5"><p>The
+authors
+declare the following competing financial interest(s): S.N.B. and
+C.N. are listed as inventors on patent application related to the
+content of this work. S.N.B. reports compensation for cofounding,
+consulting, and/or board membership in Glympse Bio, Satellite Bio,
+CEND Therapeutics, Catalio Capital, Intergalactic Therapeutics, Port
+Therapeutics, Vertex Pharmaceuticals, and Moderna, and receives sponsored
+research funding from Johnson &amp; Johnson, Revitope, and Owlstone.
+All the other authors declare no competing interests.</p></notes><ack><title>Acknowledgments</title><p>We would like to acknowledge Koch Institute Swanson Biotechnology
+Center Histology Core, especially K. Cormier for consultation and
+processing of organs for histology evaluation, and Biopolymers &amp;
+Proteomics Core, especially H. Amoroso for HPLC analysis. We would
+like to thank R. Bronson for consultation and interpretation of H&amp;E
+slides. We would like to acknowledge MIT Diagnostic Laboratory at
+the MIT Division of Comparative Medicine, especially E. Jordan for
+consultation and processing of serum samples. We would like to acknowledge
+MIT Department of Chemistry Instrumentation Facility for use of MALDI-ToF
+MS instrument. We would like to acknowledge MIT Biophysical Instrumentation
+Facility for use of Octet® Bio-Layer Interferometry instrument.</p></ack><glossary id="dl1"><def-list><title>ABBREVIATIONS</title><def-item><term>ABD</term><def><p>albumin-binding
+domain</p></def></def-item><def-item><term>AMP</term><def><p>antimicrobial
+peptide</p></def></def-item></def-list></glossary><ref-list><title>References</title><ref id="ref1"><mixed-citation publication-type="journal" id="cit1"><name name-style="western"><surname>Czaplewski</surname><given-names>L.</given-names></name>; <name name-style="western"><surname>Bax</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Clokie</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Dawson</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Fairhead</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Fischetti</surname><given-names>V. A.</given-names></name>; <name name-style="western"><surname>Foster</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Gilmore</surname><given-names>B. F.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>; <name name-style="western"><surname>Harper</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Henderson</surname><given-names>I. R.</given-names></name>; <name name-style="western"><surname>Hilpert</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Jones</surname><given-names>B. V.</given-names></name>; <name name-style="western"><surname>Kadioglu</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Knowles</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Ólafsdóttir</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Payne</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Projan</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Shaunak</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Silverman</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Thomas</surname><given-names>C. M.</given-names></name>; <name name-style="western"><surname>Trust</surname><given-names>T. J.</given-names></name>; <name name-style="western"><surname>Warn</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Rex</surname><given-names>J. H.</given-names></name>
+<article-title>Alternatives
+to Antibiotics-a Pipeline Portfolio Review</article-title>. <source>Lancet. Infect. Dis.</source>
+<year>2016</year>, <volume>16</volume> (<issue>2</issue>), <fpage>239</fpage>–<lpage>251</lpage>. <pub-id pub-id-type="doi">10.1016/S1473-3099(15)00466-1</pub-id>.<pub-id pub-id-type="pmid">26795692</pub-id></mixed-citation></ref><ref id="ref2"><mixed-citation publication-type="journal" id="cit2"><name name-style="western"><surname>Theuretzbacher</surname><given-names>U.</given-names></name>; <name name-style="western"><surname>Outterson</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Engel</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Karlén</surname><given-names>A.</given-names></name>
+<article-title>The Global
+Preclinical Antibacterial Pipeline</article-title>. <source>Nat. Rev.
+Microbiol.</source>
+<year>2020</year>, <volume>18</volume> (<issue>5</issue>), <fpage>275</fpage>–<lpage>285</lpage>. <pub-id pub-id-type="doi">10.1038/s41579-019-0288-0</pub-id>.<pub-id pub-id-type="pmid">31745331</pub-id><pub-id pub-id-type="pmcid">PMC7223541</pub-id></mixed-citation></ref><ref id="ref3"><mixed-citation publication-type="journal" id="cit3"><name name-style="western"><surname>Magana</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Pushpanathan</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Santos</surname><given-names>A. L.</given-names></name>; <name name-style="western"><surname>Leanse</surname><given-names>L.</given-names></name>; <name name-style="western"><surname>Fernandez</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Ioannidis</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Giulianotti</surname><given-names>M. A.</given-names></name>; <name name-style="western"><surname>Apidianakis</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Bradfute</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Ferguson</surname><given-names>A. L.</given-names></name>; <name name-style="western"><surname>Cherkasov</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Seleem</surname><given-names>M. N.</given-names></name>; <name name-style="western"><surname>Pinilla</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>de la Fuente-Nunez</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Lazaridis</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Dai</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Houghten</surname><given-names>R. A.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>; <name name-style="western"><surname>Tegos</surname><given-names>G. P.</given-names></name>
+<article-title>The Value of Antimicrobial Peptides in the Age of Resistance</article-title>. <source>Lancet. Infect. Dis.</source>
+<year>2020</year>, <volume>20</volume> (<issue>9</issue>), <fpage>e216</fpage>–<lpage>e230</lpage>. <pub-id pub-id-type="doi">10.1016/S1473-3099(20)30327-3</pub-id>.<pub-id pub-id-type="pmid">32653070</pub-id></mixed-citation></ref><ref id="ref4"><mixed-citation publication-type="journal" id="cit4"><name name-style="western"><surname>Mookherjee</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Anderson</surname><given-names>M. A.</given-names></name>; <name name-style="western"><surname>Haagsman</surname><given-names>H. P.</given-names></name>; <name name-style="western"><surname>Davidson</surname><given-names>D. J.</given-names></name>
+<article-title>Antimicrobial Host
+Defence Peptides: Functions and Clinical Potential</article-title>. <source>Nat. Rev. Drug Discovery</source>
+<year>2020</year>, <volume>19</volume> (<issue>5</issue>), <fpage>311</fpage>–<lpage>332</lpage>. <pub-id pub-id-type="doi">10.1038/s41573-019-0058-8</pub-id>.<pub-id pub-id-type="pmid">32107480</pub-id></mixed-citation></ref><ref id="ref5"><mixed-citation publication-type="journal" id="cit5"><name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>; <name name-style="western"><surname>Alford</surname><given-names>M. A.</given-names></name>; <name name-style="western"><surname>Haney</surname><given-names>E. F.</given-names></name>
+<article-title>Antibiofilm
+Activity of Host Defence
+Peptides: Complexity Provides Opportunities</article-title>. <source>Nat. Rev. Microbiol.</source>
+<year>2021</year>, <volume>19</volume>, <fpage>786</fpage><pub-id pub-id-type="doi">10.1038/s41579-021-00585-w</pub-id>.<pub-id pub-id-type="pmid">34183822</pub-id></mixed-citation></ref><ref id="ref6"><mixed-citation publication-type="journal" id="cit6"><name name-style="western"><surname>Chen</surname><given-names>C. H.</given-names></name>; <name name-style="western"><surname>Lu</surname><given-names>T. K.</given-names></name>
+<article-title>Development
+and Challenges of Antimicrobial Peptides for Therapeutic
+Applications</article-title>. <source>Antibiot. (Basel, Switzerland)</source>
+<year>2020</year>, <pub-id pub-id-type="doi">10.3390/antibiotics9010024</pub-id>.<pub-id pub-id-type="pmcid">PMC7168295</pub-id><pub-id pub-id-type="pmid">31941022</pub-id></mixed-citation></ref><ref id="ref7"><mixed-citation publication-type="journal" id="cit7"><name name-style="western"><surname>Fjell</surname><given-names>C. D.</given-names></name>; <name name-style="western"><surname>Hiss</surname><given-names>J. A.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>; <name name-style="western"><surname>Schneider</surname><given-names>G.</given-names></name>
+<article-title>Designing
+Antimicrobial Peptides: Form Follows Function</article-title>. <source>Nat. Rev. Drug Discovery</source>
+<year>2012</year>, <volume>11</volume> (<issue>1</issue>), <fpage>37</fpage>–<lpage>51</lpage>. <pub-id pub-id-type="doi">10.1038/nrd3591</pub-id>.<pub-id pub-id-type="pmid">22173434</pub-id></mixed-citation></ref><ref id="ref8"><mixed-citation publication-type="journal" id="cit8"><name name-style="western"><surname>Lei</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Jayaraman</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Van Deventer</surname><given-names>J. A.</given-names></name>; <name name-style="western"><surname>Lee</surname><given-names>K.</given-names></name>
+<article-title>Engineering Selectively
+Targeting Antimicrobial Peptides</article-title>. <source>Annu. Rev.
+Biomed. Eng.</source>
+<year>2021</year>, <volume>23</volume>, <fpage>339</fpage>–<lpage>357</lpage>. <pub-id pub-id-type="doi">10.1146/annurev-bioeng-010220-095711</pub-id>.<pub-id pub-id-type="pmid">33852346</pub-id><pub-id pub-id-type="pmcid">PMC9017812</pub-id></mixed-citation></ref><ref id="ref9"><mixed-citation publication-type="journal" id="cit9"><name name-style="western"><surname>Gan</surname><given-names>B. H.</given-names></name>; <name name-style="western"><surname>Gaynord</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Rowe</surname><given-names>S. M.</given-names></name>; <name name-style="western"><surname>Deingruber</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Spring</surname><given-names>D. R.</given-names></name>
+<article-title>The Multifaceted Nature of Antimicrobial Peptides:
+Current Synthetic Chemistry Approaches and Future Directions</article-title>. <source>Chem. Soc. Rev.</source>
+<year>2021</year>, <volume>50</volume> (<issue>13</issue>), <fpage>7820</fpage>–<lpage>7880</lpage>. <pub-id pub-id-type="doi">10.1039/D0CS00729C</pub-id>.<pub-id pub-id-type="pmid">34042120</pub-id><pub-id pub-id-type="pmcid">PMC8689412</pub-id></mixed-citation></ref><ref id="ref10"><mixed-citation publication-type="journal" id="cit10"><name name-style="western"><surname>Mitchell</surname><given-names>M. J.</given-names></name>; <name name-style="western"><surname>Billingsley</surname><given-names>M. M.</given-names></name>; <name name-style="western"><surname>Haley</surname><given-names>R. M.</given-names></name>; <name name-style="western"><surname>Wechsler</surname><given-names>M. E.</given-names></name>; <name name-style="western"><surname>Peppas</surname><given-names>N. A.</given-names></name>; <name name-style="western"><surname>Langer</surname><given-names>R.</given-names></name>
+<article-title>Engineering
+Precision Nanoparticles for Drug Delivery</article-title>. <source>Nat.
+Rev. Drug Discovery</source>
+<year>2021</year>, <volume>20</volume> (<issue>2</issue>), <fpage>101</fpage>–<lpage>124</lpage>. <pub-id pub-id-type="doi">10.1038/s41573-020-0090-8</pub-id>.<pub-id pub-id-type="pmid">33277608</pub-id><pub-id pub-id-type="pmcid">PMC7717100</pub-id></mixed-citation></ref><ref id="ref11"><mixed-citation publication-type="journal" id="cit11"><name name-style="western"><surname>Manzari</surname><given-names>M. T.</given-names></name>; <name name-style="western"><surname>Shamay</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Kiguchi</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Rosen</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Scaltriti</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Heller</surname><given-names>D. A.</given-names></name>
+<article-title>Targeted Drug Delivery Strategies
+for Precision Medicines</article-title>. <source>Nat. Rev. Mater.</source>
+<year>2021</year>, <volume>6</volume> (<issue>4</issue>), <fpage>351</fpage>–<lpage>370</lpage>. <pub-id pub-id-type="doi">10.1038/s41578-020-00269-6</pub-id>.<pub-id pub-id-type="pmid">34950512</pub-id><pub-id pub-id-type="pmcid">PMC8691416</pub-id></mixed-citation></ref><ref id="ref12"><mixed-citation publication-type="journal" id="cit12"><name name-style="western"><surname>Drago</surname><given-names>J. Z.</given-names></name>; <name name-style="western"><surname>Modi</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Chandarlapaty</surname><given-names>S.</given-names></name>
+<article-title>Unlocking the Potential of Antibody-Drug
+Conjugates for Cancer Therapy</article-title>. <source>Nat. Rev. Clin.
+Oncol.</source>
+<year>2021</year>, <volume>18</volume> (<issue>6</issue>), <fpage>327</fpage>–<lpage>344</lpage>. <pub-id pub-id-type="doi">10.1038/s41571-021-00470-8</pub-id>.<pub-id pub-id-type="pmid">33558752</pub-id><pub-id pub-id-type="pmcid">PMC8287784</pub-id></mixed-citation></ref><ref id="ref13"><mixed-citation publication-type="journal" id="cit13"><name name-style="western"><surname>Xie</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Hanif</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Ouyang</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Tang</surname><given-names>Z.</given-names></name>; <name name-style="western"><surname>Kong</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Kim</surname><given-names>N. Y.</given-names></name>; <name name-style="western"><surname>Qi</surname><given-names>B.</given-names></name>; <name name-style="western"><surname>Patel</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Shi</surname><given-names>B.</given-names></name>; <name name-style="western"><surname>Tao</surname><given-names>W.</given-names></name>
+<article-title>Stimuli-Responsive Prodrug-Based Cancer Nanomedicine</article-title>. <source>EBioMedicine</source>
+<year>2020</year>, <volume>56</volume>, <fpage>102821</fpage><pub-id pub-id-type="doi">10.1016/j.ebiom.2020.102821</pub-id>.<pub-id pub-id-type="pmid">32505922</pub-id><pub-id pub-id-type="pmcid">PMC7280365</pub-id></mixed-citation></ref><ref id="ref14"><mixed-citation publication-type="journal" id="cit14"><name name-style="western"><surname>Poreba</surname><given-names>M.</given-names></name>
+<article-title>Protease-Activated
+Prodrugs: Strategies, Challenges, and Future Directions</article-title>. <source>FEBS J.</source>
+<year>2020</year>, <volume>287</volume> (<issue>10</issue>), <fpage>1936</fpage>–<lpage>1969</lpage>. <pub-id pub-id-type="doi">10.1111/febs.15227</pub-id>.<pub-id pub-id-type="pmid">31991521</pub-id></mixed-citation></ref><ref id="ref15"><mixed-citation publication-type="journal" id="cit15"><name name-style="western"><surname>Torres</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Cilloniz</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Niederman</surname><given-names>M. S.</given-names></name>; <name name-style="western"><surname>Menéndez</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Chalmers</surname><given-names>J. D.</given-names></name>; <name name-style="western"><surname>Wunderink</surname><given-names>R. G.</given-names></name>; <name name-style="western"><surname>van der Poll</surname><given-names>T.</given-names></name>
+<article-title>Pneumonia</article-title>. <source>Nat. Rev. Dis. Prim.</source>
+<year>2021</year>, <volume>7</volume> (<issue>1</issue>), <fpage>25</fpage><pub-id pub-id-type="doi">10.1038/s41572-021-00259-0</pub-id>.<pub-id pub-id-type="pmid">33833230</pub-id></mixed-citation></ref><ref id="ref16"><mixed-citation publication-type="journal" id="cit16"><name name-style="western"><surname>Rossi</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>La Rosa</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Bartell</surname><given-names>J. A.</given-names></name>; <name name-style="western"><surname>Marvig</surname><given-names>R. L.</given-names></name>; <name name-style="western"><surname>Haagensen</surname><given-names>J. A. J.</given-names></name>; <name name-style="western"><surname>Sommer</surname><given-names>L. M.</given-names></name>; <name name-style="western"><surname>Molin</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Johansen</surname><given-names>H. K.</given-names></name>
+<article-title>Pseudomonas Aeruginosa
+Adaptation and Evolution in Patients with Cystic Fibrosis</article-title>. <source>Nat. Rev. Microbiol.</source>
+<year>2021</year>, <volume>19</volume> (<issue>5</issue>), <fpage>331</fpage>–<lpage>342</lpage>. <pub-id pub-id-type="doi">10.1038/s41579-020-00477-5</pub-id>.<pub-id pub-id-type="pmid">33214718</pub-id></mixed-citation></ref><ref id="ref17"><mixed-citation publication-type="journal" id="cit17"><name name-style="western"><surname>Azzopardi</surname><given-names>E. A.</given-names></name>; <name name-style="western"><surname>Ferguson</surname><given-names>E. L.</given-names></name>; <name name-style="western"><surname>Thomas</surname><given-names>D. W.</given-names></name>
+<article-title>The Enhanced
+Permeability Retention
+Effect: A New Paradigm for Drug Targeting in Infection</article-title>. <source>J. Antimicrob. Chemother.</source>
+<year>2013</year>, <volume>68</volume> (<issue>2</issue>), <fpage>257</fpage>–<lpage>274</lpage>. <pub-id pub-id-type="doi">10.1093/jac/dks379</pub-id>.<pub-id pub-id-type="pmid">23054997</pub-id></mixed-citation></ref><ref id="ref18"><mixed-citation publication-type="journal" id="cit18"><name name-style="western"><surname>Yeh</surname><given-names>Y.-C.</given-names></name>; <name name-style="western"><surname>Huang</surname><given-names>T.-H.</given-names></name>; <name name-style="western"><surname>Yang</surname><given-names>S.-C.</given-names></name>; <name name-style="western"><surname>Chen</surname><given-names>C.-C.</given-names></name>; <name name-style="western"><surname>Fang</surname><given-names>J.-Y.</given-names></name>
+<article-title>Nano-Based
+Drug Delivery or Targeting to Eradicate Bacteria for Infection Mitigation:
+A Review of Recent Advances</article-title>. <source>Front. Chem.</source>
+<year>2020</year>, <volume>8</volume>, <fpage>286</fpage><pub-id pub-id-type="doi">10.3389/fchem.2020.00286</pub-id>.<pub-id pub-id-type="pmid">32391321</pub-id><pub-id pub-id-type="pmcid">PMC7193053</pub-id></mixed-citation></ref><ref id="ref19"><mixed-citation publication-type="journal" id="cit19"><name name-style="western"><surname>Jacobs</surname><given-names>S. A.</given-names></name>; <name name-style="western"><surname>Gibbs</surname><given-names>A. C.</given-names></name>; <name name-style="western"><surname>Conk</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Yi</surname><given-names>F.</given-names></name>; <name name-style="western"><surname>Maguire</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Kane</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>O’Neil</surname><given-names>K. T.</given-names></name>
+<article-title>Fusion
+to a Highly Stable Consensus
+Albumin Binding Domain Allows for Tunable Pharmacokinetics</article-title>. <source>Protein Eng. Des. Sel.</source>
+<year>2015</year>, <volume>28</volume> (<issue>10</issue>), <fpage>385</fpage>–<lpage>393</lpage>. <pub-id pub-id-type="doi">10.1093/protein/gzv040</pub-id>.<pub-id pub-id-type="pmid">26275855</pub-id></mixed-citation></ref><ref id="ref20"><mixed-citation publication-type="journal" id="cit20"><name name-style="western"><surname>Vanlaere</surname><given-names>I.</given-names></name>; <name name-style="western"><surname>Libert</surname><given-names>C.</given-names></name>
+<article-title>Matrix Metalloproteinases
+as Drug Targets in Infections
+Caused by Gram-Negative Bacteria and in Septic Shock</article-title>. <source>Clin. Microbiol. Rev.</source>
+<year>2009</year>, <volume>22</volume> (<issue>2</issue>), <fpage>224</fpage>–<lpage>239</lpage>. <pub-id pub-id-type="doi">10.1128/CMR.00047-08</pub-id>.<pub-id pub-id-type="pmid">19366913</pub-id><pub-id pub-id-type="pmcid">PMC2668236</pub-id></mixed-citation></ref><ref id="ref21"><mixed-citation publication-type="journal" id="cit21"><name name-style="western"><surname>Park</surname><given-names>J.-W.</given-names></name>; <name name-style="western"><surname>Shin</surname><given-names>I.-S.</given-names></name>; <name name-style="western"><surname>Ha</surname><given-names>U.-H.</given-names></name>; <name name-style="western"><surname>Oh</surname><given-names>S.-R.</given-names></name>; <name name-style="western"><surname>Kim</surname><given-names>J.-H.</given-names></name>; <name name-style="western"><surname>Ahn</surname><given-names>K.-S.</given-names></name>
+<article-title>Pathophysiological
+Changes Induced by Pseudomonas Aeruginosa
+Infection Are Involved in MMP-12 and MMP-13 Upregulation in Human
+Carcinoma Epithelial Cells and a Pneumonia Mouse Model</article-title>. <source>Infect. Immun.</source>
+<year>2015</year>, <volume>83</volume> (<issue>12</issue>), <fpage>4791</fpage>–<lpage>4799</lpage>. <pub-id pub-id-type="doi">10.1128/IAI.00619-15</pub-id>.<pub-id pub-id-type="pmid">26438797</pub-id><pub-id pub-id-type="pmcid">PMC4645383</pub-id></mixed-citation></ref><ref id="ref22"><mixed-citation publication-type="journal" id="cit22"><name name-style="western"><surname>Kipnis</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>Guery</surname><given-names>B. P.</given-names></name>; <name name-style="western"><surname>Tournoys</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Leroy</surname><given-names>X.</given-names></name>; <name name-style="western"><surname>Robriquet</surname><given-names>L.</given-names></name>; <name name-style="western"><surname>Fialdes</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Neviere</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Fourrier</surname><given-names>F.</given-names></name>
+<article-title>Massive Alveolar Thrombin
+Activation in Pseudomonas Aeruginosa-Induced Acute Lung Injury</article-title>. <source>Shock</source>
+<year>2004</year>, <volume>21</volume> (<issue>5</issue>), <fpage>444</fpage>–<lpage>451</lpage>. <pub-id pub-id-type="doi">10.1097/00024382-200405000-00008</pub-id>.<pub-id pub-id-type="pmid">15087821</pub-id></mixed-citation></ref><ref id="ref23"><mixed-citation publication-type="journal" id="cit23"><name name-style="western"><surname>Desgranges</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Le Prieult</surname><given-names>F.</given-names></name>; <name name-style="western"><surname>Daly</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Lydon</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Brennan</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Rai</surname><given-names>D. K.</given-names></name>; <name name-style="western"><surname>Subasinghage</surname><given-names>A. P.</given-names></name>; <name name-style="western"><surname>Hewage</surname><given-names>C. M.</given-names></name>; <name name-style="western"><surname>Cryan</surname><given-names>S.-A.</given-names></name>; <name name-style="western"><surname>Greene</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>McElvaney</surname><given-names>N. G.</given-names></name>; <name name-style="western"><surname>Smyth</surname><given-names>T. P.</given-names></name>; <name name-style="western"><surname>Fitzgerald-Hughes</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Humphreys</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Devocelle</surname><given-names>M.</given-names></name>
+<article-title>In Vitro Activities of Synthetic
+Host Defense Propeptides Processed by Neutrophil Elastase against
+Cystic Fibrosis Pathogens</article-title>. <source>Antimicrob. Agents
+Chemother.</source>
+<year>2011</year>, <volume>55</volume> (<issue>5</issue>), <fpage>2487</fpage>–<lpage>2489</lpage>. <pub-id pub-id-type="doi">10.1128/AAC.01384-10</pub-id>.<pub-id pub-id-type="pmid">21343449</pub-id><pub-id pub-id-type="pmcid">PMC3088215</pub-id></mixed-citation></ref><ref id="ref24"><mixed-citation publication-type="journal" id="cit24"><name name-style="western"><surname>Forde</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>Humphreys</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Greene</surname><given-names>C. M.</given-names></name>; <name name-style="western"><surname>Fitzgerald-Hughes</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Devocelle</surname><given-names>M.</given-names></name>
+<article-title>Potential of Host Defense Peptide Prodrugs as Neutrophil
+Elastase-Dependent Anti-Infective Agents for Cystic Fibrosis</article-title>. <source>Antimicrob. Agents Chemother.</source>
+<year>2014</year>, <volume>58</volume> (<issue>2</issue>), <fpage>978</fpage>–<lpage>985</lpage>. <pub-id pub-id-type="doi">10.1128/AAC.01167-13</pub-id>.<pub-id pub-id-type="pmid">24277028</pub-id><pub-id pub-id-type="pmcid">PMC3910818</pub-id></mixed-citation></ref><ref id="ref25"><mixed-citation publication-type="journal" id="cit25"><name name-style="western"><surname>Zhao</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Qin</surname><given-names>X.</given-names></name>; <name name-style="western"><surname>Yang</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Jiang</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Zheng</surname><given-names>W.</given-names></name>; <name name-style="western"><surname>Wang</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Tian</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Liu</surname><given-names>Q.</given-names></name>; <name name-style="western"><surname>Xu</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Li</surname><given-names>Z.</given-names></name>
+<article-title>The Development
+of Activatable Lytic Peptides for Targeting Triple Negative Breast
+Cancer</article-title>. <source>Cell death Discovery</source>
+<year>2017</year>, <volume>3</volume>, <fpage>17037</fpage><pub-id pub-id-type="doi">10.1038/cddiscovery.2017.37</pub-id>.<pub-id pub-id-type="pmid">29263848</pub-id><pub-id pub-id-type="pmcid">PMC5629628</pub-id></mixed-citation></ref><ref id="ref26"><mixed-citation publication-type="journal" id="cit26"><name name-style="western"><surname>Sarko</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Beijer</surname><given-names>B.</given-names></name>; <name name-style="western"><surname>Garcia Boy</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Nothelfer</surname><given-names>E.-M.</given-names></name>; <name name-style="western"><surname>Leotta</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Eisenhut</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Altmann</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Haberkorn</surname><given-names>U.</given-names></name>; <name name-style="western"><surname>Mier</surname><given-names>W.</given-names></name>
+<article-title>The Pharmacokinetics of Cell-Penetrating
+Peptides</article-title>. <source>Mol. Pharmaceutics</source>
+<year>2010</year>, <volume>7</volume> (<issue>6</issue>), <fpage>2224</fpage>–<lpage>2231</lpage>. <pub-id pub-id-type="doi">10.1021/mp100223d</pub-id>.<pub-id pub-id-type="pmid">20845937</pub-id></mixed-citation></ref><ref id="ref27"><mixed-citation publication-type="journal" id="cit27"><person-group person-group-type="allauthors"><name name-style="western"><surname>Fuchigami</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Chiga</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Yoshida</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Oba</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Fukushima</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Inoue</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Matsuura</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Toriba</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Nakayama</surname><given-names>M.</given-names></name></person-group><article-title>Synthesis and Characterization
+of Radiogallium-Labeled
+Cationic Amphiphilic Peptides as Tumor Imaging Agents</article-title>. <source>Cancers (Basel)</source>. <year>2021</year>, <volume>13</volume> ( (<issue>10</issue>), ). <fpage>2388</fpage><pub-id pub-id-type="doi">10.3390/cancers13102388</pub-id>.<pub-id pub-id-type="pmid">34069243</pub-id><pub-id pub-id-type="pmcid">PMC8155856</pub-id></mixed-citation></ref><ref id="ref28"><mixed-citation publication-type="journal" id="cit28"><name name-style="western"><surname>Seo</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Ren</surname><given-names>G.</given-names></name>; <name name-style="western"><surname>Liu</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Miao</surname><given-names>Z.</given-names></name>; <name name-style="western"><surname>Park</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Wang</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Miller</surname><given-names>T. M.</given-names></name>; <name name-style="western"><surname>Barron</surname><given-names>A. E.</given-names></name>; <name name-style="western"><surname>Cheng</surname><given-names>Z.</given-names></name>
+<article-title>In Vivo Biodistribution
+and Small Animal PET of (64)Cu-Labeled Antimicrobial Peptoids</article-title>. <source>Bioconjugate Chem.</source>
+<year>2012</year>, <volume>23</volume> (<issue>5</issue>), <fpage>1069</fpage>–<lpage>1079</lpage>. <pub-id pub-id-type="doi">10.1021/bc300091d</pub-id>.<pub-id pub-id-type="pmcid">PMC3410980</pub-id><pub-id pub-id-type="pmid">22486390</pub-id></mixed-citation></ref><ref id="ref29"><mixed-citation publication-type="journal" id="cit29"><name name-style="western"><surname>Ma</surname><given-names>S.-F.</given-names></name>; <name name-style="western"><surname>Nishikawa</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Katsumi</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Yamashita</surname><given-names>F.</given-names></name>; <name name-style="western"><surname>Hashida</surname><given-names>M.</given-names></name>
+<article-title>Cationic Charge-Dependent
+Hepatic Delivery of Amidated
+Serum Albumin</article-title>. <source>J. Controlled Release</source>
+<year>2005</year>, <volume>102</volume> (<issue>3</issue>), <fpage>583</fpage>–<lpage>594</lpage>. <pub-id pub-id-type="doi">10.1016/j.jconrel.2004.11.006</pub-id>.<pub-id pub-id-type="pmid">15681081</pub-id></mixed-citation></ref><ref id="ref30"><mixed-citation publication-type="book" id="cit30"><person-group person-group-type="allauthors"><name name-style="western"><surname>Fricke</surname><given-names>B.</given-names></name></person-group><article-title>Imelysin</article-title>. In <source>Handbook of Proteolytic Enzymes</source>, <edition>third</edition> ed.; <person-group person-group-type="editor"><name name-style="western"><surname>Rawlings</surname><given-names>N. D.</given-names></name>, <name name-style="western"><surname>Salvesen</surname><given-names>G.</given-names></name></person-group>, Eds.; <publisher-name>Academic Press</publisher-name>: <publisher-loc>San Diego</publisher-loc>, <year>2013</year>; Chapter 382, pp <fpage>1683</fpage>–<lpage>1688</lpage>.</mixed-citation></ref><ref id="ref31"><mixed-citation publication-type="book" id="cit31"><person-group person-group-type="allauthors"><name name-style="western"><surname>Kessler</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>Ohman</surname><given-names>D.
+E.</given-names></name></person-group><article-title>Pseudolysin</article-title>. In <source>Handbook of Proteolytic Enzymes</source>, <edition>third</edition> ed.; <person-group person-group-type="editor"><name name-style="western"><surname>Rawlings</surname><given-names>N. D.</given-names></name>, <name name-style="western"><surname>Salvesen</surname><given-names>G.</given-names></name></person-group>, Eds.; <publisher-name>Academic Press</publisher-name>: <publisher-loc>San Diego</publisher-loc>, <year>2013</year>; Chapter 120, pp <fpage>582</fpage>–<lpage>592</lpage>.</mixed-citation></ref><ref id="ref32"><mixed-citation publication-type="journal" id="cit32"><name name-style="western"><surname>Justo</surname><given-names>J. A.</given-names></name>; <name name-style="western"><surname>Bosso</surname><given-names>J. A.</given-names></name>
+<article-title>Adverse Reactions
+Associated with Systemic Polymyxin
+Therapy</article-title>. <source>Pharmacotherapy</source>
+<year>2015</year>, <volume>35</volume> (<issue>1</issue>), <fpage>28</fpage>–<lpage>33</lpage>. <pub-id pub-id-type="doi">10.1002/phar.1493</pub-id>.<pub-id pub-id-type="pmid">25266910</pub-id></mixed-citation></ref><ref id="ref33"><mixed-citation publication-type="journal" id="cit33"><name name-style="western"><surname>Molchanova</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Hansen</surname><given-names>P. R.</given-names></name>; <name name-style="western"><surname>Franzyk</surname><given-names>H.</given-names></name>
+<article-title>Advances in
+Development of Antimicrobial
+Peptidomimetics as Potential Drugs</article-title>. <source>Molecules</source>
+<year>2017</year>, <volume>22</volume> (<issue>9</issue>), <fpage>1430</fpage><pub-id pub-id-type="doi">10.3390/molecules22091430</pub-id>.<pub-id pub-id-type="pmcid">PMC6151827</pub-id><pub-id pub-id-type="pmid">28850098</pub-id></mixed-citation></ref><ref id="ref34"><mixed-citation publication-type="journal" id="cit34"><name name-style="western"><surname>Srinivas</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Jetter</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Ueberbacher</surname><given-names>B. J.</given-names></name>; <name name-style="western"><surname>Werneburg</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Zerbe</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Steinmann</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Van der Meijden</surname><given-names>B.</given-names></name>; <name name-style="western"><surname>Bernardini</surname><given-names>F.</given-names></name>; <name name-style="western"><surname>Lederer</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Dias</surname><given-names>R. L. A.</given-names></name>; <name name-style="western"><surname>Misson</surname><given-names>P. E.</given-names></name>; <name name-style="western"><surname>Henze</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Zumbrunn</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Gombert</surname><given-names>F. O.</given-names></name>; <name name-style="western"><surname>Obrecht</surname><given-names>D.</given-names></name>; <name name-style="western"><surname>Hunziker</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Schauer</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Ziegler</surname><given-names>U.</given-names></name>; <name name-style="western"><surname>Käch</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Eberl</surname><given-names>L.</given-names></name>; <name name-style="western"><surname>Riedel</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>DeMarco</surname><given-names>S. J.</given-names></name>; <name name-style="western"><surname>Robinson</surname><given-names>J. A.</given-names></name>
+<article-title>Peptidomimetic
+Antibiotics Target Outer-Membrane Biogenesis in Pseudomonas Aeruginosa</article-title>. <source>Science</source>
+<year>2010</year>, <volume>327</volume> (<issue>5968</issue>), <fpage>1010</fpage>–<lpage>1013</lpage>. <pub-id pub-id-type="doi">10.1126/science.1182749</pub-id>.<pub-id pub-id-type="pmid">20167788</pub-id></mixed-citation></ref><ref id="ref35"><mixed-citation publication-type="journal" id="cit35"><name name-style="western"><surname>Luther</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Urfer</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Zahn</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Muller</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Wang</surname><given-names>S.-Y.</given-names></name>; <name name-style="western"><surname>Mondal</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Vitale</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Hartmann</surname><given-names>J.-B.</given-names></name>; <name name-style="western"><surname>Sharpe</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Monte</surname><given-names>F. L.</given-names></name>; <name name-style="western"><surname>Kocherla</surname><given-names>H.</given-names></name>; <name name-style="western"><surname>Cline</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>Pessi</surname><given-names>G.</given-names></name>; <name name-style="western"><surname>Rath</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Modaresi</surname><given-names>S. M.</given-names></name>; <name name-style="western"><surname>Chiquet</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Stiegeler</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Verbree</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Remus</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Schmitt</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Kolopp</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Westwood</surname><given-names>M.-A.</given-names></name>; <name name-style="western"><surname>Desjonqueres</surname><given-names>N.</given-names></name>; <name name-style="western"><surname>Brabet</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>Hell</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>LePoupon</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Vermeulen</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Jaisson</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Rithie</surname><given-names>V.</given-names></name>; <name name-style="western"><surname>Upert</surname><given-names>G.</given-names></name>; <name name-style="western"><surname>Lederer</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Zbinden</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Wach</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Moehle</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Zerbe</surname><given-names>K.</given-names></name>; <name name-style="western"><surname>Locher</surname><given-names>H. H.</given-names></name>; <name name-style="western"><surname>Bernardini</surname><given-names>F.</given-names></name>; <name name-style="western"><surname>Dale</surname><given-names>G. E.</given-names></name>; <name name-style="western"><surname>Eberl</surname><given-names>L.</given-names></name>; <name name-style="western"><surname>Wollscheid</surname><given-names>B.</given-names></name>; <name name-style="western"><surname>Hiller</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Robinson</surname><given-names>J. A.</given-names></name>; <name name-style="western"><surname>Obrecht</surname><given-names>D.</given-names></name>
+<article-title>Chimeric Peptidomimetic
+Antibiotics against Gram-Negative Bacteria</article-title>. <source>Nature</source>
+<year>2019</year>, <volume>576</volume> (<issue>7787</issue>), <fpage>452</fpage>–<lpage>458</lpage>. <pub-id pub-id-type="doi">10.1038/s41586-019-1665-6</pub-id>.<pub-id pub-id-type="pmid">31645764</pub-id></mixed-citation></ref><ref id="ref36"><mixed-citation publication-type="journal" id="cit36"><name name-style="western"><surname>Wang</surname><given-names>Z.</given-names></name>; <name name-style="western"><surname>Koirala</surname><given-names>B.</given-names></name>; <name name-style="western"><surname>Hernandez</surname><given-names>Y.</given-names></name>; <name name-style="western"><surname>Zimmerman</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Park</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Perlin</surname><given-names>D. S.</given-names></name>; <name name-style="western"><surname>Brady</surname><given-names>S. F.</given-names></name>
+<article-title>A Naturally
+Inspired
+Antibiotic to Target Multidrug-Resistant Pathogens</article-title>. <source>Nature</source>
+<year>2022</year>, <volume>601</volume> (<issue>7894</issue>), <fpage>606</fpage>–<lpage>611</lpage>. <pub-id pub-id-type="doi">10.1038/s41586-021-04264-x</pub-id>.<pub-id pub-id-type="pmid">34987225</pub-id><pub-id pub-id-type="pmcid">PMC10321319</pub-id></mixed-citation></ref><ref id="ref37"><mixed-citation publication-type="journal" id="cit37"><name name-style="western"><surname>Torres</surname><given-names>M. D. T.</given-names></name>; <name name-style="western"><surname>Melo</surname><given-names>M. C. R.</given-names></name>; <name name-style="western"><surname>Crescenzi</surname><given-names>O.</given-names></name>; <name name-style="western"><surname>Notomista</surname><given-names>E.</given-names></name>; <name name-style="western"><surname>de la Fuente-Nunez</surname><given-names>C.</given-names></name>
+<article-title>Mining for Encrypted Peptide Antibiotics
+in the Human
+Proteome</article-title>. <source>Nat. Biomed. Eng.</source>
+<year>2022</year>, <volume>6</volume> (<issue>1</issue>), <fpage>67</fpage>–<lpage>75</lpage>. <pub-id pub-id-type="doi">10.1038/s41551-021-00801-1</pub-id>.<pub-id pub-id-type="pmid">34737399</pub-id></mixed-citation></ref><ref id="ref38"><mixed-citation publication-type="journal" id="cit38"><name name-style="western"><surname>Mourtada</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Herce</surname><given-names>H. D.</given-names></name>; <name name-style="western"><surname>Yin</surname><given-names>D. J.</given-names></name>; <name name-style="western"><surname>Moroco</surname><given-names>J. A.</given-names></name>; <name name-style="western"><surname>Wales</surname><given-names>T. E.</given-names></name>; <name name-style="western"><surname>Engen</surname><given-names>J. R.</given-names></name>; <name name-style="western"><surname>Walensky</surname><given-names>L. D.</given-names></name>
+<article-title>Design
+of Stapled Antimicrobial Peptides
+That Are Stable, Nontoxic and Kill Antibiotic-Resistant Bacteria in
+Mice</article-title>. <source>Nat. Biotechnol.</source>
+<year>2019</year>, <volume>37</volume> (<issue>10</issue>), <fpage>1186</fpage>–<lpage>1197</lpage>. <pub-id pub-id-type="doi">10.1038/s41587-019-0222-z</pub-id>.<pub-id pub-id-type="pmid">31427820</pub-id><pub-id pub-id-type="pmcid">PMC7437984</pub-id></mixed-citation></ref><ref id="ref39"><mixed-citation publication-type="journal" id="cit39"><name name-style="western"><surname>Yu</surname><given-names>G.</given-names></name>; <name name-style="western"><surname>Baeder</surname><given-names>D. Y.</given-names></name>; <name name-style="western"><surname>Regoes</surname><given-names>R. R.</given-names></name>; <name name-style="western"><surname>Rolff</surname><given-names>J.</given-names></name>
+<article-title>Combination Effects
+of Antimicrobial Peptides</article-title>. <source>Antimicrob. Agents
+Chemother.</source>
+<year>2016</year>, <volume>60</volume> (<issue>3</issue>), <fpage>1717</fpage>–<lpage>1724</lpage>. <pub-id pub-id-type="doi">10.1128/AAC.02434-15</pub-id>.<pub-id pub-id-type="pmid">26729502</pub-id><pub-id pub-id-type="pmcid">PMC4775937</pub-id></mixed-citation></ref><ref id="ref40"><mixed-citation publication-type="journal" id="cit40"><name name-style="western"><surname>Sabnis</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Hagart</surname><given-names>K. L.</given-names></name>; <name name-style="western"><surname>Klöckner</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Becce</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Evans</surname><given-names>L. E.</given-names></name>; <name name-style="western"><surname>Furniss</surname><given-names>R. C. D.</given-names></name>; <name name-style="western"><surname>Mavridou</surname><given-names>D. A.</given-names></name>; <name name-style="western"><surname>Murphy</surname><given-names>R.</given-names></name>; <name name-style="western"><surname>Stevens</surname><given-names>M. M.</given-names></name>; <name name-style="western"><surname>Davies</surname><given-names>J. C.</given-names></name>; <name name-style="western"><surname>Larrouy-Maumus</surname><given-names>G. J.</given-names></name>; <name name-style="western"><surname>Clarke</surname><given-names>T. B.</given-names></name>; <name name-style="western"><surname>Edwards</surname><given-names>A. M.</given-names></name>
+<article-title>Colistin
+Kills Bacteria by Targeting Lipopolysaccharide in the Cytoplasmic
+Membrane</article-title>. <source>Elife</source>
+<year>2021</year>, <pub-id pub-id-type="doi">10.7554/eLife.65836</pub-id>.<pub-id pub-id-type="pmcid">PMC8096433</pub-id><pub-id pub-id-type="pmid">33821795</pub-id></mixed-citation></ref><ref id="ref41"><mixed-citation publication-type="journal" id="cit41"><name name-style="western"><surname>Brennan-Krohn</surname><given-names>T.</given-names></name>; <name name-style="western"><surname>Pironti</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Kirby</surname><given-names>J. E.</given-names></name>
+<article-title>Synergistic Activity of Colistin-Containing
+Combinations against Colistin-Resistant Enterobacteriaceae</article-title>. <source>Antimicrob. Agents Chemother.</source>
+<year>2018</year>, <pub-id pub-id-type="doi">10.1128/AAC.00873-18</pub-id>.<pub-id pub-id-type="pmcid">PMC6153801</pub-id><pub-id pub-id-type="pmid">30061285</pub-id></mixed-citation></ref><ref id="ref42"><mixed-citation publication-type="journal" id="cit42"><name name-style="western"><surname>Silva</surname><given-names>O. N.</given-names></name>; <name name-style="western"><surname>de la Fuente-Núñez</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Haney</surname><given-names>E. F.</given-names></name>; <name name-style="western"><surname>Fensterseifer</surname><given-names>I. C. M.</given-names></name>; <name name-style="western"><surname>Ribeiro</surname><given-names>S. M.</given-names></name>; <name name-style="western"><surname>Porto</surname><given-names>W. F.</given-names></name>; <name name-style="western"><surname>Brown</surname><given-names>P.</given-names></name>; <name name-style="western"><surname>Faria-Junior</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Rezende</surname><given-names>T. M. B.</given-names></name>; <name name-style="western"><surname>Moreno</surname><given-names>S. E.</given-names></name>; <name name-style="western"><surname>Lu</surname><given-names>T. K.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>; <name name-style="western"><surname>Franco</surname><given-names>O. L.</given-names></name>
+<article-title>An Anti-Infective Synthetic Peptide with Dual Antimicrobial
+and Immunomodulatory Activities</article-title>. <source>Sci. Rep.</source>
+<year>2016</year>, <volume>6</volume>, <fpage>35465</fpage><pub-id pub-id-type="doi">10.1038/srep35465</pub-id>.<pub-id pub-id-type="pmid">27804992</pub-id><pub-id pub-id-type="pmcid">PMC5090204</pub-id></mixed-citation></ref><ref id="ref43"><mixed-citation publication-type="journal" id="cit43"><name name-style="western"><surname>Bowdish</surname><given-names>D. M. E.</given-names></name>; <name name-style="western"><surname>Davidson</surname><given-names>D. J.</given-names></name>; <name name-style="western"><surname>Scott</surname><given-names>M. G.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>
+<article-title>Immunomodulatory
+Activities of Small Host Defense Peptides</article-title>. <source>Antimicrob.
+Agents Chemother.</source>
+<year>2005</year>, <volume>49</volume> (<issue>5</issue>), <fpage>1727</fpage>–<lpage>1732</lpage>. <pub-id pub-id-type="doi">10.1128/AAC.49.5.1727-1732.2005</pub-id>.<pub-id pub-id-type="pmid">15855488</pub-id><pub-id pub-id-type="pmcid">PMC1087655</pub-id></mixed-citation></ref><ref id="ref44"><mixed-citation publication-type="journal" id="cit44"><name name-style="western"><surname>Overhage</surname><given-names>J.</given-names></name>; <name name-style="western"><surname>Campisano</surname><given-names>A.</given-names></name>; <name name-style="western"><surname>Bains</surname><given-names>M.</given-names></name>; <name name-style="western"><surname>Torfs</surname><given-names>E. C. W.</given-names></name>; <name name-style="western"><surname>Rehm</surname><given-names>B. H. A.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>
+<article-title>Human
+Host Defense Peptide LL-37
+Prevents Bacterial Biofilm Formation</article-title>. <source>Infect.
+Immun.</source>
+<year>2008</year>, <volume>76</volume> (<issue>9</issue>), <fpage>4176</fpage>–<lpage>4182</lpage>. <pub-id pub-id-type="doi">10.1128/IAI.00318-08</pub-id>.<pub-id pub-id-type="pmid">18591225</pub-id><pub-id pub-id-type="pmcid">PMC2519444</pub-id></mixed-citation></ref><ref id="ref45"><mixed-citation publication-type="journal" id="cit45"><name name-style="western"><surname>Reffuveille</surname><given-names>F.</given-names></name>; <name name-style="western"><surname>de la Fuente-Núñez</surname><given-names>C.</given-names></name>; <name name-style="western"><surname>Mansour</surname><given-names>S.</given-names></name>; <name name-style="western"><surname>Hancock</surname><given-names>R. E. W.</given-names></name>
+<article-title>A Broad-Spectrum
+Antibiofilm Peptide Enhances Antibiotic Action against Bacterial Biofilms</article-title>. <source>Antimicrob. Agents Chemother.</source>
+<year>2014</year>, <volume>58</volume> (<issue>9</issue>), <fpage>5363</fpage>–<lpage>5371</lpage>. <pub-id pub-id-type="doi">10.1128/AAC.03163-14</pub-id>.<pub-id pub-id-type="pmid">24982074</pub-id><pub-id pub-id-type="pmcid">PMC4135845</pub-id></mixed-citation></ref><ref id="ref46"><mixed-citation publication-type="journal" id="cit46"><name name-style="western"><surname>Hoskin</surname><given-names>D. W.</given-names></name>; <name name-style="western"><surname>Ramamoorthy</surname><given-names>A.</given-names></name>
+<article-title>Studies on
+Anticancer Activities of Antimicrobial Peptides</article-title>. <source>Biochim. Biophys. Acta</source>
+<year>2008</year>, <volume>1778</volume> (<issue>2</issue>), <fpage>357</fpage>–<lpage>375</lpage>. <pub-id pub-id-type="doi">10.1016/j.bbamem.2007.11.008</pub-id>.<pub-id pub-id-type="pmid">18078805</pub-id><pub-id pub-id-type="pmcid">PMC2238813</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

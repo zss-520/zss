@@ -1,0 +1,650 @@
+{
+  "chunk_id": "model_anticp2_0",
+  "chunk_type": "model",
+  "chunk_name": "AntiCP2.0",
+  "compression_status": "ok",
+  "main_entities": [
+    "AntiCP2.0",
+    "AntiCP",
+    "AMPfun",
+    "ACPred",
+    "iAMPpred",
+    "Macrel",
+    "HAPPENN",
+    "HemoPred",
+    "ToxinPred",
+    "ToxIBTL",
+    "AllerTop",
+    "AllergenFP",
+    "AllerCatPro",
+    "deep learning hybrid model (unnamed)"
+  ],
+  "papers": [
+    {
+      "title": "Virtual Screening of Cathelicidin-Derived Anticancer Peptides and Validation of Their Production in the Probiotic Limosilactobacillus fermentum KUB-D18 Using Genome-Scale Metabolic Modeling and Experimental Approaches.",
+      "pmid": "41155367",
+      "pmcid": "PMC12563682",
+      "doi": "10.3390/ijms262010077",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Unlocking the unexplored AMPSphere in marine rare species.",
+      "pmid": "41731616",
+      "pmcid": "PMC13036921",
+      "doi": "10.1186/s40168-025-02326-0",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AntiCP2.0",
+      "canonical_name": "AntiCP2.0",
+      "aliases": [],
+      "task_type": "anticancer_peptide_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://webs.iiitd.edu.in/raghava/anticp2/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Widely used webserver for anticancer peptide prediction; web interface available, but programmatic access uncertain.",
+      "blocking_issues": [
+        "webserver_only",
+        "no_source_code",
+        "no_model_weights_provided",
+        "batch_inference_unknown"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Representative webserver-based anticancer peptide predictor; commonly used in comparative studies."
+    },
+    {
+      "model_name": "AntiCP",
+      "canonical_name": "AntiCP",
+      "aliases": [],
+      "task_type": "anticancer_peptide_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://crdd.osdd.net/raghava/anticp/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Earlier version of AntiCP2.0; superseded.",
+      "blocking_issues": [
+        "webserver_only",
+        "superseded_by_AntiCP2.0"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.6,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Not a candidate; earlier version."
+    },
+    {
+      "model_name": "AMPfun",
+      "canonical_name": "AMPfun",
+      "aliases": [],
+      "task_type": "antimicrobial_and_anticancer_peptide_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://fdblab.csie.ncu.edu.tw/AMPfun/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Used as a tool in paper; no original training details provided.",
+      "blocking_issues": [
+        "webserver_only",
+        "no_code"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "dataset_missing",
+      "representative_reason": "Not a priority candidate due to limited evidence."
+    },
+    {
+      "model_name": "ACPred",
+      "canonical_name": "ACPred",
+      "aliases": [],
+      "task_type": "anticancer_peptide_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://codes.bio/acpred/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Used as a tool; no original paper details.",
+      "blocking_issues": [
+        "webserver_only",
+        "no_code"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "dataset_missing",
+      "representative_reason": "Not a priority candidate."
+    },
+    {
+      "model_name": "iAMPpred",
+      "canonical_name": "iAMPpred",
+      "aliases": [],
+      "task_type": "antibacterial_peptide_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://cabgrid.res.in:8080/amppred/index/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Webserver for antibacterial prediction; no code available.",
+      "blocking_issues": [
+        "webserver_only",
+        "no_code"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "dataset_missing",
+      "representative_reason": "Not a candidate."
+    },
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "antimicrobial_peptide_prediction",
+      "method_family": "random_forest",
+      "architecture_or_algorithm": "random_forest",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "https://www.big-data-biology.org/software/macrel/",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Random forest-based AMP prediction tool with open-source code; potentially suitable for benchmarking.",
+      "blocking_issues": [
+        "need_to_check_model_weights",
+        "paper_uses_as_tool_not_original_benchmark"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Representative ML-based AMP predictor with available code."
+    },
+    {
+      "model_name": "HAPPENN",
+      "canonical_name": "HAPPENN",
+      "aliases": [],
+      "task_type": "hemolysis_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://research.timmons.eu/happenn/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Hemolysis prediction webserver; not directly AMP activity prediction.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope_for_AMP_benchmark"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Not an AMP activity predictor; used for hemolysis assessment."
+    },
+    {
+      "model_name": "HemoPred",
+      "canonical_name": "HemoPred",
+      "aliases": [],
+      "task_type": "hemolysis_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://codes.bio/hemopred/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Hemolysis prediction tool; not AMP activity.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Out of scope for AMP activity benchmark."
+    },
+    {
+      "model_name": "ToxinPred",
+      "canonical_name": "ToxinPred",
+      "aliases": [],
+      "task_type": "toxicity_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://crdd.osdd.net/raghava/toxinpred/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Toxicity prediction tool; not AMP activity.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Out of scope."
+    },
+    {
+      "model_name": "ToxIBTL",
+      "canonical_name": "ToxIBTL",
+      "aliases": [],
+      "task_type": "toxicity_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://server.wei-group.net/ToxIBTL/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Toxicity prediction tool; not AMP activity.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Out of scope."
+    },
+    {
+      "model_name": "AllerTop",
+      "canonical_name": "AllerTop",
+      "aliases": [],
+      "task_type": "allergenicity_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://www.ddg-pharmfac.net/AllerTOP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Allergenicity prediction; not AMP activity.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Out of scope."
+    },
+    {
+      "model_name": "AllergenFP",
+      "canonical_name": "AllergenFP",
+      "aliases": [],
+      "task_type": "allergenicity_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://ddg-pharmfac.net/AllergenFP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Allergenicity prediction; not AMP activity.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Out of scope."
+    },
+    {
+      "model_name": "AllerCatPro",
+      "canonical_name": "AllerCatPro",
+      "aliases": [],
+      "task_type": "allergenicity_prediction",
+      "method_family": "not_reported_in_available_evidence",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "peptide_sequence",
+      "source_pmid": "41155367",
+      "source_pmcid": "PMC12563682",
+      "source_doi": "10.3390/ijms262010077",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://allercatpro.bii.a-star.edu.sg/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Allergenicity prediction; not AMP activity.",
+      "blocking_issues": [
+        "webserver_only",
+        "out_of_scope"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.5,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Out of scope."
+    },
+    {
+      "model_name": "deep learning hybrid model (unnamed)",
+      "canonical_name": "unknown",
+      "aliases": [],
+      "task_type": "antimicrobial_peptide_prediction",
+      "method_family": "deep_learning_hybrid",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "41731616",
+      "source_pmcid": "PMC13036921",
+      "source_doi": "10.1186/s40168-025-02326-0",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Identity unknown; cannot be included.",
+      "blocking_issues": [
+        "unknown_model_name",
+        "no_code_or_weights",
+        "reference_unclear"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.2,
+      "model_category_hint": "review_only_or_low_confidence",
+      "weights_availability": "unknown",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": "Too uncertain to be a candidate."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPfun",
+      "url": "http://fdblab.csie.ncu.edu.tw/AMPfun/",
+      "type": "webserver",
+      "linked_model": "AMPfun",
+      "evidence": "Anticancer properties were predicted using AMPfun, AntiCP, AntiCP2.0, and ACPred (Figure 1)."
+    },
+    {
+      "name": "AntiCP",
+      "url": "http://crdd.osdd.net/raghava/anticp/",
+      "type": "webserver",
+      "linked_model": "AntiCP",
+      "evidence": "Anticancer properties were predicted using AMPfun, AntiCP, AntiCP2.0, and ACPred."
+    },
+    {
+      "name": "AntiCP2.0",
+      "url": "https://webs.iiitd.edu.in/raghava/anticp2/",
+      "type": "webserver",
+      "linked_model": "AntiCP2.0",
+      "evidence": "AntiCP 2.0 further confirmed high anticancer probabilities for most peptides."
+    },
+    {
+      "name": "ACPred",
+      "url": "http://codes.bio/acpred/",
+      "type": "webserver",
+      "linked_model": "ACPred",
+      "evidence": "ACPred consistently classified all peptides as anticancer with high confidence."
+    },
+    {
+      "name": "iAMPpred",
+      "url": "http://cabgrid.res.in:8080/amppred/index/",
+      "type": "webserver",
+      "linked_model": "iAMPpred",
+      "evidence": "Antibacterial activity was analyzed using AMPfun, iAMPpred, and Macrel."
+    },
+    {
+      "name": "Macrel",
+      "url": "https://www.big-data-biology.org/software/macrel/",
+      "type": "code",
+      "linked_model": "Macrel",
+      "evidence": "Antibacterial activity was analyzed using AMPfun, iAMPpred, and Macrel (Figure 2)."
+    },
+    {
+      "name": "HAPPENN",
+      "url": "https://research.timmons.eu/happenn/",
+      "type": "webserver",
+      "linked_model": "HAPPENN",
+      "evidence": "All eight peptides exhibited PROB scores below 0.5 in HAPPENN, indicating minimal hemolytic potential."
+    },
+    {
+      "name": "HemoPred",
+      "url": "http://codes.bio/hemopred/",
+      "type": "webserver",
+      "linked_model": "HemoPred",
+      "evidence": "Hemolytic activity was further evaluated using HAPPENN, HemoPred, and Macrel (Table 4)."
+    },
+    {
+      "name": "ToxinPred",
+      "url": "http://crdd.osdd.net/raghava/toxinpred/",
+      "type": "webserver",
+      "linked_model": "ToxinPred",
+      "evidence": "Cytotoxicity was assessed using ToxinPred and ToxIBTL (Table 3)."
+    },
+    {
+      "name": "ToxIBTL",
+      "url": "https://server.wei-group.net/ToxIBTL/",
+      "type": "webserver",
+      "linked_model": "ToxIBTL",
+      "evidence": "Cytotoxicity was assessed using ToxinPred and ToxIBTL (Table 3)."
+    },
+    {
+      "name": "AllerTop",
+      "url": "https://www.ddg-pharmfac.net/AllerTOP/",
+      "type": "webserver",
+      "linked_model": "AllerTop",
+      "evidence": "Allergenicity predictions using AllerTop, AllergenFP, and AllerCatPro suggested that LL-37, KR-20, FK-16, FK-13, and KR-12 are non-allergenic."
+    },
+    {
+      "name": "AllergenFP",
+      "url": "https://ddg-pharmfac.net/AllergenFP/",
+      "type": "webserver",
+      "linked_model": "AllergenFP",
+      "evidence": "Allergenicity predictions using AllerTop, AllergenFP, and AllerCatPro."
+    },
+    {
+      "name": "AllerCatPro",
+      "url": "https://allercatpro.bii.a-star.edu.sg/",
+      "type": "webserver",
+      "linked_model": "AllerCatPro",
+      "evidence": "Allergenicity predictions using AllerTop, AllergenFP, and AllerCatPro."
+    },
+    {
+      "name": "deep learning hybrid model (unnamed)",
+      "url": "not_reported_in_available_evidence",
+      "type": "code",
+      "linked_model": "unknown",
+      "evidence": "Two complementary approaches were employed: the deep learning hybrid model [7] and the random forest-based Macrel model."
+    }
+  ],
+  "datasets": [],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "AntiCP2.0",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AntiCP",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AMPfun",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "ACPred",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "iAMPpred",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "Macrel",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "HAPPENN",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "HemoPred",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "ToxinPred",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "ToxIBTL",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AllerTop",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AllergenFP",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "AllerCatPro",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    },
+    {
+      "model_name": "deep learning hybrid model (unnamed)",
+      "dataset_name": "not_reported",
+      "dataset_status": "not_reported"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "AntiCP 2.0 further confirmed high anticancer probabilities for most peptides.",
+    "ACPred consistently classified all peptides as anticancer with high confidence.",
+    "Antibacterial activity was analyzed using AMPfun, iAMPpred, and Macrel.",
+    "All eight peptides exhibited PROB scores below 0.5 in HAPPENN, indicating minimal hemolytic potential.",
+    "The deep learning hybrid model [7] is used in PMID 41731616 but not described."
+  ],
+  "uncertainties": [
+    "What is the deep learning hybrid model used in PMID 41731616? It is referenced as [7] but not described in the available evidence.",
+    "None of the models have provided code or weights, except Macrel (code available).",
+    "Batch inference capability for webservers is unknown.",
+    "Original training datasets for these tools are not reported in the current evidence."
+  ],
+  "source_pmids": [
+    "41155367",
+    "41731616"
+  ],
+  "source_dois": [
+    "10.3390/ijms262010077",
+    "10.1186/s40168-025-02326-0"
+  ],
+  "urls": [
+    "https://webs.iiitd.edu.in/raghava/anticp2/",
+    "http://crdd.osdd.net/raghava/anticp/",
+    "http://fdblab.csie.ncu.edu.tw/AMPfun/",
+    "http://codes.bio/acpred/",
+    "http://cabgrid.res.in:8080/amppred/index/",
+    "https://www.big-data-biology.org/software/macrel/",
+    "https://research.timmons.eu/happenn/",
+    "http://codes.bio/hemopred/",
+    "http://crdd.osdd.net/raghava/toxinpred/",
+    "https://server.wei-group.net/ToxIBTL/",
+    "https://www.ddg-pharmfac.net/AllerTOP/",
+    "https://ddg-pharmfac.net/AllergenFP/",
+    "https://allercatpro.bii.a-star.edu.sg/"
+  ]
+}

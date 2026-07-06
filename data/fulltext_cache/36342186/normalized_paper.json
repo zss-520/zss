@@ -1,0 +1,72 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "crossref",
+    "openalex",
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "36342186",
+    "crossref": "10.1093/bioinformatics/btac715",
+    "openalex": "https://openalex.org/W4308370073"
+  },
+  "pmid": "36342186",
+  "pmcid": "PMC3688957",
+  "doi": "10.1093/bioinformatics/btac715",
+  "title": "sAMPpred-GAT: prediction of antimicrobial peptide by graph attention network and predicted peptide structure.",
+  "abstract": "MOTIVATION: Antimicrobial peptides (AMPs) are essential components of therapeutic peptides for innate immunity. Researchers have developed several computational methods to predict the potential AMPs from many candidate peptides. With the development of artificial intelligent techniques, the protein structures can be accurately predicted, which are useful for protein sequence and function analysis. Unfortunately, the predicted peptide structure information has not been applied to the field of AMP prediction so as to improve the predictive performance.\nRESULTS: In this study, we proposed a computational predictor called sAMPpred-GAT for AMP identification. To the best of our knowledge, sAMPpred-GAT is the first approach based on the predicted peptide structures for AMP prediction. The sAMPpred-GAT predictor constructs the graphs based on the predicted peptide structures, sequence information and evolutionary information. The Graph Attention Network (GAT) is then performed on the graphs to learn the discriminative features. Finally, the full connection networks are utilized as the output module to predict whether the peptides are AMP or not. Experimental results show that sAMPpred-GAT outperforms the other state-of-the-art methods in terms of AUC, and achieves better or highly comparable performance in terms of the other metrics on the eight independent test datasets, demonstrating that the predicted peptide structure information is important for AMP prediction.\nAVAILABILITY AND IMPLEMENTATION: A user-friendly webserver of sAMPpred-GAT can be accessed at http://bliulab.net/sAMPpred-GAT and the source code is available at https://github.com/HongWuL/sAMPpred-GAT/.\nSUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online.",
+  "journal": "Bioinformatics (Oxford, England)",
+  "venue": "Bioinformatics (Oxford, England)",
+  "year": 2023,
+  "authors": [
+    "Ke Yan",
+    "Hongwu Lv",
+    "Yichen Guo",
+    "Wei Peng",
+    "Bin Liu"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "23825543",
+    "pmc": "PMC3688957",
+    "doi": "10.1093/bioinformatics/btac715",
+    "pii": "6808615"
+  },
+  "urls": [
+    "https://academic.oup.com/bioinformatics/article-pdf/39/1/btac715/48448854/btac715.pdf",
+    "https://doi.org/10.1093/bioinformatics/btac715",
+    "https://openalex.org/W4308370073",
+    "https://pubmed.ncbi.nlm.nih.gov/36342186",
+    "https://pubmed.ncbi.nlm.nih.gov/36342186/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3688957/"
+  ],
+  "raw_source_files": [],
+  "query_name": "broad_prediction",
+  "query_text": "(\"antimicrobial peptide\" OR \"antimicrobial peptides\" OR (AMP AND peptide) OR \"host defense peptide\") AND (prediction OR predictor OR classifier OR classification OR identification OR recognition OR screening OR discrimination)",
+  "candidate_key": "doi:10 1093 bioinformatics btac715",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2022,
+            11,
+            7
+          ]
+        ],
+        "date-time": "2022-11-07T00:00:00Z",
+        "timestamp": 1667779200000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "openalex_id": "https://openalex.org/W4308370073",
+  "is_open_access": true,
+  "cited_by_count": 225
+}

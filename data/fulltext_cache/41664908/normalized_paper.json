@@ -1,0 +1,38 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41664908",
+    "pmid": "41664908"
+  },
+  "pmid": "41664908",
+  "pmcid": "PMC12895073",
+  "doi": "10.1093/bib/bbag023",
+  "title": "ANIA: an inception-attention network for predicting minimum inhibitory concentration of antimicrobial peptides.",
+  "abstract": "Antimicrobial resistance poses a significant challenge to conventional antibiotics, underscoring the urgent need for alternative therapeutic strategies. Antimicrobial peptides (AMPs) have emerged as promising candidates due to their broad-spectrum antibacterial activity and distinct mechanisms of action. This study presents ANIA, a deep learning framework developed to predict the minimum inhibitory concentration (MIC) values of AMPs against three clinically significant bacteria: Staphylococcus aureus, Escherichia coli, and Pseudomonas aeruginosa. ANIA leverages Chaos Game Representation (CGR) to transform AMP sequences into frequency-based image features, which are subsequently processed through a hybrid architecture comprising stacked Inception modules, a Transformer encoder, and a regression head. This integrative architecture enables ANIA to capture both local motif-based features and global contextual patterns embedded within AMP sequences. In benchmarking experiments, ANIA achieved notably superior performance compared to existing tools, including ESKAPEE-Pred, AMPActiPred, and esAMPMIC, achieving higher correlation coefficients and lower predictive errors across all bacteria targets, with the most pronounced improvement observed for P. aeruginosa, a pathogen renowned for its multidrug resistance. Specifically, ANIA achieved PCCs of 0.75-0.79 and MSEs of 0.23-0.26 across all species. Furthermore, motif-based interpretability analyses combining Grad-CAM visualizations, correlation heatmaps, motif frequency distributions, and hydrophobicity profiling revealed biologically meaningful subregions within the CGR matrix that are plausibly associated with antimicrobial efficacy. In conclusion, this study develops ANIA as a robust predictive tool for MIC estimation, offering valuable insights into the design of effective antimicrobial agents and contributing to the fight against antimicrobial resistance. A user-friendly web server for ANIA is available at https://biomics.lab.nycu.edu.tw/ANIA/.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Chiu YP",
+    "Yao L",
+    "Tang Y",
+    "Chung CR",
+    "Pang Y",
+    "Chiang YC",
+    "Lee TY."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1093/bib/bbag023",
+    "https://pubmed.ncbi.nlm.nih.gov/41664908/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12895073/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "open-access-full-text",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR machine learning) AND (OPEN_ACCESS:Y)",
+  "candidate_key": "doi:10 1093 bib bbag023"
+}

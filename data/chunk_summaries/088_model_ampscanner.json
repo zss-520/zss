@@ -1,0 +1,285 @@
+{
+  "chunk_id": "model_ampscanner",
+  "chunk_type": "model",
+  "chunk_name": "ampscanner",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPScanner v2",
+    "LSTM-based AMP classifier",
+    "iAMPpred",
+    "AntiBP",
+    "AMPScanner (SVM)"
+  ],
+  "papers": [
+    {
+      "title": "Deep learning improves antimicrobial peptide recognition.",
+      "pmid": "29590297",
+      "pmcid": "PMC3166253",
+      "doi": "10.1093/bioinformatics/bty179",
+      "year": "2018",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Deep Learning for Novel Antimicrobial Peptide Design.",
+      "pmid": "33810011",
+      "pmcid": "PMC6628222",
+      "doi": "10.1016/j.diagmicrobio.2004.02.008",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Structure-aware deep learning model for peptide toxicity prediction.",
+      "pmid": "39196703",
+      "pmcid": "PMC4702905",
+      "doi": "10.1016/j.cub.2015.11.017",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Research Advance in the Development of Antimicrobial Peptides Using Deep Learning.",
+      "pmid": "40801287",
+      "pmcid": "",
+      "doi": "10.1002/jcc.70203",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Computational Methods and Tools in Antimicrobial Peptide Research.",
+      "pmid": "34165973",
+      "pmcid": "PMC13029496",
+      "doi": "10.1021/acs.jcim.1c00175",
+      "year": "2021",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial peptide defense in Drosophila.",
+      "pmid": "9394624",
+      "pmcid": "PMC11731912",
+      "doi": "10.1002/bies.950191112",
+      "year": "1997",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial peptides in the airway.",
+      "pmid": "16909921",
+      "pmcid": "PMC12826059",
+      "doi": "10.1007/3-540-29916-5_6",
+      "year": "2006",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Mechanisms of antimicrobial peptide action and resistance.",
+      "pmid": "12615953",
+      "pmcid": "PMC13310060",
+      "doi": "10.1124/pr.55.1.2",
+      "year": "2003",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPScanner v2",
+      "canonical_name": "Antimicrobial Peptide Scanner vr.2",
+      "aliases": [
+        "ampscanner",
+        "Deep-AMP"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional and recurrent neural network layers",
+      "input_features": "primary sequence composition",
+      "source_pmid": "29590297",
+      "source_pmcid": "PMC3166253",
+      "source_doi": "10.1093/bioinformatics/bty179",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://www.ampscanner.com",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "provided through the web server (not specified in evidence)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning model for AMP recognition, openly available web server, benchmarked against state-of-the-art",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "LSTM-based AMP classifier/generator",
+      "canonical_name": "LSTM AMP classifier (Wang et al. 2021)",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Bidirectional LSTM classification model",
+      "input_features": "peptide sequences",
+      "source_pmid": "33810011",
+      "source_pmcid": "PMC6628222",
+      "source_doi": "10.1016/j.diagmicrobio.2004.02.008",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not reported (likely from public databases)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning (LSTM) model for AMP classification, potentially useful for benchmark",
+      "blocking_issues": [
+        "code not available",
+        "no web server reported"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "iAMPpred",
+      "canonical_name": "iAMPpred",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine (SVM)",
+      "input_features": "Physicochemical descriptors, sequence composition, handcrafted features",
+      "source_pmid": "34165973",
+      "source_pmcid": "PMC13029496",
+      "source_doi": "10.1021/acs.jcim.1c00175",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Published AMP prediction model mentioned in review; requires full-text verification for details.",
+      "blocking_issues": [
+        "No code or dataset link provided in the available evidence"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "AntiBP",
+      "canonical_name": "AntiBP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine (SVM)",
+      "input_features": "Physicochemical descriptors, sequence composition, handcrafted features",
+      "source_pmid": "34165973",
+      "source_pmcid": "PMC13029496",
+      "source_doi": "10.1021/acs.jcim.1c00175",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Published AMP prediction model mentioned in review; requires full-text verification for details.",
+      "blocking_issues": [
+        "No code or dataset link provided in the available evidence"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "AMPScanner",
+      "canonical_name": "AMPScanner",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support Vector Machine (SVM)",
+      "input_features": "Physicochemical descriptors, sequence composition, handcrafted features",
+      "source_pmid": "34165973",
+      "source_pmcid": "PMC13029496",
+      "source_doi": "10.1021/acs.jcim.1c00175",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Published AMP prediction model mentioned in review; requires full-text verification for details.",
+      "blocking_issues": [
+        "No code or dataset link provided in the available evidence"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Antimicrobial Peptide Scanner vr.2",
+      "url": "http://www.ampscanner.com",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPScanner v2",
+      "source_pmid": "29590297",
+      "source_doi": "10.1093/bioinformatics/bty179",
+      "evidence_level": "fulltext",
+      "evidence": "Models and datasets are made freely available through the Antimicrobial Peptide Scanner vr.2 web server at www.ampscanner.com."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AMPScanner dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "AMPScanner vr.2",
+      "linked_model": "AMPScanner v2",
+      "source_pmid": "29590297",
+      "source_doi": "10.1093/bioinformatics/bty179",
+      "positive_samples": "not reported",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Models and datasets are made freely available"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "model performance",
+      "source_pmid": "33810011",
+      "source_doi": "10.1016/j.diagmicrobio.2004.02.008",
+      "evidence": "validation accuracies of the classification models were 81.6-88.9% and the novel AMPs were classified as antimicrobial with accuracies of 70.6-91.7%."
+    }
+  ],
+  "important_evidence": [
+    "We propose a neural network model with convolutional and recurrent layers that leverage primary sequence composition. Models and datasets are made freely available through the Antimicrobial Peptide Scanner vr.2 web server at www.ampscanner.com.",
+    "A bidirectional LSTM classification model was constructed to design short novel AMP sequences with potential antibacterial activity against E. coli. ... validation accuracies of the classification models were 81.6-88.9% and the novel AMPs were classified as antimicrobial with accuracies of 70.6-91.7%.",
+    "Many early AMP predictors, such as iAMPpred, AntiBP, and AMPScanner, relied heavily on SVMs due to their strong performance on small-to-medium-sized datasets."
+  ],
+  "uncertainties": [
+    "Exact composition and size of the AMPScanner training dataset unknown from provided evidence.",
+    "No code repository or web server for the Wang et al. 2021 LSTM model.",
+    "DOI mismatch for the Wang et al. paper (10.1016/j.diagmicrobio.2004.02.008) may indicate indexing error.",
+    "Full texts of the original papers for iAMPpred, AntiBP, and AMPScanner should be reviewed to obtain code, dataset, and web server URLs.",
+    "Verify whether the mentioned models are still accessible and have been updated."
+  ],
+  "source_pmids": [
+    "29590297",
+    "33810011",
+    "39196703",
+    "40801287",
+    "34165973",
+    "9394624",
+    "16909921",
+    "12615953"
+  ],
+  "source_dois": [
+    "10.1093/bioinformatics/bty179",
+    "10.1016/j.diagmicrobio.2004.02.008",
+    "10.1016/j.cub.2015.11.017",
+    "10.1002/jcc.70203",
+    "10.1021/acs.jcim.1c00175",
+    "10.1002/bies.950191112",
+    "10.1007/3-540-29916-5_6",
+    "10.1124/pr.55.1.2"
+  ],
+  "urls": [
+    "http://www.ampscanner.com",
+    "https://doi.org/10.1093/bioinformatics/bty179",
+    "https://doi.org/10.1016/j.diagmicrobio.2004.02.008",
+    "https://doi.org/10.1016/j.cub.2015.11.017",
+    "https://doi.org/10.1002/jcc.70203",
+    "https://doi.org/10.1021/acs.jcim.1c00175",
+    "https://doi.org/10.1002/bies.950191112",
+    "https://doi.org/10.1007/3-540-29916-5_6",
+    "https://doi.org/10.1124/pr.55.1.2"
+  ]
+}

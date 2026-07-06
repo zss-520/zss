@@ -1,0 +1,171 @@
+{
+  "chunk_id": "model_ai4avp_web_server",
+  "chunk_type": "model",
+  "chunk_name": "AI4AVP_web_server",
+  "compression_status": "ok",
+  "main_entities": [
+    "AI4AVP model",
+    "original paper PMID 37626205",
+    "review papers"
+  ],
+  "papers": [
+    {
+      "title": "Design methods for antimicrobial peptides with improved performance.",
+      "pmid": "37914524",
+      "pmcid": "PMC4262413",
+      "doi": "10.1371/journal.pone.0114605",
+      "year": "2023",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Repositioning Antimicrobial Peptides Against WHO-Priority Fungi.",
+      "pmid": "40884276",
+      "pmcid": "PMC7657096",
+      "doi": "10.1002/advs.202509567",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Antimicrobial peptides with cell-penetrating activity as prophylactic and treatment drugs.",
+      "pmid": "36052730",
+      "pmcid": "PMC7937881",
+      "doi": "10.3389/fmicb.2021.616979",
+      "year": "2022",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Review and perspective on bioinformatics tools using machine learning and deep learning for predicting antiviral peptides.",
+      "pmid": "37626205",
+      "pmcid": "9710571",
+      "doi": "10.1109/JBHI.2021.3130825",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AI4AVP",
+      "canonical_name": "AI4AVP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional Neural Network (CNN) with three blocks; PC6 encoding; WGAN-GP data augmentation",
+      "input_features": "peptide amino acid sequences (length 10-50), encoded via PC6 or descriptor encoding",
+      "source_pmid": "37626205",
+      "source_pmcid": "9710571",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "code_repository_url": "https://github.com/LinTzuTang/AI4AVP_predictor",
+      "web_server_url": "http://axp.iis.sinica.edu.tw/AI4AVP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/LinTzuTang/AI4AVP_predictor (datasets from APD3, DRAMP, YADAMP, DBAASP, CAMP, AVPdb, UniProt/SwissProt)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning-based antiviral peptide predictor with open-source code and web server; suitable for AMP prediction benchmark",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AI4AVP_predictor",
+      "url": "https://github.com/LinTzuTang/AI4AVP_predictor",
+      "repository_type": "code",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "AVP predictor CNN code available at https://github.com/LinTzuTang/AI4AVP_predictor."
+    },
+    {
+      "name": "amp_gan",
+      "url": "https://github.com/lsbnb/amp_gan",
+      "repository_type": "code",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "GAN code for peptide generation available at https://github.com/lsbnb/amp_gan."
+    },
+    {
+      "name": "AI4AVP_web_server",
+      "url": "http://axp.iis.sinica.edu.tw/AI4AVP/",
+      "repository_type": "webserver",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "evidence": "AI4AVP is freely accessible at http://axp.iis.sinica.edu.tw/AI4AVP/."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AI4AVP_dataset",
+      "dataset_url": "https://github.com/LinTzuTang/AI4AVP_predictor",
+      "dataset_source": "APD3, DRAMP, YADAMP, DBAASP, CAMP, AVPdb, UniProt/SwissProt",
+      "linked_model": "AI4AVP",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825",
+      "positive_samples": "2934 AVPs",
+      "negative_samples": "17184 non-AVP peptides (Swiss-Prot + random)",
+      "deduplication_method": "CD-HIT at 95% identity",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "reported for AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825"
+    },
+    {
+      "metric_name": "precision",
+      "usage": "reported for AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825"
+    },
+    {
+      "metric_name": "sensitivity",
+      "usage": "reported for AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825"
+    },
+    {
+      "metric_name": "specificity",
+      "usage": "reported for AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "reported for AI4AVP evaluation",
+      "source_pmid": "37626205",
+      "source_doi": "10.1109/JBHI.2021.3130825"
+    }
+  ],
+  "important_evidence": [
+    "AI4AVP is a CNN-based deep learning predictor for antiviral peptides, with PC6 encoding and WGAN-GP data augmentation.",
+    "Model code available at https://github.com/LinTzuTang/AI4AVP_predictor, GAN code at https://github.com/lsbnb/amp_gan.",
+    "Web server freely accessible at http://axp.iis.sinica.edu.tw/AI4AVP/.",
+    "Training set: 2934 AVPs, negative set from Swiss-Prot non-AMP plus random sequences; GAN augmented set: 16995 positives + 16995 negatives.",
+    "External test set: AVP_testing (293 AVPs + 293 non-AVPs)."
+  ],
+  "uncertainties": [
+    "Model weights not reported in available evidence."
+  ],
+  "source_pmids": [
+    "37914524",
+    "40884276",
+    "36052730",
+    "37626205"
+  ],
+  "source_dois": [
+    "10.1371/journal.pone.0114605",
+    "10.1002/advs.202509567",
+    "10.3389/fmicb.2021.616979",
+    "10.1109/JBHI.2021.3130825"
+  ],
+  "urls": [
+    "https://github.com/LinTzuTang/AI4AVP_predictor",
+    "https://github.com/lsbnb/amp_gan",
+    "http://axp.iis.sinica.edu.tw/AI4AVP/"
+  ]
+}

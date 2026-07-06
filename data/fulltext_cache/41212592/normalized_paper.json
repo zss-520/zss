@@ -1,0 +1,38 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41212592",
+    "pmid": "41212592"
+  },
+  "pmid": "41212592",
+  "pmcid": "PMC12599320",
+  "doi": "10.1093/bib/bbaf593",
+  "title": "BBATProt: a framework predicting biological function with enhanced feature extraction via interpretable deep learning.",
+  "abstract": "Accurate prediction of protein and peptide functions from amino acid sequences is essential for understanding biological processes and advancing biomolecular engineering. Due to the limitations of experimental methods, computational approaches, particularly machine learning, have gained significant attention. However, many existing tools are task-specific and lack adaptability. Here, we propose a BERT-BiLSTM-Attention-TCN Protein Function Prediction Framework (BBATProt), a versatile framework for predicting protein and peptide functions. BBATProt leverages transfer learning with a pretrained bidirectional encoder representations from transformer model to capture high-dimensional features. The custom network integrates bidirectional long short-term memory and temporal convolutional network to align with proteins' spatial characteristics, combining local and global feature extraction via attention mechanisms to achieve more precise predictions. Evaluations demonstrate that BBATProt consistently outperforms state-of-the-art models in tasks such as hydrolytic catalysis, peptide bioactivity, and post-translational modification (PTM) site prediction. Specifically, BBATProt improves accuracy by 2.96%-41.96% in antimicrobial peptide (AMP) prediction and by 0.64%-23.54% in PTM prediction tasks. In terms of area under the receiver operating characteristic curve, improvements range from 0.71% to 40.51% for AMP prediction and 0.62%-27.82% for PTM prediction. Visualizations of feature evolution and refinement via attention mechanisms validate the framework's interpretability, providing transparency into the feature-extraction process and offering deeper insights into the basis of property prediction.",
+  "journal": null,
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Wang Y",
+    "Ye X",
+    "Feng Y",
+    "Wang H",
+    "Lin X",
+    "Ma X",
+    "Zhang Y."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1093/bib/bbaf593",
+    "https://pubmed.ncbi.nlm.nih.gov/41212592/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12599320/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\" OR \"web server\")",
+  "candidate_key": "doi:10 1093 bib bbaf593"
+}

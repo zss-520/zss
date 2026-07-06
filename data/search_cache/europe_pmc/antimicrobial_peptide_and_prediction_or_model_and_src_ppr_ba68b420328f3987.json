@@ -1,0 +1,3535 @@
+{
+  "version": "6.9",
+  "hitCount": 292,
+  "nextCursorMark": "AoIIQEVUvSg1NDQzMjg4NQ==",
+  "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"antimicrobial peptide\" AND (prediction OR model) AND SRC:PPR&cursorMark=AoIIQEVUvSg1NDQzMjg4NQ==&resultType=core&pageSize=30&format=json",
+  "request": {
+    "queryString": "\"antimicrobial peptide\" AND (prediction OR model) AND SRC:PPR",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 30,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "PPR1244327",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.28.728246",
+        "title": "Species- and Topic-aware Representation Learning for Antimicrobial Peptide Discovery",
+        "authorString": "Padi S, Mondal K, Kaur N, Hoogerheide D, Heinrich F, Mihailescu M, Klauda JB, Cardone A, Keyrouz W.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Padi S",
+              "firstName": "Sarala",
+              "lastName": "Padi",
+              "initials": "S"
+            },
+            {
+              "fullName": "Mondal K",
+              "firstName": "Kinjal",
+              "lastName": "Mondal",
+              "initials": "K"
+            },
+            {
+              "fullName": "Kaur N",
+              "firstName": "Navleen",
+              "lastName": "Kaur",
+              "initials": "N"
+            },
+            {
+              "fullName": "Hoogerheide D",
+              "firstName": "David",
+              "lastName": "Hoogerheide",
+              "initials": "D"
+            },
+            {
+              "fullName": "Heinrich F",
+              "firstName": "Frank",
+              "lastName": "Heinrich",
+              "initials": "F"
+            },
+            {
+              "fullName": "Mihailescu M",
+              "firstName": "Mihaela",
+              "lastName": "Mihailescu",
+              "initials": "M"
+            },
+            {
+              "fullName": "Klauda JB",
+              "firstName": "Jeffery",
+              "lastName": "Klauda",
+              "initials": "JB"
+            },
+            {
+              "fullName": "Cardone A",
+              "firstName": "Antonio",
+              "lastName": "Cardone",
+              "initials": "A"
+            },
+            {
+              "fullName": "Keyrouz W",
+              "firstName": "Walid",
+              "lastName": "Keyrouz",
+              "initials": "W"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial resistance poses a major global health challenge, necessitating efficient strategies to discover potent antimicrobial peptides (AMPs). While recent generative models can produce many candidate sequences, experimentally validating all generated peptides in wet labs is impractical due to the high costs and time involved in such measurements. As a result, there is a strong demand for accurate predictions of peptide efficacy, typically measured as the minimum inhibitory concentration (MIC). We introduce STAMP, a framework for Species- and Topic-aware Representation Learning in AMP Discovery. This unified machine learning framework allows for cross-species predictions of AMP activity. STAMP integrates protein language model embeddings with species conditioning and topic-aware representations that capture sequence-level patterns, enabling generalizable predictions across multiple bacterial species within a single model. We evaluated STAMP on three benchmark datasets, which include two previously published datasets and a newly curated dataset derived from DBAASP, addressing duplicates and inconsistencies systematically. STAMP achieved strong predictive performance across these datasets, demonstrating a Pearson correlation coefficient (PCC) of 0.837 and an R  2 of 0.70, outperforming several baseline models. Importantly, we further validated our prediction model using peptides that were experimentally tested for their antimicrobial activity against  E .  coli . and  S .  epidermidis bacteria, demonstrating its real-world applicability. Furthermore, residue-level importance analyses provide insights into the sequence determinants governing antimicrobial activity. Together, these results establish STAMP as a scalable framework for MIC prediction and an effective computational tool for accelerating AMP discovery and optimization.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "70NANB17H299",
+              "agency": "NIST",
+              "orderIn": 0
+            },
+            {
+              "grantId": "70NANB24H248",
+              "agency": "NIST",
+              "orderIn": 0
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.28.728246"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-06-03",
+        "firstIndexDate": "2026-06-03",
+        "firstPublicationDate": "2026-06-01"
+      },
+      {
+        "id": "PPR1225565",
+        "source": "PPR",
+        "doi": "10.64898/2026.01.20.700468",
+        "title": "AMPBAN: A Deep Learning Framework Integrating Protein Sequence and Structural Features for Antimicrobial Peptide Prediction",
+        "authorString": "Bai W, Yang W, Chen Y, Ji H, Brennan L, Wang L.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Bai W",
+              "firstName": "Wenhui",
+              "lastName": "Bai",
+              "initials": "W"
+            },
+            {
+              "fullName": "Yang W",
+              "firstName": "Wenhao",
+              "lastName": "Yang",
+              "initials": "W"
+            },
+            {
+              "fullName": "Chen Y",
+              "firstName": "Yao-Qing",
+              "lastName": "Chen",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Ji H",
+              "firstName": "Hongchao",
+              "lastName": "Ji",
+              "initials": "H"
+            },
+            {
+              "fullName": "Brennan L",
+              "firstName": "Lorraine",
+              "lastName": "Brennan",
+              "initials": "L"
+            },
+            {
+              "fullName": "Wang L",
+              "firstName": "Li",
+              "lastName": "Wang",
+              "initials": "L"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "The escalating crisis of antimicrobial resistance poses a devastating and immediate threat to human life. Antimicrobial peptides (AMPs) are a promising antibiotic substitute to combat antimicrobial resistance. Compared with the traditional wet-lab screening approaches, computational models have largely improved the efficiency of predicting antimicrobial peptide. However, most computational models overlook or underutilize the evolution and structural information of peptides, which is crucial for understanding the peptide functions. Here, we proposed a sophisticated deep learning model to predict AMPs, Antimicrobial Peptide Bilinear Attention Network (AMPBAN), which incorporates peptide evolution features from ESM3 protein language model, structure features from ESMFold predicted with equivariant graph neural network (EGNN), and the joint information from sequence and structure learned via Bilinear Attention Network. AMPBAN consistently demonstrated superior accuracy and generalization compared to nine state-of-the-art AMP prediction models across multiple independent benchmarks. Furthermore, an ablation study confirms that our multimodal fusion strategy significantly refines the integration of sequence and structural signals, yielding superior predictive balance over single-modality models. This framework provides a robust tool for the accelerated discovery of novel AMPs and the advancement of next-generation antimicrobial drug development. The datasets, source code and models are available at  https://github.com/baiwenhuim/ampban .",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.01.20.700468"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-01-22"
+      },
+      {
+        "id": "PPR1222116",
+        "source": "PPR",
+        "doi": "10.64898/2026.02.24.707610",
+        "title": "Integrative Multi-Scale Sequence–Structure Modeling for Antimicrobial Peptide Prediction and Design",
+        "authorString": "Li J, Shao Y, Li Y, Yu Q.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Li J",
+              "firstName": "Jiayi",
+              "lastName": "Li",
+              "initials": "J"
+            },
+            {
+              "fullName": "Shao Y",
+              "firstName": "Yanruisheng",
+              "lastName": "Shao",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Li Y",
+              "firstName": "Yu",
+              "lastName": "Li",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Yu Q",
+              "firstName": "Qinze",
+              "lastName": "Yu",
+              "initials": "Q"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3664-6722"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial resistance (AMR) is accelerating worldwide, undermining frontline antibiotics and making the need for novel agents more urgent than ever. Antimicrobial peptides (AMPs) are promising therapeutics against multidrug-resistant pathogens, as they are less prone to inducing resistance. However, current AMP prediction approaches often treat sequence and structure in isolation and at a single scale, leading to mediocre performance. Here, we propose MultiAMP, a framework that integrates multi-level information for predicting AMPs. The model captures evolutionary and contextual information from sequences alongside global and fine-grained information from structures, synergistically combining these features to enhance predictive power. MultiAMP achieves state-of-the-art performance, outperforming existing methods by over 10% in MCC when identifying distant AMPs sharing less than 40% sequence identity with known AMPs. To discover novel AMPs, we applied MultiAMP to marine organism data, discovering 484 high-confidence peptides with sequences that are highly divergent from known AMPs. Notably, MultiAMP accurately recognizes various structural types of peptides. In addition, our approach reveals functional patterns of AMPs, providing interpretable insights into their mechanisms. Building on these findings, we employed a gradient-based strategy and achieved the design of AMPs with specific motifs. We believe MultiAMP empowers both the rational discovery and mechanistic understanding of AMPs, facilitating future experimental validation and therapeutic design. The codebase is available at  https://github.com/jiayili11/multi-amp .",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.02.24.707610"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 1,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-02-25"
+      },
+      {
+        "id": "PPR1237183",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.19.726290",
+        "title": "Antimicrobial peptide databases and prediction tools: Toward a standard evaluation framework",
+        "authorString": "Cisterna-García A, González-López AM, Vozi A, Esteban MA, Egli A, Jutzeler C, Palma J, Sánchez-Ferrer A, Botía JA.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Cisterna-García A",
+              "firstName": "Alejandro",
+              "lastName": "Cisterna-García",
+              "initials": "A"
+            },
+            {
+              "fullName": "González-López AM",
+              "firstName": "Alvaro",
+              "lastName": "González-López",
+              "initials": "AM"
+            },
+            {
+              "fullName": "Vozi A",
+              "firstName": "Aspasia",
+              "lastName": "Vozi",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-6363-7162"
+              }
+            },
+            {
+              "fullName": "Esteban MA",
+              "firstName": "María",
+              "lastName": "Esteban",
+              "initials": "MA"
+            },
+            {
+              "fullName": "Egli A",
+              "firstName": "Adrian",
+              "lastName": "Egli",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3564-8603"
+              }
+            },
+            {
+              "fullName": "Jutzeler C",
+              "firstName": "Catherine",
+              "lastName": "Jutzeler",
+              "initials": "C"
+            },
+            {
+              "fullName": "Palma J",
+              "firstName": "Jose",
+              "lastName": "Palma",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2502-4378"
+              }
+            },
+            {
+              "fullName": "Sánchez-Ferrer A",
+              "firstName": "Alvaro",
+              "lastName": "Sánchez-Ferrer",
+              "initials": "A"
+            },
+            {
+              "fullName": "Botía JA",
+              "firstName": "Juan",
+              "lastName": "Botía",
+              "initials": "JA"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-6363-7162"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-7266-4402"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3564-8603"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9927-7178"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2502-4378"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial resistance (AMR) has a profound impact on animal and human health and is associated with substantial morbidity, mortality and public health costs. There is a clear need to develop novel, effective antibiotic agents, which can overcome the current AMR crisis. Antimicrobial peptides (AMPs) may offer such a solution and have attracted growing attention for their potential to combat AMR. In parallel, the growing availability of peptide sequences in public databases has stimulated the development of numerous machine learning and deep learning tools to predict antimicrobial activity computationally. However, it remains unclear how reliably these tools can be compared, as existing studies often rely on heterogeneous datasets and inconsistent evaluation protocols that may lead to data leakage and inflated performance estimates. This raises a central question: what evaluation criteria and benchmark resources are needed to enable fair, reproducible, and biologically meaningful assessment of AMP prediction tools? We address this question by focusing specifically on antibacterial peptides (ABPs). We first provide an overview of AMP databases relevant to antibacterial activity and compare their content, redundancy, and experimental metadata. We then critically assess existing computational tools for ABP prediction, highlighting key limitations related to dataset construction, affinity to certain sequences, data leakage, and inconsistent performance reporting. Based on these limitations, we propose a reference evaluation framework designed to improve comparability, reproducibility, and practical utility in ABP prediction. Finally, we provide targeted recommendations for AMP databases and future tool development to support more robust progress in the computational discovery of ABPs.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.19.726290"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-23",
+        "firstIndexDate": "2026-05-23",
+        "firstPublicationDate": "2026-05-21"
+      },
+      {
+        "id": "PPR1212934",
+        "source": "PPR",
+        "doi": "10.64898/2026.04.25.720793",
+        "title": "GenPept-Curated-2025: A Benchmark Dataset for Antimicrobial Peptide Prediction with Homology-Controlled Partitioning",
+        "authorString": "Pham HT, Huynh B, Nguyen-Vo T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Pham HT",
+              "firstName": "Huynh Trong",
+              "lastName": "Pham",
+              "initials": "HT"
+            },
+            {
+              "fullName": "Huynh B",
+              "firstName": "Bao",
+              "lastName": "Huynh",
+              "initials": "B"
+            },
+            {
+              "fullName": "Nguyen-Vo T",
+              "firstName": "Thanh-Hoang",
+              "lastName": "Nguyen-Vo",
+              "initials": "T"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial peptides (AMPs) are promising therapeutic candidates against rising antimicrobial resistance, yet progress in AMP prediction is hampered by the lack of benchmark datasets that address homology leakage, negative set reliability, and distributional diversity. Existing AMP databases, designed as biological repositories, do not enforce the controlled partitioning required for rigorous machine learning evaluation. We present  GenPept-Curated-2025 , a curated, class-balanced benchmark of 11,000 peptide sequences (5,500 AMP / 5,500 non-AMP) derived from Bacteria, Archaea, and Fungi, and sourced exclusively from GenPept/NCBI Protein. The dataset was constructed through a reproducible pipeline comprising taxonomic scoping, quality control, precursor handling, annotation-based labeling, and Identical Protein Groups (IPG)-based deduplication, with sequence length restricted to 10–200 aa. The AMP proportion varies substantially across length bins (14.2% in [10, 50] aa to 77.1% in [101, 150] aa), identifying length-dependent class imbalance as a distribution shift that benchmarking must account for. The dataset is openly released to support standardized, reproducible, and leakage-free evaluation of AMP prediction models.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.04.25.720793"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-04-29"
+      },
+      {
+        "id": "PPR1186437",
+        "source": "PPR",
+        "doi": "10.21203/rs.3.rs-9615735/v1",
+        "title": "De Novo Design and In Silico Validation of a Cationic Antimicrobial Peptide Using an AI-Guided Framework for Membrane Thermodynamics and Hemolytic Toxicity",
+        "authorString": "Rehman MU.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Rehman MU",
+              "firstName": "Mateen Ur",
+              "lastName": "Rehman",
+              "initials": "MU"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<title>Abstract</title>  <p>The growing epidemic of antimicrobial resistance (AMR) due to multidrug-resistant (MDR) Gram-negative pathogens like Escherichia coli challenges traditional antibiotic treatment with fast evolutionary shifts and declining drug development pipelines. The use of antimicrobial peptides (AMPs) provides a potentially game-changing paradigm shift, using innate cationic-amphipathic structures to permeabilize bacterial membranes through either toroidal pores, carpet mechanisms, or barrel-stave models- multifaceted effects resistant to single-target mechanisms.Although broad-spectrum potent, AMPs encounter translational challenges: host cytotoxicity, serum instability, immunogenicity, and synthetic cost, highlighting the need to be able to engineer with precision de novo. Recent advances in AI-enhanced computational biology presently enable rational optimization of AMP, combining sequence-to-structure prediction (AlphaFold2/ColabFold), physicochemical profiling (modlAMP/Biopython), interfacial energetics (Wimley-White scales), and toxicity prediction by machine learning. A new 16-mer cationic AMP (WKKIWKDPGIKKWIKR) by template-guided design, with a proline-induced hinge in a Trp/Lys scaffold that is modified with C-terminal Arg to enable electrostatic selectivity against Gram-negative. Its efficacy and safety in targeting the E. coli membrane is confirmed by comprehensive in silico studies of helical amphipathicity (high segmental µH), topology (is an 3D α-helix core via ColabFold/ChimeraX), membrane partitioning (ΔG vs. LL-37/magainin benchmarks), and hemolytic risk (Random Forest + A net charge (+ 6 ) and Boman index and instability measures also confirm stability and binding potential. This study proves a complete AI-computational pipeline of AMP discovery that is faster to discover viable therapeutics against MDR threats by reducing wet-lab iterations. Our framework combines biophysics, structural modeling, and explainable ML to become a blueprint to the next generation of antimicrobials.</p>",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "Research Square",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.21203/rs.3.rs-9615735/v1"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "versionList": {
+          "version": [
+            {
+              "id": "PPR1186437",
+              "source": "PPR",
+              "firstPublishDate": "2026-05-06",
+              "versionNumber": 1,
+              "pubTypeList": {
+                "pubType": [
+                  "preprint"
+                ]
+              },
+              "hasEvaluations": "N"
+            }
+          ]
+        },
+        "versionNumber": 1,
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-07",
+        "firstIndexDate": "2026-05-07",
+        "firstPublicationDate": "2026-05-06"
+      },
+      {
+        "id": "PPR1244131",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.29.728379",
+        "title": "PepForge: Hierarchical HELM-Based Peptide Generation",
+        "authorString": "Wang Q, Süssmuth RD.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Wang Q",
+              "firstName": "Qingxin",
+              "lastName": "Wang",
+              "initials": "Q",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0001-5601-5979"
+              }
+            },
+            {
+              "fullName": "Süssmuth RD",
+              "firstName": "Roderich",
+              "lastName": "Süssmuth",
+              "initials": "RD"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-7027-2069"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0001-5601-5979"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Peptides carrying special connections such as macrocyclizations and various other structural modifications constitute a major class among peptide therapeutics, yet their chemical space remains largely inaccessible to computational generation methods. Here we present PepForge, a deep learning platform for peptide generation that exploits Hierarchical Editing Language for Macromolecules (HELM) notation to access the chemical space of modified peptides, through a Layout-Content-Connection (LCC) cascade decomposing the generation task into block layout, monomer content, and special connection prediction. The LCC cascade is trained on 383,817 HELM peptides covering 425 monomers and nine connection types. Beyond  de novo generation, the LCC cascade supports masked infilling for targeted scaffold modification and multi-level constrained generation. Both the monomer library and the connection-type set support user-defined extensions for exploring a broader chemical space. The prediction module is decoupled from generation and accepts arbitrary scoring heads for downstream tasks. As a demonstration, we built an antimicrobial potency ensemble predictor trained on 11,026 peptides with minimum inhibitory concentration (MIC) values, alongside the external PeptiVerse predictor. Applied at scale, we generated 4.78 million novel HELM peptides and obtained 799 structurally novel hit antimicrobial peptide (AMP) candidates after potency and safety filtering. All code, pre-trained models, and a web interface for interactive use are publicly available at  https://github.com/wqx1999/PepForge .",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.29.728379"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-06-03",
+        "firstIndexDate": "2026-06-03",
+        "firstPublicationDate": "2026-06-02"
+      },
+      {
+        "id": "PPR1210830",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.11.724237",
+        "title": "Human Histone Fragments Display Antibacterial Properties against  <i>Pseudomonas aeruginosa</i>",
+        "authorString": "Jaber N, Di Somma A, Rodríguez-Alfonso AA, Cané C, Read C, Ständker L, Wiese S, Duilio A, Münch J, Spellerberg B.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Jaber N",
+              "firstName": "Nourice",
+              "lastName": "Jaber",
+              "initials": "N"
+            },
+            {
+              "fullName": "Di Somma A",
+              "firstName": "Angela",
+              "lastName": "Di Somma",
+              "initials": "A"
+            },
+            {
+              "fullName": "Rodríguez-Alfonso AA",
+              "firstName": "Armando",
+              "lastName": "Rodríguez-Alfonso",
+              "initials": "AA"
+            },
+            {
+              "fullName": "Cané C",
+              "firstName": "Carolina",
+              "lastName": "Cané",
+              "initials": "C"
+            },
+            {
+              "fullName": "Read C",
+              "firstName": "Clarissa",
+              "lastName": "Read",
+              "initials": "C"
+            },
+            {
+              "fullName": "Ständker L",
+              "firstName": "Ludger",
+              "lastName": "Ständker",
+              "initials": "L"
+            },
+            {
+              "fullName": "Wiese S",
+              "firstName": "Sebastian",
+              "lastName": "Wiese",
+              "initials": "S"
+            },
+            {
+              "fullName": "Duilio A",
+              "firstName": "Angela",
+              "lastName": "Duilio",
+              "initials": "A"
+            },
+            {
+              "fullName": "Münch J",
+              "firstName": "Jan",
+              "lastName": "Münch",
+              "initials": "J"
+            },
+            {
+              "fullName": "Spellerberg B",
+              "firstName": "Barbara",
+              "lastName": "Spellerberg",
+              "initials": "B"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<h4>Background</h4>  Rising antimicrobial resistance rates, require new therapeutic approaches such as antimicrobial peptides (AMPs), which are part of the innate immune defense, as alternatives to antibiotics. In this study, we aim to unravel the antibacterial activity of human histone H1.2 peptide against  Pseudomonas aeruginosa and its potential immune modulatory role.  <h4>Methods</h4>  We used a hemofiltrate peptide database for antimicrobial peptide prediction to identify novel human AMPs. Thirteen sequences of histone H1 were identified as putative AMPs, synthesized, and tested against bacterial ESKAPE pathogens in a radial diffusion assay. SYTOX green assay, electrophoretic mobility shift assay, and differential proteomics assays were conducted to determine the mode of action of H1.2 peptide fragment. A crystal violet assay was performed to evaluate the inhibition of biofilm formation. The cytotoxicity of the peptide was tested in LDH and Alamar assays. Finally, to visualize the contributions of H1.2 in NETs formation, scanning electron microscopy was performed. <h4>Results</h4>  The H1.2 peptide inhibited the growth of  P. aeruginosa in a dose and pH-dependent manner without cytotoxicity towards mammalian THP-1 cells. It acts on intracellular targets to inhibit the growth of  P. aeruginosa . STRING analysis from the differential proteomics assay showed that H1.2 targets the downregulation of proteins involved in the biogenesis of outer membrane proteins, including the folding and trafficking of outer membrane proteins across the cytoplasmic membrane. Scanning electron microscopy images showed that H1.2 forms NET-like structures capable of trapping and immobilizing  P. aeruginosa .  <h4>Conclusion</h4>  The characterized antimicrobial activity of H1.2 points to a role for human histone H1 fragments in innate immunity and may represent a promising approach for the development of novel antibacterial therapies. <h4>Graphical Summary</h4>  <h4>  Sec transport and BAM complex system including chaperone proteins and quality control proteases are inhibited by H1.2 in  Pseudomonas aeruginosa .  </h4>  Outer membrane proteins (OMPs) are synthesized in the cytoplasm and transported across the inner membrane via the Sec translocase, assisted by SecA/SecB or ribosomes. In the periplasm, they are escorted by chaperones such as SurA to the BAM complex for insertion into the outer membrane. Here, we show that H1.2, an antimicrobial peptide, targets membrane biogenesis in  P. aeruginosa through downregulating Sec translocase (SecA/SecB and SecYEG), SurA, and BAM complex. Therefore, leading to improper transfer, folding and insertion of OMPs into the outer membrane. Normally, misfolded proteins are degraded by the protease MucD to prevent toxic aggregation in the bacteria. However, with H1.2 inhibiting MucD the proteotoxic stress is exacerbated, ultimately compromising bacterial homeostasis and viability. Figure created using  BioRender.com .",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.11.724237"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-05-11"
+      },
+      {
+        "id": "PPR1258952",
+        "source": "PPR",
+        "doi": "10.64898/2026.06.19.733349",
+        "title": "BATTLE-AMP: Benchmarking Antimicrobial Peptide Predictors",
+        "authorString": "Szymczak P, Bukała A, Zarzecki W, Sala M, Borišek J, Fadavi S, Olayo-Alarcon R, Sroka J, Colomé-Tatché M, Gambin A, Müller CL, Setny P, Szczurek E.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Szymczak P",
+              "firstName": "Paulina",
+              "lastName": "Szymczak",
+              "initials": "P"
+            },
+            {
+              "fullName": "Bukała A",
+              "firstName": "Adriana",
+              "lastName": "Bukała",
+              "initials": "A"
+            },
+            {
+              "fullName": "Zarzecki W",
+              "firstName": "Wojciech",
+              "lastName": "Zarzecki",
+              "initials": "W"
+            },
+            {
+              "fullName": "Sala M",
+              "firstName": "Michał",
+              "lastName": "Sala",
+              "initials": "M"
+            },
+            {
+              "fullName": "Borišek J",
+              "firstName": "Jure",
+              "lastName": "Borišek",
+              "initials": "J"
+            },
+            {
+              "fullName": "Fadavi S",
+              "firstName": "Setareh",
+              "lastName": "Fadavi",
+              "initials": "S"
+            },
+            {
+              "fullName": "Olayo-Alarcon R",
+              "firstName": "Roberto",
+              "lastName": "Olayo-Alarcon",
+              "initials": "R"
+            },
+            {
+              "fullName": "Sroka J",
+              "firstName": "Jacek",
+              "lastName": "Sroka",
+              "initials": "J"
+            },
+            {
+              "fullName": "Colomé-Tatché M",
+              "firstName": "Maria",
+              "lastName": "Colomé-Tatché",
+              "initials": "M"
+            },
+            {
+              "fullName": "Gambin A",
+              "firstName": "Anna",
+              "lastName": "Gambin",
+              "initials": "A"
+            },
+            {
+              "fullName": "Müller CL",
+              "firstName": "Christian",
+              "lastName": "Müller",
+              "initials": "CL"
+            },
+            {
+              "fullName": "Setny P",
+              "firstName": "Piotr",
+              "lastName": "Setny",
+              "initials": "P"
+            },
+            {
+              "fullName": "Szczurek E",
+              "firstName": "Ewa",
+              "lastName": "Szczurek",
+              "initials": "E"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "As antimicrobial resistance outpaces antibiotic development, antimicrobial peptides (AMPs) have emerged as a promising class of alternative antibacterials, and computational predictors are increasingly used to prioritize AMP candidates. Such predictors are typically evaluated on binary AMP/non-AMP classification, which does not test whether they can identify peptides with clinically relevant potency against specific pathogens. We present BATTLE-AMP, a benchmarking framework that evaluates AMP predictors against experimentally measured minimum inhibitory concentrations (MICs) across clinically relevant bacterial species and strains. We surveyed 48 published methods, finding fewer than 25% reproducible, and benchmarked 10 model families (21 variants) using experimental MIC data, synthetic sequence perturbations, activity cliff analyses, and all-atom molecular dynamics (MD) simulations. Four findings emerge: (i) models trained on MIC data outperform binary classifiers regardless of architecture; (ii) the best model depends on the target pathogen, so model selection must be guided by the biological question; (iii) most models cannot distinguish active peptides from inactive sequences with identical amino acid composition; and (iv) activity cliffs remain unresolved by both machine learning and MD, marking a limit of current computational methods. BATTLE-AMP is released as an open Snakemake framework at  https://github.com/szczurek-lab/battleamp-snakemake for benchmarking new models and scoring novel candidate libraries.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "810115 -- DOG-AMP",
+              "agency": "European Research Council (ERC) under the European Funding Union&apos;s Horizon 2020 research and innovation programme",
+              "orderIn": 0
+            },
+            {
+              "agency": "Bavarian State Ministry of Science and Arts,",
+              "orderIn": 0
+            },
+            {
+              "grantId": "P1-0017",
+              "agency": "Slovenian Research and Innovation Agency",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2020/38/E/ST4/00319",
+              "agency": "Polish National Science Centre",
+              "orderIn": 0
+            },
+            {
+              "grantId": "PLG/2024/017428",
+              "agency": "PLGrid ACK Cyfronet AGH",
+              "orderIn": 0
+            },
+            {
+              "grantId": "G100-2273",
+              "agency": "Interdisciplinary Centre for Mathematical and Computational Modelling University of Warsaw",
+              "orderIn": 0
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.06.19.733349"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-06-25",
+        "firstIndexDate": "2026-06-25",
+        "firstPublicationDate": "2026-06-24"
+      },
+      {
+        "id": "PPR1215936",
+        "source": "PPR",
+        "doi": "10.64898/2026.04.07.716964",
+        "title": "Single-cell genomics reveals opportunistic  <i>Enterobacterales</i>  carrying putative cationic antimicrobial peptide resistance genes in red crown rot-affected soybean rhizoplanes",
+        "authorString": "Ochi T, Nishikawa Y, Kifushi M, Sato T, Takeyama H.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Ochi T",
+              "firstName": "Takeru",
+              "lastName": "Ochi",
+              "initials": "T"
+            },
+            {
+              "fullName": "Nishikawa Y",
+              "firstName": "Yohei",
+              "lastName": "Nishikawa",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Kifushi M",
+              "firstName": "Masako",
+              "lastName": "Kifushi",
+              "initials": "M"
+            },
+            {
+              "fullName": "Sato T",
+              "firstName": "Takashi",
+              "lastName": "Sato",
+              "initials": "T"
+            },
+            {
+              "fullName": "Takeyama H",
+              "firstName": "Haruko",
+              "lastName": "Takeyama",
+              "initials": "H"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "1. <h4>Structured Abstract</h4>  1.1 Soybean red crown rot, caused by the soil-borne fungus  Calonectria ilicicola , causes substantial yield losses, but the response of the root-associated bacterial microbiome remains poorly understood. Here, we combined 16S rRNA gene sequencing, shotgun metagenomics, and single-cell genomics to characterize bacterial communities in soybean root-associated soils.  16S rRNA gene sequencing showed that diseased plants had rhizosphere and, more strikingly, rhizoplane microbiomes distinct from those of healthy plants, often with increased  Enterobacterales . Shotgun metagenomics further revealed enrichment of genes associated with antibiotic resistance, particularly cationic antimicrobial peptide resistance, in diseased rhizoplane samples.  Single-cell genomics recovered seven nonredundant  Enterobacterales genomes and showed that plant pathogenicity-related genes were broadly distributed across these lineages. In contrast,  dlt genes, which are associated with cationic antimicrobial peptide resistance, were detected only in the  Enterobacterales lineages enriched in diseased rhizoplane soils. These results support a model in which soybean red crown rot is accompanied by microbiome restructuring and opportunistic enrichment of specific  Enterobacterales lineages carrying putative cationic antimicrobial peptide resistance genes. More broadly, this study highlights the value of strain-resolved single-cell genomics for linking disease-associated community shifts to specific bacterial traits.  1.2 <h4>Importance</h4>  Understanding crop disease requires resolving not only the primary pathogen but also the root-associated bacteria that respond to infection. Here, we used 16S rRNA gene sequencing, shotgun metagenomics, and single-cell genomics to examine the soybean rhizoplane microbiome under red crown rot. Diseased plants showed reproducible shifts in bacterial composition, including frequent enrichment of  Enterobacterales and antimicrobial resistance-related functions. Strain-resolved genomes further revealed that the  Enterobacterales lineages enriched in diseased rhizoplane soils specifically carried putative  dlt -mediated resistance to cationic antimicrobial peptides, whereas general pathogenicity-related genes were broadly shared. These findings suggest that host defense-associated selection, rather than pathogenicity genes alone, may help shape disease-associated root microbiomes. This study demonstrates how single-cell genomics can uncover strain-level traits hidden within bulk community data and thereby clarify plant–pathogen–microbiome interactions.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.04.07.716964"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-04-08"
+      },
+      {
+        "id": "PPR1159568",
+        "source": "PPR",
+        "doi": "10.21203/rs.3.rs-8778857/v1",
+        "title": "A novel antimicrobial peptide targeting porphyromonas gingivalis that can reduce inflammation in a rat periodontitis model",
+        "authorString": "Wang S, Ma X, Xu J, Pang J, Li G, Wei Y, Huang Q.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Wang S",
+              "firstName": "Sunjun",
+              "lastName": "Wang",
+              "initials": "S"
+            },
+            {
+              "fullName": "Ma X",
+              "firstName": "Xuanyi",
+              "lastName": "Ma",
+              "initials": "X"
+            },
+            {
+              "fullName": "Xu J",
+              "firstName": "Jingxiao",
+              "lastName": "Xu",
+              "initials": "J"
+            },
+            {
+              "fullName": "Pang J",
+              "firstName": "Jinping",
+              "lastName": "Pang",
+              "initials": "J"
+            },
+            {
+              "fullName": "Li G",
+              "firstName": "Guodong",
+              "lastName": "Li",
+              "initials": "G"
+            },
+            {
+              "fullName": "Wei Y",
+              "firstName": "Yibo",
+              "lastName": "Wei",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Huang Q",
+              "firstName": "Qingshan",
+              "lastName": "Huang",
+              "initials": "Q"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<title>Abstract</title>  <p>Objectives  This study aimed to develop a novel antimicrobial peptide that can inhibit the growth of Porphyromonas gingivalis (P. gingivalis) and potentially reduce periodontal inflammation in a rat ligature-induced periodontitis model. Methods  This study introduces a novel antimicrobial peptide, PFK, designed to target P. gingivalis and its associated biofilms. We evaluated its antibacterial activity, biofilm disruption capability, safety and biocompatibility in vitro, as well as its therapeutic potential in a rat model of periodontitis. Periodontitis was induced in Sprague-Dawley rats (n = 15) via ligature placement around the mandibular first molars, combined with oral inoculation of P. gingivalis. Rats were divided into three groups: (1) untreated control, (2) treated with minocycline hydrochloride ointment Palio, and (3) treated with PFK (topical application, 10 µg/mL). Gingival tissues and alveolar bone were analyzed after 4 weeks. Results  PFK demonstrated potent antibacterial activity against P. gingivalis and effectively disrupted biofilms in vitro. In the rat periodontitis model, topical PFK treatment reduced inflammatory cell infiltration in gingival tissues. Safety and biocompatibility assays indicated that PFK was biologically safe and exhibited low cytotoxicity. Conclusions  These findings suggest that PFK is a promising candidate for periodontitis treatment and may address the limitations of current therapies.</p>",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "Research Square",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.21203/rs.3.rs-8778857/v1"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "versionList": {
+          "version": [
+            {
+              "id": "PPR1159568",
+              "source": "PPR",
+              "firstPublishDate": "2026-02-27",
+              "versionNumber": 1,
+              "pubTypeList": {
+                "pubType": [
+                  "preprint"
+                ]
+              },
+              "hasEvaluations": "N"
+            }
+          ]
+        },
+        "versionNumber": 1,
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-02-27",
+        "firstIndexDate": "2026-02-27",
+        "firstPublicationDate": "2026-02-27"
+      },
+      {
+        "id": "PPR1225264",
+        "source": "PPR",
+        "doi": "10.64898/2026.02.03.703041",
+        "title": "QMAP: A Benchmark for Standardized Evaluation of Antimicrobial Peptide MIC and Hemolytic Activity Regression",
+        "authorString": "Lavertu A, Corbeil J, Germain P.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Lavertu A",
+              "firstName": "Anthony",
+              "lastName": "Lavertu",
+              "initials": "A"
+            },
+            {
+              "fullName": "Corbeil J",
+              "firstName": "Jacques",
+              "lastName": "Corbeil",
+              "initials": "J"
+            },
+            {
+              "fullName": "Germain P",
+              "firstName": "Pascal",
+              "lastName": "Germain",
+              "initials": "P"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<h4>ABSTRACT</h4>  Antimicrobial peptides (AMPs) are promising alternatives to conventional antibiotics, but progress in computational AMP discovery has been difficult to quantify due to inconsistent datasets and evaluation protocols. We introduce QMAP, a domain-specific benchmark for predicting AMP antimicrobial potency (MIC) and hemolytic toxicity (HC50) with homology-aware, predefined test sets. QMAP enforces strict sequence homology constraints between training and test data, ensuring that model performance reflects true generalization rather than overfitting. Applying QMAP, we reassess existing MIC models and establish baselines for MIC and HC50 regression. Results suggest limited progress over six years, poor performance for high-potency MIC regression, and low predictability for hemolytic activity, emphasizing the need for standardized evaluation and improved modeling approaches for highly potent peptides. We release a Python package facilitating practical adoption, and with a Rust-accelerated engine enabling efficient data manipulation, installable with  pip install qmap-benchmark .",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.02.03.703041"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "42236847",
+              "source": "MED",
+              "reference": "Scientific reports. \n    2026 Jun;:",
+              "type": "Preprint of",
+              "note": "Link created based on a title-first author match",
+              "orderIn": 10001
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-02-04"
+      },
+      {
+        "id": "PPR1215345",
+        "source": "PPR",
+        "doi": "10.64898/2026.04.08.717161",
+        "title": "Probing voltage dependence interaction of cationic peptides with bacterial porins at a single-molecule level",
+        "authorString": "Prasad S.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Prasad S",
+              "firstName": "Sonal",
+              "lastName": "Prasad",
+              "initials": "S"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "This study investigates the interaction between the cationic antimicrobial peptide protamine and bacterial porin OmpF (  E. coli ) at the single-molecule level. Using high-resolution conductance measurements in planar lipid bilayers, strong voltage- and concentration-dependent ion current blockages with OmpF, indicating significant protamine binding were observed. Further analysis revealed that peptide length influences binding kinetics, with longer peptides showing reduced affinity and slower exchange rates. These findings demonstrate that OmpF is a tractable model for studying cationic peptide–channel interactions and translocation mechanisms relevant to antimicrobial action.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.04.08.717161"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-04-12"
+      },
+      {
+        "id": "PPR1211496",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.04.721987",
+        "title": "Bridging genomes and peptidomes: hybrid sequencing reveals conserved bioactive peptides in crustaceans",
+        "authorString": "Fields L, Qin J, Ibarra AE, Selby KG, Gao T, Dang TC, Lu H, Li L.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Fields L",
+              "firstName": "Lauren",
+              "lastName": "Fields",
+              "initials": "L"
+            },
+            {
+              "fullName": "Qin J",
+              "firstName": "Jiangrong",
+              "lastName": "Qin",
+              "initials": "J"
+            },
+            {
+              "fullName": "Ibarra AE",
+              "firstName": "Angel",
+              "lastName": "Ibarra",
+              "initials": "AE"
+            },
+            {
+              "fullName": "Selby KG",
+              "firstName": "Kendra",
+              "lastName": "Selby",
+              "initials": "KG"
+            },
+            {
+              "fullName": "Gao T",
+              "firstName": "Tong",
+              "lastName": "Gao",
+              "initials": "T"
+            },
+            {
+              "fullName": "Dang TC",
+              "firstName": "Tina",
+              "lastName": "Dang",
+              "initials": "TC"
+            },
+            {
+              "fullName": "Lu H",
+              "firstName": "Haiyan",
+              "lastName": "Lu",
+              "initials": "H"
+            },
+            {
+              "fullName": "Li L",
+              "firstName": "Lingjun",
+              "lastName": "Li",
+              "initials": "L"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Endogenous peptides are critical regulators of signaling and immunity but remain difficult to characterize in organisms with incomplete genomic annotation. We developed a hybrid discovery platform that integrates transformer-based  de novo sequencing (Casanovo), neuropeptide-focused database searching (EndoGenius), and empirical false discovery rate estimation via NovoBoard. This pipeline enables confident identification of endogenous peptides while expanding coverage beyond conventional database-only or  de novo -only approaches. Applied to neuroendocrine tissues from  Callinectes sapidus and  Cancer borealis , the workflow revealed numerous high-abundance novel peptides and provided structural and genomic support for their biological relevance. Notably, we report the first histone-2A–derived antimicrobial peptide in the  C. sapidus and characterize naturally occurring sequence variants. We also identified unexpected peptide homologies between crustaceans and  Rattus norvegicus , enabling annotation of conserved housekeeping proteins in sparsely annotated genomes. This hybrid platform establishes a scalable, open-source strategy for advancing neuropeptidomics and endogenous peptide discovery in emerging model organisms.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.04.721987"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-05-07"
+      },
+      {
+        "id": "PPR1211451",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.04.722581",
+        "title": "TLR2-mediated microbial sensing by intestinal stem cells coordinates epithelial antimicrobial defense",
+        "authorString": "Habshush Menachem A, Lebon S, Killian C, Holiar V, Sarusi Portuguez A, Davidzohn N, Toval B, Sochen C, Levin-Zaidman S, Dezorella N, Otikovs L, Duran D, Kent I, Grunewald M, Adlung L, Biton M.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Habshush Menachem A",
+              "firstName": "Aviya",
+              "lastName": "Habshush Menachem",
+              "initials": "A"
+            },
+            {
+              "fullName": "Lebon S",
+              "firstName": "Sacha",
+              "lastName": "Lebon",
+              "initials": "S"
+            },
+            {
+              "fullName": "Killian C",
+              "firstName": "Christoph",
+              "lastName": "Killian",
+              "initials": "C"
+            },
+            {
+              "fullName": "Holiar V",
+              "firstName": "Vladyslav",
+              "lastName": "Holiar",
+              "initials": "V"
+            },
+            {
+              "fullName": "Sarusi Portuguez A",
+              "firstName": "Avital",
+              "lastName": "Sarusi Portuguez",
+              "initials": "A"
+            },
+            {
+              "fullName": "Davidzohn N",
+              "firstName": "Natalia",
+              "lastName": "Davidzohn",
+              "initials": "N"
+            },
+            {
+              "fullName": "Toval B",
+              "firstName": "Barak",
+              "lastName": "Toval",
+              "initials": "B"
+            },
+            {
+              "fullName": "Sochen C",
+              "firstName": "Carmel",
+              "lastName": "Sochen",
+              "initials": "C"
+            },
+            {
+              "fullName": "Levin-Zaidman S",
+              "firstName": "Smadar",
+              "lastName": "Levin-Zaidman",
+              "initials": "S"
+            },
+            {
+              "fullName": "Dezorella N",
+              "firstName": "Nili",
+              "lastName": "Dezorella",
+              "initials": "N"
+            },
+            {
+              "fullName": "Otikovs L",
+              "firstName": "Leilah",
+              "lastName": "Otikovs",
+              "initials": "L"
+            },
+            {
+              "fullName": "Duran D",
+              "firstName": "Deborah",
+              "lastName": "Duran",
+              "initials": "D"
+            },
+            {
+              "fullName": "Kent I",
+              "firstName": "Ilan",
+              "lastName": "Kent",
+              "initials": "I"
+            },
+            {
+              "fullName": "Grunewald M",
+              "firstName": "Myriam",
+              "lastName": "Grunewald",
+              "initials": "M"
+            },
+            {
+              "fullName": "Adlung L",
+              "firstName": "Lorenz",
+              "lastName": "Adlung",
+              "initials": "L"
+            },
+            {
+              "fullName": "Biton M",
+              "firstName": "Moshe",
+              "lastName": "Biton",
+              "initials": "M"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Intestinal regeneration and host defense require adaptation to environmental cues, but the mechanisms underlying this coordination remain unclear. We show that intestinal Lgr5⁺ stem cells act as luminal sensors via apically localized Toll-like receptor 2 (TLR2), enabling direct detection of microbiota-derived signals. We identify apical TLR2 activation as a mechanism of luminal sensing in adult stem cells and show that it controls epithelial differentiation, antimicrobial peptide production, and crypt organization, with a particularly strong influence on Paneth cell maturation. Genetic ablation of constitutive, epithelial, or stem cell-specific TLR2 disrupts these processes, leading to impaired antimicrobial defense and altered epithelial composition. Using germ-free mice and human intestinal organoids, we demonstrate that this pathway is microbiota-dependent and evolutionarily conserved, respectively. These findings support a model in which stem cells act as active integrators of environmental information and suggest a broader principle by which barrier tissues couple microbial sensing to regeneration and host protection.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.04.722581"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-05-07"
+      },
+      {
+        "id": "PPR989239",
+        "source": "PPR",
+        "doi": "10.1101/2025.03.07.642021",
+        "title": "Harnessing Generative Pre-trained Transformer for Antimicrobial Peptide Generation and MIC Prediction with Contrastive Learning",
+        "authorString": "Hu K, Xiao Y, Liu X, Ma S.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Hu K",
+              "firstName": "Keer",
+              "lastName": "Hu",
+              "initials": "K"
+            },
+            {
+              "fullName": "Xiao Y",
+              "firstName": "Yang",
+              "lastName": "Xiao",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Liu X",
+              "firstName": "Xiao",
+              "lastName": "Liu",
+              "initials": "X"
+            },
+            {
+              "fullName": "Ma S",
+              "firstName": "Shaohua",
+              "lastName": "Ma",
+              "initials": "S"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "Antimicrobial peptides (AMPs) have garnered considerable attention due to their reduced likelihood of inducing resistance in pathogens compared to traditional antibiotics, which has spurred the interest in  de novo design of AMPs. Despite the availability of various methods, accurately generating AMPs and predicting their inhibitory effects remains a challenging task. In this work, we introduce AMPCLGPT, a novel approach that leverages contrastive learning and generative pre-training for AMP design and minimum inhibitory concentration (MIC) prediction. First, AMPCLGPT is pre-trained on a large-scale unlabeled peptide dataset to learn peptide sequence patterns and enhance its ability to extract powerful representations. Second, the pre-trained AMPCLGPT is fine-tuned on AMP data with contrastive learning to increase the distance between antimicrobial and non-antimicrobial peptides in the latent space, improving its ability to accurately generate AMPs. Additionally, the pre-trained AMPCLGPT is fine-tuned to predict MIC values based on the learned peptide features. Empirical results demonstrate that our model can effectively generate AMPs and accurately predict their MIC values. By integrating these two capabilities, AMPCLGPT enables fully automated design of AMPs with low MIC values. AMPCLGPT represents a significant advancement in the field of AMP research, potentially accelerating the development of potent AMP-based therapeutics.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2025
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "doi",
+              "site": "Unpaywall",
+              "url": "https://doi.org/10.1101/2025.03.07.642021"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1101/2025.03.07.642021"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 1,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-03-15",
+        "firstIndexDate": "2025-03-15",
+        "firstPublicationDate": "2025-03-12"
+      },
+      {
+        "id": "PPR1142988",
+        "source": "PPR",
+        "doi": "10.21203/rs.3.rs-8389786/v1",
+        "title": "The antimicrobial peptide, Dermaseptin DMS-DA6, a promising alternative to conventional antibiotic in the treatment of N. brasiliensis induced actinomycetoma",
+        "authorString": "Duarte-Mata DI, Vázquez-Marmolejo A, Alemán-Navarro E, Piesse C, Rosenstein Y, Auvynet C, Salinas-Carmona MC.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Duarte-Mata DI",
+              "firstName": "Diana Ivonne",
+              "lastName": "Duarte-Mata",
+              "initials": "DI"
+            },
+            {
+              "fullName": "Vázquez-Marmolejo A",
+              "firstName": "Anna",
+              "lastName": "Vázquez-Marmolejo",
+              "initials": "A"
+            },
+            {
+              "fullName": "Alemán-Navarro E",
+              "firstName": "Estefania",
+              "lastName": "Alemán-Navarro",
+              "initials": "E"
+            },
+            {
+              "fullName": "Piesse C",
+              "firstName": "Christophe",
+              "lastName": "Piesse",
+              "initials": "C"
+            },
+            {
+              "fullName": "Rosenstein Y",
+              "firstName": "Yvonne",
+              "lastName": "Rosenstein",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Auvynet C",
+              "firstName": "Constance",
+              "lastName": "Auvynet",
+              "initials": "C"
+            },
+            {
+              "fullName": "Salinas-Carmona MC",
+              "firstName": "Mario Cesar",
+              "lastName": "Salinas-Carmona",
+              "initials": "MC"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<title>Abstract</title>  <p>  Actinomycetoma is a chronic infectious disease recognized by the World Health Organization as a neglected tropical disease. In the Americas, the most common etiologic agent is the Gram-positive bacterium,  <italic>Nocardia brasiliensis.</italic>  It is a facultative intracellular pathogen that can multiply and survive within macrophages, evading microbicidal mechanisms by inducing an immunosuppressive environment. Current antibiotic treatments are expensive, prolonged, and toxic, and bacterial resistance has been reported. Host defense peptides, known for their bactericidal and immunomodulatory effects, and their ability to induce poor bacterial resistance due to their direct effect on the bacterial membrane, represent a novel therapeutic approach. Recently, DMS-DA6, a dermaseptin isolated from the Mexican tree frog,  <italic>Pachymedusa dacnicolor</italic>  , has been shown to exert strong activity against Gram-positive bacteria, including multidrug-resistant strains. Our study evaluated the effects of DMS-DA6 in a  <italic>N. brasiliensis</italic>  -induced actinomycetoma mouse model in comparison with the ones observed with the conventional antibiotic linezolid. Infected mice were treated either twice a week with this peptide at a dose of 12.5mg/kg or every 12 hours with linezolid at a dose of 25 mg/kg over a three-week period. Our findings suggest that treatment with DMS-DA6 is more effective in resolving the disease than linezolid, as it induces a similar reduction in the volume of inflammation and bacterial load in the infected area at a lower dose and with fewer injections. These findings highlight the potential of DMS-DA6 as an innovative addition to current therapy.  </p>",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "Research Square",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.21203/rs.3.rs-8389786/v1"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "versionList": {
+          "version": [
+            {
+              "id": "PPR1142988",
+              "source": "PPR",
+              "firstPublishDate": "2026-01-14",
+              "versionNumber": 1,
+              "pubTypeList": {
+                "pubType": [
+                  "preprint"
+                ]
+              },
+              "hasEvaluations": "N"
+            }
+          ]
+        },
+        "versionNumber": 1,
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-01-15",
+        "firstIndexDate": "2026-01-15",
+        "firstPublicationDate": "2026-01-14"
+      },
+      {
+        "id": "PPR1136341",
+        "source": "PPR",
+        "doi": "10.20944/preprints202512.1811.v1",
+        "title": "The Antimicrobial Peptide CRAMP-34 Eradicates <em>Escherichia coli</em> Biofilms by Interfering with the <em>kduD</em>-Dependent Network",
+        "authorString": "Yang H, Xiong J, Su S, Yang Z, Yang W, Peng L, Zhang S, Qiu J, He Y, Chen H.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Yang H",
+              "firstName": "Hongzao",
+              "lastName": "Yang",
+              "initials": "H"
+            },
+            {
+              "fullName": "Xiong J",
+              "firstName": "Jing",
+              "lastName": "Xiong",
+              "initials": "J"
+            },
+            {
+              "fullName": "Su S",
+              "firstName": "Sisi",
+              "lastName": "Su",
+              "initials": "S"
+            },
+            {
+              "fullName": "Yang Z",
+              "firstName": "Zhuo",
+              "lastName": "Yang",
+              "initials": "Z"
+            },
+            {
+              "fullName": "Yang W",
+              "firstName": "Wu",
+              "lastName": "Yang",
+              "initials": "W"
+            },
+            {
+              "fullName": "Peng L",
+              "firstName": "Lianci",
+              "lastName": "Peng",
+              "initials": "L"
+            },
+            {
+              "fullName": "Zhang S",
+              "firstName": "Suhui",
+              "lastName": "Zhang",
+              "initials": "S"
+            },
+            {
+              "fullName": "Qiu J",
+              "firstName": "Jinjie",
+              "lastName": "Qiu",
+              "initials": "J"
+            },
+            {
+              "fullName": "He Y",
+              "firstName": "Yuzhang",
+              "lastName": "He",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Chen H",
+              "firstName": "Hongwei",
+              "lastName": "Chen",
+              "initials": "H"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-6161-4538"
+            }
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "<h4>Background: </h4> /Objectives: Bacterial biofilms formed by Escherichia coli pose a significant challenge in veterinary medicine due to their intrinsic resistance to antibiotics. Antimicrobial peptides (AMPs) represent a promising alternative. AMPs exert their bactericidal activity by binding to negatively charged phospholipids in bacterial membranes via electrostatic interactions, leading to membrane disruption and rapid cell lysis. <h4>Methods:</h4> In vitro assays included MIC determination, biofilm eradication testing (crystal violet, colony counts, CLSM), swimming motility, and EPS quantification. CRISPR/Cas9 was used to construct and complement a kduD mutant. A transposon mutagenesis library was screened for biofilm-defective mutants. In vivo, a murine excisional wound infection model was treated with CRAMP-34, with wound closure and bacterial burden monitored. Gene expression changes were analyzed via RT-qPCR. <h4>Results:</h4> The mouse-derived AMP (abbreviation CRAMP-34) effectively eradicates pre-formed biofilms of a clinically relevant, porcine-origin E.coli strain and promotes wound healing in a murine infection model. We conducted a genome-wide transposon mutagenesis screen, which identified kduD, as a critical gene for robust biofilm formation. Functional characterization revealed that kduD deletion drastically impairs flagellar motility and alters exopolysaccharide production, leading to defective biofilm architecture without affecting growth. Notably, the anti-biofilm activity of CRAMP-34 phenocopied aspects of the kduD deletion, including motility inhibition and transcriptional repression of a common set of biofilm-related genes. <h4>Conclusions:</h4> The research highlight CRAMP-34 as a potent anti-biofilm agent and unveil kduD as a previously unrecognized regulator of E.coli biofilms development, whose associated pathway is implicated in the mechanism of action of CRAMP-34.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "Preprints.org",
+          "yearOfPublication": 2025
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.20944/preprints202512.1811.v1"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "41594121",
+              "source": "MED",
+              "reference": "Antibiotics (Basel, Switzerland). 2026 Jan;15(1):83",
+              "type": "Preprint of",
+              "note": "CrossRef Pre-print loader",
+              "orderIn": 10001
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "versionList": {
+          "version": [
+            {
+              "id": "PPR1136341",
+              "source": "PPR",
+              "firstPublishDate": "2025-12-19",
+              "versionNumber": 1,
+              "pubTypeList": {
+                "pubType": [
+                  "preprint"
+                ]
+              },
+              "hasEvaluations": "N"
+            }
+          ]
+        },
+        "versionNumber": 1,
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-12-22",
+        "firstIndexDate": "2025-12-22",
+        "firstPublicationDate": "2025-12-19"
+      },
+      {
+        "id": "PPR1229590",
+        "source": "PPR",
+        "doi": "10.64898/2025.12.30.696967",
+        "title": "Tryptophan-substitution antimicrobial peptide temporin-1CEb: in vitro and in vivo antibacterial activity against clinically isolated multidrug-resistant  <i>Klebsiella pneumoniae</i>",
+        "authorString": "Jiang F, Ma Y, Zhang Y, Shang D, Dong W.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Jiang F",
+              "firstName": "Fengquan",
+              "lastName": "Jiang",
+              "initials": "F"
+            },
+            {
+              "fullName": "Ma Y",
+              "firstName": "Yanjun",
+              "lastName": "Ma",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Zhang Y",
+              "firstName": "Yunfei",
+              "lastName": "Zhang",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Shang D",
+              "firstName": "Dejing",
+              "lastName": "Shang",
+              "initials": "D"
+            },
+            {
+              "fullName": "Dong W",
+              "firstName": "Weibing",
+              "lastName": "Dong",
+              "initials": "W"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "Tryptophan (Trp)-substitution antimicrobial peptides (AMPs) exhibit enhanced interactions with bacterial cell membranes, potentially improving their antimicrobial efficacy.  K. pneumoniae (20.59% of 2054 ICU isolates) is resistant to multiple clinically used antibiotics and presents significant treatment challenges. In the present study, three Trp-modified peptides (I4W, L12W, and I1WL5W) were generated by substituting Ile or Leu residues in temporin-1CEb, a peptide derived from frog skin, with Trp at various sites to assess their antibacterial effects and mechanisms against  K. pneumoniae . Compared with L12W, both I4W and I1WL5W displayed superior antimicrobial activity and lower cytotoxicity. Mechanistic studies revealed that the AMPs exerted antibacterial and bactericidal effects through bacterial surface charge neutralization, insertion into bacterial cell membranes, increased permeability of both the inner and outer membranes, and disruption of membrane integrity. Notably, I1WL5W exhibited the most potent membrane-disrupting activity. Assessment of the impact of Trp-containing peptides on bacterial biofilms revealed that these peptides not only inhibited exopolysaccharide production and biofilm formation but also degraded preformed biofilms. A murine lung infection model was established to investigate the therapeutic efficacy of I1WL5W against MDRKP 1203-induced lung infection in mice. Compared with the control treatment, treatment with I1WL5W resulted in reduced bacterial counts and levels of IL-6 and TNF-α in both the blood and lung tissues of MDRKP 1203-infected mice, and treatment with I1WL5W improved lung tissue structure. The present study provides valuable insights for designing Trp-containing peptides with potent antimicrobial properties by facilitating their penetration across bacterial membranes.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2025
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2025.12.30.696967"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2025-12-30"
+      },
+      {
+        "id": "PPR1227206",
+        "source": "PPR",
+        "doi": "10.64898/2026.01.29.702582",
+        "title": "Division-arrest induced filamentation protects uropathogenic  <i>Escherichia coli</i>  from killing by the cathelicidin antimicrobial peptide LL-37",
+        "authorString": "Atakgayeva G, Porco N, Rudovskaya S, Sarkar M, Tomlinson M, Huynh R, Pucadyil TJ, Botelho RJ, McPhee JB.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Atakgayeva G",
+              "firstName": "Gozel",
+              "lastName": "Atakgayeva",
+              "initials": "G"
+            },
+            {
+              "fullName": "Porco N",
+              "firstName": "Natasha",
+              "lastName": "Porco",
+              "initials": "N"
+            },
+            {
+              "fullName": "Rudovskaya S",
+              "firstName": "Sofya",
+              "lastName": "Rudovskaya",
+              "initials": "S"
+            },
+            {
+              "fullName": "Sarkar M",
+              "firstName": "Meghadeepa",
+              "lastName": "Sarkar",
+              "initials": "M"
+            },
+            {
+              "fullName": "Tomlinson M",
+              "firstName": "Madison",
+              "lastName": "Tomlinson",
+              "initials": "M"
+            },
+            {
+              "fullName": "Huynh R",
+              "firstName": "Raymond",
+              "lastName": "Huynh",
+              "initials": "R"
+            },
+            {
+              "fullName": "Pucadyil TJ",
+              "firstName": "Thomas",
+              "lastName": "Pucadyil",
+              "initials": "TJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2907-9889"
+              }
+            },
+            {
+              "fullName": "Botelho RJ",
+              "firstName": "Roberto",
+              "lastName": "Botelho",
+              "initials": "RJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7820-0999"
+              }
+            },
+            {
+              "fullName": "McPhee JB",
+              "firstName": "Joseph",
+              "lastName": "McPhee",
+              "initials": "JB",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-6844-755X"
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2907-9889"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-6844-755X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7820-0999"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial peptides are a key component of the innate immune system, serving both as signaling and immunomodulatory molecules and also as direct antimicrobials toward numerous bacterial species. One of the key antimicrobial peptides in humans is LL-37 but the mechanism of bacterial killing remains poorly characterized. Using live-cell imaging, we observe that LL-37 preferentially targets actively dividing  E. coli cells. Permeabilization occurs during late-stage division at the bacterial septum with both of the newly dividing cells being killed at the same time. Death occurs downstream of the recruitment and dissembly of FtsZ and FtsN and concomitantly with AmiB association at the divisome, consistent with killing occurring during late division. Model membrane tubes that topologically mimic the late-stage cytoplasmic membrane intermediates during division also undergo rapid size- and lipid composition-dependent fission, which likely reflect the ability of LL-37 to disrupt membranes. Intriguingly, we show that inducing bacterial filamentation results in resistance to LL-37 mediated killing. Resistance to LL-37 appears to be a general feature of bacterial filamentation as overexpression of  queE ,  sulA or  damX all resulted in reduced killing by LL-37. As filamentation is often observed during UPEC infection, we hypothesize that filamentation associated resistance to host innate immunity may be a key feature of UPEC pathogenesis that protects bacteria during extrusion from infection bladder epithelial cells, when exposure to soluble and cellular host defences is likely highest. This observation may provide an important avenue for therapeutic intervention.  <h4>Significance</h4>  Antimicrobial peptides are a key component of innate immunity. The human cathelicidin peptide, LL-37, is membrane active but the mechanism of sensitization in living systems is poorly understood. We show that dividing  E. coli cells are highly susceptible to LL-37 mediated disruption. Killing occurs downstream of the assembly and activation of functional divisomes. In vitro membrane nanotubes also demonstrate sensitivity to LL-37 in a lipid composition and diameter-dependent manner. Cells with stalled division are protected from LL-37. Urinary tract infections caused by uropathogenic  E. coli (UPEC) are a major cause of morbidity globally. UPEC form filamentous bacteria late in the human infection cycle. UPEC filaments are protected from LL-37 killing and suggest that interfering with bacterial filamentation might potentiate innate immune control of UTIs.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.01.29.702582"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-01-29"
+      },
+      {
+        "id": "PPR1215697",
+        "source": "PPR",
+        "doi": "10.64898/2026.04.08.717253",
+        "title": "A Triple-Modality Peptide-Antibiotic-Phage Therapy Eradicates Multidrug-Resistant  <i>Serratia marcescens</i>  Biofilms",
+        "authorString": "Duggal AP, Alreja AB, Vashee I, Nordstrom H, Harrelson E, Fallen N, Takano K, Blaustein RA, Fouts DE, Gonzalez-Juarbe N.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Duggal AP",
+              "firstName": "Aryaan",
+              "lastName": "Duggal",
+              "initials": "AP"
+            },
+            {
+              "fullName": "Alreja AB",
+              "firstName": "Adit",
+              "lastName": "Alreja",
+              "initials": "AB"
+            },
+            {
+              "fullName": "Vashee I",
+              "firstName": "Isha",
+              "lastName": "Vashee",
+              "initials": "I"
+            },
+            {
+              "fullName": "Nordstrom H",
+              "firstName": "Hayley",
+              "lastName": "Nordstrom",
+              "initials": "H"
+            },
+            {
+              "fullName": "Harrelson E",
+              "firstName": "Erin",
+              "lastName": "Harrelson",
+              "initials": "E"
+            },
+            {
+              "fullName": "Fallen N",
+              "firstName": "Nakia",
+              "lastName": "Fallen",
+              "initials": "N"
+            },
+            {
+              "fullName": "Takano K",
+              "firstName": "Kari-Ann",
+              "lastName": "Takano",
+              "initials": "K"
+            },
+            {
+              "fullName": "Blaustein RA",
+              "firstName": "Ryan",
+              "lastName": "Blaustein",
+              "initials": "RA"
+            },
+            {
+              "fullName": "Fouts DE",
+              "firstName": "Derrick",
+              "lastName": "Fouts",
+              "initials": "DE"
+            },
+            {
+              "fullName": "Gonzalez-Juarbe N",
+              "firstName": "Norberto",
+              "lastName": "Gonzalez-Juarbe",
+              "initials": "N"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Serratia marcescens is an opportunistic pathogen that causes severe hospital-acquired infections, notable for its biofilm formation abilities and development of extensive antibiotic resistance. Here we evaluated the efficacy of bacteriophages, antibiotics, and antimicrobial peptides (BAP), alone and in combination, against fourteen multi-drug-resistant (MDR)  S. marcescens isolates sourced from hospitals and other environmental settings in an  in vitro biofilm model. Phage combination with a cocktail of sub-minimal inhibitory concentration (MIC) of penicillin-streptomycin, kanamycin, and ciprofloxacin, reduced biofilm biomass, however, complete decolonization was not achieved. Incorporating an antimicrobial peptide cocktail into this regimen eradicated 99.99% of multi-drug-resistant isolates grown planktonically or in surface-associated biofilms. Microscopy and viability assays confirmed extensive biofilm disruption and bacterial clearance without regrowth. These findings reveal that simultaneous interference of cell wall synthesis, protein translation, DNA replication, and membrane integrity can overcome  S. marcescens antimicrobial defenses, establishing a multifaceted therapeutic framework for managing device-associated infections caused by MDR pathogens.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.04.08.717253"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-04-09"
+      },
+      {
+        "id": "PPR1110559",
+        "source": "PPR",
+        "doi": "10.1101/2025.10.29.685317",
+        "title": "Generative models for antimicrobial peptide design: auto-encoders and beyond",
+        "authorString": "Beierle L, Hahnfeld J, Goesmann A, Mostolizadeh R, Cemič F.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Beierle L",
+              "firstName": "Lukas",
+              "lastName": "Beierle",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0009-3830-5006"
+              }
+            },
+            {
+              "fullName": "Hahnfeld J",
+              "firstName": "Julian",
+              "lastName": "Hahnfeld",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8784-9773"
+              }
+            },
+            {
+              "fullName": "Goesmann A",
+              "firstName": "Alexander",
+              "lastName": "Goesmann",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7086-2568"
+              }
+            },
+            {
+              "fullName": "Mostolizadeh R",
+              "firstName": "Reihaneh",
+              "lastName": "Mostolizadeh",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2479-6851"
+              }
+            },
+            {
+              "fullName": "Cemič F",
+              "firstName": "Franz",
+              "lastName": "Cemič",
+              "initials": "F"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7086-2568"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8784-9773"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2479-6851"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0009-3830-5006"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "<h4>Background</h4>  Since the number of multi-resistant pathogens is growing rapidly, new strategies to accelerate the development of antimicrobial drugs are urgently needed. A promising candidate class for new antibiotics are antimicrobial peptides, showing lower tendency to induce antibiotic resistance. High-throughput  in silico strategies for candidate mining, such as generative deep learning algorithms, have become popular over the last few years and offer novel ways for peptide discovery.  <h4>Methods</h4>  This study presents a comparative analysis of contemporary deep learning models’ generative performance for generating novel antimicrobial peptides. The models examined include Variational Auto-Encoders, a Wasserstein Auto-Encoder, a Recurrent Neural Network and a Language Model. The primary focus of this study is the systematic comparison and evaluation of various methods and sampling options to identify the most suitable model and sampling strategy combination for different use cases. <h4>Results</h4>  The findings demonstrate the models’ capacity to generate peptide sequences exhibiting analogous properties to those of naturally occurring active peptides, which are utilized for model training while featuring an appropriate degree of sequence diversity. Auto-encoder-based models, particularly the Wasserstein auto-encoder, have generated novel and remarkably diverse sequences compared to recurrent neural networks and language models. This model category exhibits a propensity to prioritize the frequencies of individual amino acids during the learning process, in contrast to variational auto-encoders. Furthermore, latent space models have been shown to possess the capacity to utilize diverse methodologies for generating novel peptides. However, it is imperative to note that these sampling strategies are not universally advantageous or disadvantageous; their optimal selection is contingent on the specificities of each individual use case. <h4>Conclusion</h4>  The present study investigates the strengths and weaknesses of various generative models for antimicrobial peptides and suggests which model and sampling strategy combination should be favoured for specific individual applications.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2025
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Forschungscampus Mittelhessen (FCMH, Research Campus of Central Hessen), DE",
+              "orderIn": 0
+            },
+            {
+              "agency": "Department of Biology and Chemistry of the Justus Liebig University, Giessen, DE",
+              "orderIn": 0
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1101/2025.10.29.685317"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "42106831",
+              "source": "MED",
+              "reference": "BioData mining. 2026 May;19(1):42",
+              "type": "Preprint of",
+              "note": "CrossRef Pre-print loader",
+              "orderIn": 10001
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-10-31",
+        "firstIndexDate": "2025-10-31",
+        "firstPublicationDate": "2025-10-30"
+      },
+      {
+        "id": "PPR1220605",
+        "source": "PPR",
+        "doi": "10.64898/2026.03.06.710241",
+        "title": "InversePep: Diffusion-Driven Structure-Based Inverse Folding for Functional Peptides",
+        "authorString": "Chilakamarri SK, Kasturi SR, Yerrabandla SPR, Gogte S, Kondaparthi V.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Chilakamarri SK",
+              "firstName": "Srinivas Kashyap",
+              "lastName": "Chilakamarri",
+              "initials": "SK"
+            },
+            {
+              "fullName": "Kasturi SR",
+              "firstName": "Sneha Reddy",
+              "lastName": "Kasturi",
+              "initials": "SR"
+            },
+            {
+              "fullName": "Yerrabandla SPR",
+              "firstName": "Sai Pranav Reddy",
+              "lastName": "Yerrabandla",
+              "initials": "SPR"
+            },
+            {
+              "fullName": "Gogte S",
+              "firstName": "Sanjana",
+              "lastName": "Gogte",
+              "initials": "S"
+            },
+            {
+              "fullName": "Kondaparthi V",
+              "firstName": "Vani",
+              "lastName": "Kondaparthi",
+              "initials": "V",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0007-0991-5003"
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0009-0007-0991-5003"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<h4>Design: </h4> ing functional peptides with specific structural and biochemical properties is critical for applications in protein engineering and therapeutic discovery. However, most peptide design approaches rely on evolutionary or local sequence optimization methods, which are limited when adapting to peptides’ shorter length, high conformational flexibility, and unique physicochemical constraints. While recent structure-based inverse folding models have shown success for proteins, these models often underperform on peptides because sequence recovery alone is not a reliable indicator of stability or foldability in short, flexible backbones. To address this challenge, we introduce InversePep, a generative diffusion model for structure-based peptide inverse folding. InversePep learns the conditional distribution of sequences that can adopt a given backbone conformation, enabling direct generation of peptides tailored to target structural geometries. The framework integrates a geometric graph neural network to encode 3D backbone features with a Transformer-based sequence refinement module that iteratively denoises candidate sequences during diffusion. Trained on a diverse set of peptide backbones sourced from Propedia and SATPdb, InversePep effectively captures structural and biochemical diversity across peptide families. In systematic evaluations on held-out peptide structures and the PepBDB benchmark, InversePep achieves a mean TM score of 0.38 and a median of 0.28, outperforming ProteinMPNN and ESM-IF1 in generating geometry-consistent peptide sequences. In-silico folding analyses confirm that sampled peptides reliably adopt the target conformations. These results highlight InversePep’s capability for designing structurally stable and sequence-diverse peptides, demonstrating its potential in antimicrobial peptide discovery, peptide therapeutics, and molecular probe development.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.03.06.710241"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "42218716",
+              "source": "MED",
+              "reference": "Briefings in bioinformatics. \n    2026 May;27(3):bbag277",
+              "type": "Preprint of",
+              "note": "Link created based on a title-first author match",
+              "orderIn": 10001
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-03-10"
+      },
+      {
+        "id": "PPR1215043",
+        "source": "PPR",
+        "doi": "10.64898/2026.04.10.717441",
+        "title": "Invisible shield: Sprayable supramolecular antimicrobial microscale films for preventing wound and medical device infections",
+        "authorString": "Li Y, Hathroubi S, Heck O, Lieu L, Petit L, Wurtz X, Rekiki A, Gaudin A, Canourgues N, Mercer D, Tunali M, Nowack B, Meier P, Reina G, Wick P, Safarzadeh M, Demircan A, Grossin D, Drouet C, Soubrié T, Holdanova T, Kremer M, Willem N, Jester S, Cès A, Calligaro C, Letellier B, Dupret-Bories A, Lavalle P, Vrana Engin N.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Li Y",
+              "firstName": "Yijie",
+              "lastName": "Li",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Hathroubi S",
+              "firstName": "Skander",
+              "lastName": "Hathroubi",
+              "initials": "S"
+            },
+            {
+              "fullName": "Heck O",
+              "firstName": "Ophélie",
+              "lastName": "Heck",
+              "initials": "O"
+            },
+            {
+              "fullName": "Lieu L",
+              "firstName": "Lucie",
+              "lastName": "Lieu",
+              "initials": "L"
+            },
+            {
+              "fullName": "Petit L",
+              "firstName": "Lauriane",
+              "lastName": "Petit",
+              "initials": "L"
+            },
+            {
+              "fullName": "Wurtz X",
+              "firstName": "Xavier",
+              "lastName": "Wurtz",
+              "initials": "X"
+            },
+            {
+              "fullName": "Rekiki A",
+              "firstName": "Abdessalem",
+              "lastName": "Rekiki",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0000-0415-2691"
+              }
+            },
+            {
+              "fullName": "Gaudin A",
+              "firstName": "Aurore",
+              "lastName": "Gaudin",
+              "initials": "A"
+            },
+            {
+              "fullName": "Canourgues N",
+              "firstName": "Naomi",
+              "lastName": "Canourgues",
+              "initials": "N"
+            },
+            {
+              "fullName": "Mercer D",
+              "firstName": "Derry",
+              "lastName": "Mercer",
+              "initials": "D"
+            },
+            {
+              "fullName": "Tunali M",
+              "firstName": "Merve",
+              "lastName": "Tunali",
+              "initials": "M"
+            },
+            {
+              "fullName": "Nowack B",
+              "firstName": "Bernd",
+              "lastName": "Nowack",
+              "initials": "B"
+            },
+            {
+              "fullName": "Meier P",
+              "firstName": "Philipp",
+              "lastName": "Meier",
+              "initials": "P"
+            },
+            {
+              "fullName": "Reina G",
+              "firstName": "Giacomo",
+              "lastName": "Reina",
+              "initials": "G"
+            },
+            {
+              "fullName": "Wick P",
+              "firstName": "Peter",
+              "lastName": "Wick",
+              "initials": "P"
+            },
+            {
+              "fullName": "Safarzadeh M",
+              "firstName": "Marjan",
+              "lastName": "Safarzadeh",
+              "initials": "M"
+            },
+            {
+              "fullName": "Demircan A",
+              "firstName": "Altan",
+              "lastName": "Demircan",
+              "initials": "A"
+            },
+            {
+              "fullName": "Grossin D",
+              "firstName": "David",
+              "lastName": "Grossin",
+              "initials": "D"
+            },
+            {
+              "fullName": "Drouet C",
+              "firstName": "Christophe",
+              "lastName": "Drouet",
+              "initials": "C"
+            },
+            {
+              "fullName": "Soubrié T",
+              "firstName": "Thibaut",
+              "lastName": "Soubrié",
+              "initials": "T"
+            },
+            {
+              "fullName": "Holdanova T",
+              "firstName": "Tetiana",
+              "lastName": "Holdanova",
+              "initials": "T"
+            },
+            {
+              "fullName": "Kremer M",
+              "firstName": "Mélanie",
+              "lastName": "Kremer",
+              "initials": "M"
+            },
+            {
+              "fullName": "Willem N",
+              "firstName": "Noémie",
+              "lastName": "Willem",
+              "initials": "N"
+            },
+            {
+              "fullName": "Jester S",
+              "firstName": "Sarah",
+              "lastName": "Jester",
+              "initials": "S"
+            },
+            {
+              "fullName": "Cès A",
+              "firstName": "Aurélia",
+              "lastName": "Cès",
+              "initials": "A"
+            },
+            {
+              "fullName": "Calligaro C",
+              "firstName": "Cynthia",
+              "lastName": "Calligaro",
+              "initials": "C"
+            },
+            {
+              "fullName": "Letellier B",
+              "firstName": "Baptiste",
+              "lastName": "Letellier",
+              "initials": "B"
+            },
+            {
+              "fullName": "Dupret-Bories A",
+              "firstName": "Agnes",
+              "lastName": "Dupret-Bories",
+              "initials": "A"
+            },
+            {
+              "fullName": "Lavalle P",
+              "firstName": "Philippe",
+              "lastName": "Lavalle",
+              "initials": "P"
+            },
+            {
+              "fullName": "Vrana Engin N",
+              "firstName": "Nihal",
+              "lastName": "Vrana Engin",
+              "initials": "N"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0009-0000-0415-2691"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Wound and device-associated infections remain difficult to eradicate because biofilms block host immunity and antibiotics, accelerating chronicity and resistance. Here, we present a portable, low-cost dual-syringe spray that deposits an ultra-thin, self-assembling antimicrobial film directly on wounds and implant surfaces. The device co-delivers oppositely charged hyaluronic acid (HA) and a cationic antimicrobial peptide (polyarginine, PAR30), which rapidly form a conformal nanometric polyelectrolyte complex at the tissue-material interface. Molecular dynamics simulation revealed pronounced positional heterogeneity within the PAR30/HA complex and identified an N-terminal arginine as a dominant interaction hotspot. The resulting coating adheres to diverse substrates, kills bacteria on contact, prevents biofilm formation, and sustains antimicrobial efficacy.  Across vitro assays and murine wound infection models, treatment produced 4 to 5 log reductions in bacterial burden against methicillin-resistant  Staphylococcus aureus and Gram-negative pathogens, including  Pseudomonas aeruginosa and  Escherichia coli . The formulation is biocompatible, did not increase cutaneous inflammation or IL-6 levels  in vivo , and reduced post-surgical pain and motor deficits in a mouse incision model. To our knowledge, this is the first antimicrobial treatment system applicable to both tissues and medical devices. Developed under a safe-and-sustainable-by-design approach, this technology combines biocompatible components, nanometric coating for minimal material use, and a simple syringe-based delivery device, offering a scalable, antibiotic-free strategy for wound care and medical device infection prevention.  <h4>Graphical abstract</h4>",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.04.10.717441"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-04-14"
+      },
+      {
+        "id": "PPR1012737",
+        "source": "PPR",
+        "doi": "10.1101/2025.04.29.641945",
+        "title": "PepSeek: Universal Functional Peptide Discovery with Cooperation Between Specialized Deep Learning Models and Large Language Model",
+        "authorString": "Gong H, Wang Y, Kong Q, Li X, Li L, Wan B, Zhao Y, Zhang J, Chen G, Chen J, Yu Y, Yang X, Zuo X, Li Y.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Gong H",
+              "firstName": "Haifan",
+              "lastName": "Gong",
+              "initials": "H"
+            },
+            {
+              "fullName": "Wang Y",
+              "firstName": "Yue",
+              "lastName": "Wang",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Kong Q",
+              "firstName": "Qingzhou",
+              "lastName": "Kong",
+              "initials": "Q"
+            },
+            {
+              "fullName": "Li X",
+              "firstName": "Xiaojuan",
+              "lastName": "Li",
+              "initials": "X"
+            },
+            {
+              "fullName": "Li L",
+              "firstName": "Lixiang",
+              "lastName": "Li",
+              "initials": "L"
+            },
+            {
+              "fullName": "Wan B",
+              "firstName": "Boyao",
+              "lastName": "Wan",
+              "initials": "B"
+            },
+            {
+              "fullName": "Zhao Y",
+              "firstName": "Yinuo",
+              "lastName": "Zhao",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Zhang J",
+              "firstName": "Jinghui",
+              "lastName": "Zhang",
+              "initials": "J"
+            },
+            {
+              "fullName": "Chen G",
+              "firstName": "Guanqi",
+              "lastName": "Chen",
+              "initials": "G"
+            },
+            {
+              "fullName": "Chen J",
+              "firstName": "Jiaxin",
+              "lastName": "Chen",
+              "initials": "J"
+            },
+            {
+              "fullName": "Yu Y",
+              "firstName": "Yanbo",
+              "lastName": "Yu",
+              "initials": "Y"
+            },
+            {
+              "fullName": "Yang X",
+              "firstName": "Xiaoyun",
+              "lastName": "Yang",
+              "initials": "X"
+            },
+            {
+              "fullName": "Zuo X",
+              "firstName": "Xiuli",
+              "lastName": "Zuo",
+              "initials": "X"
+            },
+            {
+              "fullName": "Li Y",
+              "firstName": "Yanqing",
+              "lastName": "Li",
+              "initials": "Y"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "Recent computational foundation models have revitalized the scientific discovery pipeline. However, developing foundational models for functional peptide discovery is costly due to the scarcity of wet-lab validated data. Meanwhile, conventional deep learning models are hard to generalize to unseen tasks or data distribution. Here, we introduce PepSeek, a universal approach for peptide discovery that synergistically integrates the most advanced large language model (LLM) with specialized small models. PepSeek harnesses the robust reasoning and generalization capabilities of LLM while leveraging the high predictive accuracy of specialized models trained for tasks such as antimicrobial activity regression and functional peptide generation. We have devised multiple collaborative strategies and task-specific modules demonstrating leading performance in peptide identification and generation. Notably, PepSeek achieves remarkable zero-shot prediction accuracy for peptides with diverse functionalities. We used PepSeek to identify a group of broad-spectrum antimicrobial peptide that exhibits low toxicity and high activity against drug-resistant bacteria, with the best surpassing all peptides currently undergoing clinical trials. Our framework establishes a new pipeline for scientific discovery with the help of LLM and specialized models.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2025
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "82270580",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://www.biorxiv.org/content/biorxiv/early/2025/04/30/2025.04.29.641945.full.pdf"
+            },
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1101/2025.04.29.641945"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 1,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-05-03",
+        "firstIndexDate": "2025-05-03",
+        "firstPublicationDate": "2025-04-30"
+      },
+      {
+        "id": "PPR1224077",
+        "source": "PPR",
+        "doi": "10.64898/2026.02.10.705112",
+        "title": "A-Intercalated Cell Dysfunction Disrupts Renal Epithelial–Immune Balance and Impairs Host Defense During UTI",
+        "authorString": "Chelangarimiyandoab F, McNaughton K, Essuman G, Cordat E.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Chelangarimiyandoab F",
+              "firstName": "Forough",
+              "lastName": "Chelangarimiyandoab",
+              "initials": "F"
+            },
+            {
+              "fullName": "McNaughton K",
+              "firstName": "Kristina",
+              "lastName": "McNaughton",
+              "initials": "K"
+            },
+            {
+              "fullName": "Essuman G",
+              "firstName": "Grace",
+              "lastName": "Essuman",
+              "initials": "G"
+            },
+            {
+              "fullName": "Cordat E",
+              "firstName": "Emmanuelle",
+              "lastName": "Cordat",
+              "initials": "E"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<h4>ABSTRACT</h4>  Intercalated cells (ICs) of the renal collecting duct are traditionally recognized for their role in acid–base homeostasis, but growing evidence suggests they also participate in innate immune defense. Although ICs have been implicated in renal antimicrobial function, their specific role in coordinating immune responses during urinary tract infection (UTI) remains unclear. Using Ae1 R607H knock-in mice, a distal renal tubular acidosis (dRTA) model with A-intercalated cell (A-IC) dysfunction, we examined the renal response to uropathogenic  Escherichia coli (UPEC). Mice with A-IC dysfunction exhibited higher bacterial loads 24 h post-infection and increased renal expression of antimicrobial peptides lipocalin-2 (  Lcn2 ), galectin-3 (  Lgals3 ), and cathelicidin-related antimicrobial peptide (  Camp ). Pro-inflammatory cytokines interleukin-6 (IL-6) and interleukin-1β (IL-1β) were elevated at both transcript and protein levels, whereas tumor necrosis factor-α (TNF-α) increased only at the protein level. Interleukin-10 (IL-10) showed a modest rise in mRNA. Chemokines C-X-C motif chemokine ligand 2 (  Cxcl2 ) and C-C motif chemokine ligand 2 (  Ccl2 ) were also upregulated, accompanied by excessive neutrophil infiltration and a marked shift in renal myeloid-cell composition. A-IC dysfunction therefore disrupts epithelial–immune homeostasis, resulting in exaggerated inflammation and impaired immune resolution. These findings identify A-ICs as essential epithelial immunomodulators that integrate antimicrobial defense, cytokine regulation, and immune-cell recruitment during UTI.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.02.10.705112"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-02-12"
+      },
+      {
+        "id": "PPR1227851",
+        "source": "PPR",
+        "doi": "10.64898/2026.01.23.701332",
+        "title": "<i>S</i>  -nitrosylation of the CLIP-protease, Persephone, Regulates  <i>Drosophila</i>  innate immunity",
+        "authorString": "Homem RA, Kanchanawatee K, Li Y, Chang T, Zheng J, Finnegan DJ, Loake GJ.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Homem RA",
+              "firstName": "Rafael",
+              "lastName": "Homem",
+              "initials": "RA"
+            },
+            {
+              "fullName": "Kanchanawatee K",
+              "firstName": "Krieng",
+              "lastName": "Kanchanawatee",
+              "initials": "K"
+            },
+            {
+              "fullName": "Li Y",
+              "firstName": "Yuan",
+              "lastName": "Li",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2972-2173"
+              }
+            },
+            {
+              "fullName": "Chang T",
+              "firstName": "Tao-Ho",
+              "lastName": "Chang",
+              "initials": "T"
+            },
+            {
+              "fullName": "Zheng J",
+              "firstName": "Jiayue",
+              "lastName": "Zheng",
+              "initials": "J"
+            },
+            {
+              "fullName": "Finnegan DJ",
+              "firstName": "David",
+              "lastName": "Finnegan",
+              "initials": "DJ"
+            },
+            {
+              "fullName": "Loake GJ",
+              "firstName": "Gary",
+              "lastName": "Loake",
+              "initials": "GJ"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2972-2173"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "<h4>ABSTRACT</h4>  Nitric oxide (NO) modulates innate immunity, but its molecular targets in  Drosophila melanogaster are largely undefined. A key mechanism of NO signalling is  S -nitrosylation, the modification of cysteine thiols. The homeostasis of  S -nitrosylation is maintained by  S -nitrosoglutathione reductase (Gsnor), encoded by the  fdh gene in  D. melanogaster . As reduced Gsnor activity enhances pathogen sensitivity in plants, we investigated its role in  D. melanogaster . Here, we show that flies lacking  fdh exhibit increased susceptibility to the fungus  Beauveria bassiana and the bacterium  Staphylococcus aureus , pathogens combatted by the Toll pathway. This immune deficiency correlates with impaired Toll-dependent antimicrobial peptide expression. We demonstrate that the Toll pathway protease Persephone (Psh) is  S -nitrosylated  in vivo and that loss of Gsnor prevents its proteolytic activation following infection. We propose a model where Gsnor-mediated regulation of NO is essential for Toll activation, preventing excessive  S -nitrosylation of Psh and ensuring a robust immune response.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.01.23.701332"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-01-26"
+      },
+      {
+        "id": "PPR1231106",
+        "source": "PPR",
+        "doi": "10.64898/2025.12.15.694365",
+        "title": "Lipidomic Profile Reconstruction of Therapeutic Membrane Targets Using Physics-Based Optimization with Limited Activity Data",
+        "authorString": "Krebs M, Risselada HJ.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Krebs M",
+              "lastName": "Krebs",
+              "initials": "M"
+            },
+            {
+              "fullName": "Risselada HJ",
+              "lastName": "Risselada",
+              "initials": "HJ"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "Membrane-targeting peptide motifs recognize characteristic features of biological membrane targets through specific interactions with their lipid composition. To elucidate the complex relationship between binding sequences and lipid composition, we propose an alternative computational framework to leverage limited sequence activity data by combining genetic algorithms with coarse-grained molecular dynamics simulations. We demonstrate through evolutionary optimization of plasma membrane lipid compositions how four true positive and four false positive antimicrobial peptide sequences encode sufficient information to resolve model membranes with a discriminative affinity of peptides that matches the accuracy of state-of-the-art antimicrobial classification. This finding reveals how subtle differences in lipid composition precisely control the selective binding of membrane-associated proteins, thereby regulating their trafficking, aggregation, and function within living cells. Our methodology reconstructs lipidomic profiles from limited sequence data, uniquely revealing targeting patterns for therapeutic peptides and the selectivity mechanisms of membrane-associated proteins.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2025
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2025.12.15.694365"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2025-12-17"
+      },
+      {
+        "id": "PPR1153364",
+        "source": "PPR",
+        "doi": "10.20944/preprints202602.0806.v1",
+        "title": "Biphasic Regulation of Epithelial Antimicrobial Peptides during <em>Candida albicans</em> Vaginal Infection: Distinct Contributions of NLRP3/IL-1β and IL-17RA Pathways to β-Defensin-1 and -3 Expression",
+        "authorString": "Angiolini SC, Rodriguez E, Manzone-Rodriguez C, Icely PA, Mirò MS, Riera FO, Iribarren P, Caeiro JP, Sotomayor CE.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Angiolini SC",
+              "firstName": "Sofia",
+              "lastName": "Angiolini",
+              "initials": "SC"
+            },
+            {
+              "fullName": "Rodriguez E",
+              "firstName": "Emilse",
+              "lastName": "Rodriguez",
+              "initials": "E"
+            },
+            {
+              "fullName": "Manzone-Rodriguez C",
+              "firstName": "Clarisa",
+              "lastName": "Manzone-Rodriguez",
+              "initials": "C"
+            },
+            {
+              "fullName": "Icely PA",
+              "firstName": "Paula",
+              "lastName": "Icely",
+              "initials": "PA",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0457-7523"
+              }
+            },
+            {
+              "fullName": "Mirò MS",
+              "firstName": "Maria Soledad",
+              "lastName": "Mirò",
+              "initials": "MS"
+            },
+            {
+              "fullName": "Riera FO",
+              "firstName": "Fernando",
+              "lastName": "Riera",
+              "initials": "FO"
+            },
+            {
+              "fullName": "Iribarren P",
+              "firstName": "Pablo",
+              "lastName": "Iribarren",
+              "initials": "P"
+            },
+            {
+              "fullName": "Caeiro JP",
+              "firstName": "Juan Pablo",
+              "lastName": "Caeiro",
+              "initials": "JP"
+            },
+            {
+              "fullName": "Sotomayor CE",
+              "firstName": "Claudia",
+              "lastName": "Sotomayor",
+              "initials": "CE",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2449-0852"
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0457-7523"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2449-0852"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Candida albicans is the primary agent of acute vulvovaginal candidiasis(VVC) and its recurrent form(RVVC). Local innate immunity contributes to both defense and pathogenesis during vaginal Candida infection, where epithelial β-defensins(BD) constitute key components of the mucosal barrier. We previously reported that epithelial BD-1 expression is dynamically modulated during murine and human vaginitis, revealing strain-dependent and stimulus-specific regulation but leaving the host pathways involved unresolved. This study functionally defines the contribution of key immune pathways to epithelial antimicrobial peptide regulation. Using a murine model of VVC and the virulent C. albicans strain SC5314, we analyzed the temporal expression of BD-1 and extended our study to BD-3. In wild-type mice, both defensins displayed a biphasic pattern: early induction followed by attenuation as infection progressed. Genetic loss-of-function approaches revealed that NLRP3/IL-1β signaling is required for early BD-1 induction, whereas IL-17RA signaling preferentially supports sustained BD-3 expression. Together, these findings establish a causal and temporal link between host immune signaling and epithelial defensin regulation, and reveal a transient subversion of mucosal defenses by C. albicans. This work advances understanding of epithelial innate immunity, defining distinct temporal programs for BD-1 and BD-3, and identifying NLRP3/IL-1β and IL-17RA signaling as key pathways shaping mucosal defensin expression.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "Preprints.org",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.20944/preprints202602.0806.v1"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "41893136",
+              "source": "MED",
+              "reference": "Journal of fungi (Basel, Switzerland). 2026 Mar;12(3):204",
+              "type": "Preprint of",
+              "note": "CrossRef Pre-print loader",
+              "orderIn": 10001
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "versionList": {
+          "version": [
+            {
+              "id": "PPR1153364",
+              "source": "PPR",
+              "firstPublishDate": "2026-02-10",
+              "versionNumber": 1,
+              "pubTypeList": {
+                "pubType": [
+                  "preprint"
+                ]
+              },
+              "hasEvaluations": "N"
+            }
+          ]
+        },
+        "versionNumber": 1,
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-02-12",
+        "firstIndexDate": "2026-02-12",
+        "firstPublicationDate": "2026-02-10"
+      },
+      {
+        "id": "PPR1133160",
+        "source": "PPR",
+        "doi": "10.21203/rs.3.rs-8208819/v1",
+        "title": "Unlocking the genomic landscape for antimicrobial domain discovery with a two-stage progressive residue-level annotation model",
+        "authorString": "Xie P, Liu X, Yao L, Zhao Z, Yang A, Guan J, Jiao Z, Liu Z, Wang J, Lee T, Li Z, Cui B, Chiang Y.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Xie P",
+              "firstName": "Peilin",
+              "lastName": "Xie",
+              "initials": "P"
+            },
+            {
+              "fullName": "Liu X",
+              "firstName": "Xingchen",
+              "lastName": "Liu",
+              "initials": "X"
+            },
+            {
+              "fullName": "Yao L",
+              "firstName": "Lantian",
+              "lastName": "Yao",
+              "initials": "L"
+            },
+            {
+              "fullName": "Zhao Z",
+              "firstName": "Zhihao",
+              "lastName": "Zhao",
+              "initials": "Z"
+            },
+            {
+              "fullName": "Yang A",
+              "firstName": "Anming",
+              "lastName": "Yang",
+              "initials": "A"
+            },
+            {
+              "fullName": "Guan J",
+              "firstName": "Jiahui",
+              "lastName": "Guan",
+              "initials": "J"
+            },
+            {
+              "fullName": "Jiao Z",
+              "firstName": "Zijun",
+              "lastName": "Jiao",
+              "initials": "Z"
+            },
+            {
+              "fullName": "Liu Z",
+              "firstName": "Zhihong",
+              "lastName": "Liu",
+              "initials": "Z"
+            },
+            {
+              "fullName": "Wang J",
+              "firstName": "Junwen",
+              "lastName": "Wang",
+              "initials": "J"
+            },
+            {
+              "fullName": "Lee T",
+              "firstName": "Tzong-Yi",
+              "lastName": "Lee",
+              "initials": "T"
+            },
+            {
+              "fullName": "Li Z",
+              "firstName": "Zigang",
+              "lastName": "Li",
+              "initials": "Z"
+            },
+            {
+              "fullName": "Cui B",
+              "firstName": "Bingyu",
+              "lastName": "Cui",
+              "initials": "B"
+            },
+            {
+              "fullName": "Chiang Y",
+              "firstName": "Ying-Chih",
+              "lastName": "Chiang",
+              "initials": "Y"
+            }
+          ]
+        },
+        "pubYear": "2025",
+        "abstractText": "<title>Abstract</title>  <p>The escalating crisis of antimicrobial resistance (AMR) urgently demands novel therapeutic agents, positioning antimicrobial peptides (AMPs)—key effectors of innate immunity—as highly promising candidates. While direct genomic mining provides a powerful route for discovery, conventional sequence-level classifiers face a fundamental methodological bottleneck: they are inadequate for analyzing full Open Reading Frame (ORF) translation products (precursor proteins) because they fail to identify and precisely locate the functional AMP domain within sequences that also contain other regions like signal peptides. To overcome this limitation and enable fine-grained locating, we developed RegionAMP, a unified deep learning framework for accurate residue-level annotation of AMP precursors. RegionAMP leverages the pre-trained ESM-2 protein language model, adapting it through a meticulously designed two-stage fine-tuning strategy. The initial stage learns the intrinsic sequence patterns of isolated functional fragments (signal, antimicrobial, neutral functions). Crucially, the second stage integrates a Conditional Random Field (CRF) decoding layer, enabling the model to learn contextual dependencies and inter-region transitions within full-length proteins, thereby achieving robust boundary delineation. The final architecture (PLM-CRF) is highly effective for this sequence labeling task. RegionAMP exhibits exceptional performance on a challenging, imbalanced independent test set, achieving an MCC of 0.92, indicating strong discriminative performance. The recall for the critical antimicrobial peptide sites (\\((Recall_M)\\)) also reached 0.93. Feature space analysis using t-SNE confirms the model’s effective differentiation of AMP, signal peptide, and neutral sites into distinct clusters. Most compellingly, on an independent and extremely imbalanced test dataset containing only 2,296 antimicrobial residues within 46,442,400 total residues, RegionAMP successfully recovered 2,127 true antimicrobial residues, achieving an impressive average Intersection over Union (IoU) of 0.9528. This high IoU definitively validates the model’s capacity for precise locating and boundary detection of the complete AMP domain. This work successfully demonstrates robust, region-specific AMP identification directly from precursor protein sequences.</p>",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "Research Square",
+          "yearOfPublication": 2025
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.21203/rs.3.rs-8208819/v1"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "versionList": {
+          "version": [
+            {
+              "id": "PPR1133160",
+              "source": "PPR",
+              "firstPublishDate": "2025-12-11",
+              "versionNumber": 1,
+              "pubTypeList": {
+                "pubType": [
+                  "preprint"
+                ]
+              },
+              "hasEvaluations": "N"
+            }
+          ]
+        },
+        "versionNumber": 1,
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-12-12",
+        "firstIndexDate": "2025-12-12",
+        "firstPublicationDate": "2025-12-11"
+      }
+    ]
+  }
+}

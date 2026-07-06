@@ -1,0 +1,1814 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 1,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              24
+            ]
+          ],
+          "date-time": "2026-06-24T15:56:49Z",
+          "timestamp": 1782316609531,
+          "version": "3.54.5"
+        },
+        "reference-count": 117,
+        "publisher": "Oxford University Press (OUP)",
+        "issue": "4",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  27
+                ]
+              ],
+              "date-time": "2023-06-27T00:00:00Z",
+              "timestamp": 1687824000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "name": "National Health and Medical Research Council of Australia",
+            "award": [
+              "APP1127948"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "APP1127948"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "National Health and Medical Research Council of Australia",
+            "award": [
+              "APP1144652"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "APP1144652"
+                ]
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100000923",
+            "name": "Australian Research Council",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "LP110200333"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "LP110200333"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100000923",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100000923",
+            "name": "Australian Research Council",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "DP120104460"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "DP120104460"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100000923",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000060",
+            "name": "National Institute of Allergy and Infectious Diseases",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000060",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "R01 AI111965"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "R01 AI111965"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "Major and Seed Inter-Disciplinary Research"
+          },
+          {
+            "name": "International Collaborative Research Program of Institute for Chemical Research, Kyoto University"
+          },
+          {
+            "name": "International Joint Usage/Research Center"
+          },
+          {
+            "name": "Institute of Medical Science"
+          },
+          {
+            "DOI": "10.13039/501100004721",
+            "name": "The University of Tokyo",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "K23-2074"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "K23-2074"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100004721",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              20
+            ]
+          ]
+        },
+        "abstract": "<jats:title>Abstract</jats:title>\n               <jats:p>Antimicrobial peptides (AMPs) are short peptides that play crucial roles in diverse biological processes and have various functional activities against target organisms. Due to the abuse of chemical antibiotics and microbial pathogens’ increasing resistance to antibiotics, AMPs have the potential to be alternatives to antibiotics. As such, the identification of AMPs has become a widely discussed topic. A variety of computational approaches have been developed to identify AMPs based on machine learning algorithms. However, most of them are not capable of predicting the functional activities of AMPs, and those predictors that can specify activities only focus on a few of them. In this study, we first surveyed 10 predictors that can identify AMPs and their functional activities in terms of the features they employed and the algorithms they utilized. Then, we constructed comprehensive AMP datasets and proposed a new deep learning-based framework, iAMPCN (identification of AMPs based on CNNs), to identify AMPs and their related 22 functional activities. Our experiments demonstrate that iAMPCN significantly improved the prediction performance of AMPs and their corresponding functional activities based on four types of sequence features. Benchmarking experiments on the independent test datasets showed that iAMPCN outperformed a number of state-of-the-art approaches for predicting AMPs and their functional activities. Furthermore, we analyzed the amino acid preferences of different AMP activities and evaluated the model on datasets of varying sequence redundancy thresholds. To facilitate the community-wide identification of AMPs and their corresponding functional types, we have made the source codes of iAMPCN publicly available at https://github.com/joy50706/iAMPCN/tree/master. We anticipate that iAMPCN can be explored as a valuable tool for identifying potential AMPs with specific functional activities for further experimental validation.</jats:p>",
+        "DOI": "10.1093/bib/bbad240",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              28
+            ]
+          ],
+          "date-time": "2023-06-28T02:51:47Z",
+          "timestamp": 1687920707000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 107,
+        "title": [
+          "iAMPCN: a deep-learning approach for identifying antimicrobial peptides and their functional activities"
+        ],
+        "prefix": "10.1093",
+        "volume": "24",
+        "author": [
+          {
+            "given": "Jing",
+            "family": "Xu",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Biochemistry and Molecular Biology, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "Monash Data Futures Institute, Monash University , Melbourne, VIC 3800 , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Fuyi",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Biochemistry and Molecular Biology, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "College of Information Engineering, Northwest A&F University , Shaanxi 712100 , China"
+              },
+              {
+                "name": "The Peter Doherty Institute for Infection and Immunity, The University of Melbourne , Melbourne, VIC 3800 , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1847-754X",
+            "authenticated-orcid": false,
+            "given": "Chen",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Biochemistry and Molecular Biology, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "Monash Data Futures Institute, Monash University , Melbourne, VIC 3800 , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xudong",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "College of Information Engineering, Northwest A&F University , Shaanxi 712100 , China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Cornelia",
+            "family": "Landersdorfer",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Institute of Pharmaceutical Sciences, Monash University , Melbourne, VIC 3800 , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hsin-Hui",
+            "family": "Shen",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Biochemistry and Molecular Biology, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "Department of Materials Science and Engineering , Faculty of Engineering, , Clayton, VIC, 3800 , Australia"
+              },
+              {
+                "name": "Monash University , Faculty of Engineering, , Clayton, VIC, 3800 , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Anton Y",
+            "family": "Peleg",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Biochemistry and Molecular Biology, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "Department of Infectious Diseases, Alfred Hospital, Alfred Health , Melbourne, Victoria , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jian",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Microbiology, Monash University , Melbourne, VIC 3800 , Australia"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Seiya",
+            "family": "Imoto",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Health Medical Intelligence , Human Genome Center, , Tokyo , Japan"
+              },
+              {
+                "name": "Institute of Medical Science, The University of Tokyo, Minato-ku , Human Genome Center, , Tokyo , Japan"
+              },
+              {
+                "name": "Collaborative Research Institute for Innovative Microbiology, The University of Tokyo , Bunkyo-ku, Tokyo , Japan"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jianhua",
+            "family": "Yao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Tencent AI Lab , Tencent, Shenzhen , China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Tatsuya",
+            "family": "Akutsu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Bioinformatics Center , Institute for Chemical Research, , Uji 611-0011 , Japan"
+              },
+              {
+                "name": "Kyoto University , Institute for Chemical Research, , Uji 611-0011 , Japan"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8031-9086",
+            "authenticated-orcid": false,
+            "given": "Jiangning",
+            "family": "Song",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Monash Biomedicine Discovery Institute and Department of Biochemistry and Molecular Biology, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "Monash Data Futures Institute, Monash University , Melbourne, VIC 3800 , Australia"
+              },
+              {
+                "name": "Bioinformatics Center , Institute for Chemical Research, , Uji 611-0011 , Japan"
+              },
+              {
+                "name": "Kyoto University , Institute for Chemical Research, , Uji 611-0011 , Japan"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "286",
+        "published-online": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              27
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "issue": "7365",
+            "key": "2023111709144745500_ref1",
+            "doi-asserted-by": "crossref",
+            "first-page": "457",
+            "DOI": "10.1038/nature10388",
+            "article-title": "Antibiotic resistance is ancient",
+            "volume": "477",
+            "author": "D’Costa",
+            "year": "2011",
+            "journal-title": "Nature"
+          },
+          {
+            "key": "2023111709144745500_ref2",
+            "doi-asserted-by": "crossref",
+            "first-page": "42",
+            "DOI": "10.1038/nrmicro3380",
+            "article-title": "Molecular mechanisms of antibiotic resistance",
+            "volume": "13",
+            "author": "Blair",
+            "year": "2015",
+            "journal-title": "Nat Rev Microbiol"
+          },
+          {
+            "key": "2023111709144745500_ref3",
+            "doi-asserted-by": "crossref",
+            "first-page": "37",
+            "DOI": "10.1038/nrd3591",
+            "article-title": "Designing antimicrobial peptides: form follows function",
+            "volume": "11",
+            "author": "Fjell",
+            "year": "2012",
+            "journal-title": "Nat Rev Drug Discov"
+          },
+          {
+            "key": "2023111709144745500_ref4",
+            "doi-asserted-by": "crossref",
+            "first-page": "e216",
+            "DOI": "10.1016/S1473-3099(20)30327-3",
+            "article-title": "The value of antimicrobial peptides in the age of resistance",
+            "volume": "20",
+            "author": "Magana",
+            "year": "2020",
+            "journal-title": "Lancet Infect Dis"
+          },
+          {
+            "key": "2023111709144745500_ref5",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1087",
+            "DOI": "10.1093/nar/gkv1278",
+            "article-title": "APD3: the antimicrobial peptide database as a tool for research and education",
+            "volume": "44",
+            "author": "Wang",
+            "year": "2015",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref6",
+            "doi-asserted-by": "crossref",
+            "first-page": "D460",
+            "DOI": "10.1093/nar/gkab1080",
+            "article-title": "dbAMP 2.0: updated resource for antimicrobial peptides with an enhanced scanning method for genomic and proteomic data",
+            "volume": "50",
+            "author": "Jhong",
+            "year": "2021",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref7",
+            "doi-asserted-by": "crossref",
+            "first-page": "D285",
+            "DOI": "10.1093/nar/gky1030",
+            "article-title": "dbAMP: an integrated resource for exploring antimicrobial peptides with functional activities and physicochemical properties on transcriptome and proteome data",
+            "volume": "47",
+            "author": "Jhong",
+            "year": "2018",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref8",
+            "doi-asserted-by": "crossref",
+            "first-page": "148",
+            "DOI": "10.1038/s41597-019-0154-y",
+            "article-title": "DRAMP 2.0, an updated data repository of antimicrobial peptides",
+            "volume": "6",
+            "author": "Kang",
+            "year": "2019",
+            "journal-title": "Scientific Data"
+          },
+          {
+            "key": "2023111709144745500_ref9",
+            "doi-asserted-by": "crossref",
+            "first-page": "D488",
+            "DOI": "10.1093/nar/gkab651",
+            "article-title": "DRAMP 3.0: an enhanced comprehensive data repository of antimicrobial peptides",
+            "volume": "50",
+            "author": "Shi",
+            "year": "2021",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref10",
+            "doi-asserted-by": "crossref",
+            "first-page": "24482",
+            "DOI": "10.1038/srep24482",
+            "article-title": "DRAMP: a comprehensive data repository of antimicrobial peptides",
+            "volume": "6",
+            "author": "Fan",
+            "year": "2016",
+            "journal-title": "Sci Rep"
+          },
+          {
+            "key": "2023111709144745500_ref11",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/database/baaa061",
+            "article-title": "LAMP2: a major update of the database linking antimicrobial peptides",
+            "volume": "2020",
+            "author": "Ye",
+            "year": "2020",
+            "journal-title": "Database"
+          },
+          {
+            "key": "2023111709144745500_ref12",
+            "doi-asserted-by": "crossref",
+            "first-page": "e66557",
+            "DOI": "10.1371/journal.pone.0066557",
+            "article-title": "LAMP: a database linking antimicrobial peptides",
+            "volume": "8",
+            "author": "Zhao",
+            "year": "2013",
+            "journal-title": "PloS One"
+          },
+          {
+            "key": "2023111709144745500_ref13",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab242",
+            "article-title": "AniAMPpred: artificial intelligence guided discovery of novel antimicrobial peptides in animal kingdom",
+            "volume": "22",
+            "author": "Sharma",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref14",
+            "doi-asserted-by": "crossref",
+            "first-page": "921",
+            "DOI": "10.1038/s41587-022-01226-0",
+            "article-title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning",
+            "volume": "40",
+            "author": "Ma",
+            "year": "2022",
+            "journal-title": "Nat Biotechnol"
+          },
+          {
+            "key": "2023111709144745500_ref15",
+            "doi-asserted-by": "crossref",
+            "first-page": "2740",
+            "DOI": "10.1093/bioinformatics/bty179",
+            "article-title": "Deep learning improves antimicrobial peptide recognition",
+            "volume": "34",
+            "author": "Veltri",
+            "year": "2018",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref16",
+            "doi-asserted-by": "crossref",
+            "first-page": "730",
+            "DOI": "10.1186/s12859-019-3327-y",
+            "article-title": "Antimicrobial peptide identification using multi-scale convolutional network",
+            "volume": "20",
+            "author": "Su",
+            "year": "2019",
+            "journal-title": "BMC Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref17",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab083",
+            "DOI": "10.1093/bib/bbab083",
+            "article-title": "Comprehensive assessment of machine learning-based methods for predicting antimicrobial peptides",
+            "volume": "22",
+            "author": "Xu",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref18",
+            "doi-asserted-by": "crossref",
+            "first-page": "1921",
+            "DOI": "10.1093/bioinformatics/btx081",
+            "article-title": "Empirical comparison of web-based antimicrobial peptide prediction tools",
+            "volume": "33",
+            "author": "Gabere",
+            "year": "2017",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref19",
+            "doi-asserted-by": "crossref",
+            "first-page": "3012",
+            "DOI": "10.1109/JBHI.2020.2977091",
+            "article-title": "DeepAVP: a Dual-Channel deep neural network for identifying variable-length antiviral peptides",
+            "volume": "24",
+            "author": "Li",
+            "year": "2020",
+            "journal-title": "IEEE J Biomed Health Inform"
+          },
+          {
+            "key": "2023111709144745500_ref20",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab422",
+            "article-title": "Deep-AFPpred: identifying novel antifungal peptides using pretrained embeddings from seq2vec with 1DCNN-BiLSTM",
+            "volume": "23",
+            "author": "Sharma",
+            "year": "2022",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "issue": "1",
+            "key": "2023111709144745500_ref21",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab439",
+            "article-title": "StaBle-ABPpred: a stacked ensemble predictor based on biLSTM and attention mechanism for accelerated discovery of antibacterial peptides",
+            "volume": "23",
+            "author": "Singh",
+            "year": "2022",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "issue": "5",
+            "key": "2023111709144745500_ref22",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab065",
+            "article-title": "Deep-ABPpred: identifying antibacterial peptides in protein sequences using bidirectional LSTM with word2vec",
+            "volume": "22",
+            "author": "Sharma",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref23",
+            "doi-asserted-by": "crossref",
+            "first-page": "168",
+            "DOI": "10.1016/j.ab.2013.01.019",
+            "article-title": "iAMP-2L: a two-level multi-label classifier for identifying antimicrobial peptides and their functional types",
+            "volume": "436",
+            "author": "Xiao",
+            "year": "2013",
+            "journal-title": "Anal Biochem"
+          },
+          {
+            "key": "2023111709144745500_ref24",
+            "doi-asserted-by": "crossref",
+            "first-page": "580",
+            "DOI": "10.1109/TSMC.1985.6313426",
+            "article-title": "A fuzzy K-nearest neighbor algorithm",
+            "volume": "SMC-15",
+            "author": "Keller",
+            "year": "1985",
+            "journal-title": "IEEE Trans Syst Man Cybern"
+          },
+          {
+            "key": "2023111709144745500_ref25",
+            "doi-asserted-by": "crossref",
+            "first-page": "386",
+            "DOI": "10.1016/j.ab.2007.10.012",
+            "article-title": "PseAAC: a flexible web server for generating various kinds of protein pseudo amino acid composition",
+            "volume": "373",
+            "author": "Shen",
+            "year": "2008",
+            "journal-title": "Anal Biochem"
+          },
+          {
+            "key": "2023111709144745500_ref26",
+            "doi-asserted-by": "crossref",
+            "first-page": "3745",
+            "DOI": "10.1093/bioinformatics/btw560",
+            "article-title": "Imbalanced multi-label learning for identifying antimicrobial peptides and their functional types",
+            "volume": "32",
+            "author": "Lin",
+            "year": "2016",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref27",
+            "doi-asserted-by": "crossref",
+            "first-page": "321",
+            "DOI": "10.1613/jair.953",
+            "article-title": "SMOTE: synthetic minority over-sampling technique",
+            "volume": "16",
+            "author": "Chawla",
+            "year": "2002",
+            "journal-title": "Journal of Artificial Intelligence Research"
+          },
+          {
+            "key": "2023111709144745500_ref28",
+            "first-page": "1",
+            "volume-title": "Introduction to Grey Systems Theory. Grey Systems: Theory and Applications",
+            "author": "Liu",
+            "year": "2011"
+          },
+          {
+            "key": "2023111709144745500_ref29",
+            "doi-asserted-by": "crossref",
+            "first-page": "56",
+            "DOI": "10.1109/BIBM49941.2020.9313390",
+            "article-title": "An two-layer predictive model of ensemble classifier chain for detecting antimicrobial peptides",
+            "volume-title": "2020 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+            "author": "Zhang",
+            "year": "2020"
+          },
+          {
+            "key": "2023111709144745500_ref30",
+            "doi-asserted-by": "crossref",
+            "first-page": "1322",
+            "DOI": "10.1109/IJCNN.2008.4633969",
+            "article-title": "ADASYN: adaptive synthetic sampling approach for imbalanced learning",
+            "volume-title": "2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence)",
+            "author": "Haibo",
+            "year": "2008"
+          },
+          {
+            "key": "2023111709144745500_ref31",
+            "doi-asserted-by": "crossref",
+            "first-page": "333",
+            "DOI": "10.1007/s10994-011-5256-5",
+            "article-title": "Classifier chains for multi-label classification",
+            "volume": "85",
+            "author": "Read",
+            "year": "2011",
+            "journal-title": "Machine Learning"
+          },
+          {
+            "key": "2023111709144745500_ref32",
+            "doi-asserted-by": "crossref",
+            "first-page": "2061",
+            "DOI": "10.1145/1645953.1646301",
+            "article-title": "Stochastic gradient boosted distributed decision trees",
+            "volume-title": "Proceedings of the 18th ACM Conference on Information and Knowledge Management",
+            "author": "Ye",
+            "year": "2009"
+          },
+          {
+            "key": "2023111709144745500_ref33",
+            "doi-asserted-by": "crossref",
+            "first-page": "3",
+            "DOI": "10.1007/s10994-006-6226-1",
+            "article-title": "Extremely randomized trees",
+            "volume": "63",
+            "author": "Geurts",
+            "year": "2006",
+            "journal-title": "Machine Learning"
+          },
+          {
+            "key": "2023111709144745500_ref34",
+            "doi-asserted-by": "crossref",
+            "first-page": "273",
+            "DOI": "10.1111/j.1467-9868.2011.00771.x",
+            "article-title": "Regression shrinkage and selection via the lasso: a retrospective",
+            "volume": "73",
+            "author": "Tibshirani",
+            "year": "2011",
+            "journal-title": "J R Stat Soc Series B Stat Methodology"
+          },
+          {
+            "key": "2023111709144745500_ref35",
+            "doi-asserted-by": "crossref",
+            "first-page": "172",
+            "DOI": "10.1016/j.compbiomed.2019.02.018",
+            "article-title": "AMAP: hierarchical multi-label prediction of biologically active and antimicrobial peptides",
+            "volume": "107",
+            "author": "Gull",
+            "year": "2019",
+            "journal-title": "Comput Biol Med"
+          },
+          {
+            "key": "2023111709144745500_ref36",
+            "doi-asserted-by": "crossref",
+            "first-page": "Article 27",
+            "DOI": "10.1145/1961189.1961199",
+            "article-title": "LIBSVM: a library for support vector machines",
+            "volume": "2",
+            "author": "Chang",
+            "year": "2011",
+            "journal-title": "ACM Trans Intell Syst Technol"
+          },
+          {
+            "key": "2023111709144745500_ref37",
+            "doi-asserted-by": "crossref",
+            "first-page": "785",
+            "DOI": "10.1145/2939672.2939785",
+            "article-title": "XGBoost: a scalable tree boosting system",
+            "volume-title": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+            "author": "Chen",
+            "year": "2016"
+          },
+          {
+            "key": "2023111709144745500_ref38",
+            "doi-asserted-by": "crossref",
+            "first-page": "109",
+            "DOI": "10.1016/S0021-9673(98)00721-3",
+            "article-title": "Hydrolysis and amino acid composition analysis of proteins",
+            "volume": "826",
+            "author": "Fountoulakis",
+            "year": "1998",
+            "journal-title": "J Chromatogr A"
+          },
+          {
+            "key": "2023111709144745500_ref39",
+            "doi-asserted-by": "crossref",
+            "first-page": "1098",
+            "DOI": "10.1093/bib/bbz043",
+            "article-title": "Characterization and identification of antimicrobial peptides with different functional activities",
+            "volume": "21",
+            "author": "Chung",
+            "year": "2019",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref40",
+            "doi-asserted-by": "crossref",
+            "first-page": "12",
+            "DOI": "10.3389/fgene.2021.669328",
+            "article-title": "Amino acid reduction can help to improve the identification of antimicrobial peptides and their functional activities",
+            "volume": "12",
+            "author": "Dong",
+            "year": "2021",
+            "journal-title": "Front Genet"
+          },
+          {
+            "issue": "3",
+            "key": "2023111709144745500_ref41",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbaa096",
+            "article-title": "RaacLogo: a new sequence logo generator by using reduced amino acid clusters",
+            "volume": "22",
+            "author": "Zheng",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "issue": "6",
+            "key": "2023111709144745500_ref42",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab209",
+            "article-title": "iAMP-CA2L: a new CNN-BiLSTM-SVM classifier based on cellular automata image for identifying antimicrobial peptides and their functional types",
+            "volume": "22",
+            "author": "Xiao",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref43",
+            "doi-asserted-by": "crossref",
+            "first-page": "357",
+            "DOI": "10.1016/j.neucom.2013.10.007",
+            "article-title": "Learning to resize image",
+            "volume": "131",
+            "author": "Wang",
+            "year": "2014",
+            "journal-title": "Neurocomputing"
+          },
+          {
+            "key": "2023111709144745500_ref44",
+            "doi-asserted-by": "crossref",
+            "first-page": "508",
+            "DOI": "10.2174/138920311796957720",
+            "article-title": "Cellular automata and its applications in protein bioinformatics",
+            "volume": "12",
+            "author": "Xiao",
+            "year": "2011",
+            "journal-title": "Current Protein and Peptide Science"
+          },
+          {
+            "key": "2023111709144745500_ref45",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.3115/v1/D14-1181",
+            "article-title": "Convolutional Neural Networks for Sentence Classification",
+            "volume-title": "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+            "author": "Kim"
+          },
+          {
+            "key": "2023111709144745500_ref46",
+            "doi-asserted-by": "crossref",
+            "first-page": "1735",
+            "DOI": "10.1162/neco.1997.9.8.1735",
+            "article-title": "Long short-term memory",
+            "volume": "9",
+            "author": "Hochreiter",
+            "year": "1997",
+            "journal-title": "Neural Comput"
+          },
+          {
+            "key": "2023111709144745500_ref47",
+            "doi-asserted-by": "crossref",
+            "first-page": "710",
+            "DOI": "10.1109/BIBM52615.2021.9669452",
+            "article-title": "Multi-AMP: detecting the antimicrobial peptides and their activities using the multi-task learning",
+            "volume-title": "2021 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+            "author": "Qiaozhen",
+            "year": "2021"
+          },
+          {
+            "key": "2023111709144745500_ref48",
+            "doi-asserted-by": "crossref",
+            "first-page": "195",
+            "DOI": "10.1006/jmbi.1999.3091",
+            "article-title": "Protein secondary structure prediction based on position-specific scoring matrices. Edited by G. Von Heijne",
+            "volume": "292",
+            "author": "Jones",
+            "year": "1999",
+            "journal-title": "J Mol Biol"
+          },
+          {
+            "key": "2023111709144745500_ref49",
+            "doi-asserted-by": "crossref",
+            "first-page": "3141",
+            "DOI": "10.1021/acs.jcim.1c00251",
+            "article-title": "Alignment-free antimicrobial peptide predictors: improving performance by a thorough analysis of the largest available data set",
+            "volume": "61",
+            "author": "Pinacho-Castellanos",
+            "year": "2021",
+            "journal-title": "J Chem Inf Model"
+          },
+          {
+            "key": "2023111709144745500_ref50",
+            "doi-asserted-by": "crossref",
+            "first-page": "6645",
+            "DOI": "10.1109/ICASSP.2013.6638947",
+            "article-title": "Speech recognition with deep recurrent neural networks",
+            "volume-title": "2013 IEEE International Conference on Acoustics, Speech and Signal Processing",
+            "author": "Graves",
+            "year": "2013"
+          },
+          {
+            "key": "2023111709144745500_ref51",
+            "doi-asserted-by": "crossref",
+            "first-page": "680",
+            "DOI": "10.1093/bioinformatics/btq003",
+            "article-title": "CD-HIT suite: a web server for clustering and comparing biological sequences",
+            "volume": "26",
+            "author": "Huang",
+            "year": "2010",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref52",
+            "doi-asserted-by": "crossref",
+            "first-page": "1658",
+            "DOI": "10.1093/bioinformatics/btl158",
+            "article-title": "Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences",
+            "volume": "22",
+            "author": "Li",
+            "year": "2006",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref53",
+            "doi-asserted-by": "crossref",
+            "first-page": "3150",
+            "DOI": "10.1093/bioinformatics/bts565",
+            "article-title": "CD-HIT: accelerated for clustering the next-generation sequencing data",
+            "volume": "28",
+            "author": "Fu",
+            "year": "2012",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref54",
+            "doi-asserted-by": "crossref",
+            "first-page": "D288",
+            "DOI": "10.1093/nar/gkaa991",
+            "article-title": "DBAASP v3: database of antimicrobial/cytotoxic activity and structure of peptides as a resource for development of new therapeutics",
+            "volume": "49",
+            "author": "Pirtskhalava",
+            "year": "2020",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref55",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1104",
+            "DOI": "10.1093/nar/gkv1174",
+            "article-title": "DBAASP v.2: an enhanced database of structure and antimicrobial/cytotoxic activity of natural and synthetic peptides",
+            "volume": "44",
+            "author": "Pirtskhalava",
+            "year": "2015",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref56",
+            "doi-asserted-by": "crossref",
+            "first-page": "63",
+            "DOI": "10.1111/1574-6968.12489",
+            "article-title": "Dbaasp: database of antimicrobial activity and structure of peptides",
+            "volume": "357",
+            "author": "Gogoladze",
+            "year": "2014",
+            "journal-title": "FEMS Microbiol Lett"
+          },
+          {
+            "key": "2023111709144745500_ref57",
+            "doi-asserted-by": "crossref",
+            "first-page": "D774",
+            "DOI": "10.1093/nar/gkp1021",
+            "article-title": "CAMP: a useful resource for research on antimicrobial peptides",
+            "volume": "38",
+            "author": "Thomas",
+            "year": "2009",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref58",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1154",
+            "DOI": "10.1093/nar/gkt1157",
+            "article-title": "CAMP: collection of sequences and structures of antimicrobial peptides",
+            "volume": "42",
+            "author": "Waghu",
+            "year": "2013",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref59",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/database/bau051",
+            "article-title": "ParaPep: a web resource for experimentally validated antiparasitic peptide sequences and their structures",
+            "volume": "2014",
+            "author": "Mehta",
+            "year": "2014",
+            "journal-title": "Database"
+          },
+          {
+            "key": "2023111709144745500_ref60",
+            "doi-asserted-by": "crossref",
+            "first-page": "D963",
+            "DOI": "10.1093/nar/gkn655",
+            "article-title": "PhytAMP: a database dedicated to antimicrobial plant peptides",
+            "volume": "37",
+            "author": "Hammami",
+            "year": "2008",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref61",
+            "doi-asserted-by": "crossref",
+            "first-page": "D1147",
+            "DOI": "10.1093/nar/gkt1191",
+            "article-title": "AVPdb: a database of experimentally validated antiviral peptides targeting medically important viruses",
+            "volume": "42",
+            "author": "Qureshi",
+            "year": "2013",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref62",
+            "doi-asserted-by": "crossref",
+            "first-page": "D837",
+            "DOI": "10.1093/nar/gku892",
+            "article-title": "CancerPPD: a database of anticancer peptides and proteins",
+            "volume": "43",
+            "author": "Tyagi",
+            "year": "2014",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref63",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/database/bay025",
+            "article-title": "AntiTbPdb: a knowledgebase of anti-tubercular peptides",
+            "volume": "2018",
+            "author": "Usmani",
+            "year": "2018",
+            "journal-title": "Database"
+          },
+          {
+            "key": "2023111709144745500_ref64",
+            "doi-asserted-by": "crossref",
+            "first-page": "D444",
+            "DOI": "10.1093/nar/gkt1008",
+            "article-title": "Hemolytik: a database of experimentally determined hemolytic and non-hemolytic peptides",
+            "volume": "42",
+            "author": "Gautam",
+            "year": "2013",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref65",
+            "doi-asserted-by": "crossref",
+            "first-page": "181",
+            "DOI": "10.1007/s13594-013-0153-2",
+            "article-title": "MilkAMP: a comprehensive database of antimicrobial peptides of dairy origin",
+            "volume": "94",
+            "author": "Théolier",
+            "year": "2014",
+            "journal-title": "Dairy Sci Technol"
+          },
+          {
+            "key": "2023111709144745500_ref66",
+            "first-page": "475062",
+            "article-title": "A large-scale structural classification of antimicrobial peptides",
+            "volume": "2015",
+            "author": "Lee",
+            "year": "2015",
+            "journal-title": "Biomed Res Int"
+          },
+          {
+            "issue": "44",
+            "key": "2023111709144745500_ref67",
+            "doi-asserted-by": "crossref",
+            "first-page": "77121",
+            "DOI": "10.18632/oncotarget.20365",
+            "article-title": "MLACP: machine-learning-based prediction of anticancer peptides",
+            "volume": "8",
+            "author": "Manavalan",
+            "year": "2017",
+            "journal-title": "Oncotarget"
+          },
+          {
+            "issue": "3",
+            "key": "2023111709144745500_ref68",
+            "first-page": "22",
+            "article-title": "AntiCP 2.0: an updated model for predicting anticancer peptides",
+            "volume": "22",
+            "author": "Agrawal",
+            "year": "2020",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "issue": "10",
+            "key": "2023111709144745500_ref69",
+            "doi-asserted-by": "crossref",
+            "first-page": "1973",
+            "DOI": "10.3390/molecules24101973",
+            "article-title": "ACPred: a computational tool for the prediction and analysis of anticancer peptides",
+            "volume": "24",
+            "author": "Schaduangrat",
+            "year": "2019",
+            "journal-title": "Molecules"
+          },
+          {
+            "key": "2023111709144745500_ref70",
+            "doi-asserted-by": "crossref",
+            "first-page": "4007",
+            "DOI": "10.1093/bioinformatics/bty451",
+            "article-title": "ACPred-FL: a sequence-based predictor using effective feature representation to improve the prediction of anti-cancer peptides",
+            "volume": "34",
+            "author": "Wei",
+            "year": "2018",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref71",
+            "doi-asserted-by": "crossref",
+            "first-page": "1846",
+            "DOI": "10.1093/bib/bbz088",
+            "article-title": "ACPred-fuse: fusing multi-view information improves the prediction of anticancer peptides",
+            "volume": "21",
+            "author": "Rao",
+            "year": "2019",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref72",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/j.omtn.2019.04.025",
+            "article-title": "ACP-DL: a deep learning long short-term memory model to predict anticancer peptides using high-efficiency feature representation",
+            "volume": "17",
+            "author": "Yi",
+            "year": "2019",
+            "journal-title": "Molecular Therapy - Nucleic Acids"
+          },
+          {
+            "issue": "5",
+            "key": "2023111709144745500_ref73",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab008",
+            "article-title": "Anticancer peptides prediction with deep representation learning features",
+            "volume": "22",
+            "author": "Lv",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref74",
+            "first-page": "1964",
+            "article-title": "mACPpred: a support vector machine-based meta-predictor for identification of anticancer peptides",
+            "volume-title": "International Journal of Molecular Sciences",
+            "author": "Boopathi",
+            "year": "2019"
+          },
+          {
+            "key": "2023111709144745500_ref75",
+            "doi-asserted-by": "crossref",
+            "first-page": "323",
+            "DOI": "10.3389/fmicb.2018.00323",
+            "article-title": "In silico approach for prediction of antifungal peptides",
+            "volume": "9",
+            "author": "Agrawal",
+            "year": "2018",
+            "journal-title": "Front Microbiol"
+          },
+          {
+            "key": "2023111709144745500_ref76",
+            "doi-asserted-by": "crossref",
+            "first-page": "W199",
+            "DOI": "10.1093/nar/gks450",
+            "article-title": "AVPpred: collection and prediction of highly effective antiviral peptides",
+            "volume": "40",
+            "author": "Thakur",
+            "year": "2012",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "issue": "6",
+            "key": "2023111709144745500_ref77",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab263",
+            "DOI": "10.1093/bib/bbab263",
+            "article-title": "AVPIden: a new scheme for identification and functional prediction of antiviral peptides based on machine learning approaches",
+            "volume": "22",
+            "author": "Pang",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref78",
+            "doi-asserted-by": "crossref",
+            "first-page": "972",
+            "DOI": "10.1016/j.csbj.2019.06.024",
+            "article-title": "AtbPpred: a robust sequence-based prediction of anti-tubercular peptides using extremely randomized trees",
+            "volume": "17",
+            "author": "Manavalan",
+            "year": "2019",
+            "journal-title": "Comput Struct Biotechnol J"
+          },
+          {
+            "key": "2023111709144745500_ref79",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.3389/fmicb.2016.00949",
+            "article-title": "Prediction of biofilm inhibiting peptides: an in silico approach",
+            "volume-title": "Front Microbiol",
+            "author": "Gupta",
+            "year": "2016"
+          },
+          {
+            "key": "2023111709144745500_ref80",
+            "doi-asserted-by": "crossref",
+            "first-page": "7290",
+            "DOI": "10.1021/acsomega.9b04119",
+            "article-title": "BIPEP: sequence-based prediction of biofilm inhibitory peptides using a combination of NMR and physicochemical descriptors",
+            "volume": "5",
+            "author": "Fallah Atanaki",
+            "year": "2020",
+            "journal-title": "ACS Omega"
+          },
+          {
+            "key": "2023111709144745500_ref81",
+            "doi-asserted-by": "crossref",
+            "first-page": "21839",
+            "DOI": "10.1038/srep21839",
+            "article-title": "dPABBs: a novel in silico approach for predicting and designing anti-biofilm peptides",
+            "volume": "6",
+            "author": "Sharma",
+            "year": "2016",
+            "journal-title": "Sci Rep"
+          },
+          {
+            "key": "2023111709144745500_ref82",
+            "doi-asserted-by": "crossref",
+            "first-page": "22843",
+            "DOI": "10.1038/srep22843",
+            "article-title": "A web server and mobile app for computing hemolytic potency of peptides",
+            "volume": "6",
+            "author": "Chaudhary",
+            "year": "2016",
+            "journal-title": "Sci Rep"
+          },
+          {
+            "key": "2023111709144745500_ref83",
+            "doi-asserted-by": "crossref",
+            "first-page": "3350",
+            "DOI": "10.1093/bioinformatics/btaa160",
+            "article-title": "HLPpred-fuse: improved and robust prediction of hemolytic peptide and its activity by fusing multiple feature representation",
+            "volume": "36",
+            "author": "Hasan",
+            "year": "2020",
+            "journal-title": "Bioinformatics"
+          },
+          {
+            "key": "2023111709144745500_ref84",
+            "doi-asserted-by": "crossref",
+            "first-page": "3029",
+            "DOI": "10.1002/1873-3468.13536",
+            "article-title": "Efficient computational model for identification of antitubercular peptides by integrating amino acid patterns and properties",
+            "volume": "593",
+            "author": "Khatun",
+            "year": "2019",
+            "journal-title": "FEBS Lett"
+          },
+          {
+            "key": "2023111709144745500_ref85",
+            "doi-asserted-by": "crossref",
+            "first-page": "21471",
+            "DOI": "10.1038/s41598-020-78319-w",
+            "article-title": "AnOxPePred: using deep learning for the prediction of antioxidative properties of peptides",
+            "volume": "10",
+            "author": "Olsen",
+            "year": "2020",
+            "journal-title": "Sci Rep"
+          },
+          {
+            "key": "2023111709144745500_ref86",
+            "doi-asserted-by": "crossref",
+            "first-page": "10869",
+            "DOI": "10.1038/s41598-020-67701-3",
+            "article-title": "HAPPENN is a novel tool for hemolytic activity prediction for therapeutic peptides which employs neural networks",
+            "volume": "10",
+            "author": "Timmons",
+            "year": "2020",
+            "journal-title": "Sci Rep"
+          },
+          {
+            "key": "2023111709144745500_ref87",
+            "doi-asserted-by": "crossref",
+            "first-page": "D190",
+            "DOI": "10.1093/nar/gkm895",
+            "article-title": "The universal protein resource (UniProt)",
+            "volume": "36",
+            "author": "Consortium TU",
+            "year": "2007",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref88",
+            "doi-asserted-by": "crossref",
+            "first-page": "D204",
+            "DOI": "10.1093/nar/gku989",
+            "article-title": "UniProt: a hub for protein information",
+            "volume": "43",
+            "author": "Consortium TU",
+            "year": "2014",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref89",
+            "doi-asserted-by": "crossref",
+            "first-page": "D506",
+            "DOI": "10.1093/nar/gky1049",
+            "article-title": "UniProt: a worldwide hub of protein knowledge",
+            "volume": "47",
+            "author": "Consortium TU",
+            "year": "2018",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref90",
+            "article-title": "UniProt: the universal protein knowledgebase in 2023",
+            "volume": "51",
+            "author": "Consortium TU",
+            "year": "2023",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref91",
+            "doi-asserted-by": "crossref",
+            "first-page": "D202",
+            "DOI": "10.1093/nar/gkm998",
+            "article-title": "AAindex: amino acid index database, progress report 2008",
+            "volume": "36",
+            "author": "Kawashima",
+            "year": "2007",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref92",
+            "doi-asserted-by": "crossref",
+            "first-page": "374",
+            "DOI": "10.1093/nar/28.1.374",
+            "article-title": "AAindex: amino acid index database",
+            "volume": "28",
+            "author": "Kawashima",
+            "year": "2000",
+            "journal-title": "Nucleic Acids Res"
+          },
+          {
+            "key": "2023111709144745500_ref93",
+            "doi-asserted-by": "crossref",
+            "first-page": "2961",
+            "DOI": "10.1021/acs.jcim.2c00526",
+            "article-title": "Sequential properties representation scheme for recurrent neural network-based prediction of therapeutic peptides",
+            "volume": "62",
+            "author": "Otović",
+            "year": "2022",
+            "journal-title": "J Chem Inf Model"
+          },
+          {
+            "key": "2023111709144745500_ref94",
+            "doi-asserted-by": "crossref",
+            "first-page": "4",
+            "DOI": "10.32614/RJ-2015-001",
+            "article-title": "Peptides: a package for data mining of antimicrobial peptides",
+            "volume": "7",
+            "author": "Daniel",
+            "year": "2015",
+            "journal-title": "The R Journal"
+          },
+          {
+            "key": "2023111709144745500_ref95",
+            "first-page": "2980",
+            "article-title": "Focal loss for dense object detection",
+            "volume-title": "2017 Proceedings of the IEEE international conference on computer vision",
+            "author": "Lin",
+            "year": "2017"
+          },
+          {
+            "key": "2023111709144745500_ref96",
+            "doi-asserted-by": "crossref",
+            "first-page": "442",
+            "DOI": "10.1016/0005-2795(75)90109-9",
+            "article-title": "Comparison of the predicted and observed secondary structure of T4 phage lysozyme",
+            "volume": "405",
+            "author": "Matthews",
+            "year": "1975",
+            "journal-title": "Biochimica et Biophysica Acta (BBA) - Protein Structure"
+          },
+          {
+            "key": "2023111709144745500_ref97",
+            "doi-asserted-by": "crossref",
+            "first-page": "2144",
+            "DOI": "10.1016/j.peptides.2009.09.020",
+            "article-title": "Antimicrobial specificity and mechanism of action of disulfide-removed linear analogs of the plant-derived Cys-rich antimicrobial peptide Ib-AMP1",
+            "volume": "30",
+            "author": "Wang",
+            "year": "2009",
+            "journal-title": "Peptides"
+          },
+          {
+            "key": "2023111709144745500_ref98",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbac343",
+            "DOI": "10.1093/bib/bbac343",
+            "article-title": "Benchmarks in antimicrobial peptide prediction are biased due to the selection of negative data",
+            "volume": "23",
+            "author": "Sidorczuk",
+            "year": "2022",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref99",
+            "doi-asserted-by": "crossref",
+            "first-page": "882",
+            "DOI": "10.1016/j.omtn.2020.05.006",
+            "article-title": "Deep-AmPEP30: improve short antimicrobial peptides prediction with deep learning",
+            "volume": "20",
+            "author": "Yan",
+            "year": "2020",
+            "journal-title": "Molecular Therapy - Nucleic Acids"
+          },
+          {
+            "issue": "1",
+            "key": "2023111709144745500_ref100",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbab487",
+            "article-title": "sAMP-PFPDeep: improving accuracy of short antimicrobial peptides prediction using three different sequence encodings and deep neural networks",
+            "volume": "23",
+            "author": "Hussain",
+            "year": "2022",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "issue": "1",
+            "key": "2023111709144745500_ref101",
+            "first-page": "48",
+            "article-title": "Antimicrobial peptides: mechanism of action, activity and clinical potential",
+            "volume": "8",
+            "author": "Zhang",
+            "year": "2021",
+            "journal-title": "Mil Med Res"
+          },
+          {
+            "key": "2023111709144745500_ref102",
+            "doi-asserted-by": "crossref",
+            "first-page": "311",
+            "DOI": "10.1038/s41573-019-0058-8",
+            "article-title": "Antimicrobial host defence peptides: functions and clinical potential",
+            "volume": "19",
+            "author": "Mookherjee",
+            "year": "2020",
+            "journal-title": "Nat Rev Drug Discov"
+          },
+          {
+            "key": "2023111709144745500_ref103",
+            "article-title": "Visualizing data using t-SNE",
+            "volume": "9",
+            "author": "Van der Maaten",
+            "year": "2008",
+            "journal-title": "JMLR"
+          },
+          {
+            "issue": "3",
+            "key": "2023111709144745500_ref104",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbac094",
+            "article-title": "Do deep learning models make a difference in the identification of antimicrobial peptides?",
+            "volume": "23",
+            "author": "García-Jacas",
+            "year": "2022",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "issue": "6",
+            "key": "2023111709144745500_ref105",
+            "doi-asserted-by": "crossref",
+            "first-page": "bbab200",
+            "DOI": "10.1093/bib/bbab200",
+            "article-title": "A novel antibacterial peptide recognition algorithm based on BERT",
+            "volume": "22",
+            "author": "Zhang",
+            "year": "2021",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref106",
+            "doi-asserted-by": "crossref",
+            "first-page": "597",
+            "DOI": "10.1186/s12864-020-06978-0",
+            "article-title": "ACEP: improving antimicrobial peptides recognition through automatic feature fusion and amino acid embedding",
+            "volume": "21",
+            "author": "Fu",
+            "year": "2020",
+            "journal-title": "BMC Genomics"
+          },
+          {
+            "key": "2023111709144745500_ref107",
+            "doi-asserted-by": "crossref",
+            "first-page": "5067",
+            "DOI": "10.1109/JBHI.2021.3130825",
+            "article-title": "Deep-AVPpred: artificial intelligence driven discovery of peptide drugs for viral infections",
+            "volume": "26",
+            "author": "Sharma",
+            "year": "2022",
+            "journal-title": "IEEE J Biomed Health Inform"
+          },
+          {
+            "issue": "6",
+            "key": "2023111709144745500_ref108",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1093/bib/bbac428",
+            "article-title": "Handcrafted versus non-handcrafted (self-supervised) features for the classification of antimicrobial peptides: complementary or redundant?",
+            "volume": "23",
+            "author": "García-Jacas",
+            "year": "2022",
+            "journal-title": "Brief Bioinform"
+          },
+          {
+            "key": "2023111709144745500_ref109",
+            "doi-asserted-by": "crossref",
+            "first-page": "e2016239118",
+            "DOI": "10.1073/pnas.2016239118",
+            "article-title": "Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences",
+            "volume": "118",
+            "author": "Rives",
+            "year": "2021",
+            "journal-title": "Proc Natl Acad Sci"
+          },
+          {
+            "key": "2023111709144745500_ref110",
+            "article-title": "Bert: pre-training of deep bidirectional transformers for language understanding",
+            "author": "Devlin",
+            "year": "2018",
+            "journal-title": "arXiv preprint arXiv:181004805"
+          },
+          {
+            "issue": "6637",
+            "key": "2023111709144745500_ref111",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1126/science.ade2574",
+            "article-title": "Evolutionary-scale prediction of atomic level protein structure with a language model",
+            "volume": "379",
+            "author": "Lin",
+            "year": "2023",
+            "journal-title": "Science"
+          },
+          {
+            "key": "2023111709144745500_ref112",
+            "doi-asserted-by": "crossref",
+            "first-page": "1184",
+            "DOI": "10.1016/j.bbamem.2006.04.006",
+            "article-title": "Tryptophan- and arginine-rich antimicrobial peptides: structures and mechanisms of action",
+            "volume": "1758",
+            "author": "Chan",
+            "year": "2006",
+            "journal-title": "Biochimica et Biophysica Acta (BBA) - Biomembranes"
+          },
+          {
+            "key": "2023111709144745500_ref113",
+            "doi-asserted-by": "crossref",
+            "first-page": "3915",
+            "DOI": "10.1016/j.febslet.2015.11.002",
+            "article-title": "Role of arginine and lysine in the antimicrobial mechanism of histone-derived antimicrobial peptides",
+            "volume": "589",
+            "author": "Cutrona",
+            "year": "2015",
+            "journal-title": "FEBS Lett"
+          },
+          {
+            "key": "2023111709144745500_ref114",
+            "doi-asserted-by": "crossref",
+            "first-page": "16963",
+            "DOI": "10.1021/bi991850y",
+            "article-title": "Structure and organization of hemolytic and nonhemolytic diastereomers of antimicrobial peptides in membranes",
+            "volume": "38",
+            "author": "Hong",
+            "year": "1999",
+            "journal-title": "Biochemistry"
+          },
+          {
+            "key": "2023111709144745500_ref115",
+            "doi-asserted-by": "crossref",
+            "first-page": "05G605",
+            "DOI": "10.1116/1.4995674",
+            "article-title": "Phenylalanine residues act as membrane anchors in the antimicrobial action of Aurein 1.2",
+            "volume": "12",
+            "author": "Shahmiri",
+            "year": "2017",
+            "journal-title": "Biointerphases"
+          },
+          {
+            "key": "2023111709144745500_ref116",
+            "first-page": "3229",
+            "article-title": "Toxicity and antitumor activity against solid tumors of micelle-forming polymeric anticancer drug and its extremely long circulation in blood",
+            "volume": "51",
+            "author": "Yokoyama",
+            "year": "1991",
+            "journal-title": "Cancer Res"
+          },
+          {
+            "key": "2023111709144745500_ref117",
+            "doi-asserted-by": "crossref",
+            "first-page": "110194",
+            "DOI": "10.1016/j.cbi.2022.110194",
+            "article-title": "Anticancer peptides mechanisms, simple and complex",
+            "volume": "368",
+            "author": "Norouzi",
+            "year": "2022",
+            "journal-title": "Chem Biol Interact"
+          }
+        ],
+        "container-title": [
+          "Briefings in Bioinformatics"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://academic.oup.com/bib/article-pdf/24/4/bbad240/53469810/bbad240.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "https://academic.oup.com/bib/article-pdf/24/4/bbad240/53469810/bbad240.pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              11,
+              17
+            ]
+          ],
+          "date-time": "2023-11-17T13:26:48Z",
+          "timestamp": 1700227608000
+        },
+        "score": 11.682363,
+        "resource": {
+          "primary": {
+            "URL": "https://academic.oup.com/bib/article/doi/10.1093/bib/bbad240/7208684"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              27
+            ]
+          ]
+        },
+        "references-count": 117,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2023,
+                7,
+                20
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1093/bib/bbad240",
+        "ISSN": [
+          "1467-5463",
+          "1477-4054"
+        ],
+        "issn-type": [
+          {
+            "value": "1467-5463",
+            "type": "print"
+          },
+          {
+            "value": "1477-4054",
+            "type": "electronic"
+          }
+        ],
+        "published-other": {
+          "date-parts": [
+            [
+              2023,
+              7
+            ]
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              27
+            ]
+          ]
+        },
+        "article-number": "bbad240"
+      }
+    ],
+    "items-per-page": 20,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

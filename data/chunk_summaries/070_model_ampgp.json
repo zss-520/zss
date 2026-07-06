@@ -1,0 +1,115 @@
+{
+  "chunk_id": "model_ampgp",
+  "chunk_type": "model",
+  "chunk_name": "AMPGP",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPGP",
+    "antimicrobial peptide classification",
+    "deep learning",
+    "SeqGAN",
+    "attention mechanism",
+    "four feature channels"
+  ],
+  "papers": [
+    {
+      "title": "AMPGP: Discovering Highly Effective Antimicrobial Peptides via Deep Learning.",
+      "pmid": "40825014",
+      "pmcid": null,
+      "doi": "10.1021/acs.jcim.5c00647",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "AI-driven discovery of antimicrobial peptides and derivatives: database and tools",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.37349/eds.2026.1008161",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "Antimicrobial Peptides Against Antimicrobial-Resistant Bacteria: Focus on Machine Learning",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.2147/idr.s602699",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "A Systematic Benchmark for Peptide Property Prediction",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.64898/2026.02.09.704773",
+      "year": "2026",
+      "role": "benchmark_paper",
+      "evidence_source": "citation_expansion"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPGP",
+      "canonical_name": "AMPGP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Attention mechanism integrated into SeqGAN for generation; prediction model with four distinct feature channels.",
+      "input_features": "amino acid sequences",
+      "source_pmid": "40825014",
+      "source_pmcid": null,
+      "source_doi": "10.1021/acs.jcim.5c00647",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "High accuracy (98.46%) on independent test set; novel deep learning combining generation and prediction.",
+      "blocking_issues": [
+        "No code or dataset availability reported",
+        "Only abstract available, no full text"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    }
+  ],
+  "repositories": [],
+  "datasets": [],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "value": 0.9846,
+      "context": "evaluation on the independent test set",
+      "source_pmid": "40825014"
+    }
+  ],
+  "important_evidence": [
+    "AMPGP combines SeqGAN generation with attention mechanism and a prediction model with four distinct feature channels.",
+    "Achieved 98.46% accuracy on an independent test set, surpassing several advanced models.",
+    "Identified 10 candidate AMPs; peptides No.1 and No.2 showed broad-spectrum antibacterial activity, cellular viability, and no significant hemolytic activity."
+  ],
+  "uncertainties": [
+    "What is the training dataset for AMPGP?",
+    "Is AMPGP code or web server available?",
+    "What are the four feature channels used in AMPGP prediction model?",
+    "No full-text available; all details from abstract only."
+  ],
+  "source_pmids": [
+    "40825014"
+  ],
+  "source_dois": [
+    "10.1021/acs.jcim.5c00647",
+    "10.37349/eds.2026.1008161",
+    "10.2147/idr.s602699",
+    "10.64898/2026.02.09.704773"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/40825014/",
+    "https://doi.org/10.1021/acs.jcim.5c00647",
+    "https://www.semanticscholar.org/paper/9c1396c96f12323f58fef71b81e5221dec5eb8ba",
+    "https://www.semanticscholar.org/paper/e91d3fcc5143cea9dbf72a8c33ef062ffce4a4b3",
+    "https://www.semanticscholar.org/paper/e1beb59ecb7434b83a2e248f7a3a6a7cf54faefc"
+  ]
+}

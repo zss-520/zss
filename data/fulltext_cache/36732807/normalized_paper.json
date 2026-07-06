@@ -1,0 +1,45 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "36732807"
+  },
+  "pmid": "36732807",
+  "pmcid": "PMC6323992",
+  "doi": "10.1093/nar/gky1049",
+  "title": "Models and data of AMPlify: a deep learning tool for antimicrobial peptide prediction.",
+  "abstract": "OBJECTIVES: Antibiotic resistance is a rising global threat to human health and is prompting researchers to seek effective alternatives to conventional antibiotics, which include antimicrobial peptides (AMPs). Recently, we have reported AMPlify, an attentive deep learning model for predicting AMPs in databases of peptide sequences. In our tests, AMPlify outperformed the state-of-the-art. We have illustrated its use on data describing the American bullfrog (Rana [Lithobates] catesbeiana) genome. Here we present the model files and training/test data sets we used in that study. The original model (the balanced model) was trained on a balanced set of AMP and non-AMP sequences curated from public databases. In this data note, we additionally provide a model trained on an imbalanced set, in which non-AMP sequences far outnumber AMP sequences. We note that the balanced and imbalanced models would serve different use cases, and both would serve the research community, facilitating the discovery and development of novel AMPs.\nDATA DESCRIPTION: This data note provides two sets of models, as well as two AMP and four non-AMP sequence sets for training and testing the balanced and imbalanced models. Each model set includes five single sub-models that form an ensemble model. The first model set corresponds to the original model trained on a balanced training set that has been described in the original AMPlify manuscript, while the second model set was trained on an imbalanced training set.",
+  "journal": "BMC research notes",
+  "venue": "BMC research notes",
+  "year": 2023,
+  "authors": [
+    "Chenkai Li",
+    "René L Warren",
+    "Inanc Birol"
+  ],
+  "keywords": [
+    "Antimicrobial peptide",
+    "Deep learning",
+    "Imbalanced classification"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "30395287",
+    "pmc": "PMC6323992",
+    "doi": "10.1093/nar/gky1049",
+    "pii": "10.1186/s13104-023-06279-1"
+  },
+  "urls": [
+    "https://doi.org/10.1093/nar/gky1049",
+    "https://pubmed.ncbi.nlm.nih.gov/36732807/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6323992/"
+  ],
+  "raw_source_files": [],
+  "query_name": "high-precision-ml-dl",
+  "query_text": "\"antimicrobial peptide\" AND (\"deep learning\" OR \"convolutional neural network\" OR \"recurrent neural network\" OR transformer)",
+  "candidate_key": "doi:10 1093 nar gky1049"
+}

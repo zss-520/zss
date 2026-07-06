@@ -1,0 +1,199 @@
+{
+  "chunk_id": "model_ampepgen",
+  "chunk_type": "model",
+  "chunk_name": "AmPepGen",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPScanner vr.2",
+    "PepGen 1.0",
+    "AmPepGen"
+  ],
+  "papers": [
+    {
+      "title": "The investigation of antibacterial properties of peptides and protein hydrolysates derived from serum of Asian water monitor (Varanus salvator).",
+      "pmid": "37851665",
+      "pmcid": "PMC10584125",
+      "doi": "10.1371/journal.pone.0292947",
+      "year": "2023",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial Peptide Identified via Machine Learning Presents Both Potent Antibacterial Properties and Low Toxicity toward Human Cells.",
+      "pmid": "39203524",
+      "pmcid": "PMC11356914",
+      "doi": "10.3390/microorganisms12081682",
+      "year": "2024",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial Peptides Design Using Deep Learning and Rational Modifications: Activity in Bacteria, Candida albicans, and Cancer Cells.",
+      "pmid": "40643674",
+      "pmcid": "PMC12254070",
+      "doi": "10.1007/s00284-025-04346-3",
+      "year": "2025",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Restraint of VP1 Protein of Foot and Mouth Disease Virus using Specific Antiviral Peptides: an in Silico Investigation.",
+      "pmid": "38590669",
+      "pmcid": "PMC10998950",
+      "doi": "10.22092/ari.2023.78.5.1483",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPScanner vr.2",
+      "canonical_name": "Antimicrobial Peptide Scanner vr.2",
+      "aliases": [
+        "AMP Scanner vr.2",
+        "Antimicrobial Peptide Scanner vr.2"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep neural network (DNN) with convolutional and LSTM layers",
+      "input_features": "Peptide sequences (FASTA format)",
+      "source_pmid": "37851665",
+      "source_pmcid": "PMC10584125",
+      "source_doi": "10.1371/journal.pone.0292947",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://www.dveltri.com/ascan/v2/ascan.html",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model using deep neural network, available as web server, used in studies for peptide screening.",
+      "blocking_issues": [
+        "Not original publication; limited architecture details provided."
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "PepGen 1.0",
+      "canonical_name": "PepGen 1.0",
+      "aliases": [
+        "PepGen"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Recurrent neural network (RNN) with Long Short-Term Memory (LSTM) cells",
+      "input_features": "Not specified in detail; trained on AMP sequences to generate new ones",
+      "source_pmid": "40643674",
+      "source_pmcid": "PMC12254070",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://bit.ly/2Z281cY",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP sequence generator based on LSTM, used for de novo AMP design and screening.",
+      "blocking_issues": [
+        "No source code repository found; only a shortened URL provided."
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "AmPepGen",
+      "canonical_name": "AmPepGen",
+      "aliases": [
+        "ampepgen"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Generative Adversarial Network (GAN)",
+      "input_features": "Not specified in detail; trained on AMP sequences",
+      "source_pmid": "40643674",
+      "source_pmcid": "PMC12254070",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "code_repository_url": "https://github.com/Anorpe/ampepgen-dev",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP generator using GAN, with code available on GitHub, used for de novo AMP design.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPScanner vr.2 web server",
+      "url": "https://www.dveltri.com/ascan/v2/ascan.html",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPScanner vr.2",
+      "source_pmid": "37851665",
+      "source_doi": "10.1371/journal.pone.0292947",
+      "evidence_level": "fulltext",
+      "evidence": "Web server link from PMID 37851665 fulltext."
+    },
+    {
+      "name": "PepGen 1.0 web server",
+      "url": "https://bit.ly/2Z281cY",
+      "repository_type": "webserver",
+      "matched_model_name": "PepGen 1.0",
+      "source_pmid": "40643674",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "evidence_level": "fulltext",
+      "evidence": "PepGen 1.0 can be freely accessed at https://bit.ly/2Z281cY (from PMID 40643674)."
+    },
+    {
+      "name": "AmPepGen GitHub repository",
+      "url": "https://github.com/Anorpe/ampepgen-dev",
+      "repository_type": "code",
+      "matched_model_name": "AmPepGen",
+      "source_pmid": "40643674",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "evidence_level": "fulltext",
+      "evidence": "Repository of the AmPepGen generator is available at https://github.com/Anorpe/ampepgen-dev (from PMID 40643674)."
+    }
+  ],
+  "datasets": [],
+  "metrics": [],
+  "important_evidence": [
+    "AMPScanner vr.2 uses DNN with convolutional and LSTM layers, available as web server, used in PMID 37851665 and 39203524.",
+    "PepGen 1.0 is an LSTM-based AMP generator, trained on AMP sequences to generate 3006 peptides, used in PMID 40643674.",
+    "AmPepGen is a GAN-based AMP generator, code available at https://github.com/Anorpe/ampepgen-dev, used in PMID 40643674."
+  ],
+  "uncertainties": [
+    "PepGen 1.0 code repository not found; only a shortened URL provided.",
+    "AMPScanner vr.2 architecture details limited; not original publication.",
+    "Dataset used for training models not reported in available evidence.",
+    "Paper PMID 38590669 (antiviral peptides) not directly related to AMP prediction, extracted models not from it."
+  ],
+  "source_pmids": [
+    "37851665",
+    "39203524",
+    "40643674",
+    "38590669"
+  ],
+  "source_dois": [
+    "10.1371/journal.pone.0292947",
+    "10.3390/microorganisms12081682",
+    "10.1007/s00284-025-04346-3",
+    "10.22092/ari.2023.78.5.1483"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/37851665/",
+    "https://doi.org/10.1371/journal.pone.0292947",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10584125/",
+    "https://doi.org/10.3390/microorganisms12081682",
+    "https://pubmed.ncbi.nlm.nih.gov/39203524/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11356914/",
+    "https://pubmed.ncbi.nlm.nih.gov/40643674/",
+    "https://doi.org/10.1007/s00284-025-04346-3",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12254070/",
+    "https://pubmed.ncbi.nlm.nih.gov/38590669/",
+    "https://doi.org/10.22092/ari.2023.78.5.1483",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10998950/",
+    "https://www.dveltri.com/ascan/v2/ascan.html",
+    "https://bit.ly/2Z281cY",
+    "https://github.com/Anorpe/ampepgen-dev"
+  ]
+}

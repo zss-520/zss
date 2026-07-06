@@ -1,0 +1,39 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc",
+    "semantic_scholar_citations"
+  ],
+  "source_ids": {
+    "europe_pmc": "42326372",
+    "pmid": "42326372",
+    "semantic_scholar": "0a9c7a747bc254fd88b5991f67fee7061880416a"
+  },
+  "pmid": "42326372",
+  "pmcid": "PMC13276223",
+  "doi": "10.1177/11779322261461933",
+  "title": "Hidden in the Pangenome? Machine Learning-Driven Discovery of Antimicrobial Potential in &lt;i&gt;Corynebacterium glutamicum&lt;/i&gt;.",
+  "abstract": "Antimicrobial resistance poses an increasing global challenge, driving the urgent need for alternative strategies to identify novel therapeutic agents. Microbial natural products encoded by biosynthetic gene clusters (BGCs) remain among the most promising sources of bioactive compounds. Although <i>Corynebacterium glutamicum</i> is best known as an industrial producer of amino acids, its potential as a producer of secondary metabolites has not been comprehensively assessed, despite the availability of numerous high-quality genome sequences. In this study, we carried out a comparative pangenome analysis of 36 complete <i>C. glutamicum</i> genomes and systematically mined for BGCs to explore the species' biosynthetic repertoire. Our analysis revealed variation in BGC content among strains, with several isolates harboring more hybrid clusters than others, suggesting metabolic diversity across the species. In addition to conserved terpene biosynthetic pathways, we detected polyketide-associated clusters not previously reported in <i>C. glutamicum</i>, expanding its recognized metabolic potential. RiPP-like clusters, including Lactococcin-related variants, were also identified, highlighting an underexplored reservoir of antimicrobials. To prioritize candidates for future validation, Support Vector Machine, Random Forest, and k-Nearest Neighbor models were trained on Composition, Transition, and Distribution (CTD) physicochemical sequence features and applied to genome-mined small open reading frames. The models demonstrated strong predictive performance, with the Support Vector Machine achieving the highest accuracy (84.1%), F1 score (83.8%), and area under the ROC curve (AUC = 0.920). After removing duplicate sequence IDs and applying a high-confidence AMP probability threshold (≥0.95), 18 unique AMP-like candidates were identified as promising. Overall, this study presents <i>C. glutamicum</i> as a promising source of bioactive metabolite candidates and shows how pangenome-scale mining combined with machine learning can support antimicrobial peptide discovery while still requiring experimental validation of the predicted leads.",
+  "journal": "Bioinformatics and Biology Insights",
+  "venue": "Bioinformatics and Biology Insights",
+  "year": "2026",
+  "authors": [
+    "Islam SI",
+    "Shahed K",
+    "Parvin MM",
+    "Sanjida S."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1177/11779322261461933",
+    "https://pubmed.ncbi.nlm.nih.gov/42326372/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13276223/",
+    "https://www.semanticscholar.org/paper/0a9c7a747bc254fd88b5991f67fee7061880416a"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "open-access-full-text",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR machine learning) AND (OPEN_ACCESS:Y)",
+  "candidate_key": "doi:10 1177 11779322261461933",
+  "semantic_scholar_id": "0a9c7a747bc254fd88b5991f67fee7061880416a"
+}

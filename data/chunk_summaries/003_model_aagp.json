@@ -1,0 +1,178 @@
+{
+  "chunk_id": "model_aagp",
+  "chunk_type": "model",
+  "chunk_name": "AAGP.",
+  "compression_status": "ok",
+  "main_entities": [
+    "PCSPred",
+    "iAMPCN"
+  ],
+  "papers": [
+    {
+      "title": "AAGP integrates physicochemical and compositional features for machine learning-based prediction of anti-aging peptides",
+      "pmid": "40781463",
+      "pmcid": "12334579",
+      "doi": "10.1038/s41598-025-12759-0",
+      "year": "2025",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "PCSPred: Prediction of Short Chain Antimicrobial Peptides using Machine Learning Algorithms",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.1109/NEleX59773.2023.10421222",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Knowledge Discovery from Bioactive Peptide Data in the PepLab Database Through Quantitative Analysis and Machine Learning",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.3390/sci7030122",
+      "year": "2025",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Machine Learning-Driven Discovery and Evaluation of Antimicrobial Peptides from Crassostrea gigas Mucus Proteome",
+      "pmid": "39330266",
+      "pmcid": "11432763",
+      "doi": "10.3390/md22090385",
+      "year": "2024",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "PCSPred",
+      "canonical_name": "PCSPred",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest",
+      "input_features": "physico-chemical and spatial properties (amino acid composition, α-helix and β-sheet propensities, charge-to-hydrophobicity ratio, isoelectric point, dipeptide composition)",
+      "source_pmid": null,
+      "source_pmcid": null,
+      "source_doi": "10.1109/NEleX59773.2023.10421222",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Direct AMP prediction model using Random Forest for short-chain AMPs, no code or dataset details available from abstract.",
+      "blocking_issues": [
+        "no_code_available",
+        "no_full_text",
+        "no_dataset_details"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.6
+    },
+    {
+      "model_name": "iAMPCN",
+      "canonical_name": "iAMPCN",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "deep learning framework (iAMPCN) for predicting antimicrobial peptide activities",
+      "input_features": "peptide sequences",
+      "source_pmid": "39330266",
+      "source_pmcid": "11432763",
+      "source_doi": "10.3390/md22090385",
+      "code_repository_url": "https://github.com/joy50706/iAMPCN",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model (iAMPCN) used for marine AMP discovery; deep learning framework with available GitHub repository.",
+      "blocking_issues": [
+        "original_model_article_not_this_one",
+        "dataset_not_specified"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AAGP.",
+      "url": "https://github.com/saptawtf/AAGP.",
+      "source_pmid": "40781463",
+      "source_doi": "10.1038/s41598-025-12759-0",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub repository linked from the paper."
+    },
+    {
+      "name": "iAMPCN",
+      "url": "https://github.com/joy50706/iAMPCN",
+      "source_pmid": "39330266",
+      "source_doi": "10.3390/md22090385",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub repository linked from the fulltext."
+    },
+    {
+      "name": "iAMPCN",
+      "url": "https://github.com/joy50706/iAMPCN",
+      "source_pmid": "40781463",
+      "source_doi": "10.1038/s41598-025-12759-0",
+      "evidence_level": "fulltext",
+      "evidence": "Duplicate repository entry matching AAGP paper."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AAGP.",
+      "dataset_url": "https://github.com/saptawtf/AAGP.",
+      "source_pmid": "40781463",
+      "source_doi": "10.1038/s41598-025-12759-0",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "iAMPCN",
+      "dataset_url": "https://github.com/joy50706/iAMPCN",
+      "source_pmid": "39330266",
+      "source_doi": "10.3390/md22090385",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "master,",
+      "dataset_url": "https://github.com/joy50706/iAMPCN/tree/master,",
+      "source_pmid": "39330266",
+      "source_doi": "10.3390/md22090385",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "PCSPred: Random Forest classifier for short-chain AMPs, trained on physico-chemical features; no code or dataset available (abstract only).",
+    "iAMPCN: Existing deep learning framework applied to marine AMP discovery; GitHub repository available at https://github.com/joy50706/iAMPCN.",
+    "Anti-aging peptide predictor AAGP is not an AMP model but appears in the same batch; its GitHub repository is https://github.com/saptawtf/AAGP."
+  ],
+  "uncertainties": [
+    "PCSPred full text unavailable; code and dataset details unknown.",
+    "iAMPCN original model publication not identified; the article uses the model but does not provide training dataset details.",
+    "AAGP and PepLab papers are not AMP prediction models, but they contain related datasets (anti-aging peptides, multi-class bioactive peptides)."
+  ],
+  "source_pmids": [
+    "40781463",
+    "39330266"
+  ],
+  "source_dois": [
+    "10.1038/s41598-025-12759-0",
+    "10.1109/NEleX59773.2023.10421222",
+    "10.3390/sci7030122",
+    "10.3390/md22090385"
+  ],
+  "urls": [
+    "https://doi.org/10.1038/s41598-025-12759-0",
+    "https://doi.org/10.1109/NEleX59773.2023.10421222",
+    "https://doi.org/10.3390/sci7030122",
+    "https://doi.org/10.3390/md22090385",
+    "https://github.com/saptawtf/AAGP.",
+    "https://github.com/joy50706/iAMPCN",
+    "https://github.com/joy50706/iAMPCN/tree/master,"
+  ]
+}

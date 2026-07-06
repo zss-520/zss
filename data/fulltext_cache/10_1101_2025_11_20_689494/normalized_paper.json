@@ -1,0 +1,52 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1124496",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.1101/2025.11.20.689494",
+  "title": "BoltzGen: Toward Universal Binder Design",
+  "abstract": "We introduce  BoltzGen , an all-atom generative model for designing proteins and peptides across all modalities to bind a wide range of biomolecular targets. BoltzGen builds strong structural reasoning capabilities about target-binder interactions into its generative design process. This is achieved by unifying design and structure prediction, resulting in a single model that also reaches state-of-the-art folding performance. BoltzGen’s generation process can be controlled with a flexible design specification language over covalent bonds, structure constraints, binding sites, and more. We experimentally validate these capabilities in eight diverse design campaigns with functional and affinity readouts across 26 targets. In our experiments, binder modalities span from nanobodies to disulfide-bonded peptides, and targets from disordered proteins to small molecules. In particular, we identify nanobody binders for novel targets with low similarity to proteins with already known bound structures. We release model weights, data, and both inference and training code at:  https://github.com/HannesStark/boltzgen .",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2025
+  },
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Stark H",
+    "Faltings F",
+    "Choi M",
+    "Xie Y",
+    "Hur E",
+    "O’Donnell T",
+    "Bushuiev A",
+    "Uçar T",
+    "Passaro S",
+    "Mao W",
+    "Reveiz M",
+    "Bushuiev R",
+    "Portnoi T",
+    "Pluskal T",
+    "Sivic J",
+    "Kreis K",
+    "Vahdat A",
+    "Ray S",
+    "Goldstein JT",
+    "Savinov A"
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1101/2025.11.20.689494"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "preprint_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\") AND SRC:PPR",
+  "candidate_key": "doi:10 1101 2025 11 20 689494"
+}

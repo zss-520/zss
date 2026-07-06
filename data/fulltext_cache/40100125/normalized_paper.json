@@ -1,0 +1,56 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "40100125"
+  },
+  "pmid": "40100125",
+  "pmcid": "PMC1084323",
+  "doi": "10.1093/nar/gki524",
+  "title": "Mining the UniProtKB/Swiss-Prot database for antimicrobial peptides.",
+  "abstract": "The ever-growing global health threat of antibiotic resistance is compelling researchers to explore alternatives to conventional antibiotics. Antimicrobial peptides (AMPs) are emerging as a promising solution to fill this need. Naturally occurring AMPs are produced by all forms of life as part of the innate immune system. High-throughput bioinformatics tools have enabled fast and large-scale discovery of AMPs from genomic, transcriptomic, and proteomic resources of selected organisms. Public protein sequence databases, comprising over 200 million records and growing, serve as comprehensive compendia of sequences from a broad range of source organisms. Yet, large-scale in silico probing of those databases for novel AMP discovery using modern deep learning techniques has rarely been reported. In the present study, we propose an AMP mining workflow to predict novel AMPs from the UniProtKB/Swiss-Prot database using the AMP prediction tool, AMPlify, as its discovery engine. Using this workflow, we identified 8008 novel putative AMPs from all eukaryotic sequences in the database. Focusing on the practical use of AMPs as suitable antimicrobial agents with applications in the poultry industry, we prioritized 40 of those AMPs based on their similarities to known chicken AMPs in predicted structures. In our tests, 13 out of the 38 successfully synthesized peptides showed antimicrobial activity against Escherichia coli and/or Staphylococcus aureus. AMPlify and the companion scripts supporting the AMP mining workflow presented herein are publicly available at https://github.com/bcgsc/AMPlify.",
+  "journal": "Protein science : a publication of the Protein Society",
+  "venue": "Protein science : a publication of the Protein Society",
+  "year": 2025,
+  "authors": [
+    "Chenkai Li",
+    "Darcy Sutherland",
+    "Ali Salehi",
+    "Amelia Richter",
+    "Diana Lin",
+    "Sambina Islam Aninta",
+    "Hossein Ebrahimikondori",
+    "Anat Yanai",
+    "Lauren Coombe",
+    "René L Warren",
+    "Monica Kotkoff",
+    "Linda M N Hoang",
+    "Caren C Helbing",
+    "Inanc Birol"
+  ],
+  "keywords": [
+    "antibiotic resistance",
+    "antimicrobial peptide",
+    "deep learning",
+    "protein sequence database"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "15849316",
+    "pmc": "PMC1084323",
+    "doi": "10.1093/nar/gki524"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/40100125/",
+    "https://doi.org/10.1093/nar/gki524",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1084323/"
+  ],
+  "raw_source_files": [],
+  "query_name": "software_server_tool",
+  "query_text": "(\"antimicrobial peptide\"[tiab] OR \"antimicrobial peptides\"[tiab] OR \"AMP prediction\"[tiab]) AND (\"web server\"[tiab] OR \"online tool\"[tiab] OR software[tiab] OR standalone[tiab] OR platform[tiab] OR database[tiab])",
+  "candidate_key": "doi:10 1093 nar gki524"
+}

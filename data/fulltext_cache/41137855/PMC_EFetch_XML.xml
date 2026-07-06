@@ -1,0 +1,1347 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Brief Bioinform</journal-id><journal-id journal-id-type="iso-abbrev">Brief Bioinform</journal-id><journal-id journal-id-type="pmc-domain-id">721</journal-id><journal-id journal-id-type="pmc-domain">bib</journal-id><journal-id journal-id-type="nlm-id">100912837</journal-id><journal-id journal-id-type="publisher-id">bib</journal-id><journal-title-group><journal-title>Briefings in Bioinformatics</journal-title></journal-title-group><issn pub-type="ppub">1467-5463</issn><issn pub-type="epub">1477-4054</issn><publisher><publisher-name>Oxford University Press</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12553139</article-id><article-id pub-id-type="pmcid-ver">PMC12553139.1</article-id><article-id pub-id-type="pmcaid">12553139</article-id><article-id pub-id-type="pmcaiid">12553139</article-id><article-id pub-id-type="pmid">41137855</article-id><article-id pub-id-type="doi">10.1093/bib/bbaf500</article-id><article-id pub-id-type="publisher-id">bbaf500</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Problem Solving Protocol</subject></subj-group><subj-group subj-group-type="category-taxonomy-collection"><subject>AcademicSubjects/SCI01060</subject></subj-group></article-categories><title-group><article-title>Classifier-driven generative adversarial networks for enhanced antimicrobial peptide design</article-title></title-group><contrib-group><contrib contrib-type="author" corresp="yes"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-1289-7463</contrib-id><name name-style="western"><surname>Zervou</surname><given-names initials="MA">Michaela Areti</given-names></name><aff>
+<institution>Computer Science Department</institution>, University of Crete, University Campus, Voutes, 715 00, Heraklion, <country country="GR">Greece</country></aff><aff>
+<institution>Institute of Computer Science</institution>, Foundation for Research and Technology-Hellas, Nikolaou Plastira 100, 700 13, Heraklion, <country country="GR">Greece</country></aff><xref rid="cor1" ref-type="corresp"/></contrib><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-8601-1103</contrib-id><name name-style="western"><surname>Doutsi</surname><given-names initials="E">Effrosyni</given-names></name><aff>
+<institution>Institute of Computer Science</institution>, Foundation for Research and Technology-Hellas, Nikolaou Plastira 100, 700 13, Heraklion, <country country="GR">Greece</country></aff></contrib><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-2009-7562</contrib-id><name name-style="western"><surname>Pantazis</surname><given-names initials="Y">Yannis</given-names></name><aff>
+<institution>Institute of Applied and Computational Mathematics</institution>, Foundation for Research and Technology-Hellas, Nikolaou Plastira 100, 700 13, Heraklion, <country country="GR">Greece</country></aff></contrib><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-4918-603X</contrib-id><name name-style="western"><surname>Tsakalides</surname><given-names initials="P">Panagiotis</given-names></name><aff>
+<institution>Computer Science Department</institution>, University of Crete, University Campus, Voutes, 715 00, Heraklion, <country country="GR">Greece</country></aff><aff>
+<institution>Institute of Computer Science</institution>, Foundation for Research and Technology-Hellas, Nikolaou Plastira 100, 700 13, Heraklion, <country country="GR">Greece</country></aff></contrib></contrib-group><author-notes><corresp id="cor1">Corresponding author. Computer Science Department, University of Crete, University Campus, Voutes, 715 00, Heraklion, Greece. E-mail: <email>zervou@ics.forth.gr</email></corresp></author-notes><pub-date pub-type="collection"><month>9</month><year>2025</year></pub-date><pub-date pub-type="epub" iso-8601-date="2025-10-25"><day>25</day><month>10</month><year>2025</year></pub-date><volume>26</volume><issue>5</issue><issue-id pub-id-type="pmc-issue-id">495954</issue-id><elocation-id>bbaf500</elocation-id><history><date date-type="received"><day>01</day><month>3</month><year>2025</year></date><date date-type="rev-recd"><day>25</day><month>7</month><year>2025</year></date><date date-type="accepted"><day>15</day><month>8</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>25</day><month>10</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>26</day><month>10</month><year>2025</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2025-10-27 08:25:17.393"><day>27</day><month>10</month><year>2025</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2025. Published by Oxford University Press.</copyright-statement><copyright-year>2025</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="bbaf500.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="bbaf500.pdf"/><abstract><title>Abstract</title><p>The development of antimicrobial peptides (AMPs) presents a promising approach to addressing antibiotic-resistant pathogens. Computational methods, such as Feedback Generative Adversarial Networks (FBGANs), have demonstrated strong performance in optimizing AMP design. FBGAN operates as a classifier-guided Generative Adversarial Network (GAN), refining training data by replacing them with the classifier’s most accurate predictions based on a predefined threshold. However, this method may introduce bias and constrain the diversity and quality of the generated peptides. To address these limitations, we propose a novel classifier-driven GAN (cdGAN) framework that seamlessly integrates classifier predictions into the generative model’s loss function. This enables an adaptive, end-to-end learning process that enhances AMP generation without requiring explicit data modifications. By embedding classifier guidance within the loss computation, cdGAN dynamically optimizes both peptide diversity and functionality. Comparative studies indicate that cdGAN outperforms conventional guided-GAN architectures, such as Conditional GANs and Auxiliary Classifier GANs, while achieving performance comparable to or exceeding established AMP design methods. Additionally, cdGAN’s flexible architecture allows for the simultaneous optimization of multiple peptide attributes. To demonstrate this capability, we introduce a multi-task classifier based on the Evolutionary Scale Modeling 2 (ESM2) model, enabling cdGAN to assess both antimicrobial activity and peptide structural properties in parallel. This enhancement improves the likelihood of generating viable therapeutic candidates with enhanced antimicrobial effectiveness and reduced toxicity.</p></abstract><kwd-group><kwd>protein de novo design</kwd><kwd>antimicrobial peptides</kwd><kwd>generative adversarial networks</kwd><kwd>large protein language models</kwd><kwd>transfer learning</kwd><kwd>multi-task learning</kwd></kwd-group><funding-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>TITAN ERA Chair project</institution></institution-wrap>
+</funding-source><award-id>101086741</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Horizon Europe Framework Program of the European Commission and the Hellenic Foundation for Research and Innovation</institution></institution-wrap>
+</funding-source><award-id>5647</award-id></award-group></funding-group><counts><page-count count="12"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="sec1"><title>Introduction</title><p>Antimicrobial peptides (AMPs) are a promising alternative to traditional antibiotics due to their broad-spectrum activity and ability to target bacterial membranes, which reduces the likelihood of resistance development [<xref rid="ref1" ref-type="bibr">1</xref>]. One of the key factors in AMP functionality is the presence of <inline-formula><tex-math notation="LaTeX" id="ImEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structures, which enhance their amphiphilic nature that allows interaction with both hydrophobic and hydrophilic regions of bacterial membranes, leading to effective membrane disruption [<xref rid="ref2" ref-type="bibr">2</xref>, <xref rid="ref3" ref-type="bibr">3</xref>]. However, therapeutic peptides must also exhibit minimal toxicity to human cells, particularly avoiding hemolysis, as excessive hemolytic activity can cause red blood cell destruction and severe side effects [<xref rid="ref4" ref-type="bibr">4</xref>]. Many potent AMPs fail in clinical applications due to unintended cytotoxicity, limiting their therapeutic viability. These considerations highlight the importance of designing AMPs that balance antimicrobial potency, structural optimization, and safety [<xref rid="ref4" ref-type="bibr">4</xref>].</p><p>To accelerate AMP discovery, deep learning approaches have been widely adopted, with Generative Adversarial Networks (GANs) emerging as a particularly promising tool [<xref rid="ref5" ref-type="bibr">5–8</xref>]. GAN-based frameworks, such as Feedback GAN (FBGAN) [<xref rid="ref5" ref-type="bibr">5</xref>], have demonstrated their ability to generate peptide sequences that closely mimic natural AMPs. The FBGAN model employs an additional classifier to guide the generator toward producing more AMP-like sequences based on a predefined threshold score. More recently, FBGAN-ESM2 [<xref rid="ref8" ref-type="bibr">8</xref>] incorporated a pre-trained Evolutionary Scale Modeling 2 (ESM2) classifier [<xref rid="ref9" ref-type="bibr">9</xref>] to enhance peptide selection, improving the antimicrobial efficacy of generated peptides.</p><p>Although effective, the general FBGAN framework relies on selecting sequences based on predefined AMP score thresholds, which can introduce bias and limit peptide diversity. By prioritizing high-scoring sequences, this model risks overfitting to known patterns, thereby reducing its ability to identify novel AMPs with unique properties. Furthermore, because classifier predictions are not always accurate, misclassified sequences may be included in training, resulting in incorrect or misleading data. These challenges emphasize the need for a more adaptive and unbiased generative approach.</p><p>To address these issues, this work presents a classifier-driven GAN (cdGAN) framework that incorporates classifier predictions directly into the GAN loss function as provided in <xref rid="f1" ref-type="fig">Fig. 1</xref>. Unlike traditional GANs, which rely on explicit selection of generated peptides, cdGAN allows for adaptive and continuous learning without data manipulation. This end-to-end approach reduces selection bias and improves model generalization, ultimately enhancing the diversity and novelty of generated AMPs. Moreover, by dynamically incorporating classifier feedback into the training process, cdGAN mitigates the risk of overfitting to predefined high-scoring peptides.</p><fig position="float" id="f1" orientation="portrait"><label>Figure 1</label><caption><p>Architecture of the classifier-driven GAN (cdGAN) framework for AMP generation. The cdGAN framework integrates a generator (G), discriminator (D), and a multi-task classifier (C) to generate DNA-encoded antimicrobial peptide (AMP) sequences with biologically meaningful properties. In the preprocessing step, amino acid sequences are translated into DNA sequences using fixed-length encoding, including a start codon (ATG), a stop codon (TAG, TAA, or TGA), and a padding character <monospace>P</monospace>, which is constrained to appear only at the end of the sequence. The generator takes a noise vector <inline-formula><tex-math notation="LaTeX" id="ImEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ z $\end{document}</tex-math></inline-formula> as input and produces synthetic DNA sequences. These sequences are evaluated by a discriminator, which attempts to distinguish between real and generated DNA sequences, providing feedback to improve the generator. Simultaneously, the DNA sequences are translated into protein sequences and passed through a classifier that predicts sequence-level properties relevant to antimicrobial peptide (AMP) functionality. The generator is trained using feedback from both the discriminator and the classifier, optimizing for both realistic sequence generation and the desired biological properties. Finally, evaluation metrics are applied to assess the quality of the generated sequences.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f1.jpg"><alt-text>Architecture of the classifier-driven GAN (cdGAN) for AMP generation, integrating a generator, discriminator, and classifier to produce DNA-encoded antimicrobial peptides with biologically relevant properties.</alt-text></graphic></fig><p>Beyond single-task antimicrobial design, cdGAN is extended to a multi-task framework that simultaneously optimizes antimicrobial activity and structural properties. Given the crucial role of <inline-formula><tex-math notation="LaTeX" id="ImEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structures in AMP function, we develop a novel multi-task classifier based on ESM2 that evaluates both antimicrobial potential and structural characteristics. This multi-task learning strategy enhances peptide design by ensuring that generated AMPs possess not only potent antimicrobial properties but also optimal structural features for membrane interaction [<xref rid="ref2" ref-type="bibr">2</xref>, <xref rid="ref3" ref-type="bibr">3</xref>].</p><p>Finally, to ensure the safety of generated peptides, we implement a rigorous post-generation screening step using ToxinPred 3.0 [<xref rid="ref10" ref-type="bibr">10</xref>] and HemoPI [<xref rid="ref11" ref-type="bibr">11</xref>] to filter out toxic and hemolytic candidates. This additional screening step significantly enhances the therapeutic viability of generated AMPs by prioritizing sequences that are both effective and safe for clinical applications.</p></sec><sec id="sec2"><title>Materials and methods</title><sec id="sec2a"><title>Datasets and preprocessing</title><p>This study compares our proposed model with various guided-GAN variants and state-of-the-art approaches for AMP design. To train both the proposed cdGAN and baseline guided-GAN models, we constructed a dataset of 5,200 protein sequences ranging from 10 to 50 residues, including 2600 AMPs from APD3 [<xref rid="ref12" ref-type="bibr">12</xref>] and 2600 non-AMPs from reviewed UniProt entries [<xref rid="ref13" ref-type="bibr">13</xref>]. Non-AMPs were clustered using MMseqs2 [<xref rid="ref14" ref-type="bibr">14</xref>] with a 50 percent sequence identity threshold, and one representative per cluster was selected to ensure diversity. Pairwise Needleman-Wunsch alignments [<xref rid="ref15" ref-type="bibr">15</xref>] showed an average sequence similarity of 0.2 between the AMP and non-AMP sets, limiting the usefulness of sequence alignment and encouraging the model to capture additional features. The diversity and physicochemical analyses (<xref rid="TB1" ref-type="table">Tables 3</xref>, <xref rid="TB2" ref-type="table">5</xref>, and <xref rid="f2" ref-type="fig">Fig. 6</xref>) support that the model learns biologically meaningful patterns beyond sequence similarity.</p><p>To enable multi-task classification, structural annotations were added using Porter 5 [<xref rid="ref16" ref-type="bibr">16</xref>], which labels each sequence by secondary structure elements: helix (H), strand (E), and coil (C), while preserving the sequence length. Sequences with more than 10 consecutive helix (H) elements are classified as likely <inline-formula><tex-math notation="LaTeX" id="ImEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structures [<xref rid="ref5" ref-type="bibr">5</xref>]. This structural information is combined with AMP annotations, forming a multi-task classification dataset capturing both antimicrobial activity and potential structural features of the peptides.</p><p>To standardize sequence encoding and introduce biological diversity, each amino acid sequence was converted to a complementary DNA (cDNA) sequence by assigning codons based on known genetic coding. For amino acids with multiple codons, one codon was randomly selected to introduce natural variability, following the approach in [<xref rid="ref5" ref-type="bibr">5</xref>]. The process of translating the amino acid sequence into DNA through random codon assignments is reversible and does not affect the final protein’s function [<xref rid="ref17" ref-type="bibr">17</xref>, <xref rid="ref18" ref-type="bibr">18</xref>]. Finally, shorter sequences were padded with the character ‘P’ at the end to a uniform length of 156 nucleotides, ensuring input compatibility during training. An example is provided in <xref rid="f1" ref-type="fig">Fig. 1</xref>.</p></sec><sec id="sec2b"><title>Guided generative adversarial networks</title><p>In this work, we refer to the FBGAN-ESM2 model, as well as Conditional GANs (cGANs) and Auxiliary Classifier GANs (ACGANs), as guided-GANs, since they incorporate task-specific labels to steer generation toward desired outcomes.</p><p>For the implementation, we adopt the Wasserstein GAN with Gradient Penalty (WGAN-GP) framework [<xref rid="ref19" ref-type="bibr">19</xref>], known for its stability during training and its ability to produce high-quality samples. The core of the WGAN-GP approach involves minimizing the Wasserstein distance [<xref rid="ref20" ref-type="bibr">20</xref>] between the real data distribution <inline-formula><tex-math notation="LaTeX" id="ImEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ P_{r} $\end{document}</tex-math></inline-formula> and the distribution of generated samples <inline-formula><tex-math notation="LaTeX" id="ImEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ P_{g} $\end{document}</tex-math></inline-formula> that is expressed as follows: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; W(P_{r}, P_{g}) = \sup_{\|D\|_{L} \leq 1} \mathbb{E}_{x \sim P_{r}}[D(x)] - \mathbb{E}_{x \sim P_{g}}[D(x)], \end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \|D\|_{L} $\end{document}</tex-math></inline-formula> denotes the Lipschitz constraint on the discriminator <inline-formula><tex-math notation="LaTeX" id="ImEquation13">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ D $\end{document}</tex-math></inline-formula>. Here, <inline-formula><tex-math notation="LaTeX" id="ImEquation14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \mathbb{E}_{x \sim P_{r}}[D(x)] $\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation15">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \mathbb{E}_{x \sim P_{g}}[D(x)] $\end{document}</tex-math></inline-formula> represent the expected discriminator outputs on real and generated data, respectively.</p><p>To ensure the stability of the training process and uphold the Lipschitz constraint, a gradient penalty term is introduced, improving the quality of generated samples and promoting smoother training dynamics [<xref rid="ref19" ref-type="bibr">19</xref>].</p><sec id="sec2b1"><title>Conditional generative adversarial networks</title><p>Conditional GANs (cGANs) [<xref rid="ref21" ref-type="bibr">21</xref>] extend the GAN framework by conditioning the generation process on auxiliary information, such as class labels or desired attributes. In cGANs, both the generator and the discriminator receive this conditional input, which guides the generation of samples in a targeted manner.</p><p>The objective function for the discriminator in a Wasserstein cGAN with gradient penalty can be written as: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; L_{D} = \mathbb{E}_{x \sim P_{r}}[D(x|y)] - \mathbb{E}_{{x} \sim P_{g}}[D({x}|y)] \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp;+ \lambda \mathbb{E}_{{x} \sim P_{\hat{x}}} \left[ (\|\nabla_{{x}} D({x}|y)\|_{2} - 1)^{2} \right], \end{align*}\end{document}</tex-math>
+</disp-formula><p>
+where <inline-formula><tex-math notation="LaTeX" id="ImEquation16">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ P_{\hat{x}} $\end{document}</tex-math></inline-formula> is the distribution of the interpolated samples between the real and generated data, and <inline-formula><tex-math notation="LaTeX" id="ImEquation17">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \lambda $\end{document}</tex-math></inline-formula> is the gradient penalty coefficient. The generator’s objective function is: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; L_{G} = -\mathbb{E}_{z \sim P_{z}}[D(G(z|y)|y)]. \end{align*}\end{document}</tex-math>
+</disp-formula><p>Here, <inline-formula><tex-math notation="LaTeX" id="ImEquation18">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ y $\end{document}</tex-math></inline-formula> represents the conditioning variable, and the generator aims to produce outputs consistent with this input.</p></sec><sec id="sec2b2"><title>Auxiliary classifier generative adversarial networks</title><p>Auxiliary Classifier GANs (ACGANs) [<xref rid="ref22" ref-type="bibr">22</xref>] further enhance the conditional generation process by incorporating an auxiliary classifier within the discriminator architecture. This classifier is tasked with predicting the class labels associated with the generated samples, providing an additional layer of feedback during training.</p><p>The loss function for the discriminator in an Wasserstein ACGAN with gradient penalty comprises three components: the Wasserstein loss, the gradient penalty, and the classification loss: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; L_{D} = \mathbb{E}_{x \sim P_{r}}[D(x|y)] - \mathbb{E}_{{x} \sim P_{g}} [D(x|y)] \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp;+ \lambda \mathbb{E}_{{x} \sim P_{\hat{x}}} \left[ (\|\nabla_{{x}} D({x}|y)\|_{2} - 1)^{2} \right] \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp;+ \mathbb{E}_{x \sim P_{r}}[\log(Q(x|y))] + \mathbb{E}_{z \sim P_{z}}[\log(Q(G(z|y)|y))], \end{align*}\end{document}</tex-math>
+</disp-formula><p>
+where <inline-formula><tex-math notation="LaTeX" id="ImEquation19">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ Q $\end{document}</tex-math></inline-formula> is the auxiliary classifier predicting the label <inline-formula><tex-math notation="LaTeX" id="ImEquation20">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ y $\end{document}</tex-math></inline-formula>. The generator’s objective function is: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; L_{G} = -\mathbb{E}_{z \sim p_{z}(z)}[D(G(z|y)|y)] - \mathbb{E}_{z \sim P_{z}}[\log(Q(G(z|y)|y))]. \end{align*}\end{document}</tex-math>
+</disp-formula><p>This dual-loss structure encourages the generator to create samples that closely resemble real data while also meeting specific label characteristics.</p></sec></sec><sec id="sec2e"><title>Classifier-driven generative adversarial networks</title><p>This study introduces a novel classifier-driven Generative Adversarial Network (cdGAN) framework, designed to generate protein sequences with multiple desired properties. The cdGAN architecture extends the WGAN-GP model by incorporating a multi-task classifier that provides targeted feedback to guide the generative process.</p><p>The cdGAN consists of three core components: a generator <inline-formula><tex-math notation="LaTeX" id="ImEquation21">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ G $\end{document}</tex-math></inline-formula>, a discriminator <inline-formula><tex-math notation="LaTeX" id="ImEquation22">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ D $\end{document}</tex-math></inline-formula>, and a classifier <inline-formula><tex-math notation="LaTeX" id="ImEquation23">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ C $\end{document}</tex-math></inline-formula>. The generator synthesizes protein sequences from latent noise vectors, while the discriminator evaluates these sequences to distinguish between real and generated data. The classifier predicts the likelihood that the generated sequences exhibit specific target properties, and this feedback is integrated into the generator’s training, allowing it to produce sequences that meet defined biological criteria. To optimize multiple tasks simultaneously, the classifier output probabilities are multiplied, with a product closer to 1 indicating greater simultaneous satisfaction of all target properties. This product operator serves as a soft analogue to the logical AND operator, where all properties must be activated (i.e. set to ON) to have an effect. A logarithmic transformation is subsequently applied to enhance numerical stability and ensure the values are appropriately scaled within the overall loss function. The objective function of the cdGAN is expressed as: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} \min_{G} \max_{D} \Big( &amp;\mathbb{E}_{x \sim P_{r}}[D(x)] - \mathbb{E}_{z \sim P_{z}}[D(G(z))] \\ + &amp; \ \lambda \, \mathbb{E}_{{x} \sim P_{\hat{x}}} \left[ \left( \| \nabla_{{x}} D({x}) \|_{2} - 1 \right)^{2} \right] \\ - &amp; \sum_{t=1}^{N} a_{t} \cdot \mathbb{E}_{z \sim P_{z}}[\log C_{t}(G(z))] \Big) \end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation24">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \lambda $\end{document}</tex-math></inline-formula> controls the strength of the gradient penalty, <inline-formula><tex-math notation="LaTeX" id="ImEquation25">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ P_{\hat{x}} $\end{document}</tex-math></inline-formula> denotes the interpolated distribution between real and generated distributions, and <inline-formula><tex-math notation="LaTeX" id="ImEquation26">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ C_{t}(G(z)) = P(C_{t}=1 | G(z)) $\end{document}</tex-math></inline-formula> represents the probability that the generated sample <inline-formula><tex-math notation="LaTeX" id="ImEquation27">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ G(z) $\end{document}</tex-math></inline-formula> belongs to the target class for task <inline-formula><tex-math notation="LaTeX" id="ImEquation28">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ t $\end{document}</tex-math></inline-formula>, as assessed by the classifier <inline-formula><tex-math notation="LaTeX" id="ImEquation29">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ C $\end{document}</tex-math></inline-formula>. Each classification task <inline-formula><tex-math notation="LaTeX" id="ImEquation30">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ t = 1, \dots , N $\end{document}</tex-math></inline-formula> is assigned a weight <inline-formula><tex-math notation="LaTeX" id="ImEquation31">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ a_{t} $\end{document}</tex-math></inline-formula>, adjusting the influence of each task’s feedback on the generator’s objective.</p><p>At the core of this framework is the multi-task classifier, which is developed using transfer learning to evaluate multiple characteristics of protein sequences. To achieve this, we chose the ESM2 model [<xref rid="ref9" ref-type="bibr">9</xref>], which has demonstrated strong performance in antimicrobial peptide classification, with the ESM2-t12 variant selected specifically for its computational efficiency and effective balance of representational power [<xref rid="ref23" ref-type="bibr">23</xref>]. The classifier is trained using a combined loss function to simultaneously optimize multiple tasks: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp;{\mathcal{L}_{mlt}} = \sum_{t=1}^{N}\lambda_{t} \mathcal{L}_{t}, \end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation32">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$t=1, \dots , N$\end{document}</tex-math></inline-formula> is the number of tasks, <inline-formula><tex-math notation="LaTeX" id="ImEquation33">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \mathcal{L}_{t}$\end{document}</tex-math></inline-formula> is the loss for each task, and <inline-formula><tex-math notation="LaTeX" id="ImEquation34">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{t}$\end{document}</tex-math></inline-formula> is a hyperparameter that determines the weight of each task’s loss, and it must satisfies <inline-formula><tex-math notation="LaTeX" id="ImEquation35">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{k} \ge 0$\end{document}</tex-math></inline-formula>. In addition, the sum of all task-specific weights <inline-formula><tex-math notation="LaTeX" id="ImEquation36">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \lambda _{t} $\end{document}</tex-math></inline-formula> is constrained to <inline-formula><tex-math notation="LaTeX" id="ImEquation37">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \sum _{t} \lambda _{t} = 1 $\end{document}</tex-math></inline-formula>, ensuring a balanced contribution of each task to the total loss. By adjusting the values of <inline-formula><tex-math notation="LaTeX" id="ImEquation38">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \lambda _{t} $\end{document}</tex-math></inline-formula>, the model can prioritize certain tasks, allowing for flexible optimization and achieving balanced performance across all tasks.</p></sec></sec><sec id="sec3"><title>Results</title><p>In this section, we present the computational performance of each model. Technical details on model parameters, experimental settings, and hardware specifications are provided in the <xref rid="sup1" ref-type="supplementary-material">supplementary material</xref>.</p><sec id="sec3a"><title>Classifier performance analysis</title><p>The classification of AMPs is important in drug design and the development of targeted therapies [<xref rid="ref5" ref-type="bibr">5</xref>, <xref rid="ref8" ref-type="bibr">8</xref>, <xref rid="ref24" ref-type="bibr">24</xref>]. AMPs often adopt <inline-formula><tex-math notation="LaTeX" id="ImEquation39">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structures, which are particularly advantageous due to their ability to disrupt cellular protective layers. Consequently, detecting the structural fold of an AMP provides valuable insights into its functional mechanisms.</p><p>Numerous classifiers have been designed to identify AMP properties [<xref rid="ref25" ref-type="bibr">25–28</xref>], while others focus on classifying structural folds [<xref rid="ref16" ref-type="bibr">16</xref>, <xref rid="ref29" ref-type="bibr">29–31</xref>]. A recent study proposed a multi-task learning framework leveraging Transformer networks and <inline-formula><tex-math notation="LaTeX" id="ImEquation40">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers technique to classify both AMP properties and <inline-formula><tex-math notation="LaTeX" id="ImEquation41">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structure [<xref rid="ref32" ref-type="bibr">32</xref>] simultaneously. The <inline-formula><tex-math notation="LaTeX" id="ImEquation42">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers method is applied on DNA sequences to provide meaningful representations, however, it requires careful optimization of <inline-formula><tex-math notation="LaTeX" id="ImEquation43">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula> to achieve a balance between sequence detail and computational efficiency.</p><p>To eliminate the need for manual sequence preprocessing and to work directly at the protein level, we propose a novel multi-task classifier, illustrated in <xref rid="f3" ref-type="fig">Fig. 2</xref>. Our model utilizes embeddings derived from the pre-trained ESM2 protein language model, which processes amino acid sequences directly, and feeds them into a lightweight Multilayer Perceptron (MLP) for efficient and scalable classification. The joint loss function for the two prediction tasks is defined as follows: </p><disp-formula>
+<tex-math notation="LaTeX" id="DmEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp;{\mathcal{L}_{mlt}} = \lambda_{1} \mathcal{L}_{1} + \lambda_{2} \mathcal{L}_{2}\, \ \lambda_{2} = 1- \lambda_{1}, \ \lambda_{1}, \lambda_{2}\ge 0 \end{align*}\end{document}</tex-math>
+</disp-formula><fig position="float" id="f3" orientation="portrait"><label>Figure 2</label><caption><p>Overview of the proposed transfer learning-based architecture utilizing the ESM2 protein language model and a Multilayer Perceptron (MLP) classifier.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f2.jpg"><alt-text>Transfer learning architecture using the ESM2 protein language model with an MLP classifier.</alt-text></graphic></fig><p>
+<xref rid="TB3" ref-type="table">Table 1</xref> compares the single-task classification performance of our proposed MLP-ESM2 classifier against the <inline-formula><tex-math notation="LaTeX" id="ImEquation44">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers Transformer model for both AMP (Task 1) and <inline-formula><tex-math notation="LaTeX" id="ImEquation45">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical folding prediction (Task 2) independently. As demonstrated, the MLP-ESM2 classifier achieves significantly better performance compared to the <inline-formula><tex-math notation="LaTeX" id="ImEquation46">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers-based model for both tasks as evaluated by three different metrics: the accuracy (ACC), the area under the curve (AUC), and the F1-score. The results indicate that the proposed MLP-ESM2 classifier provides a robust and computationally efficient approach to protein property prediction, achieving high accuracy, AUC, and F1 scores across both tasks. This suggests that leveraging transfer learning with ESM2 embeddings can significantly enhance classification performance in bioinformatics tasks while mitigating the complexity associated with training larger networks.</p><table-wrap position="float" id="TB3" orientation="portrait"><label>Table 1</label><caption><p>Single-task classification results for AMP (Task 1) and <inline-formula><tex-math notation="LaTeX" id="ImEquation47">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical folding prediction (Task 2) using the proposed MLP-ESM2 classifier and a <inline-formula><tex-math notation="LaTeX" id="ImEquation48">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers Transformer model. Standard deviations are reported in parentheses</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th colspan="2" align="left" rowspan="1">Task 1 (<inline-formula><tex-math notation="LaTeX" id="ImEquation49">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{1}=1$\end{document}</tex-math></inline-formula>)</th><th colspan="2" align="left" rowspan="1">Task 2 (<inline-formula><tex-math notation="LaTeX" id="ImEquation50">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{2}=1$\end{document}</tex-math></inline-formula>)</th></tr><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">MLP-ESM2</th><th align="left" rowspan="1" colspan="1">
+<inline-formula>
+<tex-math notation="LaTeX" id="ImEquation51">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math>
+</inline-formula>-mers Transformer</th><th align="left" rowspan="1" colspan="1">MLP-ESM2</th><th align="left" rowspan="1" colspan="1">
+<inline-formula>
+<tex-math notation="LaTeX" id="ImEquation52">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math>
+</inline-formula>-mers Transformer</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">ACC</td><td rowspan="1" colspan="1">
+<bold>91.6</bold> (1.0)</td><td rowspan="1" colspan="1">81.1 (1.4)</td><td rowspan="1" colspan="1">
+<bold>92.8</bold> (0.8)</td><td rowspan="1" colspan="1">74.7 (1.2)</td></tr><tr><td rowspan="1" colspan="1">AUC</td><td rowspan="1" colspan="1">
+<bold>97.1</bold> (0.3)</td><td rowspan="1" colspan="1">88.2 (0.6)</td><td rowspan="1" colspan="1">
+<bold>98.1</bold> (0.3)</td><td rowspan="1" colspan="1">80.7 (1.3)</td></tr><tr><td rowspan="1" colspan="1">F1</td><td rowspan="1" colspan="1">
+<bold>91.7</bold> (1.0)</td><td rowspan="1" colspan="1">80.9 (1.7)</td><td rowspan="1" colspan="1">
+<bold>92.8</bold> (0.8)</td><td rowspan="1" colspan="1">80.2 (1.1)</td></tr></tbody></table></table-wrap><p>The performance of the proposed multi-task MLP-ESM2 classifier across various <inline-formula><tex-math notation="LaTeX" id="ImEquation53">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{1}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation54">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{2}$\end{document}</tex-math></inline-formula> values is presented in the <xref rid="sup1" ref-type="supplementary-material">Supplementary Table 1</xref>. The optimal values were selected based on the Pareto front shown in <xref rid="sup1" ref-type="supplementary-material">Supplementary Figure 1</xref>. This figure illustrates that variations in <inline-formula><tex-math notation="LaTeX" id="ImEquation55">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{1}$\end{document}</tex-math></inline-formula> have minimal impact on overall classification performance, enabling robust classification despite shifts in task prioritization. <xref rid="TB4" ref-type="table">Table 2</xref> highlights the performance of the multi-task classifiers, demonstrating that our proposed model significantly outperforms the <inline-formula><tex-math notation="LaTeX" id="ImEquation56">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers Transformer on both tasks.</p><table-wrap position="float" id="TB4" orientation="portrait"><label>Table 2</label><caption><p>Performance comparison of the optimal <inline-formula><tex-math notation="LaTeX" id="ImEquation57">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula>-mers Transformer (<inline-formula><tex-math notation="LaTeX" id="ImEquation58">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{1}=0.7$\end{document}</tex-math></inline-formula>) and MLP-ESM2 (<inline-formula><tex-math notation="LaTeX" id="ImEquation59">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda _{1}=0.4$\end{document}</tex-math></inline-formula>) multi-task classifiers in AMP (Task 1) and <inline-formula><tex-math notation="LaTeX" id="ImEquation60">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical folding prediction (Task 2)</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th colspan="2" align="left" rowspan="1">
+<inline-formula>
+<tex-math notation="LaTeX" id="ImEquation61">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math>
+</inline-formula>-mers Transformer</th><th colspan="2" align="left" rowspan="1">MLP-ESM2</th></tr><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">Task 1</th><th align="left" rowspan="1" colspan="1">Task 2</th><th align="left" rowspan="1" colspan="1">Task 1</th><th align="left" rowspan="1" colspan="1">Task 2</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">ACC</td><td rowspan="1" colspan="1">79.9 (2.1)</td><td rowspan="1" colspan="1">75.9 (0.4)</td><td rowspan="1" colspan="1">
+<bold>91.3 (0.7)</bold>
+</td><td rowspan="1" colspan="1">
+<bold>92.6 (0.8)</bold>
+</td></tr><tr><td rowspan="1" colspan="1">AUC</td><td rowspan="1" colspan="1">88.3 (0.8)</td><td rowspan="1" colspan="1">82.0 (1.7)</td><td rowspan="1" colspan="1">
+<bold>96.9 (0.5)</bold>
+</td><td rowspan="1" colspan="1">
+<bold>97.9 (0.2)</bold>
+</td></tr><tr><td rowspan="1" colspan="1">F1</td><td rowspan="1" colspan="1">79.0 (3.5)</td><td rowspan="1" colspan="1">82.0 (0.5)</td><td rowspan="1" colspan="1">
+<bold>91.4 (0.8)</bold>
+</td><td rowspan="1" colspan="1">
+<bold>93.3 (0.8)</bold>
+</td></tr></tbody></table></table-wrap></sec><sec id="sec3b"><title>Comparison of cdGAN with other guided-GANs</title><p>In this section, we analyse the proposed cdGAN model against baseline guided-GAN architectures, including cGANs, ACGANs, and FBGAN-ESM2. We generated 5000 sequences per model using the final trained generator, with random noise as input and, for conditional models, the appropriate AMP class label. These generated sequences were then used for all subsequent comparisons against real AMP sequences from reference databases. In particular, we evaluated their diversity and predicted antimicrobial potency. High diversity is crucial to ensure the generative model is not simply reproducing known sequences. For antimicrobial potency, we employed predictive models to estimate the biological activity of the generated sequences. This evaluation ensures that the generated peptides are not only diverse but also functionally relevant, aligning to discover new antimicrobial peptides.</p><p>The generated data were compared to real AMPs sourced from six widely recognized datasets: XUAMP [<xref rid="ref33" ref-type="bibr">33</xref>], CAMP [<xref rid="ref34" ref-type="bibr">34</xref>], dbAMP [<xref rid="ref35" ref-type="bibr">35</xref>], DRAMP [<xref rid="ref36" ref-type="bibr">36</xref>], LAMP [<xref rid="ref37" ref-type="bibr">37</xref>], and YADAMP [<xref rid="ref38" ref-type="bibr">38</xref>]. Duplicate sequences were removed, and only peptides with lengths between 10 to 50 amino acids were selected for analysis.</p><sec id="sec3b1"><title>Diversity of generated peptides</title><p>The edit distance analysis, shown in <xref rid="f4" ref-type="fig">Fig. 3</xref>, provides insights into the diversity of the generated sequences. The normalized edit distance measures the difference between real and generated sequences by counting the minimum number of insertions, deletions, or substitutions required to transform one sequence into another, offering a way to assess how closely models capture the distribution of real peptides. As provided, the distribution of the generated data for cdGAN, FBGAN-ESM2, and cGAN aligns closely with the distribution of real data. In contrast, ACGAN shows the weakest alignment, with its generated distributions deviating significantly from the real data, highlighting challenges in capturing diversity.</p><fig position="float" id="f4" orientation="portrait"><label>Figure 3</label><caption><p>Normalized within group edit distance distribution for real and generated data, highlighting the fidelity and diversity of different models.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f3.jpg"><alt-text>Normalized within-group edit distance distribution for real and generated data across models.</alt-text></graphic></fig><p>
+<xref rid="TB1" ref-type="table">Table 3</xref> shows both training data similarity and in-between sequence similarity for each model. To highlight the classifier’s role in the GAN framework, we include a plain GAN, which follows the cdGAN architecture but is trained only on AMP sequences without classifier guidance. More details on the architectures can be found in the <xref rid="sup1" ref-type="supplementary-material">supplementary material</xref>.</p><table-wrap position="float" id="TB1" orientation="portrait"><label>Table 3</label><caption><p>Percentage of sequence similarity and diversity within the generated data for each model, and novelty relative to the training data</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">In-between Sequence Similarity</th><th align="left" rowspan="1" colspan="1">Diversity</th><th align="left" rowspan="1" colspan="1">Novelty</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Real data</td><td rowspan="1" colspan="1">22.9%</td><td rowspan="1" colspan="1">100%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">cGAN</td><td rowspan="1" colspan="1">28.2%</td><td rowspan="1" colspan="1">100%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">ACGAN</td><td rowspan="1" colspan="1">40.3%</td><td rowspan="1" colspan="1">100%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">FBGAN-ESM2</td><td rowspan="1" colspan="1">27.6%</td><td rowspan="1" colspan="1">100%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">cdGAN (This work)</td><td rowspan="1" colspan="1">
+<bold>27.4%</bold>
+</td><td rowspan="1" colspan="1">100%</td><td rowspan="1" colspan="1">100%</td></tr></tbody></table></table-wrap><p>For in-between sequence similarity, ACGAN shows the highest redundancy (40.3%), meaning its generated peptides are highly similar to each other. In contrast, cdGAN achieves the lowest in-between similarity (27.4%), followed closely by FBGAN-ESM2 (27.6%) and the plain GAN (27.6%), highlighting their ability to generate a more diverse set of peptides. Finally, all models exhibited 100% novelty, confirming that none of the generated sequences overlapped with the training set.</p></sec><sec id="sec3b2"><title>Antimicrobial property prediction</title><p>While the previous metrics provide valuable insights into the fidelity and diversity of generated sequences, they do not capture functional relevance. To address this, we evaluated the generated sequences using the CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation62">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> platform [<xref rid="ref34" ref-type="bibr">34</xref>], which predicts AMP activity through external classifiers such as Support Vector Machine (SVM), Random Forest (RF), and Artificial Neural Network (ANN). The classification accuracy for RF is 86.5%, 84.1% for SVM, and 82.2% for ANN. This step is essential for assessing how well the generated sequences generalize to unseen data and whether they retain key functional characteristics. By leveraging external classifiers trained on diverse datasets, we minimize biases introduced by our specific training data, ensuring a more objective and robust evaluation of the generated peptides’ applicability in real-world contexts.</p><p>The results summarized in <xref rid="TB5" ref-type="table">Table 4</xref>, indicate that the RF classifier consistently identifies a higher proportion of sequences as AMPs across all models. Overall, ACGAN and cdGAN achieve the strongest performance; however, the high performance of ACGAN is likely attributed to the high sequence similarity of its generated peptides, which as shown in <xref rid="TB1" ref-type="table">Table 3</xref>, is 40.3%. This increased similarity allows the generated sequences to align closely with patterns recognized by the classifiers, reflecting a trade-off between reduced diversity and enhanced classifier-predicted functionality. Moreover, the performance of ACGAN is not consistent across all classifiers, with the ANN-based classifier achieving approximately 10% lower accuracy since it relies on learned features, unlike RF and SVM, which benefit from direct sequence similarity. In contrast, cdGAN performs better with ANN classifiers, and given the flexibility of neural networks, there is significant potential for further improvements, which is not as easily achievable with RF and SVM. Overall, cdGAN demonstrates a more balanced performance across classifiers, maintaining high diversity while generating sequences with sufficient similarity to real AMPs. Lastly, GAN, cGAN, and FBGAN-ESM2 exhibit comparable performance, though they underperform compared to cdGAN and ACGAN.</p><table-wrap position="float" id="TB5" orientation="portrait"><label>Table 4</label><caption><p>Percentage of predicted AMPs with CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation63">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> platform equipped with Support Vector Machine (SVM), Random Forest (RF), and Artificial Neural Network (ANN) models for AMP prediction. The best performance per classifier is highlighted in bold, and the standard deviation is reported in parentheses</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th colspan="4" align="left" rowspan="1">CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation64">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> predictions</th></tr><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">RF</th><th align="left" rowspan="1" colspan="1">SVM</th><th align="left" rowspan="1" colspan="1">ANN</th><th align="left" rowspan="1" colspan="1">Average (std)</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">GAN</td><td rowspan="1" colspan="1">58.0%</td><td rowspan="1" colspan="1">51.5%</td><td rowspan="1" colspan="1">52.8%</td><td rowspan="1" colspan="1">54.1% (2.8)</td></tr><tr><td rowspan="1" colspan="1">cGAN</td><td rowspan="1" colspan="1">59.2%</td><td rowspan="1" colspan="1">56.1%</td><td rowspan="1" colspan="1">57.2%</td><td rowspan="1" colspan="1">57.5% (1.2)</td></tr><tr><td rowspan="1" colspan="1">ACGAN</td><td rowspan="1" colspan="1">
+<bold>77.6%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>72.2%</bold>
+</td><td rowspan="1" colspan="1">65.6%</td><td rowspan="1" colspan="1">
+<bold>71.8% (4.9)</bold>
+</td></tr><tr><td rowspan="1" colspan="1">FBGAN-ESM2</td><td rowspan="1" colspan="1">59.1%</td><td rowspan="1" colspan="1">55.5%</td><td rowspan="1" colspan="1">58.9%</td><td rowspan="1" colspan="1">57.8% (1.6)</td></tr><tr><td rowspan="1" colspan="1">cdGAN (This work)</td><td rowspan="1" colspan="1">75.8%</td><td rowspan="1" colspan="1">68.6%</td><td rowspan="1" colspan="1">
+<bold>70.5%</bold>
+</td><td rowspan="1" colspan="1">71.6% (3.0)</td></tr></tbody></table></table-wrap><p>
+<xref rid="f5" ref-type="fig">Figure 4</xref> illustrates the number of sequences predicted as AMPs by all three classifiers, categorized by the thresholds P(AMP) &gt; 0.5 and P(AMP) &gt; 0.8. At the lower threshold, ACGAN and cdGAN emerge as top performers, generating the largest number of predicted AMPs, followed by FBGAN-ESM2, cGAN, and GAN. When considering the stricter threshold, cdGAN retains strong performance, while the rest of the models experience notable declines. Overall, these results demonstrate that cdGAN achieves the best trade-off between diversity, sequence similarity, and classifier-predicted functionality, making it an effective model for AMP design.</p><fig position="float" id="f5" orientation="portrait"><label>Figure 4</label><caption><p>Fraction of generated peptides classified as positive by every classifier of CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation65">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> (RF, SVM, and ANN) with probabilities P(AMP)&gt;0.5 (right) and P(AMP)&gt;0.8 (left), respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f4.jpg"><alt-text>Fraction of generated peptides classified as positive by CAMPR4 classifiers (RF, SVM, ANN) at probability thresholds 0.5 and 0.8.</alt-text></graphic></fig></sec></sec><sec id="sec3e"><title>Comparison with state-of-the-art AMP design models</title><p>To further assess the potential of the proposed cdGAN model we compare it against state-of-the-art AMP design models, namely, AMPGAN [<xref rid="ref39" ref-type="bibr">39</xref>], HydrAMP [<xref rid="ref6" ref-type="bibr">6</xref>], and RLGen [<xref rid="ref7" ref-type="bibr">7</xref>]. AMPGAN uses bidirectional conditional GANs [<xref rid="ref40" ref-type="bibr">40</xref>], conditioning on diverse AMP attributes, such as pathogen specificity, mechanisms of action, and minimum inhibitory concentration (MIC), to tailor generated peptides. RLGen is a reinforcement learning-guided generative adversarial network (GAN) framework that leverages a thermodynamic diffusion process to better simulate AMP conformations, while HydrAMP leverages conditional variational auto-encoders [<xref rid="ref41" ref-type="bibr">41</xref>] to generate peptides based on properties like antimicrobial activity and MIC.</p><p>The sequence similarity metric presented in <xref rid="TB2" ref-type="table">Table 5</xref> reveals that HydrAMP achieves the lowest similarity (21.7%), outperforming even the real data (22.9%) and indicating its superior ability to generate highly diverse sequences. AMPGAN (26.8%) and cdGAN (27.4%) exhibit moderate levels of similarity, whereas RLGen performs the worst (36.9%), indicating reduced diversity in its generated sequences. In terms of the percentage of unique sequences, all models besides HydrAMP achieve no duplicated outputs.</p><table-wrap position="float" id="TB2" orientation="portrait"><label>Table 5</label><caption><p>Percentage of diversity and sequence similarity per model</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">In-between Sequence Similarity</th><th align="left" rowspan="1" colspan="1">Diversity</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Real data</td><td rowspan="1" colspan="1">22.9%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">AMPGAN</td><td rowspan="1" colspan="1">26.8%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">HydrAMP</td><td rowspan="1" colspan="1">
+<bold>21.7%</bold>
+</td><td rowspan="1" colspan="1">98.9%</td></tr><tr><td rowspan="1" colspan="1">RLGen</td><td rowspan="1" colspan="1">36.9%</td><td rowspan="1" colspan="1">100%</td></tr><tr><td rowspan="1" colspan="1">cdGAN (This work)</td><td rowspan="1" colspan="1">27.4%</td><td rowspan="1" colspan="1">100%</td></tr></tbody></table></table-wrap><p>The CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation66">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> predictive results provided in <xref rid="TB6" ref-type="table">Table 6</xref> show that cdGAN consistently outperforms all other models across all classifiers (RF, SVM, and ANN) highlighting the model’s ability to generate sequences that are both diverse and biologically relevant. <xref rid="f6" ref-type="fig">Figure 5</xref> demonstrates the number of sequences predicted as AMPs by all three classifiers, categorized by the thresholds P(AMP) &gt; 0.5 and P(AMP) &gt; 0.8. At both thresholds, cdGAN outperforms the other models by generating the highest number of predicted AMPs. However, under the stricter threshold, AMPGAN closely follows in performance.</p><table-wrap position="float" id="TB6" orientation="portrait"><label>Table 6</label><caption><p>Percentage of predicted AMPs with CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation67">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> platform equipped with Support Vector Machine (SVM), Random Forest (RF), and Artificial Neural Network (ANN) models for AMP prediction. The best performance per classifier is highlighted in bold, and the standard deviation is reported in parentheses</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th colspan="4" align="left" rowspan="1">CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation68">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> predictions</th></tr><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">RF</th><th align="left" rowspan="1" colspan="1">SVM</th><th align="left" rowspan="1" colspan="1">ANN</th><th align="left" rowspan="1" colspan="1">Average (std)</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">AMPGAN</td><td rowspan="1" colspan="1">64.6%</td><td rowspan="1" colspan="1">53.8%</td><td rowspan="1" colspan="1">56.6%</td><td rowspan="1" colspan="1">58.3% (4.5)</td></tr><tr><td rowspan="1" colspan="1">HydrAMP</td><td rowspan="1" colspan="1">58.8%</td><td rowspan="1" colspan="1">52.6%</td><td rowspan="1" colspan="1">32.9%</td><td rowspan="1" colspan="1">48.1% (11.0)</td></tr><tr><td rowspan="1" colspan="1">RLGen</td><td rowspan="1" colspan="1">34.7%</td><td rowspan="1" colspan="1">21.1%</td><td rowspan="1" colspan="1">21.7%</td><td rowspan="1" colspan="1">25.8% (6.2)</td></tr><tr><td rowspan="1" colspan="1">cdGAN (This work)</td><td rowspan="1" colspan="1">
+<bold>75.8%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>68.6%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>70.5%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>71.6% (3.0)</bold>
+</td></tr></tbody></table></table-wrap><fig position="float" id="f6" orientation="portrait"><label>Figure 5</label><caption><p>Fraction of generated peptides classified as positive by every classifier of CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation69">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> (RF, SVM, and ANN) with probabilities P(AMP)&gt;0.5 (right) and P(AMP)&gt;0.8 (left), respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f5.jpg"><alt-text>Fraction of generated peptides classified as positive by CAMPR4 classifiers (RF, SVM, ANN) at probability thresholds 0.5 and 0.8.</alt-text></graphic></fig><p>This analysis highlights that cdGAN and AMPGAN are the leading models in generating predicted AMPs with high confidence. cdGAN demonstrates an advantage in generating sequences under broader confidence criteria, while AMPGAN remains competitive at stricter thresholds. HydrAMP and RLGen, in contrast, face challenges in producing sequences that consistently meet high-confidence criteria.</p><sec id="sec3e1"><title>Physicochemical properties and amino acid composition</title><p>To evaluate the quality and functional relevance of the generated peptides, we analysed four physicochemical properties [<xref rid="ref42" ref-type="bibr">42</xref>] of AMP sequences with P(AMP) &gt; 0.8 across all classifiers, for each model. Particularly, we evaluate the distribution of charge, isoelectric point (pI), aromaticity, and hydrophobicity ratio. The charge of AMPs plays a crucial role in their interaction with microbial membranes, and the distribution of charge among the generated sequences provides important insights into how well the models replicate this fundamental characteristic. The isoelectric point (pI) distribution, at physiological pH, for the real data has a wide distribution of pI values, with a median around 10, reflecting the prevalence of cationic peptides among AMPs, a key feature for membrane-targeting functionality. Aromaticity is also a crucial feature in AMPs as it can influence their interaction with microbial membranes and overall efficacy. Finally, hydrophobicity is a key factor in shaping the functional properties of AMPs, as it affects their interaction with microbial membranes.</p><p>The violin plots in <xref rid="f2" ref-type="fig">Fig. 6</xref> present the distribution of these four physicochemical properties for AMP sequences with a predicted confidence of <inline-formula><tex-math notation="LaTeX" id="ImEquation70">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$P(AMP)&gt; 0.8$\end{document}</tex-math></inline-formula>. The properties of sequences generated by the cdGAN model are compared against real data, random data, AMPGAN, HydrAMP, and RLGen. Statistical significance was evaluated using the two-sided Mann–Whitney–Wilcoxon test [<xref rid="ref43" ref-type="bibr">43</xref>], a non-parametric method suitable for comparing independent samples without assuming normality. No multiple testing corrections were applied, as the number of statistical comparisons was limited.</p><fig position="float" id="f2" orientation="portrait"><label>Figure 6</label><caption><p>Distribution of physicochemical features such as charge, isoelectric point, aromaticity, and hydrophobicity, of real, random, and generated data per model. Statistical significance was evaluated using the two-sided Mann–Whitney–Wilcoxon test, with p-values denoted as: ns for non-significant values (<inline-formula><tex-math notation="LaTeX" id="ImEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$p&gt; 0.05$\end{document}</tex-math></inline-formula>), <inline-formula><tex-math notation="LaTeX" id="ImEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{*} (p \le 0.05)$\end{document}</tex-math></inline-formula> indicating a modest level of significance, <inline-formula><tex-math notation="LaTeX" id="ImEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{**}(p \le 0.01)$\end{document}</tex-math></inline-formula> indicating stronger significance, <inline-formula><tex-math notation="LaTeX" id="ImEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{***} (p \le 0.001)$\end{document}</tex-math></inline-formula> indicating very strong significance, and <inline-formula><tex-math notation="LaTeX" id="ImEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{****} (p \le 0.0001)$\end{document}</tex-math></inline-formula> indicating the highest level of significance.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f6.jpg"><alt-text>Distribution of physicochemical features (charge, isoelectric point, aromaticity, hydrophobicity) for real, random, and generated data with significance testing.</alt-text></graphic></fig><p>As presented, the distribution of physicochemical features reveals that cdGAN-generated sequences most closely resemble real AMPs. For charge and pI, cdGAN produces distributions that, while statistically different from real data (p <inline-formula><tex-math notation="LaTeX" id="ImEquation71">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\le $\end{document}</tex-math></inline-formula> 0.05 and p <inline-formula><tex-math notation="LaTeX" id="ImEquation72">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\le $\end{document}</tex-math></inline-formula> 0.001, respectively), are more balanced compared to other models.</p><p>In terms of aromaticity, cdGAN-generated peptides show a significant but moderate deviation from real data (p <inline-formula><tex-math notation="LaTeX" id="ImEquation73">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\le $\end{document}</tex-math></inline-formula> 0.01), while AMPGAN’s and RLGen’s results are not significantly different (ns), suggesting better alignment in this specific feature.</p><p>For hydrophobicity, cdGAN again demonstrates moderate deviations (p <inline-formula><tex-math notation="LaTeX" id="ImEquation74">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\le $\end{document}</tex-math></inline-formula> 0.01), whereas HydrAMP shows no significant difference from real data, and models like AMPGAN and RLGen exhibit more pronounced differences (p <inline-formula><tex-math notation="LaTeX" id="ImEquation75">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\le $\end{document}</tex-math></inline-formula> 0.0001), indicating less biologically relevant outputs.</p><p>Overall, while AMPGAN and HydrAMP demonstrate partial success in replicating specific physicochemical properties, cdGAN offers more balanced results across all features.</p></sec></sec></sec><sec id="sec4"><title>Multi-task cdGAN performance</title><p>To demonstrate the effectiveness of the proposed cdGAN model in multi-task design, we present a case study focused on the design of AMPs with specific <inline-formula><tex-math notation="LaTeX" id="ImEquation76">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structure. The ability to generate AMPs with desired structural properties is crucial for enhancing their efficacy and stability, contributing to the development of new therapeutic agents.</p><p>
+<xref rid="TB7" ref-type="table">Table 7</xref> provides the percentage of predicted AMPs with CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation77">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> platform, as well as the percentage of the helical structures predicted with the proposed classifier. The results show that both the single-task and multi-task cdGAN models yield relatively high AMP scores across all classifiers from the CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation78">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> platform. In particular, the multi-task cdGAN model consistently produces AMP sequences with an average score of 71.1%, with a standard deviation of 1.7%.</p><table-wrap position="float" id="TB7" orientation="portrait"><label>Table 7</label><caption><p>Percentage of predicted AMPs and <inline-formula><tex-math notation="LaTeX" id="ImEquation79">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structure. The standard deviation is reported in parentheses</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/><col span="6" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th colspan="4" align="left" rowspan="1">CAMP<inline-formula><tex-math notation="LaTeX" id="ImEquation80">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$_{R4}$\end{document}</tex-math></inline-formula> predictions</th><th align="left" rowspan="1" colspan="1">Helical structure prediction</th></tr><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">RF</th><th align="left" rowspan="1" colspan="1">SVM</th><th align="left" rowspan="1" colspan="1">ANN</th><th align="left" rowspan="1" colspan="1">Average</th><td rowspan="1" colspan="1"/></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/></tr></thead><tbody><tr><td rowspan="1" colspan="1">cdGAN (single-task)</td><td rowspan="1" colspan="1">75.8%</td><td rowspan="1" colspan="1">68.6%</td><td rowspan="1" colspan="1">70.5%</td><td rowspan="1" colspan="1">71.6% (3.0)</td><td rowspan="1" colspan="1">21.1%</td></tr><tr><td rowspan="1" colspan="1">cdGAN (multi-task)</td><td rowspan="1" colspan="1">73.4%</td><td rowspan="1" colspan="1">69.3%</td><td rowspan="1" colspan="1">70.6%</td><td rowspan="1" colspan="1">71.1% (1.7)</td><td rowspan="1" colspan="1">27.0%</td></tr></tbody></table></table-wrap><p>Moreover, the multi-task cdGAN outperforms the single-task cdGAN, achieving 27.0% helical content compared to 21.1% for the single-task version. This suggests that multi-task learning, by optimizing for both AMP activity and helical structure, leads to better generation of helical peptides. These results support the notion that multi-task models can better capture complex relationships between multiple properties.</p><p>To evaluate the dual-objective capability of each generative model considering a more realistic peptide design scenario, we first selected sequences classified as AMPs with a probability greater than 95% across all three classifiers of <inline-formula><tex-math notation="LaTeX" id="ImEquation81">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\text{CAMP}_{R4}$\end{document}</tex-math></inline-formula>. These sequences were subsequently evaluated for <inline-formula><tex-math notation="LaTeX" id="ImEquation82">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical content using our proprietary helix prediction classifier, retaining only those with a helix probability exceeding 95% as well. This stringent threshold ensures that only the most reliable and biologically meaningful candidates are selected for analysis, aligning with the ultimate goal of designing effective therapeutic agents.</p><p>The reason we rely on our helix prediction classifier, rather than other methods, is its higher accuracy compared to other related works that classify the structure of AMP sequences [<xref rid="ref32" ref-type="bibr">32</xref>]. Other existing generic classifiers for secondary structures lack the precision required for AMP validation and achieve lower performance, in general, [<xref rid="ref16" ref-type="bibr">16</xref>, <xref rid="ref29" ref-type="bibr">29–31</xref>]. By employing our classifier, we ensure that the validation of generated sequences aligns with the specialized requirements of AMP research, offering a robust and accurate assessment of their <inline-formula><tex-math notation="LaTeX" id="ImEquation83">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical content. The liability of our classifier is also validated with AlphaFold 3 [<xref rid="ref44" ref-type="bibr">44</xref>] server with the results depicted in <xref rid="f7" ref-type="fig">Fig. 8</xref>.</p><p>
+<xref rid="TB8" ref-type="table">Table 8</xref> offers insights into each model’s capability to generate sequences that are both AMP and possess a helical structure with high confidence (P(AMP&gt;0.95) and P(helix&gt;0.95)). As shown, AMPGAN demonstrates the highest count of sequences meeting both objectives. This notable performance likely stems from the fact that AMPGAN incorporates more biological knowledge into its design, enabling it to generate sequences that are not only likely to be AMPs but also possess the necessary structural characteristics, such as <inline-formula><tex-math notation="LaTeX" id="ImEquation84">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical content. In contrast, other models, including cGAN, ACGAN, FBGAN-ESM2, and HydrAMP, show a remarkably lower number of dual-objective sequences, with HydrAMP failing to generate any qualifying sequences. This underperformance could be attributed to differences in training objectives or architectural limitations that prevent these models from effectively capturing both AMP activity and <inline-formula><tex-math notation="LaTeX" id="ImEquation85">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structural features. RLGen performs slightly better, as its training on thermodynamic principles inherently considers the interdependence between amino acids, which indirectly incorporates structural information, but still falls short of expectations. The relatively limited performance of these models highlights the inherent challenges in designing generative frameworks capable of optimizing multiple complex properties simultaneously.</p><table-wrap position="float" id="TB8" orientation="portrait"><label>Table 8</label><caption><p>Number of sequences generated by each model that meet dual objectives of high AMP probability (P(AMP)&gt; 0.95) and high <inline-formula><tex-math notation="LaTeX" id="ImEquation86">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical content probability (P(helix)&gt; 0.95)</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/></colgroup><thead><tr><td rowspan="1" colspan="1"/><th align="left" rowspan="1" colspan="1">Number of sequences with P(AMP)&gt;0.95 and P(helix)&gt;0.95</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">GAN</td><td rowspan="1" colspan="1">1</td></tr><tr><td rowspan="1" colspan="1">cGAN</td><td rowspan="1" colspan="1">1</td></tr><tr><td rowspan="1" colspan="1">ACGAN</td><td rowspan="1" colspan="1">1</td></tr><tr><td rowspan="1" colspan="1">FBGAN-ESM2</td><td rowspan="1" colspan="1">2</td></tr><tr><td rowspan="1" colspan="1">AMPGAN</td><td rowspan="1" colspan="1">
+<bold>57</bold>
+</td></tr><tr><td rowspan="1" colspan="1">HydrAMP</td><td rowspan="1" colspan="1">0</td></tr><tr><td rowspan="1" colspan="1">RLGen</td><td rowspan="1" colspan="1">6</td></tr><tr><td rowspan="1" colspan="1">cdGAN (single-task)</td><td rowspan="1" colspan="1">10</td></tr><tr><td rowspan="1" colspan="1">cdGAN (multi-task)</td><td rowspan="1" colspan="1">21</td></tr></tbody></table></table-wrap><p>Considering the proposed cdGAN model, in its multi-task configuration, generates 21 sequences meeting the dual objectives, doubling the count achieved by its single-task counterpart that produces 10 sequences.</p><p>The toxicity of these top-scored sequences is also evaluated with ToxinPred 3.0 [<xref rid="ref10" ref-type="bibr">10</xref>] to assess their potential for therapeutic applications. Ideally, AMPs that are effective at fighting infections should also exhibit low toxicity to human cells, making them more suitable for development into safe and effective treatments [<xref rid="ref45" ref-type="bibr">45</xref>]. The results, presented in <xref rid="f8" ref-type="fig">Fig. 7</xref>, demonstrate that 95.2% of the sequences generated by the cdGAN model are non-toxic, compared to 80.7% for AMPGAN, indicating a significant improvement in safety. Similarly, the hemolytic potential of these sequences is assessed using the HemoPI tool [<xref rid="ref11" ref-type="bibr">11</xref>]. Hemolytic AMPs are less desirable for therapeutic use as they can damage red blood cells, posing a risk of hemolysis. The results show that 23.8% of the cdGAN-generated sequences are non-hemolytic, nearly twice as many as the 12.2% achieved by AMPGAN. Furthermore, 19.0% of the cdGAN sequences meet both criteria of being non-toxic and non-hemolytic, a marked improvement over the 8.7% achieved by AMPGAN. These results highlight the ability of cdGAN’s multi-task learning framework in generating sequences with lower predicted toxicity and hemolysis, making them better suited for therapeutic applications.</p><fig position="float" id="f8" orientation="portrait"><label>Figure 7.</label><caption><p>Performance of AMPGAN and cdGAN (multi-task) models based on the percentage of generated AMPs with <inline-formula><tex-math notation="LaTeX" id="ImEquation87">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$P(AMP)&gt;0.95$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation88">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$P(helix)&gt;0.95$\end{document}</tex-math></inline-formula>, which are non-toxic, non-hemolytic, and satisfy both the previous conditions.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f7.jpg"><alt-text>Performance of AMPGAN and cdGAN models by percentage of generated AMPs meeting high probability and safety criteria.</alt-text></graphic></fig><p>
+<xref rid="f7" ref-type="fig">Figure 8</xref> presents AlphaFold3 [<xref rid="ref44" ref-type="bibr">44</xref>] structural predictions for cdGAN-generated AMPs with high predicted antimicrobial activity (<inline-formula><tex-math notation="LaTeX" id="ImEquation89">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$P(\mathrm{AMP})&gt; 0.95$\end{document}</tex-math></inline-formula>) and strong <inline-formula><tex-math notation="LaTeX" id="ImEquation90">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical likelihood (<inline-formula><tex-math notation="LaTeX" id="ImEquation91">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$P(\mathrm{helix})&gt; 0.95$\end{document}</tex-math></inline-formula>). The per-residue local distance difference test (pLDDT) scores are exceptionally high across all cases (ranging from 80 to 95), demonstrating a high degree of confidence in the overall structural quality. The predicted Template Modeling (pTM) scores for the peptides range from 0.27 to 0.39. Although these are below the 0.5 threshold typically associated with high-confidence global folds, this is expected in de novo design, where the sequences are novel and not derived from known structural templates [<xref rid="ref46" ref-type="bibr">46</xref>]. These moderate scores suggest the peptides may adopt coherent, protein-like structures despite lacking homology to known proteins. However, the low pTM scores also reflect limited confidence in the predicted global folds, and these structural predictions should therefore be interpreted with caution.</p><fig position="float" id="f7" orientation="portrait"><label>Figure 8</label><caption><p>AlphaFold3 structural prediction of peptides generated by the cdGAN model, with probabilities P(AMP)&gt;0.95 and P(helix)&gt;0.95. The predicted Template Modeling (pTM) and per-residue local distance difference test (pLDDT) scores are also provided.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbaf500f8.jpg"><alt-text>AlphaFold3 structural predictions of cdGANgenerated peptides with high AMP and helix probabilities, showing pTM and pLDDT scores.</alt-text></graphic></fig></sec><sec id="sec5"><title>Discussion</title><p>The findings of this study highlight the multifaceted nature of AMP generation, emphasizing the balance between productivity, functional relevance, and physicochemical fidelity. Among the evaluated models, cdGAN emerges as a robust performer, excelling across multiple dimensions and achieving a balance that other models struggle to replicate.</p><p>The analysis of physicochemical properties further emphasizes cdGAN’s strengths. Its ability to replicate the charge and pI distributions of real AMPs, while maintaining hydrophobicity levels consistent with natural variability, reflects a nuanced understanding of AMP characteristics. This is statistically supported by the results of the Mann–Whitney–Wilcoxon test, where cdGAN-generated peptides demonstrated significant similarity to real data in terms of charge (<inline-formula><tex-math notation="LaTeX" id="ImEquation92">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$p \le 0.05$\end{document}</tex-math></inline-formula>) and hydrophobicity (<inline-formula><tex-math notation="LaTeX" id="ImEquation93">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$p \le 0.01$\end{document}</tex-math></inline-formula>). In contrast, AMPGAN and HydrAMP generate peptides with elevated charge profiles, suggesting a potential bias toward membrane-targeting functionality, which, while useful for specific applications, may limit the overall diversity. Similarly, RLGen showed statistically significant deviations (<inline-formula><tex-math notation="LaTeX" id="ImEquation94">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$p \le 0.0001$\end{document}</tex-math></inline-formula>) from real AMPs, exhibiting overly broad, misaligned property ranges. These findings underscore the importance of balancing functional optimization with fidelity to real AMP profiles, a challenge that cdGAN addresses effectively.</p><p>The multi-task learning framework employed by cdGAN demonstrates a clear advantage in optimizing for multiple objectives simultaneously. In its multi-task configuration, cdGAN produces a higher proportion of sequences exhibiting both AMP activity and <inline-formula><tex-math notation="LaTeX" id="ImEquation95">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structure, outperforming its single-task counterpart doubling the count of sequences meeting these dual objectives.</p><p>The toxicity and hemolytic analysis further underscores the therapeutic potential of multi-task cdGAN-generated peptides. Among high-confidence AMP sequences (<inline-formula><tex-math notation="LaTeX" id="ImEquation96">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$P(AMP)&gt; 0.8$\end{document}</tex-math></inline-formula>), 95.2% of the sequences generated by cdGAN are classified as non-toxic, compared to 80.7% for the competitive AMPGAN model. This represents a significant improvement in toxicity reduction, highlighting cdGAN’s superior ability to generate therapeutically viable peptides. Similarly, in the hemolysis analysis conducted with the HemoPI tool, nearly double of the cdGAN sequences were classified as non-hemolytic, compared to AMPGAN’s and more the double satisfied both criteria (non-toxic and non-hemolytic). These findings showcase cdGAN’s ability to balance structural functionality, therapeutic safety, and biological relevance.</p><p>The structural predictions utilizing AlphaFold3 further emphasize the capabilities of the multi-task cdGAN model in generating de novo AMPs. Specifically, the exceptionally high per-residue local distance difference test (pLDDT) scores (<inline-formula><tex-math notation="LaTeX" id="ImEquation97">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$&gt;90$\end{document}</tex-math></inline-formula>) indicate a high degree of confidence in the structural predictions. Additionally, the predicted Template Modeling (pTM) scores, ranging from 0.27 to 0.39, are consistent with the expectations for de novo design, where the sequences are not based on existing structural templates. These results validate the model’s ability to generate peptides with <inline-formula><tex-math notation="LaTeX" id="ImEquation98">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical structure, which is essential for membrane disruption and antimicrobial efficacy.</p><p>In summary, while models like AMPGAN, HydrAMP, and RLGen demonstrate strengths in specific aspects, they fail to replicate the comprehensive balance achieved by cdGAN. The ability of cdGAN to simultaneously optimize for antimicrobial activity, structural relevance, physicochemical fidelity, toxicity, and hemolytic potential underscores its versatility and effectiveness as a design tool for therapeutic peptide discovery.</p><boxed-text id="box01" position="float" orientation="portrait"><sec id="sec50z"><title>Key Points</title><list list-type="bullet"><list-item><p>A classifier-driven GAN framework (cdGAN), which integrates classifier predictions directly into the loss function, allowing for dynamic and adaptive AMP generation.</p></list-item><list-item><p>Extension of cdGAN to a multi-task setting, incorporating both antimicrobial activity and structural optimization using a novel ESM2-based multi-task classifier.</p></list-item><list-item><p>Enhance peptide safety by performing post-generation toxicity and hemolysis screening, ensuring that generated peptides are both effective and viable for therapeutic applications.</p></list-item></list></sec></boxed-text></sec><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material id="sup1" position="float" content-type="local-data" orientation="portrait"><label>supplementary_revised_bbaf500</label><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="supplementary_revised_bbaf500.pdf" position="float" orientation="portrait"/></supplementary-material></sec></body><back><sec id="sec50b"><p>Conflict of interest: We declare that we have no conflicts of interest related to this publication.</p></sec><sec id="sec50c"><title>Funding</title><p>This work has been supported by the TITAN ERA Chair project (contract no. 101086741) within the Horizon Europe Framework Program of the European Commission and the Hellenic Foundation for Research and Innovation (HFRI) Ph.D. Fellowship grant no. 5647.</p></sec><sec sec-type="data-availability" id="sec50d"><title>Data availability</title><p>The datasets and code used in this study are publicly available at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/aretiz/amp_de_novo_design_cdGAN" ext-link-type="uri">https://github.com/aretiz/amp_de_novo_design_cdGAN</ext-link>.</p></sec><ref-list id="bib1"><title>References</title><ref id="ref1"><label>1</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Somase</surname>  <given-names>V</given-names></string-name>, <string-name name-style="western"><surname>Desai</surname>  <given-names>SA</given-names></string-name>, <string-name name-style="western"><surname>Patel</surname>  <given-names>VP</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Antimicrobial peptides: Potential alternative to antibiotics and overcoming limitations for future therapeutic applications</article-title>. <source><italic toggle="yes">Int J Pept Res Ther</italic></source>  <year>2024</year>;<volume>30</volume>:<fpage>45</fpage>.</mixed-citation></ref><ref id="ref2"><label>2</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kumar</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Kizhakkedathu</surname>  <given-names>JN</given-names></string-name>, <string-name name-style="western"><surname>Straus</surname>  <given-names>SK</given-names></string-name></person-group>. <article-title>Antimicrobial peptides: diversity, mechanism of action and strategies to improve the activity and biocompatibility in vivo</article-title>. <source><italic toggle="yes">Biomolecules</italic></source>  <year>2018</year>;<volume>8</volume>:<fpage>4</fpage>.<pub-id pub-id-type="pmid">29351202</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/biom8010004</pub-id><pub-id pub-id-type="pmcid">PMC5871973</pub-id></mixed-citation></ref><ref id="ref3"><label>3</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Giuliani</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Pirri</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Nicoletto</surname>  <given-names>S</given-names></string-name></person-group>. <article-title>Antimicrobial peptides: an overview of a promising class of therapeutics</article-title>. <source><italic toggle="yes">Open Life Sci</italic></source>  <year>2007</year>;<volume>2</volume>:<fpage>1</fpage>–<lpage>33</lpage>. <pub-id pub-id-type="doi">10.2478/s11535-007-0010-5</pub-id></mixed-citation></ref><ref id="ref4"><label>4</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Dijksteel</surname>  <given-names>GS</given-names></string-name>, <string-name name-style="western"><surname>Ulrich</surname>  <given-names>MMW</given-names></string-name>, <string-name name-style="western"><surname>Middelkoop</surname>  <given-names>E</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Lessons learned from clinical trials using antimicrobial peptides (amps)</article-title>. <source><italic toggle="yes">Front Microbiol</italic></source>  <year>2021</year>;<volume>12</volume>:<fpage>616979</fpage>. <pub-id pub-id-type="doi">10.3389/fmicb.2021.616979</pub-id><pub-id pub-id-type="pmid">33692766</pub-id>
+<pub-id pub-id-type="pmcid">PMC7937881</pub-id></mixed-citation></ref><ref id="ref5"><label>5</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Gupta</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Zou</surname>  <given-names>J</given-names></string-name></person-group>. <article-title>Feedback GAN for DNA optimizes protein functions</article-title>. <source><italic toggle="yes">Nat Mach Intell</italic></source>  <year>2019</year>;<volume>1</volume>:<fpage>105</fpage>–<lpage>11</lpage>. <pub-id pub-id-type="doi">10.1038/s42256-019-0017-4</pub-id></mixed-citation></ref><ref id="ref6"><label>6</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Szymczak</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Możejko</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Grzegorzek</surname>  <given-names>T</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Discovering highly potent antimicrobial peptides with deep generative model hydramp</article-title>. <source><italic toggle="yes">Nat Commun</italic></source>  <year>2023</year>;<volume>14</volume>:<fpage>1453</fpage>. <pub-id pub-id-type="doi">10.1038/s41467-023-36994-z</pub-id><pub-id pub-id-type="pmid">36922490</pub-id>
+<pub-id pub-id-type="pmcid">PMC10017685</pub-id></mixed-citation></ref><ref id="ref7"><label>7</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>T</given-names></string-name>, <string-name name-style="western"><surname>Zhuo</surname>  <given-names>L</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Diff-amp: tailored designed antimicrobial peptide framework with all-in-one generation, identification, prediction and optimization</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source>  <year>2024</year>;<volume>25</volume>:<fpage>bbae078</fpage>.<pub-id pub-id-type="pmid">38446739</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbae078</pub-id><pub-id pub-id-type="pmcid">PMC10939340</pub-id></mixed-citation></ref><ref id="ref8"><label>8</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zervou</surname>  <given-names>MA</given-names></string-name>, <string-name name-style="western"><surname>Doutsi</surname>  <given-names>E</given-names></string-name>, <string-name name-style="western"><surname>Pantazis</surname>  <given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>De novo antimicrobial peptide design with feedback generative adversarial networks</article-title>. <source><italic toggle="yes">Int J Mol Sci</italic></source>  <year>2024</year>;<volume>25</volume>:<fpage>5506</fpage>. <pub-id pub-id-type="doi">10.3390/ijms25105506</pub-id><pub-id pub-id-type="pmid">38791544</pub-id>
+<pub-id pub-id-type="pmcid">PMC11122239</pub-id></mixed-citation></ref><ref id="ref9"><label>9</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lin</surname>  <given-names>Z</given-names></string-name>, <string-name name-style="western"><surname>Akin</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Rao</surname>  <given-names>R</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Evolutionary-scale prediction of atomic-level protein structure with a language model</article-title>. <source><italic toggle="yes">Science</italic></source>  <year>2023</year>;<volume>379</volume>:<fpage>1123</fpage>–<lpage>30</lpage>. <pub-id pub-id-type="doi">10.1126/science.ade2574</pub-id><pub-id pub-id-type="pmid">36927031</pub-id>
+</mixed-citation></ref><ref id="ref10"><label>10</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Rathore</surname>  <given-names>AS</given-names></string-name>, <string-name name-style="western"><surname>Choudhury</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Arora</surname>  <given-names>A</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Toxinpred 3.0: an improved method for predicting the toxicity of peptides</article-title>. <source><italic toggle="yes">Comput Biol Med</italic></source>  <year>2024</year>;<volume>179</volume>:<fpage>108926</fpage>. <pub-id pub-id-type="doi">10.1016/j.compbiomed.2024.108926</pub-id><pub-id pub-id-type="pmid">39038391</pub-id>
+</mixed-citation></ref><ref id="ref11"><label>11</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chaudhary</surname>  <given-names>K</given-names></string-name>, <string-name name-style="western"><surname>Kumar</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Singh</surname>  <given-names>S</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>A web server and mobile app for computing hemolytic potency of peptides</article-title>. <source><italic toggle="yes">Sci Rep</italic></source>  <year>2016</year>;<volume>6</volume>:<fpage>22843</fpage>. <pub-id pub-id-type="doi">10.1038/srep22843</pub-id><pub-id pub-id-type="pmid">26953092</pub-id>
+<pub-id pub-id-type="pmcid">PMC4782144</pub-id></mixed-citation></ref><ref id="ref12"><label>12</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>Z</given-names></string-name></person-group>. <article-title>Apd3: the antimicrobial peptide database as a tool for research and education</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2016</year>;<volume>44</volume>:<fpage>D1087</fpage>–<lpage>93</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkv1278</pub-id><pub-id pub-id-type="pmid">26602694</pub-id>
+<pub-id pub-id-type="pmcid">PMC4702905</pub-id></mixed-citation></ref><ref id="ref13"><label>13</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<collab>UniProt Consortium</collab>
+</person-group>. <article-title>Uniprot: a worldwide hub of protein knowledge</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2019</year>;<volume>47</volume>:<fpage>D506</fpage>–<lpage>15</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gky1049</pub-id><pub-id pub-id-type="pmid">30395287</pub-id>
+<pub-id pub-id-type="pmcid">PMC6323992</pub-id></mixed-citation></ref><ref id="ref14"><label>14</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Steinegger</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Söding</surname>  <given-names>J</given-names></string-name></person-group>. <article-title>Mmseqs2 enables sensitive protein sequence searching for the analysis of massive data sets</article-title>. <source><italic toggle="yes">Nat Biotechnol</italic></source>  <year>2017</year>;<volume>35</volume>:<fpage>1026</fpage>–<lpage>8</lpage>. <pub-id pub-id-type="doi">10.1038/nbt.3988</pub-id><pub-id pub-id-type="pmid">29035372</pub-id>
+</mixed-citation></ref><ref id="ref15"><label>15</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Likic</surname>  <given-names>V</given-names></string-name>
+</person-group>. <article-title>The Needleman–Wunsch algorithm for sequence alignment</article-title>. In: <source>Lecture Given at the 7th Melbourne Bioinformatics Course, Bi021 Molecular Science and Biotechnology Institute</source>, pp. <fpage>1</fpage>–<lpage>46</lpage>. <publisher-name>University of Melbourne</publisher-name>, <year>2008</year>.</mixed-citation></ref><ref id="ref16"><label>16</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Torrisi</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Kaleel</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Pollastri</surname>  <given-names>G</given-names></string-name></person-group>. <article-title>Deeper profiles and cascaded recurrent and convolutional neural networks for state-of-the-art protein secondary structure prediction</article-title>. <source><italic toggle="yes">Sci Rep</italic></source>  <year>2019</year>;<volume>9</volume>:<fpage>12374</fpage>. <pub-id pub-id-type="doi">10.1038/s41598-019-48786-x</pub-id><pub-id pub-id-type="pmid">31451723</pub-id>
+<pub-id pub-id-type="pmcid">PMC6710256</pub-id></mixed-citation></ref><ref id="ref17"><label>17</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Parvathy</surname>  <given-names>ST</given-names></string-name>, <string-name name-style="western"><surname>Udayasuriyan</surname>  <given-names>V</given-names></string-name>, <string-name name-style="western"><surname>Bhadana</surname>  <given-names>V</given-names></string-name></person-group>. <article-title>Codon usage bias</article-title>. <source><italic toggle="yes">Mol Biol Rep</italic></source>  <year>2022</year>;<volume>49</volume>:<fpage>539</fpage>–<lpage>65</lpage>. <pub-id pub-id-type="doi">10.1007/s11033-021-06749-4</pub-id><pub-id pub-id-type="pmid">34822069</pub-id>
+<pub-id pub-id-type="pmcid">PMC8613526</pub-id></mixed-citation></ref><ref id="ref18"><label>18</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chaney</surname>  <given-names>JL</given-names></string-name>, <string-name name-style="western"><surname>Steele</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Carmichael</surname>  <given-names>R</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Widespread position-specific conservation of synonymous rare codons within coding sequences</article-title>. <source><italic toggle="yes">PLoS Comput Biol</italic></source>  <year>2017</year>;<volume>13</volume>:<fpage>e1005531</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pcbi.1005531</pub-id><pub-id pub-id-type="pmid">28475588</pub-id>
+<pub-id pub-id-type="pmcid">PMC5438181</pub-id></mixed-citation></ref><ref id="ref19"><label>19</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Gulrajani</surname>  <given-names>I</given-names></string-name>, <string-name name-style="western"><surname>Ahmed</surname>  <given-names>F</given-names></string-name>, <string-name name-style="western"><surname>Arjovsky</surname>  <given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Improved training of Wasserstein gans</article-title>. <source><italic toggle="yes">Adv Neural Inf Process Syst</italic></source>  <year>2017</year>;<volume>30</volume>.</mixed-citation></ref><ref id="ref20"><label>20</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Arjovsky</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Chintala</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Bottou</surname>  <given-names>L</given-names></string-name></person-group>. <article-title>Wasserstein generative adversarial networks</article-title>. In: <source>International Conference on Machine Learning</source>, pp. <fpage>214</fpage>–<lpage>23</lpage>. <publisher-name>PMLR</publisher-name>, <year>2017</year>.</mixed-citation></ref><ref id="ref21"><label>21</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Mirza</surname>  <given-names>M</given-names></string-name>
+</person-group>. <article-title>Conditional generative adversarial nets</article-title>. <comment>arXiv preprint arXiv:1411.1784</comment>. <year>2014</year>.</mixed-citation></ref><ref id="ref22"><label>22</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Odena</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Olah</surname>  <given-names>C</given-names></string-name>, <string-name name-style="western"><surname>Shlens</surname>  <given-names>J</given-names></string-name></person-group>. <article-title>Conditional image synthesis with auxiliary classifier gans</article-title>. In: <source>International Conference on Machine Learning</source>, pp. <fpage>2642</fpage>–<lpage>51</lpage>. <publisher-name>PMLR</publisher-name>, <year>2017</year>.</mixed-citation></ref><ref id="ref23"><label>23</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">Georgoulis E, Zervou MA, Pantazis Y.</string-name>
+</person-group> Transfer Learning on Protein Language Models Improves Antimicrobial Peptide Classification, Preprint, Research Square, <pub-id pub-id-type="doi">10.21203/rs.3.rs-5768912/v1</pub-id></mixed-citation></ref><ref id="ref24"><label>24</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Mookherjee</surname>  <given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Anderson</surname>  <given-names>MA</given-names></string-name>, <string-name name-style="western"><surname>Haagsman</surname>  <given-names>HP</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Antimicrobial host defence peptides: functions and clinical potential</article-title>. <source><italic toggle="yes">Nat Rev Drug Discov</italic></source>  <year>2020</year>;<volume>19</volume>:<fpage>311</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1038/s41573-019-0058-8</pub-id><pub-id pub-id-type="pmid">32107480</pub-id>
+</mixed-citation></ref><ref id="ref25"><label>25</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bhadra</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Yan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>J</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Ampep: sequence-based prediction of antimicrobial peptides using distribution patterns of amino acid properties and random forest</article-title>. <source><italic toggle="yes">Sci Rep</italic></source>  <year>2018</year>;<volume>8</volume>:<fpage>1697</fpage>.<pub-id pub-id-type="pmid">29374199</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-018-19752-w</pub-id><pub-id pub-id-type="pmcid">PMC5785966</pub-id></mixed-citation></ref><ref id="ref26"><label>26</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Chung</surname>  <given-names>C-R</given-names></string-name>, <string-name name-style="western"><surname>Kuo</surname>  <given-names>T-R</given-names></string-name>, <string-name name-style="western"><surname>Li-Ching</surname>  <given-names>W</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Characterization and identification of antimicrobial peptides with different functional activities</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source>  <year>2020</year>;<volume>21</volume>:<fpage>1098</fpage>–<lpage>114</lpage>. <pub-id pub-id-type="doi">10.1093/bib/bbz043</pub-id><pub-id pub-id-type="pmid">31155657</pub-id></mixed-citation></ref><ref id="ref27"><label>27</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lawrence</surname>  <given-names>TJ</given-names></string-name>, <string-name name-style="western"><surname>Carper</surname>  <given-names>DL</given-names></string-name>, <string-name name-style="western"><surname>Spangler</surname>  <given-names>MK</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Ampeppy 1.0: a portable and accurate antimicrobial peptide prediction tool</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source>  <year>2021</year>;<volume>37</volume>:<fpage>2058</fpage>–<lpage>60</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btaa917</pub-id><pub-id pub-id-type="pmid">33135060</pub-id>
+</mixed-citation></ref><ref id="ref28"><label>28</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yan</surname>  <given-names>K</given-names></string-name>, <string-name name-style="western"><surname>Lv</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Guo</surname>  <given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Samppred-gat: prediction of antimicrobial peptide by graph attention network and predicted peptide structure</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source>  <year>2023</year>;<volume>39</volume>:<fpage>btac715</fpage>.<pub-id pub-id-type="pmid">36342186</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btac715</pub-id><pub-id pub-id-type="pmcid">PMC9805557</pub-id></mixed-citation></ref><ref id="ref29"><label>29</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zervou</surname>  <given-names>MA</given-names></string-name>, <string-name name-style="western"><surname>Doutsi</surname>  <given-names>E</given-names></string-name>, <string-name name-style="western"><surname>Tsakalides</surname>  <given-names>P</given-names></string-name></person-group>. <article-title>Efficient protein structural class prediction via chaos game representation and recurrent neural networks</article-title>. In: <source>ICASSP 2023–2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</source>, pp. <fpage>1</fpage>–<lpage>5</lpage>. <publisher-name>IEEE</publisher-name>, <year>2023</year>.</mixed-citation></ref><ref id="ref30"><label>30</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zervou</surname>  <given-names>MA</given-names></string-name>, <string-name name-style="western"><surname>Doutsi</surname>  <given-names>E</given-names></string-name>, <string-name name-style="western"><surname>Pavlidis</surname>  <given-names>P</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Structural classification of proteins based on the computationally efficient recurrence quantification analysis and horizontal visibility graphs</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source>  <year>2021</year>;<volume>37</volume>:<fpage>1796</fpage>–<lpage>804</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btab407</pub-id><pub-id pub-id-type="pmid">34048559</pub-id>
+</mixed-citation></ref><ref id="ref31"><label>31</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Panda</surname>  <given-names>B</given-names></string-name>, <string-name name-style="western"><surname>Majhi</surname>  <given-names>B</given-names></string-name></person-group>. <article-title>A novel improved prediction of protein structural class using deep recurrent neural network</article-title>. <source><italic toggle="yes">Evol Intell</italic></source>  <year>2021</year>;<volume>14</volume>:<fpage>253</fpage>–<lpage>60</lpage>. <pub-id pub-id-type="doi">10.1007/s12065-018-0171-3</pub-id></mixed-citation></ref><ref id="ref32"><label>32</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zervou</surname>  <given-names>MA</given-names></string-name>, <string-name name-style="western"><surname>Doutsi</surname>  <given-names>E</given-names></string-name>, <string-name name-style="western"><surname>Pantazis</surname>  <given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Multitask classification of antimicrobial peptides for simultaneous assessment of antimicrobial property and structural fold</article-title>. In: <source>ICASSP 2024–2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</source>, pp. <fpage>1836</fpage>–<lpage>40</lpage>. <publisher-name>IEEE</publisher-name>, <year>2024</year>.</mixed-citation></ref><ref id="ref33"><label>33</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jing</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>F</given-names></string-name>, <string-name name-style="western"><surname>Leier</surname>  <given-names>A</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Comprehensive assessment of machine learning-based methods for predicting antimicrobial peptides</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source>  <year>2021</year>;<volume>22</volume>:<fpage>bbab083</fpage>. <pub-id pub-id-type="doi">10.1093/bib/bbab083</pub-id><pub-id pub-id-type="pmid">33774670</pub-id>
+</mixed-citation></ref><ref id="ref34"><label>34</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Gawde</surname>  <given-names>U</given-names></string-name>, <string-name name-style="western"><surname>Chakraborty</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Waghu</surname>  <given-names>FH</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Campr4: a database of natural and synthetic antimicrobial peptides</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2023</year>;<volume>51</volume>:<fpage>D377</fpage>–<lpage>83</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkac933</pub-id><pub-id pub-id-type="pmid">36370097</pub-id>
+<pub-id pub-id-type="pmcid">PMC9825550</pub-id></mixed-citation></ref><ref id="ref35"><label>35</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jhong</surname>  <given-names>J-H</given-names></string-name>, <string-name name-style="western"><surname>Chi</surname>  <given-names>Y-H</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>W-C</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Dbamp: an integrated resource for exploring antimicrobial peptides with functional activities and physicochemical properties on transcriptome and proteome data</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2019</year>;<volume>47</volume>:<fpage>D285</fpage>–<lpage>97</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gky1030</pub-id><pub-id pub-id-type="pmid">30380085</pub-id>
+<pub-id pub-id-type="pmcid">PMC6323920</pub-id></mixed-citation></ref><ref id="ref36"><label>36</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kang</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Dong</surname>  <given-names>F</given-names></string-name>, <string-name name-style="western"><surname>Shi</surname>  <given-names>C</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Dramp 2.0, an updated data repository of antimicrobial peptides</article-title>. <source><italic toggle="yes">Sci Data</italic></source>  <year>2019</year>;<volume>6</volume>:<fpage>148</fpage>. <pub-id pub-id-type="doi">10.1038/s41597-019-0154-y</pub-id><pub-id pub-id-type="pmid">31409791</pub-id>
+<pub-id pub-id-type="pmcid">PMC6692298</pub-id></mixed-citation></ref><ref id="ref37"><label>37</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ye</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Wu</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Huang</surname>  <given-names>J</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Lamp2: a major update of the database linking antimicrobial peptides</article-title>. <source><italic toggle="yes">Database</italic></source>  <year>2020</year>;<volume>2020</volume>:<fpage>baaa061</fpage>.<pub-id pub-id-type="pmid">32844169</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/database/baaa061</pub-id><pub-id pub-id-type="pmcid">PMC7447557</pub-id></mixed-citation></ref><ref id="ref38"><label>38</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Piotto</surname>  <given-names>SP</given-names></string-name>, <string-name name-style="western"><surname>Sessa</surname>  <given-names>L</given-names></string-name>, <string-name name-style="western"><surname>Concilio</surname>  <given-names>S</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Yadamp: yet another database of antimicrobial peptides</article-title>. <source><italic toggle="yes">Int J Antimicrob Agents</italic></source>  <year>2012</year>;<volume>39</volume>:<fpage>346</fpage>–<lpage>51</lpage>. <pub-id pub-id-type="doi">10.1016/j.ijantimicag.2011.12.003</pub-id><pub-id pub-id-type="pmid">22325123</pub-id>
+</mixed-citation></ref><ref id="ref39"><label>39</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Van Oort</surname>  <given-names>CM</given-names></string-name>, <string-name name-style="western"><surname>Ferrell</surname>  <given-names>JB</given-names></string-name>, <string-name name-style="western"><surname>Remington</surname>  <given-names>JM</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Ampgan v2: machine learning-guided design of antimicrobial peptides</article-title>. <source><italic toggle="yes">J Chem Inf Model</italic></source>  <year>2021</year>;<volume>61</volume>:<fpage>2198</fpage>–<lpage>207</lpage>. <pub-id pub-id-type="doi">10.1021/acs.jcim.0c01441</pub-id><pub-id pub-id-type="pmid">33787250</pub-id>
+<pub-id pub-id-type="pmcid">PMC8281497</pub-id></mixed-citation></ref><ref id="ref40"><label>40</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">Jaiswal A, AbdAlmageed W, Wu Y.</string-name>  <etal>et al.</etal></person-group> Bidirectional conditional generative adversarial networks. In Jawahar CV, Li H, Mori G, Schindler K (Eds.), <source>Asian Conference on Computer Vision</source> (pp. 216–232). Cham: Springer International Publishing.</mixed-citation></ref><ref id="ref41"><label>41</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kingma</surname>  <given-names>DP</given-names></string-name>, <string-name name-style="western"><surname>Mohamed</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Rezende</surname>  <given-names>DJ</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Semi-supervised learning with deep generative models</article-title>. <source><italic toggle="yes">Adv Neural Inf Process Syst</italic></source>  <year>2014</year>;<volume>27</volume>.</mixed-citation></ref><ref id="ref42"><label>42</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kang</surname>  <given-names>S-J</given-names></string-name>, <string-name name-style="western"><surname>Kim</surname>  <given-names>D-H</given-names></string-name>, <string-name name-style="western"><surname>Mishig-Ochir</surname>  <given-names>T</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Antimicrobial peptides: their physicochemical properties and therapeutic application</article-title>. <source><italic toggle="yes">Arch Pharm Res</italic></source>  <year>2012</year>;<volume>35</volume>:<fpage>409</fpage>–<lpage>13</lpage>. <pub-id pub-id-type="doi">10.1007/s12272-012-0302-9</pub-id><pub-id pub-id-type="pmid">22477186</pub-id>
+</mixed-citation></ref><ref id="ref43"><label>43</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Mann</surname>  <given-names>HB</given-names></string-name>, <string-name name-style="western"><surname>Whitney</surname>  <given-names>DR</given-names></string-name></person-group>. <article-title>On a test of whether one of two random variables is stochastically larger than the other</article-title>. <source><italic toggle="yes">Ann Math Stat</italic></source>  <year>1947</year>;<volume>18</volume>:<fpage>50</fpage>–<lpage>60</lpage>. <pub-id pub-id-type="doi">10.1214/aoms/1177730491</pub-id></mixed-citation></ref><ref id="ref44"><label>44</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">Abramson J, Adler J, Dunger J.</string-name>  <etal>et al.</etal></person-group> Accurate structure prediction of biomolecular interactions with alphafold 3. <source>Nature</source> 2024;<volume>l630</volume>:493–500.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-024-07487-w</pub-id><pub-id pub-id-type="pmcid">PMC11168924</pub-id><pub-id pub-id-type="pmid">38718835</pub-id></mixed-citation></ref><ref id="ref45"><label>45</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zhang</surname>  <given-names>Q-Y</given-names></string-name>, <string-name name-style="western"><surname>Yan</surname>  <given-names>Z-B</given-names></string-name>, <string-name name-style="western"><surname>Meng</surname>  <given-names>Y-M</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Antimicrobial peptides: mechanism of action, activity and clinical potential</article-title>. <source><italic toggle="yes">Mil Med Res</italic></source>  <year>2021</year>;<volume>8</volume>:<fpage>1</fpage>–<lpage>25</lpage>.<pub-id pub-id-type="pmid">34496967</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s40779-021-00343-2</pub-id><pub-id pub-id-type="pmcid">PMC8425997</pub-id></mixed-citation></ref><ref id="ref46"><label>46</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jumper</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Evans</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Pritzel</surname>  <given-names>A</given-names></string-name>. <etal>et al.</etal></person-group>  <article-title>Highly accurate protein structure prediction with alphafold</article-title>. <source><italic toggle="yes">Nature</italic></source>  <year>2021</year>;<volume>596</volume>:<fpage>583</fpage>–<lpage>9</lpage>. <pub-id pub-id-type="doi">10.1038/s41586-021-03819-2</pub-id><pub-id pub-id-type="pmid">34265844</pub-id>
+<pub-id pub-id-type="pmcid">PMC8371605</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

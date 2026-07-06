@@ -1,0 +1,1026 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">PeerJ</journal-id><journal-id journal-id-type="iso-abbrev">PeerJ</journal-id><journal-id journal-id-type="pmc-domain-id">2057</journal-id><journal-id journal-id-type="pmc-domain">peerj</journal-id><journal-id journal-id-type="nlm-id">101603425</journal-id><journal-id journal-id-type="publisher-id">peerj</journal-id><journal-title-group><journal-title>PeerJ</journal-title></journal-title-group><issn pub-type="epub">2167-8359</issn><publisher><publisher-name>PeerJ, Inc</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC11262304</article-id><article-id pub-id-type="pmcid-ver">PMC11262304.1</article-id><article-id pub-id-type="pmcaid">11262304</article-id><article-id pub-id-type="pmcaiid">11262304</article-id><article-id pub-id-type="pmid">39040937</article-id><article-id pub-id-type="doi">10.7717/peerj.17729</article-id><article-id pub-id-type="publisher-id">17729</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Bioinformatics</subject></subj-group><subj-group subj-group-type="heading"><subject>Computational Biology</subject></subj-group><subj-group subj-group-type="heading"><subject>Computational Science</subject></subj-group><subj-group subj-group-type="heading"><subject>Data Mining and Machine Learning</subject></subj-group></article-categories><title-group><article-title>deepAMPNet: a novel antimicrobial peptide predictor employing AlphaFold2 predicted structures and a bi-directional long short-term memory protein language model</article-title></title-group><contrib-group><contrib id="author-1" contrib-type="author"><name name-style="western"><surname>Zhao</surname><given-names initials="F">Fei</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-2" contrib-type="author"><name name-style="western"><surname>Qiu</surname><given-names initials="J">Junhui</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-3" contrib-type="author"><name name-style="western"><surname>Xiang</surname><given-names initials="D">Dongyou</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-4" contrib-type="author"><name name-style="western"><surname>Jiao</surname><given-names initials="P">Pengrui</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-5" contrib-type="author"><name name-style="western"><surname>Cao</surname><given-names initials="Y">Yu</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-6" contrib-type="author"><name name-style="western"><surname>Xu</surname><given-names initials="Q">Qingrui</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-7" contrib-type="author"><name name-style="western"><surname>Qiao</surname><given-names initials="D">Dairong</given-names></name><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-8" contrib-type="author" corresp="yes"><name name-style="western"><surname>Xu</surname><given-names initials="H">Hui</given-names></name><email>xuhui_scu@scu.edu.cn</email><xref rid="aff-1" ref-type="aff"/></contrib><contrib id="author-9" contrib-type="author" corresp="yes"><name name-style="western"><surname>Cao</surname><given-names initials="Y">Yi</given-names></name><email>cyi@scu.edu.cn</email><xref rid="aff-1" ref-type="aff"/></contrib><aff id="aff-1">
+<institution>Microbiology and Metabolic Engineering Laboratory of Sichuan Province, College of Life Science, Sichuan University</institution>, <city>Chengdu</city>, <state>Sichuan</state>, <country>China</country></aff></contrib-group><contrib-group><contrib contrib-type="editor"><name name-style="western"><surname>Date</surname><given-names initials="S">Swapneeta</given-names></name></contrib></contrib-group><pub-date pub-type="epub"><day>19</day><month>7</month><year iso-8601-date="2024">2024</year></pub-date><pub-date pub-type="collection"><year>2024</year></pub-date><volume>12</volume><issue-id pub-id-type="pmc-issue-id">452643</issue-id><elocation-id>e17729</elocation-id><history><date date-type="received" iso-8601-date="2024-02-28"><day>28</day><month>2</month><year iso-8601-date="2024">2024</year></date><date date-type="accepted" iso-8601-date="2024-06-20"><day>20</day><month>6</month><year iso-8601-date="2024">2024</year></date></history><pub-history><event event-type="pmc-release"><date><day>19</day><month>07</month><year>2024</year></date></event><event event-type="pmc-live"><date><day>22</day><month>07</month><year>2024</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-07-23 17:25:12.880"><day>23</day><month>07</month><year>2024</year></date></event></pub-history><permissions><copyright-statement>©2024 Zhao et al.</copyright-statement><copyright-year>2024</copyright-year><copyright-holder>Zhao et al.</copyright-holder><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article distributed under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, reproduction and adaptation in any medium and for any purpose provided that it is properly attributed. For attribution, the original author(s), title, publication source (PeerJ) and either DOI or URL of the article must be cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="peerj-12-17729.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://peerj.com/articles/17729"/><abstract><sec><title>Background</title><p>Global public health is seriously threatened by the escalating issue of antimicrobial resistance (AMR). Antimicrobial peptides (AMPs), pivotal components of the innate immune system, have emerged as a potent solution to AMR due to their therapeutic potential. Employing computational methodologies for the prompt recognition of these antimicrobial peptides indeed unlocks fresh perspectives, thereby potentially revolutionizing antimicrobial drug development.</p></sec><sec><title>Methods</title><p>In this study, we have developed a model named as deepAMPNet. This model, which leverages graph neural networks, excels at the swift identification of AMPs. It employs structures of antimicrobial peptides predicted by AlphaFold2, encodes residue-level features through a bi-directional long short-term memory (Bi-LSTM) protein language model, and constructs adjacency matrices anchored on amino acids’ contact maps.</p></sec><sec><title>Results</title><p>In a comparative study with other state-of-the-art AMP predictors on two external independent test datasets, deepAMPNet outperformed in accuracy. Furthermore, in terms of commonly accepted evaluation matrices such as AUC, Mcc, sensitivity, and specificity, deepAMPNet achieved the highest or highly comparable performances against other predictors.</p></sec><sec><title>Conclusion</title><p>deepAMPNet interweaves both structural and sequence information of AMPs, stands as a high-performance identification model that propels the evolution and design in antimicrobial peptide pharmaceuticals. The data and code utilized in this study can be accessed at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/Iseeu233/deepAMPNet" ext-link-type="uri">https://github.com/Iseeu233/deepAMPNet</ext-link>.</p></sec></abstract><kwd-group kwd-group-type="author"><kwd>Bioinformatics</kwd><kwd>Antimicrobial peptide</kwd><kwd>Graph neural network</kwd><kwd>Bi-LSTM</kwd><kwd>Computational biology</kwd><kwd>Protein identification</kwd></kwd-group><funding-group><award-group id="fund-1"><funding-source>National Natural Science Foundation of China</funding-source><award-id>32071479</award-id><award-id>32271535</award-id><award-id>32171473</award-id></award-group><award-group id="fund-2"><funding-source> Department of Science and Technology of Sichuan Province</funding-source><award-id>2022NSFSC0243</award-id></award-group><funding-statement>This work was supported by National Natural Science Foundation of China (32071479, 32271535, 32171473), Department of Science and Technology of Sichuan Province (2022NSFSC0243). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement></funding-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec sec-type="intro"><title>Introduction</title><p>Antimicrobial resistance (AMR), a consequence of antibiotic misuse, is snowballing into a formidable health challenge for humanity (<xref rid="ref-38" ref-type="bibr">O’Neill, 2016</xref>). This resistance emerges when bacteria undergo evolution rendering them invulnerable to conventional treatments (<xref rid="ref-37" ref-type="bibr">Murray et al., 2022</xref>). Regarded as crucial components of the innate immune defense, antimicrobial peptides (AMPs) possess broad-spectrum potency against a variety of harmful microorganisms, inclusive but not limited to bacteria, fungi, and viruses (<xref rid="ref-1" ref-type="bibr">Ahmed et al., 2019</xref>). AMPs wield their striking mechanism of influence by selectively binding to the membrane structure of pathogenic microorganisms, causing a disruption; or by direct micropore formation on the cell membranes initiating an outflow of cellular contents, thereby eliminating the pathogenic entities (<xref rid="ref-43" ref-type="bibr">Steinstraesser et al., 2011</xref>). This approach not only amplifies their antimicrobial efficiency but also significantly diminishes the opportunity for drug resistance to evolve. AMPs are gaining recognition as potent substitutes to traditional therapies (<xref rid="ref-25" ref-type="bibr">Lazzaro, Zasloff &amp; Rolff, 2020</xref>). Consequently, unearthing new AMPs and fostering the evolution of innovative AMP-based drugs is of paramount importance to counteract antimicrobial resistance.</p><p>Conventional wet-lab experiments for identifying AMPs can be intricate and require notable time investments, proving insufficient for high-throughput identification (<xref rid="ref-35" ref-type="bibr">Medema &amp; Fischbach, 2015</xref>). The computational identification of AMPs has ascended to the forefront as a mainstream approach, and a number of comprehensive antimicrobial peptide databases have been established (<xref rid="ref-5" ref-type="bibr">Bin Hafeez et al., 2021</xref>). The ample utilization of artificial intelligence methods for AMPs identification spans two principal categories: traditional machine learning techniques like support vector machine (SVM), random forest (RF), and artificial neural network (ANN) (<xref rid="ref-51" ref-type="bibr">Xu et al., 2021</xref>). The CAMP3 database (<xref rid="ref-47" ref-type="bibr">Waghu et al., 2016</xref>) website offers a tailored tool for AMPs identification, featuring several machine learning methods to choose from; <xref rid="ref-14" ref-type="bibr">Fingerhut et al. (2021)</xref> developed SVM-based ampir for AMPs identification; AMPfun developed by <xref rid="ref-10" ref-type="bibr">Chung et al. (2019)</xref> supports the identification of AMPs using decision tree (DT), RF, and SVM; Emerging deep learning methods such as convolutional neural network (CNN), long short-term memory (LSTM), bidirectional encoder representations from transformers (BERT), <italic toggle="yes">etc</italic>. are also used in the field of AMPs identification (<xref rid="ref-17" ref-type="bibr">García-Jacas et al., 2022</xref>). <xref rid="ref-33" ref-type="bibr">Ma et al. (2022)</xref> combined three natural language processing models (NLP), LSTM, Attention, and BERT, creating a unified pipeline adept at identifying potential AMPs from human gut microbiome; <xref rid="ref-56" ref-type="bibr">Zhou et al. (2023)</xref> spearheaded the creation of a model known as Tri-net, pinpointing three signature features to capture peptide information contained in serial fingerprints, sequence evolutions, and physicochemical properties. Every feature is input into parallel modules to enhance the precise prediction of anticancer peptides (ACPs) and AMPs; <xref rid="ref-49" ref-type="bibr">Wang et al. (2023)</xref> used enhanced bi-directional LSTM (EBiLSTM) model to construct an AMPs predictor with binary profile feature (BPF) and pseudo amino acid composition (PseAAC) for effective localized sequence capture and amino acid information extraction.</p><p>Beyond choosing dedicated algorithms for AMPs identification, many researchers showed a propensity for feature engineer using different protein features (<xref rid="ref-51" ref-type="bibr">Xu et al., 2021</xref>). Predominantly, they utilized: amino acid composition (AAC) (<xref rid="ref-36" ref-type="bibr">Meher et al., 2017</xref>), dipeptide composition (DPC) (<xref rid="ref-18" ref-type="bibr">Gautam et al., 2013</xref>), pseudo amino acid composition (PseAAC) (<xref rid="ref-9" ref-type="bibr">Chou, 2011</xref>), adaptive skip DPC (ASDC) (<xref rid="ref-50" ref-type="bibr">Wei, Tang &amp; Zou, 2017</xref>), PSSM profile (<xref rid="ref-15" ref-type="bibr">Fu et al., 2020</xref>), structural features (<italic toggle="yes">α</italic>-Helix, <italic toggle="yes">β</italic>-Sheet) (<xref rid="ref-30" ref-type="bibr">Lin et al., 2019</xref>), physicochemical properties (<xref rid="ref-29" ref-type="bibr">Lin et al., 2021</xref>) and so on. <xref rid="ref-29" ref-type="bibr">Lin et al. (2021)</xref> recorded 115 physicochemical properties of amino acids using the R package Peptides. And hierarchical clustering came into play for the final selection of six essential physicochemical properties for encoding amino acid sequences. Subsequently, these were leveraged to architect a model for identifying AMPs. <xref rid="ref-41" ref-type="bibr">Shaon et al. (2023)</xref> built AMP-RNNpro, a recurrent neural network (RNN)-based model devised for AMPs prediction. This model relied on eight feature encoding methods, diligently chosen based on four key criteria -amino acid composition, autocorrelation, and pseudo amino acid composition. These potent combinations of features allowed efficient computational identification of AMPs.</p><p>As a noteworthy point, during traditional protein characterization engineering involving antimicrobial peptide sequences of diverse lengths, it is necessary to supplement with either 0 or ‘X’ at the terminus in order to assure input dimension uniformity (<xref rid="ref-51" ref-type="bibr">Xu et al., 2021</xref>). Interestingly, the graph neural network (GNN) has been garnering considerable interest in AMPs characterization, thanks to its non-reliance on consistency of input dimensions and top-notch performance (<xref rid="ref-12" ref-type="bibr">Fernandes et al., 2023</xref>). <xref rid="ref-40" ref-type="bibr">Ruiz Puentes et al. (2022)</xref> developed AMPs-Net, ingeniously transformed the peptide sequence into a graph representation, each amino acid node was depicted using nine physicochemical properties, and the edge between amino acid nodes was determined with three distinct properties. <xref rid="ref-53" ref-type="bibr">Yan et al. (2023)</xref> proposed a graph attention network (GAT) model for the identification of antimicrobial peptides, named sAMPpred-GAT. This model made use of one-hot features, position features, PSSM and HMM features of proteins for representing amino acids. Furthermore, C<italic toggle="yes">α</italic> distances in protein structures were employed to depict the edges between the amino acid nodes.</p><p>Identification of antimicrobial activity of existing proteins has become essential for mining novel antimicrobial peptides. <xref rid="table-1" ref-type="table">Table 1</xref> summarizes 14 representative AMP identification models compared in this study according to their algorithm, feature selection and publication year. The analysis and comparison of the existing models of AMPs revealed the following limitations: (1) Lack of global information of the sequence. Most of the existing methods have the features of amino acid sequences extracted one by one during feature extraction (<xref rid="ref-51" ref-type="bibr">Xu et al., 2021</xref>), missing the global information of the sequences; (2) redundant or insufficient number of features. The number of features used by the existing model may be insufficient or heavily redundant. For example, some methods directly select a few physicochemical properties from hundreds of physicochemical properties (<xref rid="ref-29" ref-type="bibr">Lin et al., 2021</xref>), which may lead to serious redundancy and low quality of features. While some methods only use secondary structure features of proteins (<italic toggle="yes">e.g.</italic>,  <italic toggle="yes">α</italic>-Helix, <italic toggle="yes">β</italic>-Sheets) (<xref rid="ref-13" ref-type="bibr">Fernandes, Rigden &amp; Franco, 2012</xref>; <xref rid="ref-2" ref-type="bibr">Beltran, Aguilera-Mendoza &amp; Brizuela, 2018</xref>; <xref rid="ref-46" ref-type="bibr">Vishnepolsky &amp; Pirtskhalava, 2014</xref>) or one-hot coding of protein sequences, which may lead to insufficient features to be difficult to learn. (3) Inappropriate neural networks. Some models fail to design specific deep learning algorithms based on the characteristics of different features, or even using the same or similar neural networks when processing different features (<xref rid="ref-32" ref-type="bibr">Lobanov et al., 2023</xref>). (4) Insufficiency of training data. A portion of the models were trained with only a small number of thousands of AMPs, which may be insufficient for an AMPs family from different species with different function. Due to the above shortcomings, the existing models with high false positive rate, insufficient generalization ability, have good performance only in specific datasets. Clearly, there still exists significant potential for optimization.</p><table-wrap position="float" id="table-1" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/table-1</object-id><label>Table 1</label><caption><title>Statistical information of the compared models.</title></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g011.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col span="1"/><col span="1"/><col span="1"/><col span="1"/></colgroup><thead><tr><th rowspan="1" colspan="1">Method</th><th rowspan="1" colspan="1">Algorithm</th><th rowspan="1" colspan="1">Feature selection</th><th rowspan="1" colspan="1">Reference</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">ADAM-HMM</td><td rowspan="1" colspan="1">HMM</td><td rowspan="1" colspan="1">secondary structure</td><td rowspan="1" colspan="1">
+<xref rid="ref-26" ref-type="bibr">Lee et al. (2015)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">CAMP3</td><td rowspan="1" colspan="1">ANN, RF, SVM, DA</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-47" ref-type="bibr">Waghu et al. (2016)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">iAMPpred</td><td rowspan="1" colspan="1">SVM</td><td rowspan="1" colspan="1">AAC, Physicochemical properties, Structure features</td><td rowspan="1" colspan="1">
+<xref rid="ref-36" ref-type="bibr">Meher et al. (2017)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AMPEP</td><td rowspan="1" colspan="1">RF</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-4" ref-type="bibr">Bhadra et al. (2018)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AMPScannerV2</td><td rowspan="1" colspan="1">LSTM, CNN</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-45" ref-type="bibr">Veltri, Kamath &amp; Shehu (2018)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AMPfun</td><td rowspan="1" colspan="1">DT, SVM, RF</td><td rowspan="1" colspan="1">AAC, Physicochemical properties</td><td rowspan="1" colspan="1">
+<xref rid="ref-10" ref-type="bibr">Chung et al. (2019)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AmpGram</td><td rowspan="1" colspan="1">RF</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-8" ref-type="bibr">Burdukiewicz et al. (2020)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">Deep-AMPEP30</td><td rowspan="1" colspan="1">CNN, SVM, RF</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-52" ref-type="bibr">Yan et al. (2020)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">ampir</td><td rowspan="1" colspan="1">SVM</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-14" ref-type="bibr">Fingerhut et al. (2021)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AI4AMP</td><td rowspan="1" colspan="1">SVM, RF, NLP</td><td rowspan="1" colspan="1">AAC, Physicochemical properties</td><td rowspan="1" colspan="1">
+<xref rid="ref-29" ref-type="bibr">Lin et al. (2021)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">amPEPpy</td><td rowspan="1" colspan="1">RF</td><td rowspan="1" colspan="1">Physicochemical properties</td><td rowspan="1" colspan="1">
+<xref rid="ref-24" ref-type="bibr">Lawrence et al. (2021)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AMPlify</td><td rowspan="1" colspan="1">Bi-LSTM</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-27" ref-type="bibr">Li et al. (2022)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">AMPpred-MFA</td><td rowspan="1" colspan="1">LSTM, CNN</td><td rowspan="1" colspan="1">AAC</td><td rowspan="1" colspan="1">
+<xref rid="ref-28" ref-type="bibr">Li et al. (2023)</xref>
+</td></tr><tr><td rowspan="1" colspan="1">sAMPpred-GAT</td><td rowspan="1" colspan="1">GAT</td><td rowspan="1" colspan="1">AAC, Structure features, Evolutionary features</td><td rowspan="1" colspan="1">
+<xref rid="ref-53" ref-type="bibr">Yan et al. (2023)</xref>
+</td></tr></tbody></table></alternatives><table-wrap-foot><fn id="table-1fn"><p>
+<bold>Notes.</bold>
+</p></fn><fn id="table-1fn1" fn-type="other"><p>
+<def-list id="dl1"><term-head>Full names of the algorithms and features</term-head><def-item><term> HMM</term><def><p>hidden Markov model</p></def></def-item><def-item><term> ANN</term><def><p>artificial neural network</p></def></def-item><def-item><term> RF</term><def><p>random forest</p></def></def-item><def-item><term> SVM</term><def><p>support vector machine</p></def></def-item><def-item><term> DA</term><def><p>discriminant analysis</p></def></def-item><def-item><term> LSTM</term><def><p>long short-term memory</p></def></def-item><def-item><term> CNN</term><def><p>convolutional neural networks</p></def></def-item><def-item><term> Bi-LSTM</term><def><p>bidirectional LSTM</p></def></def-item><def-item><term> DT</term><def><p>decision tree</p></def></def-item><def-item><term> NLP</term><def><p>natural language processing</p></def></def-item><def-item><term> GAT</term><def><p>Graph Attention Network</p></def></def-item><def-item><term> AAC</term><def><p>amino acid composition</p></def></def-item></def-list>
+</p></fn></table-wrap-foot></table-wrap><p>The advent of Alphafold2 (<xref rid="ref-21" ref-type="bibr">Jumper et al., 2021</xref>) has paved the way for accurate protein structure prediction, with over 200 million protein structures already predicted in the AlphaFold protein structure database (<xref rid="ref-44" ref-type="bibr">Varadi et al., 2022</xref>). Previous research indicated that these predicted protein structures can be harnessed for downstream functional analyses (<xref rid="ref-22" ref-type="bibr">Koehler Leman et al., 2023</xref>). This opens up the exciting possibility of using antimicrobial peptide structures for the identification of AMPs. Consequently, in order to address the shortcomings of existing methods, we present a novel model named deepAMPNet in this study. The structure of deepAMPNet is visually represented in <xref rid="fig-1" ref-type="fig">Fig. 1</xref>. It harnessed a hierarchical pool graph convolutional neural network built upon structure learning to devise a classification model. This model was equipped for recognizing AMPs by encoding residue-level features <italic toggle="yes">via</italic> bi-directional LSTM, utilized the antimicrobial peptide structures predicted by AlphaFold2. Differing from existing models, deepAMPNet leverages protein language models to capture global information of sequences, models the predicted tertiary structures as graph data to conform to the input requirements of graph neural network (GNN), mitigates potential feature redundancy or inadequacy by comparing the performance of various feature quantities, and collects data from five comprehensive AMP databases to ensure generalization capability. Tested on two external independent datasets, deepAMPNet not only triumphed over other state-of-the-art predictors in accuracy, but also excelled in other metrics such as AUC, MCC, and precision, matched or surpassed the performance of other predictors. To a certain extent, deepAMPNet addressed the limitations of existing models, and can expedite the acquisition of candidate sequences for antimicrobial peptide drug development, while also can offer insights and inspiration for the intelligent prediction of other functional proteins.</p><fig position="float" id="fig-1" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-1</object-id><label>Figure 1</label><caption><title>The framework of deepAMPNet.</title><p>The protein sequence is channeled through Bi-LSTM model to obtain residue descriptors. A contact map is then constructed considering the distances among protein residues. Then, the contact map and residue-level descriptors are regarded as the adjacency matrix and feature matrix, respectively, that are used to supply information into the GCN network for AMPs recognition.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g001.jpg"/></fig></sec><sec sec-type="materials|methods"><title>Materials &amp; Methods</title><sec><title>Independent test datasets</title><p>To achieve comparable performance evaluation, we incorporated two external independent test datasets in this study. As delineated in <xref rid="table-2" ref-type="table">Table 2</xref>, these datasets are named as XUAMP and MFA_test. XUAMP, proposed by <xref rid="ref-51" ref-type="bibr">Xu et al. (2021)</xref>, unified AMPs from an array of all-inclusive public peptide databases. It eliminated sequences previously utilized as training data in evaluated models, and retained only sequences with lengths between 10 and 100. Homology bias and redundancy were eradicated using cd-hit. The non-antimicrobial peptides (Non-AMPs) was reaped from Uniprot, processed similarly, and randomly chosen, resulting in a balance of 1,536 AMPs and 1,536 Non-AMPs. MFA_test, presented by <xref rid="ref-28" ref-type="bibr">Li et al. (2023)</xref>, was similarly treated and contained 615 AMPs and 606 Non-AMPs.</p><table-wrap position="float" id="table-2" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/table-2</object-id><label>Table 2</label><caption><title>Datasets and statistical information.</title></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g012.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col span="1"/><col span="1"/><col span="1"/><col span="1"/></colgroup><thead><tr><th rowspan="1" colspan="1">Dataset</th><th rowspan="1" colspan="1">Positive (AMPs)</th><th rowspan="1" colspan="1">Negative (Non-AMPs)</th><th rowspan="1" colspan="1">Total</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">XUAMP</td><td rowspan="1" colspan="1">1,536</td><td rowspan="1" colspan="1">1,536</td><td rowspan="1" colspan="1">3,072</td></tr><tr><td rowspan="1" colspan="1">MFA_test</td><td rowspan="1" colspan="1">615</td><td rowspan="1" colspan="1">606</td><td rowspan="1" colspan="1">1,221</td></tr><tr><td rowspan="1" colspan="1">Training dataset</td><td rowspan="1" colspan="1">11,485</td><td rowspan="1" colspan="1">11,485</td><td rowspan="1" colspan="1">22,970</td></tr></tbody></table></alternatives></table-wrap></sec><sec><title>Training dataset</title><p>The AMPs used in this study were sourced from five databases: APD3 (<xref rid="ref-48" ref-type="bibr">Wang, Li &amp; Wang, 2016</xref>), DBAASP (<xref rid="ref-39" ref-type="bibr">Pirtskhalava et al., 2021</xref>), dbAMP (<xref rid="ref-20" ref-type="bibr">Jhong et al., 2022</xref>), DRAMP (<xref rid="ref-42" ref-type="bibr">Shi et al., 2022</xref>), and LAMP2 (<xref rid="ref-54" ref-type="bibr">Ye et al., 2020</xref>). Integrating all the data from these databases resulted in a grand total of 60,218 redundant AMPs. The duplicates were eliminated, retaining only the antimicrobial peptides with lengths spanning from 6–200. And sequences containing non-canonical residues (like ‘B’, ‘J’, ‘O’, ‘U’, ‘X’ or ‘Z’) are removed because their structures are not predictable by AlphaFold2. Sequence comparisons were conducted by using blastP (<xref rid="ref-6" ref-type="bibr">Boratyn et al., 2012</xref>), and 5,954 AMPs’ structures were procured by downloading from the AlphaFold protein structure database. An aggregate of 5,531 AMPs’ structures were predicted locally using the AlphaFold2. This resulted in a comprehensive collection of 11,485 AMPs as a positive dataset.</p><p>The negative dataset was constructed from the Uniprot (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.uniprot.org" ext-link-type="uri">http://www.uniprot.org</ext-link>) by excluding keywords such as ‘antimicrobial’, ‘antibacterial’, ‘antifungal’, ‘anticancer’, ‘antiviral’, ‘antiparasitic’, ‘antibiotic’, ‘antibiofilm’, ‘effector’, and ‘excreted’. We set the length range from 6–200 and processed sequences similarly to AMPs, eradicating non-canonical residues. Sequences possessing more than 40% similarity to any AMPs, and sequences with over 40% similarity amongst Non-AMPs, were both discounted. Out of the remaining sequences, we randomly picked 11,485 data points to constitute the Non-AMPs dataset, and all structures were downloaded from the AlphaFold protein structure database.</p><p>The length distribution of the data within the training dataset is visually represented in <xref rid="fig-2" ref-type="fig">Fig. 2</xref>, while the distribution of amino acids in AMPs and Non-AMPs is shown in <xref rid="fig-3" ref-type="fig">Fig. 3</xref> and <xref rid="supp-1" ref-type="supplementary-material">Fig. S1</xref>.</p><p>Note that in order to accurately and objectively assess the performance of deepAMPNet, we used cd-hit program (<xref rid="ref-16" ref-type="bibr">Fu et al., 2012</xref>) to remove sequences in the training dataset that have more than 90% similarity to those in XUAMP and MFA_test, respectively, when performing model training.</p></sec><sec><title>AlphaFold2 benchmark dataset</title><p>The AlphaFold structure database only predicts sequences with unidentified structures; hence, sequences with known structures from the PDB were not predicted (<xref rid="ref-44" ref-type="bibr">Varadi et al., 2022</xref>). From the annotations of the DBAASP database for AMPs, PDB sequence numbers associated with certain AMPs were obtained, totaling 339 data entries. Thus, the 339 AMPs underwent structural prediction using AlphaFold2. The actual structures in the PDB were downloaded for an ensuing assessment of AlphaFold2’s performance in predicting antimicrobial peptide structures.</p></sec><sec><title>Framework of deepAMPNet</title><p>The framework of deepAMPNet is shown in <xref rid="fig-1" ref-type="fig">Fig. 1</xref>. The structure of deepAMPNet encompasses two fully-connected layers aimed at reducing node feature dimensions, three layers dedicated to graph convolution, two layers for hierarchical graph pooling with structure learning (HGPSL), and two dropout layers to avert overfitting. Finally, it consists of three fully-connected layers deployed for binary classification.</p><fig position="float" id="fig-2" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-2</object-id><label>Figure 2</label><caption><title>The length distribution of training dataset.</title></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g002.jpg"/></fig><fig position="float" id="fig-3" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-3</object-id><label>Figure 3</label><caption><title>Amino acid distribution of AMPs and Non-AMPs of training dataset.</title></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g003.jpg"/></fig></sec><sec><title>Graph convolution layer</title><p>To improve the representation of the three-dimensional structure and physicochemical properties of amino acids, AMPs can be modeled as a graph based on its structure. Graph data is characterized by two types of features: nodes and edges. Leveraging the sequence and structural information of proteins, their structure is represented as graph data that can be recognized by computers. This is accomplished by forming residue descriptors of proteins to depict the node feature matrix, and by utilizing contact maps - indicative of residue interaction - to represent the adjacency matrix.</p><p>Graph Convolution (<xref rid="ref-7" ref-type="bibr">Bronstein et al., 2017</xref>) as a deep learning algorithm for demonstrating reliable performance on graph data, the input requirements are: node feature matrix and adjacency matrix. Any graph convolution layer can be presented as a nonlinear function: <disp-formula id="eqn-1"><label>(1)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e001.jpg"/><tex-math id="tex-eqn-1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{H}^{ \left( l+1 \right) }=\sigma \left( {\tilde {D}}^{- \frac{1}{2} }\tilde {A}{\tilde {D}}^{- \frac{1}{2} }{H}^{ \left( l \right) }{W}^{ \left( l \right) } \right) \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-1" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msup><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mo> ~</mml:mo></mml:mrow></mml:mover></mml:mrow><mml:mrow><mml:mo>−</mml:mo><mml:mfrac><mml:mrow><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:mfrac></mml:mrow></mml:msup><mml:mover accent="true"><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mo> ~</mml:mo></mml:mrow></mml:mover><mml:msup><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mo> ~</mml:mo></mml:mrow></mml:mover></mml:mrow><mml:mrow><mml:mo>−</mml:mo><mml:mfrac><mml:mrow><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:mfrac></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup><mml:msup><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>where <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i001.jpg"/><tex-math id="tex-ieqn-7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}^{ \left( l+1 \right) }$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-7" overflow="scroll"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></alternatives></inline-formula> denotes the node feature matrix of layer <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i002.jpg"/><tex-math id="tex-ieqn-8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \left( l+1 \right) $\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-8" overflow="scroll"><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:math></alternatives></inline-formula>, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i003.jpg"/><tex-math id="tex-ieqn-9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\tilde {A}\in {R}^{N\times N}=A+I$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-9" overflow="scroll"><mml:mover accent="true"><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mo> ~</mml:mo></mml:mrow></mml:mover><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi>R</mml:mi></mml:mrow><mml:mrow><mml:mi>N</mml:mi><mml:mo>×</mml:mo><mml:mi>N</mml:mi></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mi>A</mml:mi><mml:mo>+</mml:mo><mml:mi>I</mml:mi></mml:math></alternatives></inline-formula> means the graph adjacency matrix with self-loops, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i004.jpg"/><tex-math id="tex-ieqn-10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\tilde {D}\in {R}^{N\times N}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-10" overflow="scroll"><mml:mover accent="true"><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mo> ~</mml:mo></mml:mrow></mml:mover><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi>R</mml:mi></mml:mrow><mml:mrow><mml:mi>N</mml:mi><mml:mo>×</mml:mo><mml:mi>N</mml:mi></mml:mrow></mml:msup></mml:math></alternatives></inline-formula> is the diagonal degree matrix of <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i005.jpg"/><tex-math id="tex-ieqn-11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\tilde {A}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-11" overflow="scroll"><mml:mover accent="true"><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mo> ~</mml:mo></mml:mrow></mml:mover></mml:math></alternatives></inline-formula>. The degree of a node is actually the number of neighbors connected to that node. <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i006.jpg"/><tex-math id="tex-ieqn-12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}^{ \left( l \right) }$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-12" overflow="scroll"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></alternatives></inline-formula> means the graph node feature matrix in the <italic toggle="yes">l</italic>-th layer. In this study, for the input layer, <italic toggle="yes">l</italic> = 0, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i007.jpg"/><tex-math id="tex-ieqn-14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}^{ \left( l \right) }$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-14" overflow="scroll"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></alternatives></inline-formula> means the input residue-level features. <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i008.jpg"/><tex-math id="tex-ieqn-15">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${W}^{ \left( l \right) }$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-15" overflow="scroll"><mml:msup><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msup></mml:math></alternatives></inline-formula> means the trainable weight matrix for the layer <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i009.jpg"/><tex-math id="tex-ieqn-16">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$ \left( l+1 \right) $\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-16" overflow="scroll"><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>l</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:math></alternatives></inline-formula>, and <italic toggle="yes">σ</italic>represents the nonlinear activation function, which is ReLU in this study.</p></sec><sec><title>Bi-LSTM model for encoding residue-level features</title><p>Protein language model serves as a powerful deep learning method for extracting information from protein sequences. From readily available sequence data alone, protein language model has been able to reveal evolutionary, structural and functional features of proteins (<xref rid="ref-3" ref-type="bibr">Bepler &amp; Berger, 2021</xref>). The pre-trained bi-directional long short-term memory (Bi-LSTM) model proposed by <xref rid="ref-3" ref-type="bibr">Bepler &amp; Berger (2021)</xref> was used to represent residue-level features of proteins, which was specialized for protein sequence coding and can be used for transfer learning for downstream protein functional analysis. The Bi-LSTM was trained with 76,215,872 protein sequences derived from UniRef90, while 28,010 protein sequences with known structures from SCOP were employed for structurally supervised learning. The entire process spanned 51 days on a single NVIDIA V100 GPU.</p><p>The Bi-LSTM model leveraged the protein sequence, encoded <italic toggle="yes">via</italic> 21-dimensional one-hot encoding (20 standard amino acids + 1 unknown amino acid), as the input. This model boasted a three-layered bi-directional long short-term memory network with 1,024 hidden neurons in each layer. The protein’s residue-level features stem from the hidden layer of the LSTM model, and the output feature dimensions total 6,165. Of these dimensions, the first 21 pertain to the one-hot representation of the residues. Additionally, the Bi-LSTM model includes a fully connected layer capable of encoding the residues into 100-dimensional vectors.</p><p>Owing to the substantial computational resources needed to compute the residue’s coded feature dimension 6,165, the initial 21 dimensions of the residue, along with the features succeeding the 21 dimensions, were dimensionally constrained by two fully connected layers respectively, prior to directing the output to the graph convolution layer: <disp-formula id="eqn-2"><label>(2)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e002.jpg"/><tex-math id="tex-eqn-2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{H}^{LM}&amp; =onehot+1024\times n\times 2\end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-2" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>L</mml:mi><mml:mi>M</mml:mi></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>h</mml:mi><mml:mi>o</mml:mi><mml:mi>t</mml:mi><mml:mo>+</mml:mo><mml:mn>1024</mml:mn><mml:mo>×</mml:mo><mml:mi>n</mml:mi><mml:mo>×</mml:mo><mml:mn>2</mml:mn></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-3"><label>(3)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e003.jpg"/><tex-math id="tex-eqn-3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{H}^{1}&amp; =\sigma \left( {H}^{LM} \left[ :21 \right] \cdot {W}^{1}+{b}^{1} \right) \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-3" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>L</mml:mi><mml:mi>M</mml:mi></mml:mrow></mml:msup><mml:mfenced separators="" open="[" close="]"><mml:mrow><mml:mo>:</mml:mo><mml:mn>21</mml:mn></mml:mrow></mml:mfenced><mml:mo>⋅</mml:mo><mml:msup><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msup><mml:mo>+</mml:mo><mml:msup><mml:mrow><mml:mi>b</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-4"><label>(4)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e004.jpg"/><tex-math id="tex-eqn-4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{H}^{2}&amp; =\sigma \left( {H}^{LM} \left[ 21: \right] \cdot {W}^{2}+{b}^{2} \right) \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-4" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>L</mml:mi><mml:mi>M</mml:mi></mml:mrow></mml:msup><mml:mfenced separators="" open="[" close="]"><mml:mrow><mml:mn>21</mml:mn><mml:mo>:</mml:mo></mml:mrow></mml:mfenced><mml:mo>⋅</mml:mo><mml:msup><mml:mrow><mml:mi>W</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msup><mml:mo>+</mml:mo><mml:msup><mml:mrow><mml:mi>b</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-5"><label>(5)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e005.jpg"/><tex-math id="tex-eqn-5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{H}^{input}&amp; = \left[ {H}^{1},{H}^{2} \right] \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-5" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>p</mml:mi><mml:mi>u</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mfenced separators="" open="[" close="]"><mml:mrow><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mn>1</mml:mn></mml:mrow></mml:msup><mml:mo>,</mml:mo><mml:msup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>where <italic toggle="yes">H</italic><sup><italic toggle="yes">LM</italic></sup> represents the residue characteristics obtained by Bi-LSTM model, <italic toggle="yes">n</italic> is the number of layers of the bidirectional LSTM, <italic toggle="yes">W</italic><sup>1</sup>, <italic toggle="yes">W</italic><sup>2</sup>, <italic toggle="yes">b</italic><sup>1</sup> and <italic toggle="yes">b</italic><sup>2</sup>are the weights that can be trained in the graph convolution layer.</p><p>In this study, we further probed the influence of different quantities of residue-level features on the deepAMPNet performance, considering 21 dimensions (one-hot), 2,069 dimensions (one-hot + first Bi-LSTM layer), 4,117 dimensions (one-hot + first 2 Bi-LSTM layers), 6,165 dimensions (one-hot + 3 Bi-LSTM layers), and a concise 100 dimensions (output of the Bi-LSTM’s fully-connected layer).</p></sec><sec><title>Hierarchical graph pooling with structure learning</title><p>Hierarchical graph pooling with structure learning (HGPSL) (<xref rid="ref-55" ref-type="bibr">Zhang et al., 2019</xref>) is a novel graph classification method with complex pooling operations. The method utilizes node features and topological information of the entire graph to predict the label associated with the graph. A usual approach to graph classification involves aggregating all node data to formulate a universal representation of the graph. This practice overlooks the entire graph’s structural data. Conversely, graph neural network (GNN) is incapable of hierarchically agglomerating node information. Furthermore, sometimes it’s essential to assign unique significance to the graph’s substructures to create a substantial representation of the graph, as different substructures might contribute variably to the all-encompassing graph representation. HGPSL offers a graph pooling process that can learn from both local and global structures of the graph and yield hierarchical representations.</p><sec><title>Graph pooling operation</title><p>Should a node in the graph be representable by its adjacent nodes, it can consequently be erased without any loss of information. The HGPSL pooling layer, appeares after each convolutional layer, operates as a nonparametric layer fulfilling the graph pooling task by scoring each node followed by node selection. The steps of node selection are (1) calculate the node information scores by Manhattan distance between node and its neighboring nodes: <disp-formula id="eqn-6"><label>(6)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e006.jpg"/><tex-math id="tex-eqn-6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}p=\gamma \left( {G}_{i} \right) = \left\vert \left\vert \left( {I}_{i}^{k}-{ \left( {D}_{i}^{k} \right) }^{-1}{A}_{i}^{k} \right) {H}_{i}^{k} \right\vert \right\vert \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-6" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>p</mml:mi><mml:mo>=</mml:mo><mml:mi>γ</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msub><mml:mrow><mml:mi>G</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mfenced separators="" open="|" close="|"><mml:mrow><mml:mfenced separators="" open="|" close="|"><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msubsup><mml:mrow><mml:mi>I</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mo>−</mml:mo><mml:msup><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msubsup><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:mrow></mml:mfenced></mml:mrow><mml:mrow><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup><mml:msubsup><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:mrow></mml:mfenced><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>where <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i010.jpg"/><tex-math id="tex-ieqn-27">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${A}_{i}^{k}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-27" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:math></alternatives></inline-formula> denotes the adjacency matrix, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i011.jpg"/><tex-math id="tex-ieqn-28">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}_{i}^{k}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-28" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:math></alternatives></inline-formula> denotes the node representation matrix, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i012.jpg"/><tex-math id="tex-ieqn-29">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${D}_{i}^{k}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-29" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>D</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:math></alternatives></inline-formula> denotes the diagonal degree matrix of <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i013.jpg"/><tex-math id="tex-ieqn-30">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${A}_{i}^{k}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-30" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:math></alternatives></inline-formula>, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i014.jpg"/><tex-math id="tex-ieqn-31">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${I}_{i}^{k}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-31" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>I</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:math></alternatives></inline-formula> denotes the identity matrix, and <italic toggle="yes">γ</italic> is the node score coding function, which in this case refers to the Manhattan distance; (2) reorder the nodes based on the information scores; (3) retain a few nodes with top scores based on the pooling rate to form the feature matrix of the next layer as well as the uncorrected adjacency matrix. With this processing, both node features and graph structure information are retained to the next layer.</p></sec><sec><title>Structure learning mechanism</title><p>The above graph pooling process is equivalent to constructing a subgraph of the current graph, but graph pooling does not further update the structural features of the subgraph, which may result in the loss of topological information. After the pooling operation, the subgraph structure may lead to disconnection of highly correlated nodes in the original graph, which in turn may hinder message passing and effective node feature learning. Therefore, HGPSL uses an attention-based structure learning mechanism to compute the energy <italic toggle="yes">E</italic> for each pair of nodes: <disp-formula id="eqn-7"><label>(7)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e007.jpg"/><tex-math id="tex-eqn-7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{E}_{i} \left( p,q \right) =\sigma \left( a^{\rightarrow }{ \left[ {H}_{i}^{k} \left( p,: \right) \parallel {H}_{i}^{k} \left( :,q \right) \right] }^{T} \right) +\lambda \cdot {A}_{i}^{k} \left( p,q \right) \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-7" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msub><mml:mrow><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>p</mml:mi><mml:mo>,</mml:mo><mml:mi>q</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mover class="overset"><mml:mrow><mml:mi>a</mml:mi></mml:mrow><mml:mrow><mml:mo>→</mml:mo></mml:mrow></mml:mover><mml:msup><mml:mrow><mml:mfenced separators="" open="[" close="]"><mml:mrow><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>p</mml:mi><mml:mo>,</mml:mo><mml:mo>:</mml:mo></mml:mrow></mml:mfenced><mml:mo>∥</mml:mo><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mo>:</mml:mo><mml:mo>,</mml:mo><mml:mi>q</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow><mml:mrow><mml:mi>T</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:mi>λ</mml:mi><mml:mo>⋅</mml:mo><mml:msubsup><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>p</mml:mi><mml:mo>,</mml:mo><mml:mi>q</mml:mi></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>where <italic toggle="yes">p</italic>, <italic toggle="yes">q</italic> denotes two node numbers, <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i015.jpg"/><tex-math id="tex-ieqn-34">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}_{i}^{k} \left( p,: \right) ,$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-34" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>p</mml:mi><mml:mo>,</mml:mo><mml:mo>:</mml:mo></mml:mrow></mml:mfenced><mml:mo>,</mml:mo></mml:math></alternatives></inline-formula>
+<inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i016.jpg"/><tex-math id="tex-ieqn-35">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}_{i}^{k} \left( :,q \right) $\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-35" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mo>:</mml:mo><mml:mo>,</mml:mo><mml:mi>q</mml:mi></mml:mrow></mml:mfenced></mml:math></alternatives></inline-formula> denote the <italic toggle="yes">p</italic>-th and <italic toggle="yes">q</italic>-th rows of the node feature matrix <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i017.jpg"/><tex-math id="tex-ieqn-36">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+${H}_{i}^{k}$\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-36" overflow="scroll"><mml:msubsup><mml:mrow><mml:mi>H</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup></mml:math></alternatives></inline-formula>, respectively, and <italic toggle="yes">σ</italic> represents the nonlinear activation function, which is ReLU in this study. <italic toggle="yes">λ</italic> is the trade-off parameter between nodes, and <inline-formula><alternatives><inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-i018.jpg"/><tex-math id="tex-ieqn-39">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda \cdot {A}_{i}^{k} \left( p,q \right) $\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-ieqn-39" overflow="scroll"><mml:mi>λ</mml:mi><mml:mo>⋅</mml:mo><mml:msubsup><mml:mrow><mml:mi>A</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mrow><mml:mi>k</mml:mi></mml:mrow></mml:msubsup><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>p</mml:mi><mml:mo>,</mml:mo><mml:mi>q</mml:mi></mml:mrow></mml:mfenced></mml:math></alternatives></inline-formula> is used to preserve the original node connection information, and the sparse neighbor matrix of a new subgraph can be updated by using sparsemax through the energy <italic toggle="yes">E</italic>.</p></sec></sec><sec><title>Fully connected layer</title><p>The linear layer (<xref rid="ref-19" ref-type="bibr">Goodfellow, Bengio &amp; Courville, 2016</xref>) was used to convert the final output to the probability of whether or not an antimicrobial peptide, which in this study consists of three fully connected layers: <disp-formula id="eqn-8"><label>(8)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e008.jpg"/><tex-math id="tex-eqn-8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}{y}_{i}=\sigma \left( w{x}_{i}+b \right) \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-8" overflow="scroll"><mml:mstyle displaystyle="true"><mml:msub><mml:mrow><mml:mi>y</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>w</mml:mi><mml:msub><mml:mrow><mml:mi>x</mml:mi></mml:mrow><mml:mrow><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced></mml:mstyle></mml:math></alternatives>
+</disp-formula>where <italic toggle="yes">σ</italic> denotes the activation function, <italic toggle="yes">log_softmax</italic> (<xref rid="ref-19" ref-type="bibr">Goodfellow, Bengio &amp; Courville, 2016</xref>), used in this study, was used to convert the output of the fully connected layer. <italic toggle="yes">y</italic><sub><italic toggle="yes">i</italic></sub> denotes the final output. <italic toggle="yes">w</italic> denotes the trainable weights, <italic toggle="yes">b</italic> denotes the bias unit, and <italic toggle="yes">x</italic><sub><italic toggle="yes">i</italic></sub> denotes the output of the last fully connected layer.</p></sec><sec><title>Contact map</title><p>Alphafold2 stores the structure of a protein by generating a PDB file that contains the 3-dimensional coordinates for all constituent atoms of the protein. To ascertain interactions between two residues, only the distance between the paired C<italic toggle="yes">α</italic> atoms is considered. By employing a distance threshold, if the distance between the pertaining C<italic toggle="yes">α</italic> atoms of the two residues falls within this threshold, they’re perceived as in contact and assigned ‘1’ in the adjacency matrix. In contrast, if this distance surpasses the threshold, they’re deemed non-interactive and marked as ‘0’ in the matrix. In this study, we investigated the impact of varying distance thresholds on deepAMPNet’s performance.</p></sec><sec><title>Evaluation metrics</title><p>In this study, the following six metrics were used to evaluate the performance of the proposed model: <disp-formula id="eqn-9"><label>(9)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e009.jpg"/><tex-math id="tex-eqn-9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}Accuracy&amp; = \frac{TP+TN}{TP+TN+FP+FN} \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-9" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>A</mml:mi><mml:mi>c</mml:mi><mml:mi>c</mml:mi><mml:mi>u</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:mi>y</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>T</mml:mi><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>T</mml:mi><mml:mi>N</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow></mml:mfrac></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-10"><label>(10)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e010.jpg"/><tex-math id="tex-eqn-10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}MCC&amp; = \frac{TP\times TN-FP\times FN}{\sqrt{ \left( TP+FN \right) \left( TP+FP \right) \left( TN+FP \right) \left( TN+FN \right) }} \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-10" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>M</mml:mi><mml:mi>C</mml:mi><mml:mi>C</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>×</mml:mo><mml:mi>T</mml:mi><mml:mi>N</mml:mi><mml:mo>−</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi><mml:mo>×</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:msqrt><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow></mml:mfenced><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfenced><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>T</mml:mi><mml:mi>N</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfenced><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>T</mml:mi><mml:mi>N</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:msqrt></mml:mrow></mml:mfrac></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-11"><label>(11)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e011.jpg"/><tex-math id="tex-eqn-11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}Sensitivity&amp; = \frac{TP}{TP+FN} \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-11" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>S</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>v</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>y</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow></mml:mfrac></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-12"><label>(12)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e012.jpg"/><tex-math id="tex-eqn-12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}Specificity&amp; = \frac{TN}{TN+FP} \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-12" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>S</mml:mi><mml:mi>p</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>i</mml:mi><mml:mi>f</mml:mi><mml:mi>i</mml:mi><mml:mi>c</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>y</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>N</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>N</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfrac></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-13"><label>(13)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e013.jpg"/><tex-math id="tex-eqn-13">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}Precision&amp; = \frac{TP}{TP+FP} \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-13" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>P</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>c</mml:mi><mml:mi>i</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfrac></mml:mstyle></mml:math></alternatives>
+</disp-formula>
+<disp-formula id="eqn-14"><label>(14)</label><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-e014.jpg"/><tex-math id="tex-eqn-14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{eqnarray*}F1&amp; = \frac{2\times TP}{2\times TP+FN+FP} \end{eqnarray*}\end{document}</tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="mml-eqn-14" overflow="scroll"><mml:mstyle displaystyle="true"><mml:mi>F</mml:mi><mml:mn>1</mml:mn><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mn>2</mml:mn><mml:mo>×</mml:mo><mml:mi>T</mml:mi><mml:mi>P</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn><mml:mo>×</mml:mo><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfrac></mml:mstyle></mml:math></alternatives>
+</disp-formula>where <italic toggle="yes">TP</italic>, <italic toggle="yes">FP</italic>, <italic toggle="yes">TN</italic> and <italic toggle="yes">FN</italic> are the number of true positives, false positives, true negatives and false negatives, respectively. <italic toggle="yes">MCC</italic> denotes Matthews correlation coefficient, <italic toggle="yes">F1</italic> denotes F1-score.</p></sec></sec><sec sec-type="results"><title>Results</title><sec><title>Performance of AlphaFold2 in predicting AMPs’ structures</title><p>The performance of AlphaFold2 in predicting the structure of AMPs was evaluated using a collection of 339 AMPs with experimental structures. Briefly, performance was assessed by comparing the predicted structures with the experimental structures.</p><p>As for the evaluation metrics employed for protein structure comparison, the C<italic toggle="yes">α</italic> root mean square deviation (RMSD) (<xref rid="ref-23" ref-type="bibr">Kufareva &amp; Abagyan, 2012</xref>) of proteins was initially used. Following the comparison of the predicted structures and the experimental structures using pymol, the RMSD distribution for all structure comparisons can be observed in <xref rid="fig-4" ref-type="fig">Fig. 4</xref>. The kernel density curve suggests its peak to be stationed around 1Å, and the histogram reflects that in excess of 70% (246/339) of the structural comparison RMSDs are less than 2 Å.</p><fig position="float" id="fig-4" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-4</object-id><label>Figure 4</label><caption><title>The distribution of RMSD for all protein structure comparisons.</title></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g004.jpg"/></fig><p>AlphaFold2 generates a per-residue confidence metric called predicted local distance difference test (pLDDT), which ranges from 0 to 100. Based on the local distance difference test C <italic toggle="yes">α</italic> (lDDT-C<italic toggle="yes">α</italic>) (<xref rid="ref-34" ref-type="bibr">Mariani et al., 2013</xref>), pLDDT can be utilized to approximate the concurrence between the prediction and the experimental structure’s agreement. The correlation between per-residue plDDT and the actual lDDT-C <italic toggle="yes">α</italic> is demonstrated in <xref rid="fig-5" ref-type="fig">Fig. 5</xref>, with data based on 339 peptide chains in the benchmark dataset from this study, totaling 10,896 residues. The scatterplot demonstrates that there is a correlation between plDDT and lDDT-C<italic toggle="yes">α</italic> (Pearson’s <italic toggle="yes">r</italic> = 0.60) and that the majority of the data points are distributed in [80–100], which is considered to be the region with high confidence in the AlphaFold2 predicted structure.</p><fig position="float" id="fig-5" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-5</object-id><label>Figure 5</label><caption><title>Correlation between per-residue pLDDT and lDDT-C <italic toggle="yes">α</italic>.</title><p>Data based on 339 peptide chains in the benchmark dataset, totaling 10,896 residues.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g005.jpg"/></fig><p>In addition, structure comparison diagrams of four AMPs are also shown in <xref rid="fig-6" ref-type="fig">Fig. 6</xref>, and the bands of the predicted structures were colored using confidence. The consistency between the four predicted structures and the experimental structures is shownin <xref rid="supp-2" ref-type="supplementary-material">Fig. S2</xref>, with the score of each residue using lDDT-C<italic toggle="yes">α</italic>, which is mainly used to compare the local deviations between the structures. The structure comparison plots and consistency analyses show that the structures predicted by AlphaFold2 demonstrate a high degree of accuracy, sufficient for performing downstream analyses.</p><fig position="float" id="fig-6" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-6</object-id><label>Figure 6</label><caption><title>AlphaFold2 prediction and experimental structure for 4 AMPs.</title><p>(A) PDB 2LLD, RMSD = 0.767Å, (B) PDB 6QBK, RMSD = 0.853Å, (C) PDB 2L2R, RMSD = 0.624Å, (D) PDB 1M8A, RMSD = 0.334Å. The bands of the predicted structures are colored using confidence.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g006.jpg"/></fig></sec><sec><title>Performance of hyperparameters</title><p>The model’s hyperparameters are vital to the model’s performance. In this study, we used training dataset to compare different hyperparameters’ performance while applying 5-fold cross-validation. Mainly: the graph convolution algorithm, the number of residue-level features, the threshold of the contact map, and the protein language model.</p><p>In this study, the pre-trained Bi-LSTM protein language model was used to construct the node feature matrices. By adding output options, the Bi-LSTM was able to output different number of features: 21, 100, 2,069, 4,117, and 6,165. Three different graph convolution algorithms were used in deepAMPNet: GCN, GAT, and HGPSL. In order to control variables, the performance of the different algorithms was first compared by using the number of 21 and 100 residue features. As displayed in <xref rid="fig-7" ref-type="fig">Fig. 7A</xref>, the accuracy when employing HGPSL surpasses that of both GCN and GAT, so the algorithm we used in subsequent comparisons was HGPSL.</p><fig position="float" id="fig-7" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-7</object-id><label>Figure 7</label><caption><title>Performance of different hyperparameters.</title><p>(A) Accuracy of different graph convolution algorithms, (B) Accuracy of different number of residue-level features, (C) Accuracy of different distance thresholds, (D) Accuracy of different protein language models.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g007.jpg"/></fig><p>Different number of residue-level features affects the final performance of deepAMPNet, we compared the following number of features: 21, 100, 2,069, 4,117, and 6,165. The final performance is demonstrated in <xref rid="fig-7" ref-type="fig">Fig. 7B</xref>, the highest accuracy was achieved with the number of 6,165 features. As stated in the Bi-LSTM article, 6,165 residue-level features are more suitable for transfer learning. Therefore, in all subsequent experiments, the number of features encoded by Bi-LSTM was set to 6,165.</p><p>To define whether there is an interaction between two residues, we set a distance threshold for contact map construction. We compared the performance of deepAMPNet when 6 Å, 8 Å, 10 Å, 20 Å, and 30 Å were used as distance thresholds, respectively, and as shown in <xref rid="fig-7" ref-type="fig">Fig. 7C</xref>, the highest accuracy was achieved when the distance threshold was 20 Å. Therefore, in the subsequent training of the deepAMPNet, we used a distance threshold of 20 Å to construct the contact maps.</p><p>In addition to Bi-STLM, we introduced two state-of-the-art protein language models ProtTrans (<xref rid="ref-11" ref-type="bibr">Elnaggar et al., 2021</xref>) and ESM2 (<xref rid="ref-31" ref-type="bibr">Lin et al., 2023</xref>), and compared the performance of these three protein language models with the three hyperparameters identified above. ProtTrans is a self-supervised pre-training language models was trained on data from UniRef and BFD containing up to 393 billion amino acids. Dimensionality reduction revealed that the ProtTrans-embeddings can capture biophysical features of protein sequences, and the embeddings demonstrated strengths in several biology tasks. ESM2 is a state-of-the-art general-purpose protein language model can be used to predict structure, function and other protein properties directly from individual sequences. As shown in <xref rid="fig-7" ref-type="fig">Fig. 7D</xref>, we compared the performance of deepAMP when encoding residue-level features using each of these three language models separately. The number of residue-level features encoded by Bi-LSTM, ESM2, and ProtTrans are 6,165, 5,120, and 1,024, respectively. The accuracy of deepAMP when using Bi-LSTM embeddings outperformed ProtTrans and ESM2 by a narrow margin, perhaps because a larger number of features may contain additional information that can be used to distinguish AMPs from Non-AMPs. Based on the above results, we used Bi-LSTM for encoding residue-level features in deepAMPNet.</p><p>Based on the study in this section, we set the hyperparameter combination of deepAMPNet with HGPSL, 6,165 Bi-LSTM residue-level features, and a distance threshold of 20 Å to train the model and compared the performance on the independent test datasets.</p></sec><sec><title>Performance on the XUAMP dataset</title><p>Utilizing the XUAMP dataset proposed by <xref rid="ref-51" ref-type="bibr">Xu et al. (2021)</xref> we compared deepAMPNet with 11 state-of-the-art AMPs predictors including: amPEPpy (<xref rid="ref-24" ref-type="bibr">Lawrence et al., 2021</xref>), AMPfun (<xref rid="ref-10" ref-type="bibr">Chung et al., 2019</xref>), AMPEP (<xref rid="ref-4" ref-type="bibr">Bhadra et al., 2018</xref>), ADAM-HMM (<xref rid="ref-26" ref-type="bibr">Lee et al., 2015</xref>), ampir (<xref rid="ref-14" ref-type="bibr">Fingerhut et al., 2021</xref>), AMPScannerV2 (<xref rid="ref-45" ref-type="bibr">Veltri, Kamath &amp; Shehu, 2018</xref>), AMPGram (<xref rid="ref-8" ref-type="bibr">Burdukiewicz et al., 2020</xref>), Deep-AMPEP30 (<xref rid="ref-52" ref-type="bibr">Yan et al., 2020</xref>), CAMP-ANN (<xref rid="ref-47" ref-type="bibr">Waghu et al., 2016</xref>), sAMPpred-GAT (<xref rid="ref-53" ref-type="bibr">Yan et al., 2023</xref>) and AMPpred-MFA (<xref rid="ref-28" ref-type="bibr">Li et al., 2023</xref>). To avoid overestimating the performance of deepAMPNet, sequences with similarity above 90% with the XUAMP dataset were removed from the deepAMPNet training dataset.</p><p>The comparison results of different predictors are displayed in <xref rid="fig-8" ref-type="fig">Fig. 8</xref>, <xref rid="table-3" ref-type="table">Table 3</xref> and <xref rid="supp-3" ref-type="supplementary-material">Fig. S3</xref>, from which we can observe that deepAMPNet achieved the highest performance with results as follows: area under the ROC curve (AUC), Acc, Mcc, sensitivity and F1-score. The results revealed that deepAMPNet achieved highest AUC with fewer false positives. As a result, deepAMPNet is sufficient for the identification of AMPs.</p><fig position="float" id="fig-8" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-8</object-id><label>Figure 8</label><caption><title>ROC curves of deepAMPNet and the other 11 state-of-the-art predictors on the XUAMP test dataset.</title></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g008.jpg"/></fig><table-wrap position="float" id="table-3" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/table-3</object-id><label>Table 3</label><caption><title>The performance of deepAMPNet and the other 11 predictors on the independent test XUAMP dataset in terms of Acc, Mcc, Sn, Sp, Precision and F1-score.</title><p>The bold values show the best performance of deepAMPNet and the proposed predictors.</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g013.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col span="1"/><col span="1"/><col span="1"/><col span="1"/><col span="1"/><col span="1"/><col span="1"/></colgroup><thead><tr><th rowspan="1" colspan="1">Method</th><th rowspan="1" colspan="1">Acc</th><th rowspan="1" colspan="1">Mcc</th><th rowspan="1" colspan="1">Sn</th><th rowspan="1" colspan="1">Sp</th><th rowspan="1" colspan="1">Precision</th><th rowspan="1" colspan="1">F1-score</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">amPEPpy</td><td rowspan="1" colspan="1">0.679</td><td rowspan="1" colspan="1">0.432</td><td rowspan="1" colspan="1">0.400</td><td rowspan="1" colspan="1">0.958</td><td rowspan="1" colspan="1">0.906</td><td rowspan="1" colspan="1">0.555</td></tr><tr><td rowspan="1" colspan="1">AMPfun</td><td rowspan="1" colspan="1">0.674</td><td rowspan="1" colspan="1">0.414</td><td rowspan="1" colspan="1">0.406</td><td rowspan="1" colspan="1">0.943</td><td rowspan="1" colspan="1">0.877</td><td rowspan="1" colspan="1">0.555</td></tr><tr><td rowspan="1" colspan="1">AMPEP</td><td rowspan="1" colspan="1">0.661</td><td rowspan="1" colspan="1">0.429</td><td rowspan="1" colspan="1">0.330</td><td rowspan="1" colspan="1">0.992</td><td rowspan="1" colspan="1">0.975</td><td rowspan="1" colspan="1">0.493</td></tr><tr><td rowspan="1" colspan="1">ADAM-HMM</td><td rowspan="1" colspan="1">0.684</td><td rowspan="1" colspan="1">0.390</td><td rowspan="1" colspan="1">0.521</td><td rowspan="1" colspan="1">0.847</td><td rowspan="1" colspan="1">0.773</td><td rowspan="1" colspan="1">0.623</td></tr><tr><td rowspan="1" colspan="1">ampir</td><td rowspan="1" colspan="1">0.563</td><td rowspan="1" colspan="1">0.156</td><td rowspan="1" colspan="1">0.266</td><td rowspan="1" colspan="1">0.859</td><td rowspan="1" colspan="1">0.654</td><td rowspan="1" colspan="1">0.379</td></tr><tr><td rowspan="1" colspan="1">AMPScannerV2</td><td rowspan="1" colspan="1">0.568</td><td rowspan="1" colspan="1">0.137</td><td rowspan="1" colspan="1">0.523</td><td rowspan="1" colspan="1">0.613</td><td rowspan="1" colspan="1">0.575</td><td rowspan="1" colspan="1">0.548</td></tr><tr><td rowspan="1" colspan="1">AmpGram</td><td rowspan="1" colspan="1">0.564</td><td rowspan="1" colspan="1">0.131</td><td rowspan="1" colspan="1">0.445</td><td rowspan="1" colspan="1">0.682</td><td rowspan="1" colspan="1">0.584</td><td rowspan="1" colspan="1">0.505</td></tr><tr><td rowspan="1" colspan="1">Deep-AMPEP30</td><td rowspan="1" colspan="1">0.533</td><td rowspan="1" colspan="1">0.183</td><td rowspan="1" colspan="1">0.065</td><td rowspan="1" colspan="1">
+<bold>1.000</bold>
+</td><td rowspan="1" colspan="1">
+<bold>1.000</bold>
+</td><td rowspan="1" colspan="1">0.122</td></tr><tr><td rowspan="1" colspan="1">CAMP-ANN</td><td rowspan="1" colspan="1">0.584</td><td rowspan="1" colspan="1">0.182</td><td rowspan="1" colspan="1">0.385</td><td rowspan="1" colspan="1">0.782</td><td rowspan="1" colspan="1">0.639</td><td rowspan="1" colspan="1">0.481</td></tr><tr><td rowspan="1" colspan="1">sAMPpred-GAT</td><td rowspan="1" colspan="1">0.712</td><td rowspan="1" colspan="1">0.456</td><td rowspan="1" colspan="1">0.529</td><td rowspan="1" colspan="1">0.895</td><td rowspan="1" colspan="1">0.835</td><td rowspan="1" colspan="1">0.647</td></tr><tr><td rowspan="1" colspan="1">AMPpred-MFA</td><td rowspan="1" colspan="1">0.673</td><td rowspan="1" colspan="1">0.412</td><td rowspan="1" colspan="1">0.402</td><td rowspan="1" colspan="1">0.945</td><td rowspan="1" colspan="1">0.879</td><td rowspan="1" colspan="1">0.551</td></tr><tr><td rowspan="1" colspan="1">deepAMPNet</td><td rowspan="1" colspan="1">
+<bold>0.758</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.531</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.639</bold>
+</td><td rowspan="1" colspan="1">0.876</td><td rowspan="1" colspan="1">0.838</td><td rowspan="1" colspan="1">
+<bold>0.725</bold>
+</td></tr></tbody></table></alternatives></table-wrap></sec><sec><title>Performance on the MFA_test dataset</title><p>We comprehensively evaluated the performance of deepAMPNet on the MFA_test dataset with other 11 state-of-the-art AMPs predictors including: ampir (<xref rid="ref-14" ref-type="bibr">Fingerhut et al., 2021</xref>), CAMP3 (RF), CAMP3 (SVM), CAMP3 (DA), CAMP3 (ANN) (<xref rid="ref-47" ref-type="bibr">Waghu et al., 2016</xref>), iAMPpred (<xref rid="ref-36" ref-type="bibr">Meher et al., 2017</xref>), AMPScannerV2 (<xref rid="ref-45" ref-type="bibr">Veltri, Kamath &amp; Shehu, 2018</xref>), AI4AMP (<xref rid="ref-29" ref-type="bibr">Lin et al., 2021</xref>), AMPlify (<xref rid="ref-27" ref-type="bibr">Li et al., 2022</xref>), AMPfun (<xref rid="ref-10" ref-type="bibr">Chung et al., 2019</xref>) and AMPpred-MFA (<xref rid="ref-28" ref-type="bibr">Li et al., 2023</xref>). We present ROC curves of all predictors in <xref rid="fig-9" ref-type="fig">Fig. 9</xref>, where it can be observed that deepAMPNet achieved the highest performance of AUC. Additionally, we demonstrate the results of six metrics—Acc, Mcc, Sn, Sp, precision, and F1-score—in <xref rid="fig-10" ref-type="fig">Fig. 10</xref> and <xref rid="table-4" ref-type="table">Table 4</xref>. These indicators highlighted that deepAMPNet led in performance across all six metrics. Among these predictors, deepAMPNet reached an accuracy of 95.2%, indicating that deepAMPNet is an effective predictor of AMPs.</p><fig position="float" id="fig-9" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-9</object-id><label>Figure 9</label><caption><title>ROC curves of deepAMPNet and the other 11 state-of-the-art predictors on the MFA_test dataset.</title></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g009.jpg"/></fig><fig position="float" id="fig-10" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/fig-10</object-id><label>Figure 10</label><caption><title>Results of six metrics of deepAMPNet and the other 11 predictors on the MFA_test dataset.</title></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g010.jpg"/></fig><table-wrap position="float" id="table-4" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/table-4</object-id><label>Table 4</label><caption><title>The performance of deepAMPNet and the other 11 predictors on the independent MFA_test dataset in terms of Acc, Mcc, Sn, Sp, Precision and F1-score.</title><p>The bold values show the best performance of deepAMPNet and the proposed predictors.</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="peerj-12-17729-g014.jpg"/><table frame="hsides" rules="groups"><colgroup span="1"><col span="1"/><col span="1"/><col span="1"/><col span="1"/><col span="1"/><col span="1"/><col span="1"/></colgroup><thead><tr><th rowspan="1" colspan="1">Method</th><th rowspan="1" colspan="1">Acc</th><th rowspan="1" colspan="1">Mcc</th><th rowspan="1" colspan="1">Sn</th><th rowspan="1" colspan="1">Sp</th><th rowspan="1" colspan="1">Precision</th><th rowspan="1" colspan="1">F1-score</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">ampir</td><td rowspan="1" colspan="1">0.550</td><td rowspan="1" colspan="1">0.143</td><td rowspan="1" colspan="1">0.208</td><td rowspan="1" colspan="1">0.896</td><td rowspan="1" colspan="1">0.670</td><td rowspan="1" colspan="1">0.318</td></tr><tr><td rowspan="1" colspan="1">CAMP3(RF)</td><td rowspan="1" colspan="1">0.667</td><td rowspan="1" colspan="1">0.351</td><td rowspan="1" colspan="1">0.833</td><td rowspan="1" colspan="1">0.498</td><td rowspan="1" colspan="1">0.627</td><td rowspan="1" colspan="1">0.716</td></tr><tr><td rowspan="1" colspan="1">CAMP3(SVM)</td><td rowspan="1" colspan="1">0.672</td><td rowspan="1" colspan="1">0.354</td><td rowspan="1" colspan="1">0.792</td><td rowspan="1" colspan="1">0.551</td><td rowspan="1" colspan="1">0.642</td><td rowspan="1" colspan="1">0.709</td></tr><tr><td rowspan="1" colspan="1">CAMP3(DA)</td><td rowspan="1" colspan="1">0.680</td><td rowspan="1" colspan="1">0.364</td><td rowspan="1" colspan="1">0.766</td><td rowspan="1" colspan="1">0.592</td><td rowspan="1" colspan="1">0.656</td><td rowspan="1" colspan="1">0.707</td></tr><tr><td rowspan="1" colspan="1">CAMP3(ANN)</td><td rowspan="1" colspan="1">0.757</td><td rowspan="1" colspan="1">0.514</td><td rowspan="1" colspan="1">0.751</td><td rowspan="1" colspan="1">0.762</td><td rowspan="1" colspan="1">0.762</td><td rowspan="1" colspan="1">0.757</td></tr><tr><td rowspan="1" colspan="1">iAMPpred</td><td rowspan="1" colspan="1">0.766</td><td rowspan="1" colspan="1">0.535</td><td rowspan="1" colspan="1">0.828</td><td rowspan="1" colspan="1">0.703</td><td rowspan="1" colspan="1">0.739</td><td rowspan="1" colspan="1">0.781</td></tr><tr><td rowspan="1" colspan="1">AMPScannerV2</td><td rowspan="1" colspan="1">0.781</td><td rowspan="1" colspan="1">0.578</td><td rowspan="1" colspan="1">0.904</td><td rowspan="1" colspan="1">0.655</td><td rowspan="1" colspan="1">0.727</td><td rowspan="1" colspan="1">0.806</td></tr><tr><td rowspan="1" colspan="1">AI4AMP</td><td rowspan="1" colspan="1">0.784</td><td rowspan="1" colspan="1">0.568</td><td rowspan="1" colspan="1">0.787</td><td rowspan="1" colspan="1">0.781</td><td rowspan="1" colspan="1">0.784</td><td rowspan="1" colspan="1">0.786</td></tr><tr><td rowspan="1" colspan="1">AMPlify</td><td rowspan="1" colspan="1">0.900</td><td rowspan="1" colspan="1">0.801</td><td rowspan="1" colspan="1">0.873</td><td rowspan="1" colspan="1">0.927</td><td rowspan="1" colspan="1">0.924</td><td rowspan="1" colspan="1">0.898</td></tr><tr><td rowspan="1" colspan="1">AMPfun</td><td rowspan="1" colspan="1">0.922</td><td rowspan="1" colspan="1">0.845</td><td rowspan="1" colspan="1">0.937</td><td rowspan="1" colspan="1">0.908</td><td rowspan="1" colspan="1">0.911</td><td rowspan="1" colspan="1">0.924</td></tr><tr><td rowspan="1" colspan="1">AMPpred-MFA</td><td rowspan="1" colspan="1">0.944</td><td rowspan="1" colspan="1">0.889</td><td rowspan="1" colspan="1">0.950</td><td rowspan="1" colspan="1">0.939</td><td rowspan="1" colspan="1">0.940</td><td rowspan="1" colspan="1">0.945</td></tr><tr><td rowspan="1" colspan="1">deepAMPNet</td><td rowspan="1" colspan="1">
+<bold>0.952</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.905</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.966</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.939</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.941</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.953</bold>
+</td></tr></tbody></table></alternatives></table-wrap></sec></sec><sec sec-type="discussion"><title>Discussion</title><p>In this study, we proposed deepAMPNet, an AMPs predictor employing the Bi-LSTM protein language model and the AlphaFold2 predicted structure. In a comparative performance assessment against other cutting-edge predictors, deepAMPNet achieved the highest or highly comparable performance in seven metrics. The exceptional performance of deepAMPNet can be attributed to the following innovative features:</p><list list-type="simple" id="list-1"><list-item><label> (1)</label><p>The use of Bi-LSTM model: Bi-LSTM protein language model utilized tens of millions of protein sequences from Uniref90, integrated PDB data for structure-supervised learning. This approach enabled the Bi-LSTM model to encode features that concurrently capture the sequence, structure, and evolutionary information of proteins. This information holds paramount importance in protein functional analysis, particularly in the identification of AMPs. Based on the properties of Bi-LSTM, the model integrates the context of amino acids during training. The global information of the sequence is integrated in the encoded features, which makes up for the lack of only local information in the existing model. Concurrently, we also evaluated the performance and effectiveness of different quantities of features to avoid potential redundancy or insufficiency of features.</p></list-item><list-item><label> (2)</label><p>The use of protein structure: Protein sequence determines structure, and protein structure is the key to exercising its function. Protein secondary structures used only in existing models may not be sufficient to characterize AMPs. In this study, we firstly predicted the tertiary structure of AMPs through AlphaFold2. By setting a distance threshold, we effectively represented the structural features of proteins as computer-recognizable graph data. The experimental results showed that the accuracy reached 95.328% when using only structural information (one-hot+HGPSL) with 5-fold cross-validation on the training dataset (<xref rid="fig-7" ref-type="fig">Fig. 7A</xref>).</p></list-item><list-item><label> (3)</label><p>The use of HGPSL: In order to avoid the shortcomings of improperly selected neural networks in existing models, we used a graph neural network based on structure learning to represent protein structures. Hierarchical graph pooling with structure learning (HGPSL) can proficiently implement graph pooling processing to glean feature information of nodes from both the local and global structure of the graph. Further, this algorithm utilized the node features along with the total topological data of the graph to predict labels correlated with the graph. In this study, we compared the performance of GCN, GAT and HGPSL in AMPs identification. The results displayed in <xref rid="fig-7" ref-type="fig">Fig. 7A</xref> showed that HGPSL outperformed the traditional graph convolution algorithms GCN and GAT in terms of accuracy when only a small number of features (one-hot) were used.</p></list-item><list-item><label> (4)</label><p>Enhancement of training dataset: In this study, we collected AMPs from five comprehensive databases and retained 11,485 AMPs after removing redundancy. In comparison to other predictors that only have thousands of AMPs in the training dataset, the augmentation in our training dataset propounded an enhancement in deepAMPNet’s generalization capability.</p></list-item></list></sec><sec sec-type="conclusions"><title>Conclusions</title><p>In this study, we proposed an innovative antimicrobial peptide predictor named deepAMPNet, which utilizes protein sequences and AlphaFold2 predicted structures. deepAMPNet represents protein structures as computer-readable graph data by encoding node features using a pre-trained Bi-LSTM protein language model and constructing adjacency matrices based on a distance threshold. Following this, hierarchical graph pooling with structure learning-based (HGPSL-based) is used to learn antimicrobial peptide features from the graph data, which is ultimately input into the fully connected layer for antimicrobial peptide identification. Experimental results conducted with other state-of-the-art predictors on the latest independent test datasets show that deepAMPNet achieved the highest or highly comparable performance in seven metrics. Therefore, we can conclude that deepAMPNet can facilitate enhanced accuracy and proficiency in antimicrobial peptide identification, thereby aiding researchers to devise pertinent drugs to counter the escalating issue of antimicrobial resistance.</p><p>Moreover, considering the escalating count of structures in AlphaFold protein structure database alongside the superior performance of the Bi-LSTM protein language model in downstream transfer learning, it is reasonable to presume that the protein recognition model, built on the predicted structure and the Bi-LSTM model, possesses wide-ranging applicability. It also implies that other functional peptides, including bioactive peptides like antioxidant peptides and immunological peptides, can likewise exhibit exceptional performance.</p></sec><sec sec-type="supplementary-material" id="supplemental-information"><title> Supplemental Information</title><supplementary-material id="supp-1" position="float" content-type="local-data" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/supp-1</object-id><label>Supplemental Information 1</label><caption><title>Amino acid distribution of AMPs and Non-AMPs of training dataset</title></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-s001.pdf" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="supp-2" position="float" content-type="local-data" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/supp-2</object-id><label>Supplemental Information 2</label><caption><title>The consistency between the predicted structures and the experimental structures of 4 AMPs</title></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-s002.pdf" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="supp-3" position="float" content-type="local-data" orientation="portrait"><object-id pub-id-type="doi">10.7717/peerj.17729/supp-3</object-id><label>Supplemental Information 3</label><caption><title>Results of six metrics of deepAMPNet and the other 11 predictors on the XUAMP dataset</title></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="peerj-12-17729-s003.pdf" position="float" orientation="portrait"/></supplementary-material></sec></body><back><sec sec-type="additional-information"><title>Additional Information and Declarations</title><fn-group content-type="competing-interests"><title>Competing Interests</title><fn id="conflict-1" fn-type="COI-statement"><p>The authors declare there are no competing interests.</p></fn></fn-group><fn-group content-type="author-contributions"><title>Author Contributions</title><fn id="contribution-1" fn-type="con"><p><xref rid="author-1" ref-type="contrib">Fei Zhao</xref> conceived and designed the experiments, performed the experiments, analyzed the data, prepared figures and/or tables, authored or reviewed drafts of the article, and approved the final draft.</p></fn><fn id="contribution-2" fn-type="con"><p><xref rid="author-2" ref-type="contrib">Junhui Qiu</xref> performed the experiments, analyzed the data, prepared figures and/or tables, and approved the final draft.</p></fn><fn id="contribution-3" fn-type="con"><p><xref rid="author-3" ref-type="contrib">Dongyou Xiang</xref> analyzed the data, prepared figures and/or tables, and approved the final draft.</p></fn><fn id="contribution-4" fn-type="con"><p><xref rid="author-4" ref-type="contrib">Pengrui Jiao</xref> analyzed the data, prepared figures and/or tables, and approved the final draft.</p></fn><fn id="contribution-5" fn-type="con"><p><xref rid="author-5" ref-type="contrib">Yu Cao</xref> performed the experiments, authored or reviewed drafts of the article, and approved the final draft.</p></fn><fn id="contribution-6" fn-type="con"><p><xref rid="author-6" ref-type="contrib">Qingrui Xu</xref> performed the experiments, authored or reviewed drafts of the article, and approved the final draft.</p></fn><fn id="contribution-7" fn-type="con"><p><xref rid="author-7" ref-type="contrib">Dairong Qiao</xref> conceived and designed the experiments, authored or reviewed drafts of the article, and approved the final draft.</p></fn><fn id="contribution-8" fn-type="con"><p><xref rid="author-8" ref-type="contrib">Hui Xu</xref> conceived and designed the experiments, authored or reviewed drafts of the article, and approved the final draft.</p></fn><fn id="contribution-9" fn-type="con"><p><xref rid="author-9" ref-type="contrib">Yi Cao</xref> conceived and designed the experiments, authored or reviewed drafts of the article, and approved the final draft.</p></fn></fn-group><fn-group content-type="other"><title>Data Availability</title><fn id="addinfo-1"><p>The following information was supplied regarding data availability:</p><p>The code and data are available at GitHub and Zenodo:</p><p>– <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/Iseeu233/deepAMPNet" ext-link-type="uri">https://github.com/Iseeu233/deepAMPNet</ext-link>
+</p><p>– Iseeu233. (2024). Iseeu233/deepAMPNet: First release of deepAMPNet. (v1.0.0). Zenodo. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://doi.org/10.5281/zenodo.12527166" ext-link-type="uri">https://doi.org/10.5281/zenodo.12527166</ext-link>.</p></fn></fn-group></sec><ref-list content-type="authoryear"><title>References</title><ref id="ref-1"><label>Ahmed et al. (2019)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Ahmed</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Siman-Tov</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Hall</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Bhalla</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Narayanan</surname><given-names>A</given-names></name>
+</person-group><year iso-8601-date="2019">2019</year><article-title>Human antimicrobial peptides as therapeutics for viral infections</article-title><source>Viruses</source><volume>11</volume><fpage>704</fpage><pub-id pub-id-type="doi">10.3390/v11080704</pub-id><pub-id pub-id-type="pmid">31374901</pub-id><pub-id pub-id-type="pmcid">PMC6722670</pub-id></element-citation></ref><ref id="ref-2"><label>Beltran, Aguilera-Mendoza &amp; Brizuela (2018)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Beltran</surname><given-names>JA</given-names></name>
+<name name-style="western"><surname>Aguilera-Mendoza</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Brizuela</surname><given-names>CA</given-names></name>
+</person-group><year iso-8601-date="2018">2018</year><article-title>Optimal selection of molecular descriptors for antimicrobial peptides classification: an evolutionary feature weighting approach</article-title><source>BMC Genomics</source><volume>19</volume><fpage>672</fpage><pub-id pub-id-type="doi">10.1186/s12864-018-5030-1</pub-id><pub-id pub-id-type="pmid">30255784</pub-id><pub-id pub-id-type="pmcid">PMC6156846</pub-id></element-citation></ref><ref id="ref-3"><label>Bepler &amp; Berger (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Bepler</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Berger</surname><given-names>B</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>Learning the protein language: evolution, structure, and function</article-title><source>Cell Systems</source><volume>12</volume><fpage>654</fpage><lpage>669.e3</lpage><pub-id pub-id-type="doi">10.1016/j.cels.2021.05.017</pub-id><pub-id pub-id-type="pmid">34139171</pub-id><pub-id pub-id-type="pmcid">PMC8238390</pub-id></element-citation></ref><ref id="ref-4"><label>Bhadra et al. (2018)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Bhadra</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Yan</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Fong</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Siu</surname><given-names>SWI</given-names></name>
+</person-group><year iso-8601-date="2018">2018</year><article-title>AmPEP: Sequence-based prediction of antimicrobial peptides using distribution patterns of amino acid properties and random forest</article-title><source>Scientific Reports</source><volume>8</volume><fpage>1697</fpage><pub-id pub-id-type="doi">10.1038/s41598-018-19752-w</pub-id><pub-id pub-id-type="pmid">29374199</pub-id><pub-id pub-id-type="pmcid">PMC5785966</pub-id></element-citation></ref><ref id="ref-5"><label>Bin Hafeez et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Bin Hafeez</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Jiang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Bergen</surname><given-names>PJ</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>Y</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>Antimicrobial peptides: an update on classifications and databases</article-title><source>International Journal of Molecular Sciences</source><volume>22</volume><fpage>11691</fpage><pub-id pub-id-type="doi">10.3390/ijms222111691</pub-id><pub-id pub-id-type="pmid">34769122</pub-id><pub-id pub-id-type="pmcid">PMC8583803</pub-id></element-citation></ref><ref id="ref-6"><label>Boratyn et al. (2012)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Boratyn</surname><given-names>GM</given-names></name>
+<name name-style="western"><surname>Schäffer</surname><given-names>AA</given-names></name>
+<name name-style="western"><surname>Agarwala</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Altschul</surname><given-names>SF</given-names></name>
+<name name-style="western"><surname>Lipman</surname><given-names>DJ</given-names></name>
+<name name-style="western"><surname>Madden</surname><given-names>TL</given-names></name>
+</person-group><year iso-8601-date="2012">2012</year><article-title>Domain enhanced lookup time accelerated BLAST</article-title><source>Biology Direct</source><volume>7</volume><fpage>12</fpage><pub-id pub-id-type="doi">10.1186/1745-6150-7-12</pub-id><pub-id pub-id-type="pmid">22510480</pub-id><pub-id pub-id-type="pmcid">PMC3438057</pub-id></element-citation></ref><ref id="ref-7"><label>Bronstein et al. (2017)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Bronstein</surname><given-names>MM</given-names></name>
+<name name-style="western"><surname>Bruna</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>LeCun</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Szlam</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Vandergheynst</surname><given-names>P</given-names></name>
+</person-group><year iso-8601-date="2017">2017</year><article-title>Geometric deep learning: going beyond euclidean data</article-title><source>IEEE Signal Processing Magazine</source><volume>34</volume><fpage>18</fpage><lpage>42</lpage><pub-id pub-id-type="doi">10.1109/MSP.2017.2693418</pub-id></element-citation></ref><ref id="ref-8"><label>Burdukiewicz et al. (2020)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Burdukiewicz</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Sidorczuk</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Rafacz</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Pietluch</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Chilimoniuk</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Rödiger</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Gagat</surname><given-names>P</given-names></name>
+</person-group><year iso-8601-date="2020">2020</year><article-title>Proteomic screening for prediction and design of antimicrobial peptides with AmpGram</article-title><source>International Journal of Molecular Sciences</source><volume>21</volume><fpage>4310</fpage><pub-id pub-id-type="doi">10.3390/ijms21124310</pub-id><pub-id pub-id-type="pmid">32560350</pub-id><pub-id pub-id-type="pmcid">PMC7352166</pub-id></element-citation></ref><ref id="ref-9"><label>Chou (2011)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Chou</surname><given-names>K-C</given-names></name>
+</person-group><year iso-8601-date="2011">2011</year><article-title>Some remarks on protein attribute prediction and pseudo amino acid composition</article-title><source>Journal of Theoretical Biology</source><volume>273</volume><fpage>236</fpage><lpage>247</lpage><pub-id pub-id-type="doi">10.1016/j.jtbi.2010.12.024</pub-id><pub-id pub-id-type="pmid">21168420</pub-id><pub-id pub-id-type="pmcid">PMC7125570</pub-id></element-citation></ref><ref id="ref-10"><label>Chung et al. (2019)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Chung</surname><given-names>C-R</given-names></name>
+<name name-style="western"><surname>Kuo</surname><given-names>T-R</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>L-C</given-names></name>
+<name name-style="western"><surname>Lee</surname><given-names>T-Y</given-names></name>
+<name name-style="western"><surname>Horng</surname><given-names>J-T</given-names></name>
+</person-group><year iso-8601-date="2019">2019</year><article-title>Characterization and identification of antimicrobial peptides with different functional activities</article-title><source>Briefings in Bioinformatics</source><volume>21</volume><elocation-id>bbz043</elocation-id><pub-id pub-id-type="doi">10.1093/bib/bbz043</pub-id><pub-id pub-id-type="pmid">31155657</pub-id></element-citation></ref><ref id="ref-11"><label>Elnaggar et al. (2021)</label><element-citation publication-type="other"><person-group person-group-type="author">
+<name name-style="western"><surname>Elnaggar</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Heinzinger</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Dallago</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Rihawi</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Jones</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Gibbs</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Feher</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Angerer</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Steinegger</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Bhowmik</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Rost</surname><given-names>B</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>ProtTrans: towards cracking the language of life’s code through self-supervised deep learning and high performance computing</article-title><pub-id pub-id-type="doi">10.48550/arXiv.2007.06225</pub-id><pub-id pub-id-type="pmid">34232869</pub-id></element-citation></ref><ref id="ref-12"><label>Fernandes et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Fernandes</surname><given-names>FC</given-names></name>
+<name name-style="western"><surname>Cardoso</surname><given-names>MH</given-names></name>
+<name name-style="western"><surname>Gil-Ley</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Luchi</surname><given-names>LV</given-names></name>
+<name name-style="western"><surname>Da Silva</surname><given-names>MGL</given-names></name>
+<name name-style="western"><surname>Macedo</surname><given-names>MLR</given-names></name>
+<name name-style="western"><surname>De La Fuente-Nunez</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Franco</surname><given-names>OL</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>Geometric deep learning as a potential tool for antimicrobial peptide prediction</article-title><source>Frontiers in Bioinformatics</source><volume>3</volume><elocation-id>1216362</elocation-id><pub-id pub-id-type="doi">10.3389/fbinf.2023.1216362</pub-id><pub-id pub-id-type="pmid">37521317</pub-id><pub-id pub-id-type="pmcid">PMC10374423</pub-id></element-citation></ref><ref id="ref-13"><label>Fernandes, Rigden &amp; Franco (2012)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Fernandes</surname><given-names>FC</given-names></name>
+<name name-style="western"><surname>Rigden</surname><given-names>DJ</given-names></name>
+<name name-style="western"><surname>Franco</surname><given-names>OL</given-names></name>
+</person-group><year iso-8601-date="2012">2012</year><article-title>Prediction of antimicrobial peptides based on the adaptive neuro-fuzzy inference system application</article-title><source>Biopolymers</source><volume>98</volume><fpage>280</fpage><lpage>287</lpage><pub-id pub-id-type="doi">10.1002/bip.22066</pub-id><pub-id pub-id-type="pmid">23193592</pub-id></element-citation></ref><ref id="ref-14"><label>Fingerhut et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Fingerhut</surname><given-names>LCHW</given-names></name>
+<name name-style="western"><surname>Miller</surname><given-names>DJ</given-names></name>
+<name name-style="western"><surname>Strugnell</surname><given-names>JM</given-names></name>
+<name name-style="western"><surname>Daly</surname><given-names>NL</given-names></name>
+<name name-style="western"><surname>Cooke</surname><given-names>IR</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>ampir: an R package for fast genome-wide prediction of antimicrobial peptides</article-title><source>Bioinformatics</source><volume>36</volume><fpage>5262</fpage><lpage>5263</lpage><pub-id pub-id-type="doi">10.1093/bioinformatics/btaa653</pub-id><pub-id pub-id-type="pmid">32683445</pub-id></element-citation></ref><ref id="ref-15"><label>Fu et al. (2020)</label><element-citation publication-type="confproc"><person-group person-group-type="author">
+<name name-style="western"><surname>Fu</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Cao</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Xia</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>S</given-names></name>
+</person-group><year iso-8601-date="2020">2020</year><article-title>Prediction of anuran antimicrobial peptides using AdaBoost and improved PSSM profiles</article-title><conf-name>Proceedings of the fourth international conference on biological information and biomedical engineering</conf-name><publisher-name>ACM</publisher-name><publisher-loc>New York</publisher-loc><fpage>1</fpage><lpage>6</lpage><pub-id pub-id-type="doi">10.1145/3403782.3403807</pub-id></element-citation></ref><ref id="ref-16"><label>Fu et al. (2012)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Fu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Niu</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>W</given-names></name>
+</person-group><year iso-8601-date="2012">2012</year><article-title>CD-HIT: accelerated for clustering the next-generation sequencing data</article-title><source>Bioinformatics</source><volume>28</volume><fpage>3150</fpage><lpage>3152</lpage><pub-id pub-id-type="doi">10.1093/bioinformatics/bts565</pub-id><pub-id pub-id-type="pmid">23060610</pub-id><pub-id pub-id-type="pmcid">PMC3516142</pub-id></element-citation></ref><ref id="ref-17"><label>García-Jacas et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>García-Jacas</surname><given-names>CR</given-names></name>
+<name name-style="western"><surname>Pinacho-Castellanos</surname><given-names>SA</given-names></name>
+<name name-style="western"><surname>García-González</surname><given-names>LA</given-names></name>
+<name name-style="western"><surname>Brizuela</surname><given-names>CA</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>Do deep learning models make a difference in the identification of antimicrobial peptides?</article-title><source>Briefings in Bioinformatics</source><volume>23</volume><elocation-id>bbac094</elocation-id><pub-id pub-id-type="doi">10.1093/bib/bbac094</pub-id><pub-id pub-id-type="pmid">35380616</pub-id></element-citation></ref><ref id="ref-18"><label>Gautam et al. (2013)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Gautam</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Chaudhary</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Kumar</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Sharma</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Kapoor</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Tyagi</surname><given-names>A</given-names></name>
+<collab>Opensource Drug Discovery Consortium</collab>
+<name name-style="western"><surname>Raghava</surname><given-names>GPS</given-names></name>
+</person-group><year iso-8601-date="2013">2013</year><article-title>In silico approaches for designing highly effective cell penetrating peptides</article-title><source>Journal of Translational Medicine</source><volume>11</volume><fpage>74</fpage><pub-id pub-id-type="doi">10.1186/1479-5876-11-74</pub-id><pub-id pub-id-type="pmid">23517638</pub-id><pub-id pub-id-type="pmcid">PMC3615965</pub-id></element-citation></ref><ref id="ref-19"><label>Goodfellow, Bengio &amp; Courville (2016)</label><element-citation publication-type="book"><person-group person-group-type="author">
+<name name-style="western"><surname>Goodfellow</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Bengio</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Courville</surname><given-names>A</given-names></name>
+</person-group><year iso-8601-date="2016">2016</year><source>Deep learning</source><publisher-name>The MIT press</publisher-name><publisher-loc>Cambridge</publisher-loc></element-citation></ref><ref id="ref-20"><label>Jhong et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Jhong</surname><given-names>J-H</given-names></name>
+<name name-style="western"><surname>Yao</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Pang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Chung</surname><given-names>C-R</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Luo</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Feng</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Cheng</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Xi</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>L-C</given-names></name>
+<name name-style="western"><surname>Chang</surname><given-names>T-H</given-names></name>
+<name name-style="western"><surname>Horng</surname><given-names>J-T</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Chiang</surname><given-names>Y-C</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Lee</surname><given-names>T-Y</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>dbAMP 2.0: updated resource for antimicrobial peptides with an enhanced scanning method for genomic and proteomic data</article-title><source>Nucleic Acids Research</source><volume>50</volume><fpage>D460</fpage><lpage>D470</lpage><pub-id pub-id-type="doi">10.1093/nar/gkab1080</pub-id><pub-id pub-id-type="pmid">34850155</pub-id><pub-id pub-id-type="pmcid">PMC8690246</pub-id></element-citation></ref><ref id="ref-21"><label>Jumper et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Jumper</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Evans</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Pritzel</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Green</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Figurnov</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Ronneberger</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Tunyasuvunakool</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Bates</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Žídek</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Potapenko</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Bridgland</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Meyer</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Kohl</surname><given-names>SAA</given-names></name>
+<name name-style="western"><surname>Ballard</surname><given-names>AJ</given-names></name>
+<name name-style="western"><surname>Cowie</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Romera-Paredes</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Nikolov</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Jain</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Adler</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Back</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Petersen</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Reiman</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Clancy</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Zielinski</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Steinegger</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Pacholska</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Berghammer</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Bodenstein</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Silver</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Vinyals</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Senior</surname><given-names>AW</given-names></name>
+<name name-style="western"><surname>Kavukcuoglu</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Kohli</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Hassabis</surname><given-names>D</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>Highly accurate protein structure prediction with AlphaFold</article-title><source>Nature</source><volume>596</volume><fpage>583</fpage><lpage>589</lpage><pub-id pub-id-type="doi">10.1038/s41586-021-03819-2</pub-id><pub-id pub-id-type="pmid">34265844</pub-id><pub-id pub-id-type="pmcid">PMC8371605</pub-id></element-citation></ref><ref id="ref-22"><label>Koehler Leman et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Koehler Leman</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Szczerbiak</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Renfrew</surname><given-names>PD</given-names></name>
+<name name-style="western"><surname>Gligorijevic</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Berenberg</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Vatanen</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Taylor</surname><given-names>BC</given-names></name>
+<name name-style="western"><surname>Chandler</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Janssen</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Pataki</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Carriero</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Fisk</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Xavier</surname><given-names>RJ</given-names></name>
+<name name-style="western"><surname>Knight</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Bonneau</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Kosciolek</surname><given-names>T</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>Sequence-structure-function relationships in the microbial protein universe</article-title><source>Nature Communications</source><volume>14</volume><fpage>2351</fpage><pub-id pub-id-type="doi">10.1038/s41467-023-37896-w</pub-id><pub-id pub-id-type="pmcid">PMC10133388</pub-id><pub-id pub-id-type="pmid">37100781</pub-id></element-citation></ref><ref id="ref-23"><label>Kufareva &amp; Abagyan (2012)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Kufareva</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Abagyan</surname><given-names>R</given-names></name>
+</person-group><year iso-8601-date="2012">2012</year><article-title>Methods of protein structure comparison</article-title><source>Methods in Molecular Biology</source><volume>857</volume><fpage>231</fpage><lpage>257</lpage><pub-id pub-id-type="doi">10.1007/978-1-61779-588-6_10</pub-id><pub-id pub-id-type="pmid">22323224</pub-id><pub-id pub-id-type="pmcid">PMC4321859</pub-id></element-citation></ref><ref id="ref-24"><label>Lawrence et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lawrence</surname><given-names>TJ</given-names></name>
+<name name-style="western"><surname>Carper</surname><given-names>DL</given-names></name>
+<name name-style="western"><surname>Spangler</surname><given-names>MK</given-names></name>
+<name name-style="western"><surname>Carrell</surname><given-names>AA</given-names></name>
+<name name-style="western"><surname>Rush</surname><given-names>TA</given-names></name>
+<name name-style="western"><surname>Minter</surname><given-names>SJ</given-names></name>
+<name name-style="western"><surname>Weston</surname><given-names>DJ</given-names></name>
+<name name-style="western"><surname>Labbé</surname><given-names>JL</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>amPEPpy 1.0: a portable and accurate antimicrobial peptide prediction tool</article-title><source>Bioinformatics</source><volume>37</volume><fpage>2058</fpage><lpage>2060</lpage><pub-id pub-id-type="doi">10.1093/bioinformatics/btaa917</pub-id><pub-id pub-id-type="pmid">33135060</pub-id></element-citation></ref><ref id="ref-25"><label>Lazzaro, Zasloff &amp; Rolff (2020)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lazzaro</surname><given-names>BP</given-names></name>
+<name name-style="western"><surname>Zasloff</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Rolff</surname><given-names>J</given-names></name>
+</person-group><year iso-8601-date="2020">2020</year><article-title>Antimicrobial peptides: application informed by evolution</article-title><source>Science</source><volume>368</volume><elocation-id>eaau5480</elocation-id><pub-id pub-id-type="doi">10.1126/science.aau5480</pub-id><pub-id pub-id-type="pmid">32355003</pub-id><pub-id pub-id-type="pmcid">PMC8097767</pub-id></element-citation></ref><ref id="ref-26"><label>Lee et al. (2015)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lee</surname><given-names>H-T</given-names></name>
+<name name-style="western"><surname>Lee</surname><given-names>C-C</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>J-R</given-names></name>
+<name name-style="western"><surname>Lai</surname><given-names>JZC</given-names></name>
+<name name-style="western"><surname>Chang</surname><given-names>KY</given-names></name>
+</person-group><year iso-8601-date="2015">2015</year><article-title>A large-scale structural classification of antimicrobial peptides</article-title><source>BioMed Research International</source><volume>2015</volume><elocation-id>475062</elocation-id><pub-id pub-id-type="doi">10.1155/2015/475062</pub-id><pub-id pub-id-type="pmid">26000295</pub-id><pub-id pub-id-type="pmcid">PMC4426897</pub-id></element-citation></ref><ref id="ref-27"><label>Li et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Li</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Sutherland</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Hammond</surname><given-names>SA</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Taho</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Bergman</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Houston</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Warren</surname><given-names>RL</given-names></name>
+<name name-style="western"><surname>Wong</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Hoang</surname><given-names>LMN</given-names></name>
+<name name-style="western"><surname>Cameron</surname><given-names>CE</given-names></name>
+<name name-style="western"><surname>Helbing</surname><given-names>CC</given-names></name>
+<name name-style="western"><surname>Birol</surname><given-names>I</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>AMPlify: attentive deep learning model for discovery of novel antimicrobial peptides effective against WHO priority pathogens</article-title><source>BMC Genomics</source><volume>23</volume><fpage>77</fpage><pub-id pub-id-type="doi">10.1186/s12864-022-08310-4</pub-id><pub-id pub-id-type="pmid">35078402</pub-id><pub-id pub-id-type="pmcid">PMC8788131</pub-id></element-citation></ref><ref id="ref-28"><label>Li et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Li</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Zou</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Jia</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Zheng</surname><given-names>J</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>AMPpred-MFA: an interpretable antimicrobial peptide predictor with a stacking architecture, multiple features, and multihead attention</article-title><source>Journal of Chemical Information and Modeling</source><volume>64</volume><fpage>2383</fpage><lpage>2392</lpage><pub-id pub-id-type="doi">10.1021/acs.jcim.3c01017</pub-id><pub-id pub-id-type="pmid">37799091</pub-id></element-citation></ref><ref id="ref-29"><label>Lin et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lin</surname><given-names>T-T</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>L-Y</given-names></name>
+<name name-style="western"><surname>Lu</surname><given-names>I-H</given-names></name>
+<name name-style="western"><surname>Cheng</surname><given-names>W-C</given-names></name>
+<name name-style="western"><surname>Hsu</surname><given-names>Z-R</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>S-H</given-names></name>
+<name name-style="western"><surname>Lin</surname><given-names>C-Y</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>AI4AMP: an antimicrobial peptide predictor using physicochemical property-based encoding method and deep learning</article-title><source>mSystems</source><volume>6</volume><elocation-id>e0029921</elocation-id><pub-id pub-id-type="doi">10.1128/mSystems.00299-21</pub-id><pub-id pub-id-type="pmid">34783578</pub-id><pub-id pub-id-type="pmcid">PMC8594441</pub-id></element-citation></ref><ref id="ref-30"><label>Lin et al. (2019)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lin</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Cai</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Lin</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>X</given-names></name>
+</person-group><year iso-8601-date="2019">2019</year><article-title>An advanced approach to identify antimicrobial peptides and their function types for penaeus through machine learning strategies</article-title><source>BMC Bioinformatics</source><volume>20</volume><fpage>291</fpage><pub-id pub-id-type="doi">10.1186/s12859-019-2766-9</pub-id><pub-id pub-id-type="pmid">31182007</pub-id><pub-id pub-id-type="pmcid">PMC6557738</pub-id></element-citation></ref><ref id="ref-31"><label>Lin et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lin</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Akin</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Rao</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Hie</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Lu</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Smetanin</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Verkuil</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Kabeli</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Shmueli</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>dos Santos Costa</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Fazel-Zarandi</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Sercu</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Candido</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Rives</surname><given-names>A</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>Evolutionary-scale prediction of atomic-level protein structure with a language model</article-title><source>Science</source><volume>379</volume><fpage>1123</fpage><lpage>1130</lpage><pub-id pub-id-type="doi">10.1126/science.ade2574</pub-id><pub-id pub-id-type="pmid">36927031</pub-id></element-citation></ref><ref id="ref-32"><label>Lobanov et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Lobanov</surname><given-names>MY</given-names></name>
+<name name-style="western"><surname>Slizen</surname><given-names>MV</given-names></name>
+<name name-style="western"><surname>Dovidchenko</surname><given-names>NV</given-names></name>
+<name name-style="western"><surname>Panfilov</surname><given-names>AV</given-names></name>
+<name name-style="western"><surname>Surin</surname><given-names>AA</given-names></name>
+<name name-style="western"><surname>Likhachev</surname><given-names>IV</given-names></name>
+<name name-style="western"><surname>Galzitskaya</surname><given-names>OV</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>Comparison of deep learning models with simple method to assess the problem of antimicrobial peptides prediction</article-title><source>Molecular Informatics</source><volume>43</volume><elocation-id>e2200181</elocation-id><pub-id pub-id-type="doi">10.1002/minf.202200181</pub-id><pub-id pub-id-type="pmid">36961202</pub-id></element-citation></ref><ref id="ref-33"><label>Ma et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Ma</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Guo</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Xia</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Tang</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Tong</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Ye</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Feng</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>J</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>Identification of antimicrobial peptides from the human gut microbiome using deep learning</article-title><source>Nature Biotechnology</source><volume>40</volume><fpage>921</fpage><lpage>931</lpage><pub-id pub-id-type="doi">10.1038/s41587-022-01226-0</pub-id><pub-id pub-id-type="pmid">35241840</pub-id></element-citation></ref><ref id="ref-34"><label>Mariani et al. (2013)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Mariani</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Biasini</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Barbato</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Schwede</surname><given-names>T</given-names></name>
+</person-group><year iso-8601-date="2013">2013</year><article-title>lDDT: a local superposition-free score for comparing protein structures and models using distance difference tests</article-title><source>Bioinformatics</source><volume>29</volume><fpage>2722</fpage><lpage>2728</lpage><pub-id pub-id-type="doi">10.1093/bioinformatics/btt473</pub-id><pub-id pub-id-type="pmid">23986568</pub-id><pub-id pub-id-type="pmcid">PMC3799472</pub-id></element-citation></ref><ref id="ref-35"><label>Medema &amp; Fischbach (2015)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Medema</surname><given-names>MH</given-names></name>
+<name name-style="western"><surname>Fischbach</surname><given-names>MA</given-names></name>
+</person-group><year iso-8601-date="2015">2015</year><article-title>Computational approaches to natural product discovery</article-title><source>Nature Chemical Biology</source><volume>11</volume><fpage>639</fpage><lpage>648</lpage><pub-id pub-id-type="doi">10.1038/nchembio.1884</pub-id><pub-id pub-id-type="pmid">26284671</pub-id><pub-id pub-id-type="pmcid">PMC5024737</pub-id></element-citation></ref><ref id="ref-36"><label>Meher et al. (2017)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Meher</surname><given-names>PK</given-names></name>
+<name name-style="western"><surname>Sahu</surname><given-names>TK</given-names></name>
+<name name-style="western"><surname>Saini</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Rao</surname><given-names>AR</given-names></name>
+</person-group><year iso-8601-date="2017">2017</year><article-title>Predicting antimicrobial peptides with improved accuracy by incorporating the compositional, physico-chemical and structural features into Chou’s general PseAAC</article-title><source>Scientific Reports</source><volume>7</volume><fpage>42362</fpage><pub-id pub-id-type="doi">10.1038/srep42362</pub-id><pub-id pub-id-type="pmid">28205576</pub-id><pub-id pub-id-type="pmcid">PMC5304217</pub-id></element-citation></ref><ref id="ref-37"><label>Murray et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Murray</surname><given-names>CJL</given-names></name>
+<name name-style="western"><surname>Ikuta</surname><given-names>KS</given-names></name>
+<name name-style="western"><surname>Sharara</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Swetschinski</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Robles Aguilar</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Gray</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Han</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Bisignano</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Rao</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Wool</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Johnson</surname><given-names>SC</given-names></name>
+<name name-style="western"><surname>Browne</surname><given-names>AJ</given-names></name>
+<name name-style="western"><surname>Chipeta</surname><given-names>MG</given-names></name>
+<name name-style="western"><surname>Fell</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Hackett</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Haines-Woodhouse</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Kashef Hamadani</surname><given-names>BH</given-names></name>
+<name name-style="western"><surname>Kumaran</surname><given-names>EAP</given-names></name>
+<name name-style="western"><surname>McManigal</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Achalapong</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Agarwal</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Akech</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Albertson</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Amuasi</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Andrews</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Aravkin</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Ashley</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Babin</surname><given-names>F-X</given-names></name>
+<name name-style="western"><surname>Bailey</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Baker</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Basnyat</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Bekker</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Bender</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Berkley</surname><given-names>JA</given-names></name>
+<name name-style="western"><surname>Bethou</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Bielicki</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Boonkasidecha</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Bukosia</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Carvalheiro</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Castañeda Orjuela</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Chansamouth</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Chaurasia</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Chiurchiù</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Chowdhury</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Clotaire Donatien</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Cook</surname><given-names>AJ</given-names></name>
+<name name-style="western"><surname>Cooper</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Cressey</surname><given-names>TR</given-names></name>
+<name name-style="western"><surname>Criollo-Mora</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Cunningham</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Darboe</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Day</surname><given-names>NPJ</given-names></name>
+<name name-style="western"><surname>De Luca</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Dokova</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Dramowski</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Dunachie</surname><given-names>SJ</given-names></name>
+<name name-style="western"><surname>Duong Bich</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Eckmanns</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Eibach</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Emami</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Feasey</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Fisher-Pearson</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Forrest</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Garcia</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Garrett</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Gastmeier</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Giref</surname><given-names>AZ</given-names></name>
+<name name-style="western"><surname>Greer</surname><given-names>RC</given-names></name>
+<name name-style="western"><surname>Gupta</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Haller</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Haselbeck</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Hay</surname><given-names>SI</given-names></name>
+<name name-style="western"><surname>Holm</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Hopkins</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Hsia</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Iregbu</surname><given-names>KC</given-names></name>
+<name name-style="western"><surname>Jacobs</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Jarovsky</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Javanmardi</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Jenney</surname><given-names>AWJ</given-names></name>
+<name name-style="western"><surname>Khorana</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Khusuwan</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Kissoon</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Kobeissi</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Kostyanev</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Krapp</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Krumkamp</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Kumar</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Kyu</surname><given-names>HH</given-names></name>
+<name name-style="western"><surname>Lim</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Lim</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Limmathurotsakul</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Loftus</surname><given-names>MJ</given-names></name>
+<name name-style="western"><surname>Lunn</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Manoharan</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Marks</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>May</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Mayxay</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Mturi</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Munera-Huertas</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Musicha</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Musila</surname><given-names>LA</given-names></name>
+<name name-style="western"><surname>Mussi-Pinhata</surname><given-names>MM</given-names></name>
+<name name-style="western"><surname>Naidu</surname><given-names>RN</given-names></name>
+<name name-style="western"><surname>Nakamura</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Nanavati</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Nangia</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Newton</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Ngoun</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Novotney</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Nwakanma</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Obiero</surname><given-names>CW</given-names></name>
+<name name-style="western"><surname>Ochoa</surname><given-names>TJ</given-names></name>
+<name name-style="western"><surname>Olivas-Martinez</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Olliaro</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Ooko</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Ortiz-Brizuela</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Ounchanum</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Pak</surname><given-names>GD</given-names></name>
+<name name-style="western"><surname>Paredes</surname><given-names>JL</given-names></name>
+<name name-style="western"><surname>Peleg</surname><given-names>AY</given-names></name>
+<name name-style="western"><surname>Perrone</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Phe</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Phommasone</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Plakkal</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Ponce-de Leon</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Raad</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Ramdin</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Rattanavong</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Riddell</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Roberts</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Robotham</surname><given-names>JV</given-names></name>
+<name name-style="western"><surname>Roca</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Rosenthal</surname><given-names>VD</given-names></name>
+<name name-style="western"><surname>Rudd</surname><given-names>KE</given-names></name>
+<name name-style="western"><surname>Russell</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Sader</surname><given-names>HS</given-names></name>
+<name name-style="western"><surname>Saengchan</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Schnall</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Scott</surname><given-names>JAG</given-names></name>
+<name name-style="western"><surname>Seekaew</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Sharland</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Shivamallappa</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Sifuentes-Osornio</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Simpson</surname><given-names>AJ</given-names></name>
+<name name-style="western"><surname>Steenkeste</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Stewardson</surname><given-names>AJ</given-names></name>
+<name name-style="western"><surname>Stoeva</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Tasak</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Thaiprakong</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Thwaites</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Tigoi</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Turner</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Turner</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Van Doorn</surname><given-names>HR</given-names></name>
+<name name-style="western"><surname>Velaphi</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Vongpradith</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Vongsouvath</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Vu</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Walsh</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Walson</surname><given-names>JL</given-names></name>
+<name name-style="western"><surname>Waner</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Wangrangsimakul</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Wannapinij</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Wozniak</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Young Sharma</surname><given-names>TEMW</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>KC</given-names></name>
+<name name-style="western"><surname>Zheng</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Sartorius</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Lopez</surname><given-names>AD</given-names></name>
+<name name-style="western"><surname>Stergachis</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Moore</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Dolecek</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Naghavi</surname><given-names>M</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>Global burden of bacterial antimicrobial resistance in 2019: a systematic analysis</article-title><source>The Lancet</source><volume>399</volume><fpage>629</fpage><lpage>655</lpage><pub-id pub-id-type="doi">10.1016/S0140-6736(21)02724-0</pub-id><pub-id pub-id-type="pmcid">PMC8841637</pub-id><pub-id pub-id-type="pmid">35065702</pub-id></element-citation></ref><ref id="ref-38"><label>O’Neill (2016)</label><element-citation publication-type="report"><person-group person-group-type="author">
+<name name-style="western"><surname>O’Neill</surname><given-names>J</given-names></name>
+</person-group><year iso-8601-date="2016">2016</year><source>Tackling drug-resistant infections globally: final report and recommendations</source><institution>London: HM Government and Wellcome Trust</institution><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://amr-review.org/sites/default/files/160518_Final%20paper_with%20cover.pdf">https://amr-review.org/sites/default/files/160518_Final%20paper_with%20cover.pdf</uri></element-citation></ref><ref id="ref-39"><label>Pirtskhalava et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Pirtskhalava</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Amstrong</surname><given-names>AA</given-names></name>
+<name name-style="western"><surname>Grigolava</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Chubinidze</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Alimbarashvili</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Vishnepolsky</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Gabrielian</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Rosenthal</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Hurt</surname><given-names>DE</given-names></name>
+<name name-style="western"><surname>Tartakovsky</surname><given-names>M</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>DBAASP v3: database of antimicrobial/cytotoxic activity and structure of peptides as a resource for development of new therapeutics</article-title><source>Nucleic Acids Research</source><volume>49</volume><fpage>D288</fpage><lpage>D297</lpage><pub-id pub-id-type="doi">10.1093/nar/gkaa991</pub-id><pub-id pub-id-type="pmid">33151284</pub-id><pub-id pub-id-type="pmcid">PMC7778994</pub-id></element-citation></ref><ref id="ref-40"><label>Ruiz Puentes et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Ruiz Puentes</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Henao</surname><given-names>MC</given-names></name>
+<name name-style="western"><surname>Cifuentes</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Muñoz Camargo</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Reyes</surname><given-names>LH</given-names></name>
+<name name-style="western"><surname>Cruz</surname><given-names>JC</given-names></name>
+<name name-style="western"><surname>Arbeláez</surname><given-names>P</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>Rational discovery of antimicrobial peptides by means of artificial intelligence</article-title><source>Membranes</source><volume>12</volume><fpage>708</fpage><pub-id pub-id-type="doi">10.3390/membranes12070708</pub-id><pub-id pub-id-type="pmid">35877911</pub-id><pub-id pub-id-type="pmcid">PMC9320227</pub-id></element-citation></ref><ref id="ref-41"><label>Shaon et al. (2023)</label><element-citation publication-type="other"><person-group person-group-type="author">
+<name name-style="western"><surname>Shaon</surname><given-names>MDSH</given-names></name>
+<name name-style="western"><surname>Karim</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Hasan</surname><given-names>MDZ</given-names></name>
+<name name-style="western"><surname>Moustafa</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Sultan</surname><given-names>MDF</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>AMP-RNNpro: a two-stage approach for identification of antimicrobials using probabilistic features</article-title><source>Research Square</source><pub-id pub-id-type="doi">10.21203/rs.3.rs-3559019/v1</pub-id><pub-id pub-id-type="pmcid">PMC11153637</pub-id><pub-id pub-id-type="pmid">38839785</pub-id></element-citation></ref><ref id="ref-42"><label>Shi et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Shi</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Kang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Dong</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Hu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Lao</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zheng</surname><given-names>H</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>DRAMP 3.0: an enhanced comprehensive data repository of antimicrobial peptides</article-title><source>Nucleic Acids Research</source><volume>50</volume><fpage>D488</fpage><lpage>D496</lpage><pub-id pub-id-type="doi">10.1093/nar/gkab651</pub-id><pub-id pub-id-type="pmid">34390348</pub-id><pub-id pub-id-type="pmcid">PMC8728287</pub-id></element-citation></ref><ref id="ref-43"><label>Steinstraesser et al. (2011)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Steinstraesser</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Kraneburg</surname><given-names>U</given-names></name>
+<name name-style="western"><surname>Jacobsen</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Al-Benna</surname><given-names>S</given-names></name>
+</person-group><year iso-8601-date="2011">2011</year><article-title>Host defense peptides and their antimicrobial-immunomodulatory duality</article-title><source>Immunobiology</source><volume>216</volume><fpage>322</fpage><lpage>333</lpage><pub-id pub-id-type="doi">10.1016/j.imbio.2010.07.003</pub-id><pub-id pub-id-type="pmid">20828865</pub-id></element-citation></ref><ref id="ref-44"><label>Varadi et al. (2022)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Varadi</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Anyango</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Deshpande</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Nair</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Natassia</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Yordanova</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Yuan</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Stroe</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Wood</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Laydon</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Žídek</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Green</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Tunyasuvunakool</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Petersen</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Jumper</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Clancy</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Green</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Vora</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Lutfi</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Figurnov</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Cowie</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Hobbs</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Kohli</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Kleywegt</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Birney</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Hassabis</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Velankar</surname><given-names>S</given-names></name>
+</person-group><year iso-8601-date="2022">2022</year><article-title>AlphaFold protein structure database: massively expanding the structural coverage of protein-sequence space with high-accuracy models</article-title><source>Nucleic Acids Research</source><volume>50</volume><fpage>D439</fpage><lpage>D444</lpage><pub-id pub-id-type="doi">10.1093/nar/gkab1061</pub-id><pub-id pub-id-type="pmid">34791371</pub-id><pub-id pub-id-type="pmcid">PMC8728224</pub-id></element-citation></ref><ref id="ref-45"><label>Veltri, Kamath &amp; Shehu (2018)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Veltri</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Kamath</surname><given-names>U</given-names></name>
+<name name-style="western"><surname>Shehu</surname><given-names>A</given-names></name>
+</person-group><year iso-8601-date="2018">2018</year><article-title>Deep learning improves antimicrobial peptide recognition</article-title><source>Bioinformatics</source><volume>34</volume><fpage>2740</fpage><lpage>2747</lpage><pub-id pub-id-type="doi">10.1093/bioinformatics/bty179</pub-id><pub-id pub-id-type="pmid">29590297</pub-id><pub-id pub-id-type="pmcid">PMC6084614</pub-id></element-citation></ref><ref id="ref-46"><label>Vishnepolsky &amp; Pirtskhalava (2014)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Vishnepolsky</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Pirtskhalava</surname><given-names>M</given-names></name>
+</person-group><year iso-8601-date="2014">2014</year><article-title>Prediction of linear cationic antimicrobial peptides based on characteristics responsible for their interaction with the membranes</article-title><source>Journal of Chemical Information and Modeling</source><volume>54</volume><fpage>1512</fpage><lpage>1523</lpage><pub-id pub-id-type="doi">10.1021/ci4007003</pub-id><pub-id pub-id-type="pmid">24730612</pub-id><pub-id pub-id-type="pmcid">PMC4038373</pub-id></element-citation></ref><ref id="ref-47"><label>Waghu et al. (2016)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Waghu</surname><given-names>FH</given-names></name>
+<name name-style="western"><surname>Barai</surname><given-names>RS</given-names></name>
+<name name-style="western"><surname>Gurung</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Idicula-Thomas</surname><given-names>S</given-names></name>
+</person-group><year iso-8601-date="2016">2016</year><article-title>CAMPR3: a database on sequences, structures and signatures of antimicrobial peptides</article-title><source>Nucleic Acids Research</source><volume>44</volume><fpage>D1094</fpage><lpage>D1097</lpage><pub-id pub-id-type="doi">10.1093/nar/gkv1051</pub-id><pub-id pub-id-type="pmid">26467475</pub-id><pub-id pub-id-type="pmcid">PMC4702787</pub-id></element-citation></ref><ref id="ref-48"><label>Wang, Li &amp; Wang (2016)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Wang</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Z</given-names></name>
+</person-group><year iso-8601-date="2016">2016</year><article-title>APD3: the antimicrobial peptide database as a tool for research and education</article-title><source>Nucleic Acids Research</source><volume>44</volume><fpage>D1087</fpage><lpage>D1093</lpage><pub-id pub-id-type="doi">10.1093/nar/gkv1278</pub-id><pub-id pub-id-type="pmid">26602694</pub-id><pub-id pub-id-type="pmcid">PMC4702905</pub-id></element-citation></ref><ref id="ref-49"><label>Wang et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Pei</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Tian</surname><given-names>Y</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>AMP-EBiLSTM: employing novel deep learning strategies for the accurate prediction of antimicrobial peptides</article-title><source>Frontiers in Genetics</source><volume>14</volume><elocation-id>1232117</elocation-id><pub-id pub-id-type="doi">10.3389/fgene.2023.1232117</pub-id><pub-id pub-id-type="pmid">37554402</pub-id><pub-id pub-id-type="pmcid">PMC10405519</pub-id></element-citation></ref><ref id="ref-50"><label>Wei, Tang &amp; Zou (2017)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Wei</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Tang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zou</surname><given-names>Q</given-names></name>
+</person-group><year iso-8601-date="2017">2017</year><article-title>SkipCPP-Pred: an improved and promising sequence-based predictor for predicting cell-penetrating peptides</article-title><source>BMC Genomics</source><volume>18</volume><fpage>742</fpage><pub-id pub-id-type="doi">10.1186/s12864-017-4128-1</pub-id><pub-id pub-id-type="pmid">29513192</pub-id><pub-id pub-id-type="pmcid">PMC5657092</pub-id></element-citation></ref><ref id="ref-51"><label>Xu et al. (2021)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Xu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Leier</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Xiang</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Shen</surname><given-names>H-H</given-names></name>
+<name name-style="western"><surname>Marquez Lago</surname><given-names>TT</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>D-J</given-names></name>
+<name name-style="western"><surname>Song</surname><given-names>J</given-names></name>
+</person-group><year iso-8601-date="2021">2021</year><article-title>Comprehensive assessment of machine learning-based methods for predicting antimicrobial peptides</article-title><source>Briefings in Bioinformatics</source><volume>22</volume><elocation-id>bbab083</elocation-id><pub-id pub-id-type="doi">10.1093/bib/bbab083</pub-id><pub-id pub-id-type="pmid">33774670</pub-id></element-citation></ref><ref id="ref-52"><label>Yan et al. (2020)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Yan</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Bhadra</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Sethiya</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Qin</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Tai</surname><given-names>HK</given-names></name>
+<name name-style="western"><surname>Wong</surname><given-names>KH</given-names></name>
+<name name-style="western"><surname>Siu</surname><given-names>SWI</given-names></name>
+</person-group><year iso-8601-date="2020">2020</year><article-title>Deep-AmPEP30: improve short antimicrobial peptides prediction with deep learning</article-title><source>Molecular Therapy. Nucleic Acids</source><volume>20</volume><fpage>882</fpage><lpage>894</lpage><pub-id pub-id-type="doi">10.1016/j.omtn.2020.05.006</pub-id><pub-id pub-id-type="pmid">32464552</pub-id><pub-id pub-id-type="pmcid">PMC7256447</pub-id></element-citation></ref><ref id="ref-53"><label>Yan et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Yan</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Lv</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Guo</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Peng</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>B</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>sAMPpred-GAT: prediction of antimicrobial peptide by graph attention network and predicted peptide structure</article-title><source>Bioinformatics</source><volume>39</volume><elocation-id>btac715</elocation-id><pub-id pub-id-type="doi">10.1093/bioinformatics/btac715</pub-id><pub-id pub-id-type="pmid">36342186</pub-id><pub-id pub-id-type="pmcid">PMC9805557</pub-id></element-citation></ref><ref id="ref-54"><label>Ye et al. (2020)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Ye</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Ge</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Zhong</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>Q</given-names></name>
+</person-group><year iso-8601-date="2020">2020</year><article-title>LAMP2: a major update of the database linking antimicrobial peptides</article-title><source>Database: The Journal of Biological Databases and Curation</source><volume>2020</volume><elocation-id>baaa061</elocation-id><pub-id pub-id-type="doi">10.1093/database/baaa061</pub-id><pub-id pub-id-type="pmid">32844169</pub-id><pub-id pub-id-type="pmcid">PMC7447557</pub-id></element-citation></ref><ref id="ref-55"><label>Zhang et al. (2019)</label><element-citation publication-type="workingpaper"><person-group person-group-type="author">
+<name name-style="western"><surname>Zhang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Bu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Ester</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Yao</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>C</given-names></name>
+</person-group><year iso-8601-date="2019">2019</year><article-title>Hierarchical graph pooling with structure learning</article-title><source>ArXiv</source><pub-id pub-id-type="doi">10.48550/arXiv.1911.05954</pub-id></element-citation></ref><ref id="ref-56"><label>Zhou et al. (2023)</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Zhou</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Kong</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Ding</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Han</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Mou</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Gao</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>J</given-names></name>
+</person-group><year iso-8601-date="2023">2023</year><article-title>TriNet: a tri-fusion neural network for the prediction of anticancer and antimicrobial peptides</article-title><source>Patterns</source><volume>4</volume><elocation-id>100702</elocation-id><pub-id pub-id-type="doi">10.1016/j.patter.2023.100702</pub-id><pub-id pub-id-type="pmid">36960450</pub-id><pub-id pub-id-type="pmcid">PMC10028424</pub-id></element-citation></ref></ref-list></back></article></pmc-articleset>

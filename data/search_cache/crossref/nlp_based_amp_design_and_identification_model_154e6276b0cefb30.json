@@ -1,0 +1,4579 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 19073041,
+    "items": [
+      {
+        "institution": [
+          {
+            "name": "Toronto Metropolitan University"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2026-01-06T16:40:10Z",
+          "timestamp": 1767717610855,
+          "version": "3.48.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ]
+        },
+        "reference-count": 0,
+        "publisher": "Ryerson University Library and Archives",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  6
+                ]
+              ],
+              "date-time": "2026-01-06T00:00:00Z",
+              "timestamp": 1767657600000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://rightsstatements.org/vocab/InC/1.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>&lt;p dir=\"ltr\"&gt;Recent advancements in Natural Language Processing (NLP), specifically Large Language Models (LLMs), have demonstrated their transformative power in various domains, including software engineering. This thesis focuses on addressing the critical problem of conflict and duplicate requirement identification in requirement engineering, leveraging the potential of structured and non-structured data in software engineering for automation. For this purpose, first, a diverse set of requirements are annotated for entity recognition tasks, enabling the creation of machine learning and transformer-based models which provides 95.8% accuracy in identifying software-specific entities from requirement texts present in DOORS dataset. Second, building upon this foundation, a two-phase algorithm is developed for conflict detection in requirement documents. The algorithm utilizes supervised learning on requirement data to identify potential conflicts and subsequently validates them semantically using entity extraction techniques. Third, to further refine the conflict and duplicate identification process, the problem is formulated as a sentence pair classification task. Transfer learning techniques, such as sequential transfer learning and cross-domain transfer learning, are employed, and a novel architecture called Software-Requirement Bi-directional Encoder Representation Transformer (SR-BERT) is proposed for requirement pair classification. SR-BERT achieves 95.3% F1-score in determining conflicts, duplicate, and neutral requirement pairs. Additionally, misclassifications flagged by cross-domain transfer learning are reevaluated using Actor-Action (AA) extraction, Part of Speech (POS) tagging, and Semantic Role Labeling (SRL) techniques. The requirement pair classification approach demonstrates great potential in conflict detection tasks, and its performance is enhanced by integrating bi-directional encoders with a contrastive learning framework and cross-encoders. Fourth, inspired by recent advancements in prompt-based learning, a Prompt-based Text-to-Text Models for Software Requirement Pairs (PT2-SRP) framework is also developed, leveraging specially crafted prompts for requirement pair datasets and training encoder-decoder models to identify conflicts in requirement pairs. Lastly, the impact of Data Augmentation (DA) on requirement conflict identification is examined. Specif ically, during the curation of datasets for requirement pair classification task, a scarcity of conflict requirement pairs is noted. To overcome this limitation, novel data augmentation techniques are devised, which ensure the generation of meaningful data instances while preserving the class labels in requirement pair datasets.&lt;/p&gt;</jats:p>",
+        "DOI": "10.32920/31009039.v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2026-01-06T16:36:48Z",
+          "timestamp": 1767717408000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "NLP-Based Methods for Conflict Identification in Software Requirement Engineering"
+        ],
+        "prefix": "10.32920",
+        "author": [
+          {
+            "given": "Garima",
+            "family": "Malik",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "18300",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2026-01-06T16:36:48Z",
+          "timestamp": 1767717408000
+        },
+        "score": 24.012796,
+        "resource": {
+          "primary": {
+            "URL": "https://rshare.library.torontomu.ca/articles/thesis/NLP-Based_Methods_for_Conflict_Identification_in_Software_Requirement_Engineering/31009039/1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.32920/31009039.v1",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ]
+        },
+        "subtype": "dissertation"
+      },
+      {
+        "institution": [
+          {
+            "name": "Toronto Metropolitan University"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2026-01-06T16:40:10Z",
+          "timestamp": 1767717610791,
+          "version": "3.48.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ]
+        },
+        "reference-count": 0,
+        "publisher": "Ryerson University Library and Archives",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  6
+                ]
+              ],
+              "date-time": "2026-01-06T00:00:00Z",
+              "timestamp": 1767657600000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://rightsstatements.org/vocab/InC/1.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>&lt;p dir=\"ltr\"&gt;Recent advancements in Natural Language Processing (NLP), specifically Large Language Models (LLMs), have demonstrated their transformative power in various domains, including software engineering. This thesis focuses on addressing the critical problem of conflict and duplicate requirement identification in requirement engineering, leveraging the potential of structured and non-structured data in software engineering for automation. For this purpose, first, a diverse set of requirements are annotated for entity recognition tasks, enabling the creation of machine learning and transformer-based models which provides 95.8% accuracy in identifying software-specific entities from requirement texts present in DOORS dataset. Second, building upon this foundation, a two-phase algorithm is developed for conflict detection in requirement documents. The algorithm utilizes supervised learning on requirement data to identify potential conflicts and subsequently validates them semantically using entity extraction techniques. Third, to further refine the conflict and duplicate identification process, the problem is formulated as a sentence pair classification task. Transfer learning techniques, such as sequential transfer learning and cross-domain transfer learning, are employed, and a novel architecture called Software-Requirement Bi-directional Encoder Representation Transformer (SR-BERT) is proposed for requirement pair classification. SR-BERT achieves 95.3% F1-score in determining conflicts, duplicate, and neutral requirement pairs. Additionally, misclassifications flagged by cross-domain transfer learning are reevaluated using Actor-Action (AA) extraction, Part of Speech (POS) tagging, and Semantic Role Labeling (SRL) techniques. The requirement pair classification approach demonstrates great potential in conflict detection tasks, and its performance is enhanced by integrating bi-directional encoders with a contrastive learning framework and cross-encoders. Fourth, inspired by recent advancements in prompt-based learning, a Prompt-based Text-to-Text Models for Software Requirement Pairs (PT2-SRP) framework is also developed, leveraging specially crafted prompts for requirement pair datasets and training encoder-decoder models to identify conflicts in requirement pairs. Lastly, the impact of Data Augmentation (DA) on requirement conflict identification is examined. Specif ically, during the curation of datasets for requirement pair classification task, a scarcity of conflict requirement pairs is noted. To overcome this limitation, novel data augmentation techniques are devised, which ensure the generation of meaningful data instances while preserving the class labels in requirement pair datasets.&lt;/p&gt;</jats:p>",
+        "DOI": "10.32920/31009039",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2026-01-06T16:36:46Z",
+          "timestamp": 1767717406000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "NLP-Based Methods for Conflict Identification in Software Requirement Engineering"
+        ],
+        "prefix": "10.32920",
+        "author": [
+          {
+            "given": "Garima",
+            "family": "Malik",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "18300",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2026-01-06T16:36:46Z",
+          "timestamp": 1767717406000
+        },
+        "score": 23.922188,
+        "resource": {
+          "primary": {
+            "URL": "https://rshare.library.torontomu.ca/articles/thesis/NLP-Based_Methods_for_Conflict_Identification_in_Software_Requirement_Engineering/31009039"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.32920/31009039",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              6
+            ]
+          ]
+        },
+        "subtype": "dissertation"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              31
+            ]
+          ],
+          "date-time": "2022-03-31T23:57:42Z",
+          "timestamp": 1648771062091
+        },
+        "reference-count": 0,
+        "publisher": "Innovative Research Publication",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IJIRCST"
+        ],
+        "abstract": "<jats:p>There are many methods for identifying signs, each of which generates a word for each one. It focuses on converting sign language into an appropriate English sentence. NLP techniques are also used in addition to sign recognition. The input is a framed and split video of sign language. This booklet teaches deaf and mute people sign language. It's tough for non-blind persons to engage with blind people due to communication difficulties. To address this issue, the article suggests and describes an effective method. Language technology methods such as POS tagging and the LALR parser are used to convert identified sign words into English phrases. A number of applications are currently on the industry that allow blind people to interact with the world. Combining technology will not be able to address the problem of mobile sign language translation in daily activities. A video interpreter can assist deaf or hearing-impaired people in a variety of situations. People with hearing impairments will be able to learn sign language and have films translated into sign language as a consequence of this research. The present work may be used as a communication interface for both speech-impaired and non-speech-impaired individuals. It will assist bridge the communication gap between speechimpaired people and the rest of the population by capturing and analyzing signals, as well as recognizing and displaying output in the form of comprehensible phrases.</jats:p>",
+        "DOI": "10.55524/ijircst.2021.9.6.9",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              25
+            ]
+          ],
+          "date-time": "2022-03-25T11:19:19Z",
+          "timestamp": 1648207159000
+        },
+        "page": "41-45",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "NLP-based Sign Gesture Identification for Disabled People"
+        ],
+        "prefix": "10.55524",
+        "author": [
+          {
+            "given": "Pankaj",
+            "family": "Saraswat",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "34391",
+        "published-online": {
+          "date-parts": [
+            [
+              2021,
+              11,
+              1
+            ]
+          ]
+        },
+        "container-title": [
+          "International Journal of Innovative Research in Computer Science &amp; Technology"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              25
+            ]
+          ],
+          "date-time": "2022-03-25T11:19:24Z",
+          "timestamp": 1648207164000
+        },
+        "score": 23.230804,
+        "resource": {
+          "primary": {
+            "URL": "https://ijircst.org/DOC/7-nlp-based-sign-gesture-identification-for-disabled-people.pdf"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              11,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.55524/ijircst.2021.9.6.9",
+        "ISSN": [
+          "2347-5552"
+        ],
+        "issn-type": [
+          {
+            "value": "2347-5552",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              11,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              18
+            ]
+          ],
+          "date-time": "2026-06-18T14:52:55Z",
+          "timestamp": 1781794375471,
+          "version": "3.54.5"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              13
+            ]
+          ]
+        },
+        "reference-count": 0,
+        "publisher": "SAGE Publications",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  6,
+                  13
+                ]
+              ],
+              "date-time": "2024-06-13T00:00:00Z",
+              "timestamp": 1718236800000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>This whitepaper introduces Sapphire, a novel ranking model designed to evaluate YouTube videos based on the comprehensive analysis of their transcripts' corpus. By employing regex operations and identifying the most unique and significant keywords throughout the video content, Sapphire offers a more analytical approach to evaluation, considering the relative importance of individual terms. The primary objective of Sapphire is to address the challenges associated with ranking transcripts based on their rigor, independently of video viewership, which is the conventional approach adopted by the YouTube Watch Time algorithm[1]. Additionally, Sapphire includes transcription based on unique identifier keyword weighting strategies. This paper details Sapphire, exploring key components such as YouTube transcription, text preprocessing, Term Frequency-Inverse Document Frequency (TF-IDF) evaluators, and score assessments.</jats:p>",
+        "DOI": "10.31124/advance.171825844.48990300/v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2024-06-13T02:00:53Z",
+          "timestamp": 1718244053000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Sapphire: An NLP-based YouTube video scoring model"
+        ],
+        "prefix": "10.31124",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0004-1151-2981",
+            "authenticated-orcid": false,
+            "given": "Srujan",
+            "family": "Murthy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "179",
+        "link": [
+          {
+            "URL": "https://advance.sagepub.com/doi/pdf/10.31124/advance.171825844.48990300/v1",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              18
+            ]
+          ],
+          "date-time": "2026-06-18T14:09:08Z",
+          "timestamp": 1781791748000
+        },
+        "score": 22.935072,
+        "resource": {
+          "primary": {
+            "URL": "https://advance.sagepub.com/doi/full/10.31124/advance.171825844.48990300/v1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              13
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.31124/advance.171825844.48990300/v1",
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              13
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              19
+            ]
+          ],
+          "date-time": "2026-05-19T16:27:02Z",
+          "timestamp": 1779208022705,
+          "version": "3.51.4"
+        },
+        "publisher-location": "Stroudsburg, PA, USA",
+        "reference-count": 0,
+        "publisher": "Association for Computational Linguistics",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "DOI": "10.18653/v1/2021.sigtyp-1.13",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2021-06-13T01:24:51Z",
+          "timestamp": 1623547491000
+        },
+        "page": "136-144",
+        "source": "Crossref",
+        "is-referenced-by-count": 13,
+        "title": [
+          "A ResNet-50-Based Convolutional Neural Network Model for Language ID Identification from Speech Recordings"
+        ],
+        "prefix": "10.18653",
+        "author": [
+          {
+            "given": "Celano",
+            "family": "Giuseppe",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "1643",
+        "event": {
+          "name": "Proceedings of the Third Workshop on Computational Typology and Multilingual NLP",
+          "location": "Online",
+          "start": {
+            "date-parts": [
+              [
+                2021,
+                6
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2021,
+                6
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "Proceedings of the Third Workshop on Computational Typology and Multilingual NLP"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2021-06-13T01:29:54Z",
+          "timestamp": 1623547794000
+        },
+        "score": 22.699902,
+        "resource": {
+          "primary": {
+            "URL": "https://www.aclweb.org/anthology/2021.sigtyp-1.13"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.18653/v1/2021.sigtyp-1.13",
+        "published": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              25
+            ]
+          ],
+          "date-time": "2025-09-25T15:47:17Z",
+          "timestamp": 1758815237362,
+          "version": "3.30.2"
+        },
+        "reference-count": 17,
+        "publisher": "Elsevier BV",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2003,
+                  2,
+                  1
+                ]
+              ],
+              "date-time": "2003-02-01T00:00:00Z",
+              "timestamp": 1044057600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Materials &amp; Design"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2003,
+              2
+            ]
+          ]
+        },
+        "DOI": "10.1016/s0261-3069(02)00088-2",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2003,
+              2,
+              28
+            ]
+          ],
+          "date-time": "2003-02-28T17:49:37Z",
+          "timestamp": 1046454577000
+        },
+        "page": "53-61",
+        "source": "Crossref",
+        "is-referenced-by-count": 24,
+        "title": [
+          "Hysteresis identification of polymethylaniline-based ER fluid using Preisach model"
+        ],
+        "prefix": "10.1016",
+        "volume": "24",
+        "author": [
+          {
+            "given": "Y.M",
+            "family": "Han",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "S.C",
+            "family": "Lim",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "H.G",
+            "family": "Lee",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "S.B",
+            "family": "Choi",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "H.J",
+            "family": "Choi",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "year": "1991",
+            "series-title": "Mathematical models of hysteresis",
+            "author": "Mayergoyz",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB1"
+          },
+          {
+            "issue": "4",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB2",
+            "doi-asserted-by": "crossref",
+            "first-page": "394",
+            "DOI": "10.1109/3516.891051",
+            "article-title": "Hysteresis compensation in electromagnetic actuators through Preisach model inversion",
+            "volume": "5",
+            "author": "Mittal",
+            "year": "2000",
+            "journal-title": "IEEE/ASME Trans Mech"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hughes D, Wen JT. Preisach modeling of piezoceramic and shape memory alloy hysteresis. Proceedings of the IEEE Control Conference on Application. Albany (New York, USA), 1994:1086–1091",
+            "DOI": "10.1109/CCA.1995.555909"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB4",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Gorbet RB, Wang DWL, Morris KA. Preisach model identification of a two-wire SMA actuator. Proceedings of the IEEE International Conference on Robotics and Automation. Leuben, Belgium, 1998:2161–2167",
+            "DOI": "10.1109/ROBOT.1998.680641"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Song D, Li JC. Modeling of Piezo actuator's nonlinear and frequency dependent dynamics. Mechatronics 1999;9(4):391–410",
+            "DOI": "10.1016/S0957-4158(99)00005-7"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB6",
+            "doi-asserted-by": "crossref",
+            "first-page": "99",
+            "DOI": "10.1016/S0141-6359(97)00014-7",
+            "article-title": "Generalized Preisach model for hysteresis nonlinearity of piezoceramic actuators",
+            "volume": "20",
+            "author": "Ge",
+            "year": "1997",
+            "journal-title": "Precis Eng"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB7",
+            "doi-asserted-by": "crossref",
+            "first-page": "439",
+            "DOI": "10.1115/1.2801276",
+            "article-title": "Force tracking control of a flexible gripper driven by a piezoceramic actuator",
+            "volume": "119",
+            "author": "Choi",
+            "year": "1997",
+            "journal-title": "ASME J Dyn Syst Meas Control"
+          },
+          {
+            "issue": "8",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB8",
+            "doi-asserted-by": "crossref",
+            "first-page": "450",
+            "DOI": "10.1002/(SICI)1521-3927(19990801)20:8<450::AID-MARC450>3.0.CO;2-N",
+            "article-title": "Synthesis and electrorheological properties of polyaniline Na+ montmorillonite suspensions",
+            "volume": "20",
+            "author": "Kim",
+            "year": "1999",
+            "journal-title": "Macromol. Rapid Commun"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB9",
+            "doi-asserted-by": "crossref",
+            "first-page": "537",
+            "DOI": "10.1006/jsvi.1999.2849",
+            "article-title": "Vibration control of a semi-active suspension featuring electrorheological fluid damper",
+            "volume": "234",
+            "author": "Choi",
+            "year": "2000",
+            "journal-title": "J Sound Vib"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB10",
+            "unstructured": "Choi HJ, Cho MS, Jhon MS. Hysteresis behaviors of poly (naphthalene quinone) radical electrorheological fluid. Proceedings of the Sixth International Conference on Electro-Rheolocical Fluids, Magneto-Rheological Suspensions and their Applications. Yonezawa, Japan, 1997:271–227"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB11",
+            "doi-asserted-by": "crossref",
+            "first-page": "351",
+            "DOI": "10.1088/0964-1726/6/3/012",
+            "article-title": "A nonlinear viscoelastic-plastic model for electrorheological fluids",
+            "volume": "6",
+            "author": "Kamath",
+            "year": "1997",
+            "journal-title": "Smart Mater Struct"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB12",
+            "doi-asserted-by": "crossref",
+            "first-page": "167",
+            "DOI": "10.1016/0304-3886(87)90056-8",
+            "article-title": "Non-linear modeling of an electro-rheological vibration damper",
+            "volume": "20",
+            "author": "Stanway",
+            "year": "1987",
+            "journal-title": "J Electrostat"
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB13",
+            "doi-asserted-by": "crossref",
+            "first-page": "230",
+            "DOI": "10.1061/(ASCE)0733-9399(1997)123:3(230)",
+            "article-title": "Phenomenological model for a magnetorheological damper",
+            "volume": "123",
+            "author": "Spencer",
+            "year": "1997",
+            "journal-title": "J Eng Mech ASCE"
+          },
+          {
+            "issue": "6",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB14",
+            "doi-asserted-by": "crossref",
+            "first-page": "1125",
+            "DOI": "10.2514/2.4167",
+            "article-title": "Nonlinear viscoelastic–plastic mechanisms-based model of an electrorheological damper",
+            "volume": "20",
+            "author": "Kamath",
+            "year": "1997",
+            "journal-title": "J Guid Control Dyn"
+          },
+          {
+            "issue": "4",
+            "key": "10.1016/S0261-3069(02)00088-2_BIB15",
+            "doi-asserted-by": "crossref",
+            "first-page": "1243",
+            "DOI": "10.1021/cm000677l",
+            "article-title": "Preparation and electrorheological characteristics of poly(p-phenylene)-based suspensions",
+            "volume": "13",
+            "author": "Sim",
+            "year": "2001",
+            "journal-title": "Chem Mater"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB16",
+            "unstructured": "Foulc JN, Atten P. Experimental study of yield stress in electrorheological fluids. Proceedings of the Fourth International Conference on Electrorheological Fluids. Feldkirch, Austria, 1993:358–371"
+          },
+          {
+            "key": "10.1016/S0261-3069(02)00088-2_BIB17",
+            "doi-asserted-by": "crossref",
+            "first-page": "173",
+            "DOI": "10.1016/S0379-6779(00)00606-8",
+            "article-title": "Synthesis and electrorheological characteristics of polyaniline derivatives with different substituents",
+            "volume": "119",
+            "author": "Kim",
+            "year": "2001",
+            "journal-title": "Synth Met"
+          }
+        ],
+        "container-title": [
+          "Materials &amp; Design"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0261306902000882?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0261306902000882?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              11
+            ]
+          ],
+          "date-time": "2024-12-11T18:58:17Z",
+          "timestamp": 1733943497000
+        },
+        "score": 22.615833,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0261306902000882"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2003,
+              2
+            ]
+          ]
+        },
+        "references-count": 17,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                2003,
+                2
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0261306902000882"
+        ],
+        "URL": "https://doi.org/10.1016/s0261-3069(02)00088-2",
+        "ISSN": [
+          "0261-3069"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "0261-3069"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2003,
+              2
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              16
+            ]
+          ],
+          "date-time": "2024-04-16T12:14:00Z",
+          "timestamp": 1713269640202
+        },
+        "reference-count": 0,
+        "publisher": "Science Research Society",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.52783/jes.775",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              16
+            ]
+          ],
+          "date-time": "2024-04-16T11:49:12Z",
+          "timestamp": 1713268152000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "TMIANE: Design of an efficient Transformer-Based Model for Identification &amp; Feature Analysis of Named Entities via Ensemble Operations"
+        ],
+        "prefix": "10.52783",
+        "member": "30593",
+        "published-online": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of Electrical Systems"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              4,
+              16
+            ]
+          ],
+          "date-time": "2024-04-16T11:49:14Z",
+          "timestamp": 1713268154000
+        },
+        "score": 22.607336,
+        "resource": {
+          "primary": {
+            "URL": "https://journal.esrgroups.org/jes/article/view/775"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.52783/jes.775",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              25
+            ]
+          ],
+          "date-time": "2026-02-25T18:42:52Z",
+          "timestamp": 1772044972893,
+          "version": "3.50.1"
+        },
+        "reference-count": 25,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  4,
+                  1
+                ]
+              ],
+              "date-time": "2023-04-01T00:00:00Z",
+              "timestamp": 1680307200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  4,
+                  1
+                ]
+              ],
+              "date-time": "2023-04-01T00:00:00Z",
+              "timestamp": 1680307200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/100000001",
+            "name": "NSF",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "2202310"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2202310"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000001",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.23919/date56975.2023.10137289",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              2
+            ]
+          ],
+          "date-time": "2023-06-02T19:32:57Z",
+          "timestamp": 1685734377000
+        },
+        "page": "1-6",
+        "source": "Crossref",
+        "is-referenced-by-count": 6,
+        "title": [
+          "Adversarial Attack on Hyperdimensional Computing-based NLP Applications"
+        ],
+        "prefix": "10.23919",
+        "author": [
+          {
+            "given": "Sizhe",
+            "family": "Zhang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Villanova University"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Zhao",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Chicago"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Xun",
+            "family": "Jiao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Villanova University"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/N18-1170"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1609/aaai.v34i04.5845"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3477495.3531761"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1609/aaai.v34i05.6311"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1162/neco.1997.9.8.1735"
+          },
+          {
+            "key": "ref10",
+            "first-page": "240",
+            "article-title": "On the validity of a new sms spam collection",
+            "volume": "2",
+            "author": "maría",
+            "year": "2012",
+            "journal-title": "2012 11th International Conference on Machine Learning and Applications"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/D18-1316"
+          },
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICMLA.2015.37"
+          },
+          {
+            "key": "ref17",
+            "article-title": "Efficient estimation of word representations in vector space",
+            "author": "mikolov",
+            "year": "2013",
+            "journal-title": "ArXiv Preprint"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/DAC18074.2021.9586169"
+          },
+          {
+            "key": "ref19",
+            "first-page": "497",
+            "article-title": "Negative deceptive opinion spam",
+            "author": "ott",
+            "year": "0",
+            "journal-title": "Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics Human Language Technologies"
+          },
+          {
+            "key": "ref18",
+            "article-title": "Counter-fitting word vectors to linguistic constraints",
+            "author": "mrkši?",
+            "year": "2016",
+            "journal-title": "ArXiv Preprint"
+          },
+          {
+            "key": "ref24",
+            "volume": "30",
+            "author": "vaswani",
+            "year": "2017",
+            "journal-title": "Attention is all you need Advances in neural information processing systems"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISVLSI51109.2021.00026"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-65745-1_22"
+          },
+          {
+            "key": "ref20",
+            "first-page": "1532",
+            "article-title": "Manning. Glove: Global vectors for word representation",
+            "author": "pennington",
+            "year": "0",
+            "journal-title": "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/2934583.2934624"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/N18-1202"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/SPW.2018.00016"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CVPR.2018.00175"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1609/aaai.v34i05.6283"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s11265-020-01634-y"
+          },
+          {
+            "key": "ref3",
+            "author": "bird",
+            "year": "2009",
+            "journal-title": "Natural Language Processing with Python Analyzing Text with the Natural Language Toolkit"
+          },
+          {
+            "key": "ref6",
+            "article-title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
+            "author": "devlin",
+            "year": "2018",
+            "journal-title": "ArXiv Preprint"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1186/s40537-015-0029-9"
+          }
+        ],
+        "event": {
+          "name": "2023 Design, Automation & Test in Europe Conference & Exhibition (DATE)",
+          "location": "Antwerp, Belgium",
+          "start": {
+            "date-parts": [
+              [
+                2023,
+                4,
+                17
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2023,
+                4,
+                19
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2023 Design, Automation &amp; Test in Europe Conference &amp; Exhibition (DATE)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx7/10136870/10136706/10137289.pdf?arnumber=10137289",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              17
+            ]
+          ],
+          "date-time": "2023-07-17T17:30:59Z",
+          "timestamp": 1689615059000
+        },
+        "score": 22.51953,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/10137289/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              4
+            ]
+          ]
+        },
+        "references-count": 25,
+        "URL": "https://doi.org/10.23919/date56975.2023.10137289",
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T12:56:48Z",
+          "timestamp": 1776949008722,
+          "version": "3.51.4"
+        },
+        "reference-count": 1,
+        "publisher": "Scientific Research and Community Ltd",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "J Arti Inte &amp; Cloud Comp"
+        ],
+        "abstract": "<jats:p>Electronic health records (EHR) Patient data in the form of electronic health records are sensitive and personal so there are legal structures to protect such things such as HIPAA. De-identification of such data is enough to guarantee the privacy of such information, allowing it to be utilized in medical studies and the creation of AI models. Natural Language Processing (NLP) has become an effective method of automating the de-identification of unstructured clinical  narratives.  This  paper  discusses  the  different  NLP-based  de-identification  techniques,  rule-based,  machine  learning  models,  and  deep  learning  approaches.  These  approaches  are  compared,  and  the  hybrid  model  will  be  created  wherein  Named  Entity  Recognition  (NER)  will  be  combined  with  BERT-based contextual models. Precision, recall, and F1-score are assessment measures applied to benchmark datasets. Findings show that hybrid NLP techniques are more generally accurate and generalized. The study helps in enhancing privacy of data in healthcare as the study allows useful anonymization of textual records of patients.</jats:p>",
+        "DOI": "10.47363/jaicc/2023(2)467",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              25
+            ]
+          ],
+          "date-time": "2025-08-25T09:16:42Z",
+          "timestamp": 1756113402000
+        },
+        "page": "1",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "NLP-Based De-Identification Techniques for Patient Data Anonymization"
+        ],
+        "prefix": "10.47363",
+        "volume": "2",
+        "author": [
+          {
+            "given": "Veerendra Nath",
+            "family": "Jasthi",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "23602",
+        "published-online": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              20
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref0",
+            "unstructured": "1. Yuan J, Holtz C, Smith T, Luo J (2017) Autism spectrum disorder detection from semi-structured and unstructured medical data, EURASIP Journal on Bioinformatics and Systems Biology 2017: 3.2. Zhou H, Ruan D (2020) An embedding-based medical note de-identification approach with minimal annotation, 2020 IEEE 20th International Conference on Bioinformatics and Bioengineering (BIBE) 67: 263-268.3. Demner-Fushman D, Chapman WW, McDonald CJ (2009) What can natural language processing do for clinical decision support? Journal of Biomedical Informatics 42: 760772.4. Bose P, Srinivasan S, Sleeman WC, Palta J, Kapoor R, et al. (2021) A survey on recent named entity recognition and relationship extraction techniques on clinical texts, Applied Sciences 11: 8319.5. Mahendran D, Luo C, Mcinnes BT (2021) Review: Privacy-Preservation in the Context of Natural Language Processing, IEEE Access 9: 147600-147612. 6. Friedman C, Rindflesch TC, Corn M (2013) Natural language processing: State of the art and prospects for significant progress, a workshop sponsored by the National Library of Medicine, Journal of Biomedical Informatics 46: 765-773. 7. Houssein EH, Mohamed RE, Ali AA (2021) Machine Learning Techniques for Biomedical Natural Language Processing: A Comprehensive Review, IEEE Access 9: 140628-140653.8. Névéol A, Dalianis H, Velupillai S, Savova G, Zweigenbaum P (2018) Clinical Natural Language Processing in languages other than English: opportunities and challenges, Journal of Biomedical Semantics 9: 12.9. Carrell DS, Cronkite D, Palmer RE, Saunders K, Gross DE, et al. (2015) Using natural language processing to identify problem usage of prescription opioids. Int J Med Inform 84: 1057-1064.10. Hossayni H, Khan I, Crespi N (2021) Data anonymization for maintenance knowledge sharing, IT Professional 23: 23-30.11. Louise Deleger, Todd Lingren, Yizhao Ni, Megan Kaiser, Laura Stoutenborough, et a. (2014) Preparing an annotated gold standard corpus to share with extramural investigators for de-identification research, Journal of Biomedical Informatics 50: 173-183.12. Tajeddin  M  (2020)  Predicting Aggressive  Responsive Behaviour Among People with Dementia,” in Lecture notes in computer science 562-565. 13. Trifirò G, Sultana J, Bate A (2017) From big data to smart data for pharmacovigilance: The role of healthcare databases and other emerging sources, Drug Safety 41: 143-149.14. Adnan K, Akbar R, Khor SW, Ali ABA (2019) Role and challenges of unstructured big data in healthcare, in Advances in intelligent systems and computing 301-323. 15. Demner-Fushman, Elhadad N, Friedman C (2021) Natural language processing for Health-Related Texts, in Biomedical informatics 241-272."
+          }
+        ],
+        "container-title": [
+          "Journal of Artificial Intelligence &amp; Cloud Computing"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T12:06:06Z",
+          "timestamp": 1776945966000
+        },
+        "score": 22.396046,
+        "resource": {
+          "primary": {
+            "URL": "https://srcpublishers.com/ai-cloud-computing/article/view/343/365"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              20
+            ]
+          ]
+        },
+        "references-count": 1,
+        "journal-issue": {
+          "issue": "2",
+          "published-online": {
+            "date-parts": [
+              [
+                2022,
+                6,
+                30
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.47363/jaicc/2023(2)467",
+        "ISSN": [
+          "2754-6659",
+          "2754-6659"
+        ],
+        "issn-type": [
+          {
+            "value": "2754-6659",
+            "type": "print"
+          },
+          {
+            "value": "2754-6659",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              20
+            ]
+          ]
+        },
+        "article-number": "SRC/JAICC-505"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              23
+            ]
+          ],
+          "date-time": "2024-10-23T04:59:06Z",
+          "timestamp": 1729659546131,
+          "version": "3.28.0"
+        },
+        "reference-count": 10,
+        "publisher": "IEEE",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2009,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.1109/isiea.2009.5356326",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2009,
+              12,
+              24
+            ]
+          ],
+          "date-time": "2009-12-24T18:26:51Z",
+          "timestamp": 1261679211000
+        },
+        "page": "930-933",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The quarter car fuzzy controller design based on model from intelligent system identification"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Dirman",
+            "family": "Hanafi",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CCA.1997.627709"
+          },
+          {
+            "key": "2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.4271/R-114"
+          },
+          {
+            "key": "10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISMA.2009.5164792"
+          },
+          {
+            "key": "1",
+            "first-page": "4030",
+            "article-title": "Backstepping based fuzzy logic control of active vehicle suspension systems",
+            "volume": "6",
+            "author": "campos",
+            "year": "2000",
+            "journal-title": "Proceedings of the American Control Conference"
+          },
+          {
+            "key": "7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/08IAS.2008.166"
+          },
+          {
+            "key": "6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TFUZZ.2008.2011814"
+          },
+          {
+            "key": "5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1243/0954407001527907"
+          },
+          {
+            "key": "4",
+            "article-title": "Active suspension control of ground vehicle based on a full vehicle model",
+            "author": "ikenaga",
+            "year": "1999",
+            "journal-title": "Proc The 70th Shoch & Vibration Symposium"
+          },
+          {
+            "key": "9",
+            "doi-asserted-by": "crossref",
+            "first-page": "2252",
+            "DOI": "10.23919/ACC.1993.4793285",
+            "article-title": "an active suspension system using fuzzy logic control",
+            "author": "ro",
+            "year": "1993",
+            "journal-title": "1993 American Control Conference ACC"
+          },
+          {
+            "key": "8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/NAFIPS.2006.365852"
+          }
+        ],
+        "event": {
+          "name": "Applications (ISIEA 2009)",
+          "start": {
+            "date-parts": [
+              [
+                2009,
+                10,
+                4
+              ]
+            ]
+          },
+          "location": "Kuala Lumpur, Malaysia",
+          "end": {
+            "date-parts": [
+              [
+                2009,
+                10,
+                6
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2009 IEEE Symposium on Industrial Electronics &amp; Applications"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx5/5343620/5356300/05356326.pdf?arnumber=5356326",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2019,
+              5,
+              24
+            ]
+          ],
+          "date-time": "2019-05-24T19:43:10Z",
+          "timestamp": 1558726990000
+        },
+        "score": 21.997019,
+        "resource": {
+          "primary": {
+            "URL": "http://ieeexplore.ieee.org/document/5356326/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2009,
+              10
+            ]
+          ]
+        },
+        "references-count": 10,
+        "URL": "https://doi.org/10.1109/isiea.2009.5356326",
+        "published": {
+          "date-parts": [
+            [
+              2009,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              9
+            ]
+          ],
+          "date-time": "2024-09-09T03:53:33Z",
+          "timestamp": 1725854013541
+        },
+        "publisher-location": "Cham",
+        "reference-count": 16,
+        "publisher": "Springer International Publishing",
+        "isbn-type": [
+          {
+            "type": "print",
+            "value": "9783319196046"
+          },
+          {
+            "type": "electronic",
+            "value": "9783319196053"
+          }
+        ],
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2016,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2016-01-01T00:00:00Z",
+              "timestamp": 1451606400000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://www.springer.com/tdm"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2016
+            ]
+          ]
+        },
+        "DOI": "10.1007/978-3-319-19605-3_3",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2016,
+              4,
+              28
+            ]
+          ],
+          "date-time": "2016-04-28T09:41:39Z",
+          "timestamp": 1461836499000
+        },
+        "page": "65-67",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "TP Model Transformation is a Gateway Between Identification and Design"
+        ],
+        "prefix": "10.1007",
+        "author": [
+          {
+            "given": "Péter",
+            "family": "Baranyi",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2016,
+              4,
+              29
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "issue": "5",
+            "key": "3_CR1",
+            "doi-asserted-by": "publisher",
+            "first-page": "853",
+            "DOI": "10.1109/9.384219",
+            "volume": "40",
+            "author": "P. Apkarian",
+            "year": "1995",
+            "unstructured": "P. Apkarian, P. Gahinet, A convex characterization of gain-scheduled H\n\n                  ∞\n                 controllers. IEEE Trans. Autom. Control 40(5), 853–864 (1995)",
+            "journal-title": "IEEE Trans. Autom. Control"
+          },
+          {
+            "key": "3_CR2",
+            "first-page": "856",
+            "volume": "1",
+            "author": "P. Apkarian",
+            "year": "1994",
+            "unstructured": "P. Apkarian, P. Gahinet, G. Becker, Self-scheduled H\n\n                  ∞\n                 linear parameter-varying systems, in Proceedings of the 1994 American Control Conference, Baltimore, MD, vol. 1 (1994), pp. 856–860",
+            "journal-title": "Baltimore, MD"
+          },
+          {
+            "issue": "3",
+            "key": "3_CR3",
+            "doi-asserted-by": "publisher",
+            "first-page": "207",
+            "DOI": "10.1007/BF02551385",
+            "volume": "2",
+            "author": "S. Boyd",
+            "year": "1989",
+            "unstructured": "S. Boyd, V. Balakrishnan, P. Kabamba, A bisection method for computing the H\n\n                  ∞\n                 norm of a transfer matrix and related problems. Math. Control Signals Syst. 2(3), 207–219 (1989)",
+            "journal-title": "Math. Control Signals Syst."
+          },
+          {
+            "issue": "8",
+            "key": "3_CR4",
+            "doi-asserted-by": "publisher",
+            "first-page": "831",
+            "DOI": "10.1109/9.29425",
+            "volume": "34",
+            "author": "J.C. Doyle",
+            "year": "1989",
+            "unstructured": "J.C. Doyle, K. Glover, P.P. Khargonekar, B.A. Francis, State-space solutions to standard H\n2 and H\n\n                  ∞\n                 control problems. IEEE Trans. Autom. Control 34(8), 831–847 (1989)",
+            "journal-title": "IEEE Trans. Autom. Control"
+          },
+          {
+            "key": "3_CR5",
+            "first-page": "968",
+            "volume": "1",
+            "author": "E. Feron",
+            "year": "1995",
+            "unstructured": "E. Feron, P. Apkarian, P. Gahinet, S-procedure for the analysis of control systems with parametric uncertainties via parameter-dependent Lyapunov functions, in Proceedings of the 1995 American Control Conference, Seattle, Washington, vol. 1 (1995), pp. 968–972",
+            "journal-title": "Seattle, Washington"
+          },
+          {
+            "key": "3_CR6",
+            "first-page": "2396",
+            "volume": "3",
+            "author": "P. Gahinet",
+            "year": "1994",
+            "unstructured": "P. Gahinet, Explicit controller formulas for LMI-based H\n\n                  ∞\n                 synthesis, in Proceedings of the 1994 American Control Conference, Baltimore, MD, vol. 3 (1994), pp. 2396–2400",
+            "journal-title": "Baltimore, MD"
+          },
+          {
+            "key": "3_CR7",
+            "first-page": "1527",
+            "volume": "2",
+            "author": "P. Gahinet",
+            "year": "1994",
+            "unstructured": "P. Gahinet, A.J. Laub, Reliable computation of γ\n\n                  opt\n                 in singular H\n\n                  ∞\n                 control, in Proceedings of the 33rd IEEE Conference on Decision and Control, 1994, Orlando, FL, vol. 2 (1994), pp. 1527–1532",
+            "journal-title": "Orlando, FL"
+          },
+          {
+            "issue": "1",
+            "key": "3_CR8",
+            "doi-asserted-by": "publisher",
+            "first-page": "57",
+            "DOI": "10.1016/0005-1098(93)90174-R",
+            "volume": "29",
+            "author": "I. Kaminer",
+            "year": "1993",
+            "unstructured": "I. Kaminer, P.P. Khargonekar, M.A. Rotea, Mixed H\n2/H\n\n                  ∞\n                 control for discrete-time systems via convex optimization. Automatica 29(1), 57–70 (1993)",
+            "journal-title": "Automatica"
+          },
+          {
+            "key": "3_CR9",
+            "first-page": "840",
+            "volume": "1",
+            "author": "A. Nemirovskii",
+            "year": "1994",
+            "unstructured": "A. Nemirovskii, P. Gahinet, The projective method for solving linear matrix inequalities, in Proceedings of the 1994 American Control Conference, Baltimore, MD, vol. 1 (1994), pp. 840–844",
+            "journal-title": "Baltimore, MD"
+          },
+          {
+            "key": "3_CR10",
+            "doi-asserted-by": "crossref",
+            "unstructured": "C. Scherer, H\n\n                  ∞\n                -optimization without assumptions on finite or infinite zeros. SIAM J. Control Optim. 30(1), 143–166 (1992)",
+            "DOI": "10.1137/0330010"
+          },
+          {
+            "key": "3_CR11",
+            "unstructured": "C. Scherer, S. Weiland, Linear matrix inequalities in control. Lecture Notes, Dutch Institute for Systems and Control, Delft, The Netherlands, 2000. \n                  http://www.cs.ele.tue.nl/sweiland/lmi.htm"
+          },
+          {
+            "key": "3_CR12",
+            "doi-asserted-by": "publisher",
+            "first-page": "483",
+            "DOI": "10.1007/978-1-4614-1833-7_19",
+            "volume-title": "Control of Linear Parameter Varying Systems with Applications",
+            "author": "P. Seiler",
+            "year": "2012",
+            "unstructured": "P. Seiler, G.J. Balas, A. Packard, Linear parameter-varying control for the x-53 active aeroelastic wing, in Control of Linear Parameter Varying Systems with Applications, ed. by J. Mohammadpour, C.W. Scherer (Springer US, Boston, MA, 2012), pp. 483–512"
+          },
+          {
+            "issue": "2",
+            "key": "3_CR13",
+            "doi-asserted-by": "publisher",
+            "first-page": "135",
+            "DOI": "10.1016/0165-0114(92)90113-I",
+            "volume": "45",
+            "author": "K. Tanaka",
+            "year": "1992",
+            "unstructured": "K. Tanaka, M. Sugeno, Stability analysis and design of fuzzy control systems. Fuzzy Sets Syst. 45(2), 135–156 (1992)",
+            "journal-title": "Fuzzy Sets Syst."
+          },
+          {
+            "key": "3_CR14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/0471224596",
+            "volume-title": "Fuzzy Control Systems Design and Analysis: A Linear Matrix Inequality Approach",
+            "author": "K. Tanaka",
+            "year": "2001",
+            "unstructured": "K. Tanaka, H.O. Wang, Fuzzy Control Systems Design and Analysis: A Linear Matrix Inequality Approach (Wiley, New York, 2001)"
+          },
+          {
+            "issue": "2",
+            "key": "3_CR15",
+            "doi-asserted-by": "publisher",
+            "first-page": "250",
+            "DOI": "10.1109/91.669023",
+            "volume": "6",
+            "author": "K. Tanaka",
+            "year": "1998",
+            "unstructured": "K. Tanaka, T. Ikeda, H.O. Wang, Fuzzy regulators and fuzzy observers: relaxed stability conditions and LMI-based designs. IEEE Trans. Fuzzy Syst. 6(2), 250–265 (1998)",
+            "journal-title": "IEEE Trans. Fuzzy Syst."
+          },
+          {
+            "key": "3_CR16",
+            "first-page": "531",
+            "volume": "2",
+            "author": "H.O. Wang",
+            "year": "1995",
+            "unstructured": "H.O. Wang, K. Tanaka, M. Griffin, Parallel distributed compensation of nonlinear systems by Takagi-Sugeno fuzzy model, in Proceedings of the International Joint Conference of the 4th IEEE International Conference on Fuzzy Systems and the 2nd International Fuzzy Engineering Symposium, 1995, Yokohama, Japan, vol. 2 (1995), pp. 531–538",
+            "journal-title": "Yokohama, Japan"
+          }
+        ],
+        "container-title": [
+          "TP-Model Transformation-Based-Control Design Frameworks"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://link.springer.com/content/pdf/10.1007/978-3-319-19605-3_3",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2019,
+              6,
+              1
+            ]
+          ],
+          "date-time": "2019-06-01T22:07:10Z",
+          "timestamp": 1559426830000
+        },
+        "score": 21.847328,
+        "resource": {
+          "primary": {
+            "URL": "http://link.springer.com/10.1007/978-3-319-19605-3_3"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2016
+            ]
+          ]
+        },
+        "ISBN": [
+          "9783319196046",
+          "9783319196053"
+        ],
+        "references-count": 16,
+        "URL": "https://doi.org/10.1007/978-3-319-19605-3_3",
+        "published": {
+          "date-parts": [
+            [
+              2016
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              18
+            ]
+          ],
+          "date-time": "2025-12-18T08:05:51Z",
+          "timestamp": 1766045151565,
+          "version": "3.48.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 2,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5784922",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              12
+            ]
+          ],
+          "date-time": "2025-12-12T01:15:57Z",
+          "timestamp": 1765502157000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "NLP Stock Sentiment Analysis: A Comparative Embedding-Based Model Report"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Joyjit",
+            "family": "Roy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "key": "ref1",
+            "article-title": "Stock Market News Sentiment Analysis -Supplementary Materials",
+            "author": "J Roy",
+            "year": "2025",
+            "journal-title": "Zenodo"
+          },
+          {
+            "journal-title": "Stock Market News Sentiment Analysis Model Repository",
+            "year": "2025",
+            "author": "J Roy",
+            "key": "ref2"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              18
+            ]
+          ],
+          "date-time": "2025-12-18T08:01:32Z",
+          "timestamp": 1766044892000
+        },
+        "score": 21.827166,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5784922"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 2,
+        "URL": "https://doi.org/10.2139/ssrn.5784922",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              14
+            ]
+          ],
+          "date-time": "2026-01-14T08:24:31Z",
+          "timestamp": 1768379071941,
+          "version": "3.49.0"
+        },
+        "reference-count": 0,
+        "publisher": "Kazakh University of Technology and Business",
+        "issue": "29",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  12,
+                  30
+                ]
+              ],
+              "date-time": "2025-12-30T00:00:00Z",
+              "timestamp": 1767052800000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "kazutb"
+        ],
+        "abstract": "<jats:p>Keyword extraction is an important task in natural language processing, supporting summarization, indexing, content analysis, and information retrieval. Over time, a wide range of methods have been developed to automate the identification of key concepts in text. This study reviews the main families of keyword extraction techniques, including statistical methods, graph-based algorithms, embedding-based models, and approaches that use neural representations. In addition to summarizing existing research, the study evaluates several widely used tools, such as TF-IDF, YAKE, KeyBERT, KPMiner, TextRank, TopicRank, and MultipartiteRank, and examines how their strengths and limitations appear when applied to real educational materials. Special attention is given to the challenges that arise in multilingual and low-resource settings, particularly for languages with fewer annotated resources. The analysis highlights patterns in algorithm behavior, differences in semantic coverage, and factors that influence performance across syllabus formats and subject areas. The findings aim to help researchers and practitioners choose appropriate keyword extraction methods for educational, multilingual, and domain-specific applications.</jats:p>",
+        "DOI": "10.58805/kazutb.v.4.29-1085",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2026-01-01T11:16:56Z",
+          "timestamp": 1767266216000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "REVIEW OF REAL-WORLD APPLICATIONS OF NLP-BASED KEYWORD IDENTIFICATION",
+          "ОБЗОР РЕАЛЬНЫХ ПРИМЕНЕНИЙ ИДЕНТИФИКАЦИИ КЛЮЧЕВЫХ СЛОВ НА ОСНОВЕ NLP",
+          "NLP НЕГІЗІНДЕГІ КІЛТІ СӨЗДЕРДІ АНЫҚТАУ НЕГІЗГІ СӨЗДЕРДІ ҚОЛДАНУЛАРДЫ ШОЛУ"
+        ],
+        "prefix": "10.58805",
+        "volume": "4",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0008-0116-859X",
+            "authenticated-orcid": false,
+            "given": "D.",
+            "family": "Ganiuly",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8410-7758",
+            "authenticated-orcid": false,
+            "given": "D.",
+            "family": "Kaibassova",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "37739",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Вестник КазУТБ"
+        ],
+        "link": [
+          {
+            "URL": "https://vestnik.kaztbu.edu.kz/index.php/kazutb/article/download/1085/656",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://vestnik.kaztbu.edu.kz/index.php/kazutb/article/download/1085/656",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              14
+            ]
+          ],
+          "date-time": "2026-01-14T04:18:12Z",
+          "timestamp": 1768364292000
+        },
+        "score": 21.81289,
+        "resource": {
+          "primary": {
+            "URL": "https://vestnik.kaztbu.edu.kz/index.php/kazutb/article/view/1085"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "29",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                1,
+                9
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.58805/kazutb.v.4.29-1085",
+        "ISSN": [
+          "2663-1830",
+          "2708-4132"
+        ],
+        "issn-type": [
+          {
+            "value": "2663-1830",
+            "type": "electronic"
+          },
+          {
+            "value": "2708-4132",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              30
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              10
+            ]
+          ],
+          "date-time": "2026-06-10T16:12:42Z",
+          "timestamp": 1781107962620,
+          "version": "3.54.1"
+        },
+        "reference-count": 15,
+        "publisher": "IGI Global",
+        "isbn-type": [
+          {
+            "value": "9798369342039",
+            "type": "print"
+          },
+          {
+            "value": "9798369342046",
+            "type": "electronic"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              13
+            ]
+          ]
+        },
+        "abstract": "<jats:p>Artificial learning as well as natural language processing (NLP) were used to predict elevated psychiatric symptoms and suicide ideation in individuals who had been unbiasedly discharged from an emergency hospital or mental inpatient setting. Multiple follow-up points were used to collect participants' responses to standardized physical and mental wellness. The GHQ-12 and the presence or absence of suicidal thoughts were the outcome variables of interest. They contrasted natural language processing (NLP) models trained on the free-form query with logistical regression prediction models trained on structured data. Structured data-based models had a PPV of 0.74, specificity of 0.63, and sensitivity of 0.57 NLP-based models of thoughts of suicide had a PPV of 0.62, sensitivity of 0.57, and specificity of 0.58. In structured models, the PPV, sensitivity, and specificity were 0.78, 0.78, and 0.86, respectively; in contrast, NLP-based models of increased mental symptoms had PPVs of 0.57, 0.58, and 0.61, respectively (GHQ-12 ≥ 4).</jats:p>",
+        "DOI": "10.4018/979-8-3693-4203-9.ch006",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              13
+            ]
+          ],
+          "date-time": "2025-03-13T16:29:56Z",
+          "timestamp": 1741883396000
+        },
+        "page": "99-112",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Unstructured NLP Model to Predict Suicidal Identification in the Adults"
+        ],
+        "prefix": "10.4018",
+        "author": [
+          {
+            "given": "Ramesh",
+            "family": "Nuthakki",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Atria Institute of Technology, Bangalore, India"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2325-5893",
+            "authenticated-orcid": true,
+            "given": "Arpit",
+            "family": "Jain",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Koneru Lakshmaiah Education Foundation, India"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ravindra",
+            "family": "Changala",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guru Nanak Institutions Technical Campus, Hyderabad, India"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bijesh",
+            "family": "Dhyani",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Graphic Era University, Dehradun, India"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bramah",
+            "family": "Hazela",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Amity School of Engineering and Technology, Amity University, India"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "2432",
+        "reference": [
+          {
+            "key": "979-8-3693-4203-9.ch006.-1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/informatics9010014"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/informatics9010014"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10488-020-01065-8"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2196/18407"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1371/journal.pone.0211116"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1155/2016/8708434"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.ins.2018.02.014"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1038/s41598-024-51615-5"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3389/fpsyt.2020.00390"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-981-13-8759-3_11"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICICT57646.2023.10134189"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1136/bmjopen-2021-056601"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1186/s12888-021-03258-3"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1093/jamiaopen/ooz054"
+          },
+          {
+            "key": "979-8-3693-4203-9.ch006.-15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10654-018-0470-0"
+          }
+        ],
+        "container-title": [
+          "Demystifying the Role of Natural Language Processing (NLP) in Mental Health"
+        ],
+        "language": "ng",
+        "link": [
+          {
+            "URL": "https://www.igi-global.com/viewtitle.aspx?TitleId=372434",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2025-04-04T16:02:12Z",
+          "timestamp": 1743782532000
+        },
+        "score": 21.654554,
+        "resource": {
+          "primary": {
+            "URL": "https://services.igi-global.com/resolvedoi/resolve.aspx?doi=10.4018/979-8-3693-4203-9.ch006"
+          }
+        },
+        "subtitle": [
+          ""
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              13
+            ]
+          ]
+        },
+        "ISBN": [
+          "9798369342039",
+          "9798369342046"
+        ],
+        "references-count": 15,
+        "URL": "https://doi.org/10.4018/979-8-3693-4203-9.ch006",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              13
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              15
+            ]
+          ],
+          "date-time": "2026-05-15T18:57:08Z",
+          "timestamp": 1778871428638,
+          "version": "3.51.4"
+        },
+        "reference-count": 13,
+        "publisher": "IEEE",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        },
+        "DOI": "10.1109/bhi.2017.7897212",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2017,
+              4,
+              13
+            ]
+          ],
+          "date-time": "2017-04-13T20:45:26Z",
+          "timestamp": 1492116326000
+        },
+        "page": "89-92",
+        "source": "Crossref",
+        "is-referenced-by-count": 18,
+        "title": [
+          "An NLP-based cognitive system for disease status identification in electronic health records"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Homa",
+            "family": "Alemzadeh",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Murthy",
+            "family": "Devarakonda",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref10",
+            "article-title": "Efficient Estimation of Word Representations in Vector Space",
+            "author": "mikolov",
+            "year": "2013",
+            "journal-title": "Proc Workshop at ICLR"
+          },
+          {
+            "key": "ref11",
+            "article-title": "NLP Research Data Sets",
+            "year": "0"
+          },
+          {
+            "key": "ref12",
+            "article-title": "Word2vec",
+            "year": "0"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/279943.279962"
+          },
+          {
+            "key": "ref4",
+            "first-page": "3942",
+            "article-title": "Automated Problem List Generation from Electronic Medical Records in IBM Watson",
+            "author": "devarakonda",
+            "year": "2015",
+            "journal-title": "Innovative Applications of Artificial Intelligence (IAAI)"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/HealthCom.2014.7001855"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1197/jamia.M3096"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1093/jamia/ocw097"
+          },
+          {
+            "key": "ref8",
+            "article-title": "High Blood Pressure Facts",
+            "year": "0"
+          },
+          {
+            "key": "ref7",
+            "first-page": "568",
+            "article-title": "A flexible framework for deriving assertions from electronic medical records",
+            "volume": "18",
+            "author": "kirk",
+            "year": "2011",
+            "journal-title": "JAMIA"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1093/jamia/ocv032"
+          },
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.jbi.2011.03.008"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1001/jama.2013.284427"
+          }
+        ],
+        "event": {
+          "name": "2017 IEEE EMBS International Conference on Biomedical & Health Informatics (BHI)",
+          "location": "Orland, FL, USA",
+          "start": {
+            "date-parts": [
+              [
+                2017,
+                2,
+                16
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2017,
+                2,
+                19
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2017 IEEE EMBS International Conference on Biomedical &amp; Health Informatics (BHI)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx7/7890912/7897179/07897212.pdf?arnumber=7897212",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2017,
+              4,
+              27
+            ]
+          ],
+          "date-time": "2017-04-27T20:54:44Z",
+          "timestamp": 1493326484000
+        },
+        "score": 21.627,
+        "resource": {
+          "primary": {
+            "URL": "http://ieeexplore.ieee.org/document/7897212/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        },
+        "references-count": 13,
+        "URL": "https://doi.org/10.1109/bhi.2017.7897212",
+        "published": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2026-01-13T14:35:42Z",
+          "timestamp": 1768314942474,
+          "version": "3.49.0"
+        },
+        "reference-count": 10,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  11,
+                  12
+                ]
+              ],
+              "date-time": "2025-11-12T00:00:00Z",
+              "timestamp": 1762905600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  11,
+                  12
+                ]
+              ],
+              "date-time": "2025-11-12T00:00:00Z",
+              "timestamp": 1762905600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1109/isai-nlp66160.2025.11320700",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2026-01-12T18:20:48Z",
+          "timestamp": 1768242048000
+        },
+        "page": "1-8",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Research on Gemstone Identification Model Based on Computer Data Simulation"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Xiaoxi",
+            "family": "Ding",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Sanya Aviation and Tourism College,Hainan,Sanya,China,752000"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Haijun",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sanya Aviation and Tourism College,Hainan,Sanya,China,752000"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Xuemin",
+            "family": "Du",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sanya Aviation and Tourism College,Hainan,Sanya,China,752000"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Junfang",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sanya Aviation and Tourism College,Hainan,Sanya,China,752000"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1002/jrs.6518"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1117/12.2631779"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1364/ao.419885"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/min12010060"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1364/ao.419885"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/app14219839"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/app14219839"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/app14219839"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s42452-020-2183-8"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/app14219839"
+          }
+        ],
+        "event": {
+          "name": "2025 20th International Joint Symposium on Artificial Intelligence and Natural Language Processing (iSAI-NLP)",
+          "location": "Phuket, Thailand",
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                11,
+                12
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2025,
+                11,
+                14
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2025 20th International Joint Symposium on Artificial Intelligence and Natural Language Processing (iSAI-NLP)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11320456/11320458/11320700.pdf?arnumber=11320700",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2026-01-13T08:54:52Z",
+          "timestamp": 1768294492000
+        },
+        "score": 21.481499,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11320700/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              12
+            ]
+          ]
+        },
+        "references-count": 10,
+        "URL": "https://doi.org/10.1109/isai-nlp66160.2025.11320700",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              2
+            ]
+          ],
+          "date-time": "2025-08-02T19:05:25Z",
+          "timestamp": 1754161525133,
+          "version": "3.41.2"
+        },
+        "reference-count": 0,
+        "publisher": "Politeknik Negeri Batam",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  6,
+                  4
+                ]
+              ],
+              "date-time": "2025-06-04T00:00:00Z",
+              "timestamp": 1748995200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by-sa/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "JAIC"
+        ],
+        "abstract": "<jats:p>In the past two decades, the rapid growth of e-commerce has significantly transformed global business practices. E-commerce has not only revolutionized the retail industry but also positively impacted businesses and consumer experiences. The ease of online shopping enables users to select products at more competitive prices. Amidst these changes, human-computer interactions have increasingly evolved toward natural conversations through Natural Language Processing (NLP). This study aims to develop a chatbot utilizing Long Short-Term Memory (LSTM) technology as a medium for e-commerce customer service. The dataset used for chatbot development is in JSON format and consists of 580 entries spanning 38 categories or classes. Data processing involves several preprocessing stages, including case folding, lemmatization, tokenization, and padding. The model is developed using a bidirectional LSTM and GRU architecture, followed by regularization techniques to enhance performance. Evaluation results show the model achieves 90% training accuracy and 63% validation accuracy with an F1-score of 62%. While there are indications of overfitting, the observed differences are not statistically significant, indicating the model remains capable of providing reliable responses. Additionally, the model is integrated into a Flask-based web application with an interactive interface to facilitate user access. This study demonstrates that LSTM is effective in addressing vanishing gradient problems.</jats:p>",
+        "DOI": "10.30871/jaic.v9i3.9305",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              29
+            ]
+          ],
+          "date-time": "2025-07-29T01:28:01Z",
+          "timestamp": 1753752481000
+        },
+        "page": "732-740",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Development of a Deployment System Architecture for a Flask-Based Chatbot Using an LSTM NLP Model for Customer Service Question &amp; Answer",
+          "Development of a Deployment System Architecture for a Flask-Based Chatbot Using an LSTM NLP Model for Customer Service Question &amp; Answer"
+        ],
+        "prefix": "10.30871",
+        "volume": "9",
+        "author": [
+          {
+            "given": "David Ramantya",
+            "family": "Mukti",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Abu",
+            "family": "Salam",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "12321",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of Applied Informatics and Computing"
+        ],
+        "link": [
+          {
+            "URL": "https://jurnal.polibatam.ac.id/index.php/JAIC/article/download/9305/2769",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://jurnal.polibatam.ac.id/index.php/JAIC/article/download/9305/2769",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              29
+            ]
+          ],
+          "date-time": "2025-07-29T01:28:10Z",
+          "timestamp": 1753752490000
+        },
+        "score": 21.457767,
+        "resource": {
+          "primary": {
+            "URL": "https://jurnal.polibatam.ac.id/index.php/JAIC/article/view/9305"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                6,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.30871/jaic.v9i3.9305",
+        "ISSN": [
+          "2548-6861"
+        ],
+        "issn-type": [
+          {
+            "type": "electronic",
+            "value": "2548-6861"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              15
+            ]
+          ],
+          "date-time": "2026-05-15T17:33:27Z",
+          "timestamp": 1778866407553,
+          "version": "3.51.4"
+        },
+        "reference-count": 38,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2023-09-01T00:00:00Z",
+              "timestamp": 1693526400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2023-09-01T00:00:00Z",
+              "timestamp": 1693526400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  7,
+                  13
+                ]
+              ],
+              "date-time": "2023-07-13T00:00:00Z",
+              "timestamp": 1689206400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100000266",
+            "name": "EPSRC",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100000266",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Computers &amp; Chemical Engineering"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.compchemeng.2023.108353",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2023-07-13T21:27:50Z",
+          "timestamp": 1689283670000
+        },
+        "page": "108353",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 18,
+        "special_numbering": "C",
+        "title": [
+          "An exploratory model-based design of experiments approach to aid parameters identification and reduce model prediction uncertainty"
+        ],
+        "prefix": "10.1016",
+        "volume": "177",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3360-0470",
+            "authenticated-orcid": false,
+            "given": "Francesca",
+            "family": "Cenci",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Arun",
+            "family": "Pankajakshan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Pierantonio",
+            "family": "Facco",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3296-1581",
+            "authenticated-orcid": false,
+            "given": "Federico",
+            "family": "Galvanin",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "2–7",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0001",
+            "doi-asserted-by": "crossref",
+            "first-page": "1261",
+            "DOI": "10.1016/S0098-1354(00)00328-8",
+            "article-title": "Statistical tools for optimal dynamic model building",
+            "volume": "24",
+            "author": "Asprey",
+            "year": "2000",
+            "journal-title": "Comput. Chem. Eng."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0002",
+            "series-title": "Nonlinear Parameter Estimation",
+            "author": "Bard",
+            "year": "1974"
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0021",
+            "doi-asserted-by": "crossref",
+            "first-page": "290",
+            "DOI": "10.1111/j.2517-6161.1968.tb00728.x",
+            "article-title": "The occurrence of replications in optimal designs of experiments to estimate parameters in non-linear models",
+            "volume": "30",
+            "author": "Box",
+            "year": "1968",
+            "journal-title": "J. R. Stat. Soc. Ser. B Stat. Methodol."
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0003",
+            "doi-asserted-by": "crossref",
+            "first-page": "225",
+            "DOI": "10.1016/0009-2509(83)85004-0",
+            "article-title": "A new sequential experimental design procedure for discriminating among rival models",
+            "volume": "38",
+            "author": "Buzzi-Ferraris",
+            "year": "1983",
+            "journal-title": "Chem. Eng. Sci."
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0004",
+            "doi-asserted-by": "crossref",
+            "first-page": "126",
+            "DOI": "10.1080/00031305.1999.10474445",
+            "article-title": "One-factor-at-a-time versus designed experiments",
+            "volume": "53",
+            "author": "Czitrom",
+            "year": "1999",
+            "journal-title": "Am. Stat."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0005",
+            "unstructured": "Dasgupta, S., Mukhopadhyay, S., Keith, J., 2021. G-optimal grid designs for kriging models. arXiv, 2111.06632. 10.48550/arXiv.2111.06632."
+          },
+          {
+            "issue": "8",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0006",
+            "doi-asserted-by": "crossref",
+            "first-page": "511",
+            "DOI": "10.3390/pr7080511",
+            "article-title": "Special Issue on “Process Modelling and Simulation",
+            "volume": "7",
+            "author": "de Prada",
+            "year": "2019",
+            "journal-title": "Processes"
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0007",
+            "article-title": "Combined Mechanistic and Empirical Modelling",
+            "volume": "2",
+            "author": "Duarte",
+            "year": "2004",
+            "journal-title": "Int. J. Chem. React. Eng."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0008",
+            "doi-asserted-by": "crossref",
+            "first-page": "150",
+            "DOI": "10.3762/bjoc.13.18",
+            "article-title": "Self-optimisation and model-based design of experiments for developing a C-H activation flow process",
+            "volume": "13",
+            "author": "Echtermeyer",
+            "year": "2017",
+            "journal-title": "Beilstein J. Org. Chem."
+          },
+          {
+            "issue": "2",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0009",
+            "doi-asserted-by": "crossref",
+            "first-page": "223",
+            "DOI": "10.1002/aic.690350206",
+            "article-title": "The optimal design of dynamic experiments",
+            "volume": "35",
+            "author": "Espie",
+            "year": "1989",
+            "journal-title": "AlChE J."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0010",
+            "series-title": "Contributions to Mathematical Statistics",
+            "author": "Fisher",
+            "year": "1950"
+          },
+          {
+            "issue": "4",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0011",
+            "doi-asserted-by": "crossref",
+            "first-page": "1009",
+            "DOI": "10.1002/aic.11429",
+            "article-title": "Novel anticorrelation criteria for model-based experiment design: theory and formulations",
+            "volume": "54",
+            "author": "Franceschini",
+            "year": "2008",
+            "journal-title": "AlChE J."
+          },
+          {
+            "issue": "4",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0012",
+            "doi-asserted-by": "crossref",
+            "first-page": "451",
+            "DOI": "10.1007/s10928-013-9321-5",
+            "article-title": "A general model-based design of experiments approach to achieve practical identifiability of pharmacokinetic and pharmacodynamic models",
+            "volume": "40",
+            "author": "Galvanin",
+            "year": "2013",
+            "journal-title": "J. Pharmacokinet. Pharmacodyn."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0013",
+            "doi-asserted-by": "crossref",
+            "first-page": "202",
+            "DOI": "10.1016/j.compchemeng.2016.05.009",
+            "article-title": "A joint model-based experimental design approach for the identification of kinetic models in continuous flow laboratory reactors",
+            "volume": "95",
+            "author": "Galvanin",
+            "year": "2016",
+            "journal-title": "Comput. Chem. Eng."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0014",
+            "doi-asserted-by": "crossref",
+            "first-page": "871",
+            "DOI": "10.1021/ie0611406",
+            "article-title": "Model-based design of parallel experiments",
+            "volume": "46",
+            "author": "Galvanin",
+            "year": "2007",
+            "journal-title": "Ind. Eng. Chem. Res."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0015",
+            "doi-asserted-by": "crossref",
+            "first-page": "71",
+            "DOI": "10.1016/j.compchemeng.2017.05.010",
+            "article-title": "Design of computer experiments: a review",
+            "volume": "106",
+            "author": "Garud",
+            "year": "2017",
+            "journal-title": "Comput. Chem. Eng."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0016",
+            "series-title": "Mathematical and Statistical Methods in Food Science and Technology",
+            "first-page": "1",
+            "article-title": "The use and importance of design of experiments (DOE) in process modelling in food science and technology",
+            "author": "Granato",
+            "year": "2013"
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0017",
+            "doi-asserted-by": "crossref",
+            "first-page": "307",
+            "DOI": "10.1080/00401706.1965.10490265",
+            "article-title": "Designs for discriminating between two rival models",
+            "volume": "7",
+            "author": "Hunter",
+            "year": "1965",
+            "journal-title": "Technometrics"
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0018",
+            "doi-asserted-by": "crossref",
+            "first-page": "363",
+            "DOI": "10.4153/CJM-1960-030-4",
+            "article-title": "The equivalence of two extremum problems",
+            "volume": "12",
+            "author": "Kiefer",
+            "year": "1960",
+            "journal-title": "Can. J. Math."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0019",
+            "doi-asserted-by": "crossref",
+            "first-page": "271",
+            "DOI": "10.1214/aoms/1177706252",
+            "article-title": "Optimum designs in regression problems",
+            "volume": "30",
+            "author": "Kiefer",
+            "year": "1959",
+            "journal-title": "Ann. Math. Stat."
+          },
+          {
+            "issue": "5",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0020",
+            "doi-asserted-by": "crossref",
+            "first-page": "345",
+            "DOI": "10.1111/j.0956-7976.2005.01538.x",
+            "article-title": "An Alternative to Null-Hypothesis Significance Tests",
+            "volume": "16",
+            "author": "Killeen",
+            "year": "2005",
+            "journal-title": "Psychol. Sci."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0022",
+            "unstructured": "Mihaluta, M., Martin, P., Dantan, J.Y., 2008. Manufacturing process modeling and simulation. ICME, Italy. 7p. ffhal-00999479f. https://hal.archives-ouvertes.fr/hal-00999479."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0023",
+            "series-title": "Design and Analysis of Experiments",
+            "author": "Montgomery",
+            "year": "2013"
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0024",
+            "doi-asserted-by": "crossref",
+            "first-page": "36",
+            "DOI": "10.1016/j.spl.2018.10.022",
+            "article-title": "Various optimality criteria for the prediction of individual response curves",
+            "volume": "146",
+            "author": "Prus",
+            "year": "2019",
+            "journal-title": "Stat. Probab. Lett."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0025",
+            "series-title": "Optimal Design of Experiments",
+            "author": "Pukelsheim",
+            "year": "1993"
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0026",
+            "doi-asserted-by": "crossref",
+            "first-page": "58",
+            "DOI": "10.1016/j.chemolab.2017.11.010",
+            "article-title": "A model-based data mining approach for determining the domain of validity of approximated models",
+            "volume": "172",
+            "author": "Quaglio",
+            "year": "2018",
+            "journal-title": "Chemom. Intell. Lab. Syst."
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0027",
+            "doi-asserted-by": "crossref",
+            "first-page": "223",
+            "DOI": "10.1007/s13349-020-00448-7",
+            "article-title": "Combined approach for optimal sensor placement and experimental verification in the context of tower-like structures",
+            "volume": "11",
+            "author": "Reichert",
+            "year": "2021",
+            "journal-title": "J. Civ. Struct. Health Monit."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0028",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1016/j.compchemeng.2019.06.029",
+            "article-title": "Sequential model-based A- and V-optimal design of experiments for building fundamental models of pharmaceutical production processes",
+            "volume": "129",
+            "author": "Shahmohammadi",
+            "year": "2019",
+            "journal-title": "Comput. Chem. Eng."
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0029",
+            "doi-asserted-by": "crossref",
+            "first-page": "27",
+            "DOI": "10.1615/CritRevTherDrugCarrierSyst.v22.i1.20",
+            "article-title": "Optimizing drug delivery systems using systematic “design of experiments.” Part I: fundamental aspects",
+            "volume": "22",
+            "author": "Singh",
+            "year": "2005",
+            "journal-title": "Crit. Rev. Ther. Drug Carrier Syst."
+          },
+          {
+            "issue": "3",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0030",
+            "doi-asserted-by": "crossref",
+            "first-page": "215",
+            "DOI": "10.1615/CritRevTherDrugCarrierSyst.v22.i3.10",
+            "article-title": "Optimizing drug delivery systems using systematic “design of experiments.” Part II: retrospect and prospects",
+            "volume": "22",
+            "author": "Singh",
+            "year": "2005",
+            "journal-title": "Crit. Rev. Ther. Drug Carrier Syst."
+          },
+          {
+            "issue": "1/2",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0031",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.2307/2331929",
+            "article-title": "On the standard deviations of adjusted and interpolated values of an observed polynomial function and its constants and the guidance they give towards a proper choice of the distribution of observations",
+            "volume": "12",
+            "author": "Smith",
+            "year": "1918",
+            "journal-title": "Biometrika"
+          },
+          {
+            "issue": "334",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0032",
+            "doi-asserted-by": "crossref",
+            "first-page": "311",
+            "DOI": "10.1080/01621459.1971.10482260",
+            "article-title": "Optimal experimental design for polynomial regression",
+            "volume": "66",
+            "author": "Stigler",
+            "year": "1971",
+            "journal-title": "J. Am. Stat. Assoc."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0033",
+            "doi-asserted-by": "crossref",
+            "first-page": "e17394",
+            "DOI": "10.1002/aic.17394",
+            "article-title": "Model-based design of experiments for polyether production from bio-based 1,3-propanediol",
+            "volume": "67",
+            "author": "Vo",
+            "year": "2021",
+            "journal-title": "AlChE J."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0034",
+            "doi-asserted-by": "crossref",
+            "first-page": "22165",
+            "DOI": "10.1021/acs.iecr.9b04089",
+            "article-title": "Closed-loop model-based design of experiments for kinetic model discrimination and parameter estimation: benzoic acid esterification on a heterogeneous catalyst",
+            "author": "Waldron",
+            "year": "2019",
+            "journal-title": "Ind. Eng. Chem. Res."
+          },
+          {
+            "issue": "1",
+            "key": "10.1016/j.compchemeng.2023.108353_bib0035",
+            "doi-asserted-by": "crossref",
+            "first-page": "112",
+            "DOI": "10.1039/C9RE00342H",
+            "article-title": "Model-based design of transient flow experiments for the identification of kinetic parameters",
+            "volume": "5",
+            "author": "Waldron",
+            "year": "2020",
+            "journal-title": "React. Chem. Eng."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0036",
+            "doi-asserted-by": "crossref",
+            "first-page": "317",
+            "DOI": "10.1016/0167-7152(94)00236-1",
+            "article-title": "On the equivalence of D and G-optimal designs in heteroscedastic models",
+            "volume": "25",
+            "author": "Wong",
+            "year": "1995",
+            "journal-title": "Stat. Probab. Lett."
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0037",
+            "series-title": "Computer Aided Design of Experiments. An Engineering Approach",
+            "author": "Zullo",
+            "year": "1991"
+          },
+          {
+            "key": "10.1016/j.compchemeng.2023.108353_bib0035a",
+            "unstructured": "Websites https://doepy.readthedocs.io/en/latest/."
+          }
+        ],
+        "container-title": [
+          "Computers &amp; Chemical Engineering"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0098135423002235?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0098135423002235?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              21
+            ]
+          ],
+          "date-time": "2025-08-21T08:28:12Z",
+          "timestamp": 1755764892000
+        },
+        "score": 21.37307,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0098135423002235"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              9
+            ]
+          ]
+        },
+        "references-count": 38,
+        "alternative-id": [
+          "S0098135423002235"
+        ],
+        "URL": "https://doi.org/10.1016/j.compchemeng.2023.108353",
+        "ISSN": [
+          "0098-1354"
+        ],
+        "issn-type": [
+          {
+            "value": "0098-1354",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              9
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "An exploratory model-based design of experiments approach to aid parameters identification and reduce model prediction uncertainty",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Computers & Chemical Engineering",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.compchemeng.2023.108353",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2023 The Author(s). Published by Elsevier Ltd.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ],
+        "article-number": "108353"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              30
+            ]
+          ],
+          "date-time": "2025-09-30T00:08:04Z",
+          "timestamp": 1759190884751,
+          "version": "3.44.0"
+        },
+        "reference-count": 0,
+        "publisher": "SCITEPRESS - Science and Technology Publications",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "DOI": "10.5220/0012879300004519",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              29
+            ]
+          ],
+          "date-time": "2025-09-29T10:36:04Z",
+          "timestamp": 1759142164000
+        },
+        "page": "20-26",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Design Predictive Model for RFID Tag Based Livestock Identification and Monitoring System"
+        ],
+        "prefix": "10.5220",
+        "author": [
+          {
+            "given": "Velmurugan",
+            "family": "Lingamuthu",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "School of Computing Science and Engineering, VIT Bhopal University, Bhopal, India"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Tensae",
+            "family": "Zewdu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Computer Science, Ambo University, Ambo, Ethiopia"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Paul",
+            "family": "Mansingh",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Agricultural Extension & Economics, Vellore Institute of Technology, Vellore, India"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "3171",
+        "event": {
+          "name": "International Conference on ‘Emerging Innovations for Sustainable Agriculture: Leveraging the potential of Digital Innovations by the Farmers, Agri-tech Startups and Agribusiness Enterprises in Agricu",
+          "location": "Vellore, India",
+          "start": {
+            "date-parts": [
+              [
+                2024,
+                2,
+                2
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2024,
+                2,
+                3
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "Proceedings of the 1st International Conference on Emerging Innovations for Sustainable Agriculture"
+        ],
+        "original-title": [
+          "Design Predictive Model for RFID Tag Based Livestock Identification and Monitoring System"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              29
+            ]
+          ],
+          "date-time": "2025-09-29T10:36:04Z",
+          "timestamp": 1759142164000
+        },
+        "score": 21.336893,
+        "resource": {
+          "primary": {
+            "URL": "https://www.scitepress.org/DigitalLibrary/Link.aspx?doi=10.5220/0012879300004519"
+          }
+        },
+        "subtitle": [
+          ""
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.5220/0012879300004519",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              8
+            ]
+          ],
+          "date-time": "2025-04-08T07:45:52Z",
+          "timestamp": 1744098352782
+        },
+        "reference-count": 30,
+        "publisher": "Elsevier BV",
+        "issue": "4",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2010,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "2010-08-01T00:00:00Z",
+              "timestamp": 1280620800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2014,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "2014-08-01T00:00:00Z",
+              "timestamp": 1406851200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 1461,
+            "URL": "https://www.elsevier.com/open-access/userlicense/1.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Computers &amp; Mathematics with Applications"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2010,
+              8
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.camwa.2010.02.037",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2010,
+              3,
+              25
+            ]
+          ],
+          "date-time": "2010-03-25T08:44:05Z",
+          "timestamp": 1269506645000
+        },
+        "page": "944-953",
+        "source": "Crossref",
+        "is-referenced-by-count": 11,
+        "title": [
+          "Coordinated control design of multiple HVDC links based on model identification"
+        ],
+        "prefix": "10.1016",
+        "volume": "60",
+        "author": [
+          {
+            "given": "Robert",
+            "family": "Eriksson",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Lennart",
+            "family": "Söder",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b1",
+            "series-title": "Understanding Facts",
+            "author": "Hingorani",
+            "year": "2000"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b2",
+            "series-title": "Real-Time Control of Electric Power Systems",
+            "author": "Handschin",
+            "year": "1972"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b3",
+            "series-title": "Power Engineering Society General Meeting, 2004",
+            "article-title": "Dynamic tracking of low-frequency oscillations with improved Prony method in wide-area measurement system",
+            "author": "Xiao",
+            "year": "2004"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b4",
+            "series-title": "Power System Stability and Control",
+            "author": "Kundur",
+            "year": "1993"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b5",
+            "first-page": "15",
+            "article-title": "On the coordinated control of multiple HVDC links: modal analysis approach",
+            "volume": "2",
+            "author": "Eriksson",
+            "year": "2008",
+            "journal-title": "GMSARN International Journal"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b6",
+            "doi-asserted-by": "crossref",
+            "first-page": "620",
+            "DOI": "10.1109/61.216868",
+            "article-title": "Utilising HVDC to damp power oscillations",
+            "volume": "8",
+            "author": "Smed",
+            "year": "1993",
+            "journal-title": "IEEE Transactions on Power Delivery"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b7",
+            "first-page": "938",
+            "article-title": "Power swing damping control by HVDC power modulation in an AC/DC hybrid transmission system",
+            "volume": "124",
+            "author": "Tomiyama",
+            "year": "1998",
+            "journal-title": "Electrical Engineering"
+          },
+          {
+            "issue": "12",
+            "key": "10.1016/j.camwa.2010.02.037_b8",
+            "doi-asserted-by": "crossref",
+            "first-page": "17",
+            "DOI": "10.1109/MPER.2002.1098039",
+            "article-title": "FACTS system studies",
+            "volume": "22",
+            "author": "Adapa",
+            "year": "2002",
+            "journal-title": "IEEE Power Engineering Review"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b9",
+            "unstructured": "Working group 14.29, 149 coordination of controls of multiple FACTS/HVDC links in the same system, Tech. Rep., Cigré, 1999."
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b10",
+            "series-title": "The Control Handbook",
+            "author": "Levine",
+            "year": "1996"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b11",
+            "doi-asserted-by": "crossref",
+            "first-page": "1296",
+            "DOI": "10.1109/TPWRS.2006.879292",
+            "article-title": "Initial results in power system identification from injected probing signals using a subspace method",
+            "volume": "21",
+            "author": "Zhou",
+            "year": "2006",
+            "journal-title": "IEEE Transactions on Power Systems"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b12",
+            "doi-asserted-by": "crossref",
+            "first-page": "680",
+            "DOI": "10.1109/TPWRS.2008.919415",
+            "article-title": "Performance of three mode-meter block-processing algorithms for automated dynamic stability assessment",
+            "volume": "23",
+            "author": "Pierre",
+            "year": "2008",
+            "journal-title": "IEEE Transactions on Power Systems"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b13",
+            "doi-asserted-by": "crossref",
+            "first-page": "774",
+            "DOI": "10.1109/59.496153",
+            "article-title": "Robust power system controller design based on measured models",
+            "volume": "11",
+            "author": "Fatehi",
+            "year": "1996",
+            "journal-title": "IEEE Transactions on Power Systems"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b14",
+            "doi-asserted-by": "crossref",
+            "first-page": "303",
+            "DOI": "10.1109/59.486110",
+            "article-title": "Low-order black-box models for control system design in large power systems",
+            "volume": "11",
+            "author": "Kamwa",
+            "year": "1996",
+            "journal-title": "IEEE Transactions on Power Systems"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b15",
+            "doi-asserted-by": "crossref",
+            "first-page": "26",
+            "DOI": "10.1109/67.582448",
+            "article-title": "Identifying linear models from time domain simulations",
+            "volume": "10",
+            "author": "Sanchez-Gasca",
+            "year": "1997",
+            "journal-title": "IEEE Computer Applications in Power"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b16",
+            "doi-asserted-by": "crossref",
+            "unstructured": "C. Lu, L. Li, J. He, X. Wu, P. Li, Optimal coordinate design of multiple HVDC modulation controllers based on MIMO system identification, in: Proceedings on IEEE Power Engineering Society General Meeting, 2007.",
+            "DOI": "10.1109/PES.2007.385826"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b17",
+            "series-title": "Linear Systems",
+            "author": "Kailath",
+            "year": "1980"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b18",
+            "doi-asserted-by": "crossref",
+            "first-page": "75",
+            "DOI": "10.1016/0005-1098(94)90230-5",
+            "article-title": "N4SID: subspace algorithms for the identification of combined deterministic–stochastic systems",
+            "volume": "30",
+            "author": "Overschee",
+            "year": "1994",
+            "journal-title": "Automatica"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b19",
+            "series-title": "Subspace Identification for Linear Systems",
+            "author": "Overschee",
+            "year": "1996"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b20",
+            "unstructured": "P. van Overschee, Subspace identification: theory–implementation–application, Ph.D. Thesis, Katholieke Universiteit Leuven, 1995."
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b21",
+            "series-title": "System Identification: Theory for the User",
+            "author": "Ljung",
+            "year": "1999"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b22",
+            "series-title": "Signals & Systems",
+            "author": "Oppenheim",
+            "year": "1996"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b23",
+            "unstructured": "W.A. Mittelstadt, P.E. Krause, P.N. Overholt, J.F. Hauer, R.E. Wilson, D.T. Rizy, The DOE wide area measurement system (WAMS) project: demonstration of dynamic information technology for future power system, in: Fault and Disturbance Analysis & Precise Measurements in Power Systems, Session 4, Arlington, VA, 1995."
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b24",
+            "doi-asserted-by": "crossref",
+            "first-page": "788",
+            "DOI": "10.1109/59.496155",
+            "article-title": "Optimal placement of angle transducers in power systems",
+            "volume": "11",
+            "author": "Palmer",
+            "year": "1996",
+            "journal-title": "IEEE Transactions on Power Systems"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b25",
+            "unstructured": "M.A. Smith, A.G. Phadke, Synchronized phasor measurement feedback for control of FACTS devices, in: Fault and Disturbance Analysis and Precise Measurements in Power Systems Conference, Arlington, VA, 1995."
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b26",
+            "series-title": "Modern Control System Theory and Design",
+            "author": "Shinners",
+            "year": "1998"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b27",
+            "series-title": "Observers in Control Systems: A Practical Guide",
+            "author": "Ellis",
+            "year": "2002"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b28",
+            "series-title": "Power System Dynamics and Stability",
+            "author": "Sauer",
+            "year": "1998"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b29",
+            "first-page": "85",
+            "article-title": "A class of extended state observers in nonlinear feedback control",
+            "volume": "10",
+            "author": "Han",
+            "year": "1995",
+            "journal-title": "Control and Decision"
+          },
+          {
+            "key": "10.1016/j.camwa.2010.02.037_b30",
+            "series-title": "Sliding-modes in Control Optimization",
+            "author": "Utkin",
+            "year": "1992"
+          }
+        ],
+        "container-title": [
+          "Computers &amp; Mathematics with Applications"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0898122110001562?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0898122110001562?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              12,
+              12
+            ]
+          ],
+          "date-time": "2018-12-12T08:52:52Z",
+          "timestamp": 1544604772000
+        },
+        "score": 21.293133,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0898122110001562"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2010,
+              8
+            ]
+          ]
+        },
+        "references-count": 30,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2010,
+                8
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0898122110001562"
+        ],
+        "URL": "https://doi.org/10.1016/j.camwa.2010.02.037",
+        "ISSN": [
+          "0898-1221"
+        ],
+        "issn-type": [
+          {
+            "value": "0898-1221",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2010,
+              8
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 20,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

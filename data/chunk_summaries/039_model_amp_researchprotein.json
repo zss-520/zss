@@ -1,0 +1,289 @@
+{
+  "chunk_id": "model_amp_researchprotein",
+  "chunk_type": "model",
+  "chunk_name": "AMP-researchprotein",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP",
+    "Deep-AmPEP30",
+    "EBAMP",
+    "DLFea4AMPGen"
+  ],
+  "papers": [
+    {
+      "title": "Ensemble Machine Learning and Predicted Properties Promote Antimicrobial Peptide Identification.",
+      "pmid": "38972032",
+      "pmcid": "6941814",
+      "doi": "10.1007/s12539-024-00640-z",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Deep-AmPEP30: Improve Short Antimicrobial Peptides Prediction with Deep Learning.",
+      "pmid": "32464552",
+      "pmcid": "PMC5210628",
+      "doi": "10.1109/INDCON.2011.6139332",
+      "year": "2020",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "EBAMP: An efficient de novo broad-spectrum antimicrobial peptide discovery framework.",
+      "pmid": "40906555",
+      "pmcid": "PMC13310060",
+      "doi": "10.1016/j.celrep.2025.116215",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "DLFea4AMPGen de novo design of antimicrobial peptides by integrating features learned from deep learning models.",
+      "pmid": "41093853",
+      "pmcid": "PMC8601225",
+      "doi": "10.1002/adma.202307680",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMP",
+      "canonical_name": "AMP Ensemble Model",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML/DL",
+      "architecture_or_algorithm": "Ensemble of multiple LightGBM classifiers and convolutional neural networks, using predicted sequential, structural, and physicochemical properties.",
+      "input_features": "Amino acid sequence-derived predicted properties (sequential, structural, physicochemical)",
+      "source_pmid": "38972032",
+      "source_pmcid": "6941814",
+      "source_doi": "10.1007/s12539-024-00640-z",
+      "code_repository_url": "https://github.com/researchprotein/amp",
+      "web_server_url": "http://amp.denglab.org",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/researchprotein/amp",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model with code, web server, and datasets available, good for benchmarking.",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "Deep-AmPEP30",
+      "canonical_name": "Deep-AmPEP30",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional neural network with PseKRAAC reduced amino acids composition",
+      "input_features": "PseKRAAC reduced amino acids composition",
+      "source_pmid": "32464552",
+      "source_pmcid": "PMC5210628",
+      "source_doi": "10.1109/INDCON.2011.6139332",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://cbbio.cis.um.edu.mo/AxPEP",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Short AMP predictor with web server, experimentally validated, good for benchmark.",
+      "blocking_issues": [
+        "code not available",
+        "no dataset link provided"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "EBAMP",
+      "canonical_name": "EBAMP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide design",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Transformer-based generative model with advanced feature-based screening",
+      "input_features": "Unknown, likely peptide sequences",
+      "source_pmid": "40906555",
+      "source_pmcid": "PMC13310060",
+      "source_doi": "10.1016/j.celrep.2025.116215",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel de novo AMP design framework with experimental validation, could be used for comparative analysis if code becomes available.",
+      "blocking_issues": [
+        "no code or web server available",
+        "method details not fully described"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "DLFea4AMPGen",
+      "canonical_name": "DLFea4AMPGen",
+      "aliases": [],
+      "task_type": "antimicrobial peptide design",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep learning models for feature extraction, SHAP for key feature fragments, sequence generation",
+      "input_features": "Amino acid contributions from deep learning models",
+      "source_pmid": "41093853",
+      "source_pmcid": "PMC8601225",
+      "source_doi": "10.1002/adma.202307680",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Innovative design method using DL and SHAP, with experimental validation, potential benchmark if code is released.",
+      "blocking_issues": [
+        "no code or web server available"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMP-researchprotein",
+      "url": "https://github.com/researchprotein/amp",
+      "repository_type": "code",
+      "matched_model_name": "AMP",
+      "source_pmid": "38972032",
+      "source_doi": "10.1007/s12539-024-00640-z",
+      "evidence_level": "abstract",
+      "evidence": "Source code and datasets publicly accessible at https://github.com/researchprotein/amp"
+    },
+    {
+      "name": "AxPEP web server",
+      "url": "https://cbbio.cis.um.edu.mo/AxPEP",
+      "repository_type": "webserver",
+      "matched_model_name": "Deep-AmPEP30",
+      "source_pmid": "32464552",
+      "source_doi": "10.1109/INDCON.2011.6139332",
+      "evidence_level": "abstract",
+      "evidence": "Our method is available at https://cbbio.cis.um.edu.mo/AxPEP."
+    },
+    {
+      "name": "learning_sequence_motifs.",
+      "url": "https://github.com/p-koo/learning_sequence_motifs.",
+      "repository_type": "code",
+      "matched_paper_title": "Ensemble Machine Learning and Predicted Properties Promote Antimicrobial Peptide Identification.",
+      "source_pmid": "38972032",
+      "source_doi": "10.1093/nar/gkab1080",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Found via regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "amp",
+      "url": "https://github.com/researchprotein/amp",
+      "repository_type": "code",
+      "matched_paper_title": "Ensemble Machine Learning and Predicted Properties Promote Antimicrobial Peptide Identification.",
+      "source_pmid": "38972032",
+      "source_doi": "10.1093/nar/gkab1080",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Found via regex_fulltext_or_metadata",
+      "confidence": 0.7
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AMP training dataset",
+      "dataset_url": "https://github.com/researchprotein/amp",
+      "dataset_source": "GitHub repository of the AMP model",
+      "linked_model": "AMP",
+      "source_pmid": "38972032",
+      "source_doi": "10.1007/s12539-024-00640-z",
+      "positive_samples": "not specified",
+      "negative_samples": "not specified",
+      "deduplication_method": "not specified",
+      "evidence_level": "abstract",
+      "evidence": "datasets publicly accessible at https://github.com/researchprotein/amp"
+    },
+    {
+      "dataset_name": "learning_sequence_motifs.",
+      "dataset_url": "https://github.com/p-koo/learning_sequence_motifs.",
+      "matched_paper_title": "Ensemble Machine Learning and Predicted Properties Promote Antimicrobial Peptide Identification.",
+      "source_pmid": "38972032",
+      "source_doi": "10.1093/nar/gkab1080",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Found via regex_fulltext_or_metadata",
+      "confidence": 0.6
+    },
+    {
+      "dataset_name": "amp",
+      "dataset_url": "https://github.com/researchprotein/amp",
+      "matched_paper_title": "Ensemble Machine Learning and Predicted Properties Promote Antimicrobial Peptide Identification.",
+      "source_pmid": "38972032",
+      "source_doi": "10.1093/nar/gkab1080",
+      "evidence_level": "regex_fulltext_or_metadata",
+      "evidence": "Found via regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "Deep-AmPEP30 achieves 77% accuracy on a balanced benchmark dataset of 188 samples.",
+      "source_pmid": "32464552",
+      "source_doi": "10.1109/INDCON.2011.6139332",
+      "evidence": "Deep-AmPEP30 yields an improved performance of 77% in accuracy."
+    },
+    {
+      "metric_name": "AUC-ROC",
+      "usage": "Deep-AmPEP30 achieves 85% AUC-ROC.",
+      "source_pmid": "32464552",
+      "source_doi": "10.1109/INDCON.2011.6139332",
+      "evidence": "85% in the area under the receiver operating characteristic curve (AUC-ROC)."
+    },
+    {
+      "metric_name": "AUC-PR",
+      "usage": "Deep-AmPEP30 achieves 85% AUC-PR.",
+      "source_pmid": "32464552",
+      "source_doi": "10.1109/INDCON.2011.6139332",
+      "evidence": "85% in area under the precision-recall curve (AUC-PR)."
+    }
+  ],
+  "important_evidence": [
+    "AMP model provides code (https://github.com/researchprotein/amp) and web server (http://amp.denglab.org).",
+    "Deep-AmPEP30 achieves 77% accuracy, 85% AUC-ROC, 85% AUC-PR on a balanced benchmark dataset of 188 samples.",
+    "EBAMP and DLFea4AMPGen are de novo design frameworks, not prediction models, but have experimental validation.",
+    "Evidence for all models limited to abstracts; full text verification needed."
+  ],
+  "uncertainties": [
+    "Fulltext content for all four papers in this batch did not match actual articles; verification of real fulltexts needed.",
+    "DOIs for several papers may be incorrect; correct DOIs should be verified.",
+    "EBAMP and DLFea4AMPGen are de novo design methods; suitability for AMP prediction benchmarks should be clarified.",
+    "AMP model's dataset details (positive/negative samples, deduplication) require examination of GitHub repository."
+  ],
+  "source_pmids": [
+    "38972032",
+    "32464552",
+    "40906555",
+    "41093853"
+  ],
+  "source_dois": [
+    "10.1007/s12539-024-00640-z",
+    "10.1109/INDCON.2011.6139332",
+    "10.1016/j.celrep.2025.116215",
+    "10.1002/adma.202307680",
+    "10.1093/nar/gkab1080"
+  ],
+  "urls": [
+    "https://github.com/researchprotein/amp",
+    "http://amp.denglab.org",
+    "https://cbbio.cis.um.edu.mo/AxPEP",
+    "https://github.com/p-koo/learning_sequence_motifs.",
+    "https://doi.org/10.1093/nar/gkab1080",
+    "https://pubmed.ncbi.nlm.nih.gov/38972032/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/6941814/",
+    "https://doi.org/10.1109/INDCON.2011.6139332",
+    "https://pubmed.ncbi.nlm.nih.gov/32464552/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210628/",
+    "https://doi.org/10.1016/j.celrep.2025.116215",
+    "https://openalex.org/W4413924713",
+    "https://pubmed.ncbi.nlm.nih.gov/40906555/",
+    "https://doi.org/10.1002/adma.202307680",
+    "https://pubmed.ncbi.nlm.nih.gov/41093853/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8601225/"
+  ]
+}

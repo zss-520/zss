@@ -1,0 +1,37 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41913931",
+    "pmid": "41913931"
+  },
+  "pmid": "41913931",
+  "pmcid": "PMC13033287",
+  "doi": "10.7717/peerj.20978",
+  "title": "iAMP-SeE: an antimicrobial peptide recognition model based on ESM2 feature extraction and hybrid attention mechanisms.",
+  "abstract": "<h4>Background</h4>Antimicrobial peptides (AMPs) are short peptides with diverse biological activities and playing a crucial role in various biological processes. Due to the widespread misuse of traditional antibiotics and the increasing resistance of microorganisms to these drugs, AMPs have emerged as a promising alternative. Consequently, the identification of AMPs has garnered significant research interest. Numerous computational methods based on machine learning algorithms have been developed to facilitate AMP recognition. However, some existing AMPs recognition models only focus on binary classification tasks or only identify the functional activity of a limited number of AMPs categories in multi-class classification tasks. To address this limitation, this study proposes a two-stage AMPs recognition model, iAMP-SeE.<h4>Methods</h4>The iAMP-SeE model extracts features from protein sequences using ESM2, employs a Convolutional Neural Network (CNN) module to capture local patterns from ESM features and utilizes a Bidirectional Long Short-Term Memory (BiLSTM) network to capture long-term dependencies. Furthermore, it incorporates Squeeze-and-Excitation (SE) and Efficient Channel Attention (ECA) mechanisms, which focus on global and local channel relationships, respectively. These two attention mechanisms are complementary, as they enhance features across various dimensions and granularities while simultaneously suppressing irrelevant or redundant features, thereby boosting the model's performance. Additionally, to address the issue of imbalanced datasets, the Synthetic Minority Over-sampling Technique (SMOTE) is incorporated into the multi-classification task. This method balances the number of AMP categories and ensures that minority classes are not overlooked during model training.<h4>Results</h4>Evaluation across a range of classification thresholds demonstrated the stability of the model's performance metrics in both binary and multi-class tasks. Furthermore, comparative experiments with existing AMP recognition models confirmed the superior performance of iAMP-SeE.<h4>Conclusions</h4>Rigorous experimental comparisons and ablation studies demonstrate the effectiveness of iAMP-SeE for both binary and multi-class AMP classification tasks. The source code is publicly available at: https://github.com/cqw0715/iAMP-SeE.git.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Chen Q",
+    "Li S",
+    "Huang L",
+    "Yu X",
+    "Xu D",
+    "Qi Z."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.7717/peerj.20978",
+    "https://pubmed.ncbi.nlm.nih.gov/41913931/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13033287/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "general-search",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model OR classification)",
+  "candidate_key": "doi:10 7717 peerj 20978"
+}

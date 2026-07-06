@@ -1,0 +1,38 @@
+{
+  "source_primary": "semantic_scholar",
+  "sources": [
+    "semantic_scholar"
+  ],
+  "source_ids": {
+    "semantic_scholar": "bbacf32a31c25882847431f7a9b1104095523299"
+  },
+  "semantic_scholar_id": "bbacf32a31c25882847431f7a9b1104095523299",
+  "doi": "10.1016/j.heliyon.2024.e36163",
+  "pmid": "39247292",
+  "pmcid": "11380031",
+  "title": "Antiprotozoal peptide prediction using machine learning with effective feature selection techniques",
+  "abstract": "Background Protozoal pathogens pose a considerable threat, leading to notable mortality rates and the ongoing challenge of developing resistance to drugs. This situation underscores the urgent need for alternative therapeutic approaches. Antimicrobial peptides stand out as promising candidates for drug development. However, there is a lack of published research focusing on predicting antimicrobial peptides specifically targeting protozoal pathogens. In this study, we introduce a successful machine learning-based framework designed to predict potential antiprotozoal peptides effective against protozoal pathogens. Objective The primary objective of this study is to classify and predict antiprotozoal peptides using diverse negative datasets. Methods A comprehensive literature review was conducted to gather experimentally validated antiprotozoal peptides, forming the positive dataset for our study. To construct a robust machine learning classifier, multiple negative datasets were incorporated, including (i) non-antimicrobial, (ii) antiviral, (iii) antibacterial, (iv) antifungal, and (v) antimicrobial peptides excluding those targeting protozoal pathogens. Various compositional features of the peptides were extracted using the pfeature algorithm. Two feature selection methods, SVC-L1 and mRMR, were employed to identify highly relevant features crucial for distinguishing between the positive and negative datasets. Additionally, five popular classifiers i.e. Decision Tree, Random Forest, Support Vector Machine, Logistic Regression, and XGBoost were used to build efficient decision models. Results XGBoost was the most effective in classifying antiprotozoal peptides from each negative dataset based on the features selected by the mRMR feature selection method. The proposed machine learning framework efficiently differentiate the antiprotozoal peptides from (i) non-antimicrobial (ii) antiviral (iii) antibacterial (iv) antifungal and (v) antimicrobial with accuracy of 97.27 %, 93.64 %, 86.36 %, 90.91 %, and 89.09 % respectively on the validation dataset. Conclusion The models are incorporated in a user-friendly web server (www.soodlab.com/appred) to predict the antiprotozoal activity of given peptides.",
+  "journal": "Heliyon",
+  "venue": "Heliyon",
+  "year": 2024,
+  "authors": [
+    "Neha Periwal",
+    "Pooja Arora",
+    "Ananya Thakur",
+    "Lakshay Agrawal",
+    "Yash Goyal",
+    "A. Rathore",
+    "Harsimrat Singh Anand",
+    "Baljeet Kaur",
+    "Vikas Sood"
+  ],
+  "urls": [
+    "https://www.semanticscholar.org/paper/bbacf32a31c25882847431f7a9b1104095523299",
+    "https://doi.org/10.1016/j.heliyon.2024.e36163",
+    "https://doi.org/10.1016/j.heliyon.2024.e36163"
+  ],
+  "citation_count": 14,
+  "reference_count": 88,
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1016 j heliyon 2024 e36163"
+}

@@ -1,0 +1,42 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed",
+    "pubmed_similar"
+  ],
+  "source_ids": {
+    "pubmed": "39792442"
+  },
+  "pmid": "39792442",
+  "pmcid": "PMC13274993",
+  "doi": "10.1021/acs.jcim.4c01913",
+  "title": "deep-AMPpred: A Deep Learning Method for Identifying Antimicrobial Peptides and Their Functional Activities.",
+  "abstract": "Antimicrobial peptides (AMPs) are small peptides that play an important role in disease defense. As the problem of pathogen resistance caused by the misuse of antibiotics intensifies, the identification of AMPs as alternatives to antibiotics has become a hot topic. Accurately identifying AMPs using computational methods has been a key issue in the field of bioinformatics in recent years. Although there are many machine learning-based AMP identification tools, most of them do not focus on or only focus on a few functional activities. Predicting the multiple activities of antimicrobial peptides can help discover candidate peptides with broad-spectrum antimicrobial ability. We propose a two-stage AMP predictor deep-AMPpred, in which the first stage distinguishes AMP from other peptides, and the second stage solves the multilabel problem of 13 common functional activities of AMP. deep-AMPpred combines the ESM-2 model to encode the features of AMP and integrates CNN, BiLSTM, and CBAM models to discover AMP and its functional activities. The ESM-2 model captures the global contextual features of the peptide sequence, while CNN, BiLSTM, and CBAM combine local feature extraction, long-term and short-term dependency modeling, and attention mechanisms to improve the performance of deep-AMPpred in AMP and its function prediction. Experimental results demonstrate that deep-AMPpred performs well in accurately identifying AMPs and predicting their functional activities. This confirms the effectiveness of using the ESM-2 model to capture meaningful peptide sequence features and integrating multiple deep learning models for AMP identification and activity prediction.",
+  "journal": "Journal of chemical information and modeling",
+  "venue": "Journal of chemical information and modeling",
+  "year": 2025,
+  "authors": [
+    "Jun Zhao",
+    "Hangcheng Liu",
+    "Leyao Kang",
+    "Wanling Gao",
+    "Quan Lu",
+    "Yuan Rao",
+    "Zhenyu Yue"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "39792442",
+    "doi": "10.1021/acs.jcim.4c01913"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/39792442/",
+    "https://doi.org/10.1021/acs.jcim.4c01913"
+  ],
+  "raw_source_files": [],
+  "expanded_from": "doi:10 1021 acs jcim 5c00530",
+  "candidate_key": "doi:10 1021 acs jcim 4c01913"
+}

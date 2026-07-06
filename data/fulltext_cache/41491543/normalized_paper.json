@@ -1,0 +1,38 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41491543",
+    "pmid": "41491543"
+  },
+  "pmid": "41491543",
+  "pmcid": "PMC12870942",
+  "doi": "10.1186/s13321-025-01144-8",
+  "title": "PepGraphormer: an ESM-GAT hybrid deep learning framework for antimicrobial peptide prediction.",
+  "abstract": "The prediction of Antimicrobial Peptides (AMPs) is a critical research area in drug discovery. Traditional methods, which rely on sequence alignment or handcrafted features, often fail to capture complex sequence-function relationships. Recently, Large Language Models (LLMs) like ESM2 have demonstrated remarkable success in extracting deep semantic features from protein sequences. Meanwhile, Graph Neural Networks (GNNs), particularly Graph Attention Networks (GATs), can effectively learn inter-node relationships, specifically capturing peptide-residue compositional links and inter-residue co-occurrence patterns, to aggregate neighborhood information. In this work, we propose PepGraphormer, a novel fusion model that combines the powers of large-scale pretraining from ESM2 and the structural learning advantages from GATs for AMP prediction. We first construct a heterogeneous graph with peptide sequences and amino acids as nodes, where ESM2 is leveraged to generate high-quality initial embeddings for the peptide sequence nodes. Then the classification fuses the direct predictions from ESM2 and the graph-based predictions from the GAT. The training jointly trains the ESM2 and GAT modules and learns the embeddings for nodes in the graph. Comparisons with current state-of-the-art models on multiple datasets demonstrate that PepGraphormer achieves excellent accuracy and stability in the AMP prediction task. Further ablation and generalization experiments confirm the effectiveness and robustness of this fusion framework, presenting a new avenue for computationally-driven therapeutic peptide discovery.Scientific contribution This work proposes a novel framework PepGraphormer that combines the powers of transformer-based large language model (ESM2) and graph attention network for antimicrobial peptide prediction, without requiring the 3D protein structural information used in previous studies. The model significantly outperforms state-of-the-art methods and various deep learning baselines on multiple AMP benchmark datasets.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Lin C",
+    "Xiong S",
+    "Li J",
+    "Cui F",
+    "Zhang Z",
+    "Shi H",
+    "Wei L."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1186/s13321-025-01144-8",
+    "https://pubmed.ncbi.nlm.nih.gov/41491543/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12870942/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "general-search",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model OR classification)",
+  "candidate_key": "doi:10 1186 s13321 025 01144 8"
+}

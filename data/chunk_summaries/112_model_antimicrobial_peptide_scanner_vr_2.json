@@ -1,0 +1,328 @@
+{
+  "chunk_id": "model_antimicrobial_peptide_scanner_vr_2",
+  "chunk_type": "model",
+  "chunk_name": "Antimicrobial Peptide Scanner vr.2",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPScanner v2",
+    "LSTM AMP classifier",
+    "PepGen 1.0",
+    "AmPepGen"
+  ],
+  "papers": [
+    {
+      "title": "Deep learning improves antimicrobial peptide recognition.",
+      "pmid": "29590297",
+      "pmcid": "PMC3166253",
+      "doi": "10.1093/bioinformatics/bty179",
+      "year": "2018",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Deep Learning for Novel Antimicrobial Peptide Design.",
+      "pmid": "33810011",
+      "pmcid": "PMC6628222",
+      "doi": "10.1016/j.diagmicrobio.2004.02.008",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Structure-aware deep learning model for peptide toxicity prediction.",
+      "pmid": "39196703",
+      "pmcid": "PMC4702905",
+      "doi": "10.1016/j.cub.2015.11.017",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Research Advance in the Development of Antimicrobial Peptides Using Deep Learning.",
+      "pmid": "40801287",
+      "pmcid": null,
+      "doi": "10.1002/jcc.70203",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "The investigation of antibacterial properties of peptides and protein hydrolysates derived from serum of Asian water monitor (Varanus salvator).",
+      "pmid": "37851665",
+      "pmcid": "PMC10584125",
+      "doi": "10.1371/journal.pone.0292947",
+      "year": "2023",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial Peptide Identified via Machine Learning Presents Both Potent Antibacterial Properties and Low Toxicity toward Human Cells.",
+      "pmid": "39203524",
+      "pmcid": "PMC11356914",
+      "doi": "10.3390/microorganisms12081682",
+      "year": "2024",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial Peptides Design Using Deep Learning and Rational Modifications: Activity in Bacteria, Candida albicans, and Cancer Cells.",
+      "pmid": "40643674",
+      "pmcid": "PMC12254070",
+      "doi": "10.1007/s00284-025-04346-3",
+      "year": "2025",
+      "role": "benchmark_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Restraint of VP1 Protein of Foot and Mouth Disease Virus using Specific Antiviral Peptides: an in Silico Investigation.",
+      "pmid": "38590669",
+      "pmcid": "PMC10998950",
+      "doi": "10.22092/ari.2023.78.5.1483",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPScanner v2",
+      "canonical_name": "Antimicrobial Peptide Scanner vr.2",
+      "aliases": [
+        "ampscanner",
+        "Deep-AMP",
+        "AMP Scanner vr.2",
+        "Antimicrobial Peptide Scanner vr.2"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional and recurrent neural network layers",
+      "input_features": "primary sequence composition",
+      "source_pmid": "29590297",
+      "source_pmcid": "PMC3166253",
+      "source_doi": "10.1093/bioinformatics/bty179",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://www.ampscanner.com",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "provided through the web server (not specified in evidence)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning model for AMP recognition, openly available web server, benchmarked against state-of-the-art",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95,
+      "evidence": "We propose a neural network model with convolutional and recurrent layers that leverage primary sequence composition. Models and datasets are made freely available through the Antimicrobial Peptide Scanner vr.2 web server at www.ampscanner.com. The server uses a deep neural network (DNN) as a prediction tool, considering a peptide with prediction probability > 0.5 as an AMP. (Additional evidence from PMID 37851665 and PMID 39203524)"
+    },
+    {
+      "model_name": "LSTM-based AMP classifier/generator",
+      "canonical_name": "LSTM AMP classifier (Wang et al. 2021)",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Bidirectional LSTM classification model",
+      "input_features": "peptide sequences",
+      "source_pmid": "33810011",
+      "source_pmcid": "PMC6628222",
+      "source_doi": "10.1016/j.diagmicrobio.2004.02.008",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not reported (likely from public databases)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning (LSTM) model for AMP classification, potentially useful for benchmark",
+      "blocking_issues": [
+        "code not available",
+        "no web server reported"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "evidence": "A bidirectional LSTM classification model was constructed to design short novel AMP sequences with potential antibacterial activity against E. coli. ... validation accuracies of the classification models were 81.6-88.9% and the novel AMPs were classified as antimicrobial with accuracies of 70.6-91.7%."
+    },
+    {
+      "model_name": "PepGen 1.0",
+      "canonical_name": "PepGen 1.0",
+      "aliases": [
+        "PepGen"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Recurrent neural network (RNN) with Long Short-Term Memory (LSTM) cells",
+      "input_features": "Not specified in detail; trained on AMP sequences to generate new ones",
+      "source_pmid": "40643674",
+      "source_pmcid": "PMC12254070",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://bit.ly/2Z281cY",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP sequence generator based on LSTM, used for de novo AMP design and screening.",
+      "blocking_issues": [
+        "No source code repository found; only a shortened URL provided."
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "evidence": "PepGen 1.0 is a synthetic peptide generator trained with a recurrent neural network (RNN) with LSTM (Long Short-Term Memory) cells, and was used to generate 3006 peptide sequences with lengths between 12 and 20 amino acids. (from PMID 40643674)"
+    },
+    {
+      "model_name": "AmPepGen",
+      "canonical_name": "AmPepGen",
+      "aliases": [
+        "ampepgen"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide generation",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Generative Adversarial Network (GAN)",
+      "input_features": "Not specified in detail; trained on AMP sequences",
+      "source_pmid": "40643674",
+      "source_pmcid": "PMC12254070",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "code_repository_url": "https://github.com/Anorpe/ampepgen-dev",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP generator using GAN, with code available on GitHub, used for de novo AMP design.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "evidence": "AmPepGen is an antimicrobial peptide generator trained with GAN (Generative Adversarial Network), a deep learning architecture. AmPepGen was used to generate 2998 peptide sequences... repository of the AmPepGen generator is available at https://github.com/Anorpe/ampepgen-dev. (from PMID 40643674)"
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Antimicrobial Peptide Scanner vr.2 web server",
+      "url": "http://www.ampscanner.com",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPScanner v2",
+      "source_pmid": "29590297",
+      "source_doi": "10.1093/bioinformatics/bty179",
+      "evidence_level": "fulltext",
+      "evidence": "Models and datasets are made freely available through the Antimicrobial Peptide Scanner vr.2 web server at www.ampscanner.com."
+    },
+    {
+      "name": "AMPScanner vr.2 web server (alternate)",
+      "url": "https://www.dveltri.com/ascan/v2/ascan.html",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPScanner vr.2",
+      "source_pmid": "37851665",
+      "source_doi": "10.1371/journal.pone.0292947",
+      "evidence_level": "fulltext",
+      "evidence": "Web server link from PMID 37851665 fulltext."
+    },
+    {
+      "name": "PepGen 1.0 web server",
+      "url": "https://bit.ly/2Z281cY",
+      "repository_type": "webserver",
+      "matched_model_name": "PepGen 1.0",
+      "source_pmid": "40643674",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "evidence_level": "fulltext",
+      "evidence": "PepGen 1.0 can be freely accessed at https://bit.ly/2Z281cY (from PMID 40643674)."
+    },
+    {
+      "name": "AmPepGen GitHub repository",
+      "url": "https://github.com/Anorpe/ampepgen-dev",
+      "repository_type": "code",
+      "matched_model_name": "AmPepGen",
+      "source_pmid": "40643674",
+      "source_doi": "10.1007/s00284-025-04346-3",
+      "evidence_level": "fulltext",
+      "evidence": "Repository of the AmPepGen generator is available at https://github.com/Anorpe/ampepgen-dev (from PMID 40643674)."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "AMPScanner dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "AMPScanner vr.2",
+      "linked_model": "AMPScanner v2",
+      "source_pmid": "29590297",
+      "source_doi": "10.1093/bioinformatics/bty179",
+      "positive_samples": "not reported",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Models and datasets are made freely available"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "model performance",
+      "source_pmid": "33810011",
+      "source_doi": "10.1016/j.diagmicrobio.2004.02.008",
+      "evidence": "validation accuracies of the classification models were 81.6-88.9% and the novel AMPs were classified as antimicrobial with accuracies of 70.6-91.7%."
+    }
+  ],
+  "important_evidence": [
+    "AMPScanner v2 uses convolutional and recurrent neural network layers, primary sequence composition, and provides a web server at www.ampscanner.com.",
+    "LSTM-based classifier (Wang et al. 2021) achieved validation accuracies of 81.6-88.9% and novel AMP classification accuracies of 70.6-91.7%.",
+    "PepGen 1.0 is an LSTM-based AMP generator accessible via a shortened URL, used to generate 3006 sequences.",
+    "AmPepGen is a GAN-based AMP generator with code available at https://github.com/Anorpe/ampepgen-dev.",
+    "AMPScanner v2 was utilized in benchmark studies (PMID 37851665, PMID 39203524) for AMP prediction."
+  ],
+  "uncertainties": [
+    "Exact composition and size of the AMPScanner training dataset unknown from available evidence.",
+    "No code repository or web server for the LSTM-based classifier (Wang et al. 2021).",
+    "DOI mismatch for the Wang et al. paper: 10.1016/j.diagmicrobio.2004.02.008 does not correspond to the 2021 paper; possible indexing error.",
+    "PepGen 1.0 web server is provided as a shortened URL, stability and accessibility uncertain.",
+    "Relevance of tAMPer (peptide toxicity prediction model, PMID 39196703) to antimicrobial peptide prediction is unclear."
+  ],
+  "source_pmids": [
+    "29590297",
+    "33810011",
+    "37851665",
+    "38590669",
+    "39196703",
+    "39203524",
+    "40643674",
+    "40801287"
+  ],
+  "source_dois": [
+    "10.1002/jcc.70203",
+    "10.1007/s00284-025-04346-3",
+    "10.1016/j.cub.2015.11.017",
+    "10.1016/j.diagmicrobio.2004.02.008",
+    "10.1093/bioinformatics/bty179",
+    "10.1371/journal.pone.0292947",
+    "10.22092/ari.2023.78.5.1483",
+    "10.3390/microorganisms12081682"
+  ],
+  "urls": [
+    "http://www.ampscanner.com",
+    "https://academic.oup.com/bioinformatics/article-pdf/34/16/2740/25441968/bty179.pdf",
+    "https://bit.ly/2Z281cY",
+    "https://doi.org/10.1002/jcc.70203",
+    "https://doi.org/10.1007/s00284-025-04346-3",
+    "https://doi.org/10.1016/j.cub.2015.11.017",
+    "https://doi.org/10.1016/j.diagmicrobio.2004.02.008",
+    "https://doi.org/10.1093/bioinformatics/bty179",
+    "https://doi.org/10.1371/journal.pone.0292947",
+    "https://doi.org/10.22092/ari.2023.78.5.1483",
+    "https://doi.org/10.3390/microorganisms12081682",
+    "https://github.com/Anorpe/ampepgen-dev",
+    "https://openalex.org/W2791848964",
+    "https://openalex.org/W4401611824",
+    "https://pubmed.ncbi.nlm.nih.gov/29590297/",
+    "https://pubmed.ncbi.nlm.nih.gov/33384902/",
+    "https://pubmed.ncbi.nlm.nih.gov/33810011/",
+    "https://pubmed.ncbi.nlm.nih.gov/35864258/",
+    "https://pubmed.ncbi.nlm.nih.gov/37851665/",
+    "https://pubmed.ncbi.nlm.nih.gov/38590669/",
+    "https://pubmed.ncbi.nlm.nih.gov/38988311/",
+    "https://pubmed.ncbi.nlm.nih.gov/39196703/",
+    "https://pubmed.ncbi.nlm.nih.gov/39203524/",
+    "https://pubmed.ncbi.nlm.nih.gov/40643674/",
+    "https://pubmed.ncbi.nlm.nih.gov/40801287/",
+    "https://www.dveltri.com/ascan/v2/ascan.html",
+    "https://www.mdpi.com/2076-2607/12/8/1682/pdf?version=1723725815",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10584125/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10998950/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11356914/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12254070/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3166253/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4702905/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5663234/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6084614/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6628222/"
+  ]
+}

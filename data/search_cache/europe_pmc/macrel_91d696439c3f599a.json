@@ -1,0 +1,3551 @@
+{
+  "version": "6.9",
+  "hitCount": 66,
+  "nextCursorMark": "AoIIQCTTXSg1Mjg1MjQyOA==",
+  "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Macrel\"&cursorMark=AoIIQCTTXSg1Mjg1MjQyOA==&resultType=core&pageSize=10&format=json",
+  "request": {
+    "queryString": "\"Macrel\"",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 10,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "41918857",
+        "source": "MED",
+        "pmid": "41918857",
+        "pmcid": "PMC13034871",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13034871"
+          ]
+        },
+        "doi": "10.7717/peerj.20990",
+        "title": "MetaPepticon: automated prediction of anticancer peptides from microbial genomes and metagenomes.",
+        "authorString": "Erözden AA, Tavşanlı N, Demirel G, Sanli NO, Çalışkan M, Arıkan M.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Erözden AA",
+              "firstName": "Ahmet Arıhan",
+              "lastName": "Erözden",
+              "initials": "AA",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Biotechnology Division, Department of Biology, Faculty of Science, Istanbul University, Istanbul, Turkey."
+                  },
+                  {
+                    "affiliation": "Institute of Graduate Studies in Science, Istanbul University, Istanbul, Turkey."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tavşanlı N",
+              "firstName": "Nalan",
+              "lastName": "Tavşanlı",
+              "initials": "N",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Biotechnology Division, Department of Biology, Faculty of Science, Istanbul University, Istanbul, Turkey."
+                  },
+                  {
+                    "affiliation": "Institute of Graduate Studies in Science, Istanbul University, Istanbul, Turkey."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Demirel G",
+              "firstName": "Gamze",
+              "lastName": "Demirel",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Graduate Studies in Science, Istanbul University, Istanbul, Turkey."
+                  },
+                  {
+                    "affiliation": "Department of Medical Biology and Genetics, Faculty of Medicine, Maltepe University, Istanbul, Turkey."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sanli NO",
+              "firstName": "Nazmiye Ozlem",
+              "lastName": "Sanli",
+              "initials": "NO",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Biotechnology Division, Department of Biology, Faculty of Science, Istanbul University, Istanbul, Turkey."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Çalışkan M",
+              "firstName": "Mahmut",
+              "lastName": "Çalışkan",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Biotechnology Division, Department of Biology, Faculty of Science, Istanbul University, Istanbul, Turkey."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Arıkan M",
+              "firstName": "Muzaffer",
+              "lastName": "Arıkan",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Biotechnology Division, Department of Biology, Faculty of Science, Istanbul University, Istanbul, Turkey."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5162-2000"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "volume": "14",
+          "journalIssueId": 4087018,
+          "dateOfPublication": "2026 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-01-01",
+          "journal": {
+            "title": "PeerJ",
+            "medlineAbbreviation": "PeerJ",
+            "issn": "2167-8359",
+            "nlmid": "101603425",
+            "isoabbreviation": "PeerJ",
+            "essn": "2167-8359"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "e20990",
+        "abstractText": "<h4>Background</h4>Anticancer peptides (ACPs) are increasingly recognized as promising therapeutic candidates due to their ability to selectively target cancer cells. However, the systematic discovery of novel ACPs, particularly from high-throughput sequencing datasets, remains hindered by technical and methodological limitations. Current prediction frameworks require pre-extracted peptide sequences, involve manual preprocessing, and yield variable results, which restricts their applicability for large-scale, data-driven discovery.<h4>Methods</h4>To address these limitations, we developed MetaPepticon, a modular, end-to-end pipeline for the discovery of ACP candidates from diverse sequencing inputs, including raw genomic, metagenomic, transcriptomic, and metatranscriptomic reads, as well as assembled contigs and peptide sequences. MetaPepticon automates quality control, filtering, assembly, small open reading frame prediction, ACP classification using multiple predictive algorithms, and <i>in silico</i> toxicity filtering.<h4>Results</h4>MetaPepticon enables scalable and reproducible ACP prediction from raw sequences through integration of multiple predictors within a configurable agreement framework. Applied to 41,171 microbial genomes and 4,072,884 peptides, MetaPepticon identified 10,725 moderate-agreement ACP candidates, including 4,590 novel, non-toxic peptides. MetaPepticon expands the practical applicability of existing ACP prediction methods to high-throughput sequencing data and is freely available at: https://github.com/arikanlab/MetaPepticon.",
+        "affiliation": "Biotechnology Division, Department of Biology, Faculty of Science, Istanbul University, Istanbul, Turkey.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antineoplastic Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computational Biology",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MT",
+                    "qualifierName": "methods",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Algorithms"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Software"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Metagenome"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "High-Throughput Nucleotide Sequencing"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Genome, Microbial"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Prediction Algorithms"
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Bioinformatics",
+            "Genomics",
+            "Metagenomics",
+            "Microbiome",
+            "Anticancer Peptide"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antineoplastic Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.7717/peerj.20990"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13034871"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13034871?pdf=render"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "PPR1109736",
+              "source": "PPR",
+              "type": "Preprint in",
+              "note": "CrossRef Pre-print loader",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "bioproject"
+          ]
+        },
+        "dateOfCompletion": "2026-06-21",
+        "dateOfCreation": "2026-04-01",
+        "firstIndexDate": "2026-04-02",
+        "fullTextReceivedDate": "2026-03-31",
+        "dateOfRevision": "2026-06-21",
+        "electronicPublicationDate": "2026-03-27",
+        "firstPublicationDate": "2026-03-27"
+      },
+      {
+        "id": "42104260",
+        "source": "MED",
+        "pmid": "42104260",
+        "doi": "10.1186/s12866-026-05098-1",
+        "title": "Arctic deep-sea hydrothermal microbiomes as a natural niche for novel antimicrobial peptides.",
+        "authorString": "Nguyen TT, Steen IH, Bøe MH, Otterlei M, Stokke R.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Nguyen TT",
+              "firstName": "Thuc Trong",
+              "lastName": "Nguyen",
+              "initials": "TT",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1089-5920"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biological Sciences, Centre for Deep-Sea Research, University of Bergen, Bergen, Norway."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Steen IH",
+              "firstName": "Ida Helene",
+              "lastName": "Steen",
+              "initials": "IH",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5903-6276"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biological Sciences, Centre for Deep-Sea Research, University of Bergen, Bergen, Norway."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Bøe MH",
+              "firstName": "Maren Helene",
+              "lastName": "Bøe",
+              "initials": "MH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Clinical and Molecular Medicine, Norwegian University of Science and Technology, Trondheim, Norway."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Otterlei M",
+              "firstName": "Marit",
+              "lastName": "Otterlei",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Clinical and Molecular Medicine, Norwegian University of Science and Technology, Trondheim, Norway."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Stokke R",
+              "firstName": "Runar",
+              "lastName": "Stokke",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biological Sciences, Centre for Deep-Sea Research, University of Bergen, Bergen, Norway. runar.stokke@uib.no."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5903-6276"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1089-5920"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "26",
+          "journalIssueId": 4187643,
+          "dateOfPublication": "2026 May",
+          "monthOfPublication": 5,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-05-01",
+          "journal": {
+            "title": "BMC microbiology",
+            "medlineAbbreviation": "BMC Microbiol",
+            "issn": "1471-2180",
+            "nlmid": "100966981",
+            "isoabbreviation": "BMC Microbiol",
+            "essn": "1471-2180"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "576",
+        "abstractText": "<h4>Background</h4>The escalating threat of antimicrobial resistance (AMR) has created an urgent need for new antimicrobial agents. Antimicrobial peptides (AMPs) are promising alternatives to conventional antibiotics due to their broad-spectrum activity and reduced risk of resistance development. While most AMP discovery efforts have focused on terrestrial microbes, extreme environments remain largely untapped. Deep-sea hydrothermal vent biofilms, such as those from the Arctic Mid-Ocean Ridges (AMOR), are unique ecosystems characterized by high pressure, temperature gradients, and chemical extremes. These conditions select for microorganisms with specialized adaptations, including the production of bioactive compounds that confer survival advantages. Such peptides may exhibit enhanced stability and novel mechanisms of action, making hydrothermal biofilms an exceptional resource for next-generation antimicrobials.<h4>Results</h4>Using metagenomic and metatranscriptomic datasets from nine recently published AMOR biofilms, we predicted 961 AMP sequences with Macrel, of which 873 were unique and showed no identity to entries in the Antimicrobial Peptide Database (APD). AMPs were distributed across 51 microbial phyla, including underrepresented archaeal groups such as Asgardarchaeota, Nanoarchaeota, and Micrarchaeota. Transcriptomic profiling detected AMP expression in 25 phyla, including low-abundance candidate taxa, highlighting active AMP production. In silico minimum inhibitory concentration (MIC) prediction using APEX 1.1 suggested that 16.7% of AMPs may inhibit at least one clinically relevant pathogen, with Acinetobacter baumannii emerging as the most susceptible. Four peptides were synthesized for experimental validation; AMP OLKFNNDA_52_10 exhibited moderate in vitro activity against Staphylococcus aureus and weak activity against Escherichia coli, while showing low cytotoxicity toward human HEK293 cells. Other tested peptides displayed weak or no activity, underscoring discrepancies between computational predictions and biological outcomes.<h4>Conclusions</h4>Our study reveals extensive taxonomic and structural diversity of AMPs in Arctic hydrothermal vent biofilms and identifies novel candidates withbioactive potential. These findings emphasize the importance of integrating metagenomics, transcriptomics, machine learning, and experimental validation to uncover bioactive compounds from underexplored microbial ecosystems. Overall, AMOR biofilms represent a rich and untapped source of AMPs, offering new opportunities for antimicrobial drug discovery in the fight against AMR.",
+        "affiliation": "Department of Biological Sciences, Centre for Deep-Sea Research, University of Bergen, Bergen, Norway.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Bacteria",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "CL",
+                    "qualifierName": "classification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "DE",
+                    "qualifierName": "drug effects",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Biofilms"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Archaea",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "CL",
+                    "qualifierName": "classification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Cationic Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Microbial Sensitivity Tests"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Seawater",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MI",
+                    "qualifierName": "microbiology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Arctic Regions"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Metagenomics"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Hydrothermal Vents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MI",
+                    "qualifierName": "microbiology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Microbiota"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial resistance",
+            "Antimicrobial peptides",
+            "Metagenomics",
+            "Metatranscriptomics",
+            "Deep-sea Hydrothermal Vents",
+            "Arctic Mid-ocean Ridges",
+            "Extreme Microbiomes"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antimicrobial Cationic Peptides",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s12866-026-05098-1"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-07-02",
+        "dateOfCreation": "2026-05-08",
+        "firstIndexDate": "2026-05-13",
+        "dateOfRevision": "2026-07-02",
+        "electronicPublicationDate": "2026-05-08",
+        "firstPublicationDate": "2026-05-08"
+      },
+      {
+        "id": "42106831",
+        "source": "MED",
+        "pmid": "42106831",
+        "pmcid": "PMC13181977",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13181977"
+          ]
+        },
+        "doi": "10.1186/s13040-026-00558-w",
+        "title": "Generative models for antimicrobial peptide design: auto-encoders and beyond.",
+        "authorString": "Beierle L, Hahnfeld J, Goesmann A, Mostolizadeh R, Cemič F.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Beierle L",
+              "firstName": "Lukas",
+              "lastName": "Beierle",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0009-3830-5006"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Bioinformatics and Systems Biology, Justus-Liebig-University Giessen, Ludwigsplatz, Giessen, Hesse, 35390, Germany. lukas.beierle@computational.bio.uni-giessen.de."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hahnfeld J",
+              "firstName": "Julian",
+              "lastName": "Hahnfeld",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8784-9773"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Bioinformatics and Systems Biology, Justus-Liebig-University Giessen, Ludwigsplatz, Giessen, Hesse, 35390, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Goesmann A",
+              "firstName": "Alexander",
+              "lastName": "Goesmann",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7086-2568"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Bioinformatics and Systems Biology, Justus-Liebig-University Giessen, Ludwigsplatz, Giessen, Hesse, 35390, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mostolizadeh R",
+              "firstName": "Reihaneh",
+              "lastName": "Mostolizadeh",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2479-6851"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Bioinformatics and Systems Biology, Justus-Liebig-University Giessen, Ludwigsplatz, Giessen, Hesse, 35390, Germany."
+                  },
+                  {
+                    "affiliation": "Max-Planck-Institute for Terrestrial Microbiology, Marburg, Hesse, 35043, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cemič F",
+              "firstName": "Franz",
+              "lastName": "Cemič",
+              "initials": "F",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8194-1210"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Computer Science, University of Applied Sciences Giessen, Gutfleischstrasse, Giessen, Hesse, 35390, Germany."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7086-2568"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8194-1210"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8784-9773"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2479-6851"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0009-3830-5006"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "19",
+          "journalIssueId": 4193003,
+          "dateOfPublication": "2026 May",
+          "monthOfPublication": 5,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-05-01",
+          "journal": {
+            "title": "BioData mining",
+            "medlineAbbreviation": "BioData Min",
+            "issn": "1756-0381",
+            "nlmid": "101319161",
+            "isoabbreviation": "BioData Min",
+            "essn": "1756-0381"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "42",
+        "abstractText": "<h4>Background</h4>As the number of multi-resistant pathogens grows rapidly, new strategies to accelerate the development of antimicrobial drugs are urgently needed. A promising candidate class of new antibiotics are antimicrobial peptides, showing a lower tendency to induce antibiotic resistance. High-throughput in silico strategies for candidate mining, such as generative deep learning algorithms, have become increasingly popular over the last few years and offer novel approaches to peptide discovery.<h4>Methods</h4>This study presents a comparative analysis of the generative performance of deep learning models for generating novel antimicrobial peptides. The models examined include Variational Auto-Encoders, a Wasserstein Auto-Encoder, a Recurrent Neural Network, and a Language Model. The primary focus of this study is the systematic comparison and evaluation of those models and their sampling options to identify the most suitable model and sampling strategy combination for different use cases.<h4>Results</h4>All models generated peptides with physicochemical profiles similar to natural antimicrobial sequences. Auto-encoders performed best overall, with the Wasserstein auto-encoder generating the most diverse and compositionally balanced peptides. In contrast to an unregularized baseline model, embedding-space analyses confirmed that the auto-encoders did not overfit. In addition, evaluating AMP predictors on data biased toward specific peptide properties revealed strong, model-specific preferences. Together, these results underscore the need to tailor models and evaluation metrics to each design objective.<h4>Conclusion</h4>The present study investigates the strengths and weaknesses of various generative models for antimicrobial peptides. Practical recommendations for the combination of model type and sampling strategy are provided for individual applications.",
+        "affiliation": "Bioinformatics and Systems Biology, Justus-Liebig-University Giessen, Ludwigsplatz, Giessen, Hesse, 35390, Germany. lukas.beierle@computational.bio.uni-giessen.de.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Justus-Liebig-Universität Gießen",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial peptides",
+            "Generative Models",
+            "Deep Learning",
+            "Language Models",
+            "Variational Auto-encoders",
+            "Wasserstein Auto-encoder"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s13040-026-00558-w"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13181977"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13181977?pdf=render"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "PPR1110559",
+              "source": "PPR",
+              "type": "Preprint in",
+              "note": "CrossRef Pre-print loader",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-05-19",
+        "dateOfCreation": "2026-05-09",
+        "firstIndexDate": "2026-05-13",
+        "fullTextReceivedDate": "2026-05-20",
+        "dateOfRevision": "2026-05-20",
+        "electronicPublicationDate": "2026-05-09",
+        "firstPublicationDate": "2026-05-09"
+      },
+      {
+        "id": "41164228",
+        "source": "MED",
+        "pmid": "41164228",
+        "pmcid": "PMC12560166",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12560166"
+          ]
+        },
+        "doi": "10.3389/fvets.2025.1689589",
+        "title": "Detection of antimicrobial peptides from fecal samples of FMT donors using deep learning.",
+        "authorString": "Wei S, Yin H, Hu X, Chi Y, Zhang L, Zhang B, Qian K, Xu W.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Wei S",
+              "firstName": "Songlin",
+              "lastName": "Wei",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9899-7392"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Information Engineering, Xiamen Ocean Vocational College, Xiamen, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yin H",
+              "firstName": "Huifang",
+              "lastName": "Yin",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Xiamen Treatgut Biotechnology Co., Ltd., Xiamen, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hu X",
+              "firstName": "Xinliang",
+              "lastName": "Hu",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Xiamen Treatgut Biotechnology Co., Ltd., Xiamen, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chi Y",
+              "firstName": "Yulang",
+              "lastName": "Chi",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0443-5189"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Oceanology and Food Science, Quanzhou Normal University, Quanzhou, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang L",
+              "firstName": "Lishan",
+              "lastName": "Zhang",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Xiamen Treatgut Biotechnology Co., Ltd., Xiamen, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang B",
+              "firstName": "Bangzhou",
+              "lastName": "Zhang",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Xiamen Treatgut Biotechnology Co., Ltd., Xiamen, China."
+                  },
+                  {
+                    "affiliation": "Basic Medicine College, Yichun University, Yichun, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Qian K",
+              "firstName": "Kai",
+              "lastName": "Qian",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Basic Medicine College, Yichun University, Yichun, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xu W",
+              "firstName": "Wei",
+              "lastName": "Xu",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Xiamen Treatgut Biotechnology Co., Ltd., Xiamen, China."
+                  },
+                  {
+                    "affiliation": "Basic Medicine College, Yichun University, Yichun, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0443-5189"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9899-7392"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "volume": "12",
+          "journalIssueId": 3893250,
+          "dateOfPublication": "2025 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-01-01",
+          "journal": {
+            "title": "Frontiers in veterinary science",
+            "medlineAbbreviation": "Front Vet Sci",
+            "issn": "2297-1769",
+            "nlmid": "101666658",
+            "isoabbreviation": "Front Vet Sci",
+            "essn": "2297-1769"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "1689589",
+        "abstractText": "<h4>Introduction</h4>Antimicrobial peptides (AMPs) represent a class of short peptides that are widely distributed in organisms and are regarded as an effective means to tackle bacterial resistance, potentially functioning as substitutes for onventional antibiotics.<h4>Methods</h4>We employed metagenomics in combination with deep learning to mine AMPs from the 120 fecal microbiota transplantation (FMT) donor metagenome. Subsequently, a comprehensive analysis of the candidate AMPs was conducted through metaproteomic cross-validation, solubility analysis, cross-validation with other prediction tools, correlation analysis, and molecular dynamics simulations. Finally, four candidate AMPs were selected for chemical synthesis, and experimental validation identified two with broad-spectrum antimicrobial activity. Furthermore, molecular docking was utilized to further analyze the antimicrobial mechanisms of the candidate AMPs.<h4>Results</h4>Our approach successfully predicted 2,820,488 potential AMPs. After a comprehensive analysis, four candidate AMPs were selected for synthesis, two of which exhibited broad-spectrum antimicrobial activity. Molecular docking provided further insight into the binding mechanisms of these peptides.<h4>Discussion</h4>This study demonstrates the feasibility of discovering functional AMPs from the human fecal microbiome using computational and experimental approaches, highlights the potential of mining novel AMPs from the fecal microbiome, and provides new insights into the therapeutic mechanisms of FMT.",
+        "affiliation": "School of Information Engineering, Xiamen Ocean Vocational College, Xiamen, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial peptides",
+            "Molecular Dynamics Simulations",
+            "Fecal Microbiota Transplantation",
+            "Deep Learning",
+            "Fecal Metagenome"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3389/fvets.2025.1689589"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12560166"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12560166?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2025-10-30",
+        "dateOfCreation": "2025-10-30",
+        "firstIndexDate": "2025-10-30",
+        "fullTextReceivedDate": "2025-11-03",
+        "dateOfRevision": "2025-11-01",
+        "electronicPublicationDate": "2025-10-14",
+        "firstPublicationDate": "2025-10-14"
+      },
+      {
+        "id": "41155367",
+        "source": "MED",
+        "pmid": "41155367",
+        "pmcid": "PMC12563682",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12563682"
+          ]
+        },
+        "doi": "10.3390/ijms262010077",
+        "title": "Virtual Screening of Cathelicidin-Derived Anticancer Peptides and Validation of Their Production in the Probiotic &lt;i&gt;Limosilactobacillus fermentum&lt;/i&gt; KUB-D18 Using Genome-Scale Metabolic Modeling and Experimental Approaches.",
+        "authorString": "Wattayagorn V, Mansuwan T, Angkanawin K, Sapkaew C, Sinthuvanich C, Watthanasakphuban N, Chumnanpuen P.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Wattayagorn V",
+              "firstName": "Vichugorn",
+              "lastName": "Wattayagorn",
+              "initials": "V",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biochemistry, Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mansuwan T",
+              "firstName": "Taratorn",
+              "lastName": "Mansuwan",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Zoology, Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Angkanawin K",
+              "firstName": "Krittapas",
+              "lastName": "Angkanawin",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Zoology, Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sapkaew C",
+              "firstName": "Chakkapan",
+              "lastName": "Sapkaew",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Emarica Academy, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sinthuvanich C",
+              "firstName": "Chomdao",
+              "lastName": "Sinthuvanich",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2432-2122"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biochemistry, Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Watthanasakphuban N",
+              "firstName": "Nisit",
+              "lastName": "Watthanasakphuban",
+              "initials": "N",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biotechnology, Faculty of Agro-Industry, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chumnanpuen P",
+              "firstName": "Pramote",
+              "lastName": "Chumnanpuen",
+              "initials": "P",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3072-1733"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Zoology, Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  },
+                  {
+                    "affiliation": "Kasetsart University International College (KUIC), Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2432-2122"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3072-1733"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "20",
+          "volume": "26",
+          "journalIssueId": 4038822,
+          "dateOfPublication": "2025 Oct",
+          "monthOfPublication": 10,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-10-01",
+          "journal": {
+            "title": "International journal of molecular sciences",
+            "medlineAbbreviation": "Int J Mol Sci",
+            "issn": "1422-0067",
+            "nlmid": "101092791",
+            "isoabbreviation": "Int J Mol Sci",
+            "essn": "1422-0067"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "10077",
+        "abstractText": "The development of anticancer peptides (ACPs) has emerged as a promising strategy in targeted cancer therapy due to their high specificity and therapeutic potential. Cathelicidin-derived antimicrobial peptides represent a particularly attractive class of ACPs, yet systematic evaluation of their anticancer activity remains limited. In this study, we conducted virtual screening of eight cathelicidin-derived peptides (AL-38, LL-37, RK-31, KS-30, KR-20, FK-16, FK-13, and KR-12) to assess their potential against colon cancer. Among these, LL-37 and FK-16 were identified as the most promising candidates, with LL-37 exhibiting the strongest inhibitory effects on both non-metastatic (HT-29) and metastatic (SW-620) colon cancer cell lines in vitro. To overcome challenges associated with peptide stability and delivery, we employed the probiotic lactic acid bacterium <i>Limosilactobacillus fermentum</i> KUB-D18 as both a biosynthetic platform and delivery vehicle. A genome-scale metabolic model (GEM), <i>i</i>TM505, was reconstructed to predict the strain's biosynthetic capacity for ACP production. Model simulations identified trehalose, sucrose, maltose, and cellobiose as optimal carbon sources supporting both high peptide yield and biomass accumulation, which was subsequently confirmed experimentally. Notably, <i>L. fermentum</i> expressing LL-37 achieved a growth rate of 2.16 gDW/L, closely matching the model prediction of 1.93 gDW/L (accuracy 89.69%), while the measured LL-37 concentration (26.96 ± 0.08 µM) aligned with predictions at 90.65% accuracy. The strong concordance between in silico predictions and experimental outcomes underscore the utility of GEM-guided metabolic engineering for optimizing peptide biosynthesis. This integrative approach-combining virtual screening, genome-scale modeling, and experimental validation-provides a robust framework for accelerating ACP discovery. Moreover, our findings highlight the potential of probiotic-based systems as effective delivery platforms for anticancer peptides, offering new avenues for the rational design and production of peptide therapeutics.",
+        "affiliation": "Department of Biochemistry, Faculty of Science, Kasetsart University, Bangkok 10900, Thailand.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "FF(KU)29.67",
+              "agency": "Fundamental Fund grant from Kasetsart University",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "HT29 Cells"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antineoplastic Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "IP",
+                    "qualifierName": "isolation & purification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Drug Evaluation, Preclinical",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MT",
+                    "qualifierName": "methods",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Probiotics"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computer Simulation"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cathelicidins",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "IP",
+                    "qualifierName": "isolation & purification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Limosilactobacillus fermentum",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Bioinformatics",
+            "Colon cancer",
+            "Virtual Screening",
+            "Anticancer Peptides",
+            "Genome-scale Metabolic Modeling"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antineoplastic Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Cathelicidins",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/ijms262010077"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12563682"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12563682?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-01-26",
+        "dateOfCreation": "2025-10-29",
+        "firstIndexDate": "2025-10-29",
+        "fullTextReceivedDate": "2025-10-30",
+        "dateOfRevision": "2026-01-26",
+        "electronicPublicationDate": "2025-10-16",
+        "firstPublicationDate": "2025-10-16"
+      },
+      {
+        "id": "41731616",
+        "source": "MED",
+        "pmid": "41731616",
+        "pmcid": "PMC13036921",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13036921"
+          ]
+        },
+        "doi": "10.1186/s40168-025-02326-0",
+        "title": "Unlocking the unexplored AMPSphere in marine rare species.",
+        "authorString": "Fan S, Lu J, Cui H, Ding W, Li S, Sun J, Li YX, Zhang W.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Fan S",
+              "firstName": "Shen",
+              "lastName": "Fan",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Evolution & Marine Biodiversity and Institute of Evolution & Marine Biodiversity, Ocean University of China, Qingdao, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lu J",
+              "firstName": "Jie",
+              "lastName": "Lu",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Marine Genetics & Breeding and College of Marine Life Sciences, Ocean University of China, Qingdao, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cui H",
+              "firstName": "Han",
+              "lastName": "Cui",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Evolution & Marine Biodiversity and Institute of Evolution & Marine Biodiversity, Ocean University of China, Qingdao, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ding W",
+              "firstName": "Wei",
+              "lastName": "Ding",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Marine Genetics & Breeding and College of Marine Life Sciences, Ocean University of China, Qingdao, China. dingwei@ouc.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li S",
+              "firstName": "Shunbo",
+              "lastName": "Li",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Optoelectronic Technology and System and School of Optoelectronic Engineering, Chongqing University, Chongqing, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sun J",
+              "firstName": "Jin",
+              "lastName": "Sun",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Evolution & Marine Biodiversity and Institute of Evolution & Marine Biodiversity, Ocean University of China, Qingdao, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li YX",
+              "firstName": "Yong-Xin",
+              "lastName": "Li",
+              "initials": "YX",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Chemistry and The Swire Institute of Marine Science, The University of Hong Kong, Hong Kong, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang W",
+              "firstName": "Weipeng",
+              "lastName": "Zhang",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MOE Key Laboratory of Evolution & Marine Biodiversity and Institute of Evolution & Marine Biodiversity, Ocean University of China, Qingdao, China. zhangweipeng@ouc.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "14",
+          "journalIssueId": 4116475,
+          "dateOfPublication": "2026 Feb",
+          "monthOfPublication": 2,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-02-01",
+          "journal": {
+            "title": "Microbiome",
+            "medlineAbbreviation": "Microbiome",
+            "issn": "2049-2618",
+            "nlmid": "101615147",
+            "isoabbreviation": "Microbiome",
+            "essn": "2049-2618"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "100",
+        "abstractText": "<h4>Background</h4>Antimicrobial peptides (AMPs) have advantages over traditional antibiotics in fighting against drug-resistant bacterial infections. Natural microbial communities are considered as the priority targets for next-generation AMP bioprospecting initiatives. While progress has been made in characterizing AMPs from the dominant microbial taxa in natural ecosystems, current research largely overlooks the biosynthetic potential of rare species. Given their distinct evolutionary pressures, rare species likely produce AMPs with novel structures and unconventional mechanisms of action.<h4>Results</h4>In this study, enrichment cultivation of a marine biofilm was conducted in 138 carbon source- and oxygen level-based conditions, followed by metagenomic sequencing using both Illumina and Nanopore platforms. Analysis of 435 high-quality genomes derived from the metagenomes suggests that these bacterial strains are significantly underrepresented (< 0.01%) in global marine biofilm communities. Through multi-model prediction, we identified 3,054,472 candidate AMPs from the genomes, including 1048 high-confidence ones, thereby significantly expanding the previously known AMPSphere. Furthermore, AMPs derived from the rare bacterial species exhibit unique sequence characteristics, structural diversity, remarkable stability under diverse pH conditions and pepsin exposure, and strong therapeutic potential in animal models, reflecting their specialized adaptive and defensive strategies developed within ecological systems.<h4>Conclusions</h4>The features of the underexplored AMPs from low-abundance bacteria in marine biofilms provide valuable resources and theoretical foundations for the development of highly effective antimicrobial agents. Video Abstract.",
+        "affiliation": "MOE Key Laboratory of Evolution & Marine Biodiversity and Institute of Evolution & Marine Biodiversity, Ocean University of China, Qingdao, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Bacteria",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "CL",
+                    "qualifierName": "classification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "IP",
+                    "qualifierName": "isolation & purification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Biofilms",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GD",
+                    "qualifierName": "growth & development",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Anti-Bacterial Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Seawater",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MI",
+                    "qualifierName": "microbiology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Genome, Bacterial"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Metagenome"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Metagenomics",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MT",
+                    "qualifierName": "methods",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Aquatic Organisms",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Microbiota"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "enrichment culture",
+            "rare species",
+            "Antimicrobial peptides",
+            "Marine Biofilm"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Anti-Bacterial Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s40168-025-02326-0"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13036921"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13036921?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-06-12",
+        "dateOfCreation": "2026-02-24",
+        "firstIndexDate": "2026-02-24",
+        "fullTextReceivedDate": "2026-04-01",
+        "dateOfRevision": "2026-06-12",
+        "electronicPublicationDate": "2026-02-23",
+        "firstPublicationDate": "2026-02-23"
+      },
+      {
+        "id": "41315055",
+        "source": "MED",
+        "pmid": "41315055",
+        "pmcid": "PMC12775044",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12775044"
+          ]
+        },
+        "doi": "10.1007/s00248-025-02620-2",
+        "title": "Bioactive Plasmid- and Phage-Encoded Antimicrobial Peptides (AMPs) in the Human Gut: A Metatranscriptome-Virome Profiling Reveals Exploratory Links to Metabolic Human Diseases.",
+        "authorString": "Gallardo-Becerra L, Cornejo-Granados F, Bikel S, Arenas I, López-Leal G, Alvarado-Gonzalez C, Sánchez-López F, Manzo R, Corzo G, Espino-Solis GP, Canizales-Quinteros S, Ochoa-Leyva A.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Gallardo-Becerra L",
+              "firstName": "Luigui",
+              "lastName": "Gallardo-Becerra",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1157-8698"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cornejo-Granados F",
+              "firstName": "Fernanda",
+              "lastName": "Cornejo-Granados",
+              "initials": "F",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Bikel S",
+              "firstName": "Shirley",
+              "lastName": "Bikel",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1298-5578"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Arenas I",
+              "firstName": "Iván",
+              "lastName": "Arenas",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Medicina Molecular y Bioprocesos, Instituto de Biotecnología, Universidad Nacional Autónoma de México, 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "López-Leal G",
+              "firstName": "Gamaliel",
+              "lastName": "López-Leal",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Laboratorio de Biología Computacional y Virómica Integrativa, Centro de Investigación en Dinámica Celular, Universidad Autónoma del Estado de Morelos, 62209, Cuernavaca, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Alvarado-Gonzalez C",
+              "firstName": "Carolina",
+              "lastName": "Alvarado-Gonzalez",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Facultad de Medicina y Ciencias Biomédicas, Laboratorio Nacional de Citometría de Flujo, Autonomous University of Chihuahua, Circuito Universitario S/N, Campus II, 31125, Chihuahua, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sánchez-López F",
+              "firstName": "Filiberto",
+              "lastName": "Sánchez-López",
+              "initials": "F",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Manzo R",
+              "firstName": "Rubiceli",
+              "lastName": "Manzo",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0006-4700-8677"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Corzo G",
+              "firstName": "Gerardo",
+              "lastName": "Corzo",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Medicina Molecular y Bioprocesos, Instituto de Biotecnología, Universidad Nacional Autónoma de México, 62210, Cuernavaca, Morelos, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Espino-Solis GP",
+              "firstName": "Gerardo P",
+              "lastName": "Espino-Solis",
+              "initials": "GP",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Facultad de Medicina y Ciencias Biomédicas, Laboratorio Nacional de Citometría de Flujo, Autonomous University of Chihuahua, Circuito Universitario S/N, Campus II, 31125, Chihuahua, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Canizales-Quinteros S",
+              "firstName": "Samuel",
+              "lastName": "Canizales-Quinteros",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Facultad de Química, UNAM/Instituto Nacional de Medicina Genómica (INMEGEN), Unidad de Genómica de Poblaciones Aplicada a La Salud, Mexico City, Mexico."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ochoa-Leyva A",
+              "firstName": "Adrian",
+              "lastName": "Ochoa-Leyva",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico. adrian.ochoa@ibt.unam.mx."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1157-8698"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1298-5578"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0006-4700-8677"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data",
+            "related_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "89",
+          "journalIssueId": 4076028,
+          "dateOfPublication": "2025 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-11-01",
+          "journal": {
+            "title": "Microbial ecology",
+            "medlineAbbreviation": "Microb Ecol",
+            "issn": "0095-3628",
+            "nlmid": "7500663",
+            "isoabbreviation": "Microb Ecol",
+            "essn": "1432-184X"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "15",
+        "abstractText": "Microbe-derived antimicrobial peptides (AMPs) can shape gut community structure; however, their contribution to disease-associated dysbiosis remains poorly understood. We assembled fecal metatranscriptomes from individuals with normal weight (NW), obesity (O), and obesity with metabolic syndrome (OMS), yielding 51,087 non-human transcripts. We screened 1,095 small open reading frames (smORFs) using AMP-prediction algorithms combined with stringent post-hoc bioinformatics filters identifying 51 high-confidence AMP candidates. Most matched bacterial homologs, predominantly Faecalibacterium prausnitzii, while eight mapped to plasmids or bacteriophages. Differential expression identified two and four AMPs overexpressed in O and OMS, respectively. Two of them were originated from chromosomes, three from phages, and one from plasmid. Notably, the over-expression of these AMPs was negatively correlated with healthy-associated bacteria and positively correlated with obesity-enriched taxa. Furthermore, these AMPs were broadly detectable across 372 external gut metatranscriptomes (prevalence up to 94% of the samples) indicating conservation within the human gut microbiome and highlighting mobile elements as an overlooked reservoir of transcriptionally active AMPs. Using DNA virome sequencing and prophage analyses, we suggested phage origin of the transcribed AMPs. We further synthesized a phage-encoded AMP (AMP-3020), demonstrating broad-spectrum activity against Gram-positive and Gram-negative bacteria, without detectable cytotoxicity toward human immune T cells. This supports the idea that phages could encode functional AMPs capable of shaping gut community structure by suppressing diverse bacteria without harming host immune cells. Our gut metatranscriptome-virome profiling revealed a conservative core of actively transcribed, plasmid- and phage-encoded AMPs with exploratory associations to obesity/MetS. These findings support mobile-element AMPs as candidate ecological regulators and motivate validation in larger cohorts and mechanistic models.",
+        "affiliation": "Departamento de Microbiología Molecular, Instituto de Biotecnología, Universidad Nacional Autónoma de México, Avenida Universidad 2001, C.P. 62210, Cuernavaca, Morelos, Mexico.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Feces",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MI",
+                    "qualifierName": "microbiology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Bacteria",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "CL",
+                    "qualifierName": "classification",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "DE",
+                    "qualifierName": "drug effects",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Bacteriophages",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Obesity",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MI",
+                    "qualifierName": "microbiology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Plasmids",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Transcriptome"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Gastrointestinal Microbiome",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Metabolic Syndrome",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MI",
+                    "qualifierName": "microbiology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Virome"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Phages",
+            "Plasmid",
+            "Antimicrobial peptides",
+            "Amps",
+            "Virome",
+            "Metatranscriptome"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1007/s00248-025-02620-2"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12775044"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12775044?pdf=render"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "PPR1055492",
+              "source": "PPR",
+              "type": "Preprint in",
+              "note": "CrossRef Pre-print loader",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "Y",
+        "dbCrossReferenceList": {
+          "dbName": [
+            "EMBL"
+          ]
+        },
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "bioproject"
+          ]
+        },
+        "dateOfCompletion": "2026-01-06",
+        "dateOfCreation": "2025-11-28",
+        "firstIndexDate": "2025-11-30",
+        "fullTextReceivedDate": "2026-01-12",
+        "dateOfRevision": "2026-01-09",
+        "electronicPublicationDate": "2025-11-28",
+        "firstPublicationDate": "2025-11-28"
+      },
+      {
+        "id": "39942653",
+        "source": "MED",
+        "pmid": "39942653",
+        "pmcid": "PMC11820242",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC11820242"
+          ]
+        },
+        "doi": "10.3390/molecules30030550",
+        "title": "Unlocking Antimicrobial Peptides: In Silico Proteolysis and Artificial Intelligence-Driven Discovery from Cnidarian Omics.",
+        "authorString": "Barroso RA, Agüero-Chapin G, Sousa R, Marrero-Ponce Y, Antunes A.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Barroso RA",
+              "firstName": "Ricardo Alexandre",
+              "lastName": "Barroso",
+              "initials": "RA",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-5277-3940"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Interdisciplinary Centre of Marine and Environmental Research (CIIMAR/CIMAR), University of Porto, Terminal de Cruzeiros do Porto de Leixões, Av. General Norton de Matos s/n, 4450-208 Porto, Portugal."
+                  },
+                  {
+                    "affiliation": "Department of Biology, Faculty of Sciences of University of Porto (FCUP), Rua do Campo Alegre s/n, 4169-007 Porto, Portugal."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Agüero-Chapin G",
+              "firstName": "Guillermin",
+              "lastName": "Agüero-Chapin",
+              "initials": "G",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9908-2418"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Interdisciplinary Centre of Marine and Environmental Research (CIIMAR/CIMAR), University of Porto, Terminal de Cruzeiros do Porto de Leixões, Av. General Norton de Matos s/n, 4450-208 Porto, Portugal."
+                  },
+                  {
+                    "affiliation": "Department of Biology, Faculty of Sciences of University of Porto (FCUP), Rua do Campo Alegre s/n, 4169-007 Porto, Portugal."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sousa R",
+              "firstName": "Rita",
+              "lastName": "Sousa",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0005-8579-3541"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Interdisciplinary Centre of Marine and Environmental Research (CIIMAR/CIMAR), University of Porto, Terminal de Cruzeiros do Porto de Leixões, Av. General Norton de Matos s/n, 4450-208 Porto, Portugal."
+                  },
+                  {
+                    "affiliation": "Department of Biology, Faculty of Sciences of University of Porto (FCUP), Rua do Campo Alegre s/n, 4169-007 Porto, Portugal."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Marrero-Ponce Y",
+              "firstName": "Yovani",
+              "lastName": "Marrero-Ponce",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2721-1142"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Facultad de Ingeniería, Universidad Panamericana, Augusto Rodin No. 498, Insurgentes Mixcoac, Benito Juárez, Ciudad de Mexico 03920, Mexico."
+                  },
+                  {
+                    "affiliation": "Grupo de Medicina Molecular y Traslacional (MeM&T), Colegio de Ciencias de la Salud (COCSA), Escuela de Medicina, Edificio de Especialidades Médicas, Instituto de Simulación Computacional (ISC-USFQ), Universidad San Francisco de Quito (USFQ), Diego de Robles y vía Interoceánica, Quito 170157, Ecuador."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Antunes A",
+              "firstName": "Agostinho",
+              "lastName": "Antunes",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1328-1732"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Interdisciplinary Centre of Marine and Environmental Research (CIIMAR/CIMAR), University of Porto, Terminal de Cruzeiros do Porto de Leixões, Av. General Norton de Matos s/n, 4450-208 Porto, Portugal."
+                  },
+                  {
+                    "affiliation": "Department of Biology, Faculty of Sciences of University of Porto (FCUP), Rua do Campo Alegre s/n, 4169-007 Porto, Portugal."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1328-1732"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-5277-3940"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9908-2418"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2721-1142"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0005-8579-3541"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "3",
+          "volume": "30",
+          "journalIssueId": 3893350,
+          "dateOfPublication": "2025 Jan",
+          "monthOfPublication": 1,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-01-01",
+          "journal": {
+            "title": "Molecules (Basel, Switzerland)",
+            "medlineAbbreviation": "Molecules",
+            "issn": "1420-3049",
+            "nlmid": "100964009",
+            "isoabbreviation": "Molecules",
+            "essn": "1420-3049"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "550",
+        "abstractText": "Overcoming the growing challenge of antimicrobial resistance (AMR), which affects millions of people worldwide, has driven attention for the exploration of marine-derived antimicrobial peptides (AMPs) for innovative solutions. Cnidarians, such as corals, sea anemones, and jellyfish, are a promising valuable resource of these bioactive peptides due to their robust innate immune systems yet are still poorly explored. Hence, we employed an in silico proteolysis strategy to search for novel AMPs from omics data of 111 Cnidaria species. Millions of peptides were retrieved and screened using shallow- and deep-learning models, prioritizing AMPs with a reduced toxicity and with a structural distinctiveness from characterized AMPs. After complex network analysis, a final dataset of 3130 Cnidaria singular non-haemolytic and non-toxic AMPs were identified. Such unique AMPs were mined for their putative antibacterial activity, revealing 20 favourable candidates for in vitro testing against important ESKAPEE pathogens, offering potential new avenues for antibiotic development.",
+        "affiliation": "Interdisciplinary Centre of Marine and Environmental Research (CIIMAR/CIMAR), University of Porto, Terminal de Cruzeiros do Porto de Leixões, Av. General Norton de Matos s/n, 4450-208 Porto, Portugal.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "2022.09707.BD",
+              "agency": "USFQ Med",
+              "orderIn": 0
+            },
+            {
+              "grantId": "UIDP/04423/2020",
+              "agency": "USFQ Med",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024-25",
+              "agency": "USFQ Med",
+              "orderIn": 0
+            },
+            {
+              "grantId": "UIDP/04423/2020",
+              "agency": "FCT—Fundação para a Ciência e a Tecnologia",
+              "orderIn": 0
+            },
+            {
+              "grantId": "U-IDB/04423/2020",
+              "agency": "FCT—Fundação para a Ciência e a Tecnologia",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024-25",
+              "agency": "FCT",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024-25",
+              "agency": "FCT—Fundação para a Ciência e a Tecnologia",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2022.09707.BD",
+              "agency": "FCT",
+              "orderIn": 0
+            },
+            {
+              "grantId": "U-IDB/04423/2020",
+              "agency": "FCT",
+              "orderIn": 0
+            },
+            {
+              "grantId": "U-IDB/04423/2020",
+              "agency": "USFQ Med",
+              "orderIn": 0
+            },
+            {
+              "grantId": "UIDP/04423/2020",
+              "agency": "FCT",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2022.09707.BD",
+              "agency": "FCT—Fundação para a Ciência e a Tecnologia",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cnidaria",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Anti-Bacterial Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Artificial Intelligence"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Computer Simulation"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Drug Discovery"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Proteolysis"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Artificial intelligence",
+            "Antimicrobial",
+            "Cnidaria",
+            "Omics",
+            "Complex Networks"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Anti-Bacterial Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/molecules30030550"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11820242"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11820242?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 6,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "gen",
+            "uniprot"
+          ]
+        },
+        "dateOfCompletion": "2025-05-07",
+        "dateOfCreation": "2025-02-13",
+        "firstIndexDate": "2025-02-14",
+        "fullTextReceivedDate": "2025-02-18",
+        "dateOfRevision": "2025-05-07",
+        "electronicPublicationDate": "2025-01-25",
+        "firstPublicationDate": "2025-01-25"
+      },
+      {
+        "id": "41992792",
+        "source": "MED",
+        "pmid": "41992792",
+        "pmcid": "PMC13087548",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13087548"
+          ]
+        },
+        "doi": "10.1002/minf.70029",
+        "title": "The Use of DeepQSAR Models for the Discovery of Peptides With Enhanced Antimicrobial and Antibiofilm Potential.",
+        "authorString": "You J, Mslati H, Haney EF, Akhoundsadegh N, Hancock REW, Cherkasov A.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "You J",
+              "firstName": "Jiaying",
+              "lastName": "You",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8980-7403"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Vancouver Prostate Centre, Department of Urologic Sciences, Faculty of Medicine, University of British Columbia, Vancouver, BC, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mslati H",
+              "firstName": "Hazem",
+              "lastName": "Mslati",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Cellular and Molecular Medicine, Faculty of Medicine, University of Ottawa, Ottawa, ON, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Haney EF",
+              "firstName": "Evan F",
+              "lastName": "Haney",
+              "initials": "EF",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Centre for Microbial Diseases and Immunity Research, Department of Microbiology and Immunology, Faculty of Science, University of British Columbia, Vancouver, BC, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Akhoundsadegh N",
+              "firstName": "Noushin",
+              "lastName": "Akhoundsadegh",
+              "initials": "N",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Centre for Microbial Diseases and Immunity Research, Department of Microbiology and Immunology, Faculty of Science, University of British Columbia, Vancouver, BC, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hancock REW",
+              "firstName": "Robert E W",
+              "lastName": "Hancock",
+              "initials": "REW",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Centre for Microbial Diseases and Immunity Research, Department of Microbiology and Immunology, Faculty of Science, University of British Columbia, Vancouver, BC, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cherkasov A",
+              "firstName": "Artem",
+              "lastName": "Cherkasov",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1599-1439"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Vancouver Prostate Centre, Department of Urologic Sciences, Faculty of Medicine, University of British Columbia, Vancouver, BC, Canada."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1599-1439"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8980-7403"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "4",
+          "volume": "45",
+          "journalIssueId": 4180495,
+          "dateOfPublication": "2026 Apr",
+          "monthOfPublication": 4,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-04-01",
+          "journal": {
+            "title": "Molecular informatics",
+            "medlineAbbreviation": "Mol Inform",
+            "issn": "1868-1743",
+            "nlmid": "101529315",
+            "isoabbreviation": "Mol Inform",
+            "essn": "1868-1751"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "e70029",
+        "abstractText": "Increasing concerns regarding prolonged antibiotic usage have spurred the search for alternative treatments. Antimicrobial peptides (AMPs), first discovered in the 1980s, have exhibited significant potential against a broad range of bacteria. Short-sequenced AMPs are abundant in nature and present across various organisms. Recently, machine learning technologies such as Quantitative Structure Activity Relationships (QSAR) have enabled expedited discovery of potential AMPs with broad-spectrum antibacterial activity as the amount of available AMP training data increases. Among those, Deep QSAR has recently emerged as a distinct type of application that utilizes conventional molecular descriptors in conjunction with more powerful deep learning (DL) models. Here, we demonstrate the power of Deep QSAR in predicting broad-spectrum AMP activity. Using a recurrent neural network-based QSAR model, we achieved nearly 90% fivefold cross-validated accuracy in classifying AMP activity. Using the developed approach, we designed 98 novel peptides, of which 36 experimentally demonstrated more effective antibiofilm activity and 26 peptides exhibited stronger antimicrobial activity compared to a well-characterized host defense peptide IDR-1018, which was demonstrated to possess broad spectrum antibiofilm activity against a wide range of bacterial pathogens and a previous computer-aided peptide design study employing IDR-1018 derivatives successfully identified novel peptides with enhanced antibiofilm activity. Notably, 22 of those peptides demonstrated improvements of both antimicrobial and, particularly, antibiofilm properties, making them suitable prototypes for preclinical development and demonstrating efficacy of DeepQSAR modeling in identifying novel and potent AMPs.",
+        "affiliation": "Vancouver Prostate Centre, Department of Urologic Sciences, Faculty of Medicine, University of British Columbia, Vancouver, BC, Canada.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "CRC-2020-00007",
+              "agency": "Canada Research Chairs Program",
+              "orderIn": 0
+            },
+            {
+              "grantId": "36194",
+              "agency": "Canada Foundation for Innovation",
+              "orderIn": 0
+            },
+            {
+              "grantId": "RGPIN-2024-04153",
+              "agency": "Natural Sciences and Engineering Research Council of Canada",
+              "orderIn": 0
+            },
+            {
+              "grantId": "36194",
+              "agency": "British Columbia Knowledge Development Fund",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Biofilms",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "DE",
+                    "qualifierName": "drug effects",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Cationic Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Anti-Infective Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Anti-Bacterial Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Microbial Sensitivity Tests"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Quantitative Structure-Activity Relationship"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Deep Learning"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Anti-Bacterial Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Anti-Infective Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Cationic Peptides",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1002/minf.70029"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13087548"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13087548?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-06-22",
+        "dateOfCreation": "2026-04-17",
+        "firstIndexDate": "2026-04-18",
+        "fullTextReceivedDate": "2026-04-22",
+        "dateOfRevision": "2026-06-22",
+        "firstPublicationDate": "2026-04-01"
+      },
+      {
+        "id": "40278299",
+        "source": "MED",
+        "pmid": "40278299",
+        "pmcid": "PMC12028987",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12028987"
+          ]
+        },
+        "doi": "10.3390/md23040178",
+        "title": "Synthesis and Evaluation of Aquatic Antimicrobial Peptides Derived from Marine Metagenomes Using a High-Throughput Screening Approach.",
+        "authorString": "Wu K, Xu G, Tian Y, Li G, Yi Z, Tang X.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Wu K",
+              "firstName": "Kaiyue",
+              "lastName": "Wu",
+              "initials": "K",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0002-6954-7170"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Marine Sciences, Fujian Agriculture and Forestry University, Fuzhou 350002, China."
+                  },
+                  {
+                    "affiliation": "Key Laboratory of Marine Genetic Resources, Third Institute of Oceanography, Ministry of Natural Resources, Xiamen 361005, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xu G",
+              "firstName": "Guangxin",
+              "lastName": "Xu",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Key Laboratory of Marine Genetic Resources, Third Institute of Oceanography, Ministry of Natural Resources, Xiamen 361005, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tian Y",
+              "firstName": "Yin",
+              "lastName": "Tian",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Key Laboratory of Marine Genetic Resources, Third Institute of Oceanography, Ministry of Natural Resources, Xiamen 361005, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li G",
+              "firstName": "Guizhen",
+              "lastName": "Li",
+              "initials": "G",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0005-2670-9549"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Key Laboratory of Marine Genetic Resources, Third Institute of Oceanography, Ministry of Natural Resources, Xiamen 361005, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yi Z",
+              "firstName": "Zhiwei",
+              "lastName": "Yi",
+              "initials": "Z",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9460-5785"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Key Laboratory of Marine Genetic Resources, Third Institute of Oceanography, Ministry of Natural Resources, Xiamen 361005, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tang X",
+              "firstName": "Xixiang",
+              "lastName": "Tang",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Marine Sciences, Fujian Agriculture and Forestry University, Fuzhou 350002, China."
+                  },
+                  {
+                    "affiliation": "Key Laboratory of Marine Genetic Resources, Third Institute of Oceanography, Ministry of Natural Resources, Xiamen 361005, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9460-5785"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0002-6954-7170"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0005-2670-9549"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "4",
+          "volume": "23",
+          "journalIssueId": 3932932,
+          "dateOfPublication": "2025 Apr",
+          "monthOfPublication": 4,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-04-01",
+          "journal": {
+            "title": "Marine drugs",
+            "medlineAbbreviation": "Mar Drugs",
+            "issn": "1660-3397",
+            "nlmid": "101213729",
+            "isoabbreviation": "Mar Drugs",
+            "essn": "1660-3397"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "178",
+        "abstractText": "Bacterial diseases cause high mortality and considerable losses in aquaculture. The rapid expansion of intensive aquaculture has further increased the risk of large-scale outbreaks. However, the emergence of drug-resistant bacteria, food safety concerns, and environmental regulations have severely limited the availability of antimicrobial. Compared to traditional antibiotics, antimicrobial peptides (AMPs) offer broad spectrum activity, physicochemical stability, and lower resistance development. However, their low natural yield and high extraction costs along with the time-consuming and expensive nature of traditional drug discovery, pose a challenge. In this study, we applied a machine-learning macro-model to predict AMPs from three macrogenomes in the water column of South American white shrimp aquaculture ponds. The AMP content per megabase in the traditional earthen pond (TC1) was 1.8 times higher than in the biofloc pond (ZA1) and 63% higher than in the elevated pond (ZP11). A total of 1033 potential AMPs were predicted, including 6 anionic linear peptides, 616 cationic linear peptides, and 411 cationic cysteine-containing peptides. After screening based on structural, and physio-chemical properties, we selected 10 candidate peptides. Using a rapid high-throughput cell-free protein expression system, we identified nine peptides with antimicrobial activity against aquatic pathogens. Three were further validated through chemical synthesis. The three antimicrobial peptides (K-5, K-58, K-61) showed some inhibitory effects on all four pathogenic bacteria. The MIC of K-5 against Vibrio alginolyticus was 25 μM, the cell viability of the three peptides was higher than 70% at low concentrations (≤12.5 μM), and the hemolysis rate of K-5 and K-58 was lower than 5% at 200 μM. This study highlights the benefits of machine learning in AMP discovery, demonstrates the potential of cell-free protein synthesis systems for peptide screening, and provides an efficient method for high-throughput AMP identification for aquatic applications.",
+        "affiliation": "College of Marine Sciences, Fujian Agriculture and Forestry University, Fuzhou 350002, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "2021J02015",
+              "agency": "Scientific Research Foundation of Third Institute of Oceanography, SOA",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024YFC2815900",
+              "agency": "National Key R&amp;amp;D Program of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "23CZB005HJ08",
+              "agency": "Fujian Provincial Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2021J02015",
+              "agency": "Fujian Provincial Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "K240301(1)",
+              "agency": "Xiamen Ocean Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2021J02015",
+              "agency": "Xiamen Ocean Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024YFC2815900",
+              "agency": "Xiamen Southern Oceanographic Center",
+              "orderIn": 0
+            },
+            {
+              "grantId": "23CZB005HJ08",
+              "agency": "Xiamen Ocean Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "K240301(1)",
+              "agency": "Fujian Provincial Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2017002",
+              "agency": "Fujian Provincial Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2017002",
+              "agency": "Scientific Research Foundation of Third Institute of Oceanography, SOA",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2021J02015",
+              "agency": "Xiamen Southern Oceanographic Center",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024YFC2815900",
+              "agency": "Scientific Research Foundation of Third Institute of Oceanography, SOA",
+              "orderIn": 0
+            },
+            {
+              "grantId": "23CZB005HJ08",
+              "agency": "National Key R&amp;amp;D Program of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "K240301(1)",
+              "agency": "Xiamen Southern Oceanographic Center",
+              "orderIn": 0
+            },
+            {
+              "grantId": "K240301(1)",
+              "agency": "National Key R&amp;amp;D Program of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "K240301(1)",
+              "agency": "Scientific Research Foundation of Third Institute of Oceanography, SOA",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2017002",
+              "agency": "National Key R&amp;amp;D Program of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2017002",
+              "agency": "Xiamen Ocean Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2021J02015",
+              "agency": "National Key R&amp;amp;D Program of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024YFC2815900",
+              "agency": "Fujian Provincial Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "23CZB005HJ08",
+              "agency": "Scientific Research Foundation of Third Institute of Oceanography, SOA",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2017002",
+              "agency": "Xiamen Southern Oceanographic Center",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024YFC2815900",
+              "agency": "Xiamen Ocean Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "23CZB005HJ08",
+              "agency": "Xiamen Southern Oceanographic Center",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Penaeidae"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Cationic Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Anti-Bacterial Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Microbial Sensitivity Tests"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Aquaculture"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Metagenome"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "High-Throughput Screening Assays",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MT",
+                    "qualifierName": "methods",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Aquatic Organisms"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Machine Learning"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "CS",
+                    "qualifierName": "chemical synthesis",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Machine Learning",
+            "Cell-free Protein Expression",
+            "Marine Antimicrobial Peptides",
+            "Macro-genomes"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Anti-Bacterial Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Cationic Peptides",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/md23040178"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12028987"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12028987?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 2,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2025-04-25",
+        "dateOfCreation": "2025-04-25",
+        "firstIndexDate": "2025-04-26",
+        "fullTextReceivedDate": "2025-04-28",
+        "dateOfRevision": "2025-04-27",
+        "electronicPublicationDate": "2025-04-20",
+        "firstPublicationDate": "2025-04-20"
+      }
+    ]
+  }
+}

@@ -1,0 +1,473 @@
+{
+  "chunk_id": "model_antimicrobial_peptides",
+  "chunk_type": "model",
+  "chunk_name": "Antimicrobial-Peptides.",
+  "compression_status": "ok",
+  "main_entities": [
+    "PepVAE",
+    "LMPred",
+    "AMP prediction SVM-LZ",
+    "PyAMPA"
+  ],
+  "papers": [
+    {
+      "title": "PepVAE: Variational Autoencoder Framework for Antimicrobial Peptide Generation and Activity Prediction",
+      "pmid": "34659152",
+      "pmcid": "8515052",
+      "doi": "10.3389/fmicb.2021.725727",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Structure, mechanism and crystallographic fragment screening of the SARS-CoV-2 NSP13 helicase",
+      "pmid": "34381037",
+      "pmcid": "8358061",
+      "doi": "10.1038/s41467-021-25166-6",
+      "year": "2021",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "LMPred: predicting antimicrobial peptides using pre-trained language models and deep learning.",
+      "pmid": "36699381",
+      "pmcid": "PMC6540740",
+      "doi": "10.1101/2020.07.12.199554v3",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Prediction of antimicrobial peptides based on sequence alignment and support vector machine-pairwise algorithm utilizing LZ-complexity.",
+      "pmid": "25802839",
+      "pmcid": "PMC2686604",
+      "doi": "10.1093/nar/gkn823",
+      "year": "2015",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Measurement of electrocardiograms in a bath through tap water utilizing capacitive coupling electrodes placed outside the bathtub wall.",
+      "pmid": "28086891",
+      "pmcid": "PMC5234137",
+      "doi": "10.1186/s12938-016-0304-9",
+      "year": "2017",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "A genetically encoded biosensor reveals heterogenous cAMP dynamics coordinating growth and resuscitation in Mycobacterium tuberculosis",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.64898/2026.06.02.729633",
+      "year": "2026",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "Gaming-based program for internet gaming disorder: feasibility and preliminary outcomes of a structured camp program.",
+      "pmid": "42344677",
+      "pmcid": "PMC13288209",
+      "doi": "10.3389/fpsyt.2026.1825298",
+      "year": "2026",
+      "role": "uncertain",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "PyAMPA: a high-throughput prediction and optimization tool for antimicrobial peptides.",
+      "pmid": "38934543",
+      "pmcid": "PMC11264690",
+      "doi": "10.1128/msystems.01358-23",
+      "year": "2024",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "PepVAE",
+      "canonical_name": "PepVAE",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Variational autoencoder (VAE) for generation, combined with regression models (GB, RF, LGBM, XGB) for MIC prediction",
+      "input_features": "One-hot encoded amino acid sequences (length ≤40)",
+      "source_pmid": "34659152",
+      "source_pmcid": "8515052",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "benchmark_candidate": true,
+      "candidate_reason": "Provides both generative and predictive components for AMP activity; regression models trained on public data and experimentally validated",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "LMPred",
+      "canonical_name": "LMPred",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Pre-trained language model embeddings + convolutional neural network (CNN)",
+      "input_features": "Contextualized embeddings of amino acid sequences from pre-trained language models",
+      "source_pmid": "36699381",
+      "source_pmcid": "PMC6540740",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "code_repository_url": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel input representation using pre-trained language models; code and data publicly available; outperforms previous state-of-the-art",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "AMP prediction SVM-LZ",
+      "canonical_name": "AMP prediction by SVM-LZ complexity",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support vector machine (SVM) with LZ-complexity pairwise kernel, integrated with sequence alignment",
+      "input_features": "LZ-complexity pairwise similarity measure from amino acid sequences",
+      "source_pmid": "25802839",
+      "source_pmcid": "PMC2686604",
+      "source_doi": "10.1093/nar/gkn823",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Method for AMP prediction with reported sensitivity; could be included in benchmarks if implementation becomes available",
+      "blocking_issues": [
+        "No code or model provided",
+        "Full-text cache mismatch (APD2 database article)"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.6
+    },
+    {
+      "model_name": "PyAMPA",
+      "canonical_name": "PyAMPA",
+      "aliases": [
+        "AMPA"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML/feature-engineering/web-server",
+      "architecture_or_algorithm": "PyAMPA contains 5 modules: AMPScreen (sliding window propensity scoring), AMPValidate (RF classifier with 2-mer vectors), AMPSolve (RF for hemolysis/toxicity; RF regression for 11 strains; multivariate regression for half-life), AMPMutate (systematic point mutation scan), AMPOptimize (genetic algorithm multi-objective optimization of antimicrobial activity, half-life, hemolysis)",
+      "input_features": "Amino acid sequences, 2-mer features, proportion of nonpolar residues, presence of Trp/Tyr, isoelectric point, etc.",
+      "source_pmid": "38934543",
+      "source_pmcid": "PMC11264690",
+      "source_doi": "10.1128/msystems.01358-23",
+      "code_repository_url": "https://github.com/SysBioUAB/PyAMPA",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "AMPlify dataset, Liu et al. CPP database, AMPDeep hemolytic database, ToxinPred toxicity database, GRAMPA dataset (https://github.com/zswitten/Antimicrobial-Peptides)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Comprehensive AMP discovery platform with screening, validation, property prediction, and optimization; uses random forest and genetic algorithms; experimentally validated on 10 novel peptides",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    }
+  ],
+  "repositories": [
+    {
+      "name": "LMPred GitHub repository",
+      "url": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "repository_type": "code",
+      "matched_model_name": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "evidence_level": "fulltext",
+      "evidence": "All codes are available and can be accessed here: https://github.com/williamdee1/LMPred_AMP_Prediction."
+    },
+    {
+      "name": "GRAMPA dataset repository",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "repository_type": "dataset",
+      "matched_model_name": "PepVAE",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence_level": "fulltext",
+      "evidence": "publicly available on GitHub: https://github.com/zswitten/Antimicrobial-Peptides."
+    },
+    {
+      "name": "SysBioUAB/PyAMPA",
+      "url": "https://github.com/SysBioUAB/PyAMPA",
+      "repository_type": "code",
+      "matched_model_name": "PyAMPA",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence_level": "fulltext",
+      "evidence": "PyAMPA is available at: https://github.com/SysBioUAB/PyAMPA."
+    },
+    {
+      "name": "Antimicrobial-Peptides.",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides.",
+      "matched_paper_title": "PepVAE: Variational Autoencoder Framework for Antimicrobial Peptide Generation and Activity Prediction",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "LMPred_AMP_Prediction.",
+      "url": "https://github.com/williamdee1/LMPred_AMP_Prediction.",
+      "matched_paper_title": "LMPred: predicting antimicrobial peptides using pre-trained language models and deep learning.",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "CDPfold.",
+      "url": "https://github.com/zhangch994/CDPfold.",
+      "matched_paper_title": "LMPred: predicting antimicrobial peptides using pre-trained language models and deep learning.",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "PyAMPA.",
+      "url": "https://github.com/SysBioUAB/PyAMPA.",
+      "matched_paper_title": "PyAMPA: a high-throughput prediction and optimization tool for antimicrobial peptides.",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    },
+    {
+      "name": "Antimicrobial-Peptides",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "matched_paper_title": "PyAMPA: a high-throughput prediction and optimization tool for antimicrobial peptides.",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.7
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "GRAMPA (modified)",
+      "dataset_url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "dataset_source": "Aggregated from APD, DADP, DBAASP, DRAMP, YADAMP",
+      "linked_model": "PepVAE",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "positive_samples": "6,760 unique AMP sequences (original), 3,280 for E. coli after filtering",
+      "negative_samples": "Not explicitly mentioned; MIC values used as regression target",
+      "deduplication_method": "Not described",
+      "evidence_level": "fulltext",
+      "evidence": "The dataset used in this study was based on Giant Repository of AMP Activity (GRAMPA) ... combined 6,760 unique AMP sequences and 51,345 MIC values ... publicly available on GitHub"
+    },
+    {
+      "dataset_name": "LMPred independent dataset",
+      "dataset_url": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "dataset_source": "Created by the authors",
+      "linked_model": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "positive_samples": "N/A",
+      "negative_samples": "N/A",
+      "deduplication_method": "Not described",
+      "evidence_level": "fulltext",
+      "evidence": "a larger independent dataset created by this paper"
+    },
+    {
+      "dataset_name": "AMPlify dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "AMPlify benchmark dataset",
+      "linked_model": "PyAMPA",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "positive_samples": "3338 AMPs",
+      "negative_samples": "3338 non-AMPs",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "The dataset contains 6,676 peptides, evenly split into 3,338 AMPs and 3,338 non-AMPs."
+    },
+    {
+      "dataset_name": "GRAMPA",
+      "dataset_url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "dataset_source": "Giant Repository of AMP Activities",
+      "linked_model": "PyAMPA",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "positive_samples": "",
+      "negative_samples": "",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "IC50 data were retrieved from the Giant Repository of AMP Activities (GRAMPA) (https://github.com/zswitten/Antimicrobial-Peptides)."
+    },
+    {
+      "dataset_name": "Liu et al. CPP database",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Liu et al. cell-penetrating peptide database",
+      "linked_model": "PyAMPA",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "positive_samples": "462 CPPs",
+      "negative_samples": "462 non-CPPs",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "For cell-penetrating peptides (CPPs), the Liu et al. database was used, containing 924 sequences, of which 462 positive and 462 negative CPPs."
+    },
+    {
+      "dataset_name": "AMPDeep hemolytic database",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "AMPDeep database",
+      "linked_model": "PyAMPA",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "positive_samples": "3007 hemolytic",
+      "negative_samples": "4173 non-hemolytic",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "To predict hemolytic peptides, we used the AMPDeep database of 7,180 peptides, of which 3,007 hemolytic and 4,173 non-hemolytic."
+    },
+    {
+      "dataset_name": "ToxinPred database",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "ToxinPred database",
+      "linked_model": "PyAMPA",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "positive_samples": "1156 toxic",
+      "negative_samples": "2457 non-toxic",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "fulltext",
+      "evidence": "For toxicity prediction, we used the ToxinPred database, with 3,613 peptides, of which 1,156 toxic and 2,457 non-toxic."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "RMSE",
+      "usage": "Evaluate MIC prediction regression models",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence": "Initial comparison of the eight different regression models ... was performed by calculating Root mean square error (RMSE) and R2 values"
+    },
+    {
+      "metric_name": "R²",
+      "usage": "Evaluate MIC prediction regression models",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence": "calculating Root mean square error (RMSE) and R2 values from actual MIC (log μM) vs. predicted"
+    },
+    {
+      "metric_name": "Sensitivity",
+      "usage": "AMP classification performance",
+      "source_pmid": "25802839",
+      "source_doi": "10.1093/nar/gkn823",
+      "evidence": "sensitivity of the proposed algorithm is 95.28% in jackknife test and 87.59% in independent test"
+    },
+    {
+      "metric_name": "Accuracy",
+      "usage": "model evaluation",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence": "Accuracy and Mathew’s correlation coefficient (MCC) were used as indicators of global performance."
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "model evaluation",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence": "Accuracy and Mathew’s correlation coefficient (MCC) were used as indicators of global performance."
+    },
+    {
+      "metric_name": "AUROC",
+      "usage": "model evaluation",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence": "The area under the ROC curve (AUROC) and area under the PR curve (AUPR) were used as an indicator of the classification performance."
+    },
+    {
+      "metric_name": "AUPR",
+      "usage": "model evaluation",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence": "The area under the ROC curve (AUROC) and area under the PR curve (AUPR) were used as an indicator of the classification performance."
+    },
+    {
+      "metric_name": "MIC",
+      "usage": "experimental validation",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence": "The minimum inhibitory concentration (MIC) was defined as the lowest concentration of the test peptide at which microorganism growth was visibly absent."
+    },
+    {
+      "metric_name": "Hemolysis (%)",
+      "usage": "experimental validation",
+      "source_pmid": "38934543",
+      "source_doi": "10.1128/msystems.01358-23",
+      "evidence": "Hemoglobin release was then measured as OD at 540 nm. Percent hemolysis was calculated."
+    }
+  ],
+  "important_evidence": [
+    "PepVAE code not publicly available, only 'available upon request', but dataset and MIC prediction models are described.",
+    "LMPred provides full code and data, outperforms previous state-of-the-art.",
+    "SVM-LZ paper lacks code; full-text cache mismatch needs verification.",
+    "PyAMPA is a comprehensive platform with code, multiple modules, and experimental validation of 10 novel peptides."
+  ],
+  "uncertainties": [
+    "The full-text cache for PMID 25802839 (doi:10.1093/nar/gkn823) appears to correspond to a different article about APD2 database, not the SVM-LZ prediction method. Need to verify the actual paper content.",
+    "PepVAE model weights are not publicly available; only 'available upon request'. Is it still a candidate for benchmark if code cannot be obtained?",
+    "The LMPred paper's full-text excerpt contained unrelated RNA secondary structure content; verify that the actual paper matches the abstract."
+  ],
+  "source_pmids": [
+    "34659152",
+    "34381037",
+    "36699381",
+    "25802839",
+    "28086891",
+    "42344677",
+    "38934543"
+  ],
+  "source_dois": [
+    "10.3389/fmicb.2021.725727",
+    "10.1038/s41467-021-25166-6",
+    "10.1101/2020.07.12.199554v3",
+    "10.1093/nar/gkn823",
+    "10.1186/s12938-016-0304-9",
+    "10.64898/2026.06.02.729633",
+    "10.3389/fpsyt.2026.1825298",
+    "10.1128/msystems.01358-23"
+  ],
+  "urls": [
+    "https://github.com/zswitten/Antimicrobial-Peptides",
+    "https://github.com/williamdee1/LMPred_AMP_Prediction",
+    "https://github.com/SysBioUAB/PyAMPA",
+    "https://github.com/zswitten/Antimicrobial-Peptides.",
+    "https://github.com/williamdee1/LMPred_AMP_Prediction.",
+    "https://github.com/zhangch994/CDPfold.",
+    "https://github.com/SysBioUAB/PyAMPA.",
+    "https://www.semanticscholar.org/paper/901a84b9d16cfb7a611e864d238d15f573a92e9e",
+    "https://www.frontiersin.org/articles/10.3389/fmicb.2021.725727/pdf",
+    "https://www.semanticscholar.org/paper/e541d6d62169baba9d9d5a4b44e372d65295bc18",
+    "https://www.nature.com/articles/s41467-021-25166-6.pdf",
+    "https://pubmed.ncbi.nlm.nih.gov/36699381/",
+    "https://doi.org/10.1101/2020.07.12.199554v3",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6540740/",
+    "https://pubmed.ncbi.nlm.nih.gov/25802839/",
+    "https://doi.org/10.1093/nar/gkn823",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2686604/",
+    "https://pubmed.ncbi.nlm.nih.gov/28086891/",
+    "https://doi.org/10.1186/s12938-016-0304-9",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5234137/",
+    "https://doi.org/10.64898/2026.06.02.729633",
+    "https://pubmed.ncbi.nlm.nih.gov/42344677/",
+    "https://doi.org/10.3389/fpsyt.2026.1825298",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13288209/",
+    "https://doi.org/10.1128/msystems.01358-23",
+    "https://openalex.org/W4400088313",
+    "https://pubmed.ncbi.nlm.nih.gov/38934543",
+    "https://pubmed.ncbi.nlm.nih.gov/38934543/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11264690/"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "39040937",
+    "pmid": "39040937"
+  },
+  "pmid": "39040937",
+  "pmcid": "PMC11262304",
+  "doi": "10.7717/peerj.17729",
+  "title": "deepAMPNet: a novel antimicrobial peptide predictor employing AlphaFold2 predicted structures and a bi-directional long short-term memory protein language model.",
+  "abstract": "<h4>Background</h4>Global public health is seriously threatened by the escalating issue of antimicrobial resistance (AMR). Antimicrobial peptides (AMPs), pivotal components of the innate immune system, have emerged as a potent solution to AMR due to their therapeutic potential. Employing computational methodologies for the prompt recognition of these antimicrobial peptides indeed unlocks fresh perspectives, thereby potentially revolutionizing antimicrobial drug development.<h4>Methods</h4>In this study, we have developed a model named as deepAMPNet. This model, which leverages graph neural networks, excels at the swift identification of AMPs. It employs structures of antimicrobial peptides predicted by AlphaFold2, encodes residue-level features through a bi-directional long short-term memory (Bi-LSTM) protein language model, and constructs adjacency matrices anchored on amino acids' contact maps.<h4>Results</h4>In a comparative study with other state-of-the-art AMP predictors on two external independent test datasets, deepAMPNet outperformed in accuracy. Furthermore, in terms of commonly accepted evaluation matrices such as AUC, Mcc, sensitivity, and specificity, deepAMPNet achieved the highest or highly comparable performances against other predictors.<h4>Conclusion</h4>deepAMPNet interweaves both structural and sequence information of AMPs, stands as a high-performance identification model that propels the evolution and design in antimicrobial peptide pharmaceuticals. The data and code utilized in this study can be accessed at https://github.com/Iseeu233/deepAMPNet.",
+  "journal": null,
+  "venue": null,
+  "year": "2024",
+  "authors": [
+    "Zhao F",
+    "Qiu J",
+    "Xiang D",
+    "Jiao P",
+    "Cao Y",
+    "Xu Q",
+    "Qiao D",
+    "Xu H",
+    "Cao Y."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/39040937/",
+    "https://doi.org/10.7717/peerj.17729",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11262304/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "europepmc_dataset",
+  "query_text": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+  "candidate_key": "doi:10 7717 peerj 17729"
+}

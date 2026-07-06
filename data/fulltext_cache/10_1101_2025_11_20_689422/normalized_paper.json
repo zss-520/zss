@@ -1,0 +1,41 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1124523",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.1101/2025.11.20.689422",
+  "title": "XAMP: debiased dual-engine AI framework enables global discovery of antimicrobial peptides from deep-sea microbiomes",
+  "abstract": "The global crisis of multidrug-resistant pathogens necessitates innovative antimicrobial peptide (AMP) discovery. However, current AMP predictors are severely compromised by three overlooked systematic data biases, including sequence length imbalance, N-terminal methionine artifacts, and lack of microbial optimization. To overcome these fundamental bottlenecks, we developed XAMP, a dual-engine predictor integrating XAMP-E (ESM-2-based for high accuracy) and XAMP-T (a one-layer Transformer for high speed), trained on rigorously debiased datasets. Consequently, XAMP achieved a median AUC of 0.972, representing an improvement of up to 21.9% in AUC while operating 5 to 40 times faster. Beyond accurate classification, we found that AMPs inherently possess a significantly higher net charge (+3.9 vs. +0.5) despite similar hydrophobicity, along with distinct cooperative patterns such as W-K/R pairs. Applying this pipeline to 238 deep-sea metagenomes (>1000m depth), we identified 2,355 promising AMP candidates from microbial dark matter, and metaproteomic analysis confirmed in-situ expression for a subset of these candidates. Notably, these deep-sea AMPs exhibited a significant 1.53-to 2.93-fold enrichment in K/R/W/Y residues compared to known AMPs. Experimental validation demonstrated that six synthesized peptides exhibit potent, broad-spectrum activity against  ESKAPE pathogens, with particular efficacy against Gram-negative bacteria that dominate deep-sea ecosystems and pose major clinical challenges. This study establishes that correcting algorithmic data biases is a prerequisite for reliable mining, providing a robust framework to unlock the therapeutic potential hidden within microbial dark matter, offering new avenues to combat the antibiotic resistance crisis.",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2025
+  },
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Chen B",
+    "Mou X",
+    "Song Z",
+    "Lin H",
+    "Han T",
+    "Wang R",
+    "Ou H",
+    "Zhang Y",
+    "Li J."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1101/2025.11.20.689422"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "preprint_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\") AND SRC:PPR",
+  "candidate_key": "doi:10 1101 2025 11 20 689422"
+}

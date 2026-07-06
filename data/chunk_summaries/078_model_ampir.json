@@ -1,0 +1,389 @@
+{
+  "chunk_id": "model_ampir",
+  "chunk_type": "model",
+  "chunk_name": "ampir",
+  "compression_status": "ok",
+  "main_entities": [
+    "AmpGram",
+    "AMPScanner V2",
+    "ampir",
+    "Macrel",
+    "Ensemble-AMPPred",
+    "DBAASP",
+    "CancerGram",
+    "PPTPP",
+    "MLBP",
+    "Deep2Pep"
+  ],
+  "papers": [
+    {
+      "title": "Proteomic Screening for Prediction and Design of Antimicrobial Peptides with AmpGram.",
+      "pmid": "32560350",
+      "pmcid": "PMC7352166",
+      "doi": "10.3390/ijms21124310",
+      "year": "2020",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Structural information in therapeutic peptides: Emerging applications in biomedicine.",
+      "pmid": "38877295",
+      "pmcid": "PMC11788753",
+      "doi": "10.1002/2211-5463.13847",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AmpGram",
+      "canonical_name": "AmpGram",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest with n-grams (overlapping 10-mer amino acid motifs)",
+      "input_features": "Amino acid sequences, processed as overlapping 10-mer n-grams",
+      "source_pmid": "32560350",
+      "source_pmcid": "PMC7352166",
+      "source_doi": "10.3390/ijms21124310",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "Training data not detailed; benchmarked on APD3 and DAMPD datasets",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP predictor designed for long AMPs and proteomic screening; outperforms existing tools on unbiased datasets; provides both web server and R package.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 1.0
+    },
+    {
+      "model_name": "AMPScanner V2",
+      "canonical_name": "AMPScanner V2",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep learning (first tool to apply deep learning for AMP prediction, according to review)",
+      "input_features": "Amino acid sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a pioneering deep learning AMP predictor.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "ampir",
+      "canonical_name": "ampir",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Machine learning (unspecified)",
+      "input_features": "Amino acid sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a high-performance machine learning tool for proteome-wide AMP analysis.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Not specified in review; optimized for genome/metagenome screening, accepts DNA sequences, predicts hemolytic potential",
+      "input_features": "DNA or amino acid sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a tool for genome/metagenome AMP screening.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "Ensemble-AMPPred",
+      "canonical_name": "Ensemble-AMPPred",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Ensemble of multiple machine learning models",
+      "input_features": "Amino acid sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as an ensemble-based AMP predictor.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "DBAASP",
+      "canonical_name": "DBAASP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide activity prediction",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "Database with prediction tools; can differentiate antibacterial, antifungal, antiviral activities and predict cytotoxicity",
+      "input_features": "Peptide sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a combined database and prediction tool for AMP activity and cytotoxicity.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "CancerGram",
+      "canonical_name": "CancerGram",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "Not specified; can distinguish between anticancer and antibacterial peptides",
+      "input_features": "Peptide sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a tool for distinguishing anticancer and antibacterial peptides; relevant for AMP prediction.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "PPTPP",
+      "canonical_name": "PPTPP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "Not specified; predicts antibacterial, anticancer, anti-inflammatory, or antiviral functions",
+      "input_features": "Peptide sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a multi-function peptide predictor including antibacterial activity.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "MLBP",
+      "canonical_name": "MLBP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "Not specified; predicts anticancer, antidiabetic, antihypertensive, anti-inflammatory, and antimicrobial functions",
+      "input_features": "Peptide sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a multi-function peptide predictor including antimicrobial activity.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "Deep2Pep",
+      "canonical_name": "Deep2Pep",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep learning (unspecified architecture)",
+      "input_features": "Peptide sequences",
+      "source_pmid": "38877295",
+      "source_pmcid": "PMC11788753",
+      "source_doi": "10.1002/2211-5463.13847",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported",
+      "benchmark_candidate": true,
+      "candidate_reason": "Mentioned in a review as a deep learning tool for discovering antimicrobial, antihypertensive, and antihyperglycemic bioactivities.",
+      "blocking_issues": [
+        "Review mentions tool, but no detailed performance data in this source"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AmpGram R package",
+      "url": "not_reported_in_available_evidence",
+      "repository_type": "code",
+      "matched_model_name": "AmpGram",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "evidence_level": "fulltext",
+      "evidence": "AmpGram is available as an easy-to-use R package for proteomic analysis at CRAN repository."
+    },
+    {
+      "name": "AmpGram web server",
+      "url": "not_reported_in_available_evidence",
+      "repository_type": "webserver",
+      "matched_model_name": "AmpGram",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "evidence_level": "fulltext",
+      "evidence": "AmpGram is available as a web-server."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "APD3",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Antimicrobial Peptide Database 3",
+      "linked_model": "AmpGram",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "positive_samples": "unknown",
+      "negative_samples": "unknown",
+      "deduplication_method": "unknown",
+      "evidence_level": "fulltext",
+      "evidence": "APD3 database used for biased benchmark; AMPScanner was trained exclusively on APD3 sequences."
+    },
+    {
+      "dataset_name": "DAMPD",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "DAMPD (Database of Anuran Antimicrobial Peptides)",
+      "linked_model": "AmpGram",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "positive_samples": "unknown",
+      "negative_samples": "unknown",
+      "deduplication_method": "unknown",
+      "evidence_level": "fulltext",
+      "evidence": "DAMPD database used for unbiased benchmark; neither AMPScanner nor AmpGram used DAMPD for training."
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "AUC",
+      "usage": "Evaluated in benchmark comparisons (e.g., AmpGram vs. AMPScanner, ADAM, etc.)",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "evidence": "AUC values reported for test datasets and APD3/DAMPD."
+    },
+    {
+      "metric_name": "precision",
+      "usage": "Reported in benchmark tables",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "evidence": "Precision values calculated for each tool."
+    },
+    {
+      "metric_name": "sensitivity",
+      "usage": "Reported in benchmark tables",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "evidence": "Sensitivity values calculated for each tool."
+    },
+    {
+      "metric_name": "specificity",
+      "usage": "Reported in benchmark tables",
+      "source_pmid": "32560350",
+      "source_doi": "10.3390/ijms21124310",
+      "evidence": "Specificity values calculated for each tool."
+    }
+  ],
+  "important_evidence": [
+    "AmpGram outperforms top-ranking AMP classifiers, including AMPScanner, CAMPR3R and iAMPpred. It is the first AMP prediction tool created for longer AMPs and for high-throughput proteomic screening.",
+    "AMPScanner V2 was the first tool to apply a deep learning model for AMP prediction.",
+    "ampir achieves high performance using machine learning approaches and is devised for proteome-wide analyses.",
+    "Macrel is optimized for genome and metagenome screenings, allowing the input of DNA sequences."
+  ],
+  "uncertainties": [
+    "Exact URL for AmpGram web server and R package is not provided in the extracted evidence; full URL retrieval from the original paper or supplementary material is needed.",
+    "The review mentions many tools without performance details; full-text verification of the original papers is required to confirm their benchmark suitability.",
+    "The peptidomics and proteomics papers (doi:10.1021/acsomega.6c00679, doi:10.3390/biom15081121) do not introduce new AMP prediction models and were omitted from the model list, but they may contain useful datasets or benchmark results if examined more closely."
+  ],
+  "source_pmids": [
+    "32560350",
+    "38877295",
+    "42179631",
+    "40867566"
+  ],
+  "source_dois": [
+    "10.3390/ijms21124310",
+    "10.1002/2211-5463.13847",
+    "10.1021/acsomega.6c00679",
+    "10.3390/biom15081121"
+  ],
+  "urls": [
+    "https://doi.org/10.1002/2211-5463.13847",
+    "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/2211-5463.13847",
+    "https://openalex.org/W4399708945",
+    "https://pubmed.ncbi.nlm.nih.gov/38877295",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11788753/",
+    "https://doi.org/10.3390/ijms21124310",
+    "https://openalex.org/W3036144909",
+    "https://pubmed.ncbi.nlm.nih.gov/32560350",
+    "https://www.mdpi.com/1422-0067/21/12/4310/pdf",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7352166/",
+    "https://pubmed.ncbi.nlm.nih.gov/42179631/",
+    "https://doi.org/10.1021/acsomega.6c00679",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13191662/",
+    "https://doi.org/10.3390/biom15081121",
+    "https://pubmed.ncbi.nlm.nih.gov/40867566/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12383608/"
+  ]
+}

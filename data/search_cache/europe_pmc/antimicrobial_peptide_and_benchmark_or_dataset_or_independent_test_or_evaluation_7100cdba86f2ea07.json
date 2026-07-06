@@ -1,0 +1,2067 @@
+{
+  "version": "6.9",
+  "hitCount": 13150,
+  "nextCursorMark": "AoIIQKgJmSg1MzI5NjQwNQ==",
+  "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)&cursorMark=AoIIQKgJmSg1MzI5NjQwNQ==&resultType=core&pageSize=10&format=json",
+  "request": {
+    "queryString": "\"antimicrobial peptide\" AND (benchmark OR dataset OR \"independent test\" OR evaluation)",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 10,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "PPR1212934",
+        "source": "PPR",
+        "doi": "10.64898/2026.04.25.720793",
+        "title": "GenPept-Curated-2025: A Benchmark Dataset for Antimicrobial Peptide Prediction with Homology-Controlled Partitioning",
+        "authorString": "Pham HT, Huynh B, Nguyen-Vo T.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Pham HT",
+              "firstName": "Huynh Trong",
+              "lastName": "Pham",
+              "initials": "HT"
+            },
+            {
+              "fullName": "Huynh B",
+              "firstName": "Bao",
+              "lastName": "Huynh",
+              "initials": "B"
+            },
+            {
+              "fullName": "Nguyen-Vo T",
+              "firstName": "Thanh-Hoang",
+              "lastName": "Nguyen-Vo",
+              "initials": "T"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial peptides (AMPs) are promising therapeutic candidates against rising antimicrobial resistance, yet progress in AMP prediction is hampered by the lack of benchmark datasets that address homology leakage, negative set reliability, and distributional diversity. Existing AMP databases, designed as biological repositories, do not enforce the controlled partitioning required for rigorous machine learning evaluation. We present  GenPept-Curated-2025 , a curated, class-balanced benchmark of 11,000 peptide sequences (5,500 AMP / 5,500 non-AMP) derived from Bacteria, Archaea, and Fungi, and sourced exclusively from GenPept/NCBI Protein. The dataset was constructed through a reproducible pipeline comprising taxonomic scoping, quality control, precursor handling, annotation-based labeling, and Identical Protein Groups (IPG)-based deduplication, with sequence length restricted to 10–200 aa. The AMP proportion varies substantially across length bins (14.2% in [10, 50] aa to 77.1% in [101, 150] aa), identifying length-dependent class imbalance as a distribution shift that benchmarking must account for. The dataset is openly released to support standardized, reproducible, and leakage-free evaluation of AMP prediction models.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.04.25.720793"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-19",
+        "firstIndexDate": "2026-05-19",
+        "firstPublicationDate": "2026-04-29"
+      },
+      {
+        "id": "41491543",
+        "source": "MED",
+        "pmid": "41491543",
+        "pmcid": "PMC12870942",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12870942"
+          ]
+        },
+        "doi": "10.1186/s13321-025-01144-8",
+        "title": "PepGraphormer: an ESM-GAT hybrid deep learning framework for antimicrobial peptide prediction.",
+        "authorString": "Lin C, Xiong S, Li J, Cui F, Zhang Z, Shi H, Wei L.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Lin C",
+              "firstName": "Changhang",
+              "lastName": "Lin",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2477-0988"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao, 999078, China."
+                  },
+                  {
+                    "affiliation": "School of Big Data and Artificial Intelligence, Fujian Polytechnic Normal University, Fuzhou, 350300, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xiong S",
+              "firstName": "Shuwen",
+              "lastName": "Xiong",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao, 999078, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li J",
+              "firstName": "Jinjin",
+              "lastName": "Li",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao, 999078, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cui F",
+              "firstName": "Feifei",
+              "lastName": "Cui",
+              "initials": "F",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Computer Science and Technology, Hainan University, Haikou, 570228, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang Z",
+              "firstName": "Zilong",
+              "lastName": "Zhang",
+              "initials": "Z",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Computer Science and Technology, Hainan University, Haikou, 570228, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shi H",
+              "firstName": "Hua",
+              "lastName": "Shi",
+              "initials": "H",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-8812-5737"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Opto-electronic and Communication Engineering, Xiamen University of Technology, Xiamen, 361024, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wei L",
+              "firstName": "Leyi",
+              "lastName": "Wei",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao, 999078, China. weileyi@mpu.edu.mo."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-8812-5737"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2477-0988"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "18",
+          "journalIssueId": 4098325,
+          "dateOfPublication": "2026 Jan",
+          "monthOfPublication": 1,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-01-01",
+          "journal": {
+            "title": "Journal of cheminformatics",
+            "medlineAbbreviation": "J Cheminform",
+            "issn": "1758-2946",
+            "nlmid": "101516718",
+            "isoabbreviation": "J Cheminform",
+            "essn": "1758-2946"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "15",
+        "abstractText": "The prediction of Antimicrobial Peptides (AMPs) is a critical research area in drug discovery. Traditional methods, which rely on sequence alignment or handcrafted features, often fail to capture complex sequence-function relationships. Recently, Large Language Models (LLMs) like ESM2 have demonstrated remarkable success in extracting deep semantic features from protein sequences. Meanwhile, Graph Neural Networks (GNNs), particularly Graph Attention Networks (GATs), can effectively learn inter-node relationships, specifically capturing peptide-residue compositional links and inter-residue co-occurrence patterns, to aggregate neighborhood information. In this work, we propose PepGraphormer, a novel fusion model that combines the powers of large-scale pretraining from ESM2 and the structural learning advantages from GATs for AMP prediction. We first construct a heterogeneous graph with peptide sequences and amino acids as nodes, where ESM2 is leveraged to generate high-quality initial embeddings for the peptide sequence nodes. Then the classification fuses the direct predictions from ESM2 and the graph-based predictions from the GAT. The training jointly trains the ESM2 and GAT modules and learns the embeddings for nodes in the graph. Comparisons with current state-of-the-art models on multiple datasets demonstrate that PepGraphormer achieves excellent accuracy and stability in the AMP prediction task. Further ablation and generalization experiments confirm the effectiveness and robustness of this fusion framework, presenting a new avenue for computationally-driven therapeutic peptide discovery.Scientific contribution This work proposes a novel framework PepGraphormer that combines the powers of transformer-based large language model (ESM2) and graph attention network for antimicrobial peptide prediction, without requiring the 3D protein structural information used in previous studies. The model significantly outperforms state-of-the-art methods and various deep learning baselines on multiple AMP benchmark datasets.",
+        "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao, 999078, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "Nos. 62322112",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "no. 0177/2023/RIA3",
+              "agency": "the Science and Technology Development Fund",
+              "orderIn": 0
+            },
+            {
+              "grantId": "no. RP/CAI-02/2023",
+              "agency": "Internal Research Grants of Macao Polytechnic University",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial peptide",
+            "drug discovery",
+            "Prediction Models",
+            "Gat",
+            "Esm2"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s13321-025-01144-8"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12870942"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12870942?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-02-04",
+        "dateOfCreation": "2026-01-06",
+        "firstIndexDate": "2026-01-06",
+        "fullTextReceivedDate": "2026-02-14",
+        "dateOfRevision": "2026-02-06",
+        "electronicPublicationDate": "2026-01-05",
+        "firstPublicationDate": "2026-01-05"
+      },
+      {
+        "id": "PPR1237183",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.19.726290",
+        "title": "Antimicrobial peptide databases and prediction tools: Toward a standard evaluation framework",
+        "authorString": "Cisterna-García A, González-López AM, Vozi A, Esteban MA, Egli A, Jutzeler C, Palma J, Sánchez-Ferrer A, Botía JA.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Cisterna-García A",
+              "firstName": "Alejandro",
+              "lastName": "Cisterna-García",
+              "initials": "A"
+            },
+            {
+              "fullName": "González-López AM",
+              "firstName": "Alvaro",
+              "lastName": "González-López",
+              "initials": "AM"
+            },
+            {
+              "fullName": "Vozi A",
+              "firstName": "Aspasia",
+              "lastName": "Vozi",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-6363-7162"
+              }
+            },
+            {
+              "fullName": "Esteban MA",
+              "firstName": "María",
+              "lastName": "Esteban",
+              "initials": "MA"
+            },
+            {
+              "fullName": "Egli A",
+              "firstName": "Adrian",
+              "lastName": "Egli",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3564-8603"
+              }
+            },
+            {
+              "fullName": "Jutzeler C",
+              "firstName": "Catherine",
+              "lastName": "Jutzeler",
+              "initials": "C"
+            },
+            {
+              "fullName": "Palma J",
+              "firstName": "Jose",
+              "lastName": "Palma",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2502-4378"
+              }
+            },
+            {
+              "fullName": "Sánchez-Ferrer A",
+              "firstName": "Alvaro",
+              "lastName": "Sánchez-Ferrer",
+              "initials": "A"
+            },
+            {
+              "fullName": "Botía JA",
+              "firstName": "Juan",
+              "lastName": "Botía",
+              "initials": "JA"
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-6363-7162"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-7266-4402"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3564-8603"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9927-7178"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2502-4378"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial resistance (AMR) has a profound impact on animal and human health and is associated with substantial morbidity, mortality and public health costs. There is a clear need to develop novel, effective antibiotic agents, which can overcome the current AMR crisis. Antimicrobial peptides (AMPs) may offer such a solution and have attracted growing attention for their potential to combat AMR. In parallel, the growing availability of peptide sequences in public databases has stimulated the development of numerous machine learning and deep learning tools to predict antimicrobial activity computationally. However, it remains unclear how reliably these tools can be compared, as existing studies often rely on heterogeneous datasets and inconsistent evaluation protocols that may lead to data leakage and inflated performance estimates. This raises a central question: what evaluation criteria and benchmark resources are needed to enable fair, reproducible, and biologically meaningful assessment of AMP prediction tools? We address this question by focusing specifically on antibacterial peptides (ABPs). We first provide an overview of AMP databases relevant to antibacterial activity and compare their content, redundancy, and experimental metadata. We then critically assess existing computational tools for ABP prediction, highlighting key limitations related to dataset construction, affinity to certain sequences, data leakage, and inconsistent performance reporting. Based on these limitations, we propose a reference evaluation framework designed to improve comparability, reproducibility, and practical utility in ABP prediction. Finally, we provide targeted recommendations for AMP databases and future tool development to support more robust progress in the computational discovery of ABPs.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.19.726290"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-05-23",
+        "firstIndexDate": "2026-05-23",
+        "firstPublicationDate": "2026-05-21"
+      },
+      {
+        "id": "42236847",
+        "source": "MED",
+        "pmid": "42236847",
+        "doi": "10.1038/s41598-026-56004-8",
+        "title": "QMAP: a benchmark for standardized evaluation of antimicrobial peptide MIC and hemolytic activity regression.",
+        "authorString": "Lavertu A, Corbeil J, Germain P.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Lavertu A",
+              "firstName": "Anthony",
+              "lastName": "Lavertu",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Computer Science and Software Engineering, Université Laval, Québec, QC, Canada. anthony.lavertu.1@ulaval.ca."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Corbeil J",
+              "firstName": "Jacques",
+              "lastName": "Corbeil",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Molecular Medicine, Université Laval, Québec, QC, Canada."
+                  },
+                  {
+                    "affiliation": "Mila - Quebec Artificial Intelligence Institute, Montreal, QC, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Germain P",
+              "firstName": "Pascal",
+              "lastName": "Germain",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Computer Science and Software Engineering, Université Laval, Québec, QC, Canada."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4202614,
+          "dateOfPublication": "2026 Jun",
+          "monthOfPublication": 6,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-06-01",
+          "journal": {
+            "title": "Scientific reports",
+            "medlineAbbreviation": "Sci Rep",
+            "issn": "2045-2322",
+            "nlmid": "101563288",
+            "isoabbreviation": "Sci Rep",
+            "essn": "2045-2322"
+          }
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial peptides (AMPs) are promising alternatives to conventional antibiotics, but progress in computational AMP discovery has been difficult to quantify due to inconsistent datasets and evaluation protocols. We introduce QMAP, a domain-specific benchmark for predicting AMP antimicrobial potency (MIC) and hemolytic toxicity (HC50) with homology-aware, predefined test sets. QMAP enforces strict sequence homology constraints between training and test data, ensuring that model performance reflects true generalization rather than overfitting. Applying QMAP, we reassess existing MIC models and establish baselines for MIC and HC50 regression. Results suggest limited progress over six years, poor performance for high-potency MIC regression, and low predictability for hemolytic activity, emphasizing the need for standardized evaluation and improved modeling approaches for highly potent peptides. We release a Python package facilitating practical adoption, and with a Rust-accelerated engine enabling efficient data manipulation, installable with pip install qmap-benchmark.",
+        "affiliation": "Department of Computer Science and Software Engineering, Université Laval, Québec, QC, Canada. anthony.lavertu.1@ulaval.ca.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "AMP",
+            "Regression",
+            "MIC",
+            "Benchmark",
+            "Hc50",
+            "Qmap"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1038/s41598-026-56004-8"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "id": "PPR1225264",
+              "source": "PPR",
+              "type": "Preprint in",
+              "note": "Link created based on a title-first author match",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-06-03",
+        "firstIndexDate": "2026-06-05",
+        "dateOfRevision": "2026-06-03",
+        "electronicPublicationDate": "2026-06-03",
+        "firstPublicationDate": "2026-06-03"
+      },
+      {
+        "id": "41844874",
+        "source": "MED",
+        "pmid": "41844874",
+        "pmcid": "PMC13128923",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13128923"
+          ]
+        },
+        "doi": "10.1038/s41598-026-43370-6",
+        "title": "A generative explainable model for antimicrobial peptide prediction using bidirectional temporal convolutional neural network.",
+        "authorString": "Ali F, Khalid M, Alsini R, Yafoz A, Alkhalifah T, Du MZ.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Ali F",
+              "firstName": "Farman",
+              "lastName": "Ali",
+              "initials": "F",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Computer Science, Bahria University, Islamabad, Pakistan. farman335@yahoo.com."
+                  },
+                  {
+                    "affiliation": "Qingyuan People's Hospital, The Sixth Affiliated Hospital of Guangzhou Medical University, B24 Yinquan South Road, Qingyuan, 511518, Guang Dong Province, People's Republic of China. farman335@yahoo.com."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Khalid M",
+              "firstName": "Majdi",
+              "lastName": "Khalid",
+              "initials": "M",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-5397-0428"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Computer Science and Artificial Intelligence, College of Computing, Umm Al-Qura University, 21955, Makkah, Saudi Arabia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Alsini R",
+              "firstName": "Raed",
+              "lastName": "Alsini",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Information Systems, Faculty of Computing and Information Technology, King Abdulaziz University, 21589, Jeddah, Saudi Arabia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yafoz A",
+              "firstName": "Ayman",
+              "lastName": "Yafoz",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Information Systems, Faculty of Computing and Information Technology, King Abdulaziz University, 21589, Jeddah, Saudi Arabia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Alkhalifah T",
+              "firstName": "Tamim",
+              "lastName": "Alkhalifah",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Computer Engineering, College of Computer, Qassim University, Buraydah, Saudi Arabia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Du MZ",
+              "firstName": "Meng-Ze",
+              "lastName": "Du",
+              "initials": "MZ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Health and Medical Technology, Chengdu Neusoft University, Chengdu, 611844, Sichuan Province, People's Republic of China. dumengze@nsu.edu.cn."
+                  },
+                  {
+                    "affiliation": "School of Life Science and Technology, University of Electronic Science and Technology of China, Chengdu, China. dumengze@nsu.edu.cn."
+                  },
+                  {
+                    "affiliation": "Qingyuan People's Hospital, The Sixth Affiliated Hospital of Guangzhou Medical University, B24 Yinquan South Road, Qingyuan, 511518, Guang Dong Province, People's Republic of China. dumengze@nsu.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-5397-0428"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "16",
+          "journalIssueId": 4136188,
+          "dateOfPublication": "2026 Mar",
+          "monthOfPublication": 3,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-03-01",
+          "journal": {
+            "title": "Scientific reports",
+            "medlineAbbreviation": "Sci Rep",
+            "issn": "2045-2322",
+            "nlmid": "101563288",
+            "isoabbreviation": "Sci Rep",
+            "essn": "2045-2322"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "13801",
+        "abstractText": "Advances in artificial intelligence (AI) and multi-omics integration are reshaping precision oncology by enabling deeper mechanistic understanding, improved characterization of tumor heterogeneity, and the accelerated discovery of targeted therapeutics. Antimicrobial peptides (AMPs) have emerged as promising candidates for cancer treatment due to their selective cytotoxicity, immunomodulatory properties, and ability to alter the tumor microenvironment. However, their accurate computational identification remains challenging because existing models struggle to capture the complex structural and functional determinants of AMP activity. In this study, we propose GAC-BiTCNN-AMP, a hybrid generative and explainable deep learning framework designed to advance peptide discovery for precision oncology. The architecture integrates a Generative Adversarial Network to enhance data diversity, Capsule Networks to model hierarchical molecular dependencies, and a Bidirectional Temporal Convolutional Neural Network for capturing contextual sequence information. To strengthen biological signal representation, the model incorporates embeddings from advanced protein language model including ProtTrans-T5, UniRep, and ESM-2 alongside a novel PsePSSM-DCT evolutionary descriptor. A wrapper-based XGBoost Forward Feature Selection strategy further refines the feature space by identifying the most discriminative sequence patterns. GAC-BiTCNN-AMP delivers strong predictive performance, achieving 97.42% accuracy and 0.923 MCC in cross-validation, and 95.32% accuracy with 0.914 MCC on the same independent test set. SHapley Additive exPlanations (SHAP) analysis highlights key contributions from the fused latent representations to peptide activity, demonstrating the framework's interpretability at the representation level. By integrating generative modeling, deep representation learning, and explainable AI, this study provides a scalable computational pipeline supporting therapeutic peptide discovery for targeted, immune-modulatory, and precision cancer applications.",
+        "affiliation": "Department of Computer Science, Bahria University, Islamabad, Pakistan. farman335@yahoo.com.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Deep Learning"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Neural Networks, Computer"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Generative Artificial Intelligence"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Predictive Learning Models"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Convolutional Neural Networks"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Generative Adversarial Networks"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Prediction Algorithms"
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial peptide",
+            "Deep Learning",
+            "Generative Adversarial Network",
+            "Capsule Networks",
+            "Protein Language Models"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1038/s41598-026-43370-6"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13128923"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13128923?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-06-20",
+        "dateOfCreation": "2026-03-18",
+        "firstIndexDate": "2026-03-18",
+        "fullTextReceivedDate": "2026-05-19",
+        "dateOfRevision": "2026-06-20",
+        "electronicPublicationDate": "2026-03-17",
+        "firstPublicationDate": "2026-03-17"
+      },
+      {
+        "id": "41286313",
+        "source": "MED",
+        "pmid": "41286313",
+        "pmcid": "PMC12749617",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12749617"
+          ]
+        },
+        "doi": "10.1038/s41598-025-29666-z",
+        "title": "Antimicrobial peptide prediction based on contrastive learning and gated convolutional neural network.",
+        "authorString": "Li G, Wang L, Luo J, Liang C.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Li G",
+              "firstName": "Guanghui",
+              "lastName": "Li",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Information and Software Engineering, East China Jiaotong University, Nanchang, 330013, China. ghli16@hnu.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang L",
+              "firstName": "Laiyun",
+              "lastName": "Wang",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Information and Software Engineering, East China Jiaotong University, Nanchang, 330013, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Luo J",
+              "firstName": "Jiawei",
+              "lastName": "Luo",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Computer Science and Electronic Engineering, Hunan University, Changsha, 410082, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Liang C",
+              "firstName": "Cheng",
+              "lastName": "Liang",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Information Science and Engineering, Shandong Normal University, Jinan, 250358, China. alcs417@sdnu.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "15",
+          "journalIssueId": 4040030,
+          "dateOfPublication": "2025 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-11-01",
+          "journal": {
+            "title": "Scientific reports",
+            "medlineAbbreviation": "Sci Rep",
+            "issn": "2045-2322",
+            "nlmid": "101563288",
+            "isoabbreviation": "Sci Rep",
+            "essn": "2045-2322"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "45274",
+        "abstractText": "The excessive use of antibiotics presents significant risks, as it not only drives the emergence of antibiotic resistance in microbial pathogens but also disrupts the microbial communities essential for maintaining normal human physiological functions. Antimicrobial peptides (AMPs) have garnered increasing attention as a highly promising alternative to antibiotics. The use of computational methods to identify AMPs is becoming increasingly popular, as these approaches can considerably reduce the time and cost involved. In this work, we propose a deep learning-based AMP recognition framework, CG-AMP, aimed at efficiently identifying AMPs. CG-AMP adopts a dual-module architecture, where the first module learns the feature representation space through a pre-trained language model and contrastive learning, while the second module incorporates an enhanced Convolutional Neural Network (CNN) to more efficiently extract feature information. This design aims to effectively integrate multimodal features by combining the strengths of both methods, thereby enhancing the accuracy and efficiency of AMP identification. We evaluated CG-AMP on two independent test sets and compared its performance with current state-of-the-art models. The results demonstrated that CG-AMP was a reliable AMP identification tool. Specifically, on the AMPlify and DAMP test sets, CG-AMP achieved accuracies of 0.9497 and 0.9403, F1 scores of 0.9508 and 0.9392, and Matthews correlation coefficients of 0.8994 and 0.8812, respectively, outperforming other existing methods.",
+        "affiliation": "School of Information and Software Engineering, East China Jiaotong University, Nanchang, 330013, China. ghli16@hnu.edu.cn.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "20232ACB202010",
+              "agency": "Natural Science Foundation of Jiangxi Province of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "ZR2023MF119",
+              "agency": "Natural Science Foundation of Shandong Province",
+              "orderIn": 0
+            },
+            {
+              "grantId": "62372279",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "62362034",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2024SSY03071",
+              "agency": "Jiangxi Province Key Laboratory of Advanced Network Computing",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Computational Biology",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "MT",
+                    "qualifierName": "methods",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Deep Learning"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Neural Networks, Computer"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Convolutional Neural Networks"
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial peptides",
+            "Convolutional Neural Network",
+            "Contrastive Learning",
+            "Pre-trained Language Model"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1038/s41598-025-29666-z"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12749617"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12749617?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 2,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2025-12-30",
+        "dateOfCreation": "2025-11-25",
+        "firstIndexDate": "2025-11-25",
+        "fullTextReceivedDate": "2025-12-31",
+        "dateOfRevision": "2026-04-27",
+        "electronicPublicationDate": "2025-11-24",
+        "firstPublicationDate": "2025-11-24"
+      },
+      {
+        "id": "41627618",
+        "source": "MED",
+        "pmid": "41627618",
+        "pmcid": "PMC12864603",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12864603"
+          ]
+        },
+        "doi": "10.1186/s40643-025-01004-1",
+        "title": "Multi-AOP: a lightweight multi-view deep learning framework for antioxidant peptide discovery.",
+        "authorString": "Cai J, Lou X, Chong CF, Alex D, Arrais JP, Wang Y, Siu SWI.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Cai J",
+              "firstName": "Jianxiu",
+              "lastName": "Cai",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China."
+                  },
+                  {
+                    "affiliation": "Department of Informatics Engineering, University of Coimbra, Paço das Escolas, Coimbra, Portugal."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lou X",
+              "firstName": "Xinpo",
+              "lastName": "Lou",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China."
+                  },
+                  {
+                    "affiliation": "Centre for Artificial Intelligence Driven Drug Discovery, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chong CF",
+              "firstName": "Chak Fong",
+              "lastName": "Chong",
+              "initials": "CF",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2045-1776"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China."
+                  },
+                  {
+                    "affiliation": "Department of Informatics Engineering, University of Coimbra, Paço das Escolas, Coimbra, Portugal."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Alex D",
+              "firstName": "Deepa",
+              "lastName": "Alex",
+              "initials": "D",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMyne-Biotech Innovation and Engineering Ltd, Macau SAR, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Arrais JP",
+              "firstName": "Joel P",
+              "lastName": "Arrais",
+              "initials": "JP",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Informatics Engineering, University of Coimbra, Paço das Escolas, Coimbra, Portugal. jpa@dei.uc.pt."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang Y",
+              "firstName": "Yapeng",
+              "lastName": "Wang",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China. yapengwang@mpu.edu.mo."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Siu SWI",
+              "firstName": "Shirley W I",
+              "lastName": "Siu",
+              "initials": "SWI",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3695-7758"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China. shirleysiu@mpu.edu.mo."
+                  },
+                  {
+                    "affiliation": "Centre for Artificial Intelligence Driven Drug Discovery, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China. shirleysiu@mpu.edu.mo."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3695-7758"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2045-1776"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "13",
+          "journalIssueId": 4109495,
+          "dateOfPublication": "2026 Feb",
+          "monthOfPublication": 2,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-02-01",
+          "journal": {
+            "title": "Bioresources and bioprocessing",
+            "medlineAbbreviation": "Bioresour Bioprocess",
+            "issn": "2197-4365",
+            "nlmid": "101665551",
+            "isoabbreviation": "Bioresour Bioprocess",
+            "essn": "2197-4365"
+          }
+        },
+        "pubYear": "2026",
+        "pageInfo": "21",
+        "abstractText": "Antioxidant peptides (AOPs), with their strong free radical scavenging ability and health benefits, have emerged as promising candidates for disease prevention and food preservation. However, traditional experimental approaches to AOP discovery remain hindered by inefficiencies and substantial resource demands. Here, we present Multi-AOP, a parameter lightweight multi-view deep learning framework (0.75 million parameters) that enhances AOP discovery through integrated sequence and graph learning. We employ Extended Long Short-Term Memory (xLSTM) to generate sequence embeddings. Concurrently, we transform peptide sequences into SMILES representations and extract molecular graph features using a Message Passing Neural Network (MPNN), capturing intrinsic physicochemical properties. By leveraging both sequence patterns and structural information through hierarchical fusion, Multi-AOP achieves accuracies of 0.8043, 0.9684, and 0.9043 on the AnOxPePred, AnOxPP, and AOPP benchmark datasets, respectively, consistently outperforming conventional machine learning algorithms and state-of-the-art deep learning approaches. Furthermore, we constructed a unified AOP dataset by integrating these benchmark datasets, facilitating the future development of generalizable AOP models. All datasets and the optimized predictive model are publicly accessible at https://github.com/CaiJianxiu/Multi-AOP .",
+        "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Rua de Luís Gonzaga Gomes, Macau SAR, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "0021/2024/AMR",
+              "agency": "the Science and Technology Development Fund from Macao S.A.R.",
+              "orderIn": 0
+            },
+            {
+              "grantId": "RP/FCA-06/2024",
+              "agency": "Macao Polytechnic University",
+              "orderIn": 0
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s40643-025-01004-1"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12864603"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12864603?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-02-02",
+        "dateOfCreation": "2026-02-02",
+        "firstIndexDate": "2026-02-06",
+        "fullTextReceivedDate": "2026-02-06",
+        "dateOfRevision": "2026-02-06",
+        "electronicPublicationDate": "2026-02-02",
+        "firstPublicationDate": "2026-02-02"
+      },
+      {
+        "id": "PPR1244327",
+        "source": "PPR",
+        "doi": "10.64898/2026.05.28.728246",
+        "title": "Species- and Topic-aware Representation Learning for Antimicrobial Peptide Discovery",
+        "authorString": "Padi S, Mondal K, Kaur N, Hoogerheide D, Heinrich F, Mihailescu M, Klauda JB, Cardone A, Keyrouz W.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Padi S",
+              "firstName": "Sarala",
+              "lastName": "Padi",
+              "initials": "S"
+            },
+            {
+              "fullName": "Mondal K",
+              "firstName": "Kinjal",
+              "lastName": "Mondal",
+              "initials": "K"
+            },
+            {
+              "fullName": "Kaur N",
+              "firstName": "Navleen",
+              "lastName": "Kaur",
+              "initials": "N"
+            },
+            {
+              "fullName": "Hoogerheide D",
+              "firstName": "David",
+              "lastName": "Hoogerheide",
+              "initials": "D"
+            },
+            {
+              "fullName": "Heinrich F",
+              "firstName": "Frank",
+              "lastName": "Heinrich",
+              "initials": "F"
+            },
+            {
+              "fullName": "Mihailescu M",
+              "firstName": "Mihaela",
+              "lastName": "Mihailescu",
+              "initials": "M"
+            },
+            {
+              "fullName": "Klauda JB",
+              "firstName": "Jeffery",
+              "lastName": "Klauda",
+              "initials": "JB"
+            },
+            {
+              "fullName": "Cardone A",
+              "firstName": "Antonio",
+              "lastName": "Cardone",
+              "initials": "A"
+            },
+            {
+              "fullName": "Keyrouz W",
+              "firstName": "Walid",
+              "lastName": "Keyrouz",
+              "initials": "W"
+            }
+          ]
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial resistance poses a major global health challenge, necessitating efficient strategies to discover potent antimicrobial peptides (AMPs). While recent generative models can produce many candidate sequences, experimentally validating all generated peptides in wet labs is impractical due to the high costs and time involved in such measurements. As a result, there is a strong demand for accurate predictions of peptide efficacy, typically measured as the minimum inhibitory concentration (MIC). We introduce STAMP, a framework for Species- and Topic-aware Representation Learning in AMP Discovery. This unified machine learning framework allows for cross-species predictions of AMP activity. STAMP integrates protein language model embeddings with species conditioning and topic-aware representations that capture sequence-level patterns, enabling generalizable predictions across multiple bacterial species within a single model. We evaluated STAMP on three benchmark datasets, which include two previously published datasets and a newly curated dataset derived from DBAASP, addressing duplicates and inconsistencies systematically. STAMP achieved strong predictive performance across these datasets, demonstrating a Pearson correlation coefficient (PCC) of 0.837 and an R  2 of 0.70, outperforming several baseline models. Importantly, we further validated our prediction model using peptides that were experimentally tested for their antimicrobial activity against  E .  coli . and  S .  epidermidis bacteria, demonstrating its real-world applicability. Furthermore, residue-level importance analyses provide insights into the sequence determinants governing antimicrobial activity. Together, these results establish STAMP as a scalable framework for MIC prediction and an effective computational tool for accelerating AMP discovery and optimization.",
+        "pubTypeList": {
+          "pubType": [
+            "Preprint"
+          ]
+        },
+        "bookOrReportDetails": {
+          "publisher": "bioRxiv",
+          "yearOfPublication": 2026
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "70NANB17H299",
+              "agency": "NIST",
+              "orderIn": 0
+            },
+            {
+              "grantId": "70NANB24H248",
+              "agency": "NIST",
+              "orderIn": 0
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.64898/2026.05.28.728246"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-06-03",
+        "firstIndexDate": "2026-06-03",
+        "firstPublicationDate": "2026-06-01"
+      },
+      {
+        "id": "42338220",
+        "source": "MED",
+        "pmid": "42338220",
+        "doi": "10.1021/acssynbio.6c00173",
+        "title": "LysePred: A Multiscale Convolutional Neural Network for Predicting Hemolytic Activity of Antimicrobial Peptides.",
+        "authorString": "Lin C, Li J, Su C, Xiong S, Kang X, Lu J, Wei L.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Lin C",
+              "firstName": "Changhang",
+              "lastName": "Lin",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China."
+                  },
+                  {
+                    "affiliation": "School of Big Data and Artificial Intelligence, Fujian Polytechnic Normal University, Fuzhou 350300, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li J",
+              "firstName": "Jinjin",
+              "lastName": "Li",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Su C",
+              "firstName": "Chen",
+              "lastName": "Su",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China."
+                  },
+                  {
+                    "affiliation": "Department of Gastrointestinal Surgery, School of Medicine, Zhongshan Hospital of Xiamen University, Xiamen University, Xiamen 361004, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xiong S",
+              "firstName": "Shuwen",
+              "lastName": "Xiong",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0935-9787"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kang X",
+              "firstName": "Xiaorui",
+              "lastName": "Kang",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lu J",
+              "firstName": "Junwen",
+              "lastName": "Lu",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Big Data and Artificial Intelligence, Fujian Polytechnic Normal University, Fuzhou 350300, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wei L",
+              "firstName": "Leyi",
+              "lastName": "Wei",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1444-190X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0935-9787"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1444-190X"
+            }
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4206221,
+          "dateOfPublication": "2026 Jun",
+          "monthOfPublication": 6,
+          "yearOfPublication": 2026,
+          "printPublicationDate": "2026-06-01",
+          "journal": {
+            "title": "ACS synthetic biology",
+            "medlineAbbreviation": "ACS Synth Biol",
+            "issn": "2161-5063",
+            "nlmid": "101575075",
+            "isoabbreviation": "ACS Synth Biol",
+            "essn": "2161-5063"
+          }
+        },
+        "pubYear": "2026",
+        "abstractText": "Antimicrobial peptides (AMPs) represent promising alternatives to conventional antibiotics, yet hemolytic toxicity remains a critical barrier to clinical translation, with approximately 70% of known AMPs exhibiting high or moderate hemolytic activity. Existing computational prediction methods are often constrained by deficiencies, including high computational complexities, the inability to capture multiscale sequence patterns, and insufficient generalization across diverse datasets. We present LysePred, a multiscale convolutional neural network to address these deficiencies concurrently by employing parallel branches with exponentially spaced kernel sizes to simultaneously capture local amino acid motifs (bigrams, 4-g) and longer-range amphipathic patterns (8- to 32-g). LysePred achieves top-tier performance on six benchmark datasets, exceeding the performance of the second-best method by 9.13% in MCC and 3.65% in ACC on average, while maintaining exceptional stability (MCC CV < 6.92%, ACC CV < 2.73%). Furthermore, independent validation on the HemoPI2 dataset demonstrates that LysePred delivers highly competitive results with a computationally parsimonious design (∼0.55 M parameters). This represents a reduction in parameter density of 1 to 2 orders of magnitude compared to Transformer-based approaches, such as the 8M-parameter ESM-2 or the 110M-parameter BERT Base while maintaining linear complexity for high-throughput screening. Ablation studies validate that the multiscale architecture contributes meaningfully to performance, with single-scale variants showing up to 13.35% MCC degradation. Interpretability analyses via t-SNE visualization and SHAP feature importance reveal that LysePred learns biologically meaningful representations integrating both local sequence motifs and global structural patterns. LysePred offers a practical, efficient, and interpretable tool for rapid hemolytic toxicity prediction in antimicrobial peptide development. Code and data are available at https://github.com/lincubator/LysePred.",
+        "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, R. de Luís Gonzaga Gomes, Macao 999078, China.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "62322112",
+              "agency": "National Natural Science Foundation of China (NSFC)",
+              "orderIn": 0
+            },
+            {
+              "grantId": "RP/CAI-02/2023",
+              "agency": "Macao Polytechnic University",
+              "orderIn": 0
+            },
+            {
+              "grantId": "0177/2023/RIA3",
+              "agency": "Science and Technology Development Fund",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2026J0011199",
+              "agency": "Natural Science Foundation of Fujian Province",
+              "orderIn": 0
+            },
+            {
+              "grantId": "JAT241080",
+              "agency": "Educational Research Project of Young and Middle-Aged Teachers in Fujian Province",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobial peptide",
+            "drug discovery",
+            "Interpretability",
+            "Deep Learning",
+            "Hemolytic Toxicity",
+            "Multiscale Cnn"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1021/acssynbio.6c00173"
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2026-06-24",
+        "firstIndexDate": "2026-06-24",
+        "dateOfRevision": "2026-06-29",
+        "electronicPublicationDate": "2026-06-23",
+        "firstPublicationDate": "2026-06-23"
+      },
+      {
+        "id": "40598389",
+        "source": "MED",
+        "pmid": "40598389",
+        "pmcid": "PMC12217533",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12217533"
+          ]
+        },
+        "doi": "10.1186/s12915-025-02253-4",
+        "title": "AmpHGT: expanding prediction of antimicrobial activity in peptides containing non-canonical amino acids using multi-view constrained heterogeneous graph transformer.",
+        "authorString": "He Y, Song X, Wan H, Zhao X.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "He Y",
+              "firstName": "Yongcheng",
+              "lastName": "He",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Center for Sustainable Antimicrobials, Department of Pharmacy, Sichuan Agricultural University, Chengdu, 611130, China."
+                  },
+                  {
+                    "affiliation": "Center for Infectious Diseases Control (CIDC), Sichuan Agricultural University, Chengdu, 611130, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Song X",
+              "firstName": "Xu",
+              "lastName": "Song",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Center for Sustainable Antimicrobials, Department of Pharmacy, Sichuan Agricultural University, Chengdu, 611130, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wan H",
+              "firstName": "Hongping",
+              "lastName": "Wan",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Center for Sustainable Antimicrobials, Department of Pharmacy, Sichuan Agricultural University, Chengdu, 611130, China. hpwan@sicau.edu.cn."
+                  },
+                  {
+                    "affiliation": "Center for Infectious Diseases Control (CIDC), Sichuan Agricultural University, Chengdu, 611130, China. hpwan@sicau.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhao X",
+              "firstName": "Xinghong",
+              "lastName": "Zhao",
+              "initials": "X",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2366-3360"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Center for Sustainable Antimicrobials, Department of Pharmacy, Sichuan Agricultural University, Chengdu, 611130, China. xinghong.zhao@sicau.edu.cn."
+                  },
+                  {
+                    "affiliation": "Center for Infectious Diseases Control (CIDC), Sichuan Agricultural University, Chengdu, 611130, China. xinghong.zhao@sicau.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2366-3360"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "23",
+          "journalIssueId": 3969816,
+          "dateOfPublication": "2025 Jul",
+          "monthOfPublication": 7,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-07-01",
+          "journal": {
+            "title": "BMC biology",
+            "medlineAbbreviation": "BMC Biol",
+            "issn": "1741-7007",
+            "nlmid": "101190720",
+            "isoabbreviation": "BMC Biol",
+            "essn": "1741-7007"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "184",
+        "abstractText": "<h4>Background</h4>Antimicrobial peptide (AMP) prediction has been extensively studied in recent years. However, many existing models do not fully leverage the intrinsic chemical structures of AMPs, such as atomic composition and sidechain group characteristics. Instead, these models often focus on letter composition, positional encodings, and pre-defined chemical-physical descriptors. The incorporation of non-canonical amino acids, which enhance peptide stability and reduce toxicity, is getting more attention in peptide design. Despite this, they are overlooked in predictive studies, as traditional deciphering methods and single-letter representation systems are inadequate for this task. Even though some efforts have been made to expand current alphabets, these approaches remain insufficient, impeding the development of novel AMPs.<h4>Results</h4>A novel deep learning model, termed AmpHGT, was developed based on heterogeneous graphs' representation of peptides. AmpHGT demonstrates competitive performance against current methods on canonical amino acid benchmarks. Notably, AmpHGT is capable of efficiently classifying antimicrobial peptides with non-canonical amino acids, addressing the limitations of traditional feature extraction methods. In addition, this model is adaptable to handling different conformations, sidechains, and backbones (e.g., α, β, γ), demonstrating its potential to enhance the screening and discovery of AMPs containing non-canonical amino acids.<h4>Conclusions</h4>Our study suggests that AmpHGT is reliable for antimicrobial peptide classification task. It may serve as an efficient primary filter for evaluating thousands of mined peptides and provides a good foundation for future studies aimed at producing peptide antibiotics containing non-canonical amino acids.",
+        "affiliation": "Center for Sustainable Antimicrobials, Department of Pharmacy, Sichuan Agricultural University, Chengdu, 611130, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "2022YFH0062",
+              "agency": "Sichuan Provincial Science and Technology Support Program",
+              "orderIn": 0
+            },
+            {
+              "grantId": "24NSFSC1279",
+              "agency": "Sichuan Provincial Science and Technology Support Program",
+              "orderIn": 0
+            },
+            {
+              "grantId": "1923",
+              "agency": "The \"1000-Talent Program\" in Sichuan Province",
+              "orderIn": 0
+            },
+            {
+              "grantId": "32102689",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "1923",
+              "agency": "The “1000-Talent Program” in Sichuan Province",
+              "orderIn": 0
+            },
+            {
+              "grantId": "SCCXTD-2025-18",
+              "agency": "Sichuan Veterinary Medicine and Drug Innovation Group of the China Agricultural Research System",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2022YFH0057",
+              "agency": "Sichuan Provincial Science and Technology Support Program",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2287",
+              "agency": "The \"1000-Talent Program\" in Sichuan Province",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2287",
+              "agency": "The “1000-Talent Program” in Sichuan Province",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Amino Acids",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Anti-Infective Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Deep Learning"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Prediction model",
+            "Antimicrobial peptide",
+            "Deep Learning",
+            "Non-canonical Amino Acids",
+            "Heterogeneous Graph Transformer"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Amino Acids",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Anti-Infective Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1186/s12915-025-02253-4"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12217533"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12217533?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 5,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2025-07-02",
+        "dateOfCreation": "2025-07-02",
+        "firstIndexDate": "2025-07-03",
+        "fullTextReceivedDate": "2025-07-05",
+        "dateOfRevision": "2025-07-04",
+        "electronicPublicationDate": "2025-07-01",
+        "firstPublicationDate": "2025-07-01"
+      }
+    ]
+  }
+}

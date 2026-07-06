@@ -1,0 +1,43 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "39106141"
+  },
+  "pmid": "39106141",
+  "pmcid": "PMC12730010",
+  "doi": "10.1109/TCBB.2024.3439541",
+  "title": "DMAMP: A Deep-Learning Model for Detecting Antimicrobial Peptides and Their Multi-Activities.",
+  "abstract": "Due to the broad-spectrum and high-efficiency antibacterial activity, antimicrobial peptides (AMPs) and their functions have been studied in the field of drug discovery. Using biological experiments to detect the AMPs and corresponding activities require a high cost, whereas computational technologies do so for much less. Currently, most computational methods solve the identification of AMPs and their activities as two independent tasks, which ignore the relationship between them. Therefore, the combination and sharing of patterns for two tasks is a crucial problem that needs to be addressed. In this study, we propose a deep learning model, called DMAMP, for detecting AMPs and activities simultaneously, which is benefited from multi-task learning. The first stage is to utilize convolutional neural network models and residual blocks to extract the sharing hidden features from two related tasks. The next stage is to use two fully connected layers to learn the distinct information of two tasks. Meanwhile, the original evolutionary features from the peptide sequence are also fed to the predictor of the second task to complement the forgotten information. The experiments on the independent test dataset demonstrate that our method performs better than the single-task model with 4.28% of Matthews Correlation Coefficient (MCC) on the first task, and achieves 0.2627 of an average MCC which is higher than the single-task model and two existing methods for five activities on the second task. To understand whether features derived from the convolutional layers of models capture the differences between target classes, we visualize these high-dimensional features by projecting into 3D space. In addition, we show that our predictor has the ability to identify peptides that achieve activity against Severe Acute Respiratory Syndrome Coronavirus-2 (SARS-CoV-2). We hope that our proposed method can give new insights into the discovery of novel antiviral peptide drugs.",
+  "journal": "IEEE/ACM transactions on computational biology and bioinformatics",
+  "venue": "IEEE/ACM transactions on computational biology and bioinformatics",
+  "year": 2024,
+  "authors": [
+    "Qiaozhen Meng",
+    "Genlang Chen",
+    "Bin Lin",
+    "Shixin Zheng",
+    "Yulai Lin",
+    "Jijun Tang",
+    "Fei Guo"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "39106141",
+    "doi": "10.1109/TCBB.2024.3439541"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/39106141/",
+    "https://doi.org/10.1109/TCBB.2024.3439541"
+  ],
+  "raw_source_files": [],
+  "query_name": "high recall prediction models",
+  "query_text": "(\"antimicrobial peptide\" OR \"AMP\" OR \"antimicrobial peptides\") AND (predict* OR model* OR machine learning OR deep learning OR classifier OR neural network)",
+  "candidate_key": "doi:10 1109 tcbb 2024 3439541"
+}

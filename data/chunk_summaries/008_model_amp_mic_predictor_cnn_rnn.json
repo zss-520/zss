@@ -1,0 +1,94 @@
+{
+  "chunk_id": "model_amp_mic_predictor_cnn_rnn",
+  "chunk_type": "model",
+  "chunk_name": "AMP MIC predictor (CNN/RNN)",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP MIC predictor (CNN/RNN)"
+  ],
+  "papers": [
+    {
+      "title": "Cell-free biosynthesis combined with deep learning accelerates de novo-development of antimicrobial peptides",
+      "pmid": "37938588",
+      "pmcid": "PMC10632401",
+      "doi": "10.1038/s41467-023-42434-9",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMP MIC predictor (CNN/RNN)",
+      "canonical_name": "AMP-MIC-predictor-CNN-RNN",
+      "aliases": [
+        "MIC regressor",
+        "predictive CNN/RNN"
+      ],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Convolutional neural network (CNN) and recurrent neural network (RNN) regressors trained on AMP sequences and MIC values.",
+      "input_features": "peptide amino acid sequences",
+      "source_pmid": "37938588",
+      "source_pmcid": "PMC10632401",
+      "source_doi": "10.1038/s41467-023-42434-9",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Predictive deep learning models (CNN/RNN) trained on AMP sequence-MIC data can predict antimicrobial activity, making them suitable for AMP prediction benchmarks.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "model_category_hint": "mic_or_activity_regression_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "深度学习回归模型直接预测抗菌肽MIC值，可作为基于序列的活性预测代表模型"
+    }
+  ],
+  "repositories": [],
+  "datasets": [
+    {
+      "dataset_name": "Known AMPs with MIC values (training set)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "likely from public databases, not specified",
+      "linked_model": "AMP MIC predictor (CNN/RNN)",
+      "dataset_role": "training",
+      "dataset_status": "described_no_link",
+      "positive_samples": "~5000",
+      "negative_samples": "not applicable (regression)",
+      "deduplication_method": "not reported",
+      "split_method": "not reported",
+      "source_pmid": "37938588",
+      "source_doi": "10.1038/s41467-023-42434-9",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "AMP MIC predictor (CNN/RNN)",
+      "dataset_name": "Known AMPs with MIC values (training set)",
+      "relationship": "trained_on"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "We established predictive deep learning models that we trained with the sequence and respective experimental MIC values of ~5000 known AMPs... As regressors, we used convolutional neural networks (CNN) and recurrent neural networks (RNN)."
+  ],
+  "uncertainties": [
+    "Code repository and model weights not found in available evidence.",
+    "Training dataset source not explicitly named; described only as ~5000 known AMPs with MIC values."
+  ],
+  "source_pmids": [
+    "37938588"
+  ],
+  "source_dois": [
+    "10.1038/s41467-023-42434-9"
+  ],
+  "urls": [
+    "https://www.nature.com/articles/s41467-023-42434-9.pdf",
+    "https://pubmed.ncbi.nlm.nih.gov/37938588"
+  ]
+}

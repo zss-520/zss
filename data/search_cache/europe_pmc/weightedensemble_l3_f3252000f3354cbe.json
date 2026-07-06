@@ -1,0 +1,2992 @@
+{
+  "version": "6.9",
+  "hitCount": 10,
+  "request": {
+    "queryString": "\"WeightedEnsemble_L3\"",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 10,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "41514862",
+        "source": "MED",
+        "pmid": "41514862",
+        "pmcid": "PMC12785061",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12785061"
+          ]
+        },
+        "doi": "10.3390/biology15010021",
+        "title": "High-Accuracy Chicken Breed Identification Using Microsatellite Genotype Data and AutoGluon Framework.",
+        "authorString": "Toky RFM, Sukhamsri S, Medhasi S, Budi T, Panthum T, Singchat W, Srikulnath K.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Toky RFM",
+              "firstName": "Rajaonarison Faniriharisoa Maxime",
+              "lastName": "Toky",
+              "initials": "RFM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sukhamsri S",
+              "firstName": "Sutthisak",
+              "lastName": "Sukhamsri",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Information Technology, Faculty of Science and Agricultural Technology, Rajamangala University of Technology Lanna Tak, Tak 63000, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Medhasi S",
+              "firstName": "Sadeep",
+              "lastName": "Medhasi",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1082-5327"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Budi T",
+              "firstName": "Trifan",
+              "lastName": "Budi",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Panthum T",
+              "firstName": "Thitipong",
+              "lastName": "Panthum",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Singchat W",
+              "firstName": "Worapong",
+              "lastName": "Singchat",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  },
+                  {
+                    "affiliation": "Biodiversity Center, Kasetsart University (BDCKU), Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Srikulnath K",
+              "firstName": "Kornsorn",
+              "lastName": "Srikulnath",
+              "initials": "K",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-5985-7258"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand."
+                  },
+                  {
+                    "affiliation": "Biodiversity Center, Kasetsart University (BDCKU), Bangkok 10900, Thailand."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1082-5327"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-5985-7258"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "15",
+          "journalIssueId": 4089831,
+          "dateOfPublication": "2025 Dec",
+          "monthOfPublication": 12,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-12-01",
+          "journal": {
+            "title": "Biology",
+            "medlineAbbreviation": "Biology (Basel)",
+            "issn": "2079-7737",
+            "isoabbreviation": "Biology (Basel)",
+            "essn": "2079-7737",
+            "nlmid": "101587988"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "21",
+        "abstractText": "The practical applications of breed identification are numerous and diverse, and they include breed conservation and breeding program design. However, distinguishing between breeds remains challenging and costly, especially for phenotypically similar chicken populations. Continued research is necessary to develop more accessible and optimized methodologies. To address these challenges, machine learning (ML) offers promising tools for analyzing complex genetic data. The capabilities of machine learning, especially the random forest (RF) model, to enhance various fields, including bioinformatics, have recently been demonstrated. In this study, microsatellite genotype data from 651 individuals across 30 chicken populations filtered from a larger initial dataset for consistency were used to classify breeds using an RF model. Cross-validation techniques, including 10-fold cross-validation and leave-one-out cross-validation, were employed to assess the performance of the model. The model performance was evaluated using metrics such as accuracy, Cohen's Kappa, 95% confidence interval, and F1-score. Results showed that the RF model achieved a 95.38% accuracy on the testing dataset. Accuracies of 91.44% and 90.99% were observed for 10-fold cross-validation and leave-one-out cross-validation, respectively. It is believed that larger datasets will significantly improve outcomes for other breeds. Because of its generalizability, the trained model can serve as a straightforward and modern method for chicken breed determination using machine learning. This study demonstrates that ML, particularly automated approaches like AutoGluon, provides a robust and accessible framework for chicken breed identification using cost-effective microsatellite data.",
+        "affiliation": "Animal Genomics and Bioresource Research Unit (AGB Research Unit), Faculty of Science, Kasetsart University, Bangkok 10900, Thailand.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "NRCT.MHESI/105/2564",
+              "agency": "National Research Council of Thailand",
+              "orderIn": 0
+            },
+            {
+              "agency": "Office of the Ministry of Higher Education, Science, Research and Innovation",
+              "orderIn": 0
+            },
+            {
+              "grantId": "3/2564/24",
+              "agency": "Thailand Science Research and Innovation through the Kasetsart University Reinventing Univer-sity Program",
+              "orderIn": 0
+            },
+            {
+              "grantId": "FF(KU)25.64",
+              "agency": "Kasetsart University Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "FF(KU)51.67",
+              "agency": "Kasetsart University Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "agency": "Thailand Science Research and Innovation through the Kasetsart University Reinventing University Program 2022",
+              "orderIn": 0
+            },
+            {
+              "grantId": "B137660130",
+              "agency": "The Program Management Unit for Human Resources and Institutional Development and Inno-vation (PMU-B) under the Program of National Postdoctoral and Postgraduate System",
+              "orderIn": 0
+            },
+            {
+              "grantId": "FF(KU)25.64 and FF(KU)51.67",
+              "agency": "Kasetsart University Research and Development Institute",
+              "orderIn": 0
+            },
+            {
+              "grantId": "NRCT.MHESI/105/2564",
+              "agency": "National Research Council of Thailand (NRCT) grant",
+              "orderIn": 0
+            },
+            {
+              "grantId": "6501.0901.1/68",
+              "agency": "Betagro Group",
+              "orderIn": 0
+            },
+            {
+              "grantId": "B137660130",
+              "agency": "The Program Management Unit for Human Resources and Institutional Development and Innovation",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Microsatellite",
+            "Chicken breeds",
+            "Machine Learning",
+            "Random Forest",
+            "Breed Determination"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/biology15010021"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12785061"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12785061?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 0,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2026-01-10",
+        "dateOfCreation": "2026-01-10",
+        "firstIndexDate": "2026-01-10",
+        "fullTextReceivedDate": "2026-01-12",
+        "dateOfRevision": "2026-01-13",
+        "electronicPublicationDate": "2025-12-22",
+        "firstPublicationDate": "2025-12-22"
+      },
+      {
+        "id": "41228352",
+        "source": "MED",
+        "pmid": "41228352",
+        "pmcid": "PMC12607425",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12607425"
+          ]
+        },
+        "doi": "10.3390/cancers17213560",
+        "title": "Predicting Remaining Survival of Glioblastoma Patients with Radiomics Analysis Based on &lt;sup&gt;18&lt;/sup&gt;F-DOPA PET Images.",
+        "authorString": "Qian J, Hasenauer D, Breen WG, Brown PD, Hunt CH, Jacobson MS, Johnson DR, Kaufmann TJ, Kemp BJ, Kizilbash SH, Lowe VJ, Ruff MW, Sarkaria JN, Uhm JH, Zakhary MJ, Seaberg MH, Wan Chan Tseung HS, Yan ES, Zhang Y, Laack NN, Brinkmann DH.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Qian J",
+              "firstName": "Jing",
+              "lastName": "Qian",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5276-4158"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hasenauer D",
+              "firstName": "Deanna",
+              "lastName": "Hasenauer",
+              "initials": "D",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0768-7277"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Jacksonville, FL 32224, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Breen WG",
+              "firstName": "William G",
+              "lastName": "Breen",
+              "initials": "WG",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Brown PD",
+              "firstName": "Paul D",
+              "lastName": "Brown",
+              "initials": "PD",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hunt CH",
+              "firstName": "Christopher H",
+              "lastName": "Hunt",
+              "initials": "CH",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0301-0493"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jacobson MS",
+              "firstName": "Mark S",
+              "lastName": "Jacobson",
+              "initials": "MS",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Johnson DR",
+              "firstName": "Derek R",
+              "lastName": "Johnson",
+              "initials": "DR",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-4217-5517"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kaufmann TJ",
+              "firstName": "Timothy J",
+              "lastName": "Kaufmann",
+              "initials": "TJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-7483-1569"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kemp BJ",
+              "firstName": "Bradley J",
+              "lastName": "Kemp",
+              "initials": "BJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2360-2368"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kizilbash SH",
+              "firstName": "Sani H",
+              "lastName": "Kizilbash",
+              "initials": "SH",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-8568-1519"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Medical Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lowe VJ",
+              "firstName": "Val J",
+              "lastName": "Lowe",
+              "initials": "VJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-5612-1667"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ruff MW",
+              "firstName": "Michael W",
+              "lastName": "Ruff",
+              "initials": "MW",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Neurology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sarkaria JN",
+              "firstName": "Jann N",
+              "lastName": "Sarkaria",
+              "initials": "JN",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-7489-4885"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Uhm JH",
+              "firstName": "Joon H",
+              "lastName": "Uhm",
+              "initials": "JH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Neurosurgery, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zakhary MJ",
+              "firstName": "Mark J",
+              "lastName": "Zakhary",
+              "initials": "MJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-4333-648X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University of Florida Health Proton Therapy Institute, Jacksonville, FL 32206, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Seaberg MH",
+              "firstName": "Maasa H",
+              "lastName": "Seaberg",
+              "initials": "MH",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7655-1111"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, University of California San Francisco Medical Center, San Francisco, CA 94143, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wan Chan Tseung HS",
+              "firstName": "Hok Seum",
+              "lastName": "Wan Chan Tseung",
+              "initials": "HS",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yan ES",
+              "firstName": "Elizabeth S",
+              "lastName": "Yan",
+              "initials": "ES",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang Y",
+              "firstName": "Yan",
+              "lastName": "Zhang",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3418-9385"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Laack NN",
+              "firstName": "Nadia N",
+              "lastName": "Laack",
+              "initials": "NN",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-4385-6349"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Brinkmann DH",
+              "firstName": "Debra H",
+              "lastName": "Brinkmann",
+              "initials": "DH",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0812-3094"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5276-4158"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-7483-1569"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-7489-4885"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-8568-1519"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0768-7277"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0812-3094"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2360-2368"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-4217-5517"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-4385-6349"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-5612-1667"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7655-1111"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0301-0493"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3418-9385"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-4333-648X"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "21",
+          "volume": "17",
+          "journalIssueId": 4042260,
+          "dateOfPublication": "2025 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-11-01",
+          "journal": {
+            "title": "Cancers",
+            "medlineAbbreviation": "Cancers (Basel)",
+            "issn": "2072-6694",
+            "isoabbreviation": "Cancers (Basel)",
+            "essn": "2072-6694",
+            "nlmid": "101526829"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "3560",
+        "abstractText": "<h4>Background</h4>Post-treatment prognosis and monitoring are critical for determining the timing of salvage treatment in glioblastoma patients but has been challenging due to difficulties differentiating progression from treatment effects in conventional images. This exploratory study aimed to establish the correlation of radiomics image features from time series of amino acid tracer <sup>18</sup>F-DOPA PET images, with outcomes, using machine learning and dimension reduction analysis.<h4>Methods</h4><sup>18</sup>F-DOPA PET images were collected for a patient cohort with wild-type IDH and unmethylated MGMT who underwent dose-escalated radiation therapy. Quantitative features were derived from the high uptake region (T/N > 2.0) in pre- and post-radiation therapy follow-up <sup>18</sup>F-DOPA PET images. A customized workflow was utilized for pre-selecting predictive features, followed by manifold learning. Machine learning algorithms were employed to establish associations between imaging features and remaining survival (RS), defined as the time between a follow-up scan and date of death.<h4>Results</h4>The ML models exhibited 81-83% ROC_AUC in predicting RS evaluated on an independent test dataset. A RS map is proposed for monitoring tumor alterations through serial <sup>18</sup>F-DOPA PET scans, demonstrating superior sensitivity and better correlation with survival compared to the RANO criteria.<h4>Conclusions</h4>Our study demonstrates that ML models utilizing FU <sup>18</sup>F-DOPA PET images have the potential to effectively predict future survival outcomes in patients with glioblastoma treated with dose-escalated radiation therapy. The capability to assess changes in tumor over time through imaging can potentially assist in patient stratification and the selection of salvage treatments, while also aiding in distinguishing treatment effects from genuine tumor progression.",
+        "affiliation": "Department of Radiation Oncology, Mayo Clinic, Rochester, MN 55905, USA.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "1R01CA178200-18",
+              "agency": "NIH HHS",
+              "acronym": "NH",
+              "orderIn": 0
+            },
+            {
+              "grantId": "2022 Advance the Practice Research Award",
+              "agency": "Center for Clinical and Translational Science of Mayo Clinic",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Glioblastoma",
+            "Machine Learning",
+            "Manifold Learning",
+            "18F-dopa",
+            "Post-treatment Follow-up",
+            "Radiomics",
+            "Amino-acid Pet Tracer",
+            "Remaining Survival"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/cancers17213560"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12607425"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12607425?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 1,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "nct"
+          ]
+        },
+        "dateOfCompletion": "2025-11-13",
+        "dateOfCreation": "2025-11-13",
+        "firstIndexDate": "2025-11-14",
+        "fullTextReceivedDate": "2025-11-15",
+        "dateOfRevision": "2025-11-16",
+        "electronicPublicationDate": "2025-11-03",
+        "firstPublicationDate": "2025-11-03"
+      },
+      {
+        "id": "39682641",
+        "source": "MED",
+        "pmid": "39682641",
+        "pmcid": "PMC11640490",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC11640490"
+          ]
+        },
+        "doi": "10.3390/diagnostics14232734",
+        "title": "Advancing Interstitial Cystitis/Bladder Pain Syndrome (IC/BPS) Diagnosis: A Comparative Analysis of Machine Learning Methodologies.",
+        "authorString": "Janicki JJ, Zwaans BMM, Bartolone SN, Ward EP, Chancellor MB.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Janicki JJ",
+              "firstName": "Joseph J",
+              "lastName": "Janicki",
+              "initials": "JJ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Underactive Bladder Foundation, Pittsburgh, PA 15235, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zwaans BMM",
+              "firstName": "Bernadette M M",
+              "lastName": "Zwaans",
+              "initials": "BMM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Corewell Health William Beaumont University Hospital, Royal Oak, MI 48073, USA."
+                  },
+                  {
+                    "affiliation": "Department of Urology, Oakland University William Beaumont School of Medicine, Rochester, MI 48309, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Bartolone SN",
+              "firstName": "Sarah N",
+              "lastName": "Bartolone",
+              "initials": "SN",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Corewell Health William Beaumont University Hospital, Royal Oak, MI 48073, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ward EP",
+              "firstName": "Elijah P",
+              "lastName": "Ward",
+              "initials": "EP",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Corewell Health William Beaumont University Hospital, Royal Oak, MI 48073, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chancellor MB",
+              "firstName": "Michael B",
+              "lastName": "Chancellor",
+              "initials": "MB",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9480-8972"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Underactive Bladder Foundation, Pittsburgh, PA 15235, USA."
+                  },
+                  {
+                    "affiliation": "Department of Urology, Oakland University William Beaumont School of Medicine, Rochester, MI 48309, USA."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9480-8972"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "23",
+          "volume": "14",
+          "journalIssueId": 3871642,
+          "dateOfPublication": "2024 Dec",
+          "monthOfPublication": 12,
+          "yearOfPublication": 2024,
+          "printPublicationDate": "2024-12-01",
+          "journal": {
+            "title": "Diagnostics (Basel, Switzerland)",
+            "medlineAbbreviation": "Diagnostics (Basel)",
+            "issn": "2075-4418",
+            "isoabbreviation": "Diagnostics (Basel)",
+            "essn": "2075-4418",
+            "nlmid": "101658402"
+          }
+        },
+        "pubYear": "2024",
+        "pageInfo": "2734",
+        "abstractText": "<b>Background/Objectives.</b> This study aimed to improve machine learning models for diagnosing interstitial cystitis/bladder pain syndrome (IC/BPS) by comparing classical machine learning methods with newer AutoML approaches, utilizing biomarker data and patient-reported outcomes as features. <b>Methods.</b> We applied various machine learning techniques to biomarker data from the previous IP4IC and ICRS studies to predict the presence of IC/BPS, a disorder impacting the urinary bladder. Data were sourced from two nationwide, crowd-sourced collections of urine samples involving 2009 participants. The models utilized included logistic regression, support vector machines, random forests, k-nearest neighbors, and AutoGluon. <b>Results.</b> Expanding the dataset for model training and evaluation resulted in improved performance metrics compared to previously published findings. The implementation of AutoML methods yielded enhancements in model accuracy over classical techniques. The top-performing models achieved a receiver-operating characteristic area under the curve (ROC-AUC) of up to 0.96. <b>Conclusions.</b> This research demonstrates an improvement in model performance relative to earlier studies, with the top model for binary classification incorporating objective urinary biomarker levels. These advancements represent a significant step toward developing a reliable classification model for the diagnosis of IC/BPS.",
+        "affiliation": "Underactive Bladder Foundation, Pittsburgh, PA 15235, USA.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "W81XWH-19-1-0288",
+              "agency": "Office of the Assistant Secretary of Defense for Health Affairs",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Urine",
+            "Bladder",
+            "Inflammation",
+            "Biomarker",
+            "Interstitial cystitis",
+            "Machine Learning"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/diagnostics14232734"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11640490"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11640490?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 6,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2024-12-17",
+        "firstIndexDate": "2024-12-17",
+        "fullTextReceivedDate": "2025-12-02",
+        "dateOfRevision": "2025-01-04",
+        "electronicPublicationDate": "2024-12-05",
+        "firstPublicationDate": "2024-12-05"
+      },
+      {
+        "id": "39988480",
+        "source": "MED",
+        "pmid": "39988480",
+        "pmcid": "PMC12080660",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC12080660"
+          ]
+        },
+        "doi": "10.1017/s0033291725000285",
+        "title": "Disparities in accelerated brain aging in recent-onset and chronic schizophrenia.",
+        "authorString": "Joo SW, Lee J, Han J, Kim M, Kim Y, Lee H, Jo YT, Shin J, Lee J, Lee WH.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Joo SW",
+              "firstName": "Sung Woo",
+              "lastName": "Joo",
+              "initials": "SW",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-6555-9110"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lee J",
+              "firstName": "Junhyeok",
+              "lastName": "Lee",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Software Convergence, Kyung Hee University, Yongin, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Han J",
+              "firstName": "Juhyuk",
+              "lastName": "Han",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Software Convergence, Kyung Hee University, Yongin, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kim M",
+              "firstName": "Minjae",
+              "lastName": "Kim",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Software Convergence, Kyung Hee University, Yongin, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kim Y",
+              "firstName": "Yeonwoo",
+              "lastName": "Kim",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Software Convergence, Kyung Hee University, Yongin, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lee H",
+              "firstName": "Howook",
+              "lastName": "Lee",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Artificial Intelligence, Kyung Hee University, Yongin, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jo YT",
+              "firstName": "Young Tak",
+              "lastName": "Jo",
+              "initials": "YT",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, Kangdong Sacred Heart Hospital, Seoul, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shin J",
+              "firstName": "Jaewook",
+              "lastName": "Shin",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0008-5699-8996"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Medicine, CHA University School of Medicine, Seongnam, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lee J",
+              "firstName": "Jungsun",
+              "lastName": "Lee",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2171-2720"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lee WH",
+              "firstName": "Won Hee",
+              "lastName": "Lee",
+              "initials": "WH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Software Convergence, Kyung Hee University, Yongin, Republic of Korea."
+                  },
+                  {
+                    "affiliation": "Department of Artificial Intelligence, Kyung Hee University, Yongin, Republic of Korea."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-6555-9110"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2171-2720"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3991-3870"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0008-5699-8996"
+            }
+          ]
+        },
+        "journalInfo": {
+          "volume": "55",
+          "journalIssueId": 3896372,
+          "dateOfPublication": "2025 Feb",
+          "monthOfPublication": 2,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-02-01",
+          "journal": {
+            "title": "Psychological medicine",
+            "medlineAbbreviation": "Psychol Med",
+            "issn": "0033-2917",
+            "isoabbreviation": "Psychol Med",
+            "essn": "1469-8978",
+            "nlmid": "1254142"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "e60",
+        "abstractText": "<h4>Background</h4>Patients with schizophrenia experience accelerated aging, accompanied by abnormalities in biomarkers such as shorter telomere length. Brain age prediction using neuroimaging data has gained attention in schizophrenia research, with consistently reported increases in brain-predicted age difference (brain-PAD). However, its associations with clinical symptoms and illness duration remain unclear.<h4>Methods</h4>We developed brain age prediction models using structural magnetic resonance imaging (MRI) data from 10,938 healthy individuals. The models were validated on an independent test dataset comprising 79 healthy controls, 57 patients with recent-onset schizophrenia, and 71 patients with chronic schizophrenia. Group comparisons and the clinical associations of brain-PAD were analyzed using multiple linear regression. SHapley Additive exPlanations (SHAP) values estimated feature contributions to the model, and between-group differences in SHAP values and group-by-SHAP value interactions were also examined.<h4>Results</h4>Patients with recent-onset schizophrenia and chronic schizophrenia exhibited increased brain-PAD values of 1.2 and 0.9 years, respectively. Between-group differences in SHAP values were identified in the right lateral prefrontal area (false discovery rate [FDR] p = 0.022), with group-by-SHAP value interactions observed in the left prefrontal area (FDR p = 0.049). A negative association between brain-PAD and Full-scale Intelligence Quotient scores in chronic schizophrenia was noted, which did not remain significant after correction for multiple comparisons.<h4>Conclusions</h4>Brain-PAD increases were pronounced in the early phase of schizophrenia. Regional brain abnormalities contributing to brain-PAD likely vary with illness duration. Future longitudinal studies are required to overcome limitations related to sample size, heterogeneity, and the cross-sectional design of this study.",
+        "affiliation": "Department of Psychiatry, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Brain",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PA",
+                    "qualifierName": "pathology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Chronic Disease"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Magnetic Resonance Imaging"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Schizophrenia",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PA",
+                    "qualifierName": "pathology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Aging",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PA",
+                    "qualifierName": "pathology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Middle Aged"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Young Adult"
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Schizophrenia",
+            "Chronic",
+            "brain aging",
+            "Recent-onset"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1017/S0033291725000285"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12080660"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC12080660?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 5,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2025-05-10",
+        "dateOfCreation": "2025-02-23",
+        "firstIndexDate": "2025-02-24",
+        "fullTextReceivedDate": "2026-05-20",
+        "dateOfRevision": "2025-05-17",
+        "electronicPublicationDate": "2025-02-24",
+        "firstPublicationDate": "2025-02-24"
+      },
+      {
+        "id": "40292983",
+        "source": "MED",
+        "pmid": "40292983",
+        "pmcid": "PMC11946547",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC11946547"
+          ]
+        },
+        "doi": "10.3390/s25061836",
+        "title": "Collecting Performance Prediction for the Rubber Collector in Horizontal Wellbore Based on AutoML.",
+        "authorString": "Li S, Li Y, Chen L, Wang X, Kong W.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Li S",
+              "firstName": "Shaohua",
+              "lastName": "Li",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Information Science and Engineering, Yanshan University, Qinhuangdao 066004, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li Y",
+              "firstName": "Yang",
+              "lastName": "Li",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Reservoir Performance Monitoring Center, Shengli Oilfield Company, China Petroleum & Chemical Corporation, Dongying 257000, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen L",
+              "firstName": "Longlin",
+              "lastName": "Chen",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Logging and Testing Services Company, Daqing Oilfield Company Limited, Daqing 163453, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang X",
+              "firstName": "Xianbin",
+              "lastName": "Wang",
+              "initials": "X",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Logging and Testing Services Company, Daqing Oilfield Company Limited, Daqing 163453, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kong W",
+              "firstName": "Weihang",
+              "lastName": "Kong",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Information Science and Engineering, Yanshan University, Qinhuangdao 066004, China."
+                  },
+                  {
+                    "affiliation": "Hebei Key Laboratory of Computer Virtual Technology and System Integration, Qinhuangdao 066004, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "6",
+          "volume": "25",
+          "journalIssueId": 3919739,
+          "dateOfPublication": "2025 Mar",
+          "monthOfPublication": 3,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-03-01",
+          "journal": {
+            "title": "Sensors (Basel, Switzerland)",
+            "medlineAbbreviation": "Sensors (Basel)",
+            "issn": "1424-8220",
+            "isoabbreviation": "Sensors (Basel)",
+            "essn": "1424-8220",
+            "nlmid": "101204366"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "1836",
+        "abstractText": "To objectively study the influencing factors of rubber collector performance in horizontal wellbores and identify parameter optimization directions, this paper introduces a modeling approach for rubber collectors in horizontal wellbores and develops a corresponding performance prediction method using AutoML(implemented with AutoGluon V1.2.0). Specifically, the study establishes a simulated model of a rubber collector in a horizontal wellbore, simulating its operational state under eccentric conditions due to gravity. It evaluates the impact of rubber elastic element properties (such as material and size) on collecting performance using the integral value of the stress distribution as a metric. Based on the simulated model, an AutoML-based regression model is constructed to predict the collecting performance of the rubber collector under various parameters of the rubber elastic component. The analysis reveals that, as the eccentricity of the rubber collector increases, the most significant influencing factors on collecting performance, in descending order of importance, are axial extrusion range, hardness, radius, bulk modulus, and concave degree. The experimental findings indicate that, during parameter optimization for rubber collectors with varying eccentricities, priority should be given to the aforementioned factors. Additionally, adjusting properties like bulk modulus can enhance the axial extrusion range, thereby effectively boosting the overall collecting performance of the rubber collector in a horizontal wellbore.",
+        "affiliation": "School of Information Science and Engineering, Yanshan University, Qinhuangdao 066004, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "2022LGQN007",
+              "agency": "Yanshan University",
+              "orderIn": 0
+            },
+            {
+              "grantId": "62173290, 62306264",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "22567626H",
+              "agency": "Innova- tion Capability Improvement Plan Project of Hebei Province",
+              "orderIn": 0
+            },
+            {
+              "grantId": "F2022203008",
+              "agency": "the Natural Science Foundation of 395 Hebei province in China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "QN2023189",
+              "agency": "Science and Technology Project of Hebei Edu- cation Department",
+              "orderIn": 0
+            },
+            {
+              "grantId": "236Z0303G",
+              "agency": "Central Government Guided Local Funds for Science and Technology Development of China",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Finite element method",
+            "Horizontal Well",
+            "Automl",
+            "Eccentric Prediction Of Collecting Performance Status",
+            "Rubber Collector"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/s25061836"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11946547"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11946547?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "N",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2025-04-28",
+        "firstIndexDate": "2025-04-29",
+        "fullTextReceivedDate": "2025-12-03",
+        "dateOfRevision": "2025-04-30",
+        "electronicPublicationDate": "2025-03-15",
+        "firstPublicationDate": "2025-03-15"
+      },
+      {
+        "id": "38420255",
+        "source": "MED",
+        "pmid": "38420255",
+        "pmcid": "PMC10901066",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC10901066"
+          ]
+        },
+        "doi": "10.1177/11786302241227307",
+        "title": "Development and Evaluation of Ensemble Learning-based Environmental Methane Detection and Intensity Prediction Models.",
+        "authorString": "Majumder R, Pollard J, Salek MS, Werth D, Comert G, Gale A, Khan SM, Darko S, Chowdhury M.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Majumder R",
+              "firstName": "Reek",
+              "lastName": "Majumder",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Glenn Department of Civil Engineering, Clemson University, Clemson, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Pollard J",
+              "firstName": "Jacquan",
+              "lastName": "Pollard",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Glenn Department of Civil Engineering, Clemson University, Clemson, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Salek MS",
+              "firstName": "M Sabbir",
+              "lastName": "Salek",
+              "initials": "MS",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Glenn Department of Civil Engineering, Clemson University, Clemson, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Werth D",
+              "firstName": "David",
+              "lastName": "Werth",
+              "initials": "D",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0005-0146-5197"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Savannah River National Laboratory, Aiken, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Comert G",
+              "firstName": "Gurcan",
+              "lastName": "Comert",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Comp. Sci., Phy., and Engineering Department, Benedict College, Columbia, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Gale A",
+              "firstName": "Adrian",
+              "lastName": "Gale",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Comp. Sci., Phy., and Engineering Department, Benedict College, Columbia, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Khan SM",
+              "firstName": "Sakib Mahmud",
+              "lastName": "Khan",
+              "initials": "SM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Glenn Department of Civil Engineering, Clemson University, Clemson, SC, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Darko S",
+              "firstName": "Samuel",
+              "lastName": "Darko",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3923-2020"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Arts and Sciences, Florida Memorial University, Miami Gardens, FL, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chowdhury M",
+              "firstName": "Mashrur",
+              "lastName": "Chowdhury",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Glenn Department of Civil Engineering, Clemson University, Clemson, SC, USA."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3923-2020"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0005-0146-5197"
+            }
+          ]
+        },
+        "journalInfo": {
+          "volume": "18",
+          "journalIssueId": 3693215,
+          "dateOfPublication": "2024 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2024,
+          "printPublicationDate": "2024-01-01",
+          "journal": {
+            "title": "Environmental health insights",
+            "medlineAbbreviation": "Environ Health Insights",
+            "issn": "1178-6302",
+            "isoabbreviation": "Environ Health Insights",
+            "essn": "1178-6302",
+            "nlmid": "101488505"
+          }
+        },
+        "pubYear": "2024",
+        "pageInfo": "11786302241227307",
+        "abstractText": "The environmental impacts of global warming driven by methane (CH<sub>4</sub>) emissions have catalyzed significant research initiatives in developing novel technologies that enable proactive and rapid detection of CH<sub>4</sub>. Several data-driven machine learning (ML) models were tested to determine how well they identified fugitive CH<sub>4</sub> and its related intensity in the affected areas. Various meteorological characteristics, including wind speed, temperature, pressure, relative humidity, water vapor, and heat flux, were included in the simulation. We used the ensemble learning method to determine the best-performing weighted ensemble ML models built upon several weaker lower-layer ML models to (i) detect the presence of CH<sub>4</sub> as a classification problem and (ii) predict the intensity of CH<sub>4</sub> as a regression problem. The classification model performance for CH<sub>4</sub> detection was evaluated using accuracy, F1 score, Matthew's Correlation Coefficient (MCC), and the area under the receiver operating characteristic curve (AUC ROC), with the top-performing model being 97.2%, 0.972, 0.945 and 0.995, respectively. The <i>R</i><sup> 2</sup> score was used to evaluate the regression model performance for CH<sub>4</sub> intensity prediction, with the <i>R</i><sup> 2</sup> score of the best-performing model being 0.858. The ML models developed in this study for fugitive CH<sub>4</sub> detection and intensity prediction can be used with fixed environmental sensors deployed on the ground or with sensors mounted on unmanned aerial vehicles (UAVs) for mobile detection.",
+        "affiliation": "Glenn Department of Civil Engineering, Clemson University, Clemson, SC, USA.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "TOA 0000525174 CN1",
+              "agency": "Savannah River National Laboratory under BSRA",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Methane",
+            "Machine Learning",
+            "Cyber-physical System",
+            "Fugitive Ch4 Emissions",
+            "Autonomous Environmental Detection"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1177/11786302241227307"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC10901066"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC10901066?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 0,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "N",
+        "license": "cc by-nc",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2024-02-29",
+        "firstIndexDate": "2024-03-01",
+        "fullTextReceivedDate": "2024-03-01",
+        "dateOfRevision": "2024-03-01",
+        "electronicPublicationDate": "2024-02-27",
+        "firstPublicationDate": "2024-02-27"
+      },
+      {
+        "id": "37774026",
+        "source": "MED",
+        "pmid": "37774026",
+        "pmcid": "PMC10541502",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC10541502"
+          ]
+        },
+        "doi": "10.1126/sciadv.adf8782",
+        "title": "Gut-targeted nanoparticles deliver specifically targeted antimicrobial peptides against <i>Clostridium perfringens</i> infections.",
+        "authorString": "Xu B, Shaoyong W, Wang L, Yang C, Chen T, Jiang X, Yan R, Jiang Z, Zhang P, Jin M, Wang Y.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Xu B",
+              "firstName": "Bocheng",
+              "lastName": "Xu",
+              "initials": "B",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5403-0991"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shaoyong W",
+              "firstName": "Weike",
+              "lastName": "Shaoyong",
+              "initials": "W",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2773-4165"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang L",
+              "firstName": "Lin",
+              "lastName": "Wang",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yang C",
+              "firstName": "Chen",
+              "lastName": "Yang",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0003-0909-7531"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Center for Drug Safety Evaluation and Research, Zhejiang Province Key Laboratory of Anti-Cancer Drug Research, College of Pharmaceutical Sciences, Zhejiang University, Hangzhou, 310007, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chen T",
+              "firstName": "Tingjun",
+              "lastName": "Chen",
+              "initials": "T",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0007-9243-9959"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Animal Science, Zhejiang University; Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jiang X",
+              "firstName": "Xiao",
+              "lastName": "Jiang",
+              "initials": "X",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0008-5253-5249"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yan R",
+              "firstName": "Rong",
+              "lastName": "Yan",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0000-9234-430X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jiang Z",
+              "firstName": "Zipeng",
+              "lastName": "Jiang",
+              "initials": "Z",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0002-9140-7799"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang P",
+              "firstName": "Pan",
+              "lastName": "Zhang",
+              "initials": "P",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0003-0311-5161"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Animal Science, Zhejiang University; Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jin M",
+              "firstName": "Mingliang",
+              "lastName": "Jin",
+              "initials": "M",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-6358-5307"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang Y",
+              "firstName": "Yizhen",
+              "lastName": "Wang",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3908-7102"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5403-0991"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-6358-5307"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2773-4165"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3908-7102"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0000-9234-430X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0002-9140-7799"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0003-0311-5161"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0003-0909-7531"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0007-9243-9959"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0008-5253-5249"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "39",
+          "volume": "9",
+          "journalIssueId": 3639332,
+          "dateOfPublication": "2023 Sep",
+          "monthOfPublication": 9,
+          "yearOfPublication": 2023,
+          "printPublicationDate": "2023-09-01",
+          "journal": {
+            "title": "Science advances",
+            "medlineAbbreviation": "Sci Adv",
+            "issn": "2375-2548",
+            "isoabbreviation": "Sci Adv",
+            "essn": "2375-2548",
+            "nlmid": "101653440"
+          }
+        },
+        "pubYear": "2023",
+        "pageInfo": "eadf8782",
+        "abstractText": "Specifically targeted antimicrobial peptides (STAMPs) are novel alternatives to antibiotics, whereas the development of STAMPs for colonic infections is hindered by limited de novo design efficiency and colonic bioavailability. In this study, we report an efficient de novo STAMP design strategy that combines a traversal design, machine learning model, and phage display technology to identify STAMPs against <i>Clostridium perfringens</i>. STAMPs could physically damage <i>C. perfringens</i>, eliminate biofilms, and self-assemble into nanoparticles to entrap pathogens. Further, a gut-targeted engineering particle vaccine (EPV) was used for STAMPs delivery. In vivo studies showed that both STAMP and EPV@STAMP effectively limited <i>C. perfringens</i> infections and then reduced inflammatory response. Notably, EPV@STAMP exhibited stronger protection against colonic infections than STAMPs alone. Moreover, 16<i>S</i> ribosomal RNA sequencing showed that both STAMPs and EPV@STAMP facilitated the recovery of disturbed gut microflora. Collectively, our work may accelerate the development of the discovery and delivery of precise antimicrobials.",
+        "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Biofilms"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Clostridium perfringens",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Clostridium Infections"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Anti-Bacterial Agents"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides"
+            }
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Anti-Bacterial Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Free",
+              "availabilityCode": "F",
+              "documentStyle": "doi",
+              "site": "Unpaywall",
+              "url": "https://doi.org/10.1126/sciadv.adf8782"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1126/sciadv.adf8782"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC10541502"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC10541502?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 26,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2023-10-04",
+        "dateOfCreation": "2023-09-29",
+        "firstIndexDate": "2023-09-30",
+        "fullTextReceivedDate": "2023-10-03",
+        "dateOfRevision": "2023-10-19",
+        "electronicPublicationDate": "2023-09-29",
+        "firstPublicationDate": "2023-09-29"
+      },
+      {
+        "id": "38266820",
+        "source": "MED",
+        "pmid": "38266820",
+        "pmcid": "PMC11725144",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC11725144"
+          ]
+        },
+        "doi": "10.1016/j.jare.2024.01.023",
+        "title": "Specifically targeted antimicrobial peptides synergize with bacterial-entrapping peptide against systemic MRSA infections.",
+        "authorString": "Xu B, Wang L, Yang C, Yan R, Zhang P, Jin M, Du H, Wang Y.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Xu B",
+              "firstName": "Bocheng",
+              "lastName": "Xu",
+              "initials": "B",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5403-0991"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang L",
+              "firstName": "Lin",
+              "lastName": "Wang",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yang C",
+              "firstName": "Chen",
+              "lastName": "Yang",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Center for Drug Safety Evaluation and Research, Zhejiang Province Key Laboratory of Anti-Cancer Drug Research, College of Pharmaceutical Sciences, Zhejiang University, Hangzhou 310007, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yan R",
+              "firstName": "Rong",
+              "lastName": "Yan",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang P",
+              "firstName": "Pan",
+              "lastName": "Zhang",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Animal Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Jin M",
+              "firstName": "Mingliang",
+              "lastName": "Jin",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Du H",
+              "firstName": "Huahua",
+              "lastName": "Du",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China. Electronic address: huahuadu@zju.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wang Y",
+              "firstName": "Yizhen",
+              "lastName": "Wang",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China. Electronic address: yzwang321@zju.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5403-0991"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "volume": "67",
+          "journalIssueId": 3872928,
+          "dateOfPublication": "2025 Jan",
+          "monthOfPublication": 1,
+          "yearOfPublication": 2025,
+          "printPublicationDate": "2025-01-01",
+          "journal": {
+            "title": "Journal of advanced research",
+            "medlineAbbreviation": "J Adv Res",
+            "issn": "2090-1232",
+            "isoabbreviation": "J Adv Res",
+            "essn": "2090-1224",
+            "nlmid": "101546952"
+          }
+        },
+        "pubYear": "2025",
+        "pageInfo": "301-315",
+        "abstractText": "<h4>Introduction</h4>The design of precision antimicrobials aims to personalize the treatment of drug-resistant bacterial infections and avoid host microbiota dysbiosis.<h4>Objectives</h4>This study aimed to propose an efficient de novo design strategy to obtain specifically targeted antimicrobial peptides (STAMPs) against methicillin-resistant Staphylococcus aureus (MRSA).<h4>Methods</h4>We evaluated three strategies designed to increase the selectivity of antimicrobial peptides (AMPs) for MRSA and mainly adopted an advanced hybrid peptide strategy. First, we proposed a traversal design to generate sequences, and constructed machine learning models to predict the anti-S. aureus activity levels of unknown peptides. Subsequently, six peptides were predicted to have high activity, among which, a broad-spectrum AMP (P18) was selected. Finally, the two targeting peptides from phage display libraries or lysostaphin were used to confer specific anti-S. aureus activity to P18. STAMPs were further screened out from hybrid peptides based on their in vitro and in vivo activities.<h4>Results</h4>An advanced hybrid peptide strategy can enhance the specific and targeted properties of broad-spectrum AMPs. Among 25 assessed peptides, 10 passed in vitro tests, and two peptides containing one bacterial-entrapping peptide (BEP) and one STAMP passed an in vivo test. The lead STAMP (P18E6) disrupted MRSA cell walls and membranes, eliminated established biofilms, and exhibited desirable biocompatibility, systemic distribution and efficacy, and immunomodulatory activity in vivo. Furthermore, a bacterial-entrapping peptide (BEP, SP5) modified from P18, self-assembled into nanonetworks and rapidly entrapped MRSA. SP5 synergized with P18E6 to enhance antibacterial activity in vitro and reduced systemic MRSA infections.<h4>Conclusions</h4>This strategy may aid in the design of STAMPs against drug-resistant strains, and BEPs can serve as powerful STAMP adjuvants.",
+        "affiliation": "National Engineering Research Center for Green Feed and Healthy Breeding, Key Laboratory of Molecular Animal Nutrition, Ministry of Education, Key Laboratory of Animal Nutrition and Feed Science (Eastern of China), Ministry of Agriculture and Rural Affairs, Key Laboratory of Animal Feed and Nutrition of Zhejiang Province, Institute of Feed Science, Zhejiang University, Hangzhou 310058, China.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "32022079",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "U21A20249",
+              "agency": "National Natural Science Foundation of China",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Mice"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Staphylococcal Infections",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "DT",
+                    "qualifierName": "drug therapy",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Antimicrobial Cationic Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Peptide Library"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Anti-Bacterial Agents",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Microbial Sensitivity Tests"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Drug Synergism"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Methicillin-Resistant Staphylococcus aureus",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "DE",
+                    "qualifierName": "drug effects",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Antimicrobial Peptides",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "abbreviation": "PD",
+                    "qualifierName": "pharmacology",
+                    "majorTopic_YN": "N"
+                  },
+                  {
+                    "abbreviation": "CH",
+                    "qualifierName": "chemistry",
+                    "majorTopic_YN": "N"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Antimicrobials",
+            "Mrsa Infections",
+            "Specifically Targeted Antimicrobial Peptides",
+            "Bacterial-entrapping Peptide"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Anti-Bacterial Agents",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Cationic Peptides",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Peptide Library",
+              "registryNumber": "0"
+            },
+            {
+              "name": "Antimicrobial Peptides",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1016/j.jare.2024.01.023"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11725144"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11725144?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 20,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by-nc-nd",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "pdb"
+          ]
+        },
+        "dateOfCompletion": "2024-12-18",
+        "dateOfCreation": "2024-01-24",
+        "firstIndexDate": "2024-01-25",
+        "fullTextReceivedDate": "2025-01-14",
+        "dateOfRevision": "2025-01-14",
+        "electronicPublicationDate": "2024-01-22",
+        "firstPublicationDate": "2024-01-22"
+      },
+      {
+        "id": "35888416",
+        "source": "MED",
+        "pmid": "35888416",
+        "pmcid": "PMC9322858",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC9322858"
+          ]
+        },
+        "doi": "10.3390/ma15144949",
+        "title": "Quantifying Alignment Deviations for the In-Plane Biaxial Test System via a Shape-Optimised Cruciform Specimen.",
+        "authorString": "Chen J, Zhang J, Zhao H.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Chen J",
+              "firstName": "Junxian",
+              "lastName": "Chen",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2868-0039"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Mechanical and Aerospace Engineering, Jilin University, Changchun 130022, China."
+                  },
+                  {
+                    "affiliation": "Key Laboratory of CNC Equipment Reliability, Ministry of Education, Jilin University, Changchun 130022, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhang J",
+              "firstName": "Jianhai",
+              "lastName": "Zhang",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Mechanical and Aerospace Engineering, Jilin University, Changchun 130022, China."
+                  },
+                  {
+                    "affiliation": "Key Laboratory of CNC Equipment Reliability, Ministry of Education, Jilin University, Changchun 130022, China."
+                  },
+                  {
+                    "affiliation": "Chongqing Research Institute, Jilin University, Chongqing 401120, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhao H",
+              "firstName": "Hongwei",
+              "lastName": "Zhao",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Mechanical and Aerospace Engineering, Jilin University, Changchun 130022, China."
+                  },
+                  {
+                    "affiliation": "Key Laboratory of CNC Equipment Reliability, Ministry of Education, Jilin University, Changchun 130022, China."
+                  },
+                  {
+                    "affiliation": "Chongqing Research Institute, Jilin University, Chongqing 401120, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2868-0039"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics"
+          ]
+        },
+        "journalInfo": {
+          "issue": "14",
+          "volume": "15",
+          "journalIssueId": 3397093,
+          "dateOfPublication": "2022 Jul",
+          "monthOfPublication": 7,
+          "yearOfPublication": 2022,
+          "printPublicationDate": "2022-07-01",
+          "journal": {
+            "title": "Materials (Basel, Switzerland)",
+            "medlineAbbreviation": "Materials (Basel)",
+            "issn": "1996-1944",
+            "isoabbreviation": "Materials (Basel)",
+            "essn": "1996-1944",
+            "nlmid": "101555929"
+          }
+        },
+        "pubYear": "2022",
+        "pageInfo": "4949",
+        "abstractText": "The loading coaxiality of an in-plane biaxial test system and the structure of a cruciform specimen markedly affect the test results. However, due to the lack of methods for correcting the loading coaxiality and designing the cruciform specimen, the data scatter of the test results of the in-plane biaxial test systems varies from the laboratory to different tests. To quantify the loading coaxiality of the in-plane biaxial test system, we first developed a model to calculate alignment deviations with strain distribution of the shape-optimised cruciform specimen with Automated Machine Learning (AutoML). Our results demonstrated that 99.2% (54,536 of 54,976) of the quantified errors are less than 5%. Quantifying alignment deviations for an in-plane biaxial test system has been solved. The quantified method of alignment deviations could enhance the reliability of test data, improve assembly efficiency, and aid in constructing failure criteria of materials under biaxial stress.",
+        "affiliation": "School of Mechanical and Aerospace Engineering, Jilin University, Changchun 130022, China.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "grantId": "52021003",
+              "agency": "Foundation for Innovative Research Groups of the National Natural Science Foundation of China",
+              "orderIn": 0
+            },
+            {
+              "grantId": "41422050301",
+              "agency": "Pre-research of equipment of the General Armaments Department",
+              "orderIn": 0
+            },
+            {
+              "grantId": "41422050301",
+              "agency": "the Preresearch of Equipment of the General Armaments Department",
+              "orderIn": 0
+            },
+            {
+              "grantId": "51925504",
+              "agency": "National Science Fund for Distinguished Young Scholars",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Material Testing",
+            "Cruciform Specimen",
+            "Automated Machine Learning",
+            "Alignment Deviation",
+            "Loading Coaxiality",
+            "In-plane Biaxial Test"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "https://www.mdpi.com/1996-1944/15/14/4949/pdf?version=1658138767"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/ma15144949"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC9322858"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC9322858?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "citedByCount": 2,
+        "hasData": "N",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2022-07-27",
+        "firstIndexDate": "2022-07-28",
+        "fullTextReceivedDate": "2022-07-28",
+        "dateOfRevision": "2022-07-31",
+        "electronicPublicationDate": "2022-07-15",
+        "firstPublicationDate": "2022-07-15"
+      },
+      {
+        "id": "39145237",
+        "source": "MED",
+        "pmid": "39145237",
+        "pmcid": "PMC11323016",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC11323016"
+          ]
+        },
+        "doi": "10.7717/peerj-cs.2188",
+        "title": "Automated machine learning for fabric quality prediction: a comparative analysis.",
+        "authorString": "Metin A, Bilgin TT.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Metin A",
+              "firstName": "Ahmet",
+              "lastName": "Metin",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7318-4926"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Bursa Technical University, Bursa, Turkey."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Bilgin TT",
+              "firstName": "Turgay Tugay",
+              "lastName": "Bilgin",
+              "initials": "TT",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Bursa Technical University, Bursa, Turkey."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7318-4926"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data",
+            "plain_english"
+          ]
+        },
+        "journalInfo": {
+          "volume": "10",
+          "journalIssueId": 3694295,
+          "dateOfPublication": "2024 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2024,
+          "printPublicationDate": "2024-01-01",
+          "journal": {
+            "title": "PeerJ. Computer science",
+            "medlineAbbreviation": "PeerJ Comput Sci",
+            "issn": "2167-9843",
+            "isoabbreviation": "PeerJ Comput Sci",
+            "essn": "2376-5992",
+            "nlmid": "101660598"
+          }
+        },
+        "pubYear": "2024",
+        "pageInfo": "e2188",
+        "abstractText": "The enhancement of fabric quality prediction in the textile manufacturing sector is achieved by utilizing information derived from sensors within the Internet of Things (IoT) and Enterprise Resource Planning (ERP) systems linked to sensors embedded in textile machinery. The integration of Industry 4.0 concepts is instrumental in harnessing IoT sensor data, which, in turn, leads to improvements in productivity and reduced lead times in textile manufacturing processes. This study addresses the issue of imbalanced data pertaining to fabric quality within the textile manufacturing industry. It encompasses an evaluation of seven open-source automated machine learning (AutoML) technologies, namely FLAML (Fast Lightweight AutoML), AutoViML (Automatically Build Variant Interpretable ML models), EvalML (Evaluation Machine Learning), AutoGluon, H2OAutoML, PyCaret, and TPOT (Tree-based Pipeline Optimization Tool). The most suitable solutions are chosen for certain circumstances by employing an innovative approach that finds a compromise among computational efficiency and forecast accuracy. The results reveal that EvalML emerges as the top-performing AutoML model for a predetermined objective function, particularly excelling in terms of mean absolute error (MAE). On the other hand, even with longer inference periods, AutoGluon performs better than other methods in measures like mean absolute percentage error (MAPE), root mean squared error (RMSE), and r-squared. Additionally, the study explores the feature importance rankings provided by each AutoML model, shedding light on the attributes that significantly influence predictive outcomes. Notably, sin/cos encoding is found to be particularly effective in characterizing categorical variables with a large number of unique values. This study includes useful information about the application of AutoML in the textile industry and provides a roadmap for employing Industry 4.0 technologies to enhance fabric quality prediction. The research highlights the importance of striking a balance between predictive accuracy and computational efficiency, emphasizes the significance of feature importance for model interpretability, and lays the groundwork for future investigations in this field.",
+        "affiliation": "Bursa Technical University, Bursa, Turkey.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Quality control",
+            "Textile Industry",
+            "Imbalanced Data",
+            "Feature Importance",
+            "Model Interpretability",
+            "Automl",
+            "Hyperparameter Optimization"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.7717/peerj-cs.2188"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11323016"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11323016?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "citedByCount": 3,
+        "hasData": "Y",
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasLabsLinks": "Y",
+        "license": "cc by",
+        "hasEvaluations": "N",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCreation": "2024-08-15",
+        "firstIndexDate": "2024-08-15",
+        "fullTextReceivedDate": "2024-08-19",
+        "dateOfRevision": "2024-08-18",
+        "electronicPublicationDate": "2024-07-23",
+        "firstPublicationDate": "2024-07-23"
+      }
+    ]
+  }
+}

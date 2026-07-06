@@ -1,0 +1,34 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "41145629",
+    "pmid": "41145629"
+  },
+  "pmid": "41145629",
+  "pmcid": "PMC12559171",
+  "doi": "10.1038/s41598-025-21223-y",
+  "title": "Transfer learning on protein language models improves antimicrobial peptide classification.",
+  "abstract": "Antimicrobial peptides (AMPs) are essential components of the innate immune system in humans and other organisms, exhibiting potent activity against a broad spectrum of pathogens. Their potential therapeutic applications, particularly in combating antibiotic resistance, have rendered AMP classification a vital task in computational biology. However, the scarcity of labeled AMP sequences, coupled with the diversity and complexity of AMPs, poses significant challenges for the training of standalone AMP classifiers. Self-supervised learning has emerged as a powerful paradigm in addressing such challenges across various fields, leading to the development of Protein Language Models (PLMs). These models leverage vast amounts of unlabeled protein sequences to learn biologically relevant features, providing transferable protein sequence representations (embeddings), that can be fine-tuned for downstream tasks even with limited labeled data. This study evaluates the performance of several publicly-available PLMs in AMP classification utilizing transfer learning techniques and benchmarking them against state-of-the-art neural-based classifiers. Our key findings include: (a) Model scale is crucial, with classification performance consistently improving with increasing model size; (b) State-of-the-art results are achieved with minimal effort utilizing PLM embedding representations alongside shallow classifiers; and (c) Classification performance is further enhanced through efficient fine-tuning of PLMs' parameters. Code showcasing our pipelines is available at https://github.com/EliasGeorg/PLM_AMP_Classification .",
+  "journal": null,
+  "venue": null,
+  "year": "2025",
+  "authors": [
+    "Georgoulis E",
+    "Zervou MA",
+    "Pantazis Y."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1038/s41598-025-21223-y",
+    "https://pubmed.ncbi.nlm.nih.gov/41145629/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12559171/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_samppred_gat",
+  "query_text": "\"sAMPpred-GAT\"",
+  "candidate_key": "doi:10 1038 s41598 025 21223 y"
+}

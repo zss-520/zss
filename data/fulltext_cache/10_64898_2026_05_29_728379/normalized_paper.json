@@ -1,0 +1,34 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR1244131",
+    "pmid": null
+  },
+  "pmid": null,
+  "pmcid": null,
+  "doi": "10.64898/2026.05.29.728379",
+  "title": "PepForge: Hierarchical HELM-Based Peptide Generation",
+  "abstract": "Peptides carrying special connections such as macrocyclizations and various other structural modifications constitute a major class among peptide therapeutics, yet their chemical space remains largely inaccessible to computational generation methods. Here we present PepForge, a deep learning platform for peptide generation that exploits Hierarchical Editing Language for Macromolecules (HELM) notation to access the chemical space of modified peptides, through a Layout-Content-Connection (LCC) cascade decomposing the generation task into block layout, monomer content, and special connection prediction. The LCC cascade is trained on 383,817 HELM peptides covering 425 monomers and nine connection types. Beyond  de novo generation, the LCC cascade supports masked infilling for targeted scaffold modification and multi-level constrained generation. Both the monomer library and the connection-type set support user-defined extensions for exploring a broader chemical space. The prediction module is decoupled from generation and accepts arbitrary scoring heads for downstream tasks. As a demonstration, we built an antimicrobial potency ensemble predictor trained on 11,026 peptides with minimum inhibitory concentration (MIC) values, alongside the external PeptiVerse predictor. Applied at scale, we generated 4.78 million novel HELM peptides and obtained 799 structurally novel hit antimicrobial peptide (AMP) candidates after potency and safety filtering. All code, pre-trained models, and a web interface for interactive use are publicly available at  https://github.com/wqx1999/PepForge .",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2026
+  },
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Wang Q",
+    "Süssmuth RD."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.64898/2026.05.29.728379"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "europepmc_broad",
+  "query_text": "\"antimicrobial peptide\" AND (prediction OR predictor OR classifier OR \"machine learning\" OR \"deep learning\" OR \"web server\")",
+  "candidate_key": "doi:10 64898 2026 05 29 728379"
+}

@@ -1,0 +1,45 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "32946226"
+  },
+  "pmid": "32946226",
+  "pmcid": "PMC12834174",
+  "doi": "10.1021/acs.jcim.0c00841",
+  "title": "IAMPE: NMR-Assisted Computational Prediction of Antimicrobial Peptides.",
+  "abstract": "Antimicrobial peptides (AMPs) are at the focus of attention due to their therapeutic importance and developing computational tools for the identification of efficient antibiotics from the primary structure. Here, we utilized the 13CNMR spectral of amino acids and clustered them into various groups. These clusters were used to build feature vectors for the AMP sequences based on the composition, transition, and distribution of cluster members. These features, along with the physicochemical properties of AMPs were exploited to learn computational models to predict active AMPs solely from their sequences. Naïve Bayes (NB), k-nearest neighbors (KNN), support-vector machine (SVM), random forest (RF), and eXtreme Gradient Boosting (XGBoost) were employed to build the classification system using the collected AMP datasets from the CAMP, LAMP, ADAM, and AntiBP databases. Our results were validated and compared with the CAMP and ADAM prediction systems and indicated that the synergistic combination of the 13CNMR features with the physicochemical descriptors enables the proposed ensemble mechanism to improve the prediction performance of active AMP sequences. Our web-based AMP prediction platform, IAMPE, is available at http://cbb1.ut.ac.ir/.",
+  "journal": "Journal of chemical information and modeling",
+  "venue": "Journal of chemical information and modeling",
+  "year": 2020,
+  "authors": [
+    "Kaveh Kavousi",
+    "Mojtaba Bagheri",
+    "Saman Behrouzi",
+    "Safar Vafadar",
+    "Fereshteh Fallah Atanaki",
+    "Bahareh Teimouri Lotfabadi",
+    "Shohreh Ariaeenejad",
+    "Abbas Shockravi",
+    "Ali Akbar Moosavi-Movahedi"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+  ],
+  "article_ids": {
+    "pubmed": "32946226",
+    "doi": "10.1021/acs.jcim.0c00841"
+  },
+  "urls": [
+    "https://doi.org/10.1021/acs.jcim.0c00841",
+    "https://pubmed.ncbi.nlm.nih.gov/32946226/"
+  ],
+  "raw_source_files": [],
+  "query_name": "ml_dl_precision",
+  "query_text": "(\"antimicrobial peptide\"[tiab] OR \"antimicrobial peptides\"[tiab]) AND (\"machine learning\"[tiab] OR \"deep learning\"[tiab] OR \"neural network\"[tiab] OR CNN[tiab] OR LSTM[tiab] OR transformer[tiab] OR BERT[tiab] OR SVM[tiab] OR \"support vector machine\"[tiab] OR \"random forest\"[tiab] OR XGBoost[tiab]) AND (predictor[tiab] OR classifier[tiab] OR prediction[tiab] OR identification[tiab])",
+  "candidate_key": "doi:10 1021 acs jcim 0c00841"
+}

@@ -1,0 +1,36 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "42106831",
+    "pmid": "42106831"
+  },
+  "pmid": "42106831",
+  "pmcid": "PMC13181977",
+  "doi": "10.1186/s13040-026-00558-w",
+  "title": "Generative models for antimicrobial peptide design: auto-encoders and beyond.",
+  "abstract": "<h4>Background</h4>As the number of multi-resistant pathogens grows rapidly, new strategies to accelerate the development of antimicrobial drugs are urgently needed. A promising candidate class of new antibiotics are antimicrobial peptides, showing a lower tendency to induce antibiotic resistance. High-throughput in silico strategies for candidate mining, such as generative deep learning algorithms, have become increasingly popular over the last few years and offer novel approaches to peptide discovery.<h4>Methods</h4>This study presents a comparative analysis of the generative performance of deep learning models for generating novel antimicrobial peptides. The models examined include Variational Auto-Encoders, a Wasserstein Auto-Encoder, a Recurrent Neural Network, and a Language Model. The primary focus of this study is the systematic comparison and evaluation of those models and their sampling options to identify the most suitable model and sampling strategy combination for different use cases.<h4>Results</h4>All models generated peptides with physicochemical profiles similar to natural antimicrobial sequences. Auto-encoders performed best overall, with the Wasserstein auto-encoder generating the most diverse and compositionally balanced peptides. In contrast to an unregularized baseline model, embedding-space analyses confirmed that the auto-encoders did not overfit. In addition, evaluating AMP predictors on data biased toward specific peptide properties revealed strong, model-specific preferences. Together, these results underscore the need to tailor models and evaluation metrics to each design objective.<h4>Conclusion</h4>The present study investigates the strengths and weaknesses of various generative models for antimicrobial peptides. Practical recommendations for the combination of model type and sampling strategy are provided for individual applications.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Beierle L",
+    "Hahnfeld J",
+    "Goesmann A",
+    "Mostolizadeh R",
+    "Cemič F."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1186/s13040-026-00558-w",
+    "https://pubmed.ncbi.nlm.nih.gov/42106831/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13181977/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "open-access-full-text",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR machine learning) AND (OPEN_ACCESS:Y)",
+  "candidate_key": "doi:10 1186 s13040 026 00558 w"
+}

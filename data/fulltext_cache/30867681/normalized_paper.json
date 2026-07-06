@@ -1,0 +1,53 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "openalex",
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "30867681",
+    "openalex": "https://openalex.org/W2920054351"
+  },
+  "pmid": "30867681",
+  "pmcid": "PMC6658705",
+  "doi": "10.1186/s13040-019-0196-x",
+  "title": "Encodings and models for antimicrobial peptide classification for multi-resistant pathogens.",
+  "abstract": "Antimicrobial peptides (AMPs) are part of the inherent immune system. In fact, they occur in almost all organisms including, e.g., plants, animals, and humans. Remarkably, they show effectivity also against multi-resistant pathogens with a high selectivity. This is especially crucial in times, where society is faced with the major threat of an ever-increasing amount of antibiotic resistant microbes. In addition, AMPs can also exhibit antitumor and antiviral effects, thus a variety of scientific studies dealt with the prediction of active peptides in recent years. Due to their potential, even the pharmaceutical industry is keen on discovering and developing novel AMPs. However, AMPs are difficult to verify in vitro, hence researchers conduct sequence similarity experiments against known, active peptides. Unfortunately, this approach is very time-consuming and limits potential candidates to sequences with a high similarity to known AMPs. Machine learning methods offer the opportunity to explore the huge space of sequence variations in a timely manner. These algorithms have, in principal, paved the way for an automated discovery of AMPs. However, machine learning models require a numerical input, thus an informative encoding is very important. Unfortunately, developing an appropriate encoding is a major challenge, which has not been entirely solved so far. For this reason, the development of novel amino acid encodings is established as a stand-alone research branch. The present review introduces state-of-the-art encodings of amino acids as well as their properties in sequence and structure based aggregation. Moreover, albeit a well-chosen encoding is essential, performant classifiers are required, which is reflected by a tendency towards specifically designed models in the literature. Furthermore, we introduce these models with a particular focus on encodings derived from support vector machines and deep learning approaches. Albeit a strong focus has been set on AMP predictions, not all of the mentioned encodings have been elaborated as part of antimicrobial research studies, but rather as general protein or peptide representations.",
+  "journal": "BioData mining",
+  "venue": "BioData mining",
+  "year": 2019,
+  "authors": [
+    "Sebastian Spänig",
+    "Dominik Heider"
+  ],
+  "keywords": [
+    "Antimicrobial peptides",
+    "Encodings",
+    "Machine learning"
+  ],
+  "publication_types": [
+    "Journal Article",
+    "Review"
+  ],
+  "article_ids": {
+    "pubmed": "29528364",
+    "pmc": "PMC6658705",
+    "doi": "10.1186/s13040-019-0196-x",
+    "pii": "196"
+  },
+  "urls": [
+    "https://biodatamining.biomedcentral.com/track/pdf/10.1186/s13040-019-0196-x",
+    "https://doi.org/10.1186/s13040-019-0196-x",
+    "https://openalex.org/W2920054351",
+    "https://pubmed.ncbi.nlm.nih.gov/30867681",
+    "https://pubmed.ncbi.nlm.nih.gov/30867681/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6658705/"
+  ],
+  "raw_source_files": [],
+  "query_name": "high-precision-ml-dl",
+  "query_text": "\"antimicrobial peptide\" AND (\"deep learning\" OR \"convolutional neural network\" OR \"recurrent neural network\" OR transformer)",
+  "candidate_key": "doi:10 1186 s13040 019 0196 x",
+  "openalex_id": "https://openalex.org/W2920054351",
+  "is_open_access": true,
+  "cited_by_count": 96
+}

@@ -1,0 +1,312 @@
+{
+  "chunk_id": "model_amp_prediction_by_svm_lz_complexity",
+  "chunk_type": "model",
+  "chunk_name": "AMP prediction by SVM-LZ complexity",
+  "compression_status": "ok",
+  "main_entities": [
+    "PepVAE",
+    "LMPred",
+    "AMP prediction SVM-LZ"
+  ],
+  "papers": [
+    {
+      "title": "PepVAE: Variational Autoencoder Framework for Antimicrobial Peptide Generation and Activity Prediction",
+      "pmid": "34659152",
+      "pmcid": "8515052",
+      "doi": "10.3389/fmicb.2021.725727",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Structure, mechanism and crystallographic fragment screening of the SARS-CoV-2 NSP13 helicase",
+      "pmid": "34381037",
+      "pmcid": "8358061",
+      "doi": "10.1038/s41467-021-25166-6",
+      "year": "2021",
+      "role": "uncertain",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "LMPred: predicting antimicrobial peptides using pre-trained language models and deep learning.",
+      "pmid": "36699381",
+      "pmcid": "PMC6540740",
+      "doi": "10.1101/2020.07.12.199554v3",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Prediction of antimicrobial peptides based on sequence alignment and support vector machine-pairwise algorithm utilizing LZ-complexity.",
+      "pmid": "25802839",
+      "pmcid": "PMC2686604",
+      "doi": "10.1093/nar/gkn823",
+      "year": "2015",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "PepVAE",
+      "canonical_name": "PepVAE",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Variational autoencoder (VAE) for generation, combined with regression models (GB, RF, LGBM, XGB) for MIC prediction",
+      "input_features": "One-hot encoded amino acid sequences (length ≤40)",
+      "source_pmid": "34659152",
+      "source_pmcid": "8515052",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "benchmark_candidate": true,
+      "candidate_reason": "Provides both generative and predictive components for AMP activity; regression models trained on public data and experimentally validated",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "LMPred",
+      "canonical_name": "LMPred",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Pre-trained language model embeddings + convolutional neural network (CNN)",
+      "input_features": "Contextualized embeddings of amino acid sequences from pre-trained language models",
+      "source_pmid": "36699381",
+      "source_pmcid": "PMC6540740",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "code_repository_url": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel input representation using pre-trained language models; code and data publicly available; outperforms previous state-of-the-art",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "AMP prediction SVM-LZ",
+      "canonical_name": "AMP prediction by SVM-LZ complexity",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Support vector machine (SVM) with LZ-complexity pairwise kernel, integrated with sequence alignment",
+      "input_features": "LZ-complexity pairwise similarity measure from amino acid sequences",
+      "source_pmid": "25802839",
+      "source_pmcid": "PMC2686604",
+      "source_doi": "10.1093/nar/gkn823",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Method for AMP prediction with reported sensitivity; could be included in benchmarks if implementation becomes available",
+      "blocking_issues": [
+        "No code or model provided",
+        "Full-text cache mismatch (APD2 database article)"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.6
+    }
+  ],
+  "repositories": [
+    {
+      "name": "LMPred GitHub repository",
+      "url": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "repository_type": "code",
+      "matched_model_name": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "evidence_level": "fulltext",
+      "evidence": "All codes are available and can be accessed here: https://github.com/williamdee1/LMPred_AMP_Prediction."
+    },
+    {
+      "name": "GRAMPA dataset repository",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "repository_type": "dataset",
+      "matched_model_name": "PepVAE",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence_level": "fulltext",
+      "evidence": "publicly available on GitHub: https://github.com/zswitten/Antimicrobial-Peptides."
+    },
+    {
+      "name": "Antimicrobial-Peptides.",
+      "url": "https://github.com/zswitten/Antimicrobial-Peptides.",
+      "repository_type": "unknown",
+      "matched_model_name": null,
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    },
+    {
+      "name": "LMPred_AMP_Prediction.",
+      "url": "https://github.com/williamdee1/LMPred_AMP_Prediction.",
+      "repository_type": "unknown",
+      "matched_model_name": null,
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    },
+    {
+      "name": "CDPfold.",
+      "url": "https://github.com/zhangch994/CDPfold.",
+      "repository_type": "unknown",
+      "matched_model_name": null,
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "GRAMPA (modified)",
+      "dataset_url": "https://github.com/zswitten/Antimicrobial-Peptides",
+      "dataset_source": "Aggregated from APD, DADP, DBAASP, DRAMP, YADAMP",
+      "linked_model": "PepVAE",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "positive_samples": "6,760 unique AMP sequences (original), 3,280 for E. coli after filtering",
+      "negative_samples": "Not explicitly mentioned; MIC values used as regression target",
+      "deduplication_method": "Not described",
+      "evidence_level": "fulltext",
+      "evidence": "The dataset used in this study was based on Giant Repository of AMP Activity (GRAMPA) ... combined 6,760 unique AMP sequences and 51,345 MIC values ... publicly available on GitHub"
+    },
+    {
+      "dataset_name": "LMPred independent dataset",
+      "dataset_url": "https://github.com/williamdee1/LMPred_AMP_Prediction",
+      "dataset_source": "Created by the authors",
+      "linked_model": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "positive_samples": "N/A",
+      "negative_samples": "N/A",
+      "deduplication_method": "Not described",
+      "evidence_level": "fulltext",
+      "evidence": "a larger independent dataset created by this paper"
+    },
+    {
+      "dataset_name": "Antimicrobial-Peptides.",
+      "dataset_url": "https://github.com/zswitten/Antimicrobial-Peptides.",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "PepVAE",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    },
+    {
+      "dataset_name": "LMPred_AMP_Prediction.",
+      "dataset_url": "https://github.com/williamdee1/LMPred_AMP_Prediction.",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    },
+    {
+      "dataset_name": "LMPred_AMP_Prediction.\\\\nSUPPLEMENTARY",
+      "dataset_url": "https://github.com/williamdee1/LMPred_AMP_Prediction.\\\\nSUPPLEMENTARY",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    },
+    {
+      "dataset_name": "LMPred_AMP_Prediction.\\nSUPPLEMENTARY",
+      "dataset_url": "https://github.com/williamdee1/LMPred_AMP_Prediction.\\nSUPPLEMENTARY",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    },
+    {
+      "dataset_name": "CDPfold.",
+      "dataset_url": "https://github.com/zhangch994/CDPfold.",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "LMPred",
+      "source_pmid": "36699381",
+      "source_doi": "10.1101/2020.07.12.199554v3",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "mixed",
+      "evidence": "not_reported_in_available_evidence"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "RMSE",
+      "usage": "Evaluate MIC prediction regression models",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence": "Initial comparison of the eight different regression models ... was performed by calculating Root mean square error (RMSE) and R2 values"
+    },
+    {
+      "metric_name": "R²",
+      "usage": "Evaluate MIC prediction regression models",
+      "source_pmid": "34659152",
+      "source_doi": "10.3389/fmicb.2021.725727",
+      "evidence": "calculating Root mean square error (RMSE) and R2 values from actual MIC (log μM) vs. predicted"
+    },
+    {
+      "metric_name": "Sensitivity",
+      "usage": "AMP classification performance",
+      "source_pmid": "25802839",
+      "source_doi": "10.1093/nar/gkn823",
+      "evidence": "sensitivity of the proposed algorithm is 95.28% in jackknife test and 87.59% in independent test"
+    }
+  ],
+  "important_evidence": [
+    "PepVAE models trained on GRAMPA dataset, available on GitHub (https://github.com/zswitten/Antimicrobial-Peptides), but model weights only available upon request.",
+    "LMPred code and data publicly available at https://github.com/williamdee1/LMPred_AMP_Prediction.",
+    "SVM-LZ method reported high sensitivity but no code or model provided; full-text cache mismatch (APD2 article)."
+  ],
+  "uncertainties": [
+    "The full-text cache for PMID 25802839 (doi:10.1093/nar/gkn823) appears to correspond to a different article about APD2 database, not the SVM-LZ prediction method. Need to verify the actual paper content.",
+    "PepVAE model weights are not publicly available; only 'available upon request'. Is it still a candidate for benchmark if code cannot be obtained?",
+    "The LMPred paper's full-text excerpt contained unrelated RNA secondary structure content; verify that the actual paper matches the abstract."
+  ],
+  "source_pmids": [
+    "34659152",
+    "34381037",
+    "36699381",
+    "25802839"
+  ],
+  "source_dois": [
+    "10.3389/fmicb.2021.725727",
+    "10.1038/s41467-021-25166-6",
+    "10.1101/2020.07.12.199554v3",
+    "10.1093/nar/gkn823"
+  ],
+  "urls": [
+    "https://github.com/zswitten/Antimicrobial-Peptides",
+    "https://github.com/williamdee1/LMPred_AMP_Prediction",
+    "https://github.com/zhangch994/CDPfold"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc"
+  ],
+  "source_ids": {
+    "europe_pmc": "42155201",
+    "pmid": "42155201"
+  },
+  "pmid": "42155201",
+  "pmcid": null,
+  "doi": "10.1016/j.compbiolchem.2026.109129",
+  "title": "AMP-distillation: A knowledge distillation framework for accurate and efficient antimicrobial peptide prediction.",
+  "abstract": "Antimicrobial peptides (AMPs) are pivotal component of the innate immune system, showing broad activity to bacteria, fungi, viruses, and parasites. Despite their therapeutic potential, accurate identification and prediction of AMPs still remain challenge because of sequence diversity, nonlinear feature relationships, and severe class imbalance Here, we present AMP-Distillation, a novel computational framework leveraging knowledge distillation to enhance AMP prediction. Our approach employs a Transformer-based teacher model and a BiLSTM-based student model, where the teacher's learned, knowledge is transferred to the student to reduce computational complexity while maintaining high predictive accuracy. Sequences from the APD3 and DADP databases were curated, de-duplicated, and processed with CD-HIT to ensure diversity and minimize redundancy. Protein sequences were embedded into 128-dimensional vectors, with Rotary Positional Encoding incorporated in the teacher model to capture sequential dependencies. The student model, guided by the teacher's soft labels alongside ground-truth labels, demonstrated improved generalization and balanced prediction on highly imbalanced datasets. Evaluated using multiple metrics, AMP-Distillation achieved 99.14% accuracy, 95.13% sensitivity, 99.47% specificity, 94.27% F1-score, 93.81% MCC, 99.52% AUROC, and 98.38% AUPR, significantly outperforming state-of-the-art methods. The proposed framework not only reduces the parameter count by nearly 50% but also improves model generalization and stability, particularly under severe data imbalance, offering an efficient and interpretable deep learning approach for large-scale AMP discovery and a robust foundation for future antimicrobial drug design.",
+  "journal": null,
+  "venue": null,
+  "year": "2026",
+  "authors": [
+    "Khorramfard A",
+    "Pirgazi J",
+    "Ghanbari Sorkhi A",
+    "Pourseif MM."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/42155201/",
+    "https://doi.org/10.1016/j.compbiolchem.2026.109129"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "general-search",
+  "query_text": "(antimicrobial peptide OR AMP) AND (prediction OR model OR classification)",
+  "candidate_key": "doi:10 1016 j compbiolchem 2026 109129"
+}

@@ -1,0 +1,125 @@
+{
+  "chunk_id": "model_admetlab_3",
+  "chunk_type": "model",
+  "chunk_name": "ADMETlab 3",
+  "compression_status": "ok",
+  "main_entities": [
+    "ADMETlab 3",
+    "PeptideRanker",
+    "PMC12986296",
+    "PMC13276608"
+  ],
+  "papers": [
+    {
+      "title": "Artificial Neural Network-Guided Discovery of Antioxidant Peptides from Peony (Paeonia ostii) Seed Meal: Peptidomics, Molecular Mechanism, and Cellular Validation",
+      "pmid": "",
+      "pmcid": "PMC12986296",
+      "doi": "",
+      "year": "2026",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Acoustic Cavitation-Induced Unfolding and Solubilization of Velvet Antler Protein for Antioxidant Peptide Release: Substrate Modification Kinetics, Quantum Chemistry, and Keap1/Nrf2-Associated Cellular Responses.",
+      "pmid": "42276016",
+      "pmcid": "PMC13276608",
+      "doi": "10.1016/j.ultsonch.2026.107920",
+      "year": "2026",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "ADMETlab 3",
+      "canonical_name": "ADMETlab 3",
+      "aliases": [],
+      "task_type": "ADMET property prediction",
+      "method_family": "not_AMP_specific",
+      "architecture_or_algorithm": "not_reported_in_available_evidence",
+      "input_features": "not_reported_in_available_evidence",
+      "source_pmid": "42276016",
+      "source_pmcid": "PMC13276608",
+      "source_doi": "10.1016/j.ultsonch.2026.107920",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://admetlab3.scbdd.com",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": false,
+      "candidate_reason": "Not an AMP prediction model; focuses on ADMET properties.",
+      "blocking_issues": [
+        "not_AMP_specific"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.0,
+      "model_category_hint": "webserver_or_tool_only",
+      "weights_availability": "not_applicable",
+      "benchmark_entry_status": "out_of_scope",
+      "representative_reason": ""
+    }
+  ],
+  "repositories": [
+    {
+      "name": "PeptideRanker",
+      "url": "http://distilldeep.ucd.ie/PeptideRanker/",
+      "repository_type": "webserver",
+      "matched_model_name": "not_AMP_specific",
+      "source_pmid": null,
+      "source_doi": null,
+      "evidence_level": "fulltext",
+      "evidence": "Extracted from PMC12986296 fulltext; predicts peptide bioactivity, not AMP-specific."
+    },
+    {
+      "name": "ADMETlab 3",
+      "url": "https://admetlab3.scbdd.com",
+      "repository_type": "webserver",
+      "matched_model_name": "not_AMP_specific",
+      "source_pmid": "42276016",
+      "source_doi": "10.1016/j.ultsonch.2026.107920",
+      "evidence_level": "fulltext",
+      "evidence": "Extracted from PMC13276608 fulltext; used for ADMET prediction, not AMP classification."
+    }
+  ],
+  "datasets": [],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "dataset_name": "not_reported",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "not_reported_in_available_evidence",
+      "linked_model": "ADMETlab 3",
+      "dataset_role": "unknown",
+      "dataset_status": "not_reported",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "split_method": "not_reported",
+      "source_pmid": "42276016",
+      "source_doi": "10.1016/j.ultsonch.2026.107920",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "ADMETlab 3 webserver URL found in PMC13276608 fulltext.",
+    "PeptideRanker webserver URL found in PMC12986296 fulltext.",
+    "Both papers focus on antioxidant peptides, no AMP prediction model present."
+  ],
+  "uncertainties": [
+    "No AMP prediction model identified in this chunk; further search may be needed for AMP-related tools."
+  ],
+  "source_pmids": [
+    "42276016"
+  ],
+  "source_dois": [
+    "10.1016/j.ultsonch.2026.107920"
+  ],
+  "urls": [
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12986296/",
+    "http://distilldeep.ucd.ie/PeptideRanker/",
+    "https://pubmed.ncbi.nlm.nih.gov/42276016/",
+    "https://doi.org/10.1016/j.ultsonch.2026.107920",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13276608/",
+    "https://admetlab3.scbdd.com"
+  ]
+}

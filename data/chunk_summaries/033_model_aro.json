@@ -1,0 +1,165 @@
+{
+  "chunk_id": "model_aro",
+  "chunk_type": "model",
+  "chunk_name": "aro",
+  "compression_status": "ok",
+  "main_entities": [
+    "Macrel",
+    "FESNov antimicrobial peptide families",
+    "nov-fams-pipeline",
+    "aro"
+  ],
+  "papers": [
+    {
+      "title": "Peer Review #2 of \"Macrel: antimicrobial peptide screening in genomes and metagenomes (v0.2)\"",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.7287/peerj.10555v0.2/reviews/2",
+      "year": 2020,
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Functional and evolutionary significance of unknown genes from uncultivated taxa",
+      "pmid": "38109938",
+      "pmcid": "PMC10849945",
+      "doi": "10.1038/s41586-023-06955-z",
+      "year": 2023,
+      "role": "dataset_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "feature-engineering",
+      "architecture_or_algorithm": "classifiers built on 22 peptide features",
+      "input_features": "22 peptide features",
+      "source_pmid": null,
+      "source_pmcid": null,
+      "source_doi": "10.7287/peerj.10555v0.2/reviews/2",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Described as an end-to-end pipeline for AMP prediction from genomes/metagenomes using 22 features and classifiers; benchmarked against state-of-the-art for antimicrobial and hemolytic activity prediction.",
+      "blocking_issues": [
+        "Only peer review abstract available; no full text, code or model weights",
+        "Actual performance metrics and dataset details not specified"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.6,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "Representative of traditional feature-engineering approach for AMP prediction; could serve as baseline for older methods."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "nov-fams-pipeline",
+      "url": "https://github.com/AlvaroRodriguezDelRio/nov-fams-pipeline",
+      "repository_type": "code",
+      "matched_model_name": null,
+      "source_pmid": "38109938",
+      "source_doi": "10.1038/s41586-023-06955-z",
+      "evidence_level": "fulltext",
+      "evidence": "Genomic context analysis pipeline used to identify and functionally annotate novel gene families, including antimicrobial peptide families."
+    },
+    {
+      "name": "aro",
+      "url": "https://github.com/arpcard/aro",
+      "repository_type": "code",
+      "matched_model_name": null,
+      "source_pmid": "38109938",
+      "source_doi": "10.1038/s41586-023-06955-z",
+      "evidence_level": "fulltext",
+      "evidence": "Repository associated with the Nature 2023 paper, possibly containing data or tools for antimicrobial resistance ontology."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "FESNov antimicrobial peptide families",
+      "dataset_url": "https://novelfams.cgmlab.org",
+      "dataset_source": "Nature 2023 paper (doi:10.1038/s41586-023-06955-z)",
+      "linked_model": null,
+      "dataset_role": "benchmark",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "240 FESNov gene families with antimicrobial signatures",
+      "negative_samples": null,
+      "deduplication_method": "not_reported_in_available_evidence",
+      "split_method": "not_reported_in_available_evidence",
+      "source_pmid": "38109938",
+      "source_doi": "10.1038/s41586-023-06955-z",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "nov-fams-pipeline",
+      "dataset_url": "https://github.com/AlvaroRodriguezDelRio/nov-fams-pipeline.",
+      "dataset_source": "GitHub repository linked to Nature 2023 paper",
+      "linked_model": null,
+      "dataset_role": "unknown",
+      "dataset_status": "direct_url_found",
+      "positive_samples": null,
+      "negative_samples": null,
+      "deduplication_method": "not_reported_in_available_evidence",
+      "split_method": "not_reported_in_available_evidence",
+      "source_pmid": "38109938",
+      "source_doi": "10.1038/s41586-023-06955-z",
+      "evidence_level": "repository"
+    },
+    {
+      "dataset_name": "aro",
+      "dataset_url": "https://github.com/arpcard/aro",
+      "dataset_source": "GitHub repository linked to Nature 2023 paper",
+      "linked_model": null,
+      "dataset_role": "unknown",
+      "dataset_status": "direct_url_found",
+      "positive_samples": null,
+      "negative_samples": null,
+      "deduplication_method": "not_reported_in_available_evidence",
+      "split_method": "not_reported_in_available_evidence",
+      "source_pmid": "38109938",
+      "source_doi": "10.1038/s41586-023-06955-z",
+      "evidence_level": "repository"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "Macrel",
+      "dataset_name": "unknown",
+      "dataset_status": "not_reported",
+      "evidence": "No dataset details available in the peer review abstract."
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "Macrel uses 22 peptide features for AMP/hemolytic activity prediction, comparable to state-of-the-art.",
+    "Nature 2023 paper identified 240 FESNov families with antimicrobial signatures, accessible via novelfams.cgmlab.org.",
+    "Two GitHub repositories (nov-fams-pipeline, aro) are linked to the Nature paper, potentially containing code or data."
+  ],
+  "uncertainties": [
+    "Macrel's full performance metrics, dataset composition, and availability of code/weights remain unknown (only peer review abstract).",
+    "The exact role of the aro and nov-fams-pipeline repositories in AMP prediction is unclear.",
+    "Validation on external benchmarks or experimental data is not reported."
+  ],
+  "source_pmids": [
+    "38109938"
+  ],
+  "source_dois": [
+    "10.7287/peerj.10555v0.2/reviews/2",
+    "10.1038/s41586-023-06955-z"
+  ],
+  "urls": [
+    "https://github.com/AlvaroRodriguezDelRio/nov-fams-pipeline",
+    "https://github.com/arpcard/aro",
+    "https://novelfams.cgmlab.org",
+    "https://doi.org/10.7287/peerj.10555v0.2/reviews/2",
+    "https://doi.org/10.1038/s41586-023-06955-z"
+  ]
+}

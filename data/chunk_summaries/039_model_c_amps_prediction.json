@@ -1,0 +1,159 @@
+{
+  "chunk_id": "model_c_amps_prediction",
+  "chunk_type": "model",
+  "chunk_name": "c_AMPs-prediction",
+  "compression_status": "ok",
+  "main_entities": [
+    "c_AMPs-prediction model"
+  ],
+  "papers": [
+    {
+      "title": "Detection of antimicrobial peptides from fecal samples of FMT donors using deep learning.",
+      "pmid": "41164228",
+      "pmcid": "PMC12560166",
+      "doi": "10.3389/fvets.2025.1689589",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Arctic deep-sea hydrothermal microbiomes as a natural niche for novel antimicrobial peptides.",
+      "pmid": "42104260",
+      "pmcid": "PMC13321764",
+      "doi": "10.1186/s12866-026-05098-1",
+      "year": "2026",
+      "role": "dataset_paper",
+      "evidence_source": "fulltext"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "c_AMPs-prediction",
+      "canonical_name": "c_AMPs-prediction",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "LSTM, Attention, BERT combined pipeline",
+      "input_features": "amino acid sequences",
+      "source_pmid": "41164228",
+      "source_pmcid": "PMC12560166",
+      "source_doi": "10.3389/fvets.2025.1689589",
+      "code_repository_url": "https://github.com/mayuefine/c_AMPs-prediction",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/mayuefine/c_AMPs-prediction",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model with available code; used in a published AMP discovery study",
+      "blocking_issues": [
+        "original_model_paper_uncertain",
+        "weights_not_reported"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.8,
+      "model_category_hint": "deep_learning_sequence_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "needs_weight_check",
+      "representative_reason": "LSTM/Attention/BERT combination for AMP prediction with available code, used in metagenomic AMP discovery"
+    }
+  ],
+  "repositories": [
+    {
+      "name": "c_AMPs-prediction",
+      "url": "https://github.com/mayuefine/c_AMPs-prediction",
+      "repository_type": "model",
+      "matched_model_name": "c_AMPs-prediction",
+      "source_pmid": "41164228",
+      "source_doi": "10.3389/fvets.2025.1689589",
+      "evidence_level": "fulltext"
+    },
+    {
+      "name": "FMT-MetagenomicData",
+      "url": "https://github.com/pointwei/FMT-MetagenomicData",
+      "repository_type": "code",
+      "matched_model_name": "",
+      "source_pmid": "41164228",
+      "source_doi": "10.3389/fvets.2025.1689589",
+      "evidence_level": "fulltext"
+    },
+    {
+      "name": "DeepSeaQuence_biofilms",
+      "url": "https://github.com/trongthucnguyen/DeepSeaQuence_biofilms",
+      "repository_type": "code",
+      "matched_model_name": "",
+      "source_pmid": "42104260",
+      "source_doi": "10.1186/s12866-026-05098-1",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "FMT donor fecal AMP candidates",
+      "dataset_url": "https://github.com/pointwei/FMT-MetagenomicData",
+      "dataset_source": "Fecal metagenomes from 120 FMT donors",
+      "linked_model": "c_AMPs-prediction",
+      "dataset_role": "experimental_validation",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "2,820,488 potential AMPs predicted",
+      "negative_samples": "not_reported",
+      "deduplication_method": "redundancy removed by Perl script, details not specified",
+      "split_method": "not_reported",
+      "source_pmid": "41164228",
+      "source_doi": "10.3389/fvets.2025.1689589",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "AMOR biofilm AMPs dataset",
+      "dataset_url": "https://github.com/trongthucnguyen/DeepSeaQuence_biofilms",
+      "dataset_source": "Arctic deep-sea hydrothermal vent biofilm metagenomes",
+      "linked_model": "",
+      "dataset_role": "unknown",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "961 predicted AMPs (873 unique)",
+      "negative_samples": "not_reported",
+      "deduplication_method": "CD-HIT",
+      "split_method": "not_reported",
+      "source_pmid": "42104260",
+      "source_doi": "10.1186/s12866-026-05098-1",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "c_AMPs-prediction",
+      "dataset_name": "FMT donor fecal AMP candidates",
+      "relationship": "predicted_candidates"
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "c_AMPs-prediction is a deep learning model combining LSTM, Attention, and BERT for AMP prediction, used in a study to mine AMPs from 120 FMT donor fecal metagenomes, predicting 2,820,488 candidates.",
+    "Code repository available at https://github.com/mayuefine/c_AMPs-prediction; no model weights or web server reported.",
+    "Associated data and analysis scripts for the FMT study are in https://github.com/pointwei/FMT-MetagenomicData.",
+    "A separate dataset of 961 predicted AMPs from Arctic hydrothermal vent biofilms is available at https://github.com/trongthucnguyen/DeepSeaQuence_biofilms, unrelated to c_AMPs-prediction."
+  ],
+  "uncertainties": [
+    "Original paper describing the c_AMPs-prediction model (Ma et al. (12)) is not included in this chunk; the source paper (PMID 41164228) only uses the model.",
+    "Model weights are not provided in the repository, limiting reproducibility without retraining.",
+    "Training data details (public databases) are vague; the exact composition and source of training AMP sequences are not reported.",
+    "The dataset_url for the model points to the code repository, not a separated dataset file; actual training data may not be directly accessible."
+  ],
+  "source_pmids": [
+    "41164228",
+    "42104260"
+  ],
+  "source_dois": [
+    "10.3389/fvets.2025.1689589",
+    "10.1186/s12866-026-05098-1"
+  ],
+  "urls": [
+    "https://github.com/mayuefine/c_AMPs-prediction",
+    "https://github.com/pointwei/FMT-MetagenomicData",
+    "https://github.com/trongthucnguyen/DeepSeaQuence_biofilms",
+    "https://pubmed.ncbi.nlm.nih.gov/41164228/",
+    "https://doi.org/10.3389/fvets.2025.1689589",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12560166/",
+    "https://pubmed.ncbi.nlm.nih.gov/42104260/",
+    "https://doi.org/10.1186/s12866-026-05098-1"
+  ]
+}

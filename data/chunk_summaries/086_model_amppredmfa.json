@@ -1,0 +1,476 @@
+{
+  "chunk_id": "model_amppredmfa",
+  "chunk_type": "model",
+  "chunk_name": "AMPpredMFA",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPpredMFA",
+    "Multifunctional AMP Design Framework (FBGAN-enhanced)",
+    "HydrAMP",
+    "APEX",
+    "AMPlify",
+    "sAMP-pred-GAT",
+    "AMP-META",
+    "MBC-attention",
+    "EnDL-HemoLyt",
+    "Macrel",
+    "AMPfinder",
+    "SenseXAMP",
+    "DBAASP",
+    "APD3",
+    "GRAMPA",
+    "ADAM",
+    "CAMPR4",
+    "UniProt (AMP subset)"
+  ],
+  "papers": [
+    {
+      "title": "Computational Design of Potentially Multifunctional Antimicrobial Peptide Candidates via a Hybrid Generative Model.",
+      "pmid": "40806517",
+      "pmcid": "PMC12347886",
+      "doi": "10.3390/ijms26157387",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "AI-Driven Antimicrobial Peptide Discovery: Mining and Generation.",
+      "pmid": "40459283",
+      "pmcid": "PMC12177927",
+      "doi": "10.1021/acs.accounts.0c00594",
+      "year": "2025",
+      "role": "review_or_secondary",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Comparison between strip sampling and laser ablation methods to infer seasonal movements from intra-tooth strontium isotopes profiles in migratory caribou.",
+      "pmid": "36869076",
+      "pmcid": "PMC9984400",
+      "doi": "10.1038/s41598-023-30222-w",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Functional Plasticity Coupled With Structural Predispositions in Auditory Cortex Shape Successful Music Category Learning.",
+      "pmid": "35837119",
+      "pmcid": "PMC9274125",
+      "doi": "10.3389/fnins.2022.897239",
+      "year": "2022",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "Multifunctional AMP Design Framework (FBGAN-enhanced)",
+      "canonical_name": "Multifunctional AMP Design Framework",
+      "aliases": [
+        "Hybrid generative model for AMP candidates"
+      ],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Generator: GAN (FBGAN) with Gumbel-Softmax output; Discriminator: convolutional residual network; integrated global quantitative AMP activity regression module and multifunctional-attribute prediction module (CNN-based multi-label classifier).",
+      "input_features": "amino acid sequences",
+      "source_pmid": "40806517",
+      "source_pmcid": "PMC12347886",
+      "source_doi": "10.3390/ijms26157387",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "Integrated from GRAMPA, APD3, ADAM, CAMPR4, UniProt",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel deep learning framework for multifunctional AMP generation and prediction; could be used for benchmarking if code becomes available",
+      "blocking_issues": [
+        "code not available",
+        "no web server"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "HydrAMP",
+      "canonical_name": "HydrAMP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Extended conditional variational autoencoder (CVAE) for unconstrained and analogue generation of novel AMPs, with parametrized creativity.",
+      "input_features": "amino acid sequences",
+      "source_pmid": "36922490",
+      "source_pmcid": "PMC10017685",
+      "source_doi": "10.1038/s41467-023-36994-z",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Published deep generative model for AMPs; potential benchmark candidate",
+      "blocking_issues": [
+        "code availability not confirmed from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.6
+    },
+    {
+      "model_name": "APEX",
+      "canonical_name": "APEX",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Deep learning model for mining extinct organisms' proteomes to identify antibiotic peptides.",
+      "input_features": "amino acid sequences",
+      "source_pmid": "38862735",
+      "source_pmcid": "PMC11310081",
+      "source_doi": "10.1038/s41551-024-01201-x",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Deep learning model for antibiotic discovery from extinct organisms; potential benchmark candidate",
+      "blocking_issues": [
+        "code availability not confirmed from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.6
+    },
+    {
+      "model_name": "AMPlify",
+      "canonical_name": "AMPlify",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Bi-LSTM with attention layers",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Established AMP prediction model; could be benchmarked",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "AMPpredMFA",
+      "canonical_name": "AMPpredMFA",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "bidirectional LSTMs and CNNs with multihead attention mechanism",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Published AMP prediction model; possible benchmark candidate",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "sAMP-pred-GAT",
+      "canonical_name": "sAMP-pred-GAT",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Graph Neural Network with attention",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "GNN-based AMP predictor; could be benchmarked",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "AMP-META",
+      "canonical_name": "AMP-META",
+      "aliases": [],
+      "task_type": "AMP prediction (strain-specific)",
+      "method_family": "DL",
+      "architecture_or_algorithm": "not specified in review, likely DL with attention",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Strain-specific AMP predictor; potential benchmark",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "MBC-attention",
+      "canonical_name": "MBC-attention",
+      "aliases": [],
+      "task_type": "AMP prediction (MIC regression)",
+      "method_family": "DL",
+      "architecture_or_algorithm": "multibranch CNN with attention mechanism",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "CNN-based MIC predictor for E. coli; could be benchmarked",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "EnDL-HemoLyt",
+      "canonical_name": "EnDL-HemoLyt",
+      "aliases": [],
+      "task_type": "AMP toxicity prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "deep learning model for hemolytic activity prediction",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Toxicity predictor for AMPs; could be benchmarked",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "Macrel",
+      "canonical_name": "Macrel",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "random forest model",
+      "input_features": "sequence-derived descriptors",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Random forest AMP predictor used in AMPSphere; could be benchmarked",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "AMPfinder",
+      "canonical_name": "AMPfinder",
+      "aliases": [],
+      "task_type": "AMP prediction (functional type)",
+      "method_family": "DL",
+      "architecture_or_algorithm": "BERT-like model incorporating Gene Ontology (OntoProtein)",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP functional type predictor; potential benchmark",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "SenseXAMP",
+      "canonical_name": "SenseXAMP",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "fused embeddings from protein language models and engineered features",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP predictor using fused embeddings; could be benchmarked",
+      "blocking_issues": [
+        "lack of original publication details from review"
+      ],
+      "evidence_level": "review",
+      "confidence": 0.5
+    }
+  ],
+  "repositories": [],
+  "datasets": [
+    {
+      "dataset_name": "DBAASP",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Review: AI-Driven Antimicrobial Peptide Discovery: Mining and Generation",
+      "linked_model": "multiple",
+      "source_pmid": "40459283",
+      "source_doi": "10.1021/acs.accounts.0c00594",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "review",
+      "evidence": "based on the DBAASP database"
+    },
+    {
+      "dataset_name": "APD3",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Review: AI-Driven Antimicrobial Peptide Discovery: Mining and Generation",
+      "linked_model": "multiple",
+      "source_pmid": "40459283",
+      "source_doi": "10.1021/acs.accounts.0c00594",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "review",
+      "evidence": "The third version of the Antimicrobial Peptide Database (APD3) includes AMPs with various functions"
+    },
+    {
+      "dataset_name": "GRAMPA",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Review: AI-Driven Antimicrobial Peptide Discovery: Mining and Generation",
+      "linked_model": "multiple",
+      "source_pmid": "40459283",
+      "source_doi": "10.1021/acs.accounts.0c00594",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "review",
+      "evidence": "collected AMP sequences from four well-established AMP databases, GRAMPA"
+    },
+    {
+      "dataset_name": "ADAM",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Review: AI-Driven Antimicrobial Peptide Discovery: Mining and Generation",
+      "linked_model": "multiple",
+      "source_pmid": "40459283",
+      "source_doi": "10.1021/acs.accounts.0c00594",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "review",
+      "evidence": "ADAM"
+    },
+    {
+      "dataset_name": "CAMPR4",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Review: AI-Driven Antimicrobial Peptide Discovery: Mining and Generation",
+      "linked_model": "multiple",
+      "source_pmid": "40459283",
+      "source_doi": "10.1021/acs.accounts.0c00594",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "review",
+      "evidence": "CAMPR4"
+    },
+    {
+      "dataset_name": "UniProt (AMP subset)",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "Review: AI-Driven Antimicrobial Peptide Discovery: Mining and Generation",
+      "linked_model": "multiple",
+      "source_pmid": "40459283",
+      "source_doi": "10.1021/acs.accounts.0c00594",
+      "positive_samples": "not_reported_in_available_evidence",
+      "negative_samples": "not_reported_in_available_evidence",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "evidence_level": "review",
+      "evidence": "additional AMP entries from UniProt"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Minimum Inhibitory Concentration (MIC)",
+      "usage": "global quantitative AMP activity regression module in the FBGAN-enhanced framework",
+      "source_pmid": "40806517",
+      "source_doi": "10.3390/ijms26157387",
+      "evidence": "optimizes computational predictions of Minimum Inhibitory Concentration (MIC) values"
+    }
+  ],
+  "important_evidence": [
+    "We introduce a novel de novo multifunctional AMP design framework that enhances a Feedback Generative Adversarial Network (FBGAN) by integrating a global quantitative AMP activity regression module and a multifunctional-attribute integrated prediction module.",
+    "HydrAMP: Extended conditional variational autoencoder, trained for unconstrained and analogue generation of novel active AMPs.",
+    "APEX: Deep learning model used to mine all extinct organisms known to science as a source of antibiotic molecules.",
+    "AMPpredMFA: uses both bidirectional-LSTMs and CNNs, followed by multihead attention mechanism.",
+    "Macrel: random forest model used in AMPSphere.",
+    "AMPfinder: BERT-like model incorporating Gene Ontology (OntoProtein) to predict functional types of AMP."
+  ],
+  "uncertainties": [
+    "Code availability for the FBGAN-enhanced AMP design framework not reported; full text needed to verify.",
+    "Details of models mentioned in the review (e.g., AMPlify, AMPpredMFA) require full-text review of original papers for accurate benchmarking.",
+    "Are the datasets used in the FBGAN-based framework publicly available in a standardized format?"
+  ],
+  "source_pmids": [
+    "40806517",
+    "40459283",
+    "36869076",
+    "35837119"
+  ],
+  "source_dois": [
+    "10.3390/ijms26157387",
+    "10.1021/acs.accounts.0c00594",
+    "10.1038/s41598-023-30222-w",
+    "10.3389/fnins.2022.897239"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/36869076/",
+    "https://doi.org/10.1038/s41598-023-30222-w",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9984400/",
+    "https://pubmed.ncbi.nlm.nih.gov/40806517/",
+    "https://doi.org/10.3390/ijms26157387",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12347886/",
+    "https://pubmed.ncbi.nlm.nih.gov/35837119/",
+    "https://doi.org/10.3389/fnins.2022.897239",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9274125/",
+    "https://doi.org/10.1021/acs.accounts.0c00594",
+    "https://openalex.org/W4410995616",
+    "https://pubmed.ncbi.nlm.nih.gov/40459283",
+    "https://pubs.acs.org/doi/pdf/10.1021/acs.accounts.0c00594?ref=article_openPDF",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12177927/"
+  ]
+}

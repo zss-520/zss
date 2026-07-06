@@ -1,0 +1,129 @@
+{
+  "chunk_id": "model_amp_dualtransnet",
+  "chunk_type": "model",
+  "chunk_name": "AMP-DualTransnet",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP-DualTransnet",
+    "CF-AMP prediction",
+    "collaborative filtering for AMPs",
+    "dual-pathway deep learning"
+  ],
+  "papers": [
+    {
+      "title": "Progress in the Development of Antimicrobial Peptide Prediction Tools",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.2174/1389203721666200117163802",
+      "year": "2021",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Predicting Antimicrobial Activity for Untested Peptide-Based Drugs Using Collaborative Filtering and Link Prediction",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.1101/2022.11.16.516845",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Artificial Intelligence-Driven Antimicrobial Peptide Discovery: Prediction, Generation, Mining and Optimization",
+      "pmid": "42020672",
+      "pmcid": "",
+      "doi": "10.1007/s12602-026-11013-x",
+      "year": "2026",
+      "role": "review_or_secondary",
+      "evidence_source": "citation_expansion"
+    },
+    {
+      "title": "AMP-DualTransnet: An effective dual-pathway deep learning model for antimicrobial peptide prediction in black pepper",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.1016/j.nexres.2026.101536",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "CF-AMP prediction",
+      "canonical_name": "CF-AMP prediction",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "neighborhood-based collaborative filtering and link prediction",
+      "input_features": "AMP sequences, bacterial response similarities, AMP physico-chemical features",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.1101/2022.11.16.516845",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel ML approach for AMP activity prediction, including combinations. Could be compared with other AMP predictors.",
+      "blocking_issues": [
+        "No code or data availability",
+        "Preprint, not peer-reviewed",
+        "Only abstract evidence"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.5
+    },
+    {
+      "model_name": "AMP-DualTransnet",
+      "canonical_name": "AMP-DualTransnet",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "dual-pathway deep learning (possibly transformer-based)",
+      "input_features": "peptide sequences (inferred from title)",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.1016/j.nexres.2026.101536",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Specific deep learning model for AMP prediction in black pepper, could be benchmarked",
+      "blocking_issues": [
+        "No abstract or full text",
+        "No code/data",
+        "Journal article with limited info"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.3
+    }
+  ],
+  "repositories": [],
+  "datasets": [],
+  "metrics": [],
+  "important_evidence": [
+    "CF-AMP prediction uses neighborhood-based collaborative filtering to predict bacteria response to untested AMPs, combinations, and AMP-antibiotic combinations (abstract).",
+    "AMP-DualTransnet is a dual-pathway deep learning model for AMP prediction in black pepper (title only)."
+  ],
+  "uncertainties": [
+    "CF-AMP prediction: no code or data available, preprint, only abstract evidence.",
+    "AMP-DualTransnet: no abstract or full text, no code/data, limited information from journal article."
+  ],
+  "source_pmids": [
+    "42020672"
+  ],
+  "source_dois": [
+    "10.2174/1389203721666200117163802",
+    "10.1101/2022.11.16.516845",
+    "10.1007/s12602-026-11013-x",
+    "10.1016/j.nexres.2026.101536"
+  ],
+  "urls": [
+    "https://doi.org/10.2174/1389203721666200117163802",
+    "https://doi.org/10.1101/2022.11.16.516845",
+    "https://doi.org/10.1007/s12602-026-11013-x",
+    "https://www.semanticscholar.org/paper/065bf63020b4ab9edca26d13cd8c5781fab83aa2",
+    "https://doi.org/10.1016/j.nexres.2026.101536"
+  ]
+}

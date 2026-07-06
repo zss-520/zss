@@ -1,0 +1,49 @@
+{
+  "dashscope": {
+    "provider": "dashscope",
+    "display_name": "Alibaba Bailian / DashScope",
+    "chat_api_key_env": "DASHSCOPE_API_KEY",
+    "chat_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "chat_model": "deepseek-v4-pro",
+    "planner_model": "deepseek-v4-pro",
+    "meeting_model": "deepseek-v4-pro",
+    "llm_api_mode": "chat",
+    "use_response_format": false,
+    "timeout": 300,
+    "max_retries": 4
+  },
+  "dashscope_qwen37max_search": {
+    "provider": "dashscope_responses",
+    "display_name": "Alibaba Bailian / Qwen3.7-Max Responses Web Search",
+    "api_key_env": "DASHSCOPE_API_KEY",
+    "base_url_env": "DASHSCOPE_RESPONSES_BASE_URL",
+    "workspace_id_env": "DASHSCOPE_WORKSPACE_ID",
+    "region_env": "DASHSCOPE_REGION",
+    "responses_base_url": "https://{WorkspaceId}.{Region}.maas.aliyuncs.com/compatible-mode/v1",
+    "region": "cn-beijing",
+    "model": "qwen3.7-max",
+    "web_search_model": "qwen3.7-max",
+    "llm_api_mode": "responses",
+    "tools": [
+      {"type": "web_search"},
+      {"type": "web_extractor"}
+    ],
+    "instructions_prefix": "Use web_search to find current public web evidence and web_extractor to inspect relevant pages when available. Return JSON only. Treat all URLs as candidate evidence requiring verification.",
+    "timeout": 240,
+    "max_retries": 3
+  },
+  "dashscope_qwen_search": {
+    "provider": "dashscope",
+    "display_name": "Alibaba Bailian / DashScope Qwen-Max Web Search Legacy ChatCompletions",
+    "chat_api_key_env": "DASHSCOPE_API_KEY",
+    "chat_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "chat_model": "qwen-max",
+    "web_search_model": "qwen-max",
+    "llm_api_mode": "chat",
+    "web_search_extra_body": {
+      "enable_search": true
+    },
+    "timeout": 240,
+    "max_retries": 3
+  }
+}

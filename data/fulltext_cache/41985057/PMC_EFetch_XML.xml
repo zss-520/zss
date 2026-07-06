@@ -1,0 +1,1913 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Brief Bioinform</journal-id><journal-id journal-id-type="iso-abbrev">Brief Bioinform</journal-id><journal-id journal-id-type="pmc-domain-id">721</journal-id><journal-id journal-id-type="pmc-domain">bib</journal-id><journal-id journal-id-type="nlm-id">100912837</journal-id><journal-id journal-id-type="publisher-id">bib</journal-id><journal-title-group><journal-title>Briefings in Bioinformatics</journal-title></journal-title-group><issn pub-type="ppub">1467-5463</issn><issn pub-type="epub">1477-4054</issn><publisher><publisher-name>Oxford University Press</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13082390</article-id><article-id pub-id-type="pmcid-ver">PMC13082390.1</article-id><article-id pub-id-type="pmcaid">13082390</article-id><article-id pub-id-type="pmcaiid">13082390</article-id><article-id pub-id-type="pmid">41985057</article-id><article-id pub-id-type="doi">10.1093/bib/bbag170</article-id><article-id pub-id-type="publisher-id">bbag170</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Problem Solving Protocol</subject></subj-group><subj-group subj-group-type="category-taxonomy-collection"><subject>AcademicSubjects/SCI01060</subject></subj-group></article-categories><title-group><article-title>Prediction of minimum inhibitory concentration of antibacterial peptides using geometric graph networks and dynamic loss functions</article-title></title-group><contrib-group><contrib contrib-type="author"><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-6122-5930</contrib-id><name name-style="western"><surname>Bin</surname><given-names initials="Y">Yannan</given-names></name><aff>
+<institution>The Key Laboratory of Intelligent Computing and Signal Processing of Ministry of Education, School of Life Sciences and Medical Engineering, Anhui University</institution>, <addr-line>Jiulong Road 111, Hefei, Anhui 230601</addr-line>, <country country="CN">China</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="J">Jinyu</given-names></name><aff>
+<institution>School of Computer Science and Technology, Anhui University</institution>, <addr-line>Jiulong Road 111, Hefei, Anhui 230601</addr-line>, <country country="CN">China</country></aff></contrib><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Cao</surname><given-names initials="R">Ruifen</given-names></name><aff>
+<institution>School of Computer Science and Technology, Anhui University</institution>, <addr-line>Jiulong Road 111, Hefei, Anhui 230601</addr-line>, <country country="CN">China</country></aff><xref rid="cor1" ref-type="corresp"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Wei</surname><given-names initials="P">Pijing</given-names></name><aff>
+<institution>Institutes of Physical Science and Information Technology, Anhui University</institution>, <addr-line>Jiulong Road 111, Hefei, Anhui 230601</addr-line>, <country country="CN">China</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Zheng</surname><given-names initials="C">Chunhou</given-names></name><aff>
+<institution>School of Artificial Intelligence, Anhui University</institution>, <addr-line>Jiulong Road 111, Hefei, Anhui 230601</addr-line>, <country country="CN">China</country></aff></contrib></contrib-group><author-notes><corresp id="cor1">Corresponding author. E-mail: <email>rfcao@ahu.edu.cn</email></corresp></author-notes><pub-date pub-type="collection"><month>3</month><year>2026</year></pub-date><pub-date pub-type="epub" iso-8601-date="2026-04-15"><day>15</day><month>4</month><year>2026</year></pub-date><volume>27</volume><issue>2</issue><issue-id pub-id-type="pmc-issue-id">508621</issue-id><elocation-id>bbag170</elocation-id><history><date date-type="received"><day>18</day><month>1</month><year>2026</year></date><date date-type="rev-recd"><day>10</day><month>3</month><year>2026</year></date><date date-type="accepted"><day>15</day><month>3</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>15</day><month>04</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>16</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-17 10:25:14.227"><day>17</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2026. Published by Oxford University Press.</copyright-statement><copyright-year>2026</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbynclicense">https://creativecommons.org/licenses/by-nc/4.0/</ali:license_ref><license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc/4.0/">https://creativecommons.org/licenses/by-nc/4.0/</ext-link>), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact reprints@oup.com for reprints and translation rights for reprints. All other permissions can be obtained through our RightsLink service via the Permissions link on the article page on our site—for further information please contact journals.permissions@oup.com.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="bbag170.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="bbag170.pdf"/><abstract><title>Abstract</title><p>Antibiotic resistance has reduced the effectiveness of traditional antibiotics for public health needs. Antibacterial peptides (ABPs) hold clinical value due to their inherent antimicrobial activity and resistance to degradation. Existing deep learning approaches for predicting the minimum inhibitory concentration (MIC) of ABPs typically rely on a single modality or a single scale, limiting their ability to capture ABP complexity. Moreover, these methods cover only a narrow range of bacterial species. To address these challenges, we propose the geometric graph network (GGN)-ABPMIC model, which integrates multi-scale structural features at the atomic and residue scales with peptide sequence features. These features are aggregated through a GGN enhanced with geometric vector perceptrons. To enrich the feature representation, we also incorporate descriptors that quantify the physicochemical properties of ABPs and fuse them with the GGN-processed features. The model predicts the MIC values for ABPs across datasets spanning 10 bacterial species. For training and robustness, we introduce a multi-stage dynamic-weight hybrid loss that combines mean-squared error (MSE), the Huber loss, and a contrastive learning loss. Across the 10 species, GGN-ABPMIC achieves a mean MSE of 0.221, a mean <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^2$\end{document}</tex-math></inline-formula> of 0.564, and a mean Pearson correlation coefficient of 0.749, outperforming existing approaches. Additional validate <italic toggle="yes">via</italic> case studies on supplementary <italic toggle="yes">Escherichia coli</italic> ABP sequences indicates that the MIC predictions of GGN-ABPMIC are closer to the true values, demonstrating strong predictive performance and generalization for ABP activity. The data and codes for GGN-ABPMIC are available at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/LiJinYu1231/GGN-ABPMIC/tree/master" ext-link-type="uri">https://github.com/LiJinYu1231/GGN-ABPMIC/tree/master</ext-link>.</p></abstract><kwd-group><kwd>antibacterial peptides</kwd><kwd>minimum inhibitory concentration prediction</kwd><kwd>geometric graph networks</kwd><kwd>multi-scale geometric features</kwd><kwd>dynamic loss function</kwd></kwd-group><funding-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="DOI">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>62373001</award-id><award-id>62272004</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Education Department of Anhui Province</institution></institution-wrap>
+</funding-source><award-id>2023AH050089</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>State Key Laboratory of Pathogenesis, Prevention and Treatment of High Incidence Diseases in Central Asia Fund</institution></institution-wrap>
+</funding-source><award-id>SKL-HIDCA-2024-AH4</award-id></award-group></funding-group><counts><page-count count="12"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="sec1a"><title>Introduction</title><p>With the emergence and spread of antibiotic-resistant bacteria, the effectiveness of traditional antibiotics has gradually declined, posing a major global public health challenge. The World Health Organization (WHO) lists drug-resistant infections among the top global public health threats [<xref rid="ref1" ref-type="bibr">1</xref>]. Antibacterial peptides (ABPs) are small peptides with natural antibacterial activity [<xref rid="ref2" ref-type="bibr">2</xref>]. They kill bacteria mainly by disrupting the cell membrane, a mechanism that reduces the likelihood of resistance [<xref rid="ref3" ref-type="bibr">3</xref>]. ABPs exhibit high efficacy [<xref rid="ref4" ref-type="bibr">4</xref>] and relatively low toxicity [<xref rid="ref5" ref-type="bibr">5</xref>], making them attractive for research [<xref rid="ref6" ref-type="bibr">6</xref>]. In recent years, progress in ABP research has been substantial. A large number of peptides with antibacterial activity have been identified from diverse organisms, and their structures and functions have been studied in depth [<xref rid="ref7" ref-type="bibr">7</xref>]. Although traditional wet-lab methods remain important for evaluating ABP activity, they are costly and time-consuming [<xref rid="ref8" ref-type="bibr">8</xref>]. Artificial intelligence techniques can predict ABP activity without relying on specific experimental conditions, providing an efficient pre-screening step before wet-lab evaluation.</p><p>Research on predicting ABPs using artificial intelligence mainly covers two tasks: ABP classification and antibacterial activity prediction. Antibacterial activity is typically quantified by the minimum inhibitory concentration (MIC). A lower MIC indicates stronger inhibitory activity against pathogenic microorganisms. Accurate MIC prediction can accelerate the discovery and development of novel ABPs. With advances in computational biology and machine learning, researchers have increasingly applied these techniques to predict ABP activity [<xref rid="ref9" ref-type="bibr">9</xref>]. Xiao <italic toggle="yes">et al</italic>. [<xref rid="ref10" ref-type="bibr">10</xref>] proposed an MIC predictor based on five physicochemical properties of AMPs and pseudo-amino acid composition features, using a Gaussian kernel regression model to predict the inhibitory effect of AMPs on <italic toggle="yes">Escherichia coli</italic>. In addition, they observed a poor predictive correlation, which they attributed to the wide range of experimental MIC values. Li <italic toggle="yes">et al</italic>. [<xref rid="ref11" ref-type="bibr">11</xref>] compared MIC predictions for <italic toggle="yes">Streptococcus pneumoniae</italic> isolates using traditional methods and machine learning, validating their results against broth microdilution data. They found that penicillin-binding protein sequences could effectively predict <inline-formula><tex-math notation="LaTeX" id="ImEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\beta $\end{document}</tex-math></inline-formula>-lactam antibiotic MIC values and exhibit high consistency. Sharma <italic toggle="yes">et al</italic>. [<xref rid="ref12" ref-type="bibr">12</xref>] developed ESKAPEE-MICpred, a dual-input model integrating transfer learning and ensemble learning to predict ABP activity against five pathogens. The model takes pathogen genomic data as one input and incorporates outputs from a pre-trained model, adjusting feature-extraction weights to improve predictions. Yan <italic toggle="yes">et al</italic>. [<xref rid="ref13" ref-type="bibr">13</xref>] used deep learning, specifically multi-branch convolutional neural networks and attention mechanisms, to predict the MIC against <italic toggle="yes">E. coli</italic>, achieving better performance than traditional machine learning approaches. Yao <italic toggle="yes">et al</italic>. [<xref rid="ref14" ref-type="bibr">14</xref>] proposed AMPActiPred, a three-stage ABP predictor: first, determine whether a peptide is an ABP; second, predict its specificity toward 10 bacterial species; third, estimate its activity level. Cai <italic toggle="yes">et al</italic>. [<xref rid="ref15" ref-type="bibr">15</xref>] introduced a fine-tuned BERT-based Transformer model that extracts sequence embedding features and uses transfer learning to predict ABP activity on <italic toggle="yes">E. coli</italic> and <italic toggle="yes">Staphylococcus aureus</italic> datasets.</p><p>Although these methods have shown progress in predicting ABP MIC values, their overall predictive accuracy remains insufficient for reliable practical use. Most methods rely on single-modality or single-scale feature representations, and fail to integrate multi-level information, such as the ABP sequence and its corresponding 3D structure, making it difficult to capture the complex relationships among sequence, structure, function, and antibacterial mechanisms. As a result, important interactions between structural features and function may be overlooked. Moreover, many studies train and evaluate models on datasets that are small in size or limited in species diversity. This lack of diverse data hampers cross-species generalization and reduces model robustness in real-world applications, thereby constraining its potential for clinical translation.</p><p>To address these challenges, we propose the geometric graph network (GGN)-ABPMIC model, integrating multi-modal peptide sequence features and multi-scale structural features. The features are processed through a GGN, and the resulting outputs are concatenated with peptide descriptors and fed into a regression head to predict MIC values. In addition, we introduce a novel multi-stage dynamic-weight hybrid loss function (MDH-loss), which combines mean squared error (MSE), the Huber loss [<xref rid="ref16" ref-type="bibr">16</xref>], and a contrastive learning loss [<xref rid="ref17" ref-type="bibr">17</xref>] to enhance training stability. We evaluate the model on datasets from 10 bacterial species, and GGN-ABPMIC achieves strong predictive performance across all datasets, demonstrating notable cross-species generalization.</p></sec><sec id="sec1b"><title>Materials and methods</title><sec id="sec1"><title>Dataset</title><p>In this study, we compiled the ABP sequences targeting 10 bacterial species from AMPActiPred [<xref rid="ref14" ref-type="bibr">14</xref>]. In addition to the sequences, we collected the corresponding MIC values and the 553-dimensional peptide feature descriptors. The data were obtained from the GRAMPA database [<xref rid="ref18" ref-type="bibr">18</xref>], which contains ABP sequences of 10–30 amino acids and integrates several widely used ABP resources, including APD [8], DADP [<xref rid="ref19" ref-type="bibr">19</xref>], DBaASP [<xref rid="ref20" ref-type="bibr">20</xref>], DRAMP [<xref rid="ref21" ref-type="bibr">21</xref>], and YADAMP [<xref rid="ref22" ref-type="bibr">22</xref>]. All activity values were converted to pMIC (in <inline-formula><tex-math notation="LaTeX" id="ImEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mu $\end{document}</tex-math></inline-formula>M), defined as <inline-formula><tex-math notation="LaTeX" id="ImEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{pMIC} = -\log (\text{MIC in} \mu \mathrm{M})$\end{document}</tex-math></inline-formula>, yielding a unitless measure. For entries with multiple MIC values arising from different reference sources or subtypes of the same target species, we aggregated by computing the mean of the corresponding pMIC values to obtain a single activity value per ABP.</p><disp-formula id="deqn01">
+<label>(1)</label>
+<tex-math notation="LaTeX" id="DmEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; pMIC = -\log_{10} MIC\end{align*}\end{document}</tex-math>
+</disp-formula><p>To reduce redundancy [<xref rid="ref23" ref-type="bibr">23</xref>, <xref rid="ref24" ref-type="bibr">24</xref>], sequences were clustered using CD-Hit at a 90% sequence identity cutoff [<xref rid="ref25" ref-type="bibr">25</xref>, <xref rid="ref26" ref-type="bibr">26</xref>]. The 10 species-specific datasets collectively comprise 12 773 ABP sequences, with per-dataset counts ranging from 249 to 3451. Each dataset was randomly partitioned into training and test sets at an 8:2 ratio, as detailed in <xref rid="TB1" ref-type="table">Table 1</xref>. The distribution of <inline-formula><tex-math notation="LaTeX" id="ImEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$pMIC$\end{document}</tex-math></inline-formula> values across the 10 datasets, shown in <xref rid="sup1" ref-type="supplementary-material">Supplementary Fig. S1</xref>, approximates normality and spans roughly from <inline-formula><tex-math notation="LaTeX" id="ImEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$-2$\end{document}</tex-math></inline-formula> to <inline-formula><tex-math notation="LaTeX" id="ImEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$4$\end{document}</tex-math></inline-formula>.</p><table-wrap position="float" id="TB1" orientation="portrait"><label>Table 1</label><caption><p>Summary of ABP datasets for different bacterial species.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Bacteria</th><th align="left" rowspan="1" colspan="1">Training</th><th align="left" rowspan="1" colspan="1">Test</th><th align="left" rowspan="1" colspan="1">Total</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">E. coli</italic>
+</td><td rowspan="1" colspan="1">2760</td><td rowspan="1" colspan="1">691</td><td rowspan="1" colspan="1">3451</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. aureus</italic>
+</td><td rowspan="1" colspan="1">2494</td><td rowspan="1" colspan="1">624</td><td rowspan="1" colspan="1">3118</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">P. aeruginosa</italic>
+</td><td rowspan="1" colspan="1">1533</td><td rowspan="1" colspan="1">384</td><td rowspan="1" colspan="1">1917</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">B. subtilis</italic>
+</td><td rowspan="1" colspan="1">893</td><td rowspan="1" colspan="1">224</td><td rowspan="1" colspan="1">1117</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. epidermidis</italic>
+</td><td rowspan="1" colspan="1">604</td><td rowspan="1" colspan="1">152</td><td rowspan="1" colspan="1">756</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. typhimurium</italic>
+</td><td rowspan="1" colspan="1">480</td><td rowspan="1" colspan="1">121</td><td rowspan="1" colspan="1">601</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">K. pneumoniae</italic>
+</td><td rowspan="1" colspan="1">454</td><td rowspan="1" colspan="1">114</td><td rowspan="1" colspan="1">568</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">M. luteus</italic>
+</td><td rowspan="1" colspan="1">394</td><td rowspan="1" colspan="1">99</td><td rowspan="1" colspan="1">493</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">E. faecalis</italic>
+</td><td rowspan="1" colspan="1">480</td><td rowspan="1" colspan="1">121</td><td rowspan="1" colspan="1">601</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">A. baumannii</italic>
+</td><td rowspan="1" colspan="1">199</td><td rowspan="1" colspan="1">50</td><td rowspan="1" colspan="1">249</td></tr></tbody></table></table-wrap><p>We randomly split the datasets into training and test sets at an 8:2 ratio. To validate the effectiveness of this split, we compared the amino acid composition between the training and test datasets across all 10 datasets. As shown in <xref rid="sup1" ref-type="supplementary-material">Supplementary Figs S2 and S3</xref>, the amino acid frequency distributions are highly concordant between the training and test datasets, with no detectable compositional bias introduced by the split.This supports the expectation that feature learning will generalize beyond the training dataset.</p><p>We similarly evaluated the consistency of sequence length distributions between the training and test datasets. <xref rid="sup1" ref-type="supplementary-material">Supplementary Figs S4 and S5</xref> reveal highly similar distribution patterns and central tendencies for both sets, indicating that the split maintains strong representativeness at the structural level. Collectively, these results affirm that the data partition provides a reliable and balanced foundation for subsequent model training and evaluation.</p></sec><sec id="sec2"><title>Model architecture</title><p>To comprehensively characterize ABP activity, we designed a computational framework that integrates sequence-derived and structure-derived information, as illustrated in <xref rid="f1" ref-type="fig">Fig. 1A</xref>. The pipeline starts with ABP sequences, from which ESMFold [<xref rid="ref27" ref-type="bibr">27</xref>] predicts their 3D structure. We then extract multi-scale features from both the sequences and the predicted structures in parallel and integrate them with ProtTrans [<xref rid="ref28" ref-type="bibr">28</xref>] embeddings and the definition of secondary structure of proteins (DSSP) [<xref rid="ref29" ref-type="bibr">29</xref>], which provides residue-level secondary structure annotations and structure-derived descriptors. All features are then fed into the GGN framework for processing, and the resulting representation is concatenated with conventional peptide descriptors. The combined features are fed into a regression module to predict the activity value. During training, we apply MDH-loss with weights dynamically updated across epochs to balance the optimization of the regression head and the GGN encoder. The loss is backpropagated end-to-end, enabling the joint learning of all components.</p><fig position="float" id="f1" orientation="portrait"><label>Figure 1</label><caption><p>Architecture of the GGN-ABPMIC model. (A) Overall workflow of the model. (B) Detailed workflow of the GGN. (C) Core mechanism of the GVP. DSSP, define secondary structure of protein; AAC, amino acid composition; DPC, dipeptide composition; PCP, physicochemical properties.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag170f1.jpg"><alt-text>Schematic diagram showing the overall GGN-ABPMIC prediction pipeline, the internal structure of the geometric graph network, and the update mechanism of the geometric vector perceptron for antimicrobial peptide activity prediction</alt-text></graphic></fig><p>
+<xref rid="f1" ref-type="fig">Figure 1B</xref> provides a detailed illustration of the workflow of the GGN. Node features and edge features are fed in parallel into different geometric vector perceptrons (GVPs), followed by message aggregation through the message-passing layers, thereby fully capturing domain-specific information. The graph representations obtained after the message-passing layers are subsequently processed by a specialized GVP that normalizes all features into scalar form, and the output features are finally obtained through a pooling layer.</p><p>Within a GVP layer, scalar and vector features are updated through tightly coupled operations. As shown in <xref rid="f1" ref-type="fig">Fig. 1C</xref>, the vector features undergo a linear projection, and the L2 norms of these projected vectors are computed to capture rotation-invariant geometric information. This norm is concatenated with the input scalar features and passed through nonlinear fully connected layers to produce updated scalar features. In parallel, the projected vector features are processed by a separate linear transformation to yield candidate vector features, which are then gated and scaled using the scalar outputs to produce updated vector features. This resulting tuples preserve geometric sensitivity while remaining rotation-invariant.</p></sec><sec id="sec3"><title>Feature representation</title><p>In the feature extraction stage, the model systematically integrates multi-scale geometric features, DSSP structural features, and ProtTrans sequence embeddings to comprehensively represent the sequence and structural information of ABPs. The multi-scale geometric features cover three levels: features between neighboring residues, features between connected residues, and intra-residue features. As shown in <xref rid="f2" ref-type="fig">Fig. 2A</xref>, features between neighboring residues include <inline-formula><tex-math notation="LaTeX" id="ImEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha -C_\alpha $\end{document}</tex-math></inline-formula> vectors, radial basis function distance embeddings, and positional embeddings. Features between connected residues are represented by backbone direction vectors, while intra-residue features consist of <inline-formula><tex-math notation="LaTeX" id="ImEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha -C_\beta $\end{document}</tex-math></inline-formula> vectors on side chains and dihedral angle embeddings. This design constructs a hierarchical geometric representation from local to global scales. DSSP features further provide scalar parameters such as the secondary structure type and solvent-accessible surface area for each residue. ProtTrans generates 1024-dimensional embeddings that encode deep evolutionary and semantic information. After extracting these features, the multi-modal information is structured as input representations for the graph neural network. The specific classification of features is illustrated in <xref rid="f2" ref-type="fig">Fig. 2B</xref>.</p><fig position="float" id="f2" orientation="portrait"><label>Figure 2</label><caption><p>(A) Extraction process of multi-scale geometric features. (B) Construction of node and edge features for the graph.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag170f2.jpg"><alt-text>Diagram illustrating how multi-scale geometric information is extracted from peptide structures and converted into node and edge features for graph-based modeling</alt-text></graphic></fig><sec id="sec3a"><title>Node features</title><list list-type="simple"><list-item id="item1"><p>(1) Vector features</p><p>For each residue in the ABP, the <inline-formula><tex-math notation="LaTeX" id="ImEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula> atom serves as the vector origin, and the <inline-formula><tex-math notation="LaTeX" id="ImEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula> atoms of the two adjacent residues are used as vector endpoints (<inline-formula><tex-math notation="LaTeX" id="ImEquation12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\ C_{\alpha _{i}} - C_{\alpha _{i+1}}, \ C_{\alpha _{i}} - C_{\alpha _{i-1}}$\end{document}</tex-math></inline-formula>). The vector from the second carbon atom of the side chain <inline-formula><tex-math notation="LaTeX" id="ImEquation13">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\beta $\end{document}</tex-math></inline-formula> to the <inline-formula><tex-math notation="LaTeX" id="ImEquation14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula> of the current residue (<inline-formula><tex-math notation="LaTeX" id="ImEquation15">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_{\beta _{i}} - C_{\alpha _{i}}$\end{document}</tex-math></inline-formula>).</p><p>In some 3D structures of ABPs, the <inline-formula><tex-math notation="LaTeX" id="ImEquation16">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\beta $\end{document}</tex-math></inline-formula> atom may be missing (e.g. glycine has no side chain). In such cases, a virtual <inline-formula><tex-math notation="LaTeX" id="ImEquation17">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\beta $\end{document}</tex-math></inline-formula> atom is calculated based on the coordinates of the backbone nitrogen <inline-formula><tex-math notation="LaTeX" id="ImEquation18">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$N$\end{document}</tex-math></inline-formula>, <inline-formula><tex-math notation="LaTeX" id="ImEquation19">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula>, and carbonyl carbon <inline-formula><tex-math notation="LaTeX" id="ImEquation20">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C$\end{document}</tex-math></inline-formula> atoms using the following method: <disp-formula id="deqn02"><label>(2)</label><tex-math notation="LaTeX" id="DmEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; C_\beta = C_\alpha + \frac{\vec{V}_{N} \times \vec{V}_{C}}{\left\| \vec{V}_{N} \times \vec{V}_{C} \right\| + \epsilon} \times \theta\end{align*}\end{document}</tex-math></disp-formula>where <inline-formula><tex-math notation="LaTeX" id="ImEquation21">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\vec{V}_{N}$\end{document}</tex-math></inline-formula> is the vector from <inline-formula><tex-math notation="LaTeX" id="ImEquation22">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula> to <inline-formula><tex-math notation="LaTeX" id="ImEquation23">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$N$\end{document}</tex-math></inline-formula>, <inline-formula><tex-math notation="LaTeX" id="ImEquation24">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\vec{V}_{C}$\end{document}</tex-math></inline-formula> is the vector from <inline-formula><tex-math notation="LaTeX" id="ImEquation25">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula> to <inline-formula><tex-math notation="LaTeX" id="ImEquation26">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C$\end{document}</tex-math></inline-formula>, <inline-formula><tex-math notation="LaTeX" id="ImEquation27">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\vec{V}_{N} \times \vec{V}_{C}$\end{document}</tex-math></inline-formula> gives the normal vector of the peptide plane, which is then normalized. <inline-formula><tex-math notation="LaTeX" id="ImEquation28">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\epsilon $\end{document}</tex-math></inline-formula> is a small constant to avoid division by zero, and <inline-formula><tex-math notation="LaTeX" id="ImEquation29">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\theta = 1.54$\end{document}</tex-math></inline-formula> Å represents the typical carbon–carbon single bond length.</p></list-item><list-item id="item2"><p>(2) Scalar features</p><p>For scalar features, 1024-dimensional sequence features extracted by the pre-trained language model ProtTrans. 13-dimensional DSSP features extracted from the PDB file, including one-hot encoded secondary structure types, backbone dihedral angles, and solvent-accessible surface areas.</p></list-item></list></sec><sec id="sec3b"><title>Edge features</title><p>Edge features include vector features and scalar features. The vector features are defined as unit vectors pointing from <inline-formula><tex-math notation="LaTeX" id="ImEquation30">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{i}$\end{document}</tex-math></inline-formula> to <inline-formula><tex-math notation="LaTeX" id="ImEquation31">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{j}$\end{document}</tex-math></inline-formula>, where residues within 10 Å of each other are considered neighbors. For neighboring residues, the direction from <inline-formula><tex-math notation="LaTeX" id="ImEquation32">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{i}$\end{document}</tex-math></inline-formula> to <inline-formula><tex-math notation="LaTeX" id="ImEquation33">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{j}$\end{document}</tex-math></inline-formula> is given by <inline-formula><tex-math notation="LaTeX" id="ImEquation34">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_{\alpha _{i}}-C_{\alpha _{j}}$\end{document}</tex-math></inline-formula>, where <inline-formula><tex-math notation="LaTeX" id="ImEquation35">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{i}$\end{document}</tex-math></inline-formula> represents the current node and <inline-formula><tex-math notation="LaTeX" id="ImEquation36">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{j}$\end{document}</tex-math></inline-formula> represents its neighboring node.</p><p>The scalar features are the distance between <inline-formula><tex-math notation="LaTeX" id="ImEquation37">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha $\end{document}</tex-math></inline-formula> atoms of neighboring residues, which is discretized into a 20-dimensional feature vector using radial basis functions.Positional information between neighboring nodes <inline-formula><tex-math notation="LaTeX" id="ImEquation38">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{i}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation39">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$v_{j}$\end{document}</tex-math></inline-formula>, encoded as a 16-dimensional feature vector using trigonometric functions.</p></sec></sec><sec id="sec4"><title>G‌GN</title><p>The graph neural network (GGN) framework combines GNNs and GVPs. Within this framework, the GGN first performs fine-grained feature modeling. Sequence features are derived using ProtTrans, while structural features are obtained by secondary structure parameters computed from DSSP. We further incorporate multi-scale geometric features, including inter-residue <inline-formula><tex-math notation="LaTeX" id="ImEquation40">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha - C_\alpha $\end{document}</tex-math></inline-formula> vectors, intra-residue <inline-formula><tex-math notation="LaTeX" id="ImEquation41">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$C_\alpha - C_\beta $\end{document}</tex-math></inline-formula> vectors, radial basis function-encoded distances, positional encodings, and backbone dihedral angles. These features are partitioned into scalar and vector components and encoded as node and edge attributes in the graph, then processed jointly through GVPs. Subsequently, all node features and edge features will undergo information aggregation via the message-passing layer, yielding the processed output features. In what follows, the working principles of GNN, GVP, and the message-passing layer will be elaborated respectively.</p><sec id="sec4a"><title>GNN</title><p>GNNs [<xref rid="ref30" ref-type="bibr">30</xref>] have achieved significant progress in protein structure learning, especially in capturing residue–residue interactions and topological relationships. However, conventional GNNs face fundamental limitations in handling 3D geometric features. Typically, a protein is represented as a proximity graph, and geometric information (such as atomic coordinates and spatial orientation) is encoded into rotation-invariant scalar features, often by constructing local coordinate systems to compute relative distances or angles. While this simplification preserves rotational invariance, it discards critical geometric information: Vector features carrying spatial relationships are reduced to scalars, preventing the model from perceiving directionality and shape variations in 3D space. In addition, reliance on local coordinate frames increases computational complexity and hampers learning of global geometric patterns, limiting the expressiveness for tasks such as structure prediction and design. To address these challenges, we introduce GGN [<xref rid="ref31" ref-type="bibr">31</xref>]. Its primary advantage is the use of GVPs to directly process vector features while jointly updating scalar and vector channels. This design preserves geometric sensitivity and rotational invariance simultaneously, effectively overcoming the limitations of traditional GNNs in handling 3D geometric information. The workflow of GGN is detailed in the following sections.</p></sec><sec id="sec4b"><title>GVP</title><p>GVP [<xref rid="ref32" ref-type="bibr">32</xref>] is an innovative neural network module with unique advantages for handling multi-modal geometric features in biomolecular structures. By simultaneously processing scalar and vector features, it overcomes the limitations of conventional graph neural networks in geometric reasoning. The core strength of GVP lies in its ability to directly operate on Euclidean vectors while maintaining equivariance or invariance under rotations and reflections, enabling efficient modeling of protein structures. This module can serve as a replacement for standard fully connected layers, and when integrated into GNNs, it enhances the network’s sensitivity to geometric relationships. In ABP activity prediction, GVP effectively captures the synergistic information from both sequence and structural features.</p><p>Two separate GVPs are used to compute and propagate node and edge features. The features produced by GVP are used to construct the input graph representation, which is then fed into the GVP-based GNN.</p><disp-formula id="deqn03">
+<label>(3)</label>
+<tex-math notation="LaTeX" id="DmEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; V^{\prime} = \sigma^{+}\left( \left\| W_\mu W_{h} V \right\|_{2} \right) \odot (W_\mu W_{h} V) \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn04">
+<label>(4)</label>
+<tex-math notation="LaTeX" id="DmEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; s^{\prime} = \sigma\left( W_{m}\left( \mathrm{concat}\left( \|W_{h} V\|_{2}, s \right) \right) + b \right) \end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation42">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$V$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation43">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$s$\end{document}</tex-math></inline-formula> represent the input vector and scalar features to the GVP, while <inline-formula><tex-math notation="LaTeX" id="ImEquation44">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$V^{\prime}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation45">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$s^{\prime}$\end{document}</tex-math></inline-formula> are the updated features after GVP processing. <inline-formula><tex-math notation="LaTeX" id="ImEquation46">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\sigma ^{+}(\cdot )$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation47">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\sigma (\cdot )$\end{document}</tex-math></inline-formula> denote two different nonlinear transformation functions. <inline-formula><tex-math notation="LaTeX" id="ImEquation48">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$W_\mu $\end{document}</tex-math></inline-formula>,<inline-formula><tex-math notation="LaTeX" id="ImEquation49">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$W_{h}$\end{document}</tex-math></inline-formula>, and <inline-formula><tex-math notation="LaTeX" id="ImEquation50">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$W_{m}$\end{document}</tex-math></inline-formula> are three distinct linear weight matrices, and <inline-formula><tex-math notation="LaTeX" id="ImEquation51">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$b$\end{document}</tex-math></inline-formula> is a bias term. This design ensures that GVP preserves local directional information while integrating global constraints in complex geometric structures, providing the model with robust multi-scale feature representations.</p></sec><sec id="sec4c"><title>Message passing layer</title><p>The message passing layer is the core component of GGN, designed to update node features through iterative information exchange, thereby integrating relational reasoning with geometric reasoning. The workflow of this layer involves three key steps: first, generating message vectors to encode local structural information; second, aggregating messages and updating node states; and third, applying a pointwise feedforward layer for deeper feature transformation. This process ensures equivariance of geometric features and stability of scalar features, providing a foundation for protein structure modeling.</p><p>In the message generation step, message vectors are formed by combining source node features and edge features, followed by processing through a GVP. These vectors are then passed to the target node, capturing local geometric relationships between nodes.</p><disp-formula id="deqn05">
+<label>(5)</label>
+<tex-math notation="LaTeX" id="DmEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; \boldsymbol{h}_{m}^{(j \rightarrow i)}:= g\left( \mathrm{concat}\left( \boldsymbol{h}_{v}^{(j)}, \boldsymbol{h}_{e}^{(j \rightarrow i)} \right) \right)\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation52">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\boldsymbol{h}_{m}^{(j \rightarrow i)}$\end{document}</tex-math></inline-formula> represents the message vector transmitted from source node <inline-formula><tex-math notation="LaTeX" id="ImEquation53">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$j$\end{document}</tex-math></inline-formula> to target node <inline-formula><tex-math notation="LaTeX" id="ImEquation54">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula>, containing both scalar and vector components to encode local structural information. The function <inline-formula><tex-math notation="LaTeX" id="ImEquation55">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$g$\end{document}</tex-math></inline-formula> is a nonlinear transformation composed of three sequentially stacked GVPs, which transforms input features while maintaining rotational equivariance for vector features and rotational invariance for scalar features. <inline-formula><tex-math notation="LaTeX" id="ImEquation56">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\boldsymbol{h}_{v}^{(j)}$\end{document}</tex-math></inline-formula> is the embedding feature of source node <inline-formula><tex-math notation="LaTeX" id="ImEquation57">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$j$\end{document}</tex-math></inline-formula>, <inline-formula><tex-math notation="LaTeX" id="ImEquation58">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\boldsymbol{h}_{e}^{(j \rightarrow i)}$\end{document}</tex-math></inline-formula> is the embedding feature of the edge connecting nodes <inline-formula><tex-math notation="LaTeX" id="ImEquation59">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$j$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation60">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula>, and <inline-formula><tex-math notation="LaTeX" id="ImEquation61">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{concat}$\end{document}</tex-math></inline-formula> denotes the concatenation operation. Processing through GVP ensures that geometric information is preserved during message generation, laying a solid foundation for subsequent aggregation.</p><p>After message generation, the target node aggregates all incoming messages and updates its state using residual connections, dropout, and layer normalization. Node aggregation integrates neighborhood information while maintaining training stability.</p><disp-formula id="deqn06">
+<label>(6)</label>
+<tex-math notation="LaTeX" id="DmEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; \boldsymbol{h}_{v}^{(i)} \leftarrow \mathrm{LayerNorm}\left( \boldsymbol{h}_{v}^{(i)} + \frac{1}{k^{\prime}} \mathrm{Dropout}\left( \sum_{(i,j) \in \mathcal{E}} \boldsymbol{h}_{m}^{(j \rightarrow i)} \right) \right) \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn07">
+<label>(7)</label>
+<tex-math notation="LaTeX" id="DmEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; \boldsymbol{h}_{v}^{(i)} \leftarrow \mathrm{LayerNorm}\left( \boldsymbol{h}_{v}^{(i)} + \mathrm{Dropout}\left( g\left( \boldsymbol{h}_{v}^{(i)} \right) \right) \right) \end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation62">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\boldsymbol{h}_{v}^{(i)}$\end{document}</tex-math></inline-formula> is the current feature vector of target node <inline-formula><tex-math notation="LaTeX" id="ImEquation63">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula>, serving as a normalization factor. <inline-formula><tex-math notation="LaTeX" id="ImEquation64">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k^{\prime}$\end{document}</tex-math></inline-formula> represents the number of actual incoming messages, preventing gradient explosion or vanishing and improving training stability. The + denotes a residual connection, adding the aggregated messages to the original node features, allowing the model to learn incremental changes and alleviating the vanishing gradient problem in deep networks. Through sequential aggregation, node states are updated robustly while preserving geometric consistency.</p><p>Following message passing, a pointwise feedforward layer is applied independently to each node for deeper feature transformation, further enhancing representational capacity. Scalar and vector features are then processed through an additional GVP, and the output features are pooled using a hybrid pooling layer composed of global average pooling [<xref rid="ref33" ref-type="bibr">33</xref>] and attention pooling [<xref rid="ref34" ref-type="bibr">34</xref>]. Average pooling ensures model robustness and prevents prediction instability, while attention pooling enhances discriminative power by amplifying important signals and suppressing noise, thereby improving overall model performance in parallel.</p></sec></sec><sec id="sec5"><title>Peptide feature descriptors</title><p>The features processed by the GGN comprehensively represent the sequence and structural information of ABPs; however, they lack numerical features such as amino acid composition and physicochemical properties, which are often related to the activity of antimicrobial peptides. Peptide feature descriptors are a set of numerical features directly extracted from ABP sequences, capturing multidimensional information, including amino acid composition, order, and physicochemical properties. When combined with structural features processed by the GGN and other sequence features, peptide feature descriptors provide complementary information, enabling a comprehensive representation of antimicrobial peptides. Based on this principle, the model includes five representative types of descriptors, each digitally encoding the peptide sequence from different perspectives.</p><p>
+<bold>(1) Amino acid composition (AAC)</bold>
+</p><p>These descriptors quantify the occurrence frequency of the 20 natural amino acids in the peptide sequence [<xref rid="ref35" ref-type="bibr">35</xref>], reflecting basic compositional characteristics. The calculation is as follows:</p><disp-formula id="deqn08">
+<label>(8)</label>
+<tex-math notation="LaTeX" id="DmEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; f(t) = \frac{N(t)}{L}, \, t \in \{A,C,D,...,Y\}\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation65">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$N(t)$\end{document}</tex-math></inline-formula> is the number of residues of type <inline-formula><tex-math notation="LaTeX" id="ImEquation66">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$t$\end{document}</tex-math></inline-formula> in the sequence, and <inline-formula><tex-math notation="LaTeX" id="ImEquation67">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula> is the sequence length. This generates a 20-dimensional feature vector.</p><p>
+<bold>(2) Dipeptide composition (DPC)</bold>
+</p><p>DPC descriptors capture local sequence order information by quantifying the occurrence frequencies of 400 possible adjacent amino acid pairs [<xref rid="ref36" ref-type="bibr">36</xref>]. Each feature dimension is calculated as:</p><disp-formula id="deqn09">
+<label>(9)</label>
+<tex-math notation="LaTeX" id="DmEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; D(r,s) = \frac{N_{rs}}{N-1}, \, r,s \in \{A,C,D,...,Y\}\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation68">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$N_{rs}$\end{document}</tex-math></inline-formula> denotes the number of dipeptides formed by residues of type <inline-formula><tex-math notation="LaTeX" id="ImEquation69">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$r$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation70">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$s$\end{document}</tex-math></inline-formula>. The resulting feature vector has 400 dimensions.</p><p>
+<bold>(3) K-spaced amino acid pair composition (KSAAPC)</bold>
+</p><p>These descriptors capture long-range interaction patterns by analyzing amino acid pairs separated by <inline-formula><tex-math notation="LaTeX" id="ImEquation71">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula> residues [<xref rid="ref37" ref-type="bibr">37</xref>]. The 20 amino acids are first grouped into five classes based on physicochemical properties: aliphatic (<inline-formula><tex-math notation="LaTeX" id="ImEquation72">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$g1$\end{document}</tex-math></inline-formula>), aromatic (<inline-formula><tex-math notation="LaTeX" id="ImEquation73">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$g2$\end{document}</tex-math></inline-formula>), positively charged (<inline-formula><tex-math notation="LaTeX" id="ImEquation74">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$g3$\end{document}</tex-math></inline-formula>), negatively charged (<inline-formula><tex-math notation="LaTeX" id="ImEquation75">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$g4$\end{document}</tex-math></inline-formula>), and uncharged (<inline-formula><tex-math notation="LaTeX" id="ImEquation76">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$g5$\end{document}</tex-math></inline-formula>). For a given spacing <inline-formula><tex-math notation="LaTeX" id="ImEquation77">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula> (here, <inline-formula><tex-math notation="LaTeX" id="ImEquation78">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k = 0, 1, 2, 3, 4, 5$\end{document}</tex-math></inline-formula>), the relative frequency of each class pair is computed:</p><disp-formula id="deqn10">
+<label>(10)</label>
+<tex-math notation="LaTeX" id="DmEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; \left( \frac{N_{g1g1}}{N_{total}}, \frac{N_{g1g2}}{N_{total}},..., \frac{N_{g5g5}}{N_{total}} \right)_{25}\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation79">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$N_{gigj}$\end{document}</tex-math></inline-formula> is the count of pairs between classes <inline-formula><tex-math notation="LaTeX" id="ImEquation80">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$gi$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation81">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$gj$\end{document}</tex-math></inline-formula>, and <inline-formula><tex-math notation="LaTeX" id="ImEquation82">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$N_{total} = L - k - 1$\end{document}</tex-math></inline-formula> is the total number of valid pairs for spacing <inline-formula><tex-math notation="LaTeX" id="ImEquation83">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$k$\end{document}</tex-math></inline-formula> in a sequence of length <inline-formula><tex-math notation="LaTeX" id="ImEquation84">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula>.</p><p>
+<bold>(4) Pseudo-amino acid composition (PAAC)</bold>
+</p><p>PAAC integrates sequence-order information by introducing a correlation factor <inline-formula><tex-math notation="LaTeX" id="ImEquation85">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda $\end{document}</tex-math></inline-formula> and a weighting factor <inline-formula><tex-math notation="LaTeX" id="ImEquation86">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\omega $\end{document}</tex-math></inline-formula>, while retaining amino acid composition information [<xref rid="ref38" ref-type="bibr">38</xref>]. This descriptor reflects both compositional characteristics and local sequence order patterns.</p><p>
+<bold>(5) Physicochemical properties (PCP)</bold>
+</p><p>The physicochemical properties of proteins are crucial for determining their structural and functional attributes. In this study, eight key properties are calculated from the amino acid sequence: hydrophobicity, aliphatic index, <inline-formula><tex-math notation="LaTeX" id="ImEquation87">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helix propensity, hydrophobic moment, Boman index, transmembrane tendency, isoelectric point, and net charge. These properties are closely related to the membrane interactions and biological activity of antimicrobial peptides.</p><p>Finally, these five types of peptide descriptors are concatenated to form a 553-dimensional feature vector for each sample. By integrating sequence information at different scales, this representation preserves local chemical environment features, captures long-range interaction patterns, and incorporates key physicochemical parameters, providing a comprehensive, multi-scale feature foundation for subsequent antimicrobial peptide activity prediction.</p></sec><sec id="sec6"><title>MDH-loss</title><p>In the regression task of predicting the MIC values of antimicrobial peptides, the complex data distribution and limited sample size make a single loss function insufficient to ensure both robustness and generalization. To address this, we design a multi-stage mixed loss function that dynamically adjusts the weights of different loss components during training. The loss function consists of three main parts: MSE, Huber loss, and a contrastive loss (ContrastLoss). During training, the weights of these components change according to the ratio of the current epoch to the total number of epochs.</p><p>The MSE loss is defined as:</p><disp-formula id="deqn11">
+<label>(11)</label>
+<tex-math notation="LaTeX" id="DmEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; \mathrm{MSE} = \frac{1}{n}\sum_{i=1}^{n} \left( y_{i} - \hat{y}_{i} \right)^{2}\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation88">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$y_{i}$\end{document}</tex-math></inline-formula> is the true value of the <inline-formula><tex-math notation="LaTeX" id="ImEquation89">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula>th sample and <inline-formula><tex-math notation="LaTeX" id="ImEquation90">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\hat{y}_{i}$\end{document}</tex-math></inline-formula> is the predicted value. Minimizing the squared error directly measures the regression accuracy.</p><p>The Huber loss is defined as:</p><disp-formula id="deqn12">
+<label>(12)</label>
+<tex-math notation="LaTeX" id="DmEquation12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; \mathrm{Huber}(x, \delta) = \begin{cases} 0.5x^{2} &amp; \mathrm{if}\ |x| &lt; \delta, \\ \delta|x| - 0.5\delta^{2} &amp; \mathrm{else} \end{cases}\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation91">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$x$\end{document}</tex-math></inline-formula> is the difference <inline-formula><tex-math notation="LaTeX" id="ImEquation92">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$y_{i} - \hat{y}_{i}$\end{document}</tex-math></inline-formula>. The parameter <inline-formula><tex-math notation="LaTeX" id="ImEquation93">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\delta $\end{document}</tex-math></inline-formula> controls the switch between the quadratic and linear terms, combining the accuracy of MSE with the robustness of MAE.</p><p>The ContrastLoss is defined as:</p><disp-formula id="deqn13">
+<label>(13)</label>
+<tex-math notation="LaTeX" id="DmEquation13">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; \mathrm{L_{\mathrm{contrast}}} = -\log\left[ \frac{\sum_{i,j}\left( |y_{i} - y_{j}| &lt; \delta \right) \cdot \exp(\mathrm{sim}(z_{i},z_{j})/\tau)}{\sum_{i,k}\left( |y_{i} - y_{k}| \geq \delta \right) \cdot \exp(\mathrm{sim}(z_{i},z_{k})/\tau) + \epsilon} \right]\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation94">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$y_{i}, y_{j}$\end{document}</tex-math></inline-formula> denote similar sample pairs and <inline-formula><tex-math notation="LaTeX" id="ImEquation95">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$y_{i}, y_{k}$\end{document}</tex-math></inline-formula> denote dissimilar pairs. The threshold <inline-formula><tex-math notation="LaTeX" id="ImEquation96">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\delta $\end{document}</tex-math></inline-formula> determines similarity. <inline-formula><tex-math notation="LaTeX" id="ImEquation97">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$z_{i}, z_{j}$\end{document}</tex-math></inline-formula> are feature vectors of similar pairs, and <inline-formula><tex-math notation="LaTeX" id="ImEquation98">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$z_{i}, z_{k}$\end{document}</tex-math></inline-formula> are those of dissimilar pairs. <inline-formula><tex-math notation="LaTeX" id="ImEquation99">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{sim}(\cdot )$\end{document}</tex-math></inline-formula> computes cosine similarity, <inline-formula><tex-math notation="LaTeX" id="ImEquation100">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\tau $\end{document}</tex-math></inline-formula> is a temperature parameter, and <inline-formula><tex-math notation="LaTeX" id="ImEquation101">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\epsilon $\end{document}</tex-math></inline-formula> avoids division by zero. This loss encourages similar samples to have closer feature representations and dissimilar samples to be pushed farther apart.</p><p>The training process is divided into three equal stages. The total loss in each stage is defined as:</p><disp-formula id="deqn14">
+<label>(14)</label>
+<tex-math notation="LaTeX" id="DmEquation14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; L_{\mathrm{total}} =\!\! \left \{\!\! \begin{array}{@{\;}l@{\;\;\;}l} 0.8 * \omega_{m} * \mathrm{MSE} + 0.2 * \mathrm{Huber} &amp; 1\text{st stage}, \\ 0.6 * \omega_{m} * \mathrm{MSE} + 0.3 * \mathrm{Huber} + 0.1 * \omega_{c} * \mathrm{L}_{\mathrm{contrast}} &amp; 2\text{nd stage}, \\ 0.3 * \omega_{m} * \mathrm{MSE} + 0.3 * \mathrm{Huber} + 0.4 * \omega_{c} * \mathrm{L}_{\mathrm{contrast}} &amp; 3\text{rd stage} \end{array}\right.\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation102">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\omega _{m}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation103">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\omega _{c}$\end{document}</tex-math></inline-formula> are the dynamic weights. <inline-formula><tex-math notation="LaTeX" id="ImEquation104">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\omega _{m}$\end{document}</tex-math></inline-formula> is adjusted based on dataset size, while <inline-formula><tex-math notation="LaTeX" id="ImEquation105">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\omega _{c}$\end{document}</tex-math></inline-formula> gradually decays as training progresses. In each stage, the weights of the MSE and contrastive loss combine fixed tuned coefficients with these dynamic weights.</p></sec><sec id="sec7"><title>Evaluation metrics</title><p>To comprehensively evaluate the model’s performance in predicting the antimicrobial activity of ABPs, we adopt three metrics: MSE, the coefficient of determination (<inline-formula><tex-math notation="LaTeX" id="ImEquation106">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula>) [<xref rid="ref39" ref-type="bibr">39</xref>], and the Pearson correlation coefficient (PCC) [<xref rid="ref40" ref-type="bibr">40</xref>]. These metrics quantify regression performance from different perspectives and provide a multi-dimensional assessment of prediction accuracy. The definitions of <inline-formula><tex-math notation="LaTeX" id="ImEquation107">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> and PCC are as follows:</p><disp-formula id="deqn15">
+<label>(15)</label>
+<tex-math notation="LaTeX" id="DmEquation15">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; \mathrm{R^{2}} = 1 - \frac{\sum_{i=1}^{n}\left( \hat{y}_{i} - y_{i} \right)^{2}}{\sum_{i=1}^{n}\left( \bar{y} - y_{i} \right)^{2}} \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn16">
+<label>(16)</label>
+<tex-math notation="LaTeX" id="DmEquation16">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} &amp; \mathrm{PCC} = \frac{n\sum_{i=1}^{n} y_{i} \hat{y}_{i} - \sum_{i=1}^{n} y_{i} \sum_{i=1}^{n} \hat{y}_{i}}{\sqrt{n\sum_{i=1}^{n} y_{i}^{2} - \left( \sum_{i=1}^{n} y_{i} \right)^{2}} \sqrt{n\sum_{i=1}^{n} \hat{y}_{i}^{2} - \left( \sum_{i=1}^{n} \hat{y}_{i} \right)^{2}}} \end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation108">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$y_{i}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation109">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\hat{y}_{i}$\end{document}</tex-math></inline-formula> represent the actual and predicted values. MSE measures the average squared difference between the predictions and the ground truth, directly reflecting the magnitude of prediction error. A value closer to zero indicates higher prediction accuracy. <inline-formula><tex-math notation="LaTeX" id="ImEquation110">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> evaluates how well the model explains the variance of the target variable, with a range of <inline-formula><tex-math notation="LaTeX" id="ImEquation111">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$[-\infty , 1]$\end{document}</tex-math></inline-formula>. Values close to 1 indicate strong explanatory power, while negative values imply that the model performs worse than simply using the mean as a baseline predictor. PCC measures the strength of the linear correlation between predicted and actual values and ranges from <inline-formula><tex-math notation="LaTeX" id="ImEquation112">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$[-1,1]$\end{document}</tex-math></inline-formula>. A PCC closer to <inline-formula><tex-math notation="LaTeX" id="ImEquation113">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\pm 1$\end{document}</tex-math></inline-formula> indicates a stronger linear relationship, and the sign shows the direction of the correlation.</p><p>In summary, MSE focuses on the absolute magnitude of prediction error, <inline-formula><tex-math notation="LaTeX" id="ImEquation114">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> measures the model’s ability to explain variance, and PCC reveals the linear association between predictions and true values. Together, these metrics provide a comprehensive and robust evaluation of the regression model.</p></sec></sec><sec id="sec1c"><title>Results and discussion</title><sec id="sec8"><title>Comparison of loss functions</title><p>To evaluate the effect of different loss functions on ABP activity prediction, we compared the convergence curves of multiple candidate loss functions on the <italic toggle="yes">B. subtilis</italic> dataset to examine their optimization behavior during training. As shown in <xref rid="f3" ref-type="fig">Fig. 3</xref>, Huber loss exhibits faster convergence and stronger stability in the early stage of training, indicating its advantage in rapid optimization. However, the objectives of model training vary across different stages. Early training mainly requires stable and efficient convergence, whereas the middle and later stages place greater emphasis on refining error patterns and improving final predictive performance. Therefore, the suitability of a loss function should not be judged solely by convergence speed. Although MDH-loss does not show a clear advantage in early optimization, its convergence pattern suggests that it remains effective during the subsequent training process. This indicates that the optimization behavior of different loss functions should be interpreted from a stage-dependent perspective, and a more comprehensive evaluation still requires comparison of their final predictive performance on the target task.</p><fig position="float" id="f3" orientation="portrait"><label>Figure 3</label><caption><p>Loss curves of different loss functions on the <italic toggle="yes">Bacillus subtilis</italic> dataset.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag170f3.jpg"><alt-text>Line chart comparing the training loss curves of different loss functions on the italic B. subtilis dataset, showing how the loss values change during model optimization</alt-text></graphic></fig><p>To further evaluate the effect of loss function selection on model performance, we compared the performance of GGN-ABPMIC under different loss functions, including MDH-loss, conventional MSE loss, and Huber loss. As shown in <xref rid="TB2" ref-type="table">Table 2</xref>, when MSE loss was used instead, the performance declined noticeably, with the average MSE increasing to 0.247, <inline-formula><tex-math notation="LaTeX" id="ImEquation120">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> decreasing to 0.533, and PCC dropping to 0.715. The Huber loss achieved better results than MSE, yielding an average MSE of 0.236, an <inline-formula><tex-math notation="LaTeX" id="ImEquation121">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> of 0.547, and a PCC of 0.730, but it still underperformed compared with the full GGN-ABPMIC model. These results indicate that MDH-Loss is more suitable for ABP MIC prediction than the conventional alternatives. In particular, although Huber loss shows competitive optimization behavior, the final predictive performance obtained with MDH-Loss remains superior, supporting its effectiveness in the GGN-ABPMIC framework.</p><table-wrap position="float" id="TB2" orientation="portrait"><label>Table 2</label><caption><p>Average MSE, <inline-formula><tex-math notation="LaTeX" id="ImEquation115">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula>, and PCC values of GGN-ABPMIC trained with different loss functions across the 10 datasets.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Loss function</th><th align="left" rowspan="1" colspan="1">MSE <inline-formula><tex-math notation="LaTeX" id="ImEquation116">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathbf{\downarrow }$\end{document}</tex-math></inline-formula></th><th align="left" rowspan="1" colspan="1">
+<inline-formula>
+<tex-math notation="LaTeX" id="ImEquation117">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math>
+</inline-formula>  <inline-formula><tex-math notation="LaTeX" id="ImEquation118">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathbf{\uparrow }$\end{document}</tex-math></inline-formula></th><th align="left" rowspan="1" colspan="1">PCC <inline-formula><tex-math notation="LaTeX" id="ImEquation119">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathbf{\uparrow }$\end{document}</tex-math></inline-formula></th></tr></thead><tbody><tr><td rowspan="1" colspan="1">GGN-ABPMIC (MDH-loss)</td><td rowspan="1" colspan="1">
+<bold>0.221</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.564</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.749</bold>
+</td></tr><tr><td rowspan="1" colspan="1">GGN-ABPMIC (MSE)</td><td rowspan="1" colspan="1">0.247</td><td rowspan="1" colspan="1">0.533</td><td rowspan="1" colspan="1">0.715</td></tr><tr><td rowspan="1" colspan="1">GGN-ABPMIC (Huber)</td><td rowspan="1" colspan="1">0.236</td><td rowspan="1" colspan="1">0.547</td><td rowspan="1" colspan="1">0.730</td></tr></tbody></table><table-wrap-foot><p>The best-performing metrics are highlighted in bold.</p></table-wrap-foot></table-wrap></sec><sec id="sec9"><title>Hyperparameter optimization</title><p>In this study, when feeding the multi-scale features of ABPs into the GGN for activity regression, overfitting becomes a prominent issue. This mainly arises from the model’s complex architecture, which contains millions of parameters, while the available experimental data are limited—each dataset contains only a few hundred to a few thousand peptide sequences. To address this problem, we adopt a random dropout strategy. By randomly deactivating a subset of neurons during training, we reduce co-adaptation among neurons and enhance model robustness. Under this setting, the choice of the dropout rate becomes particularly important. Additionally, the learning rate controls the step size in gradient descent, thereby affecting optimization speed and stability. We tune it to balance training efficiency and convergence accuracy due to the anisotropic and uneven curvature of the loss landscape. Temperature controls the separation between positive and negative sample pairs in the feature space, affecting feature distribution sharpness. A proper temperature enhances the discriminability and stability of the feature space. The margin defines the minimum separation between positive and negative sample pairs in metric learning, which directly influencing decision boundaries. A suitable margin helps the model learn features with large inter-class separation and small intra-class variation.</p><p>Based on these considerations, we design a systematic grid search strategy to determine the optimal hyperparameter settings for each dataset. The specific search strategy is shown in <xref rid="sup1" ref-type="supplementary-material">Supplementary Table S1</xref>. For each of the 10 datasets, we conduct five repeated experiments and retain the best-performing hyperparameter combination. The final chosen hyperparameters for all datasets are reported in <xref rid="TB3" ref-type="table">Table 3</xref>.</p><table-wrap position="float" id="TB3" orientation="portrait"><label>Table 3</label><caption><p>Optimal parameters determined by grid search for each dataset.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Bacteria</th><th align="left" rowspan="1" colspan="1">DR</th><th align="left" rowspan="1" colspan="1">LR</th><th align="left" rowspan="1" colspan="1">T</th><th align="left" rowspan="1" colspan="1">M</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">E. coli</italic>
+</td><td rowspan="1" colspan="1">0.2</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.1</td><td rowspan="1" colspan="1">0.3</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. aureus</italic>
+</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">0.5</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">P. aeruginosa</italic>
+</td><td rowspan="1" colspan="1">0.2</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">0.4</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">B. subtilis</italic>
+</td><td rowspan="1" colspan="1">0.2</td><td rowspan="1" colspan="1">1e-3</td><td rowspan="1" colspan="1">0.1</td><td rowspan="1" colspan="1">0.4</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. epidermidis</italic>
+</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">1e-3</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">0.5</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. typhimurium</italic>
+</td><td rowspan="1" colspan="1">0.2</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">0.3</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">K. pneumoniae</italic>
+</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.1</td><td rowspan="1" colspan="1">0.3</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">M. luteus</italic>
+</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.2</td><td rowspan="1" colspan="1">0.4</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">E. faecalis</italic>
+</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">1e-3</td><td rowspan="1" colspan="1">0.3</td><td rowspan="1" colspan="1">0.4</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">A. baumannii</italic>
+</td><td rowspan="1" colspan="1">0.2</td><td rowspan="1" colspan="1">1e-4</td><td rowspan="1" colspan="1">0.5</td><td rowspan="1" colspan="1">0.5</td></tr></tbody></table><table-wrap-foot><p>DR=drop_rate, LR=learning_rate, T=temperature, M=margin.</p></table-wrap-foot></table-wrap><p>After the grid search optimization, the model achieved substantial improvements in key performance metrics across all 10 bacterial datasets. It captured the intrinsic patterns of ABP activity more effectively, thereby significantly enhancing prediction accuracy and reliability. More importantly, the optimized hyperparameters fundamentally improved the model’s generalization ability and robustness across different datasets.</p></sec><sec id="sec10"><title>Model comparison</title><p>We conducted a systematic evaluation of our model’s performance on ABP activity prediction across 10 bacterial species. As shown in <xref rid="TB4" ref-type="table">Table 4</xref>, our model achieved lower MSE values on 9 out of the 10 species, with an average MSE of 0.221. This represents a 20.2% reduction compared with the baseline value of 0.277. Notably, the model obtained substantial improvements on datasets such as <italic toggle="yes">Acinetobacter baumannii</italic> and <italic toggle="yes">B. subtilis</italic>. The largest reduction was observed on the <italic toggle="yes">A. baumannii</italic> dataset, where MSE decreased by 54.5%, demonstrating that our model significantly enhances prediction accuracy across diverse bacterial species.</p><table-wrap position="float" id="TB4" orientation="portrait"><label>Table 4</label><caption><p>MSE performance of the baseline model AMPActiPred and our GGN-ABPMIC model on 10 different bacterial species, along with their average values.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Bacteria</th><th align="left" rowspan="1" colspan="1">AMPActiPred</th><th align="left" rowspan="1" colspan="1">GGN-ABPMIC</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">E. coli</italic>
+</td><td rowspan="1" colspan="1">0.281</td><td rowspan="1" colspan="1">
+<bold>0.259</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. aureus</italic>
+</td><td rowspan="1" colspan="1">
+<bold>0.247</bold>
+</td><td rowspan="1" colspan="1">0.256</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">P. aeruginosa</italic>
+</td><td rowspan="1" colspan="1">0.261</td><td rowspan="1" colspan="1">
+<bold>0.211</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">B. subtilis</italic>
+</td><td rowspan="1" colspan="1">0.289</td><td rowspan="1" colspan="1">
+<bold>0.212</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. epidermidis</italic>
+</td><td rowspan="1" colspan="1">0.214</td><td rowspan="1" colspan="1">
+<bold>0.178</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">S. typhimurium</italic>
+</td><td rowspan="1" colspan="1">0.283</td><td rowspan="1" colspan="1">
+<bold>0.23</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">K. pneumoniae</italic>
+</td><td rowspan="1" colspan="1">0.308</td><td rowspan="1" colspan="1">
+<bold>0.218</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">M. luteus</italic>
+</td><td rowspan="1" colspan="1">0.323</td><td rowspan="1" colspan="1">
+<bold>0.286</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">E. faecalis</italic>
+</td><td rowspan="1" colspan="1">0.250</td><td rowspan="1" colspan="1">
+<bold>0.222</bold>
+</td></tr><tr><td rowspan="1" colspan="1">
+<italic toggle="yes">A. baumannii</italic>
+</td><td rowspan="1" colspan="1">0.312</td><td rowspan="1" colspan="1">
+<bold>0.142</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Average</td><td rowspan="1" colspan="1">0.277</td><td rowspan="1" colspan="1">
+<bold>0.221</bold>
+</td></tr></tbody></table><table-wrap-foot><p>The better values are highligthed in bold.</p></table-wrap-foot></table-wrap><p>On the <italic toggle="yes">S. aureus</italic> dataset, GGN-ABPMIC performed slightly worse than the baseline model. Given that this dataset contains a relatively large number of samples and shows no obvious difference in its overall value distribution compared with the other species, this performance gap is unlikely to be explained solely by limited data size or a simple distribution shift. A more plausible explanation is that the antibacterial activity against <italic toggle="yes">S. aureus</italic> is influenced by more complex biological factors, such as strain-level variation, cell wall-related mechanisms of action, and variability introduced by experimental measurement conditions. These factors may increase the effective complexity of the task and introduce additional noise. In addition, the current model mainly relies on sequence, physicochemical, and local structural descriptors, and does not explicitly encode higher-level information that may be more closely related to species-specific mechanisms of action. As a result, some discriminative patterns in the <italic toggle="yes">S. aureus</italic> dataset may not yet be fully captured. In future work, we plan to incorporate more mechanism-relevant features and combine them with more refined data cleaning and stratified modeling strategies to further improve prediction accuracy and robustness on this dataset.</p><p>In the evaluation of <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation122">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> and PCC, our model also demonstrated clear advantages. As shown in <xref rid="f4" ref-type="fig">Fig. 4</xref>, the average <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation123">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> reached 0.564, representing a 13.9% improvement over the baseline value of 0.495. The average PCC reached 0.749, which is a 3.7% increase compared with the baseline value of 0.722. The improvements were particularly notable for <italic toggle="yes">Klebsiella pneumoniae</italic> and <italic toggle="yes">A. baumannii</italic>. For <italic toggle="yes">K. pneumoniae</italic>, <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation124">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> increased from 0.479 to 0.612 (27.8%), and PCC increased from 0.666 to 0.783 (17.6%). For <italic toggle="yes">A. baumannii</italic>, <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation125">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> increased from 0.531 to 0.657 (23.7%), and PCC increased from 0.685 to 0.797 (16.4%). It is worth noting that our metrics consistently showed weaker performance on the <italic toggle="yes">S. aureus</italic> dataset, which we previously attributed to its distinct data distribution characteristics.</p><fig position="float" id="f4" orientation="portrait"><label>Figure 4.</label><caption><p>Performance of the baseline AMPActiPred model and our GGN-ABPMIC model on 10 bacterial species in terms of (A) <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation126">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> and (B) PCC, along with their average values.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag170f4.jpg"><alt-text>Comparison plots showing the predictive performance of AMPActiPred and GGN-ABPMIC across 10 bacterial species using R superscript 2 and PCC, including average performance values</alt-text></graphic></fig><p>In addition, some datasets, such as <italic toggle="yes">Enterococcus faecalis</italic>, exhibited excellent performance in terms of MSE but performed slightly worse than the baseline in <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation128">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> or PCC. We speculate that these datasets may contain noise or outliers, or that the relationship between predicted and true values may involve certain nonlinear patterns or directional biases. As a result, the model achieved low MSE values, while <italic toggle="yes">R</italic><inline-formula><tex-math notation="LaTeX" id="ImEquation129">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{2}$\end{document}</tex-math></inline-formula> and PCC showed relatively weaker performance.</p></sec><sec id="sec11"><title>Visualization of prediction results</title><p>To provide an intuitive view of predictive performance, <xref rid="f5" ref-type="fig">Fig. 5</xref> illustrates the relationship between actual activity values and predictions generated by GGN-ABPMIC on the test set. Visual inspection reveals pronounced linear alignment across all bacterial species. Data points cluster densely around the diagonal identity line. This tight conformity indicates minimal prediction error and robust fidelity.</p><fig position="float" id="f5" orientation="portrait"><label>Figure 5.</label><caption><p>Visualization of the actual and predicted pMIC values across the 10 datasets.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbag170f5.jpg"><alt-text>Scatter plots comparing actual and predicted pMIC values for 10 bacterial datasets, with point distributions indicating the agreement between experimental and predicted values</alt-text></graphic></fig><p>The scatter patterns demonstrate consistent performance throughout the entire activity range. Predictions remain accurate for peptides with low to high potency. The predictions exhibit no systematic directional bias. Most species exhibit highly compact point clouds. However, subtle differences in scatter breadth are discernible among bacterial types. Predictions for <italic toggle="yes">A. baumannii</italic> and <italic toggle="yes">Micrococcus luteus</italic> show exceptionally tight clustering. This indicates superior capture of structure–activity relationships for these organisms. In contrast, <italic toggle="yes">S. aureus</italic> displays slightly more dispersed points. This suggests greater inherent variability for this species.</p><p>Points distribute uniformly above and below the unity line across all activity levels. This uniform distribution confirms the unbiased nature of the predictions. Collectively, these visual characteristics affirm the strong predictive capability of GGN-ABPMIC. The framework demonstrates suitability as a reliable tool for antimicrobial peptide activity prediction.</p></sec><sec id="sec12"><title>Ablation study</title><p>Since our study incorporates multi-scale features, including sequence-derived, physicochemical, structural, and geometry-related representations, we designed a systematic ablation study to evaluate the contribution of each component to the performance of the GGN-ABPMIC model. Five ablation settings were constructed:
+</p><list list-type="simple"><list-item id="item3"><p>(i) GGN-ABPMIC w/o ProtTrans: removing the ProtTrans feature embeddings.</p></list-item><list-item id="item4"><p>(ii) GGN-ABPMIC w/o PFD: removing the concatenated peptide feature descriptors.</p></list-item><list-item id="item5"><p>(iii) GGN-ABPMIC w/o DSSP: removing secondary structure.</p></list-item><list-item id="item6"><p>(iv) GGN-ABPMIC w/o GVP: removing the original GVP-based geometric graph encoder. In this setting, geometric features that could be compressed into scalar descriptors were retained in scalar form, whereas directional vector features that could not be scalarized were removed. The resulting features were then directly processed by a standard scalar GNN.</p></list-item><list-item id="item7"><p>(v) GGN-ABPMIC w/o geometric features: removing the original GVP-based geometric graph encoder together with all multi-scale geometric features.</p></list-item></list><p>As shown in <xref rid="TB5" ref-type="table">Table 5</xref>, removing the ProtTrans embeddings resulted in a clear performance drop. The average MSE across the ten datasets increased to 0.274, the average <inline-formula><tex-math notation="LaTeX" id="ImEquation130">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> decreased to 0.429, and the average PCC dropped to 0.685. This indicates that ProtTrans plays an important role in capturing sequence-level information. Its removal substantially weakens the model’s expressive capacity and prediction accuracy.</p><table-wrap position="float" id="TB5" orientation="portrait"><label>Table 5</label><caption><p>Average MSE, <inline-formula><tex-math notation="LaTeX" id="ImEquation131">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula>, and PCC values of different ablation variants across the 10 datasets.</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Model</th><th align="left" rowspan="1" colspan="1">MSE <inline-formula><tex-math notation="LaTeX" id="ImEquation132">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathbf{\downarrow }$\end{document}</tex-math></inline-formula></th><th align="left" rowspan="1" colspan="1">
+<inline-formula>
+<tex-math notation="LaTeX" id="ImEquation133">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math>
+</inline-formula>  <inline-formula><tex-math notation="LaTeX" id="ImEquation134">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathbf{\uparrow }$\end{document}</tex-math></inline-formula></th><th align="left" rowspan="1" colspan="1">PCC <inline-formula><tex-math notation="LaTeX" id="ImEquation135">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathbf{\uparrow }$\end{document}</tex-math></inline-formula></th></tr></thead><tbody><tr><td rowspan="1" colspan="1">GGN-ABPMIC</td><td rowspan="1" colspan="1">
+<bold>0.221</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.564</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.749</bold>
+</td></tr><tr><td rowspan="1" colspan="1">w/o ProtTrans</td><td rowspan="1" colspan="1">0.274</td><td rowspan="1" colspan="1">0.429</td><td rowspan="1" colspan="1">0.685</td></tr><tr><td rowspan="1" colspan="1">w/o PFD</td><td rowspan="1" colspan="1">0.251</td><td rowspan="1" colspan="1">0.513</td><td rowspan="1" colspan="1">0.718</td></tr><tr><td rowspan="1" colspan="1">w/o DSSP</td><td rowspan="1" colspan="1">0.235</td><td rowspan="1" colspan="1">0.534</td><td rowspan="1" colspan="1">0.726</td></tr><tr><td rowspan="1" colspan="1">w/o GVP</td><td rowspan="1" colspan="1">0.262</td><td rowspan="1" colspan="1">0.518</td><td rowspan="1" colspan="1">0.706</td></tr><tr><td rowspan="1" colspan="1">w/o geometric features</td><td rowspan="1" colspan="1">0.289</td><td rowspan="1" colspan="1">0.423</td><td rowspan="1" colspan="1">0.664</td></tr></tbody></table><table-wrap-foot><p>The best-performing metrics are highlighted in bold (PFD = peptide feature descriptors).</p></table-wrap-foot></table-wrap><p>After removing the peptide feature descriptors, the model performance declined, with the average MSE increasing to 0.251, <inline-formula><tex-math notation="LaTeX" id="ImEquation136">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> decreasing to 0.513, and PCC dropping to 0.718, indicating that these descriptors effectively complement the sequence features. Removing DSSP also led to a performance decrease (MSE = 0.235, <inline-formula><tex-math notation="LaTeX" id="ImEquation137">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> = 0.534, PCC = 0.726), suggesting that structural descriptors provide useful additional information for ABP activity prediction. For the geometry-related ablation settings, removing GVP caused a noticeable drop in performance (MSE = 0.262, <inline-formula><tex-math notation="LaTeX" id="ImEquation138">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> = 0.518, PCC = 0.706), while removing both GVP and all multi-scale geometric features resulted in a more pronounced decline (MSE = 0.289, <inline-formula><tex-math notation="LaTeX" id="ImEquation139">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$R^{2}$\end{document}</tex-math></inline-formula> = 0.423, PCC = 0.664). Overall, the complete GGN-ABPMIC model consistently achieved the best results, demonstrating that the integration of sequence, physicochemical, structural, and geometry-related modules substantially enhances predictive performance.</p></sec><sec id="sec13"><title>Case study</title><p>To further validate the practical effectiveness of GGN-ABPMIC, we performed a case study using representative sequences derived from the <italic toggle="yes">E. coli</italic>-related datasets reported by Szymczak <italic toggle="yes">et al</italic>. [<xref rid="ref41" ref-type="bibr">41</xref>] and Li <italic toggle="yes">et al</italic>. [<xref rid="ref42" ref-type="bibr">42</xref>]. Several highly similar ABP sequences were selected to assess the ability of different models to capture subtle sequence variations. As shown in <xref rid="TB6" ref-type="table">Table 6</xref>, the first several sequences share typical characteristics of <inline-formula><tex-math notation="LaTeX" id="ImEquation140">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\alpha $\end{document}</tex-math></inline-formula>-helical ABPs, including similar length, high hydrophobic residue content, and conserved positively charged residues, yet their experimentally measured MIC values differ substantially. GGN-ABPMIC captures these differences more accurately, whereas AMPActiPred shows larger deviations, especially for peptides with lower MIC values.</p><table-wrap position="float" id="TB6" orientation="portrait"><label>Table 6</label><caption><p>Case study of several ABP sequences targeting <italic toggle="yes">E. coli.</italic></p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Sequence</th><th align="left" rowspan="1" colspan="1">Value</th><th align="left" rowspan="1" colspan="1">GGN-ABPMIC</th><th align="left" rowspan="1" colspan="1">AMPActiPred</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">GVGKKLWFAKKPLGLVKFFKLL</td><td rowspan="1" colspan="1">0.301</td><td rowspan="1" colspan="1">
+<bold>0.269(–0.032)</bold>
+</td><td rowspan="1" colspan="1">0.795(–0.494)</td></tr><tr><td rowspan="1" colspan="1">AKKWWKLLWKLWKKAK</td><td rowspan="1" colspan="1">0.903</td><td rowspan="1" colspan="1">
+<bold>0.812(–0.091)</bold>
+</td><td rowspan="1" colspan="1">0.688(–0.215)</td></tr><tr><td rowspan="1" colspan="1">AWQAIARLIKGRGRKKYGRIIIIG</td><td rowspan="1" colspan="1">0.903</td><td rowspan="1" colspan="1">
+<bold>0.736(–0.167)</bold>
+</td><td rowspan="1" colspan="1">0.614(–0.289)</td></tr><tr><td rowspan="1" colspan="1">GIGKFLKFAKKGLGLVIKFKL</td><td rowspan="1" colspan="1">1.204</td><td rowspan="1" colspan="1">
+<bold>1.301(+0.097)</bold>
+</td><td rowspan="1" colspan="1">0.811(–0.393)</td></tr><tr><td rowspan="1" colspan="1">FLPLIGRVLSGIL</td><td rowspan="1" colspan="1">2.408</td><td rowspan="1" colspan="1">
+<bold>1.824(–0.584)</bold>
+</td><td rowspan="1" colspan="1">1.385(–1.023)</td></tr><tr><td rowspan="1" colspan="1">GVAKKLWIAKKPAGAGSKFKLL</td><td rowspan="1" colspan="1">2.709</td><td rowspan="1" colspan="1">
+<bold>1.271(–1.438)</bold>
+</td><td rowspan="1" colspan="1">0.925(–1.784)</td></tr><tr><td rowspan="1" colspan="1">FLPLIGRVFSGIL</td><td rowspan="1" colspan="1">2.709</td><td rowspan="1" colspan="1">
+<bold>2.574(–0.135)</bold>
+</td><td rowspan="1" colspan="1">—</td></tr><tr><td rowspan="1" colspan="1">FLPLIGRVLSGIA</td><td rowspan="1" colspan="1">2.709</td><td rowspan="1" colspan="1">
+<bold>2.211(–0.498)</bold>
+</td><td rowspan="1" colspan="1">1.557(–1.152)</td></tr></tbody></table><table-wrap-foot><p>The unit of MIC values is <inline-formula><tex-math notation="LaTeX" id="ImEquation141">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\log _{10}\mu $\end{document}</tex-math></inline-formula>M. Numbers in parentheses denote the deviation of the predicted value from the true value. “—” indicates that AMPActiPred cannot predict the MIC value for this sequence.</p><p>Values closer to the true value are highlighted in bold.</p></table-wrap-foot></table-wrap><p>A similar pattern is observed for the remaining closely related sequences, where one or two residue substitutions lead to noticeable changes in antimicrobial activity, highlighting the sensitivity of ABP activity to the local sequence context. GGN-ABPMIC consistently produces predictions closer to the experimental values, indicating that it can better capture fine-grained structural and physicochemical differences. By contrast, AMPActiPred shows larger errors for some peptides, and no MIC estimates were generated for several others. This is related to its three-stage framework, in which the model first determines whether a peptide is an ABP, then predicts its target species, and finally estimates the MIC value for the predicted target bacterium. Therefore, the MIC prediction for <italic toggle="yes">E. coli</italic> requires the peptide to be identified as both an ABP and an <italic toggle="yes">E. coli</italic>-targeting ABP in the earlier stages. Although the fifth sequence is highly homologous to the fourth and sixth sequences, subtle sequence variations may have prevented its correct classification. Overall, these results further support the practical utility of GGN-ABPMIC in ABP discovery.</p></sec></sec><sec id="sec1d"><title>Conclusion</title><p>In this study, we proposed GGN-ABPMIC, a GGN-based model for predicting the MIC values of ABPs. A systematic evaluation across datasets from 10 bacterial species showed that GGN-ABPMIC achieves excellent predictive performance and strong generalization ability in ABP activity prediction.</p><p>The GGN-ABPMIC model integrates multi-scale features from different ABP modalities. These features are processed through a GGN and then combined with multiple peptide feature descriptors for MIC prediction. We also designed an MDH-loss that incorporates MSE, the Huber loss, and a contrastive learning loss to enhance the model’s robustness in regression tasks. Experimental results demonstrate that GGN-ABPMIC outperforms the existing method AMPActiPred on the vast majority of strain categories.</p><p>In addition, we validated the effectiveness of each model component through hyperparameter tuning and ablation studies. For hyperparameter tuning, we designed a systematic grid-search strategy to identify the optimal hyperparameter settings for each dataset. In the ablation experiments, we assessed the contributions of ProTrans, peptide feature descriptors, and multi-scale geometric features. The results show that these components, along with the hybrid loss function, all contribute significantly to improving prediction performance.</p><p>In summary, GGN-ABPMIC demonstrates clear advantages in predicting the MIC of ABPs, providing an efficient and accurate computational approach for ABP drug development. In future work, we plan to further expand the dataset and optimize the model architecture to improve prediction performance and broaden the model’s application scope.</p><boxed-text id="box01" position="float" orientation="portrait"><sec id="sec20a"><title>Key Points</title><list list-type="bullet"><list-item id="item8"><p>Geometric graph network-antibacterial peptides minimum inhibitory concentration (GGN-ABPMIC) is introduced for the prediction of minimum inhibitory concentration of antimicrobial peptides based on multi-scale geometric graph networks and dynamic loss functions.</p></list-item><list-item id="item9"><p>GGN-ABPMIC integrates information from geometric graph at atomic- and residue-scales. It uses scalar features and vector features. By incorporating diverse peptide feature descriptors, it overcomes the limitations of traditional methods that rely on a single sequence feature.</p></list-item><list-item id="item10"><p>To address complex data distributions and overfitting, we design a multi-stage, dynamically weighted hybrid loss function. It combines mean squared error loss, Huber loss, and contrastive loss. The component weights are updated throughout training epochs.</p></list-item><list-item id="item11"><p>Case analyses show that GGN-ABPMIC exhibits high predictive accuracy for unseen sequences. Compared with existing methods, its MIC predictions are closer to the true MIC values.</p></list-item></list></sec></boxed-text></sec><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material id="sup1" position="float" content-type="local-data" orientation="portrait"><label>Supplementary_Information_bbag170</label><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="supplementary_information_bbag170.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><sec sec-type="COI-statement" id="sec50b"><title>Conflicts of interest</title><p>The authors declare no conflicts of interest.</p></sec><sec id="sec50c"><title>Funding</title><p>This work was supported in part by the National Natural Science Foundation of China under Grants (62373001 and 62272004), in part by the Education Department of Anhui Province (2023AH050089) and in part by the State Key Laboratory of Pathogenesis, Prevention and Treatment of High Incidence Diseases in Central Asia Fund (SKL-HIDCA-2024-AH4).</p></sec><sec sec-type="data-availability" id="sec50d"><title>Data availability</title><p>The code and data are available at: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/LiJinYu1231/GGN-ABPMIC/tree/master" ext-link-type="uri">https://github.com/LiJinYu1231/GGN-ABPMIC/tree/master</ext-link>.</p></sec><ref-list id="bib1"><title>References</title><ref id="ref1"><label>1.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Walsh</surname>  <given-names>TR</given-names></string-name>, <string-name name-style="western"><surname>Gales</surname>  <given-names>AC</given-names></string-name>, <string-name name-style="western"><surname>Laxminarayan</surname>  <given-names>R</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Antimicrobial resistance: addressing a global threat to humanity</article-title>. <source><italic toggle="yes">PLoS Med</italic></source>  <year>2023</year>;<volume>20</volume>:<fpage>e1004264</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pmed.1004264</pub-id><pub-id pub-id-type="pmid">37399216</pub-id>
+<pub-id pub-id-type="pmcid">PMC10317217</pub-id></mixed-citation></ref><ref id="ref2"><label>2.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Zasloff</surname>  <given-names>M</given-names></string-name>
+</person-group>. <article-title>Antimicrobial peptides of multicellular organisms</article-title>. <source><italic toggle="yes">Nature</italic></source>  <year>2002</year>;<volume>415</volume>:<fpage>389</fpage>–<lpage>95</lpage>. <pub-id pub-id-type="doi">10.1038/415389a</pub-id><pub-id pub-id-type="pmid">11807545</pub-id>
+</mixed-citation></ref><ref id="ref3"><label>3.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Hancock</surname>  <given-names>REW</given-names></string-name>, <string-name name-style="western"><surname>Sahl</surname>  <given-names>H-G</given-names></string-name></person-group>. <article-title>Antimicrobial and host-defense peptides as new anti-infective therapeutic strategies</article-title>. <source><italic toggle="yes">Nat Biotechnol</italic></source>  <year>2006</year>;<volume>24</volume>:<fpage>1551</fpage>–<lpage>7</lpage>. <pub-id pub-id-type="doi">10.1038/nbt1267</pub-id><pub-id pub-id-type="pmid">17160061</pub-id>
+</mixed-citation></ref><ref id="ref4"><label>4.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Huan</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Kong</surname>  <given-names>Q</given-names></string-name>, <string-name name-style="western"><surname>Mou</surname>  <given-names>H</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Antimicrobial peptides: classification, design, application and research progress in multiple fields</article-title>. <source><italic toggle="yes">Front Microbiol</italic></source>  <year>2020</year>;<volume>11</volume>:<fpage>582779</fpage>. <pub-id pub-id-type="doi">10.3389/fmicb.2020.582779</pub-id><pub-id pub-id-type="pmid">33178164</pub-id>
+<pub-id pub-id-type="pmcid">PMC7596191</pub-id></mixed-citation></ref><ref id="ref5"><label>5.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bulet</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Stöcklin</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Menin</surname>  <given-names>L</given-names></string-name></person-group>. <article-title>Anti-microbial peptides: from invertebrates to vertebrates</article-title>. <source><italic toggle="yes">Immunol Rev</italic></source>  <year>2004</year>;<volume>198</volume>:<fpage>169</fpage>–<lpage>84</lpage>. <pub-id pub-id-type="doi">10.1111/j.0105-2896.2004.0124.x</pub-id><pub-id pub-id-type="pmid">15199962</pub-id>
+</mixed-citation></ref><ref id="ref6"><label>6.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Brogden</surname>  <given-names>KA</given-names></string-name>
+</person-group>. <article-title>Antimicrobial peptides: pore formers or metabolic inhibitors in bacteria?</article-title>  <source><italic toggle="yes">Nat Rev Microbiol</italic></source>  <year>2005</year>;<volume>3</volume>:<fpage>238</fpage>–<lpage>50</lpage>. <pub-id pub-id-type="doi">10.1038/nrmicro1098</pub-id><pub-id pub-id-type="pmid">15703760</pub-id>
+</mixed-citation></ref><ref id="ref7"><label>7.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Oliveira Júnior</surname>  <given-names>NG</given-names></string-name>, <string-name name-style="western"><surname>Souza</surname>  <given-names>CM</given-names></string-name>, <string-name name-style="western"><surname>Buccini</surname>  <given-names>DF</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Antimicrobial peptides: structure, functions and translational applications</article-title>. <source><italic toggle="yes">Nat Rev Microbiol</italic></source>  <year>2025</year>;<volume>23</volume>:<fpage>687</fpage>–<lpage>700</lpage>. <pub-id pub-id-type="doi">10.1038/s41579-025-01200-y</pub-id><pub-id pub-id-type="pmid">40646173</pub-id>
+</mixed-citation></ref><ref id="ref8"><label>8.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>Z</given-names></string-name></person-group>. <article-title>Apd3: the antimicrobial peptide database as a tool for research and education</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2016</year>;<volume>44</volume>:<fpage>D1087</fpage>–<lpage>93</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkv1278</pub-id><pub-id pub-id-type="pmid">26602694</pub-id>
+<pub-id pub-id-type="pmcid">PMC4702905</pub-id></mixed-citation></ref><ref id="ref9"><label>9.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Thomas</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Karnik</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Barai</surname>  <given-names>RS</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Camp: a useful resource for research on antimicrobial peptides</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2010</year>;<volume>38</volume>:<fpage>D774</fpage>–<lpage>80</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkp1021</pub-id><pub-id pub-id-type="pmid">19923233</pub-id>
+<pub-id pub-id-type="pmcid">PMC2808926</pub-id></mixed-citation></ref><ref id="ref10"><label>10.</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Xiao</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>You</surname>  <given-names>Z-B</given-names></string-name></person-group>. <article-title>Predicting minimum inhibitory concentration of antimicrobial peptides by the pseudo-amino acid composition and gaussian kernel regression</article-title>. In: <source><italic toggle="yes">2015 8th International Conference on Biomedical Engineering and Informatics (BMEI)</italic></source>, <fpage>301</fpage>–<lpage>5</lpage>. <publisher-loc>Shenyang, China</publisher-loc>: <publisher-name>IEEE</publisher-name>, <year>2015</year>.</mixed-citation></ref><ref id="ref11"><label>11.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Li</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Metcalf</surname>  <given-names>BJ</given-names></string-name>, <collab>Active Bacterial Core Surveillance Team</collab>  <etal>et al</etal></person-group>. <article-title>Validation of <inline-formula><tex-math notation="LaTeX" id="ImEquation142">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\beta $\end{document}</tex-math></inline-formula>-lactam minimum inhibitory concentration predictions for pneumococcal isolates with newly encountered penicillin binding protein (PBP) sequences</article-title>. <source><italic toggle="yes">BMC Genomics</italic></source>  <year>2017</year>;<volume>18</volume>:<fpage>621</fpage>.<pub-id pub-id-type="pmid">28810827</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12864-017-4017-7</pub-id><pub-id pub-id-type="pmcid">PMC5558719</pub-id></mixed-citation></ref><ref id="ref12"><label>12.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Sharma</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Shrivastava</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Singh</surname>  <given-names>SK</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Artificial intelligence-based model for predicting the minimum inhibitory concentration of antibacterial peptides against eskapee pathogens</article-title>. <source><italic toggle="yes">IEEE J Biomed Health Inform</italic></source>  <year>2024</year>;<volume>28</volume>:<fpage>1949</fpage>–<lpage>58</lpage>. <pub-id pub-id-type="doi">10.1109/JBHI.2023.3271611</pub-id><pub-id pub-id-type="pmid">37115837</pub-id></mixed-citation></ref><ref id="ref13"><label>13.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>B</given-names></string-name>, <string-name name-style="western"><surname>Zhou</surname>  <given-names>M</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>A deep learning method for predicting the minimum inhibitory concentration of antimicrobial peptides against <italic toggle="yes">Escherichia coli</italic> using multi-branch-CNN and attention</article-title>. <source><italic toggle="yes">mSystems</italic></source>  <year>2023</year>;<volume>8</volume>:<fpage>e00345</fpage>–<lpage>23</lpage>. <pub-id pub-id-type="doi">10.1128/msystems.00345-23</pub-id><pub-id pub-id-type="pmid">37431995</pub-id>
+<pub-id pub-id-type="pmcid">PMC10506472</pub-id></mixed-citation></ref><ref id="ref14"><label>14.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>  <given-names>L</given-names></string-name>, <string-name name-style="western"><surname>Guan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Xie</surname>  <given-names>P</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Ampactipred: a three-stage framework for predicting antibacterial peptides and activity levels with deep forest</article-title>. <source><italic toggle="yes">Protein Sci</italic></source>  <year>2024</year>;<volume>33</volume>:<fpage>e5006</fpage>. <pub-id pub-id-type="doi">10.1002/pro.5006</pub-id><pub-id pub-id-type="pmid">38723168</pub-id>
+<pub-id pub-id-type="pmcid">PMC11081525</pub-id></mixed-citation></ref><ref id="ref15"><label>15.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Cai</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Yan</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Un</surname>  <given-names>C</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Bert-ampep60: a bert-based transfer learning approach to predict the minimum inhibitory concentrations of antimicrobial peptides for <italic toggle="yes">Escherichia coli</italic> and <italic toggle="yes">Staphylococcus aureus</italic></article-title>. <source><italic toggle="yes">J Chem Inf Model</italic></source>  <year>2025</year>;<volume>65</volume>:<fpage>3186</fpage>–<lpage>202</lpage>. <pub-id pub-id-type="doi">10.1021/acs.jcim.4c01749</pub-id><pub-id pub-id-type="pmid">40086449</pub-id>
+<pub-id pub-id-type="pmcid">PMC12004541</pub-id></mixed-citation></ref><ref id="ref16"><label>16.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Huber</surname>  <given-names>PJ</given-names></string-name>
+</person-group>. <article-title>Robust estimation of a location parameter</article-title>. <source><italic toggle="yes">Ann Math Stat</italic></source>  <year>1964</year>;<volume>35</volume>:<fpage>73</fpage>–<lpage>101</lpage>. <pub-id pub-id-type="doi">10.1214/aoms/1177703732</pub-id></mixed-citation></ref><ref id="ref17"><label>17.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Hadsell</surname>  <given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Chopra</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>LeCun</surname>  <given-names>Y</given-names></string-name></person-group>. <article-title>Dimensionality reduction by learning an invariant mapping</article-title>. In: <source><italic toggle="yes">IEEE Conf Comput Vis Pattern Recognit</italic></source>, <year>2006</year>, pp. <fpage>1735</fpage>–<lpage>42</lpage>. <pub-id pub-id-type="doi">10.1109/CVPR.2006.100</pub-id></mixed-citation></ref><ref id="ref18"><label>18.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Witten</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Witten</surname>  <given-names>Z</given-names></string-name></person-group>. <article-title>Deep learning regression model for antimicrobial peptide design</article-title>. 2019, BioRxiv preprint BioRxiv: 692681</mixed-citation></ref><ref id="ref19"><label>19.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Novković</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Simunić</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Bojović</surname>  <given-names>V</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>DADP: the database of anuran defense peptides</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source>  <year>2012</year>;<volume>28</volume>:<fpage>1406</fpage>–<lpage>7</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/bts141</pub-id><pub-id pub-id-type="pmid">22467909</pub-id>
+</mixed-citation></ref><ref id="ref20"><label>20.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Pirtskhalava</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Amstrong</surname>  <given-names>AA</given-names></string-name>, <string-name name-style="western"><surname>Grigolava</surname>  <given-names>M</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Dbaasp v3: database of antimicrobial/cytotoxic activity and structure of peptides as a resource for development of new therapeutics</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2021</year>;<volume>49</volume>:<fpage>D288</fpage>–<lpage>97</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkaa991</pub-id><pub-id pub-id-type="pmid">33151284</pub-id>
+<pub-id pub-id-type="pmcid">PMC7778994</pub-id></mixed-citation></ref><ref id="ref21"><label>21.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Shi</surname>  <given-names>G</given-names></string-name>, <string-name name-style="western"><surname>Kang</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Dong</surname>  <given-names>F</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Dramp 3.0: an enhanced comprehensive data repository of antimicrobial peptides</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source>  <year>2022</year>;<volume>50</volume>:<fpage>D488</fpage>–<lpage>96</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkab651</pub-id><pub-id pub-id-type="pmid">34390348</pub-id>
+<pub-id pub-id-type="pmcid">PMC8728287</pub-id></mixed-citation></ref><ref id="ref22"><label>22.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Piotto</surname>  <given-names>SP</given-names></string-name>, <string-name name-style="western"><surname>Sessa</surname>  <given-names>L</given-names></string-name>, <string-name name-style="western"><surname>Concilio</surname>  <given-names>S</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Yadamp: yet another database of antimicrobial peptides</article-title>. <source><italic toggle="yes">Int J Antimicrob Agents</italic></source>  <year>2012</year>;<volume>39</volume>:<fpage>346</fpage>–<lpage>51</lpage>. <pub-id pub-id-type="doi">10.1016/j.ijantimicag.2011.12.003</pub-id><pub-id pub-id-type="pmid">22325123</pub-id>
+</mixed-citation></ref><ref id="ref23"><label>23.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Huang</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Niu</surname>  <given-names>B</given-names></string-name>, <string-name name-style="western"><surname>Gao</surname>  <given-names>Y</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Cd-hit suite: a web server for clustering and comparing biological sequences</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source>  <year>2010</year>;<volume>26</volume>:<fpage>680</fpage>–<lpage>2</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btq003</pub-id><pub-id pub-id-type="pmid">20053844</pub-id>
+<pub-id pub-id-type="pmcid">PMC2828112</pub-id></mixed-citation></ref><ref id="ref24"><label>24.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Xing</surname>  <given-names>W</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>C</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>IAMP-attenpred: a novel antimicrobial peptide predictor based on bert feature extraction method and CNN-BILSTM-attention combination model</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source>  <year>2024</year>;<volume>25</volume>:<fpage>bbad443</fpage>. <pub-id pub-id-type="doi">10.1093/bib/bbad443</pub-id><pub-id pub-id-type="pmcid">PMC10699745</pub-id><pub-id pub-id-type="pmid">38055840</pub-id></mixed-citation></ref><ref id="ref25"><label>25.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bin</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>W</given-names></string-name>, <string-name name-style="western"><surname>Tang</surname>  <given-names>W</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Prediction of neuropeptides from sequence information using ensemble classifier and hybrid features</article-title>. <source><italic toggle="yes">J Proteome Res</italic></source>  <year>2020</year>;<volume>19</volume>:<fpage>3732</fpage>–<lpage>40</lpage>. <pub-id pub-id-type="doi">10.1021/acs.jproteome.0c00276</pub-id><pub-id pub-id-type="pmid">32786686</pub-id>
+</mixed-citation></ref><ref id="ref26"><label>26.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Qiule</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>Z</given-names></string-name>, <string-name name-style="western"><surname>Liu</surname>  <given-names>G</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Toxgin: an in silico prediction model for peptide toxicity via graph isomorphism networks integrating peptide sequence and structure information</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source>  <year>2024</year>;<volume>25</volume>:bbae583. <pub-id pub-id-type="doi">10.1093/bib/bbae583</pub-id><pub-id pub-id-type="pmcid">PMC11555482</pub-id><pub-id pub-id-type="pmid">39530430</pub-id></mixed-citation></ref><ref id="ref27"><label>27.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lin</surname>  <given-names>Z</given-names></string-name>, <string-name name-style="western"><surname>Akin</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Rao</surname>  <given-names>R</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Evolutionary-scale prediction of atomic-level protein structure with a language model</article-title>. <source><italic toggle="yes">Science</italic></source>  <year>2023</year>;<volume>379</volume>:<fpage>1123</fpage>–<lpage>30</lpage>. <pub-id pub-id-type="doi">10.1126/science.ade2574</pub-id><pub-id pub-id-type="pmid">36927031</pub-id>
+</mixed-citation></ref><ref id="ref28"><label>28.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Elnaggar</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Heinzinger</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Dallago</surname>  <given-names>C</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Prottrans: towards cracking the language of life’s code through self-supervised learning</article-title>. 2021, <source>BioRxiv preprint BioRxiv</source> 2020.07.12.199554.</mixed-citation></ref><ref id="ref29"><label>29.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kabsch</surname>  <given-names>W</given-names></string-name>, <string-name name-style="western"><surname>Sander</surname>  <given-names>C</given-names></string-name></person-group>. <article-title>Dictionary of protein secondary structure: pattern recognition of hydrogen-bonded and geometrical features</article-title>. <source><italic toggle="yes">Biopolymers</italic></source>  <year>1983</year>;<volume>22</volume>:<fpage>2577</fpage>–<lpage>637</lpage>. <pub-id pub-id-type="doi">10.1002/bip.360221211</pub-id><pub-id pub-id-type="pmid">6667333</pub-id>
+</mixed-citation></ref><ref id="ref30"><label>30.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Scarselli</surname>  <given-names>F</given-names></string-name>, <string-name name-style="western"><surname>Gori</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Tsoi</surname>  <given-names>AC</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>The graph neural network model</article-title>. <source><italic toggle="yes">IEEE Trans Neural Netw</italic></source>  <year>2009</year>;<volume>20</volume>:<fpage>61</fpage>–<lpage>80</lpage>. <pub-id pub-id-type="doi">10.1109/TNN.2008.2005605</pub-id><pub-id pub-id-type="pmid">19068426</pub-id>
+</mixed-citation></ref><ref id="ref31"><label>31.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Mi</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Li</surname>  <given-names>J</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>GGN-GO: geometric graph networks for predicting protein function by multi-scale structure features</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source>  <year>2024</year>;<volume>25</volume>:<fpage>bbae559</fpage>. <pub-id pub-id-type="doi">10.1093/bib/bbae559</pub-id><pub-id pub-id-type="pmid">39487084</pub-id>
+<pub-id pub-id-type="pmcid">PMC11530295</pub-id></mixed-citation></ref><ref id="ref32"><label>32.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jing</surname>  <given-names>B</given-names></string-name>, <string-name name-style="western"><surname>Eismann</surname>  <given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Suriana</surname>  <given-names>P</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Learning from protein structure with geometric vector perceptrons</article-title>. 2021, <comment><italic toggle="yes">arXiv</italic> preprint</comment>  <comment>arXiv:2009.01411</comment></mixed-citation></ref><ref id="ref33"><label>33.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lin</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Chen</surname>  <given-names>Q</given-names></string-name>, <string-name name-style="western"><surname>Yan</surname>  <given-names>S</given-names></string-name></person-group>. <article-title>Network in network</article-title>. 2014, <comment><italic toggle="yes">arXiv</italic> preprint</comment>  <comment>arXiv:1312.4400</comment></mixed-citation></ref><ref id="ref34"><label>34.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Vaswani</surname>  <given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Shazeer</surname>  <given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Parmar</surname>  <given-names>N</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Attention is all you need</article-title>. <source><italic toggle="yes">In: Advances in Neural Information Processing Systems</italic></source>  <year>2017</year>;<volume>30</volume>:<fpage>5998</fpage>–<lpage>6008</lpage>.</mixed-citation></ref><ref id="ref35"><label>35.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bhasin</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Raghava</surname>  <given-names>GPS</given-names></string-name></person-group>. <article-title>Classification of nuclear receptors based on amino acid composition and dipeptide composition</article-title>. <source><italic toggle="yes">J Biol Chem</italic></source>  <year>2004</year>;<volume>279</volume>:<fpage>23262</fpage>–<lpage>6</lpage>. <pub-id pub-id-type="doi">10.1074/jbc.M401932200</pub-id><pub-id pub-id-type="pmid">15039428</pub-id>
+</mixed-citation></ref><ref id="ref36"><label>36.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ding</surname>  <given-names>H</given-names></string-name>, <string-name name-style="western"><surname>Deng</surname>  <given-names>EZ</given-names></string-name>, <string-name name-style="western"><surname>Yuan</surname>  <given-names>LF</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>ICTX-type: a sequence-based predictor for identifying the types of conotoxins in targeting ion channels</article-title>. <source><italic toggle="yes">Biomed Res Int</italic></source>  <year>2014</year>;<volume>2014</volume>:<fpage>286419</fpage>.<pub-id pub-id-type="pmid">24991545</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1155/2014/286419</pub-id><pub-id pub-id-type="pmcid">PMC4058692</pub-id></mixed-citation></ref><ref id="ref37"><label>37.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lee</surname>  <given-names>T-Y</given-names></string-name>, <string-name name-style="western"><surname>Lin</surname>  <given-names>Z-Q</given-names></string-name>, <string-name name-style="western"><surname>Hsieh</surname>  <given-names>S-J</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Exploiting maximal dependence decomposition to identify conserved motifs from a group of aligned signal sequences</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source>  <year>2011</year>;<volume>27</volume>:<fpage>1780</fpage>–<lpage>7</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btr291</pub-id><pub-id pub-id-type="pmid">21551145</pub-id>
+</mixed-citation></ref><ref id="ref38"><label>38.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ding</surname>  <given-names>Y-S</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>T-L</given-names></string-name></person-group>. <article-title>Using chou’s pseudo amino acid composition to predict subcellular localization of apoptosis proteins: an approach with immune genetic algorithm-based ensemble classifier</article-title>. <source><italic toggle="yes">Pattern Recogn Lett</italic></source>  <year>2008</year>;<volume>29</volume>:<fpage>1887</fpage>–<lpage>92</lpage>. <pub-id pub-id-type="doi">10.1016/j.patrec.2008.06.007</pub-id></mixed-citation></ref><ref id="ref39"><label>39.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kvålseth</surname>  <given-names>TO</given-names></string-name>
+</person-group>. <article-title>Cautionary note about r2</article-title>. <source><italic toggle="yes">The American Statistician</italic></source>  <year>1985</year>;<volume>39</volume>:<fpage>279</fpage>–<lpage>85</lpage>. <pub-id pub-id-type="doi">10.1080/00031305.1985.10479448</pub-id></mixed-citation></ref><ref id="ref40"><label>40.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wang</surname>  <given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Zheng</surname>  <given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Chen</surname>  <given-names>B</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Associations among image assessments as cost functions in linear decomposition: MSE, SSIM, and correlation coefficient</article-title>. 2017, <comment><italic toggle="yes">arXiv</italic> preprint</comment>  <comment>arXiv:1708.01541</comment></mixed-citation></ref><ref id="ref41"><label>41.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Szymczak</surname>  <given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Możejko</surname>  <given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Grzegorzek</surname>  <given-names>T</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Discovering highly potent antimicrobial peptides with deep generative model hydramp</article-title>. <source><italic toggle="yes">Nat Commun</italic></source>  <year>2023</year>;<volume>14</volume>:<fpage>1453</fpage>. <pub-id pub-id-type="doi">10.1038/s41467-023-36994-z</pub-id><pub-id pub-id-type="pmid">36922490</pub-id>
+<pub-id pub-id-type="pmcid">PMC10017685</pub-id></mixed-citation></ref><ref id="ref42"><label>42.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Li</surname>  <given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Xu</surname>  <given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname>  <given-names>X</given-names></string-name>  <etal>et al</etal></person-group>. <article-title>Broadamp-GPT: AI-driven generation of broad-spectrum antimicrobial peptides for combating multidrug-resistant eskape pathogens</article-title>. <source><italic toggle="yes">Gut Microbes</italic></source>  <year>2025</year>;<volume>17</volume>:<fpage>2523811</fpage>. <pub-id pub-id-type="doi">10.1080/19490976.2025.2523811</pub-id><pub-id pub-id-type="pmid">40568788</pub-id>
+<pub-id pub-id-type="pmcid">PMC12203862</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

@@ -1,0 +1,205 @@
+{
+  "chunk_id": "model_ampclgpt",
+  "chunk_type": "model",
+  "chunk_name": "AMPCLGPT",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPCLGPT",
+    "CAmidPred",
+    "PepMCP",
+    "MemAMPdb",
+    "Hairpin Loop Peptides"
+  ],
+  "papers": [
+    {
+      "title": "Harnessing Generative Pre-trained Transformer for Antimicrobial Peptide Generation and MIC Prediction with Contrastive Learning",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.1101/2025.03.07.642021",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "PepMCP: A Graph-Based Membrane Contact Probability Predictor for Membrane-Lytic Antimicrobial Peptides",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.64898/2026.02.01.703163",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Practical Machine Learning Framework for Designing and Predicting C-Amidated Antimicrobial Peptides",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.21203/rs.3.rs-7764304/v1",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "New potential antimicrobial peptides with amazing symmetrical structure in fungi and insects",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.64898/2025.12.21.695455",
+      "year": "2025",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPCLGPT",
+      "canonical_name": "AMPCLGPT",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Generative Pre-trained Transformer with contrastive learning for AMP generation and MIC prediction",
+      "input_features": "peptide sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.1101/2025.03.07.642021",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel GPT-based AMP generator and MIC predictor, suitable for benchmarking",
+      "blocking_issues": [
+        "no code",
+        "no full text",
+        "preprint"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "CAmidPred",
+      "canonical_name": "CAmidPred",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Explainable Boosting Machine (EBM) for design rules, fine-tuned ESM2 for classification",
+      "input_features": "amino acid sequences",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.21203/rs.3.rs-7764304/v1",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP prediction model targeting amidated AMPs, uses ESM2",
+      "blocking_issues": [
+        "no code available",
+        "no full text",
+        "preprint"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.7
+    },
+    {
+      "model_name": "PepMCP",
+      "canonical_name": "PepMCP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "GraphSAGE with 4-hop edges, trained on node regression for membrane contact probability",
+      "input_features": "peptide sequences converted to graph",
+      "source_pmid": "",
+      "source_pmcid": "",
+      "source_doi": "10.64898/2026.02.01.703163",
+      "code_repository_url": "https://github.com/ComputBiophys/PepMCP",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "MemAMPdb (described in paper, no explicit link)",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel graph-based predictor with code and database, suitable for benchmarking",
+      "blocking_issues": [
+        "preprint",
+        "no full text",
+        "no web server URL"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.8
+    }
+  ],
+  "repositories": [
+    {
+      "name": "PepMCP",
+      "url": "https://github.com/ComputBiophys/PepMCP",
+      "repository_type": "code",
+      "matched_model_name": "PepMCP",
+      "source_pmid": "",
+      "source_doi": "10.64898/2026.02.01.703163",
+      "evidence_level": "abstract",
+      "evidence": "The code and data are available at https://github.com/ComputBiophys/PepMCP"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "MemAMPdb",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "PepMCP paper",
+      "linked_model": "PepMCP",
+      "source_pmid": "",
+      "source_doi": "10.64898/2026.02.01.703163",
+      "positive_samples": ">500 membrane-lytic AMPs",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "abstract",
+      "evidence": "provide a database, MemAMPdb, which includes the membrane-lytic AMPs"
+    },
+    {
+      "dataset_name": "PepMCP",
+      "dataset_url": "https://github.com/ComputBiophys/PepMCP",
+      "matched_paper_title": "PepMCP: A Graph-Based Membrane Contact Probability Predictor for Membrane-Lytic Antimicrobial Peptides",
+      "source_pmid": "",
+      "source_doi": "10.64898/2026.02.01.703163",
+      "evidence_source": "regex_fulltext_or_metadata",
+      "confidence": 0.6
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Pearson correlation coefficient",
+      "usage": "node-level MCP prediction evaluation",
+      "source_pmid": "",
+      "source_doi": "10.64898/2026.02.01.703163",
+      "evidence": "achieved a Pearson correlation coefficient of 0.883"
+    },
+    {
+      "metric_name": "RMSE",
+      "usage": "node-level MCP prediction evaluation",
+      "source_pmid": "",
+      "source_doi": "10.64898/2026.02.01.703163",
+      "evidence": "RMSE of 0.123"
+    }
+  ],
+  "important_evidence": [
+    "AMPCLGPT: leverages contrastive learning and generative pre-training for AMP design and MIC prediction",
+    "CAmidPred: integrated framework for C-terminal amidated AMP prediction, using EBM and fine-tuned ESM2",
+    "PepMCP: GraphSAGE model for membrane contact probability, code and MemAMPdb database available at GitHub",
+    "MemAMPdb: >500 membrane-lytic AMPs used for training PepMCP"
+  ],
+  "uncertainties": [
+    "Need full text for CAmidPred, AMPCLGPT, and PepMCP to verify web server, data, and details.",
+    "AMPCLGPT code availability unknown.",
+    "MemAMPdb dataset URL not provided in abstract."
+  ],
+  "source_pmids": [],
+  "source_dois": [
+    "10.21203/rs.3.rs-7764304/v1",
+    "10.64898/2025.12.21.695455",
+    "10.64898/2026.02.01.703163",
+    "10.1101/2025.03.07.642021"
+  ],
+  "urls": [
+    "https://github.com/ComputBiophys/PepMCP",
+    "https://doi.org/10.21203/rs.3.rs-7764304/v1",
+    "https://doi.org/10.64898/2025.12.21.695455",
+    "https://doi.org/10.64898/2026.02.01.703163",
+    "https://doi.org/10.1101/2025.03.07.642021"
+  ]
+}

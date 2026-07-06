@@ -1,0 +1,184 @@
+{
+  "chunk_id": "model_anti_cp",
+  "chunk_type": "model",
+  "chunk_name": "Anti_Cp",
+  "compression_status": "ok",
+  "main_entities": [
+    "WeightedEnsemble_L3 (AMP activity classifier)",
+    "DBAASP-derived dataset",
+    "Anti_Cp GitHub repository"
+  ],
+  "papers": [
+    {
+      "title": "Specifically targeted antimicrobial peptides synergize with bacterial-entrapping peptide against systemic MRSA infections.",
+      "pmid": "38266820",
+      "pmcid": "PMC10541502",
+      "doi": "10.1016/j.jare.2024.01.023",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Gut-targeted nanoparticles deliver specifically targeted antimicrobial peptides against Clostridium perfringens infections.",
+      "pmid": "37774026",
+      "pmcid": "PMC10541502",
+      "doi": "10.1126/sciadv.adf8782",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Antimicrobial activity of novel symmetrical antimicrobial peptides centered on a hydrophilic motif against resistant clinical isolates:",
+      "pmid": "39382284",
+      "pmcid": "PMC163996",
+      "doi": "10.1128/AAC.41.8.1738",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Table 1: The comparison of Macrel AMP classifier performance and state-of-art methods shows that Macrel is among the best methods across a range of metrics.",
+      "pmid": "",
+      "pmcid": "",
+      "doi": "10.7717/peerj-10555/table-1",
+      "year": "2020",
+      "role": "benchmark_paper",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "WeightedEnsemble_L3 (Anti_Cp)",
+      "canonical_name": "WeightedEnsemble_L3",
+      "aliases": [
+        "Anti_Cp",
+        "FED_AMP_activity_model",
+        "WeightedEnsemble_L3"
+      ],
+      "task_type": "antimicrobial peptide activity classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "WeightedEnsemble_L3 using AutoGluon, with 94 manually engineered features (tilt angle, hydrophobic moment, amphiphilicity, net charge, amino acid composition, secondary structure, etc.)",
+      "input_features": "94 features: tilt angle, angle subtended by hydrophobic residues, propensity to in vitro aggregation, amphiphilicity, hydrophobicity, net charge, amino acid composition, secondary structure, and others",
+      "source_pmid": "38266820",
+      "source_pmcid": "PMC10541502",
+      "source_doi": "10.1016/j.jare.2024.01.023",
+      "code_repository_url": "https://github.com/xubocheng/Anti_Cp.git",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "https://github.com/xubocheng/Anti_Cp.git",
+      "benchmark_candidate": true,
+      "candidate_reason": "ML model for predicting AMP activity levels with available code and data; suitable for benchmarking feature-based AMP classifiers.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9,
+      "model_category_hint": "traditional_ml_feature_model",
+      "weights_availability": "no_weights_reported",
+      "benchmark_entry_status": "ready_candidate",
+      "representative_reason": "Represents traditional ML approach with handcrafted peptide features; model is reproducible from code and representative of feature-based AMP classifiers."
+    }
+  ],
+  "repositories": [
+    {
+      "name": "Anti_Cp",
+      "url": "https://github.com/xubocheng/Anti_Cp.git",
+      "repository_type": "code",
+      "matched_model_name": "WeightedEnsemble_L3",
+      "source_pmid": "38266820",
+      "source_doi": "10.1016/j.jare.2024.01.023",
+      "evidence_level": "fulltext",
+      "evidence": "Repository linked in both PMID 38266820 and PMID 37774026 full texts."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "DBAASP-derived AMP activity dataset (MRSA focus)",
+      "dataset_url": "https://github.com/xubocheng/Anti_Cp.git",
+      "dataset_source": "DBAASP database",
+      "linked_model": "WeightedEnsemble_L3",
+      "dataset_role": "training",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "high activity (MIC <= 32 μg/ml)",
+      "negative_samples": "low activity (32 < MIC <= 128 μg/ml) and no activity (MIC > 128 μg/ml)",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "split_method": "80% train, 20% test",
+      "source_pmid": "38266820",
+      "source_doi": "10.1016/j.jare.2024.01.023",
+      "evidence_level": "fulltext"
+    },
+    {
+      "dataset_name": "DBAASP_enteric_AMP_activity_dataset",
+      "dataset_url": "https://github.com/xubocheng/Anti_Cp.git",
+      "dataset_source": "DBAASP database",
+      "linked_model": "WeightedEnsemble_L3",
+      "dataset_role": "training",
+      "dataset_status": "direct_url_found",
+      "positive_samples": "high activity (0 < MIC <= 32 μg/ml)",
+      "negative_samples": "no activity (MIC > 128 μg/ml)",
+      "deduplication_method": "not_reported_in_available_evidence",
+      "split_method": "80% train, 20% test",
+      "source_pmid": "37774026",
+      "source_doi": "10.1126/sciadv.adf8782",
+      "evidence_level": "fulltext"
+    }
+  ],
+  "dataset_links": [],
+  "model_dataset_links": [
+    {
+      "model_name": "WeightedEnsemble_L3",
+      "dataset_name": "DBAASP-derived AMP activity dataset (MRSA focus)",
+      "link_type": "training",
+      "source_pmid": "38266820"
+    },
+    {
+      "model_name": "WeightedEnsemble_L3",
+      "dataset_name": "DBAASP_enteric_AMP_activity_dataset",
+      "link_type": "training",
+      "source_pmid": "37774026"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "ROC-AUC",
+      "usage": "evaluation on test set",
+      "source_pmid": "38266820",
+      "source_doi": "10.1016/j.jare.2024.01.023",
+      "evidence": "0.912 on test data (reported in both PMID 38266820 and 37774026)."
+    },
+    {
+      "metric_name": "Accuracy",
+      "usage": "evaluation on test set",
+      "source_pmid": "38266820",
+      "source_doi": "10.1016/j.jare.2024.01.023",
+      "evidence": "76.8% on test set; external test on inactive peptides 90% (reported in both papers)."
+    }
+  ],
+  "important_evidence": [
+    "Model WeightedEnsemble_L3 (AutoGluon) trained on 94 peptide features achieves ROC-AUC 0.912 and test accuracy 76.8%.",
+    "Code and data available at https://github.com/xubocheng/Anti_Cp.git (DBAASP-derived).",
+    "Model used in two different studies for STAMP design (MRSA and C. perfringens).",
+    "External validation on inactive peptides gave 90% accuracy."
+  ],
+  "uncertainties": [
+    "Macrel benchmark table (DOI:10.7717/peerj-10555/table-1) lacks full text; full comparison data not extracted.",
+    "Model weights not explicitly provided in repository; may need retraining.",
+    "Two papers describe slightly different dataset configurations (low activity class omitted in the enteric dataset)."
+  ],
+  "source_pmids": [
+    "38266820",
+    "37774026",
+    "39382284"
+  ],
+  "source_dois": [
+    "10.1016/j.jare.2024.01.023",
+    "10.1126/sciadv.adf8782",
+    "10.1128/AAC.41.8.1738",
+    "10.7717/peerj-10555/table-1"
+  ],
+  "urls": [
+    "https://github.com/xubocheng/Anti_Cp.git",
+    "https://doi.org/10.1016/j.jare.2024.01.023",
+    "https://doi.org/10.1126/sciadv.adf8782",
+    "https://doi.org/10.1128/AAC.41.8.1738",
+    "https://doi.org/10.7717/peerj-10555/table-1"
+  ]
+}

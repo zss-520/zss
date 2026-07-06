@@ -1,0 +1,154 @@
+{
+  "chunk_id": "model_ampfinder_amppredictor_ampactipred",
+  "chunk_type": "model",
+  "chunk_name": "AMPfinder, AMPpredictor, AMPActiPred",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPfinder",
+    "AMPpredictor",
+    "AMPActiPred",
+    "dbAMP 3.0"
+  ],
+  "papers": [
+    {
+      "title": "dbAMP 3.0: updated resource of antimicrobial activity and structural annotation of peptides in the post-pandemic era.",
+      "pmid": "39540425",
+      "pmcid": "PMC11701527",
+      "doi": "10.1093/nar/gkae1019",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Transcriptomic analysis of non-model Drosophilidae reveals novel AMP candidates.",
+      "pmid": "41634709",
+      "pmcid": "PMC12958777",
+      "doi": "10.1186/s12915-026-02535-5",
+      "year": "2026",
+      "role": "dataset_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPfinder",
+      "canonical_name": "AMPfinder",
+      "aliases": [],
+      "task_type": "AMP discovery / prediction",
+      "method_family": "unknown",
+      "architecture_or_algorithm": "genomic/metagenomic data mining",
+      "input_features": "genomic/metagenomic sequences",
+      "source_pmid": "39540425",
+      "source_pmcid": "PMC11701527",
+      "source_doi": "10.1093/nar/gkae1019",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "dbAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "集成在 dbAMP 3.0 中的 AMP 发现工具，可用于从基因组/宏基因组数据中挖掘 AMP。",
+      "blocking_issues": [
+        "code not independently available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "AMPpredictor",
+      "canonical_name": "AMPpredictor",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "machine learning",
+      "input_features": "peptide sequences",
+      "source_pmid": "39540425",
+      "source_pmcid": "PMC11701527",
+      "source_doi": "10.1093/nar/gkae1019",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "dbAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "集成在 dbAMP 3.0 中的机器学习工具，用于预测 AMP 功能活性。",
+      "blocking_issues": [
+        "code not independently available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    },
+    {
+      "model_name": "AMPActiPred",
+      "canonical_name": "AMPActiPred",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "deep forest",
+      "input_features": "peptide sequences",
+      "source_pmid": "39540425",
+      "source_pmcid": "PMC11701527",
+      "source_doi": "10.1093/nar/gkae1019",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "dbAMP database",
+      "benchmark_candidate": true,
+      "candidate_reason": "集成在 dbAMP 3.0 中的深度森林框架，用于预测抗菌肽及其活性水平。",
+      "blocking_issues": [
+        "code not independently available"
+      ],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "dbAMP 3.0 web server",
+      "url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPfinder, AMPpredictor, AMPActiPred",
+      "source_pmid": "39540425",
+      "source_doi": "10.1093/nar/gkae1019",
+      "evidence_level": "fulltext",
+      "evidence": "The updated dbAMP is freely accessible at https://awi.cuhk.edu.cn/dbAMP/."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "dbAMP 3.0",
+      "dataset_url": "https://awi.cuhk.edu.cn/dbAMP/",
+      "dataset_source": "dbAMP database",
+      "linked_model": "AMPfinder, AMPpredictor, AMPActiPred",
+      "source_pmid": "39540425",
+      "source_doi": "10.1093/nar/gkae1019",
+      "positive_samples": "33,065 AMPs, 2,453 antimicrobial proteins",
+      "negative_samples": "not reported",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "In this update, dbAMP has curated data from over 5200 publications, encompassing 33,065 AMPs and 2453 antimicrobial proteins from 3534 organisms."
+    }
+  ],
+  "metrics": [],
+  "important_evidence": [
+    "dbAMP 3.0 (PMID:39540425) 提供了三个集成工具：AMPfinder 用于基因组/宏基因组数据挖掘 AMP，AMPpredictor 基于机器学习预测 AMP 功能活性，AMPActiPred 基于深度森林框架预测抗菌肽及活性水平。这些工具仅通过 dbAMP 网站提供，代码未独立公开。"
+  ],
+  "uncertainties": [
+    "AMPfinder、AMPpredictor 和 AMPActiPred 的独立代码库未公开，仅作为 dbAMP 3.0 网站的一部分提供。"
+  ],
+  "source_pmids": [
+    "39540425",
+    "41634709"
+  ],
+  "source_dois": [
+    "10.1093/nar/gkae1019",
+    "10.1186/s12915-026-02535-5"
+  ],
+  "urls": [
+    "https://awi.cuhk.edu.cn/dbAMP/",
+    "https://doi.org/10.1093/nar/gkae1019",
+    "https://doi.org/10.1186/s12915-026-02535-5",
+    "https://pubmed.ncbi.nlm.nih.gov/39540425",
+    "https://pubmed.ncbi.nlm.nih.gov/41634709/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11701527/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12958777/"
+  ]
+}

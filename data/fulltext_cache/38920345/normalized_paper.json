@@ -1,0 +1,45 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc",
+    "openalex"
+  ],
+  "source_ids": {
+    "europe_pmc": "38920345",
+    "pmid": "38920345",
+    "openalex": "https://openalex.org/W4400060951"
+  },
+  "pmid": "38920345",
+  "pmcid": "PMC11200197",
+  "doi": "10.1093/bib/bbae308",
+  "title": "TP-LMMSG: a peptide prediction graph neural network incorporating flexible amino acid property representation.",
+  "abstract": "Bioactive peptide therapeutics has been a long-standing research topic. Notably, the antimicrobial peptides (AMPs) have been extensively studied for its therapeutic potential. Meanwhile, the demand for annotating other therapeutic peptides, such as antiviral peptides (AVPs) and anticancer peptides (ACPs), also witnessed an increase in recent years. However, we conceive that the structure of peptide chains and the intrinsic information between the amino acids is not fully investigated among the existing protocols. Therefore, we develop a new graph deep learning model, namely TP-LMMSG, which offers lightweight and easy-to-deploy advantages while improving the annotation performance in a generalizable manner. The results indicate that our model can accurately predict the properties of different peptides. The model surpasses the other state-of-the-art models on AMP, AVP and ACP prediction across multiple experimental validated datasets. Moreover, TP-LMMSG also addresses the challenges of time-consuming pre-processing in graph neural network frameworks. With its flexibility in integrating heterogeneous peptide features, our model can provide substantial impacts on the screening and discovery of therapeutic peptides. The source code is available at https://github.com/NanjunChen37/TP_LMMSG.",
+  "journal": "Briefings in Bioinformatics",
+  "venue": "Briefings in Bioinformatics",
+  "year": "2024",
+  "authors": [
+    "Chen N",
+    "Yu J",
+    "Zhe L",
+    "Wang F",
+    "Li X",
+    "Li X",
+    "Wong KC."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://academic.oup.com/bib/article-pdf/25/4/bbae308/58336853/bbae308.pdf",
+    "https://doi.org/10.1093/bib/bbae308",
+    "https://openalex.org/W4400060951",
+    "https://pubmed.ncbi.nlm.nih.gov/38920345",
+    "https://pubmed.ncbi.nlm.nih.gov/38920345/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11200197/"
+  ],
+  "is_open_access": "Y",
+  "raw_source_files": [],
+  "query_name": "model_epmc_samppred_gat",
+  "query_text": "\"sAMPpred-GAT\"",
+  "candidate_key": "doi:10 1093 bib bbae308",
+  "openalex_id": "https://openalex.org/W4400060951",
+  "cited_by_count": 23
+}

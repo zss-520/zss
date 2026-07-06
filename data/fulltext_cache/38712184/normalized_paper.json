@@ -1,0 +1,47 @@
+{
+  "source_primary": "europe_pmc",
+  "sources": [
+    "europe_pmc",
+    "openalex"
+  ],
+  "source_ids": {
+    "europe_pmc": "PPR844359",
+    "pmid": null,
+    "openalex": "https://openalex.org/W4395694330"
+  },
+  "pmid": "38712184",
+  "pmcid": "PMC11071531",
+  "doi": "10.1101/2024.04.25.590553",
+  "title": "SAMP: Identifying Antimicrobial Peptides by an Ensemble Learning Model Based on Proportionalized Split Amino Acid Composition",
+  "abstract": "<h4>  Abstract </h4>  It is projected that 10 million deaths could be attributed to drug-resistant bacteria infections in 2050. To address this concern, identifying new-generation antibiotics is an effective way. Antimicrobial peptides (AMPs), a class of innate immune effectors, have received significant attention for their capacity to eliminate drug-resistant pathogens, including viruses, bacteria, and fungi. Recent years have witnessed widespread applications of computational methods especially machine learning (ML) and deep learning (DL) for discovering AMPs. However, existing methods only use features including compositional, physiochemical, and structural properties of peptides, which cannot fully capture sequence information from AMPs. Here, we present SAMP, an ensemble random projection (RP) based computational model that leverages a new type of features called Proportionalized Split Amino Acid Composition (PSAAC) in addition to conventional sequence-based features for AMP prediction. With this new feature set, SAMP captures the residue patterns like sorting signals at around both the N-terminus and the C-terminus, while also retaining the sequence order information from the middle peptide fragments. Benchmarking tests on different balanced and imbalanced datasets demonstrate that SAMP consistently outperforms existing state-of-the-art methods, such as iAMPpred and AMPScanner V2, in terms of accuracy, MCC, G-measure and F1-score. In addition, by leveraging an ensemble RP architecture, SAMP is scalable to processing large-scale AMP identification with further performance improvement, compared to those models without RP. To facilitate the use of SAMP, we have developed a Python package freely available at  https://github.com/wan-mlab/SAMP .",
+  "journal": {
+    "publisher": "bioRxiv",
+    "yearOfPublication": 2024
+  },
+  "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+  "year": "2024",
+  "authors": [
+    "Feng J",
+    "Sun M",
+    "Liu C",
+    "Zhang W",
+    "Xu C",
+    "Wang J",
+    "Wang G",
+    "Wan S."
+  ],
+  "publication_types": [],
+  "urls": [
+    "https://doi.org/10.1101/2024.04.25.590553",
+    "https://openalex.org/W4395694330",
+    "https://pubmed.ncbi.nlm.nih.gov/38712184",
+    "https://www.biorxiv.org/content/biorxiv/early/2024/04/26/2024.04.25.590553.full.pdf"
+  ],
+  "is_open_access": "N",
+  "raw_source_files": [],
+  "query_name": "model_epmc_ampscanner_v2",
+  "query_text": "\"AMPScanner v2\"",
+  "candidate_key": "doi:10 1101 2024 04 25 590553",
+  "openalex_id": "https://openalex.org/W4395694330",
+  "cited_by_count": 1
+}

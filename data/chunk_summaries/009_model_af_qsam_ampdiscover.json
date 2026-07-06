@@ -1,0 +1,136 @@
+{
+  "chunk_id": "model_af_qsam_ampdiscover",
+  "chunk_type": "model",
+  "chunk_name": "AF-QSAM AMPDiscover",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPDiscover",
+    "AF-QSAM",
+    "Alignment-Free Quantitative Sequence-Activity Models"
+  ],
+  "papers": [
+    {
+      "title": "Alignment-Free Antimicrobial Peptide Predictors: Improving Performance by a Thorough Analysis of the Largest Available Data Set.",
+      "pmid": "34081438",
+      "pmcid": "PMC13233393",
+      "doi": "10.1021/acs.jcim.1c00251",
+      "year": "2021",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Antimicrobial Activity of Mesenchymal Stem Cells: Current Status and New Perspectives of Antimicrobial Peptide-Based Therapies.",
+      "pmid": "28424688",
+      "pmcid": "PMC3707526",
+      "doi": "10.1007/s00109-009-0588-3",
+      "year": "2017",
+      "role": "unclear",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "Antimicrobial peptides: An alternative to traditional antibiotics.",
+      "pmid": "38147812",
+      "pmcid": "PMC13295260",
+      "doi": "10.1016/j.ejmech.2023.116072",
+      "year": "2024",
+      "role": "review_or_secondary",
+      "evidence_source": "metadata"
+    },
+    {
+      "title": "The double-edged sword of probiotic supplementation on gut microbiota structure in",
+      "pmid": "35951774",
+      "pmcid": "PMC6658209",
+      "doi": "10.1038/nmicrobiol.2017.57",
+      "year": "2022",
+      "role": "unclear",
+      "evidence_source": "metadata"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPDiscover",
+      "canonical_name": "AF-QSAM AMPDiscover",
+      "aliases": [
+        "AF-QSAM",
+        "Alignment-Free Quantitative Sequence-Activity Models"
+      ],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "Random Forest",
+      "input_features": "Alignment-free quantitative descriptors",
+      "source_pmid": "34081438",
+      "source_pmcid": "PMC13233393",
+      "source_doi": "10.1021/acs.jcim.1c00251",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://biocom-ampdiscover.cicese.mx/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Proposes new models and systematically benchmarks against 13 existing AMP prediction tools; provides a web server for access.",
+      "blocking_issues": [
+        "No code repository available; only web server provided."
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPDiscover",
+      "url": "https://biocom-ampdiscover.cicese.mx/",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPDiscover",
+      "source_pmid": "34081438",
+      "source_doi": "10.1021/acs.jcim.1c00251",
+      "evidence_level": "abstract",
+      "evidence": "Web server URL provided in abstract."
+    }
+  ],
+  "datasets": [],
+  "metrics": [
+    {
+      "metric_name": "predictive agreement (qualitative benchmarking)",
+      "usage": "Compared performance with 13 existing tools; models had best performance in all endpoints.",
+      "source_pmid": "34081438",
+      "source_doi": "10.1021/acs.jcim.1c00251",
+      "evidence": "Abstract: 'A benchmarking is undertaken between the models proposed and several models from the literature ... The models proposed are those with the best performance in all of the endpoints modeled, while most of the methods from the literature have weak-to-random predictive agreements.'"
+    }
+  ],
+  "important_evidence": [
+    "The AF-QSAM models are based on Random Forest and were created to identify general AMPs and their antibacterial, antifungal, antiparasitic, and antiviral functional types.",
+    "A benchmarking was performed against 13 published programs (ClassAMP, iAMP-2L, ADAM, MLAMP, AMPScanner v2.0, AntiFP, AMPfun, PEPred-suite, AxPEP, CAMPR3, iAMPpred, APIN, Meta-iAVP), and the proposed models had best performance in all endpoints.",
+    "Web server is available at https://biocom-ampdiscover.cicese.mx/."
+  ],
+  "uncertainties": [
+    "Fulltext cache for PMID 34081438 contained content about lipid metabolism peptides and not the original article; only abstract and metadata were used for evidence extraction.",
+    "No dataset identifier or download link is provided for the training data; described as 'largest experimentally validated nonredundant peptide data set' but not accessible.",
+    "The other three papers in this chunk are not related to AMP prediction models; they were present in the search results but not used for model evidence."
+  ],
+  "source_pmids": [
+    "34081438",
+    "28424688",
+    "38147812",
+    "35951774"
+  ],
+  "source_dois": [
+    "10.1021/acs.jcim.1c00251",
+    "10.1007/s00109-009-0588-3",
+    "10.1016/j.ejmech.2023.116072",
+    "10.1038/nmicrobiol.2017.57"
+  ],
+  "urls": [
+    "https://doi.org/10.1021/acs.jcim.1c00251",
+    "https://openalex.org/W3164698295",
+    "https://pubmed.ncbi.nlm.nih.gov/34081438",
+    "https://pubmed.ncbi.nlm.nih.gov/34081438/",
+    "https://pubmed.ncbi.nlm.nih.gov/28424688/",
+    "https://doi.org/10.1007/s00109-009-0588-3",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3707526/",
+    "https://pubmed.ncbi.nlm.nih.gov/38147812/",
+    "https://doi.org/10.1016/j.ejmech.2023.116072",
+    "https://doi.org/10.1038/nmicrobiol.2017.57",
+    "https://pubmed.ncbi.nlm.nih.gov/35951774/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6658209/",
+    "https://biocom-ampdiscover.cicese.mx/"
+  ]
+}

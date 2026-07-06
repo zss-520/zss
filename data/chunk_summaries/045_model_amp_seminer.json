@@ -1,0 +1,102 @@
+{
+  "chunk_id": "model_amp_seminer",
+  "chunk_type": "model",
+  "chunk_name": "AMP-SEMiner",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP-SEMiner"
+  ],
+  "papers": [
+    {
+      "title": "Unveiling the evolution of antimicrobial peptides in gut microbes via foundation-model-powered framework",
+      "pmid": "40445833",
+      "pmcid": "PMC13310060",
+      "doi": "10.1016/j.celrep.2025.115773",
+      "year": "2025",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Bioactive peptides for anticancer therapies",
+      "pmid": "37206303",
+      "pmcid": "PMC4758372",
+      "doi": "10.12336/biomatertransl.2023.01.003",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Development and evaluation of a chewing gum containing antimicrobial peptide GH12 for caries prevention",
+      "pmid": "35917355",
+      "pmcid": "PMC12938800",
+      "doi": "10.1111/eos.12887",
+      "year": "2022",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Antibacterial activity and cytocompatibility evaluation of the antimicrobial peptide Nal-P-113-loaded graphene oxide coating on titanium",
+      "pmid": "36244736",
+      "pmcid": "PMC13046344",
+      "doi": "10.4012/dmj.2022-094",
+      "year": "2022",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMP-SEMiner",
+      "canonical_name": "AMP-SEMiner",
+      "aliases": [],
+      "task_type": "AMP prediction / antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Protein language models (PLMs) integrated with structural clustering and evolutionary analysis",
+      "input_features": "Amino acid sequences from small open reading frames and AMP-containing proteins in metagenome-assembled genomes",
+      "source_pmid": "40445833",
+      "source_pmcid": "PMC13310060",
+      "source_doi": "10.1016/j.celrep.2025.115773",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "not_reported_in_available_evidence",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel AMP prediction model using deep learning (PLMs) with experimental validation; suitable for benchmarking against other AMP predictors.",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [],
+  "datasets": [],
+  "metrics": [],
+  "important_evidence": [
+    "AMP-SEMiner identified over 1.6 million AMP candidates across diverse environments. Experimental validation showed antimicrobial activity in 9 of the 20 tested candidates, with 5 surpassing antibiotic effectiveness."
+  ],
+  "uncertainties": [
+    "Training data not explicitly described; likely trained on known AMP data and metagenomic sequences."
+  ],
+  "source_pmids": [
+    "40445833",
+    "37206303",
+    "35917355",
+    "36244736"
+  ],
+  "source_dois": [
+    "10.1016/j.celrep.2025.115773",
+    "10.12336/biomatertransl.2023.01.003",
+    "10.1111/eos.12887",
+    "10.4012/dmj.2022-094"
+  ],
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/40445833/",
+    "https://doi.org/10.1016/j.celrep.2025.115773",
+    "https://pubmed.ncbi.nlm.nih.gov/37206303/",
+    "https://doi.org/10.12336/biomatertransl.2023.01.003",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4758372/",
+    "https://pubmed.ncbi.nlm.nih.gov/35917355/",
+    "https://doi.org/10.1111/eos.12887",
+    "https://pubmed.ncbi.nlm.nih.gov/36244736/",
+    "https://doi.org/10.4012/dmj.2022-094"
+  ]
+}

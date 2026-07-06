@@ -1,0 +1,40 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "38911166"
+  },
+  "pmid": "38911166",
+  "pmcid": "PMC7015965",
+  "doi": "10.1186/s13321-020-0416-x",
+  "title": "Can large language models predict antimicrobial peptide activity and toxicity?",
+  "abstract": "Antimicrobial peptides (AMPs) are naturally occurring or designed peptides up to a few tens of amino acids which may help address the antimicrobial resistance crisis. However, their clinical development is limited by toxicity to human cells, a parameter which is very difficult to control. Given the similarity between peptide sequences and words, large language models (LLMs) might be able to predict AMP activity and toxicity. To test this hypothesis, we fine-tuned LLMs using data from the Database of Antimicrobial Activity and Structure of Peptides (DBAASP). GPT-3 performed well but not reproducibly for activity prediction and hemolysis, taken as a proxy for toxicity. The later GPT-3.5 performed more poorly and was surpassed by recurrent neural networks (RNN) trained on sequence-activity data or support vector machines (SVM) trained on MAP4C molecular fingerprint-activity data. These simpler models are therefore recommended, although the rapid evolution of LLMs warrants future re-evaluation of their prediction abilities.",
+  "journal": "RSC medicinal chemistry",
+  "venue": "RSC medicinal chemistry",
+  "year": 2024,
+  "authors": [
+    "Markus Orsi",
+    "Jean-Louis Reymond"
+  ],
+  "keywords": [],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "33431043",
+    "pmc": "PMC7015965",
+    "doi": "10.1186/s13321-020-0416-x",
+    "pii": "d4md00159a"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/38911166/",
+    "https://doi.org/10.1186/s13321-020-0416-x",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7015965/"
+  ],
+  "raw_source_files": [],
+  "query_name": "benchmark and dataset papers",
+  "query_text": "(\"benchmark\" OR \"dataset\" OR \"data set\" OR \"evaluation\" OR \"comparison\" OR \"survey\") AND (\"antimicrobial peptide\" OR \"AMP\" OR \"antimicrobial peptides\") AND (prediction OR model)",
+  "candidate_key": "doi:10 1186 s13321 020 0416 x"
+}

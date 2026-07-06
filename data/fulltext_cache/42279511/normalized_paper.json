@@ -1,0 +1,53 @@
+{
+  "source_primary": "pubmed",
+  "sources": [
+    "pubmed"
+  ],
+  "source_ids": {
+    "pubmed": "42279511"
+  },
+  "pmid": "42279511",
+  "pmcid": "PMC5814463",
+  "doi": "10.1038/s41467-018-03078-2",
+  "title": "Explainable Boosting Machine in Sepsis Prediction Using Platelet Metabolomics: An Interpretable Machine Learning Approach.",
+  "abstract": "Background: Sepsis remains a leading cause of mortality in emergency and intensive care settings, with early diagnosis representing a critical determinant of patient outcomes. Despite advances in biomarker discovery, integrating platelet-derived metabolic signatures with explainable machine learning frameworks for sepsis prediction remains underexplored. The clinical adoption of predictive models has been hindered by the \"black box\" nature of conventional algorithms, limiting clinician trust and understanding. Objective: This study aimed to evaluate and validate an interpretable machine learning model utilizing platelet metabolomics data for accurate sepsis prediction while providing clinically meaningful explanations of the underlying metabolic disturbances that could inform therapeutic decision-making. Methods: We analyzed metabolomics data, comprising 25 sepsis patients diagnosed according to Sepsis-3 criteria and 14 age- and gender-matched non-sepsis from the emergency department. Platelet metabolite profiles were obtained via quantitative 1H-NMR spectroscopy. Five machine learning algorithms were evaluated: Explainable Boosting Machine (EBM), Support Vector Machine (SVM), Logistic Regression (LR), Gradient Boosting Machine (GBM), and AdaBoost. Three biologically motivated metabolite ratios (adenosine triphosphate/adenosine diphosphate (ATP/ADP), ATP/adenosine monophosphate (AMP), Glutamine/Glutamate) were derived as additional features, yielding 22 candidate variables. Models were evaluated using a fully nested leave-one-out cross-validation (LOOCV) framework in which log transformation, KNN imputation, BorderlineSMOTE class balancing, and hyperparameter optimisation were performed exclusively within each training fold. Global and local interpretability analyses were performed to identify discriminative metabolites. Results: EBM achieved the highest ROC-AUC (0.864; 95% CI: 0.736-1.000), the highest PR-AUC (0.902; 95% CI: 0.783-0.997), and the best Brier score (0.189; 95% CI: 0.130-0.258) among all evaluated models, with sensitivity 0.880 (95% CI: 0.640-1.000; TP = 22/25) and specificity 0.714 (95% CI: 0.357-1.000; TN = 10/14). Global feature importance identified Carnitine, myo-Inositol, ADP, and O-Phosphoethanolamine as the leading single-feature predictors, alongside three pairwise interaction terms reflecting non-additive energy-amino acid metabolic relationships. Local explanations demonstrated that the ADP-Creatine interaction, Glutamine, and myo-Inositol drove correct sepsis classification in a representative true positive case. Conclusions: The EBM model demonstrated the highest discriminative performance and best calibration among all evaluated models, providing transparent mechanistic insights through global feature importance, and patient-level local explanations. These findings position the proposed framework as a proof-of-concept warranting external validation in larger, multi-centre cohorts before any clinical application is considered.",
+  "journal": "Diagnostics (Basel, Switzerland)",
+  "venue": "Diagnostics (Basel, Switzerland)",
+  "year": 2026,
+  "authors": [
+    "Emek Guldogan",
+    "Burak Yagin",
+    "Yavuz Korkmaz",
+    "Sarah A Alzakari",
+    "Amal K Alkhalifa",
+    "Fahaid Al-Hashem",
+    "Fatma Hilal Yagin"
+  ],
+  "keywords": [
+    "biomarkers",
+    "clinical decision support",
+    "explainable boosting machine",
+    "machine learning",
+    "metabolomics",
+    "platelet metabolism",
+    "sepsis"
+  ],
+  "publication_types": [
+    "Journal Article"
+  ],
+  "article_ids": {
+    "pubmed": "29449546",
+    "doi": "10.1038/s41467-018-03078-2",
+    "pii": "diagnostics16111643",
+    "pmc": "PMC5814463"
+  },
+  "urls": [
+    "https://pubmed.ncbi.nlm.nih.gov/42279511/",
+    "https://doi.org/10.1038/s41467-018-03078-2",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814463/"
+  ],
+  "raw_source_files": [],
+  "query_name": "model_pubmed_catboost_amp_predictor",
+  "query_text": "\"CatBoost AMP predictor\"",
+  "candidate_key": "doi:10 1038 s41467 018 03078 2"
+}

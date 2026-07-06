@@ -1,0 +1,33 @@
+{
+  "source_primary": "openalex",
+  "sources": [
+    "openalex"
+  ],
+  "source_ids": {
+    "openalex": "https://openalex.org/W2111413199"
+  },
+  "openalex_id": "https://openalex.org/W2111413199",
+  "doi": "10.1145/2384616.2384651",
+  "pmid": null,
+  "pmcid": null,
+  "title": "Maple",
+  "abstract": "Testing multithreaded programs is a hard problem, because it is challenging to expose those rare interleavings that can trigger a concurrency bug. We propose a new thread interleaving coverage-driven testing tool called Maple that seeks to expose untested thread interleavings as much as possible. It memoizes tested interleavings and actively seeks to expose untested interleavings for a given test input to increase interleaving coverage. We discuss several solutions to realize the above goal. First, we discuss a coverage metric based on a set of interleaving idioms. Second, we discuss an online technique to predict untested interleavings that can potentially be exposed for a given test input. Finally, the predicted untested interleavings are exposed by actively controlling the thread schedule while executing for the test input. We discuss our experiences in using the tool to expose several known and unknown bugs in real-world applications such as Apache and MySQL.",
+  "journal": null,
+  "venue": null,
+  "year": 2012,
+  "authors": [
+    "Jie Yu",
+    "Satish Narayanasamy",
+    "Cristiano Pereira",
+    "Gilles Pokam"
+  ],
+  "urls": [
+    "https://openalex.org/W2111413199",
+    "https://doi.org/10.1145/2384616.2384651",
+    "https://doi.org/10.1145/2384616.2384651"
+  ],
+  "is_open_access": false,
+  "cited_by_count": 150,
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1145 2384616 2384651"
+}

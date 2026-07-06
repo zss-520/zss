@@ -1,0 +1,147 @@
+{
+  "chunk_id": "model_amppred_aaiw",
+  "chunk_type": "model",
+  "chunk_name": "AMPpred-AAIW",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMPpred-AAIW",
+    "Antimicrobial peptides recognition using weighted physicochemical property encoding",
+    "DRAMP database"
+  ],
+  "papers": [
+    {
+      "title": "Diversity in penaeidin antimicrobial peptide form and function.",
+      "pmid": "17716729",
+      "pmcid": "PMC168927",
+      "doi": "10.1016/j.dci.2007.06.009",
+      "year": "2008",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Antimicrobial peptides recognition using weighted physicochemical property encoding.",
+      "pmid": "37120707",
+      "pmcid": "PMC11584731",
+      "doi": "10.1142/S0219720023500063",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Polymer-Antimicrobial Peptide Constructs with Tailored Drug-Release Behavior.",
+      "pmid": "36839728",
+      "pmcid": "PMC9042309",
+      "doi": "10.1039/D1RA06231J",
+      "year": "2023",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Marine Antimicrobial Peptides: An Emerging Nightmare to the Life-Threatening Pathogens.",
+      "pmid": "37022565",
+      "pmcid": "",
+      "doi": "10.1016/j.dci.2019.05.005",
+      "year": "2024",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMPpred-AAIW",
+      "canonical_name": "AMPpred-AAIW",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML",
+      "architecture_or_algorithm": "AAIW encoding with machine learning classifier (unspecified)",
+      "input_features": "amino acid index weight (AAIW) encoding from peptide sequences",
+      "source_pmid": "37120707",
+      "source_pmcid": "PMC11584731",
+      "source_doi": "10.1142/S0219720023500063",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://amppred-aaiw.com",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "Proposed AMP recognition models using AAIW encoding, achieved over 93% accuracy and 0.87 MCC on independent test sets, web server available.",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "AMPpred-AAIW web server",
+      "url": "https://amppred-aaiw.com",
+      "repository_type": "webserver",
+      "matched_model_name": "AMPpred-AAIW",
+      "source_pmid": "37120707",
+      "source_doi": "10.1142/S0219720023500063",
+      "evidence_level": "abstract",
+      "evidence": "An online AMPs recognition server is accessible at https://amppred-aaiw.com."
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "DRAMP and other published databases",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "DRAMP and other databases",
+      "linked_model": "AMPpred-AAIW",
+      "source_pmid": "37120707",
+      "source_doi": "10.1142/S0219720023500063",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "abstract",
+      "evidence": "datasets combined from the DRAMP and other published databases"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "accuracy",
+      "usage": "evaluation of AMP recognition models",
+      "source_pmid": "37120707",
+      "source_doi": "10.1142/S0219720023500063",
+      "evidence": "All four models yielded over 93% in accuracy and 0.87 in Matthew's correlation coefficient (MCC)"
+    },
+    {
+      "metric_name": "MCC",
+      "usage": "evaluation of AMP recognition models",
+      "source_pmid": "37120707",
+      "source_doi": "10.1142/S0219720023500063",
+      "evidence": "All four models yielded over 93% in accuracy and 0.87 in Matthew's correlation coefficient (MCC)"
+    }
+  ],
+  "important_evidence": [
+    "AMPpred-AAIW model achieved over 93% accuracy and 0.87 MCC on independent test sets.",
+    "Web server available at https://amppred-aaiw.com."
+  ],
+  "uncertainties": [
+    "The fulltext retrieved for PMID 37120707 is unrelated to the AMP prediction model; model information is based solely on the abstract."
+  ],
+  "source_pmids": [
+    "17716729",
+    "37120707",
+    "36839728",
+    "37022565"
+  ],
+  "source_dois": [
+    "10.1016/j.dci.2007.06.009",
+    "10.1142/S0219720023500063",
+    "10.1039/D1RA06231J",
+    "10.1016/j.dci.2019.05.005"
+  ],
+  "urls": [
+    "https://amppred-aaiw.com",
+    "https://pubmed.ncbi.nlm.nih.gov/17716729/",
+    "https://doi.org/10.1016/j.dci.2007.06.009",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC168927/",
+    "https://pubmed.ncbi.nlm.nih.gov/37120707/",
+    "https://doi.org/10.1142/S0219720023500063",
+    "https://pubmed.ncbi.nlm.nih.gov/36839728/",
+    "https://doi.org/10.1039/D1RA06231J",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9042309/",
+    "https://pubmed.ncbi.nlm.nih.gov/37022565/",
+    "https://doi.org/10.1016/j.dci.2019.05.005"
+  ]
+}

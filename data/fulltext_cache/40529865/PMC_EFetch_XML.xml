@@ -1,0 +1,1119 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="smsc12717" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Small Sci</journal-id><journal-id journal-id-type="iso-abbrev">Small Sci</journal-id><journal-id journal-id-type="pmc-domain-id">4712</journal-id><journal-id journal-id-type="pmc-domain">smallsci</journal-id><journal-id journal-id-type="nlm-id">101777709</journal-id><journal-id journal-id-type="publisher-id">SMSC</journal-id><journal-title-group><journal-title>Small Science</journal-title></journal-title-group><issn pub-type="epub">2688-4046</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12168616</article-id><article-id pub-id-type="pmcid-ver">PMC12168616.1</article-id><article-id pub-id-type="pmcaid">12168616</article-id><article-id pub-id-type="pmcaiid">12168616</article-id><article-id pub-id-type="pmid">40529865</article-id><article-id pub-id-type="doi">10.1002/smsc.202400579</article-id><article-id pub-id-type="publisher-id">SMSC12717</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Machine Learning‐Assisted Prediction and Generation of Antimicrobial Peptides</article-title></title-group><contrib-group><contrib id="smsc12717-cr-0001" contrib-type="author" corresp="yes"><name name-style="western"><surname>Bhangu</surname><given-names initials="SK">Sukhvir Kaur</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-9810-4304</contrib-id><xref rid="smsc12717-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>sukhvir.bhangu@unimelb.edu.au</email></address></contrib><contrib id="smsc12717-cr-0002" contrib-type="author"><name name-style="western"><surname>Welch</surname><given-names initials="N">Nicholas</given-names></name><xref rid="smsc12717-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smsc12717-cr-0003" contrib-type="author"><name name-style="western"><surname>Lewis</surname><given-names initials="M">Morgan</given-names></name><xref rid="smsc12717-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="smsc12717-cr-0004" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="F">Fanyi</given-names></name><xref rid="smsc12717-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smsc12717-cr-0005" contrib-type="author"><name name-style="western"><surname>Gardner</surname><given-names initials="B">Brint</given-names></name><xref rid="smsc12717-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="smsc12717-cr-0006" contrib-type="author"><name name-style="western"><surname>Thissen</surname><given-names initials="H">Helmut</given-names></name><xref rid="smsc12717-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smsc12717-cr-0007" contrib-type="author" corresp="yes"><name name-style="western"><surname>Kowalczyk</surname><given-names initials="W">Wioleta</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-5180-594X</contrib-id><xref rid="smsc12717-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>wioleta.kowalczyk@csiro.au</email></address></contrib></contrib-group><aff id="smsc12717-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<institution>CSIRO Manufacturing</institution>
+<named-content content-type="street">Research Way</named-content>
+<city>Clayton</city>
+<named-content content-type="country-part">Victoria</named-content>
+<postal-code>3168</postal-code>
+<country country="AU">Australia</country>
+</aff><aff id="smsc12717-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<institution>CSIRO Information Management &amp; Technology</institution>
+<city>Kensington</city>
+<named-content content-type="country-part">Western Australia</named-content>
+<postal-code>6151</postal-code>
+<country country="AU">Australia</country>
+</aff><aff id="smsc12717-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<institution>CSIRO Information Management &amp; Technology</institution>
+<named-content content-type="street">Research Way</named-content>
+<city>Clayton</city>
+<named-content content-type="country-part">Victoria</named-content>
+<postal-code>3168</postal-code>
+<country country="AU">Australia</country>
+</aff><pub-date pub-type="epub"><day>06</day><month>3</month><year>2025</year></pub-date><pub-date pub-type="collection"><month>6</month><year>2025</year></pub-date><volume>5</volume><issue seq="260">6</issue><issue-id pub-id-type="pmc-issue-id">490784</issue-id><issue-id pub-id-type="doi">10.1002/smsc.v5.6</issue-id><elocation-id>2400579</elocation-id><history><date date-type="rev-recd"><day>07</day><month>2</month><year>2025</year></date><date date-type="received"><day>21</day><month>11</month><year>2024</year></date></history><pub-history><event event-type="pmc-release"><date><day>06</day><month>03</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>17</day><month>06</month><year>2025</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2025-06-18 09:25:44.370"><day>18</day><month>06</month><year>2025</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2025 The Author(s). Small Science published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="SMSC-5-2400579.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:SMSC-5-2400579.pdf"/><abstract><p>Antimicrobial peptides (AMPs) offer a highly potent alternative solution due to their broad‐spectrum activity and minimum resistance development against the rapidly evolving antibiotic‐resistant pathogens. Herein, to accelerate the discovery process of new AMPs, a predictive and generative algorithm is build, which constructs new peptide sequences, scores their antimicrobial activity using a machine learning (ML) model, identifies amino acid motifs, and assembles high‐ranking motifs into new peptide sequences. The eXtreme Gradient Boosting model achieves an accuracy of ≈87% in distinguishing between AMPs and non‐AMPs. The generated peptide sequences are experimentally validated against the bacterial pathogens, and an accuracy of ≈60% is achieved. To refine the algorithm, the physicochemical features are analyzed, particularly charge and hydrophobicity of experimentally validated peptides. The peptides with specific range of charge and hydrophobicity are then removed, which lead to a substantial increase in an experimental accuracy, from ≈60% to ≈80%. Furthermore, generated peptides are active against different fungal strains with minimal off‐target toxicity. In summary, in silico predictive and generative models for functional motif and AMP discovery are powerful tools for engineering highly effective AMPs to combat multidrug resistant pathogens.</p></abstract><abstract abstract-type="graphical"><p>A machine learning‐based in silico predictive and generative model is developed to engineer highly effective antimicrobial peptides (AMPs) for combating multidrug‐resistant pathogens. An iterative algorithm involving peptide generation, scoring, and motif identification produces AMPs with high theoretical scores. Experimental validation against microbial pathogens and algorithm improvement based on these results demonstrates 80% accuracy showcasing its effectiveness and translational potential.<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="SMSC-5-2400579-g006.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="smsc12717-kwd-0001">antimicrobial peptides</kwd><kwd id="smsc12717-kwd-0002">antimicrobial resistances</kwd><kwd id="smsc12717-kwd-0003">bacteria</kwd><kwd id="smsc12717-kwd-0004">machine learning</kwd><kwd id="smsc12717-kwd-0005">multidrug resistances</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source><institution-wrap><institution>Commonwealth Scientific and Industrial Research Organisation
+</institution><institution-id institution-id-type="doi">10.13039/501100000943</institution-id></institution-wrap></funding-source></award-group></funding-group><counts><fig-count count="7"/><table-count count="2"/><equation-count count="0"/><ref-count count="36"/><page-count count="14"/><word-count count="8939"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>June 2025</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.5.7 mode:remove_FC converted:14.06.2025</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="smsc12717-sec-0001"><label>1</label><title>Introduction</title><p>The battle against infectious diseases and antibiotic‐resistant pathogens continues to evolve, and in this context, the development of novel antimicrobial agents is of paramount importance.<sup>[</sup>
+<xref rid="smsc12717-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+<sup>]</sup> The over‐ and misuse of conventional antibiotics have led to intensive increase in morbidity and mortality rates globally, due to high rise in multidrug‐resistant (MDR) infections.<sup>[</sup>
+<xref rid="smsc12717-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>
+<sup>]</sup> Antimicrobial peptides (AMPs) have emerged as promising candidates in this endeavor, owing to their potent, broad‐spectrum activity against a wide range of microorganisms.<sup>[</sup>
+<xref rid="smsc12717-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+<sup>]</sup> The clinical use of AMPs is still restricted to topical applications, for instance, in the treatment of wound and skin‐related infections due to their enzymatic degradation and quick kidney clearance. This drawback can be tackled through various delivery strategies/vehicles (like liposomes, metal nanoparticles, polymeric nanoparticles, lipid nanoparticles, etc.).<sup>[</sup>
+<xref rid="smsc12717-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>
+<sup>]</sup> Unlike conventional antibiotics that heavily rely on the interaction with specific target molecules, usually proteins, AMPs have a nonspecific mechanism of action. They often induce cell death by disrupting the plasma membrane and hence have low chances of antimicrobial resistance (AMR) development.<sup>[</sup>
+<xref rid="smsc12717-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>
+<sup>]</sup> However, the experimental discovery and optimization of AMPs can be a time‐consuming and costly process.<sup>[</sup>
+<xref rid="smsc12717-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>
+<sup>]</sup> Designing new peptides involves optimization of peptide sequences through truncation, alanine scans, etc., leading to the generation of large peptide libraries which are required to be validated through various biological studies. Therefore, in silico predictive models have emerged as indispensable tools for accelerating the discovery and design of effective AMPs. These computational approaches leverage the power of bioinformatics, machine learning (ML), and molecular modeling to predict the antimicrobial activity of peptides, thus guiding researchers toward the development of novel therapeutic agents.<sup>[</sup>
+<xref rid="smsc12717-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+<sup>]</sup> Here, we have explored in silico predictive models for AMP activity, examining their principles, methodologies, and potential impact on the field of antimicrobial research.</p><p>There are several databases dedicated to AMPs that provide valuable information about their sequences, structures, activities, and other related data. These include APD2 and APD3 which are comprehensive and widely used databases for AMPs.<sup>[</sup>
+<xref rid="smsc12717-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+<sup>]</sup> They offer a vast collection of experimentally verified AMPs, along with their sequences, structures, activities, and other pertinent information. Amino acid Physico‐chemical properties Database is an extension of APD3 and focuses on the structural aspects of AMPs, offering detailed information about their 3D structures and physicochemical properties.<sup>[</sup>
+<xref rid="smsc12717-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+<sup>]</sup> Database of Lantibiotics and Microcins is specialized in lantibiotics and microcins, which are ribosomally synthesized AMPs. It provides information on their structures, genes, and antimicrobial activities.<sup>[</sup>
+<xref rid="smsc12717-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> Database of Antimicrobial Activity and Structure of Peptides provides a curated collection of AMPs, including information on their sequences, structures, and antimicrobial activities.<sup>[</sup>
+<xref rid="smsc12717-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> It also offers tools for analyzing and predicting peptide properties. Collection of Anti‐Microbial Peptides (CAMP)<sup>[</sup>
+<xref rid="smsc12717-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+<sup>]</sup> and its extended version CAMPR3<sup>[</sup>
+<xref rid="smsc12717-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+<sup>]</sup> are databases that focus on naturally occurring AMPs. They also offer information on their sequences, structures, and antimicrobial activities. Users can input peptide sequences to predict their antimicrobial activity, and it ranks peptides according to their potential antimicrobial efficacy.<sup>[</sup>
+<xref rid="smsc12717-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+<sup>]</sup> These databases and webservers offer valuable resources that can assist in the discovery, design, and study of AMPs. These tools often employ ML algorithms and bioinformatics approaches to make predictions based on peptide sequences or structural features. Some common algorithms and methods used for predicting AMPs include support vector machines (SVM), random forest (RF), deep learning, k‐mer‐based, cross‐validation, evaluation metrics, etc.<sup>[</sup>
+<xref rid="smsc12717-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup> A supervised learning algorithm, SVM, is commonly used for AMPs prediction. It finds a hyperplane that can best separate AMPs from non‐AMPs in a feature space. Various features can include amino acid composition, physicochemical properties, and structural information.<sup>[</sup>
+<xref rid="smsc12717-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>
+<sup>]</sup> Another common ML tool is RF which is an ensemble learning method that combines the outputs of multiple decision trees.<sup>[</sup>
+<xref rid="smsc12717-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>
+<sup>]</sup> It can be used for AMP prediction by considering various sequence‐derived features and generating a consensus prediction. Deep learning techniques, such as convolutional neural networks (CNNs) and recurrent neural networks, have also been utilized for AMP prediction.<sup>[</sup>
+<xref rid="smsc12717-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup> These models can learn complex patterns and representations from peptide sequences. When datasets consist of large number of features, techniques like principal component analysis (PCA) or feature selection methods (e.g., chi‐squared feature selection) are used to reduce the dimensionality of input data and to select the most informative features for prediction.<sup>[</sup>
+<xref rid="smsc12717-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup> Moreover, cross‐validation and evaluation metrics are essentially used to assess the performance of prediction models to ensure their reliability.<sup>[</sup>
+<xref rid="smsc12717-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref>
+<sup>]</sup>
+</p><p>The choice of algorithm depends on various factors such as the dataset, the available features, and the specific research goals.<sup>[</sup>
+<xref rid="smsc12717-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>
+<sup>]</sup> Additionally, the continuous advancement of ML and bioinformatics techniques continues to enhance the accuracy and reliability of AMP prediction models. Features derived from the physicochemical characteristics which impact the interaction of peptides with bacterial membranes (hydrophobicity, amphiphilicity, charge density, propensity to the aggregation, etc.) can be used to provide inputs for ML models to predict AMPs.<sup>[</sup>
+<xref rid="smsc12717-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="smsc12717-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>, <xref rid="smsc12717-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>
+<sup>]</sup> The structure‐based methods that consider the 3D structure of peptides, such as molecular dynamics simulations or docking studies, can also provide insights into AMP activity.[<xref rid="smsc12717-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>, <xref rid="smsc12717-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>] Hybrid approaches (combination of models) can enhance the predictive power of models in designing and predicting AMPs.<sup>[</sup>
+<xref rid="smsc12717-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+<sup>]</sup>
+</p><p>Herein, we have used physiochemical properties of known AMPs and non‐AMPs to build a predictive ML model. In addition, a generative model was built using ML‐based scoring of amino acids motifs from known AMPs and rearranging them to generate new peptide sequences of specified length for <italic toggle="yes">n</italic> number of generations to reach a high antimicrobial activity score. Identifying conserved motifs or patterns in AMP sequences can help to generate new AMPs. These motif‐based methods search for recurring sequence patterns associated with antimicrobial activity.<sup>[</sup>
+<xref rid="smsc12717-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+<sup>]</sup> This strategy is beneficial as the AMPs contain symmetrical sequence motifs or repetitive amino acid patterns which are imperative for their function and activity.<sup>[</sup>
+<xref rid="smsc12717-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>
+<sup>]</sup> The model was validated experimentally, where some of the highest ranked peptides generated using the algorithm were tested against bacterial pathogen: <italic toggle="yes">Enterococcus faecium</italic> ATCC19433, <italic toggle="yes">Staphylococcus aureus</italic> ATCC25923, <italic toggle="yes">Klebsiella pneumoniae</italic> ATCC43816, <italic toggle="yes">Acinetobacter baumannii</italic> AB5075, <italic toggle="yes">Pseudomonas aeruginosa</italic> PAO1, and <italic toggle="yes">Enterobacter</italic> ATCC13048. These pathogens are collectively referred as “ESKAPE” pathogens as they have the ability to escape the effects of antibiotics through various mechanisms, including antibiotic resistance genes, efflux pumps, biofilm formation, and the development of antibiotic‐tolerant persister cells.<sup>[</sup>
+<xref rid="smsc12717-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>
+<sup>]</sup> As a result, infections caused by ESKAPE pathogens are often difficult to treat and can lead to serious health complications and death. The study demonstrates the potential of algorithm in predicting and generating promising antimicrobial motifs and peptide candidates to tackle MDR microbial pathogens.</p></sec><sec id="smsc12717-sec-0002"><label>2</label><title>Results and Discussions</title><sec id="smsc12717-sec-0003"><label>2.1</label><title>ML‐Based Prediction as AMP or Non‐AMP</title><p>The need for new ML prediction models for distinguishing between AMPs and non‐AMPs is driven by the urgent demand for novel antimicrobial agents, the challenges posed by antibiotic resistance, and the potential for computational methods to accelerate the discovery and development of effective antimicrobial therapies.<sup>[</sup>
+<xref rid="smsc12717-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>
+<sup>]</sup>
+</p><p>As numerous prediction tools exist for AMP, we harnessed these existing online tools (iAMP and AntiBP2)<sup>[</sup>
+<xref rid="smsc12717-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> alongside the development of our own prediction model. The online webservers utilized various peptide features as input to train SVM, quantitative matrix, and artificial neural network (ANN) model for classification and prediction.<sup>[</sup>
+<xref rid="smsc12717-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> This combined model was used in tandem with a generative algorithm to create peptide sequences of various lengths, guided by the occurrence of specific motifs (<bold>Figure</bold>
+<xref rid="smsc12717-fig-0001" ref-type="fig">
+<bold>1</bold>a,b</xref>). The process is summarized in Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1a</xref>. In this instance, i) the program randomly generates peptide sequences of a chosen length and test this first generation against an in silico assay simulator or simulators which is our ML‐based prediction model (Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1b</xref>) in conjunction with the online prediction tools (iAMP and AntiBP2); ii) the simulator(s) assign a score based on similarity to an “ideal” sequence called the target sequence; iii) next, the program will generate peptide motifs of the specified length and, using the scores from the assay simulation, perform regression analysis to identify key important motifs; iv) then, key motifs are integrated into otherwise random sequences (or at later stages whole peptide sequences will be constructed from key motifs); and v) the new sequences are tested in the assay simulator using ML model and vi) validated experimentally.</p><fig position="float" fig-type="Figure" id="smsc12717-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>a) The workflow of algorithm depicting the generation of random peptides and scoring the peptides using ML models for prediction as AMP or non‐AMP, conversion of peptides to indicial motifs, identification of top motifs, and their assembling into new peptide sequences followed by experimental validation. b) Workflow explaining the training of ML models used for the prediction of antimicrobial activity. c) 3D PCA results of AMP and non‐AMP datasets. d) Example of physicochemical features used to describe the AMP and non‐AMP datasets in the form of numerical tabular‐based data.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="SMSC-5-2400579-g003.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></fig><p>For training and fine‐tuning, the local ML model for predicting and scoring the peptide sequences, we utilized 1968 known peptide sequences from existing databases (http://cabgrid.res.in:8080/amppred/about.html).<sup>[</sup>
+<xref rid="smsc12717-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="smsc12717-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1b</xref> illustrates the workflow of training, validating, and testing of the various ML models in distinguishing AMP and non‐AMP.</p><p>The datasets consisted of 984 AMP and 984 non‐AMP (refer to method section for details).<sup>[</sup>
+<xref rid="smsc12717-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1c</xref> represents the PCA for visualizing the AMP and non‐AMP datasets. For the purpose of binary classification, AMPs were designated as 1 and non‐AMPs as 0. The combined peptide dataset was then subsequently divided into three separate sets: a training set, a validation set, and a testing set, each randomly selected from the AMP and non‐AMP datasets (Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1b</xref>).</p><p>For training the model, we utilized physiochemical and structural properties as peptides descriptors or features. Various features for all the known 1968 peptides used to train the ML model were calculated (Table S1, Supporting Information, and Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1d</xref>) using two python packages: BioPython (https://biopython.org/)<sup>[</sup>
+<xref rid="smsc12717-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+<sup>]</sup> and modLAMP (https://modlamp.org/).<sup>[</sup>
+<xref rid="smsc12717-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup> The Bio.SeqUtils.ProtParam module in Biopython and GlobalDescriptor/PeptideDescriptor modules in modLAMP provide a convenient way to extract information about a protein's composition, including its molecular weight, isoelectric point (pI), amino acid composition, and other physicochemical characteristics (such as aromaticity, charge, hydrophobicity, hydropathicity, etc.) (Table S1, Supporting Information).<sup>[</sup>
+<xref rid="smsc12717-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="smsc12717-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup>
+</p><p>
+Next, the eXtreme Gradient Boosting (XGBoost), RF, K‐nearest neighbors (KNN), and SVM model were each trained, and the model performance on the validation set was compared using the different evaluation metrics such as accuracy, precision, recall, F1 score (<bold>Figure</bold>
+<xref rid="smsc12717-fig-0002" ref-type="fig">
+<bold>2</bold>a</xref>), confusion metrices (where N and P are representing AMP and non‐AMP samples, Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2b</xref>), and a receiver operating characteristic (ROC) curve (Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2c</xref>). The high values for accuracy, precision, recall, F1 score, and area under the ROC curve (closer of 1) suggest that the classification model performs effectively in distinguishing between AMPs and non‐AMPs. The weighted harmonic mean of precision and recall, represented by the F1 score, signifies optimal performance when value is 1 and indicates poorer performance when value is 0. Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2a</xref> suggests that the highest weighted F1 score was achieved using XGBoost model.</p><fig position="float" fig-type="Figure" id="smsc12717-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>a–c) The validation dataset evaluation metrics showing the performance of various ML models: XGBoost, RF, KNNs, and SVM represented by (a) accuracy, precision, recall, F1 score, and area under ROC; (b) confusion matrices, where N and P are representing negative dataset as in non<bold>‐</bold>AMP and positive dataset as in AMP samples, respectively; and c) ROC curve. d–f) Test set performance metrics of XGBoost model represented by (d) ROC curve, (e) confusion matrix, (f) accuracy, F1, precision, and recall scores. g–i) SHAP values of the peptide features and their impact on the model using test dataset, where (g) SHAP values show how much each feature has contributed to the XGBoost model used for the prediction of AMPs, (h) the absolute, and (i) mean absolute SHAP values, respectively, of each individual feature.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="SMSC-5-2400579-g004.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></fig><p>Therefore, the XGBoost model was selected for prediction of AMP activity, after comparing the performance across four ML models on the validation dataset. It is a highly robust ML algorithm renowned for its superior predictive accuracy as demonstrated by evaluation metrics shown in Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2a–c</xref>. Since a model involves choosing the optimal hyperparameters which are used to learn the optimal parameters that correctly map the input features (independent variables) to the labels or targets (dependent variable), therefore, model parameters are estimated from data automatically, and model hyperparameters are set manually to help estimate model parameters. It provides feature importance scores and offers an extensive set of hyperparameters that can be adjusted to optimize model performance. Techniques such as grid search or random search can also be employed to discover the most effective hyperparameter combinations.<sup>[</sup>
+<xref rid="smsc12717-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+<sup>]</sup> The model performance can be improved through hyperparameter tuning using the validation datasets. In this case, the Tree‐Structured Parzen Estimator (TPE) algorithm was used to tune six XGBoost hyperparameters: the fraction of features to subsample (colsample_bytree), minimum split loss (gamma), L1 regularization (alpha), L2 regularization (lambda), maximum tree depth (max_depth), and minimum child weight (min_child_weight).<sup>[</sup>
+<xref rid="smsc12717-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>
+<sup>]</sup> After optimizing the model using the training dataset and defining it with the optimized parameters, its predictive ability in distinguishing peptide sequences as either AMPs or non‐AMPs using the testing dataset as unseen data was assessed.</p><p>The model's performance was assessed using the ROC curve on the testing dataset. The ROC area under the curve (AUC) was calculated to be 0.95 (Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2d</xref>), indicating excellent model performance across various classification thresholds. When evaluated against the testing dataset, comprising of 394 peptides (consisting of 191 non‐AMPs and 203 AMPs), the model correctly identified 178 peptides as AMPs and 171 as non‐AMPs, as illustrated in the confusion matrix, and there were only 20 false negatives and 25 false positives (Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2e</xref>). Overall, the model when evaluated using test dataset displayed an accuracy of ≈87%, with an F1 score of 0.8734 (Figure <xref rid="smsc12717-fig-0002" ref-type="fig">2f</xref>). In this case, both precision and F1 score were ≈0.87, indicating a high degree of concordance between global accuracy and the weighted F1score.</p><p>Furthermore, the Shapley Additive Explanations (SHAP) values were used to quantify the individual contributions of each physicochemical feature to the model's outcomes. SHAP values originate from cooperative game theory and have been adapted for ML to provide insights into the outputs of intricate models.<sup>[</sup>
+<xref rid="smsc12717-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+<sup>]</sup> They elucidate how input features influence a model's predictions, that is, if they influence positively or negatively. Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1g</xref> offers insights into the impact of specific features, and notably, “overall charge”, “molecular weight”, and “charge density” were identified as factors with a positive correlation with the model's predictions. Conversely, “Boman index” (which is a measure for protein–protein interactions) “fraction sheet”, and “fraction helix” (associated with secondary structure) were among the features with a negative correlation with the model's predictions. Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1h,i</xref> provides an overview of the absolute and mean absolute SHAP values, both a useful measure of feature importance. This visualization highlights that “aromaticity”, “hydrophobicity slope and intercept”, as well as “gravy (grand average of hydropathy)” have minimal influence on the model's predictions.</p><p>The hyperparameter selection and model performance were measured using nested cross‐validation.<sup>[</sup>
+<xref rid="smsc12717-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>
+<sup>]</sup> Nested cross‐validation follows the conventional cross‐validation technique with the addition that, for each fold of the dataset, the model's hyperparameters are independently optimized. This optimization process uses an additional cross‐validation loop, applied to the training set of each fold. The performance of each of the four models (XGBoost, RF, KNN, and SVM) was assessed using five‐fold nested cross‐validation on the AMP dataset. The average and standard deviation of the results across various evaluation metrics (accuracy, F1, precision, recall scores, ROC AUC) are shown in box plots in <bold>Figure</bold>
+<xref rid="smsc12717-fig-0003" ref-type="fig">
+<bold>3</bold>a</xref> and Table S2, Supporting Information. The confusion matrices for all five datasets for each of the four models are shown in Figure S1, Supporting Information. The mean of cross‐validation performance comparison of various models is shown in heatmap in Figure <xref rid="smsc12717-fig-0003" ref-type="fig">3b</xref> and confusion matrices in Figure <xref rid="smsc12717-fig-0003" ref-type="fig">3c</xref>. The mean performance metrics confirm the XGBoost model as the best choice, as it has the highest values across all metrics. The low standard deviation shows the model's parameters are stable to variations in the AMP dataset.</p><fig position="float" fig-type="Figure" id="smsc12717-fig-0003" orientation="portrait"><label>Figure 3</label><caption><p>a) Box plots showing the values of various evaluation metrics accuracy, precision, recall, F1 score, and ROC AUC comparing the performance of XGBoost, RF, KNN, and SVM models across five cross‐validation folds. b) Heat map providing the comparison of various ML models using mean values of various metrics across five cross‐validation folds. c) Confusion matrices showing the average values across five cross‐validation folds for XGBoost, RF, KNN, and SVM models, where N and P are representing negative dataset as in non‐AMP and positive dataset as in AMP samples, respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="SMSC-5-2400579-g005.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></fig></sec><sec id="smsc12717-sec-0004"><label>2.2</label><title>The in Silico Prediction and Generation of AMPs</title><p>Finally, once the prediction model for classifying peptides as AMP and non‐AMP was optimized, it was used in conjunction with an overall algorithm to generate new AMP sequences (Figure <xref rid="smsc12717-fig-0001" ref-type="fig">1a</xref>). The process of generation of random peptides and scoring the peptides, conversion of peptides to indicial motifs, and identification of top motifs and then complying motifs into new peptide sequences was repeated with multiple selection, construction, and testing cycles to guide peptide discovery (<bold>Figure</bold>
+<xref rid="smsc12717-fig-0004" ref-type="fig">
+<bold>4</bold>a</xref>). The algorithm can be controlled by varying the number of peptides per batch, length of peptides, minimum and maximum motif, number of residues per motif, maximum number of alpha values and iterations to test in the lasso regression, and cutoff value for logistic regression weight for “important motifs”. The following sections discuss the overall algorithm and its output at each step in detail.</p><fig position="float" fig-type="Figure" id="smsc12717-fig-0004" orientation="portrait"><label>Figure 4</label><caption><p>a) Scheme showing the sequence of algorithm for each generation of peptide set generated. b) Table showing the snapshot of the final output of the algorithm. c) Graph represents the mean batch score of peptide sequences generated either randomly or using iterative process algorithmic motif assembly. d) Mean score as a function of various generations across multiple trial tests of algorithm showing score reaching ≈1. e) The box plots shows comparison of distribution of AMP, non‐AMP, algorithmically generated, and experimentally validated peptide dataset across various physiochemical features.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="SMSC-5-2400579-g007.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></fig><sec id="smsc12717-sec-0005"><label>2.2.1</label><title>Peptide and Motif Generation</title><p>Random peptides sequences, with both specific amino acid lengths (in this case 15) and batch number (5000), were generated using natural amino acids, namely “ACDEFGHIKLMNPQRSTVWY”. It is worth to mention that during peptide generation, we tried to exclude cysteine residues due to their synthetic challenges, multiple possible conformations, and association of disulphides with known toxic peptides like conotoxins.<sup>[</sup>
+<xref rid="smsc12717-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>
+<sup>]</sup>
+</p><p>An illustration of this process, including the generation of random peptides and their scores (predicted antimicrobial activity) derived from the averaging of prediction scores obtained from online webservers and the local XGBoost model, is presented in Table S3, Supporting Information. The values closer to 1 signify high antimicrobial activity and closer to 0 mean low antimicrobial activity.</p><p>Following the peptide scoring process, the algorithm proceeds to the amino acid motif generation step. In the context of AMPs, motifs represent recurring amino acid sequence patterns or structural elements within a collection of AMP sequences. These motifs are often crucial for the antimicrobial activity of these peptides. To convert peptides into a set of motifs, each peptide is treated as a sequence of amino acids, to which Algorithm 1 shown in <bold>Table</bold>
+<xref rid="smsc12717-tbl-0001" ref-type="table">
+<bold>1</bold>
+</xref> is applied. The set of motifs can be tuned by four control parameters: the minimum and maximum allowable motif length and the minimum and maximum number of random amino acids to fill in empty space in the motif. These can be decided based on the initial length of the random peptide sequences. For this experiment, the minimum motif and maximum motif length were set at 2 and 10, and the minimum and maximum amino acids that would be used to fill up any empty spaces after making various attempts to merge various motifs were set to 2 and 4.</p><table-wrap position="float" id="smsc12717-tbl-0001" content-type="Table" orientation="portrait"><label>Table 1</label><caption><p>Algorithm used for generating the motifs for peptides.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th colspan="3" align="left" rowspan="1">Algorithm 1: Motif generator</th></tr></thead><tbody><tr><td rowspan="4" align="left" colspan="1">in:</td><td colspan="2" align="left" rowspan="1">peptide <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="inline"><mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo>=</mml:mo><mml:mo>⟨</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo>⟩</mml:mo></mml:mrow></mml:mrow></mml:math> a sequence of <italic toggle="yes">n</italic> amino acids</td></tr><tr><td colspan="2" align="left" rowspan="1">minimum and maximum motif length <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="inline"><mml:mrow><mml:mrow><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mn>0</mml:mn><mml:mo>&lt;</mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math>
+</td></tr><tr><td colspan="2" align="left" rowspan="1">minimum and maximum amino acids in motif <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="inline"><mml:mrow><mml:mrow><mml:msub><mml:mi>m</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mn>0</mml:mn><mml:mo>&lt;</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math>
+</td></tr><tr><td colspan="2" align="left" rowspan="1">wildcard character, used to represent any amino acid <italic toggle="yes">w</italic>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">out:</td><td colspan="2" align="left" rowspan="1">a set of motifs <italic toggle="yes">M</italic>
+</td></tr><tr><td colspan="2" align="left" rowspan="1">MOTIF‐GENERATOR<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="bold-italic">P</mml:mi><mml:mrow><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="bold-italic">l</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">min</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="bold-italic">l</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">max</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="bold-italic">m</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">min</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="bold-italic">m</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">max</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi mathvariant="bold-italic">w</mml:mi></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+1.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="inline"><mml:mrow><mml:mrow><mml:mi>M</mml:mi><mml:mo> ← </mml:mo><mml:mo>Ø</mml:mo></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+2.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-6" display="inline"><mml:mrow><mml:mrow><mml:mtext>for </mml:mtext><mml:mi>l</mml:mi><mml:mo> ← </mml:mo><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi mathvariant="italic">min</mml:mi></mml:mrow></mml:msub><mml:mtext>to </mml:mtext><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mi mathvariant="italic">max</mml:mi></mml:mrow></mml:msub><mml:mtext> do</mml:mtext></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+3.</td><td colspan="2" align="left" rowspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-7" display="inline"><mml:mrow><mml:mrow><mml:mtext> for all subsequences </mml:mtext><mml:mi>S</mml:mi><mml:mtext> of sliding window of width </mml:mtext><mml:mi>l</mml:mi><mml:mtext> over </mml:mtext><mml:mi>P</mml:mi><mml:mtext> do</mml:mtext></mml:mrow></mml:mrow></mml:math>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+4.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-8" display="inline"><mml:mrow><mml:mrow><mml:mtext>  for </mml:mtext><mml:mi>m</mml:mi><mml:mo> ← </mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mrow><mml:mi mathvariant="italic">min</mml:mi></mml:mrow></mml:msub><mml:mtext>to </mml:mtext><mml:msub><mml:mi>m</mml:mi><mml:mrow><mml:mi mathvariant="italic">max</mml:mi></mml:mrow></mml:msub><mml:mtext> do</mml:mtext></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+5.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-9" display="inline"><mml:mrow><mml:mrow><mml:mo>   </mml:mo><mml:mi>k</mml:mi><mml:mo> ← </mml:mo><mml:mtext>max</mml:mtext><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>−</mml:mo><mml:mi>m</mml:mi><mml:mo>,</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+6.</td><td align="left" rowspan="1" colspan="1">   for all <italic toggle="yes">k</italic>‐combinations <italic toggle="yes">K</italic> of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-10" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:mo stretchy="false">{</mml:mo><mml:mrow><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mi>l</mml:mi></mml:mrow><mml:mo stretchy="false">}</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math> do</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+7.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-11" display="inline"><mml:mrow><mml:mrow><mml:mo>    </mml:mo><mml:msup><mml:mi>S</mml:mi><mml:mrow><mml:mi mathvariant="italic">new</mml:mi></mml:mrow></mml:msup><mml:mo> ← </mml:mo><mml:mtext>copy </mml:mtext><mml:mi>S</mml:mi></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+8.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-12" display="inline"><mml:mrow><mml:mrow><mml:mtext>    for all </mml:mtext><mml:mi>i</mml:mi><mml:mo>∈</mml:mo><mml:mi>K</mml:mi><mml:mtext>do</mml:mtext></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+9.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-13" display="inline"><mml:mrow><mml:mrow><mml:mo>     </mml:mo><mml:msubsup><mml:mi>S</mml:mi><mml:mi>i</mml:mi><mml:mrow><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>w</mml:mi></mml:mrow></mml:msubsup><mml:mo> ← </mml:mo><mml:mi>w</mml:mi></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">10.</td><td align="left" rowspan="1" colspan="1">    end for</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">11.</td><td align="left" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-14" display="inline"><mml:mrow><mml:mrow><mml:mo>    </mml:mo><mml:mi>M</mml:mi><mml:mo> ← </mml:mo><mml:mi>M</mml:mi><mml:mo>∪</mml:mo><mml:mrow><mml:mo stretchy="false">{</mml:mo><mml:mrow><mml:msup><mml:mi>S</mml:mi><mml:mrow><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>w</mml:mi></mml:mrow></mml:msup></mml:mrow><mml:mo stretchy="false">}</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">12.</td><td align="left" rowspan="1" colspan="1">   end for</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">13.</td><td align="left" rowspan="1" colspan="1">  end for</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">14.</td><td align="left" rowspan="1" colspan="1"> end for</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">15.</td><td align="left" rowspan="1" colspan="1">end for</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td colspan="3" align="left" rowspan="1">Example</td></tr><tr><td align="left" rowspan="1" colspan="1"/><td colspan="2" align="left" rowspan="1">MOTIF‐GENERATOR<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-15" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mo>⟨</mml:mo><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mi>F</mml:mi><mml:mo>⟩</mml:mo><mml:mo>,</mml:mo><mml:mn>3</mml:mn><mml:mo>,</mml:mo><mml:mn>4</mml:mn><mml:mo>,</mml:mo><mml:mn>3</mml:mn><mml:mo>,</mml:mo><mml:mn>3</mml:mn><mml:mo>,</mml:mo><mml:mo>−</mml:mo></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>→</mml:mo></mml:mrow></mml:mrow></mml:math>
+</td></tr><tr><td align="left" rowspan="1" colspan="1"/><td colspan="2" align="left" rowspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-16" display="inline"><mml:mrow><mml:mrow><mml:mo> </mml:mo><mml:mrow><mml:mo stretchy="false">{</mml:mo><mml:mrow><mml:mo>⟨</mml:mo><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>⟩</mml:mo><mml:mo>,</mml:mo><mml:mo>⟨</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mi>F</mml:mi><mml:mo>⟩</mml:mo><mml:mo>,</mml:mo><mml:mo>⟨</mml:mo><mml:mo>−</mml:mo><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mi>F</mml:mi><mml:mo>⟩</mml:mo><mml:mo>,</mml:mo><mml:mo>⟨</mml:mo><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mo>−</mml:mo><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mi>F</mml:mi><mml:mo>⟩</mml:mo><mml:mo>,</mml:mo><mml:mo>⟨</mml:mo><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mo>−</mml:mo><mml:mo>,</mml:mo><mml:mi>F</mml:mi><mml:mo>⟩</mml:mo><mml:mo>,</mml:mo><mml:mo>⟨</mml:mo><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mo>,</mml:mo><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:mo>−</mml:mo><mml:mo>⟩</mml:mo></mml:mrow><mml:mo stretchy="false">}</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</td></tr></tbody></table><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></table-wrap></sec><sec id="smsc12717-sec-0006"><label>2.2.2</label><title>Motif Scoring and Ranking</title><p>Following the generation of the set of peptide sequences and set of motifs per peptide, each motif was then scored and ranked in accordance with their ability to best correlate with the high antimicrobial activity scores. For this purpose, the motif occurrences were calculated. To calculate the motif occurrence counts, the sets of motifs were generated for each peptide sequence, which were then all combined into a single set. For each motif, its occurrence as in number of times it occurred in each peptide was counted, resulting in single occurrence table for the whole peptide set (see <bold>Table</bold>
+<xref rid="smsc12717-tbl-0002" ref-type="table">
+<bold>2</bold>
+</xref>).</p><table-wrap position="float" id="smsc12717-tbl-0002" content-type="Table" orientation="portrait"><label>Table 2</label><caption><p>Snapshot of output showing random peptides with motif occurrence columns and the peptide's respective predicted AMP score.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1">
+<bold>Motifs</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐A</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐D</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐E</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐F</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐I</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐K</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐L</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐M</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐N</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>A‐‐‐‐‐‐‐‐P</bold>
+</th><th align="center" rowspan="1" colspan="1">…</th><th align="center" rowspan="1" colspan="1">
+<bold>YYIH</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP‐‐‐‐‐‐W</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP‐‐‐‐‐A</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP‐‐‐‐D</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP‐‐‐R</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP‐‐H</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYP‐P</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>YYPG</bold>
+</th><th align="center" rowspan="1" colspan="1">
+<bold>Score</bold>
+</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">
+<bold>Sequence</bold>
+</td><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>AEAETTTWIEGDQFQ</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">1</td><td align="center" rowspan="1" colspan="1">1</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.06068</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>AFEWMGHIIEERWPE</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">1</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.24428</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>AKNMPRWLYREPPMG</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.09742</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>AKPQAEVANLKSQVR</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">1</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.00446</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>AKYHEGNEPKVAKFE</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">1</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.08715</td></tr><tr><td align="left" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">…</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>YKWAIGMQMTLFAPY</bold>
+</td><td align="center" rowspan="1" colspan="1">1</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.62734</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>YNPKYPIFHMMVFIL</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.19927</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>YRQRQIQPNFDHIYD</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.57416</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>YTTTHIIWNYGWQIA</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.53008</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<bold>YVGGRGQEVRYSKMI</bold>
+</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">…</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0</td><td align="center" rowspan="1" colspan="1">0.18266</td></tr></tbody></table><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></table-wrap><p>Although it is dependent on the set of peptide sequences it was generated from, occurrence table is usually sparse, where majority of sequences will be infrequent or not appear at all. Hence, an initial filtering process was applied to the table, to remove excess irrelevant motifs.</p><p>This motif filtering process consisted of three steps: 1) standardization of each motif count to a variance of one and 2) fitting a linear regressor with L1 penalty (aka lasso regression) to the generated peptide sequences, using the peptide's standardized motif counts as the independent variables, and the peptide's predicted antimicrobial likelihood score as the dependent. The L1 alpha parameter was optimized using a grid search with cross‐validation. 3) And finally, only the subset of motifs with a nonzero regression coefficient was retained.</p><p>In particular, to score the filtered motifs, a model was trained to predict the score column, and the assessment of motif identification and scoring was carried out using cross‐validation techniques. The peptide score was converted into binary classification labels (with a threshold set at 0.5). Then, logistic regression classifier models with elastic net regularization were employed in a <italic toggle="yes">k</italic>‐fold cross‐validation setup, where each experiment consisted of splitting the training dataset into <italic toggle="yes">k</italic>‐folds, with <italic toggle="yes">k</italic> being set to 5 in this study. In each iteration of this process, <italic toggle="yes">k</italic>‐1 folds were used to fit the model using stochastic gradient descent, while the remaining fold was held back for assessing the model's performance on the test set. Upon completing all <italic toggle="yes">k</italic> iterations, the model coefficients were averaged to obtain the mean coefficients across iterations. It is important to choose an appropriate value of <italic toggle="yes">k</italic>, ensuring that the test partitions are sufficiently large to be representative of the problem while allowing an adequate number of “train‐test” evaluations for a reliable estimate of the model's performance on unseen data. The motifs were then sorted by this average coefficient, and the largest motifs (i.e., the motifs that have a largest positive linear relation to AMP score) were selected.</p><p>Ultimately, this approach identified the top 100 motifs, which highlighted specific segments within the peptides that correlated with higher antimicrobial activity scores (Table S4, Supporting Information). The motif generations and ranking integrated into peptide generation process presented in this study offer several advantages over state‐of‐the‐art tools used like STREME and MERCI.<sup>[</sup>
+<xref rid="smsc12717-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>
+<sup>]</sup> For instance, MERCI has very strict pattern‐based approach based on motif frequency rather than predictive modeling for identifying conserved motifs, STREME is statistically rigorous algorithm used to generate motifs from proteins sequences, and it uses <italic toggle="yes">P</italic> values and motif enrichment for motif ranking. Our algorithm is best tailored for AMP motif discovery with customizable motif length and random amino acid substitution, along with motif scoring (correlated with antimicrobial activity) which ensures that they are aligned with functional relevance. The method incorporated the ML approaches L1‐regularized regression (lasso) and logistic regression with cross‐validation to rank and eliminate irrelevant motifs, improving interpretability which are not used in MERCI and STREME.</p></sec><sec id="smsc12717-sec-0007"><label>2.2.3</label><title>Peptide Generation Using Top Motifs</title><p>The top 100 motifs were utilized for the generation of new peptide sequences. These peptide sequences were created by merging of various identified motifs, either without conflicts or after making <italic toggle="yes">n</italic> attempts to fill the blank spaces with random amino acids. The outcome of this process is the generation of a new set of peptides, which is detailed in Table S5, Supporting Information (snapshot of the output).</p><p>Finally, this entire process can be iterated multiple times, each iteration is referred to as generations (see Figure <xref rid="smsc12717-fig-0004" ref-type="fig">4a</xref>). The summary of the resulting output is presented in Figure <xref rid="smsc12717-fig-0004" ref-type="fig">4b</xref>, where peptides were generated with specific parameters, including a peptide length of 15, an initial batch size of 5000 random peptides, a batch size for peptide generation set at 25 (these are peptides generated from top motifs), a total of 10 generations, a minimum motif length of 2, a maximum motif length of 10, a range for filling in random amino acids between 2 and 4, and five attempts to incorporate motifs to sequence before randomly filling amino acids (trial represent the number of times algorithm is operated). Figure <xref rid="smsc12717-fig-0004" ref-type="fig">4c</xref> illustrates a graph displaying the mean AMP prediction scores of batches of peptides generated either randomly or through the generative model. The results indicate that the iterative algorithm process significantly improved the quality of AMPs as the generations continued. Furthermore, Figure <xref rid="smsc12717-fig-0004" ref-type="fig">4d</xref> showcases the batch mean scores averaged across 20 trials of the algorithm when operated to generate peptides of length 15 and 25. Notably, the algorithm successfully produced peptide sequences with AMP scores close to 1 with activity being increasing along the generation, highlighting its ability to generate new AMP sequences effectively. The advantage to this algorithm is that with guided selection, attainment of an effective peptide sequences proceeds much faster than could be achieved via random peptide generation (or phage display) alone. Additionally, the program generates a comprehensive report highlighting the key decision‐making steps in guiding the peptide selection. This allows for retrospective evaluation of proposed sequences and opportunities to investigate intermediaries. Other models like CAMPR3, AMP scanner, DeepAMP, and iAMPpred use RF, SVM, and CNN instead of gradient boosting.<sup>[</sup>
+<xref rid="smsc12717-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>, <xref rid="smsc12717-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>
+<sup>]</sup> They used physiochemical features for classification, in combination with ensemble learning techniques and deep learning techniques to learn complex sequence pattern. However, these models lack motif generation, interpretability, and generative design. The algorithm offers integration of XGBoost model for prediction, motif‐based ranking using ML‐based feature selection (to relate to antimicrobial activity), and motif‐informed AMP generation.</p><p>In this study, we further evaluated the key physicochemical characteristics of the generated peptides and experimentally validated peptides with AMP and non‐AMP dataset. We found that peptides showed low sequence similarity which was determined using sequence alignment using APD3 webserver with known AMPs (&lt;50%) signifying the novelty of the sequences. However, peptide sequences bear the key physicochemical characteristics of the positive dataset, that is, cationic charge, high charge density, and hydrophobicity moment (Figure <xref rid="smsc12717-fig-0004" ref-type="fig">4e</xref>). Figure S2, Supporting Information, shows the comparison of amino acids composition of top 100 generated and predicted peptides to the AMP dataset used to train the ML model.</p></sec></sec><sec id="smsc12717-sec-0008"><label>2.3</label><title>Experimental Validation of Antimicrobial Activity of the Peptides</title><p>To validate the model experimentally, the algorithm was operated 40 times twice with above mentioned parameters, and two lists of peptide sequences were generated. The generated peptide lists were sorted in order of their AMP prediction score. The top 100 peptides (which include the top 50 peptides from each list) were selected for synthesis, and their antimicrobial activity was subsequently determined through experimental assays. The peptide sequences from both lists are provided in Table S6 and S7, Supporting Information. The ESKAPE pathogens, which are a group of pathogens known for their ability to escape the effects of antibiotics, were utilized for validating peptide sequences. The ESKAPE pathogens have been listed by the World Health Organisation (WHO) as priority pathogens in 2011 to combat AMR.<sup>[</sup>
+<xref rid="smsc12717-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>
+<sup>]</sup> They are responsible for a significant portion of healthcare‐associated infections and are a growing concern in the field of infectious disease control. Addressing the challenges posed by ESKAPE pathogens is crucial for public health, as these bacteria continue to evolve and develop resistance to multiple antibiotics, making it increasingly difficult to treat infections caused by them. Hence, peptide sequences which can potentially inhibit or kill any of the ESKAPE pathogens are potentially important in the fight against multidrug‐resistant bacteria.</p><p>To evaluate the susceptibility of the different peptide sequences against clinical isolates of various bacterial pathogens, we used the minimum inhibitory concentration (MIC) assay. The MIC measures the efficacy of peptides in inhibiting bacterial growth. The specific MIC values of various peptides against <italic toggle="yes">Enterococcus faecium</italic> ATCC19433, <italic toggle="yes">Staphylococcus aureus</italic> ATCC25923, <italic toggle="yes">Klebsiella pneumoniae</italic> ATCC43816, <italic toggle="yes">Acinetobacter baumannii</italic> AB5075, <italic toggle="yes">Pseudomonas aeruginosa</italic> PAO1, and <italic toggle="yes">Enterobacter species</italic> ATCC13048 were determined by measuring optical density at 600 nm (OD<sub>600 nm</sub>). <bold>Figure</bold>
+<xref rid="smsc12717-fig-0005" ref-type="fig">
+<bold>5</bold>a</xref> presents a scatter plot, and Figure <xref rid="smsc12717-fig-0005" ref-type="fig">5b</xref> displays a correlation chart, illustrating that the MIC values of the peptides which were within the range of 1.5–200 μM. The percentage of peptides exhibiting activity against the specified bacterial strains were as follows: 23% against <italic toggle="yes">Enterococcus faecium</italic> ATCC19433, 17% against <italic toggle="yes">Staphylococcus aureus</italic> ATCC25923, 37% against <italic toggle="yes">Klebsiella pneumoniae</italic> ATCC43816, 55% against <italic toggle="yes">Acinetobacter baumannii</italic> AB5075, 37% against <italic toggle="yes">Pseudomonas aeruginosa</italic> PAO1, and 24% against <italic toggle="yes">Enterobacter species</italic> ATCC13048. Figure <xref rid="smsc12717-fig-0005" ref-type="fig">5c–h</xref> shows representative growth inhibition curves of ESKAPE pathogens after incubation with some selected peptides (the peptides showing broad‐spectrum antimicrobial activity) at various concentrations as measured by OD<sub>600 nm</sub>. The growth inhibition curves were used to estimate the MIC values.</p><fig position="float" fig-type="Figure" id="smsc12717-fig-0005" orientation="portrait"><label>Figure 5</label><caption><p>Antibacterial activity of the peptide generated using algorithm. a) The scatter plot of MIC values of various peptides against six different bacterial strains. b) The correlation plot of MIC values of various peptides against six different bacterial strains. c–h) Growth inhibition curves of ESKAPE pathogens represented as optical density (OD<sub>600nm</sub>) as function of concentration of peptides after 24 h incubation with (c) <italic toggle="yes">Enterococcus faecium</italic> ATCC19433, (d) <italic toggle="yes">Staphylococcus aureus</italic> ATCC25923, (e) <italic toggle="yes">Klebsiella pneumoniae</italic> ATCC43816, (f) <italic toggle="yes">Acinetobacter baumannii</italic> AB5075, (g) <italic toggle="yes">Pseudomonas aeruginosa</italic> PAO1, and (h) <italic toggle="yes">Enterobacter aerogenes</italic> ATCC13048.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="SMSC-5-2400579-g002.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></fig><p>The overall accuracy of the model, considering the number of peptides active against at least one of the six bacterial strains, was estimated to be ≈60%.</p><p>Relative to the theoretical accuracy of the model, which was 87%, the experimental accuracy relative percentage was estimated to be ≈70%. During the testing phase, we conducted a comparative analysis of the physicochemical features of the experimentally validated peptides, with a particular focus on charge and hydrophobicity. The objective was to identify any discernible trends or patterns within the data with the scope to improve the algorithm, ultimately aiming to achieve higher accuracy. <bold>Figure</bold>
+<xref rid="smsc12717-fig-0006" ref-type="fig">
+<bold>6</bold>a,b</xref> illustrates the distribution of overall charge and hydrophobicity among two distinct sets of peptides. These distributions were compared with the number of non‐AMP peptides for relative analysis. Figure <xref rid="smsc12717-fig-0006" ref-type="fig">6a</xref> reveals that a substantial proportion of peptides with charge values of 0, 1, 2, and 3 displayed limited effectiveness against the six bacterial strains. Likewise, most peptide sequences with a hydrophobicity value of 27% were found to be inactive. In response to these findings, additional filters were implemented to exclude data points falling within these specific charge and hydrophobicity from the dataset. Figure <xref rid="smsc12717-fig-0006" ref-type="fig">6c</xref> illustrates the distribution of hydrophobicity after removing peptide sequences with lower hydrophobicity and charge showing that the number of inactive peptides was reduced.</p><fig position="float" fig-type="Figure" id="smsc12717-fig-0006" orientation="portrait"><label>Figure 6</label><caption><p>a) Charge distribution of all experimentally validated peptide sequences and only non‐AMPs. b) Hydrophobicity distribution of all experimentally validated peptide sequences and only non‐AMPs. c) Hydrophobicity distribution of all experimentally validated peptide sequences and non‐AMPs after filtering peptides with lower charge and hydrophobicity. d) Pie chart representing the percentage of AMP and non‐AMPs of experimentally validated peptide sequences. e) Pie chart representing the percentage of AMP and non‐AMPs after the applying the charge filter. f) Pie chart representing the percentage of AMP and non‐AMPs from experimentally validated peptide sequences after the applying both charge and hydrophobicity filter. g) The graph represents the accuracy of algorithm before and after using the filters based on physiochemical characteristics of experimentally validated peptide sequences.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="SMSC-5-2400579-g001.jpg"><permissions><copyright-holder>© 2025 WILEY‐VCH GmbH</copyright-holder></permissions></graphic></fig><p>Figure <xref rid="smsc12717-fig-0006" ref-type="fig">6d</xref> presents accuracy percentages for both AMP and non‐AMP peptides across all the experimentally validated peptides. In comparison, Figure <xref rid="smsc12717-fig-0006" ref-type="fig">6e,f</xref> demonstrates the enhanced percentage of AMP peptides achieved after applying the filters, specifically removing peptide sequences with charge values below +3 and hydrophobicity values of 27%. Figure <xref rid="smsc12717-fig-0006" ref-type="fig">6g</xref> presents a bar graph showcasing the absolute accuracy percentages of the algorithm after applying the filters separately to two different sets of peptides. Remarkably, the minimal error bars indicate that implementing these filters across two different sets of peptide sequences led to a significant improvement in algorithm accuracy, from ≈60% to ≈80%. As a result, the algorithm was refined to incorporate all physiochemical features and apply a filter to remove peptides with lower hydrophobicity and specific charge values to enhance its accuracy. Our model after refinement provides better performance than other models in terms of accuracy and interpretability. Other models such as AMPscanner, CAMPR3 (RF), CAMPR3 (SVM), CAMPR3 (ANN) showed accuracy between 55% and 70% when analysis was performed on the experimentally validated dataset.[<xref rid="smsc12717-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>, <xref rid="smsc12717-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>]</p><p>Furthermore, the top 50 peptides were also tested against the clinical isolate of various fungal strains, namely <italic toggle="yes">Candida albicans</italic> ATCC 90 028, <italic toggle="yes">Cryptococcus neoformans</italic> ATCC 208 821, and <italic toggle="yes">Cryptococcus neoformans</italic> ATCC 901 122, and ≈65% of the peptides showed activity in effectively inhibiting fungal growth (Figure S3a–c, Supporting Information). Next, the off‐target toxicity of the AMPs was determined using whole human blood using hemolysis assay and cell viability against human embryonic kidney cells HEK‐293 cells. The results suggested that only 6% of active peptides had cytotoxicity toward HEK‐293 cells and red blood cell hemolysis between concentration of 1.5 and 200 μM (Figure S4 and S5, Supporting Information). Moreover, to emphasize on the importance of peptide sequences and their amino acid residues generated using the algorithm, we tested scrambled sequences of the peptides and the scrambled peptide sequences did not show any antimicrobial activity. Overall, the generated algorithm offers a promising avenue for the rapid development and prediction of new AMPs to combat infectious diseases caused by antibiotic‐resistant microbial pathogens.</p><p>The study can be extended to further construct an algorithm to identify peptides active against specific bacterial strains. For instance, identifying patterns and the common motifs present in known peptide sequences targeting gram‐negative or gram‐positive bacterial strains would allow us to generate peptides with high specificity.</p></sec></sec><sec id="smsc12717-sec-0009"><label>3</label><title>Conclusion</title><p>AMPs have emerged as promising candidates to be used against microbial pathogens and related infections due to their broad‐spectrum activity against various microorganisms. However, the experimental discovery and optimization of AMPs can be time‐consuming and expensive. In response to this challenge, current study utilized a combination of predictive ML models, cross‐validation, and top motif identification to build an algorithm for generating peptide sequences with high antimicrobial efficacy. The XGBoost model outperformed other models, RF, KNN, and SVM, and resulted in the highest accuracy of 87% in correctly predicting the peptide sequences as AMP and non‐AMP. The iterative process of motif ranking and assembly along with multiple selection, construction, and testing cycles used in the algorithm resulted in generating peptides with high theoretical scores. The wet‐lab validation of the top 100 generated peptides in inhibiting the growth of various bacterial and fungal strains which are prone to develop antimicrobial resistance showed the accuracy of 60%. Features like charge and hydrophobicity were considered to find trends for algorithm optimization, thereby improving predictive accuracy. Analysis revealed that peptides with low cationic charge and hydrophobicity exhibited limited antimicrobial activity. Filters were then applied to remove such peptides, leading to an enhancement in algorithm accuracy from ≈60% to ≈80%. Therefore, the generated algorithm offers a promising avenue for the rapid development of new antimicrobial agents to combat infectious diseases and antibiotic‐resistant pathogens.</p></sec><sec id="smsc12717-sec-0010"><label>4</label><title>Experimental Section</title><sec id="smsc12717-sec-0011"><label>4.1</label><sec id="smsc12717-sec-0012"><label>4.1.1</label><sec id="smsc12717-sec-0013"><title>Materials</title><p>
+<italic toggle="yes">N,N′</italic>‐dimethylforamide (DMF) was purchased from VWR chemicals; acetic acid (AcOH), dichloromethane (DCM), formic acid (FA), isopropanol, ethanol, and HPLC grade acetonitrile (ACN) were purchased from Merck; diethyl ether (Et<sub>2</sub>O) was purchased from RCI Labscan; <italic toggle="yes">N,N′</italic>‐diisopropylcarbodiimide (DIC), piperidine, and trifluoroacetic acid (TFA) were purchased from Sigma‐Aldrich; RinkAmide AM resin (0.574 mmol g<sup>−1</sup>) was purchased from ChemImpex and Oxyma Pure; Fmoc‐protected amino acids/building blocks were purchased from Aapptec, Mimotopes, or ChemImpex. Bacterial pathogens <italic toggle="yes">Enterococcus faecalis</italic> ATCC19433, <italic toggle="yes">Staphylococcus aureus</italic> ATCC25923, <italic toggle="yes">Klebsiella pneumoniae</italic> ATCC43816, and <italic toggle="yes">Enterobacter aerogenes</italic> ATCC13048 were purchased from ATCC. Nutrient agar (OXOID, UK) and Mueller Hinton II Broth (MHB II, Cation‐Adjusted, BBLTM BD, France) were used for bacterial cultures in this study. HEK‐293 cells were purchased from ATCC. Fetal Bovine Serum (FBS) was purchased from Life Technologies, USA.</p></sec><sec id="smsc12717-sec-0014"><title>Data Collection and Preprocessing</title><p>The datasets consisted of 984 antibacterial (ABP) and 984 non‐antibacterial (non‐ABP) peptides. The datasets were taken from iAMPpred (iAMPpred: About (cabgrid.res.in). Particularly, peptides were collected from public database resources. Positive datasets from AntiBP2 (http://www.imtech.res.in/raghava/antibp2/), CAMPR3 (http://www.camp.bicnirrh.res.in/seqDb.php?page=0), and APD3 (http://aps.unmc.edu/AP/database/antiB.php) were used. Further, non‐antibacterial (negative dataset) was collected from AntiBP2 and AVPpred, respectively. The combined peptide dataset was then subsequently divided into three separate sets: a training set, a validation set, and a testing set, each randomly selected from the AMP and non‐AMP datasets. In addition, we also used a fivefold cross‐validation where datasets were randomly split into five groups containing equal number of AMPs and non‐AMP. The features such as aromaticity, gravy, molecular weight, isoelectric point, fraction helix, fraction turn, fraction sheet, hydrophobicity slope, hydrophobicity intercept, hydrophobic moment, Boman index, aliphatic index, charge density, and modlamp charge were used for model training. The two python packages, BioPython (https://biopython.org/) and modLAMP (https://modlamp.org/), were utilized for this purpose.</p></sec><sec id="smsc12717-sec-0015"><title>ML Models for Antimicrobial Activity Prediction</title><p>The XGBoost, RF, KNN, and SVM model were used, and they were trained using the above dataset, and the model performance on the validation set was compared. For XGBoost model hyperparameter optimization was performed using Bayesian optimization with the TPE algorithm (hyperopt package http://hyperopt.github.io/hyperopt/) using parameters like max_depth, min_child_weight, gamma, and colsample_bytree. For other models, hyperparameter tuning was performed using grid or random search techniques. Each model's performance was then evaluated on the testing dataset using the different evaluation metrics such as accuracy, precision, recall, F1 score, confusion metrices (shows the classification performance on AMP and non‐AMP dataset), and an ROC curve.</p></sec><sec id="smsc12717-sec-0016"><title>ML for Scoring Amino Acid Motifs</title><p>Motif occurrence counts to predict peptide antimicrobial activity score were utilized. An initial filtering process was applied. The ordinary logistic regression with fivefold cross‐validation was employed in identifying the most predictive motifs by taking the average value of the model coefficients across folds. The 100 top motifs were picked for the subsequent analysis and were related with the largest averaged coefficients. Sliding window regression and L1 regularization (decision rule) could simplify the model by erasing less predictive motifs. As a result, the analysis demonstrated that using a pipeline with StandardScaler and Lasso in the optimized GridSearchCV mode, significant motifs with non‐zero coefficients were present.</p></sec><sec id="smsc12717-sec-0017"><title>Code Implementation</title><p>Implementation of the code was performed using python 3.9.13 with different libraries such as scikit‐learn 1.1.3, modlamp 4.3.0, biopython 1.79, xgboost 1.7.1, hypyeropt 0.2.7, and shap 0.41.0.</p></sec><sec id="smsc12717-sec-0018"><title>Peptide Synthesis</title><p>Peptides were synthesized using SPPS Fmoc/tBu strategy with microwave synthesis conditions on a CEM Liberty Blue system (instrument uses stock solutions of all reagents) on a 0.1 mmol scale using five‐fold excess of Fmoc‐AA‐OH (0.2 <sc>m</sc> in DMF), 0.5 <sc>m</sc> DIC in DMF, and 1.0 <sc>m</sc> OxymaPure in DMF. Deprotection was performed with 20% piperidine and 0.1 <sc>m</sc> OxymaPure in DMF. For the final deprotection and cleavage from resin, the peptide resin was washed with DMF (3 × 1 min), DCM (3 × 1 min), and Et<sub>2</sub>O (3 × 1 min) and dried in a desiccator under vacuum. The cleavage cocktail was composed of TFA/H<sub>2</sub>O/TIS (95:2.5:2.5). 10 mL of cleavage solution was added to peptidyl resin, and the reaction was left for 1.5 h on an orbital shaker at 100 rpm. Resin was then filtered off, and peptides were precipitated with cold Et<sub>2</sub>O and centrifuged; crude peptide was then washed twice with cold Et<sub>2</sub>O and dried in a desiccator under vacuum for 30 min. Finally, crude product was dissolved in 10% AcOH and lyophilized before further analysis and purification. Peptides (1 mg mL<sup>−1</sup>) were analyzed on an analytical HPLC (with injection volume 10–20 μL) and purified on a preparative HPLC (with 5 mL injection volume containing ≈30 mg of peptide). The Agilent Technologies 1260 Infinity Series analytical HPLC was run at flow rate of 1 mL min<sup>−1</sup>, and wavelength of detector was set at 215/254 nm; column temperature was set to 30 °C. The column used was Phenomenex Luna 5 μm C18(2) 100 Å (100 × 4.6 mm) (PN, 00D‐4252‐E0; SN, 679 499‐7; BN, 5291‐122). Agilent Technologies 1260 Infinity was used for purification of crude peptide and was run at flow rate of 12 mL min<sup>−1</sup> with detector wavelength set at 215/254 nm wavelength. The column used was Phenomenex Luna 10 μm C18(2) 100 Å (150 × 21.20 mm) (PN, 00 F‐4253‐P0‐ax; SN, 554 707‐1). The HPLC mobile phase was [A] 0.1% TFA in MQ water and [B] 0.1% TFA in ACN. Peptide samples were also analyzed using a Dionex 3000 HPLC system coupled to a Thermo Scientific Q Exactive mass spectrometer fitted with a HESI‐II ion source. Analyses were performed with a reversed phase HPLC column (ACE Excel 2 C18, 100 × 2.1 mm, 2 μm particle size), using an injection volume of 10 μl, a flow rate of 0.3 mL min<sup>−1</sup>, and a gradient (2% to 100% methanol in 15 min and then held at 100% methanol for a further 5 min). Both mobile phases contained 0.1% FA with column temperature of 40 °C.</p></sec><sec id="smsc12717-sec-0019"><title>MIC Assay</title><p>Bacteria: The MIC was the lowest concentration of a drug, which inhibited the visible growth of a bacteria and could be determined by reading the absorption at 600 nm (OD<sub>600 nm</sub>) using a spectrophotometer. The peptides were subjected to antibacterial testing against gram‐positive and gram‐negative pathogens. All the ESKAPE pathogens (<italic toggle="yes">E. faecalis</italic> ATCC19433, <italic toggle="yes">S. aureus</italic> ATCC25923, <italic toggle="yes">K. pneumoniae</italic> ATCC43816, <italic toggle="yes">A. baumannii</italic> AB5075, <italic toggle="yes">P. aeruginosa</italic> PAO1, and <italic toggle="yes">E. aerogenes</italic> ATCC13048) were inoculated from nutrient agar plates to obtain a bacterial suspension by incubating the colony of bacteria in a flask containing 10 mL of Mueller Hinton broth II (MHB) at 37 °C for 24 h with gentle shaking (75 rpm). The bacterial suspensions were then diluted in MHB to 1 × 10<sup>6</sup> colony‐forming units (CFU) of bacteria mL<sup>−1</sup>. Next, using serial dilutions in 96‐well plates, different concentrations of each peptide from 1.5–400 μM were prepared. 100 μL of peptide solutions at final concentration ranging between 0.75–200 μM were then added to a 96‐well plate containing 100 μL of diluted bacterial suspension. After 18–24 h incubation at 37 °C, the turbidity of the samples was observed, and the optical density of bacteria was measured using OD<sub>600 nm</sub>. All assays were performed in duplicates. The MICs were calculated as ≥90% inhibition of bacteria growth compared to the positive control wells.</p><p>Fungi: <italic toggle="yes">Candida albicans</italic> and <italic toggle="yes">Cryptococcus neoformans</italic> were cultured on YPD agar at 35 °C for 24 and 48 h, respectively. A minimum of five single colonies were taken from each agar plate and dissolved in sterile water. The peptide solutions were serially diluted eight times in 384 deep‐well polypropylene plates (PerkinElmer; Cat. No. 6008690) and were transferred to test plates (384 well plates, PS, Corning; Cat. No. 3680). The solution of fungi was then adjusted to OD<sub>530 nm</sub> = 0.3 and added to YNB media (2% glucose) to give a final cell density of 2.5 × 10<sup>3</sup> CFU mL<sup>−1</sup> in the test plates. The plates were covered and incubated at 35 °C for 36 h. MICs were determined by measuring optical density after 36 h incubation using the Biotek Synergy HTx Plate reader. <italic toggle="yes">Candida albicans</italic> plates were read at OD<sub>630 nm</sub>, and <italic toggle="yes">Cryptococcus neoformans</italic> plates were read at OD<sub>600‐570 nm</sub> after addition of resazurin (final concentration 0.01%). The MICs were calculated as ≥80% inhibition of fungal growth compared to the positive control wells.</p></sec><sec id="smsc12717-sec-0020"><title>Red Blood Cell Hemolysis Assay</title><p>Whole blood (10 mL tube<sup>−1</sup>) was washed 2–3 times in 3 volumes of 0.9% NaCl (Baxter; AHF7124), with centrifugation for 10 min between washes, at 500 g, with reduced deceleration. A cell count was performed using a Neubauer hemocytometer, and then cells were diluted to 1 × 10<sup>8</sup> mL<sup>−1</sup> in 0.9% NaCl. Diluted cells (45 μL well<sup>−1</sup>) were added to the plates containing peptide solutions at various concentrations. Plates were sealed and then placed on a plate shaker for 10 min before being incubated for 1 h at 37 °C without shaking. After incubation, plates were centrifuged at 1000 g for 10 min, to pellet cells and debris, and then 25 μL of the supernatant was transferred into a 384‐well flat bottom polystyrene plate (Corning; Cat. No. 3680). Following transfer, absorbance (OD) was read at 405 nm using a Tecan M1000 Pro monochromator plate reader. Using nonlinear regression analysis of log (concentration) versus normalized hemolysis, using variable fitting, HC<sub>50</sub> (concentration at 50% hemolysis) was calculated. In addition, the maximum percentage of hemolysis was reported. Primary human red blood cells are historically purchased by University of Queensland from Australian Red Cross. The use of human blood (sourced from the Australian Red Cross Blood Service) for hemolysis assays was approved by the University of Queensland Institutional Human Research Ethics Committee (approval number UQ 2020001239).</p></sec><sec id="smsc12717-sec-0021"><title>Cytotoxicity</title><p>HEK‐293 cells (45 μL) were cultured in 384‐well tissue‐culture‐treated plates at the seeding density of 5000 cells per well in Dulbecco's Modified Eagle Medium (DMEM) (Gibco; Cat. No. 11995073) supplemented with 10% FBS (GE; Cat. No. SH30084.03) and 100 U/mL each penicillin/streptomycin (Invitrogen; Cat. No. 15070063). The peptide solutions (5 μL) at the final concentration range of 200–1.56 μM were added to the cells, and the cell plates were incubated for 20 h at 37 °C, 5% CO<sub>2</sub>. After 20 h incubation, 5 μL of 100 μM resazurin (Sigma; Cat. No. R7017) in PBS was added to each well for a final concentration of 11 μM. The plates were then incubated for 3 h at 37 °C, 5% CO<sub>2</sub>. The fluorescence intensity was read using the TECAN Infinite M1000 PRO with excitation/emission 560/590 nm. Using nonlinear regression analysis of log (concentration) versus normalized cell viability, using variable fitting, IC<sub>50</sub> (concentration at 50% cell viability) were calculated.</p></sec></sec></sec></sec><sec sec-type="COI-statement" id="smsc12717-sec-0023"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec><sec id="smsc12717-sec-0024"><title>Author Contributions</title><p>
+<bold>Sukhvir Kaur Bhangu</bold>: conceptualization: (equal); formal analysis: (lead); investigation: (lead); methodology: (lead); project administration: (lead); resources: (lead); software: (equal); supervision: (supporting); validation: (lead); visualization: (lead); writing—original draft: (lead); writing—review &amp; editing: (lead). <bold>Nicholas Welch</bold>: conceptualization: (lead); data curation: (supporting); funding acquisition: (supporting); project administration: (supporting); supervision: (supporting); writing—review &amp; editing: (supporting). <bold>Morgan Lewis</bold>: conceptualization: (supporting); methodology: (supporting); software: (supporting); validation: (supporting); visualization: (supporting); writing—original draft: (supporting); writing—review &amp; editing: (supporting). <bold>Fanyi Li</bold>: methodology: (supporting); project administration: (supporting); validation: (supporting); writing—review &amp; editing: (supporting). <bold>Brint Gardner</bold>: conceptualization: (supporting); investigation: (supporting); methodology: (supporting); project administration: (supporting); software: (supporting); supervision: (supporting); writing—review &amp; editing: (supporting). <bold>Helmut Thissen</bold>: conceptualization: (supporting); formal analysis: (equal); funding acquisition: (lead); investigation: (supporting); methodology: (supporting); project administration: (equal); supervision: (supporting); writing—review &amp; editing: (supporting). <bold>Wioleta Kowalczyk</bold>: conceptualization: (equal); formal analysis: (equal); funding acquisition: (equal); investigation: (supporting); methodology: (supporting); project administration: (supporting); resources: (supporting); supervision: (lead); writing—original draft: (supporting); writing—review &amp; editing: (supporting).</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material position="float" content-type="local-data" orientation="portrait"><caption><p>Supplementary Material</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="SMSC-5-2400579-s001.pdf" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="smsc12717-sec-0022"><title>Acknowledgements</title><p>This work was supported by a CSIRO Early Research Career Postdoctoral Fellowship and Scientific Computing (SC) Collaboration Projects funded by CSIRO, IMT. The authors would like to acknowledge Dr. Lewis D Blackman and Dr. Katherine ES Locock for their support in this project.</p></ack><sec sec-type="data-availability" id="smsc12717-sec-0026"><title>Data Availability Statement</title><p>The data that support the findings of this study are available from the corresponding author upon reasonable request.</p></sec><ref-list id="smsc12717-bibl-0001" content-type="cited-references"><title>References</title><ref id="smsc12717-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="smsc12717-cit-0001">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Breijyeh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Karaman</surname>
+</string-name>, <source>Antibiotics</source>
+<year>2023</year>, <volume>12</volume>, <fpage>628</fpage>.<pub-id pub-id-type="pmid">36978495</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/antibiotics12030628</pub-id><pub-id pub-id-type="pmcid">PMC10045396</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="smsc12717-cit-0002">
+<string-name name-style="western">
+<given-names>B. K.</given-names>
+<surname>English</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. H.</given-names>
+<surname>Gaur</surname>
+</string-name>, <source>Adv. Exp. Med. Biol.</source>
+<year>2010</year>, <volume>659</volume>, <fpage>73</fpage>.<pub-id pub-id-type="pmid">20204756</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/978-1-4419-0981-7_6</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="smsc12717-cit-0003">a) <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Mahlapuu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Hakansson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Ringstad</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Bjorn</surname>
+</string-name>, <source>Front. Cell. Infect. Microbiol.</source>
+<year>2016</year>, <volume>6</volume>, <fpage>194</fpage>;<pub-id pub-id-type="pmid">28083516</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fcimb.2016.00194</pub-id><pub-id pub-id-type="pmcid">PMC5186781</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0004">b) <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Pei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tian</surname>
+</string-name>, <source>Front. Genet.</source>
+<year>2023</year>, <volume>14</volume>, <fpage>1232117</fpage>.<pub-id pub-id-type="pmid">37554402</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fgene.2023.1232117</pub-id><pub-id pub-id-type="pmcid">PMC10405519</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="smsc12717-cit-0005">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Drayton</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. N.</given-names>
+<surname>Kizhakkedathu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. K.</given-names>
+<surname>Straus</surname>
+</string-name>, <source>Molecules</source>
+<year>2020</year>, <volume>25</volume>, <fpage>3048</fpage>.<pub-id pub-id-type="pmid">32635310</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/molecules25133048</pub-id><pub-id pub-id-type="pmcid">PMC7412191</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="smsc12717-cit-0006">
+<string-name name-style="western">
+<given-names>G. S.</given-names>
+<surname>Dijksteel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. M. W.</given-names>
+<surname>Ulrich</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Middelkoop</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Boekema</surname>
+</string-name>, <source>Front. Microbiol.</source>
+<year>2021</year>, <volume>12</volume>, <fpage>616979</fpage>.<pub-id pub-id-type="pmid">33692766</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fmicb.2021.616979</pub-id><pub-id pub-id-type="pmcid">PMC7937881</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="smsc12717-cit-0007">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Cai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. F.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. W. I.</given-names>
+<surname>Siu</surname>
+</string-name>, <source>Antibiotics</source>
+<year>2022</year>, <volume>11</volume>, <fpage>1451</fpage>.<pub-id pub-id-type="pmid">36290108</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/antibiotics11101451</pub-id><pub-id pub-id-type="pmcid">PMC9598685</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="smsc12717-cit-0008">a) <string-name name-style="western">
+<given-names>E. Y.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. W.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. M.</given-names>
+<surname>Fulan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. L.</given-names>
+<surname>Ferguson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. C.</given-names>
+<surname>Wong</surname>
+</string-name>, <source>Interface Focus</source>
+<year>2017</year>, <volume>7</volume>, <fpage>20160153</fpage>;<pub-id pub-id-type="pmid">29147555</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1098/rsfs.2016.0153</pub-id><pub-id pub-id-type="pmcid">PMC5665795</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0009">b) <string-name name-style="western">
+<given-names>E. Y.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. M.</given-names>
+<surname>Fulan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. C.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. L.</given-names>
+<surname>Ferguson</surname>
+</string-name>, <source>Proc. Natl. Acad. Sci. USA</source>
+<year>2016</year>, <volume>113</volume>, <fpage>13588</fpage>.<pub-id pub-id-type="pmid">27849600</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.1609893113</pub-id><pub-id pub-id-type="pmcid">PMC5137689</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="smsc12717-cit-0010">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2016</year>, <volume>44</volume>, <fpage>D1087</fpage>.<pub-id pub-id-type="pmid">26602694</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkv1278</pub-id><pub-id pub-id-type="pmcid">PMC4702905</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="smsc12717-cit-0011">
+<string-name name-style="western">
+<given-names>V. S.</given-names>
+<surname>Mathura</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Kolippakkam</surname>
+</string-name>, <source>Bioinformation</source>
+<year>2005</year>, <volume>1</volume>, <fpage>2</fpage>.<pub-id pub-id-type="pmid">17597840</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.6026/97320630001002</pub-id><pub-id pub-id-type="pmcid">PMC1891621</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="smsc12717-cit-0012">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ge</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Huang</surname>
+</string-name>, <source>Database</source>
+<year>2020</year>, <volume>2020</volume>, <fpage>baaa061</fpage>.<pub-id pub-id-type="pmid">32844169</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/database/baaa061</pub-id><pub-id pub-id-type="pmcid">PMC7447557</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="smsc12717-cit-0013">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Pirtskhalava</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Amstrong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Grigolava</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Chubinidze</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Alimbarashvili</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Vishnepolsky</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Gabrielian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Rosenthal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. E.</given-names>
+<surname>Hurt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Tartakovsky</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2021</year>, <volume>49</volume>, <fpage>D288</fpage>.<pub-id pub-id-type="pmid">33151284</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkaa991</pub-id><pub-id pub-id-type="pmcid">PMC7778994</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="smsc12717-cit-0014">
+<string-name name-style="western">
+<given-names>F. H.</given-names>
+<surname>Waghu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Gopi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Barai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ramteke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Nizami</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Idicula‐Thomas</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2014</year>, <volume>42</volume>, <fpage>D1154</fpage>.<pub-id pub-id-type="pmid">24265220</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkt1157</pub-id><pub-id pub-id-type="pmcid">PMC3964954</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="smsc12717-cit-0015">
+<string-name name-style="western">
+<given-names>F. H.</given-names>
+<surname>Waghu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Barai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Gurung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Idicula‐Thomas</surname>
+</string-name>, <source>Nucleic Acids Res.</source>
+<year>2016</year>, <volume>44</volume>, <fpage>D1094</fpage>.<pub-id pub-id-type="pmid">26467475</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkv1051</pub-id><pub-id pub-id-type="pmcid">PMC4702787</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="smsc12717-cit-0016">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Garlick</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zloh</surname>
+</string-name>, <source>Biomolecules</source>
+<year>2021</year>, <volume>11</volume>, <fpage>471</fpage>.<pub-id pub-id-type="pmid">33810011</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/biom11030471</pub-id><pub-id pub-id-type="pmcid">PMC8004669</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="smsc12717-cit-0017">a) <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Gaye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Wulamu</surname>
+</string-name>, <source>Math. Probl. Eng.</source>
+<year>2021</year>, <volume>2021</volume>, <fpage>1</fpage>;</mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0018">b) <string-name name-style="western">
+<given-names>I. H.</given-names>
+<surname>Sarker</surname>
+</string-name>, <source>SN Comput. Sci.</source>
+<year>2021</year>, <volume>2</volume>, <fpage>160</fpage>.<pub-id pub-id-type="pmid">33778771</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s42979-021-00592-x</pub-id><pub-id pub-id-type="pmcid">PMC7983091</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0016"><label>16</label><mixed-citation publication-type="miscellaneous" id="smsc12717-cit-0019">
+<string-name name-style="western">
+<given-names>A. M. F. T.</given-names>
+<surname>Sequeira</surname>
+</string-name>, <italic toggle="yes">Master Thesis,</italic> Universidade do Minho, Portugal, <year>2019</year>.</mixed-citation></ref><ref id="smsc12717-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="smsc12717-cit-0020">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Bhadra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Sethiya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Qin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. K.</given-names>
+<surname>Tai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. H.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. W. I.</given-names>
+<surname>Siu</surname>
+</string-name>, <source>Mol. Ther. Nucleic Acids</source>
+<year>2020</year>, <volume>20</volume>, <fpage>882</fpage>.<pub-id pub-id-type="pmid">32464552</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.omtn.2020.05.006</pub-id><pub-id pub-id-type="pmcid">PMC7256447</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="smsc12717-cit-0021">
+<string-name name-style="western">
+<given-names>Ü. G.</given-names>
+<surname>Söylemez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yousef</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Kesmen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Büyükkiraz</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Bakır‐Güngör</surname>
+</string-name>, <source>Appl. Sci.</source>
+<year>2022</year>, <volume>12</volume>, <fpage>3631</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="smsc12717-cit-0022">a) <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Leier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Xiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. H.</given-names>
+<surname>Shen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. T.</given-names>
+<surname>Marquez Lago</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. J.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Song</surname>
+</string-name>, <source>Brief. Bioinform.</source>
+<year>2021</year>, <volume>22</volume>, <fpage>bbab083</fpage>;<pub-id pub-id-type="pmid">33774670</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbab083</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0023">b) <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Bournez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Riool</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>de Boer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. A.</given-names>
+<surname>Cordfunke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>de Best</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>van Leeuwen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Drijfhout</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. A. J.</given-names>
+<surname>Zaat</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. J. P.</given-names>
+<surname>van Westen</surname>
+</string-name>, <source>Antibiotics</source>
+<year>2023</year>, <volume>12</volume>, <fpage>725</fpage>.<pub-id pub-id-type="pmid">37107088</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/antibiotics12040725</pub-id><pub-id pub-id-type="pmcid">PMC10135148</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="smsc12717-cit-0024">
+<string-name name-style="western">
+<given-names>Y. R.</given-names>
+<surname>Shrestha</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Krishna</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>von Krogh</surname>
+</string-name>, <source>J. Bus. Res.</source>
+<year>2021</year>, <volume>123</volume>, <fpage>588</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="smsc12717-cit-0025">a) <string-name name-style="western">
+<given-names>C. T.</given-names>
+<surname>Tsai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. W.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. L.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. C.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. L.</given-names>
+<surname>Yao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. T.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. H. G.</given-names>
+<surname>Tsai</surname>
+</string-name>, <source>ACS Omega</source>
+<year>2024</year>, <volume>9</volume>, <fpage>9357</fpage>;<pub-id pub-id-type="pmid">38434814</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsomega.3c08676</pub-id><pub-id pub-id-type="pmcid">PMC10905719</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0026">b) <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Methods Mol. Biol.</source>
+<year>2015</year>, <volume>1268</volume>, <fpage>43</fpage>.<pub-id pub-id-type="pmid">25555720</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/978-1-4939-2285-7_3</pub-id><pub-id pub-id-type="pmcid">PMC4578715</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="smsc12717-cit-0027">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Rondon‐Villarreal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Pinzon‐Reyes</surname>
+</string-name>, <source>Curr. Top. Med. Chem.</source>
+<year>2018</year>, <volume>18</volume>, <fpage>1044</fpage>.<pub-id pub-id-type="pmid">30027848</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.2174/1568026618666180719163251</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="smsc12717-cit-0028">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Bai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Duan</surname>
+</string-name>, <source>Eur. J. Med. Chem.</source>
+<year>2024</year>, <volume>268</volume>, <fpage>116262</fpage>.<pub-id pub-id-type="pmid">38387334</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ejmech.2024.116262</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="smsc12717-cit-0029">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Gao</surname>
+</string-name>, <source>Symmetry</source>
+<year>2024</year>, <volume>16</volume>, <fpage>464</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="smsc12717-cit-0030">a) <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Venkateswaran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Vasudevan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>David</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Shaktivel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Shanmugam</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Neelakantan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. P.</given-names>
+<surname>Solomon</surname>
+</string-name>, <source>Front. Cell Infect. Microbiol.</source>
+<year>2023</year>, <volume>13</volume>, <fpage>1159798</fpage>;<pub-id pub-id-type="pmid">37457962</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fcimb.2023.1159798</pub-id><pub-id pub-id-type="pmcid">PMC10339816</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0031">b) <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Uruén</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Chopo‐Escuin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Tommassen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. C.</given-names>
+<surname>Mainar‐Jaime</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Arenas</surname>
+</string-name>, <source>Antibiotics</source>
+<year>2020</year>, <volume>10</volume>, <fpage>3</fpage>;<pub-id pub-id-type="pmid">33374551</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/antibiotics10010003</pub-id><pub-id pub-id-type="pmcid">PMC7822488</pub-id></mixed-citation><mixed-citation publication-type="book" id="smsc12717-cit-0032">c) <string-name name-style="western">
+<given-names>W. H.</given-names>
+<surname>Organization</surname>
+</string-name>, <source>Global Antimicrobial Resistance Surveillance System (GLASS) Report: Early Implementation 2020</source>, <publisher-name>World Health Organization</publisher-name>
+<year>2020</year>;</mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0033">d) <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Dawan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ahn</surname>
+</string-name>, <source>Ann. Microbiol.</source>
+<year>2020</year>, <volume>70</volume>, <fpage>1</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="smsc12717-cit-0034">
+<string-name name-style="western">
+<given-names>P. G. A.</given-names>
+<surname>Aronica</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. M.</given-names>
+<surname>Reid</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Desai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. J.</given-names>
+<surname>Fox</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yadahalli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Essex</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. S.</given-names>
+<surname>Verma</surname>
+</string-name>, <source>J. Chem. Inf. Model.</source>
+<year>2021</year>, <volume>61</volume>, <fpage>3172</fpage>.<pub-id pub-id-type="pmid">34165973</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jcim.1c00175</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="smsc12717-cit-0035">a) <string-name name-style="western">
+<given-names>P. K.</given-names>
+<surname>Meher</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. K.</given-names>
+<surname>Sahu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Saini</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. R.</given-names>
+<surname>Rao</surname>
+</string-name>, <source>Sci. Rep.</source>
+<year>2017</year>, <volume>7</volume>, <fpage>42362</fpage>;<pub-id pub-id-type="pmid">28205576</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/srep42362</pub-id><pub-id pub-id-type="pmcid">PMC5304217</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0036">b) <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lata</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. K.</given-names>
+<surname>Mishra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. P. S.</given-names>
+<surname>Raghava</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2009</year>, <volume>11</volume>, <fpage>S19</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/1471-2105-11-S1-S19</pub-id><pub-id pub-id-type="pmcid">PMC3009489</pub-id><pub-id pub-id-type="pmid">20122190</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="smsc12717-cit-0037">
+<string-name name-style="western">
+<given-names>P. J.</given-names>
+<surname>Cock</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Antao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. T.</given-names>
+<surname>Chang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. A.</given-names>
+<surname>Chapman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. J.</given-names>
+<surname>Cox</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Dalke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Friedberg</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Hamelryck</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Kauff</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Wilczynski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>de Hoon</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2009</year>, <volume>25</volume>, <fpage>1422</fpage>.<pub-id pub-id-type="pmid">19304878</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btp163</pub-id><pub-id pub-id-type="pmcid">PMC2682512</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="smsc12717-cit-0038">
+<string-name name-style="western">
+<given-names>A. T.</given-names>
+<surname>Muller</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Gabernet</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Hiss</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Schneider</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2017</year>, <volume>33</volume>, <fpage>2753</fpage>.<pub-id pub-id-type="pmid">28472272</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btx285</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="smsc12717-cit-0039">
+<string-name name-style="western">
+<given-names>Z. A.</given-names>
+<surname>Ali</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z. H.</given-names>
+<surname>Abduljabbar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. A.</given-names>
+<surname>Taher</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. B.</given-names>
+<surname>Sallow</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Almufti</surname>
+</string-name>, <source>Acad. J. Nawroz Univ.</source>
+<year>2023</year>, <volume>12</volume>, <fpage>320</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="smsc12717-cit-0040">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Bergstra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Yamins</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Cox</surname>
+</string-name>, presented at <article-title>ICML'13: Proc. of the 30th Inter. Con. on Machine Learning</article-title>, Atlanta, USA, June <year>2013</year>, <volume>28</volume>, <fpage>115</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="smsc12717-cit-0041">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Fryer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Strumke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Nguyen</surname>
+</string-name>, <source>IEEE Access</source>
+<year>2021</year>, <volume>9</volume>, <fpage>144352</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="smsc12717-cit-0042">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wainer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Cawley</surname>
+</string-name>, <source>Expert Syst. Appl.</source>
+<year>2021</year>, <volume>182</volume>, <fpage>115222</fpage>.</mixed-citation></ref><ref id="smsc12717-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="smsc12717-cit-0043">a) <string-name name-style="western">
+<given-names>R. J.</given-names>
+<surname>Spears</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>McMahon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Chudasama</surname>
+</string-name>
+<source>Chem. Soc. Rev.</source>
+<year>2021</year>, <volume>50</volume>, <fpage>11098</fpage>;<pub-id pub-id-type="pmid">34605832</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1039/d1cs00271f</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0044">b) <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Mir</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Karim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Kamal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Wilson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Mirza</surname>
+</string-name>, <source>Curr. Pharm. Des.</source>
+<year>2016</year>, <volume>22</volume>, <fpage>582</fpage>.<pub-id pub-id-type="pmid">26601961</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.2174/1381612822666151124234715</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="smsc12717-cit-0045">a) <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Van der Burgt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. W. E. J.</given-names>
+<surname>Fiers</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Nap</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. C. H. J.</given-names>
+<surname>Van Ham</surname>
+</string-name>. <source>Bioinformatics</source>
+<year>2009</year>, <volume>25</volume>, <fpage>423.;</fpage>
+</mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0046">b) <string-name name-style="western">
+<given-names>T. L.</given-names>
+<surname>Bailey</surname>
+</string-name>. <source>Bioinformatics</source>
+<year>2021</year>, <volume>37</volume>, <fpage>2834</fpage>.<pub-id pub-id-type="pmid">33760053</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btab203</pub-id><pub-id pub-id-type="pmcid">PMC8479671</pub-id></mixed-citation></ref><ref id="smsc12717-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="smsc12717-cit-0047">a) <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Qiu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Xiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Jiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Cao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Qiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Cao</surname>
+</string-name>. <source>PeerJ</source>
+<year>2024</year>, <volume>12</volume>, <fpage>e17729</fpage>;<pub-id pub-id-type="pmid">39040937</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.7717/peerj.17729</pub-id><pub-id pub-id-type="pmcid">PMC11262304</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0048">b) <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Veltri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>U.</given-names>
+<surname>Kamath</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Shehu</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2018</year>, <volume>34</volume>, <fpage>2740</fpage>.;<pub-id pub-id-type="pmid">29590297</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/bty179</pub-id><pub-id pub-id-type="pmcid">PMC6084614</pub-id></mixed-citation><mixed-citation publication-type="journal" id="smsc12717-cit-0049">c) <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Veltri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kamath</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Shehu</surname>
+</string-name>. <source>Bioinformatics</source>
+<year>2017</year>, <volume>33</volume>, <fpage>1921</fpage>.28203715
+</mixed-citation></ref></ref-list></back></article></pmc-articleset>

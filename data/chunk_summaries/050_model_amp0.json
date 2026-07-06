@@ -1,0 +1,153 @@
+{
+  "chunk_id": "model_amp0",
+  "chunk_type": "model",
+  "chunk_name": "AMP0",
+  "compression_status": "ok",
+  "main_entities": [
+    "AMP0",
+    "sAMPpred-GAT"
+  ],
+  "papers": [
+    {
+      "title": "In Vivo Antibacterial Efficacy of Antimicrobial Peptides Modified Metallic Implants─Systematic Review and Meta-Analysis.",
+      "pmid": "35412810",
+      "pmcid": "PMC7393194",
+      "doi": "10.1111/bph.15193",
+      "year": "2022",
+      "role": "review_or_secondary",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "AMP0: targeted antimicrobial peptide activity prediction using zero and few shot machine learning",
+      "pmid": "32750857",
+      "pmcid": "PMC4879360",
+      "doi": "10.1109/TCBB.2020.2999399",
+      "year": "2022",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Structural Classification Insights Into the Plant Defensive Peptides.",
+      "pmid": "39161242",
+      "pmcid": null,
+      "doi": "10.1002/prot.26736",
+      "year": "2024",
+      "role": "uncertain",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "sAMPpred-GAT: prediction of antimicrobial peptide by graph attention network and predicted peptide structure.",
+      "pmid": "36342186",
+      "pmcid": "PMC3688957",
+      "doi": "10.1093/bioinformatics/btac715",
+      "year": "2023",
+      "role": "original_model_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "AMP0",
+      "canonical_name": "AMP0",
+      "aliases": [],
+      "task_type": "targeted antimicrobial peptide prediction",
+      "method_family": "ML",
+      "architecture_or_algorithm": "zero-shot and few-shot machine learning",
+      "input_features": "peptide sequence, N/C-termini modifications, genomic sequence of target microbial species",
+      "source_pmid": "32750857",
+      "source_pmcid": "PMC4879360",
+      "source_doi": "10.1109/TCBB.2020.2999399",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "http://ampzero.pythonanywhere.com",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "AMP prediction model with targeted species prediction capability, webserver available",
+      "blocking_issues": [
+        "code not clearly available",
+        "limited training and test data details"
+      ],
+      "evidence_level": "abstract",
+      "confidence": 0.8
+    },
+    {
+      "model_name": "sAMPpred-GAT",
+      "canonical_name": "sAMPpred-GAT",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Graph Attention Network (GAT)",
+      "input_features": "predicted peptide structure, sequence information, evolutionary information",
+      "source_pmid": "36342186",
+      "source_pmcid": "PMC3688957",
+      "source_doi": "10.1093/bioinformatics/btac715",
+      "code_repository_url": "https://github.com/HongWuL/sAMPpred-GAT/",
+      "web_server_url": "http://bliulab.net/sAMPpred-GAT",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "not_reported_in_available_evidence",
+      "benchmark_candidate": true,
+      "candidate_reason": "State-of-the-art AMP predictor using predicted structure, outperforms existing methods, code and webserver available",
+      "blocking_issues": [],
+      "evidence_level": "abstract",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "sAMPpred-GAT GitHub",
+      "url": "https://github.com/HongWuL/sAMPpred-GAT/",
+      "repository_type": "code",
+      "matched_model_name": "sAMPpred-GAT",
+      "source_pmid": "36342186",
+      "source_doi": "10.1093/bioinformatics/btac715",
+      "evidence_level": "abstract",
+      "evidence": "source code available at https://github.com/HongWuL/sAMPpred-GAT/"
+    },
+    {
+      "name": "AMP0 webserver",
+      "url": "http://ampzero.pythonanywhere.com",
+      "repository_type": "webserver",
+      "matched_model_name": "AMP0",
+      "source_pmid": "32750857",
+      "source_doi": "10.1109/TCBB.2020.2999399",
+      "evidence_level": "abstract",
+      "evidence": "AMP0 webserver is available at http://ampzero.pythonanywhere.com"
+    }
+  ],
+  "datasets": [],
+  "metrics": [
+    {
+      "metric_name": "AUC",
+      "usage": "reported for sAMPred-GAT on eight independent test datasets",
+      "source_pmid": "36342186",
+      "source_doi": "10.1093/bioinformatics/btac715",
+      "evidence": "sAMPpred-GAT outperforms other state-of-the-art methods in terms of AUC"
+    }
+  ],
+  "important_evidence": [
+    "AMP0 web server available at http://ampzero.pythonanywhere.com; takes peptide sequence, N/C-termini modifications and genomic sequence of target species for targeted prediction.",
+    "sAMPpred-GAT source code available at https://github.com/HongWuL/sAMPpred-GAT/ and web server at http://bliulab.net/sAMPpred-GAT; uses predicted structure, sequence and evolutionary information with Graph Attention Network."
+  ],
+  "uncertainties": [
+    "AMP0: full-text details on training data, evaluation, and code availability need verification.",
+    "sAMPpred-GAT: exact dataset composition and deduplication methods not specified in abstract; full-text needed.",
+    "Full-text of sAMPpred-GAT misaligned with provided excerpt (seems to be LAMP database paper); correct full-text should be retrieved."
+  ],
+  "source_pmids": [
+    "32750857",
+    "36342186",
+    "35412810",
+    "39161242"
+  ],
+  "source_dois": [
+    "10.1111/bph.15193",
+    "10.1109/TCBB.2020.2999399",
+    "10.1002/prot.26736",
+    "10.1093/bioinformatics/btac715"
+  ],
+  "urls": [
+    "http://ampzero.pythonanywhere.com",
+    "https://github.com/HongWuL/sAMPpred-GAT/",
+    "http://bliulab.net/sAMPpred-GAT"
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "chunk_id": "model_ania",
+  "chunk_type": "model",
+  "chunk_name": "ANIA",
+  "compression_status": "ok",
+  "main_entities": [
+    "ANIA",
+    "AI4AFP",
+    "ANIA: an inception-attention network for predicting minimum inhibitory concentration of antimicrobial peptides.",
+    "Harnessing Sequence Embedding and Ensemble Learning to Identify Antifungal Peptides with Low Hemolytic Risk.",
+    "α-Helical Peptides Encoded in Collagen Exhibit Antimicrobial Activity with Low Cytotoxicity.",
+    "Generative models for antimicrobial peptide design: auto-encoders and beyond."
+  ],
+  "papers": [
+    {
+      "title": "ANIA: an inception-attention network for predicting minimum inhibitory concentration of antimicrobial peptides.",
+      "pmid": "41664908",
+      "pmcid": "PMC12895073",
+      "doi": "10.1093/bib/bbag023",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "Harnessing Sequence Embedding and Ensemble Learning to Identify Antifungal Peptides with Low Hemolytic Risk.",
+      "pmid": "42146199",
+      "pmcid": "PMC13177248",
+      "doi": "10.1021/acsomega.6c00049",
+      "year": "2026",
+      "role": "original_model_paper",
+      "evidence_source": "fulltext"
+    },
+    {
+      "title": "α-Helical Peptides Encoded in Collagen Exhibit Antimicrobial Activity with Low Cytotoxicity.",
+      "pmid": "41528266",
+      "pmcid": "PMC12836314",
+      "doi": "10.1021/acs.jnatprod.5c01318",
+      "year": "2026",
+      "role": "dataset_paper",
+      "evidence_source": "abstract"
+    },
+    {
+      "title": "Generative models for antimicrobial peptide design: auto-encoders and beyond.",
+      "pmid": "42106831",
+      "pmcid": "PMC13181977",
+      "doi": "10.1186/s13040-026-00558-w",
+      "year": "2026",
+      "role": "benchmark_paper",
+      "evidence_source": "abstract"
+    }
+  ],
+  "models": [
+    {
+      "model_name": "ANIA",
+      "canonical_name": "ANIA",
+      "aliases": [],
+      "task_type": "AMP prediction",
+      "method_family": "DL",
+      "architecture_or_algorithm": "Hybrid Inception modules, Transformer encoder, and regression head using Chaos Game Representation (CGR)-based frequency matrix images of peptide sequences",
+      "input_features": "AMP sequences converted to CGR frequency matrices",
+      "source_pmid": "41664908",
+      "source_pmcid": "PMC12895073",
+      "source_doi": "10.1093/bib/bbag023",
+      "code_repository_url": "https://github.com/SilverGojo4/ANIA.",
+      "web_server_url": "https://biomics.lab.nycu.edu.tw/ANIA/",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "DBAASP, dbAMP, DRAMP",
+      "benchmark_candidate": true,
+      "candidate_reason": "Novel deep learning model for MIC prediction with web server and code available; compared against ESKAPEE-Pred, AMPActiPred, esAMPMIC",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.95
+    },
+    {
+      "model_name": "AI4AFP",
+      "canonical_name": "AI4AFP",
+      "aliases": [],
+      "task_type": "antimicrobial peptide classification",
+      "method_family": "ML/DL",
+      "architecture_or_algorithm": "Ensemble of seven models combining sequence encoding strategies (ProtBERT-BFD, PC6, Doc2Vec) with classifiers (RF, SVM, CNN, fine-tuned BERT) and a neural network meta-learner; separate concentration-dependent hemolysis classifier",
+      "input_features": "Peptide sequences; concentration added for hemolysis model",
+      "source_pmid": "42146199",
+      "source_pmcid": "PMC13177248",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "code_repository_url": "not_reported_in_available_evidence",
+      "web_server_url": "https://axp.iis.sinica.edu.tw/AI4AFP",
+      "model_weights_url": "not_reported_in_available_evidence",
+      "dataset_source_or_link": "CAMP, DRAMP, YADAMP, SATPdb, DBAASP (AFPs); UniProtKB/Swiss-Prot (non-AMPs); DBAASP (hemolysis data)",
+      "benchmark_candidate": true,
+      "candidate_reason": "New ensemble model for antifungal peptide prediction with integrated hemolysis safety assessment; web server available; compared to existing AFP predictors",
+      "blocking_issues": [],
+      "evidence_level": "fulltext",
+      "confidence": 0.9
+    }
+  ],
+  "repositories": [
+    {
+      "name": "ANIA_github",
+      "url": "https://github.com/SilverGojo4/ANIA.",
+      "repository_type": "code",
+      "matched_model_name": "ANIA",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "evidence_level": "fulltext",
+      "evidence": "GitHub link extracted from paper."
+    },
+    {
+      "name": "ANIA_webserver",
+      "url": "https://biomics.lab.nycu.edu.tw/ANIA/",
+      "repository_type": "webserver",
+      "matched_model_name": "ANIA",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "evidence_level": "fulltext",
+      "evidence": "Web server URL provided in abstract and full text."
+    },
+    {
+      "name": "AI4AFP_webserver",
+      "url": "https://axp.iis.sinica.edu.tw/AI4AFP",
+      "repository_type": "webserver",
+      "matched_model_name": "AI4AFP",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "evidence_level": "fulltext",
+      "evidence": "Web server URL in abstract and full text."
+    },
+    {
+      "name": "ANIA.",
+      "url": "https://github.com/SilverGojo4/ANIA.",
+      "repository_type": "code",
+      "matched_model_name": "ANIA",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "evidence_level": "fulltext",
+      "evidence": "Regex match in fulltext/metadata; confidence 0.7"
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_name": "ANIA_training_dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "DBAASP, dbAMP, DRAMP",
+      "linked_model": "ANIA",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "positive_samples": "8283 (S. aureus), 7582 (E. coli), 5621 (P. aeruginosa) AMPs with MIC values",
+      "negative_samples": "N/A (regression task)",
+      "deduplication_method": "not reported",
+      "evidence_level": "fulltext",
+      "evidence": "Curated from DBAASP, dbAMP, DRAMP; partitioned 4:1 training/test with 5-fold CV."
+    },
+    {
+      "dataset_name": "AI4AFP_AFP_dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "CAMP, DRAMP, YADAMP, SATPdb, DBAASP; UniProtKB/Swiss-Prot for negatives",
+      "linked_model": "AI4AFP",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "positive_samples": "3011 antifungal peptides",
+      "negative_samples": "3011 (half random, half UniProt non-AMPs)",
+      "deduplication_method": "CD-HIT at 0.95 identity",
+      "evidence_level": "fulltext",
+      "evidence": "3011 AFPs and 3011 negatives, CD-HIT 0.95, length 10-50."
+    },
+    {
+      "dataset_name": "AI4AFP_hemolysis_dataset",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "DBAASP",
+      "linked_model": "AI4AFP",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "positive_samples": "2984 peptides with hemolysis percentages and concentrations",
+      "negative_samples": "N/A",
+      "deduplication_method": "removed sequences with >=90% similarity",
+      "evidence_level": "fulltext",
+      "evidence": "2984 peptides from DBAASP with concentration-dependent hemolysis data."
+    },
+    {
+      "dataset_name": "Collagen_derived_AMP_activity",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "in-house experimental data",
+      "linked_model": "not_applicable",
+      "source_pmid": "41528266",
+      "source_doi": "10.1021/acs.jnatprod.5c01318",
+      "positive_samples": "7 synthesized peptides (REI-26, LEL-28, TRR-26, LRS-21, SPE-22, GPE-19, GFD-30) plus controls",
+      "negative_samples": "GEK-25 (predicted non-AMP)",
+      "deduplication_method": "N/A",
+      "evidence_level": "fulltext",
+      "evidence": "MIC values against E. coli, S. aureus, C. albicans provided."
+    },
+    {
+      "dataset_name": "Generative_models_AMP_training_set",
+      "dataset_url": "not_reported_in_available_evidence",
+      "dataset_source": "CAMPR4, DBAASP, dbamp, PlantPepDB, APD3, LAMP (via Bournez et al.)",
+      "linked_model": "not_applicable",
+      "source_pmid": "42106831",
+      "source_doi": "10.1186/s13040-026-00558-w",
+      "positive_samples": "filtered AMPs with MIC ≤ 35 µM, length 3–36",
+      "negative_samples": "UniProt non-AMPs, random sequences, equal-length random, amphipathic helices",
+      "deduplication_method": "not specified",
+      "evidence_level": "fulltext",
+      "evidence": "Active AMP sequences from multiple databases, filtered by MIC and length."
+    },
+    {
+      "dataset_name": "ANIA.",
+      "dataset_url": "https://github.com/SilverGojo4/ANIA.",
+      "dataset_source": "not_reported",
+      "linked_model": "ANIA",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "positive_samples": "not_reported",
+      "negative_samples": "not_reported",
+      "deduplication_method": "not_reported",
+      "evidence_level": "fulltext",
+      "evidence": "Link found via regex on fulltext/metadata; confidence 0.6"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_name": "Pearson Correlation Coefficient (PCC)",
+      "usage": "MIC prediction performance",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "evidence": "ANIA achieved PCCs of 0.75–0.79 across all bacteria."
+    },
+    {
+      "metric_name": "Mean Squared Error (MSE)",
+      "usage": "MIC prediction error",
+      "source_pmid": "41664908",
+      "source_doi": "10.1093/bib/bbag023",
+      "evidence": "ANIA achieved MSEs of 0.23–0.26."
+    },
+    {
+      "metric_name": "Accuracy",
+      "usage": "AFP classification",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "evidence": "AI4AFP ensemble achieved 0.94 accuracy on independent test."
+    },
+    {
+      "metric_name": "Matthews Correlation Coefficient (MCC)",
+      "usage": "AFP classification",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "evidence": "AI4AFP achieved MCC of 0.89."
+    },
+    {
+      "metric_name": "Sensitivity",
+      "usage": "AFP classification",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "evidence": "Performance reported in AI4AFP paper."
+    },
+    {
+      "metric_name": "Specificity",
+      "usage": "AFP classification",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "evidence": "Performance reported in AI4AFP paper."
+    },
+    {
+      "metric_name": "AUC-ROC",
+      "usage": "hemolysis prediction",
+      "source_pmid": "42146199",
+      "source_doi": "10.1021/acsomega.6c00049",
+      "evidence": "AUC-ROC of 0.90 for hemolysis model (cited from HAPPENN)."
+    },
+    {
+      "metric_name": "Diversity (normalized pairwise Levenshtein distance)",
+      "usage": "generated sequence diversity",
+      "source_pmid": "42106831",
+      "source_doi": "10.1186/s13040-026-00558-w",
+      "evidence": "Used to compare generative models."
+    },
+    {
+      "metric_name": "Novelty (fraction not in reference set)",
+      "usage": "generated sequence novelty",
+      "source_pmid": "42106831",
+      "source_doi": "10.1186/s13040-026-00558-w",
+      "evidence": "Defined as fraction of sequences not occurring in training set."
+    },
+    {
+      "metric_name": "Maximum Mean Discrepancy (MMD)",
+      "usage": "distribution similarity of peptide properties",
+      "source_pmid": "42106831",
+      "source_doi": "10.1186/s13040-026-00558-w",
+      "evidence": "Used to quantify property distribution similarity."
+    }
+  ],
+  "important_evidence": [
+    "ANIA: deep learning framework for MIC prediction using CGR images; PCC 0.75-0.79, MSE 0.23-0.26; code at GitHub, webserver at https://biomics.lab.nycu.edu.tw/ANIA/",
+    "AI4AFP: ensemble model for antifungal peptide prediction with hemolysis assessment; accuracy 0.94, MCC 0.89; webserver at https://axp.iis.sinica.edu.tw/AI4AFP"
+  ],
+  "uncertainties": [
+    "Should the specific generative models (VAE, WAE, RNN, LM) compared in the benchmark paper be recorded as individual models?",
+    "Are the collagen-derived AMP sequences and MICs directly usable as a benchmark dataset for existing AMP predictors?"
+  ],
+  "source_pmids": [
+    "41664908",
+    "42146199",
+    "41528266",
+    "42106831"
+  ],
+  "source_dois": [
+    "10.1093/bib/bbag023",
+    "10.1021/acsomega.6c00049",
+    "10.1021/acs.jnatprod.5c01318",
+    "10.1186/s13040-026-00558-w"
+  ],
+  "urls": [
+    "https://github.com/SilverGojo4/ANIA.",
+    "https://biomics.lab.nycu.edu.tw/ANIA/",
+    "https://axp.iis.sinica.edu.tw/AI4AFP",
+    "https://doi.org/10.1093/bib/bbag023",
+    "https://pubmed.ncbi.nlm.nih.gov/41664908/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12895073/",
+    "https://doi.org/10.1021/acsomega.6c00049",
+    "https://pubmed.ncbi.nlm.nih.gov/42146199/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13177248/",
+    "https://pubmed.ncbi.nlm.nih.gov/41528266/",
+    "https://doi.org/10.1021/acs.jnatprod.5c01318",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12836314/",
+    "https://doi.org/10.1186/s13040-026-00558-w",
+    "https://pubmed.ncbi.nlm.nih.gov/42106831/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13181977/"
+  ]
+}

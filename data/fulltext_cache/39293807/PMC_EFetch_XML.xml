@@ -1,0 +1,1238 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Brief Bioinform</journal-id><journal-id journal-id-type="iso-abbrev">Brief Bioinform</journal-id><journal-id journal-id-type="pmc-domain-id">721</journal-id><journal-id journal-id-type="pmc-domain">bib</journal-id><journal-id journal-id-type="nlm-id">100912837</journal-id><journal-id journal-id-type="publisher-id">bib</journal-id><journal-title-group><journal-title>Briefings in Bioinformatics</journal-title></journal-title-group><issn pub-type="ppub">1467-5463</issn><issn pub-type="epub">1477-4054</issn><publisher><publisher-name>Oxford University Press</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC11410379</article-id><article-id pub-id-type="pmcid-ver">PMC11410379.1</article-id><article-id pub-id-type="pmcaid">11410379</article-id><article-id pub-id-type="pmcaiid">11410379</article-id><article-id pub-id-type="pmid">39293807</article-id><article-id pub-id-type="doi">10.1093/bib/bbae460</article-id><article-id pub-id-type="publisher-id">bbae460</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Problem Solving Protocol</subject></subj-group><subj-group subj-group-type="category-taxonomy-collection"><subject>AcademicSubjects/SCI01060</subject></subj-group></article-categories><title-group><article-title>ACP-CapsPred: an explainable computational framework for identification and functional prediction of anticancer peptides based on capsule network</article-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>Yao</surname><given-names initials="L">Lantian</given-names></name><aff>
+<institution>Kobilka Institute of Innovative Drug Discovery, School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><aff>
+<institution>School of Science and Engineering, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><xref rid="afn1" ref-type="author-notes"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Xie</surname><given-names initials="P">Peilin</given-names></name><aff>
+<institution>Kobilka Institute of Innovative Drug Discovery, School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><aff>
+<institution>School of Science and Engineering, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><xref rid="afn1" ref-type="author-notes"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Guan</surname><given-names initials="J">Jiahui</given-names></name><aff>
+<institution>Kobilka Institute of Innovative Drug Discovery, School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><aff>
+<institution>School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Chung</surname><given-names initials="CR">Chia-Ru</given-names></name><aff>
+<institution>Department of Computer Science and Information Engineering, National Central University</institution>, 300 Zhongda Road, Taoyuan 320317, <country country="TW">Taiwan</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="W">Wenyang</given-names></name><aff>
+<institution>School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Deng</surname><given-names initials="J">Junyang</given-names></name><aff>
+<institution>School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff></contrib><contrib contrib-type="author"><name name-style="western"><surname>Huang</surname><given-names initials="Y">Yixian</given-names></name><aff>
+<institution>School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff></contrib><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Chiang</surname><given-names initials="YC">Ying-Chih</given-names></name><aff>
+<institution>Kobilka Institute of Innovative Drug Discovery, School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><aff>
+<institution>School of Medicine, The Chinese University of Hong Kong</institution>, 2001 Longxiang Road, Shenzhen 518172, <country country="CN">China</country></aff><xref rid="cor1" ref-type="corresp"/></contrib><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Lee</surname><given-names initials="TY">Tzong-Yi</given-names></name><aff>
+<institution>Institute of Bioinformatics and Systems Biology, National Yang Ming Chiao Tung University</institution>, 1001 Daxue Road, Hsinchu 300093, <country country="TW">Taiwan</country></aff><aff>
+<institution>Center for Intelligent Drug Systems and Smart Bio-devices (IDS2B), National Yang Ming Chiao Tung University</institution>, 1001 Daxue Road, Hsinchu 300093, <country country="TW">Taiwan</country></aff><xref rid="cor1" ref-type="corresp"/></contrib></contrib-group><author-notes><corresp id="cor1">Corresponding authors. Tzong-Yi Lee. E-mail: <email>leetzongyi@nycu.edu.tw</email>; Ying-Chih Chiang. E-mail: <email>chiangyc@cuhk.edu.cn</email></corresp><fn id="afn1"><p>Lantian Yao and Peilin Xie contributed equally to this work.</p></fn></author-notes><pub-date pub-type="collection"><month>9</month><year>2024</year></pub-date><pub-date pub-type="epub" iso-8601-date="2024-09-18"><day>18</day><month>9</month><year>2024</year></pub-date><volume>25</volume><issue>5</issue><issue-id pub-id-type="pmc-issue-id">467394</issue-id><elocation-id>bbae460</elocation-id><history><date date-type="received"><day>12</day><month>5</month><year>2024</year></date><date date-type="rev-recd"><day>22</day><month>7</month><year>2024</year></date><date date-type="accepted"><day>09</day><month>9</month><year>2024</year></date></history><pub-history><event event-type="pmc-release"><date><day>18</day><month>09</month><year>2024</year></date></event><event event-type="pmc-live"><date><day>18</day><month>09</month><year>2024</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-09-20 10:26:04.310"><day>20</day><month>09</month><year>2024</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2024. Published by Oxford University Press.</copyright-statement><copyright-year>2024</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="bbae460.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="bbae460.pdf"/><abstract><title>Abstract</title><p>Cancer is a severe illness that significantly threatens human life and health. Anticancer peptides (ACPs) represent a promising therapeutic strategy for combating cancer. <italic toggle="yes">In silico</italic> methods enable rapid and accurate identification of ACPs without extensive human and material resources. This study proposes a two-stage computational framework called ACP-CapsPred, which can accurately identify ACPs and characterize their functional activities across different cancer types. ACP-CapsPred integrates a protein language model with evolutionary information and physicochemical properties of peptides, constructing a comprehensive profile of peptides. ACP-CapsPred employs a next-generation neural network, specifically capsule networks, to construct predictive models. Experimental results demonstrate that ACP-CapsPred exhibits satisfactory predictive capabilities in both stages, reaching state-of-the-art performance. In the first stage, ACP-CapsPred achieves accuracies of 80.25% and 95.71%, as well as F1-scores of 79.86% and 95.90%, on benchmark datasets Set 1 and Set 2, respectively. In the second stage, tasked with characterizing the functional activities of ACPs across five selected cancer types, ACP-CapsPred attains an average accuracy of 90.75% and an F1-score of 91.38%. Furthermore, ACP-CapsPred demonstrates excellent interpretability, revealing regions and residues associated with anticancer activity. Consequently, ACP-CapsPred presents a promising solution to expedite the development of ACPs and offers a novel perspective for other biological sequence analyses.</p></abstract><kwd-group><kwd>cancers</kwd><kwd>anticancer peptides</kwd><kwd>drug discovery</kwd><kwd>bioinformatics</kwd><kwd>capsule networks</kwd><kwd>sequence analysis</kwd></kwd-group><funding-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Guangdong Province Basic and Applied Basic Research Fund</institution></institution-wrap>
+</funding-source><award-id>2021A1515012447</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="DOI">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>32070659</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Shenzhen Science and Technology Innovation Commission</institution><institution-id institution-id-type="DOI">10.13039/501100010877</institution-id></institution-wrap>
+</funding-source><award-id>JCYJ20230807114206014</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Kobilka Institute of Innovative Drug Discovery</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>The Chinese University of Hong Kong</institution><institution-id institution-id-type="DOI">10.13039/501100004853</institution-id></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Center for Intelligent Drug Systems and Smart Bio-devices</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Featured Areas Research Center Program</institution></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Higher Education Sprout Project and Yushan Young Fellow Program</institution></institution-wrap>
+</funding-source><award-id>112C1N084C</award-id></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>Ministry of Education</institution><institution-id institution-id-type="DOI">10.13039/100009122</institution-id></institution-wrap>
+</funding-source></award-group><award-group award-type="grant"><funding-source>
+<institution-wrap><institution>National Science and Technology Council</institution><institution-id institution-id-type="DOI">10.13039/100020595</institution-id></institution-wrap>
+</funding-source><award-id>NSTC 112-2321-B-A49-016</award-id><award-id>112-2740-B-400-005</award-id></award-group></funding-group><counts><page-count count="16"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec><title>Introduction</title><p>Cancer, a complex and multifaceted group of diseases characterized by uncontrolled cell growth and proliferation, poses a formidable challenge to public health worldwide [<xref rid="ref1" ref-type="bibr">1</xref>]. As a leading cause of morbidity and mortality, cancer exerts a profound impact on the overall well-being of populations and places a substantial burden on healthcare systems. Current reports for 2023 indicate over 1.9 million new cancer cases and more than 600 000 cancer-related deaths in the United States alone [<xref rid="ref2" ref-type="bibr">2</xref>].</p><p>The development of anticancer drugs has undergone extensive historical research. Conventional therapies, such as chemotherapeutic drugs, exhibit low specificity, inducing severe side effects and toxicities [<xref rid="ref3" ref-type="bibr">3</xref>]. Notably, the design of chemotherapeutic drugs lacks discrimination, impacting not only cancer cells but also normal cells, exemplified by the unintended targeting of the intestinal epithelium [<xref rid="ref4" ref-type="bibr">4</xref>]. Due to the limitations of conventional drugs, recent years have witnessed a surge in research focused on alternative cancer therapies, with a particular emphasis on peptide-based therapy [<xref rid="ref5" ref-type="bibr">5</xref>]. Peptide drugs such as antimicrobial peptides (AMPs), composed of amino acids linked by peptide bonds, possess unique advantages, including high specificity, low toxicity to normal tissues, bloodstream and non-target tissues cleanliness, low immunogenicity, and excellent solubility [<xref rid="ref6" ref-type="bibr">6</xref>, <xref rid="ref7" ref-type="bibr">7</xref>]. Anticancer peptides (ACPs) constitute a subset of AMPs, representing a promising class of bioactive molecules with significant potential in the field of oncology. ACPs, comprising 10–50 amino acids, inhibit tumour cell proliferation, migration, or angiogenesis, with a lower likelihood of inducing drug resistance. The mechanisms through which ACPs function are diverse, encompassing direct interactions with cancer cell membranes, interference with intracellular signaling pathways, induction of apoptosis, and modulation of the tumour microenvironment. Their multifaceted modes of action make them particularly attractive for therapeutic development, as they offer the potential to overcome issues such as drug resistance and off-target effects commonly associated with traditional cancer treatments. The efficiency of peptide-based cancer vaccines in clinical settings attests to the promise of ACPs in cancer treatment [<xref rid="ref8" ref-type="bibr">8</xref>, <xref rid="ref9" ref-type="bibr">9</xref>]. However, traditional wet laboratory-based approaches for identifying ACPs require a substantial investment of human and material resources. Therefore, an increasing amount of research has been directed toward the utilization of computational methods for ACP identification in recent years.</p><p>Machine learning methods such as support vector machine (SVM) and random forest (RF) are commonly used for ACP identification. For instance, Tyagi <italic toggle="yes">et al</italic>. introduced AntiCP, a model utilizing SVM with amino acid composition (AAC) and binary profiles (BP) as features to predict and discover novel ACPs, which demonstrates high accuracy, underscoring its effectiveness[<xref rid="ref10" ref-type="bibr">10</xref>]. Building upon AntiCP, Agrawal <italic toggle="yes">et al.</italic> extended the capabilities with AntiCP 2.0, incorporating additional features such as dipeptide composition (DPC) and terminus composition (TC) for enhanced ACP identification [<xref rid="ref13" ref-type="bibr">11</xref>]. In a similar vein, Schaduangrat <italic toggle="yes">et al.</italic> proposed ACPred, a classifier for predicting and characterizing the anticancer activities of peptides. This model integrated various features, including AAC, DPC, physicochemical properties (PHYC), pseudo amino acid composition (PAAC), and amphiphilic pseudo amino acid composition (Am-PAAC), thereby improving the predictive performance and augmenting the interpretability of the model [<xref rid="ref12" ref-type="bibr">12</xref>]. Liang <italic toggle="yes">et al.</italic> developed a classifier named iACP-GE, which utilizes sequence features of peptides. Feature selection is performed through Gradient Boosting Decision Trees (GBDT), and identification of ACP is accomplished using the Extra Tree (ET) classifier [<xref rid="ref18" ref-type="bibr">13</xref>]. Arif <italic toggle="yes">et al.</italic> introduced StackACPred, a stacking framework for identifying ACPs, which integrates three nominal feature encoding strategies, N-Segmentation position-specific scoring matrix (N-SegPSSM), pseudo (PsePSSM), and extended PAAC, and employs SVM recursive feature elimination and correlation bias reduction (SVM-RFE + CBR) algorithms for feature optimization[<xref rid="ref19" ref-type="bibr">14</xref>]. In our earlier research, we introduced a classifier known as GRDF [<xref rid="ref21" ref-type="bibr">15</xref>], which integrates graphical features from peptide sequences. This classifier seamlessly incorporates evolutionary and composition information of peptides. Moreover, it employs a deep forest algorithm for model construction, enabling precise prediction of ACP. Deng <italic toggle="yes">et al.</italic> proposed ACP-MLC, a two-level prediction framework for identifying ACPs and multi-label classification of their functional types, which employs sequence profiles and physicochemical properties of peptides and utilizes RF to construct classifiers [<xref rid="ref22" ref-type="bibr">16</xref>]. Deep learning methods have gained popularity in recent years, including Recurrent Neural Network (RNN) and Convolutional Neural Network (CNN). Yu <italic toggle="yes">et al.</italic> implemented DeepACP, a deep learning-based model, systematically exploring convolutional, recurrent, and convolutional-recurrent networks for distinguishing ACPs from non-ACPs. Their findings indicated that RNN with bidirectional long short-term memory (Bi-LSTM) cells outperformed the other architectures [<xref rid="ref14" ref-type="bibr">17</xref>]. Ahmed <italic toggle="yes">et al.</italic> proposed a novel multi-head CNN architecture called ACP-MHCNN for extracting and combining the sequential, physicochemical, and evolutionary features to identify potential ACPs [<xref rid="ref17" ref-type="bibr">18</xref>]. The summary of studies on ACP identification is presented in <xref rid="TB1" ref-type="table">Table 1</xref>.</p><table-wrap position="float" id="TB1" orientation="portrait"><label>Table 1</label><caption><p>Summary of existing tools for ACP identification</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col span="1" align="left"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Method</th><th align="left" rowspan="1" colspan="1">Feature encoding</th><th align="left" rowspan="1" colspan="1">Algorithm</th><th align="left" rowspan="1" colspan="1">Year</th><th align="left" rowspan="1" colspan="1">Reference</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">AntiCP</td><td rowspan="1" colspan="1">AAC, BP</td><td rowspan="1" colspan="1">SVM</td><td rowspan="1" colspan="1">2013</td><td rowspan="1" colspan="1">[<xref rid="ref10" ref-type="bibr">10</xref>]</td></tr><tr><td rowspan="1" colspan="1">iACP-GAEnsC</td><td rowspan="1" colspan="1">Am-PAAC, g-Gap dipeptide composition, Reduce amino acid alphabet composition</td><td rowspan="1" colspan="1">Genetic algorithm-based ensemble learning</td><td rowspan="1" colspan="1">2017</td><td rowspan="1" colspan="1">[<xref rid="ref11" ref-type="bibr">19</xref>]</td></tr><tr><td rowspan="1" colspan="1">ACPred</td><td rowspan="1" colspan="1">AAC, DPC, PHYC, PAAC, Am-PAAC</td><td rowspan="1" colspan="1">SVM, RF</td><td rowspan="1" colspan="1">2019</td><td rowspan="1" colspan="1">[<xref rid="ref12" ref-type="bibr">12</xref>]</td></tr><tr><td rowspan="1" colspan="1">AntiCP 2.0</td><td rowspan="1" colspan="1">AAC, DPC, TC, BP</td><td rowspan="1" colspan="1">SVM</td><td rowspan="1" colspan="1">2020</td><td rowspan="1" colspan="1">[<xref rid="ref13" ref-type="bibr">11</xref>]</td></tr><tr><td rowspan="1" colspan="1">DeepACP</td><td rowspan="1" colspan="1">Amino acid embedding</td><td rowspan="1" colspan="1">RNN</td><td rowspan="1" colspan="1">2020</td><td rowspan="1" colspan="1">[<xref rid="ref14" ref-type="bibr">17</xref>]</td></tr><tr><td rowspan="1" colspan="1">cACP</td><td rowspan="1" colspan="1">Quasi-sequence order, Conjoint triad feature, Geary autocorrelation descriptor</td><td rowspan="1" colspan="1">SVM</td><td rowspan="1" colspan="1">2020</td><td rowspan="1" colspan="1">[<xref rid="ref15" ref-type="bibr">20</xref>]</td></tr><tr><td rowspan="1" colspan="1">cACP-2LFS</td><td rowspan="1" colspan="1">K-space amino acid pair</td><td rowspan="1" colspan="1">SVM</td><td rowspan="1" colspan="1">2020</td><td rowspan="1" colspan="1">[<xref rid="ref16" ref-type="bibr">21</xref>]</td></tr><tr><td rowspan="1" colspan="1">ACP-MHCNN</td><td rowspan="1" colspan="1">Sequential features, PHYC, evolutionary information</td><td rowspan="1" colspan="1">CNN</td><td rowspan="1" colspan="1">2021</td><td rowspan="1" colspan="1">[<xref rid="ref17" ref-type="bibr">18</xref>]</td></tr><tr><td rowspan="1" colspan="1">iACP-GE</td><td rowspan="1" colspan="1">BC, BLOSUM62, EGAAC, DMACA</td><td rowspan="1" colspan="1">GBDT, ET</td><td rowspan="1" colspan="1">2022</td><td rowspan="1" colspan="1">[<xref rid="ref18" ref-type="bibr">13</xref>]</td></tr><tr><td rowspan="1" colspan="1">StackACPred</td><td rowspan="1" colspan="1">N-SegPSSM, PsePSSM, PAAC</td><td rowspan="1" colspan="1">SVM-RFE+CBR, LightGMB, stacking-based ensemble learning</td><td rowspan="1" colspan="1">2022</td><td rowspan="1" colspan="1">[<xref rid="ref19" ref-type="bibr">14</xref>]</td></tr><tr><td rowspan="1" colspan="1">cACP-DeepGram</td><td rowspan="1" colspan="1">Word embedding</td><td rowspan="1" colspan="1">Deep neural network</td><td rowspan="1" colspan="1">2022</td><td rowspan="1" colspan="1">[<xref rid="ref20" ref-type="bibr">22</xref>]</td></tr><tr><td rowspan="1" colspan="1">GRDF</td><td rowspan="1" colspan="1">Graphical features of peptides, evolutionary information, BP</td><td rowspan="1" colspan="1">Deep forest</td><td rowspan="1" colspan="1">2023</td><td rowspan="1" colspan="1">[<xref rid="ref21" ref-type="bibr">15</xref>]</td></tr><tr><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">AAC, BPF, DDE, TPC, AAINEX, C/T/D</td><td rowspan="1" colspan="1">RF</td><td rowspan="1" colspan="1">2023</td><td rowspan="1" colspan="1">[<xref rid="ref22" ref-type="bibr">16</xref>]</td></tr><tr><td rowspan="1" colspan="1">CAPTURE</td><td rowspan="1" colspan="1">Correlational information, distributional information, compositional information, transitional information</td><td rowspan="1" colspan="1">Adaboost</td><td rowspan="1" colspan="1">2024</td><td rowspan="1" colspan="1">[<xref rid="ref23" ref-type="bibr">23</xref>]</td></tr><tr><td rowspan="1" colspan="1">ANNprob-ACPs</td><td rowspan="1" colspan="1">AAC, Cross-covariance, DPC, PAAC, Quasi-sequence-order, CTDC, CTDT, word2vector, CKSAAGP</td><td rowspan="1" colspan="1">Artificial neural network</td><td rowspan="1" colspan="1">2024</td><td rowspan="1" colspan="1">[<xref rid="ref24" ref-type="bibr">24</xref>]</td></tr><tr><td rowspan="1" colspan="1">ACP-ML</td><td rowspan="1" colspan="1">DPC, PAAC, CTDC, CTDT, CS-Pse-PSSM</td><td rowspan="1" colspan="1">Voting-based ensemble learning</td><td rowspan="1" colspan="1">2024</td><td rowspan="1" colspan="1">[<xref rid="ref25" ref-type="bibr">25</xref>]</td></tr></tbody></table></table-wrap><p>Despite the commendable performance achieved by these methods, they still exhibit some limitations, highlighting the imperative for further research in this domain.</p><list list-type="simple"><list-item><p>(i) Despite the series of successes achieved by CNNs in recent years, they are not devoid of limitations. Specifically, while CNNs excel in capturing the local features of objects, they exhibit a deficiency in grasping the hierarchical structure of objects. Conventional CNNs face challenges in effectively capturing the hierarchical structure and part-whole relationships intrinsic to objects, resulting in limitations and constraints on comprehending the relationship between the overall and local features of objects.</p></list-item><list-item><p>(ii) These methods, particularly those based on deep learning, often lack interpretability, rendering the constructed models as ”black boxes.” This hinders researchers from comprehending the crucial regions and internal features related to ACPs.</p></list-item><list-item><p>(iii) With the exception of ACP-MLC, all methods have been primarily focused on classifying ACP and non-ACP without delving into the exploration of the specific activity of ACP against distinct cancer types.</p></list-item></list><p>To address these challenges, we propose a two-stage computational framework in this study, named ACP-CapsPred, designed to identify ACPs and their functional activities against various cancer types. The first stage of ACP-CapsPred is dedicated to discriminating between ACP and non-ACP, while the second stage focuses on predicting the functional activity of ACP against different cancer types. The first-stage model trained on the datasets from prior studies, while the second stage incorporates manually curated datasets comprising ACPs exhibiting anticancer activity against five specific cancer types. We integrate a protein language model for extracting residue embeddings, incorporating evolutionary information and physicochemical properties of peptide sequences to construct comprehensive peptide profiles. Moreover, to overcome the limitations of traditional CNNs and enhance model interpretability, ACP-CapsPred employs a next-generation neural network, the capsule network. In contrast to conventional neural networks, capsule networks introduce the concept of ”capsules,” representing patterns using vectors where the length of the vector denotes the probability of pattern existence. Our past research has demonstrated the effectiveness of capsule networks in predicting the functional activities of peptide sequences [<xref rid="ref26" ref-type="bibr">26</xref>]. Capsule networks excel at the spatial modeling of objects, effectively capturing hierarchical relationships within objects. Experimental results demonstrate that both stages of ACP-CapsPred yield satisfactory predictive outcomes, achieving state-of-the-art performance. ACP-CapsPred holds significant promise for advancing anticancer drug development and offers novel perspectives for other biological sequence analysis tasks.</p></sec><sec><title>Materials and methods</title><sec><title>Dataset preparation</title><p>To make a fair comparison with the previous methods, in the first phase of the task, which is to distinguish between ACP and non-ACP, we selected two benchmark datasets from previous works, Set 1 and Set 2 [<xref rid="ref21" ref-type="bibr">15</xref>]. Both datasets have positive samples that are experimentally ACPs, but the negative samples are different. The negative samples in Set 1 are antimicrobial peptides that do not possess anticancer activity. The negative samples in Set 2 are randomly selected peptides from Swiss-Prot. These two datasets were subsequently split into train and test sets in an 8:2 ratio. The train set was used to fit the model and tune its hyperparameters through five-fold cross-validation. The test set was used to evaluate the final model. The sizes of these two datasets are shown in <xref rid="TB2" ref-type="table">Table 2</xref>.</p><table-wrap position="float" id="TB2" orientation="portrait"><label>Table 2</label><caption><p>Overview of two datasets in the first stage</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col span="1" align="left"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Dataset</th><th align="left" rowspan="1" colspan="1">Train/Test</th><th align="left" rowspan="1" colspan="1">Positive</th><th align="left" rowspan="1" colspan="1">Negative</th><th align="left" rowspan="1" colspan="1">Total</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Set 1<inline-formula><tex-math notation="LaTeX" id="ImEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{a}$\end{document}</tex-math></inline-formula></td><td rowspan="1" colspan="1">Train Set</td><td rowspan="1" colspan="1">632</td><td rowspan="1" colspan="1">641</td><td rowspan="1" colspan="1">1,273</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">Test Set</td><td rowspan="1" colspan="1">161</td><td rowspan="1" colspan="1">158</td><td rowspan="1" colspan="1">319</td></tr><tr><td rowspan="1" colspan="1">Set 2<inline-formula><tex-math notation="LaTeX" id="ImEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{b}$\end{document}</tex-math></inline-formula></td><td rowspan="1" colspan="1">Train Set</td><td rowspan="1" colspan="1">716</td><td rowspan="1" colspan="1">677</td><td rowspan="1" colspan="1">1,393</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">Test Set</td><td rowspan="1" colspan="1">186</td><td rowspan="1" colspan="1">170</td><td rowspan="1" colspan="1">356</td></tr></tbody></table><table-wrap-foot><fn id="tblfn1a"><p>
+<inline-formula>
+<tex-math notation="LaTeX" id="ImEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{a}$\end{document}</tex-math>
+</inline-formula> The positive samples in Set 1 are experimentally validated ACPs. The negative samples in Set 1 are AMPs but do not possess anticancer activity. <inline-formula><tex-math notation="LaTeX" id="ImEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$^{b}$\end{document}</tex-math></inline-formula> The positive samples in Set 2 are experimentally validated ACPs. The negative samples in Set 2 are random peptides, which are assumed to be non-ACPs.</p></fn></table-wrap-foot></table-wrap><p>In the second stage of ACP-CapsPred, which involves predicting the functional activities of ACP against various cancers, we selected five categories, namely breast, lung, colon, cervical, and skin, from the CancerPPD database [<xref rid="ref27" ref-type="bibr">27</xref>], which is a comprehensive repository of experimentally validated ACPs and proteins. Within CancerPPD, ACPs are categorized into 21 classes based on tissue, and we opted for categories with a substantial count of unique peptides exceeding 200 entries to serve as our classification labels. Given that ACPs typically exhibit lengths ranging from 10 to 50 residues, we further excluded entries with lengths less than 10. The size of the datasets in the second stage is outlined in Table S1.</p></sec><sec><title>Overall framework of ACP-CapsPred</title><p>The workflow of ACP-CapsPred is depicted in <xref rid="f1" ref-type="fig">Fig. 1</xref>, comprising three main modules: residue embedding extraction module, feature extraction module, and capsule network module. Initially, ACP-CapsPred integrates a pretrained protein language model, ProtTrans[<xref rid="ref28" ref-type="bibr">28</xref>], to extract contextual semantic information, representing each amino acid as a 1024-dimensional embedding. In the feature extraction module, ACP-CapsPred extracts evolutionary information of peptide sequences using the BLOcks SUbstitution Matrix 62 (BLOSUM62). Additionally, ACP-CapsPred incorporates the amino acid index (AAindex) database [<xref rid="ref29" ref-type="bibr">29</xref>] to capture the physicochemical properties of amino acid sequences. Residue embeddings, BLOSUM62 matrix, and AAindex matrix together constitute comprehensive profiles of peptides. Subsequently, Principal Component Analysis (PCA) [<xref rid="ref30" ref-type="bibr">30</xref>] is applied to reduce the dimensionality of the extracted feature matrix. The reduced features are then input into the capsule network module for further feature exploration, culminating in the classification of ACP and non-ACP.</p><fig position="float" id="f1" orientation="portrait"><label>Figure 1</label><caption><p>The architecture of ACP-CapsPred; ACP-CapsPred consists of three modules, namely (A) Residue Embedding Module, (B) Feature Extraction Module, and (C) Capsule Network Module; the residue embedding module integrates pretrained protein language models to obtain effective representations of peptide residues, and the feature extraction module combines the BLOSUM62 matrix and AAindex database for peptides to capture evolutionary information and physicochemical properties; residue embedding, BLOSUM62 matrix, and AAindex matrix collectively constitute the peptide profile, and the capsule network module receives the peptide profile, initially undergoes dimensionality reduction using PCA, and subsequently processes and explores the feature matrix for the ultimate classification of ACP and non-ACP.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f1.jpg"/></fig></sec><sec><title>Residue embedding extraction</title><p>In recent years, large-scale language models have offered new insights into natural language processing (NLP) techniques. Researchers have proposed numerous protein language models based on amino acid sequences, enabling the extraction of contextual semantic information, thus facilitating the retrieval of discriminative features and enhancing model performance [<xref rid="ref28" ref-type="bibr">28</xref>, <xref rid="ref31" ref-type="bibr">31</xref>, <xref rid="ref32" ref-type="bibr">32</xref>].</p><p>In NLP tasks, Bidirectional Encoder Representations from Transformers (BERT) architecture [<xref rid="ref33" ref-type="bibr">33</xref>] is typically employed to extract information from sequences. The transformer architecture relies on self-attention mechanisms [<xref rid="ref34" ref-type="bibr">34</xref>] to automatically capture relationships between all possible amino acid pairs within a sequence, thereby enhancing representational capacity. In this study, we employed ProtBert [<xref rid="ref28" ref-type="bibr">28</xref>], a self-supervised pre-trained model based on BERT, to extract contextual semantic information from peptide sequences.</p><p>ProtBert is pretrained using the BFD dataset [<xref rid="ref35" ref-type="bibr">35</xref>], which encompasses 393 billion amino acids from 2.1 billion protein sequences. As illustrated in <xref rid="f1" ref-type="fig">Fig. 1</xref>, each amino acid in every input sequence is initially encoded into numerical tokens by a tokenizer. These tokens are subsequently fed into a transformer architecture composed of 30 hidden layers, with each hidden layer consisting of 16 self-attention heads. Ultimately, each residue is represented as a 1024-dimensional embedding.</p></sec><sec><title>Feature extraction</title><p>Prior research has demonstrated that incorporating evolutionary information from proteins enhances the performance of protein sequence analysis tasks, particularly in the context of proteins exhibiting low sequence similarity [<xref rid="ref36" ref-type="bibr">36–38</xref>]. BLOSUM62 is a fundamental and widely utilized tool in bioinformatics. This substitution matrix plays a pivotal role in quantifying the similarity between amino acid sequences, facilitating the comparison of proteins and the identification of conserved regions across diverse biological entities. The scores within the BLOSUM62 matrix signify the probability of amino acid substitution by another amino. When considering the representation of a peptide (or protein) sequence <inline-formula><tex-math notation="LaTeX" id="ImEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula> with a length of <inline-formula><tex-math notation="LaTeX" id="ImEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula>, each constituent residue is denoted by the corresponding row within this matrix, effectively representing a <inline-formula><tex-math notation="LaTeX" id="ImEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$20$\end{document}</tex-math></inline-formula>-dimensional vector for each residue. Consequently, sequence <inline-formula><tex-math notation="LaTeX" id="ImEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula> can be succinctly represented as an <inline-formula><tex-math notation="LaTeX" id="ImEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L\times 20$\end{document}</tex-math></inline-formula>-dimensional matrix, as depicted below </p><disp-formula id="deqn01">
+<label>(1)</label>
+<tex-math notation="LaTeX" id="DmEquation1">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} \mathrm{BLOSUM62} &amp;= \left[\begin{array}{@{}cccc@{}} p_{1,1} &amp; p_{1,2} &amp; \ldots &amp; p_{1,20}\\ p_{2,1} &amp; p_{2,2} &amp; \ldots &amp; p_{2,20}\\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ p_{L,1} &amp; p_{L,2} &amp; \ldots &amp; p_{L,20} \end{array} \right]\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$p_{n,i}$\end{document}</tex-math></inline-formula> denotes the likelihood of <inline-formula><tex-math notation="LaTeX" id="ImEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$n$\end{document}</tex-math></inline-formula>th amino acids within a peptide being replaced by another amino acid.</p><p>In addition to evolutionary information, incorporating the physicochemical properties of amino acids also contributes to protein sequence analysis tasks [<xref rid="ref21" ref-type="bibr">15</xref>,<xref rid="ref38" ref-type="bibr">38</xref>,<xref rid="ref39" ref-type="bibr">39</xref>]. Therefore, in this study, we have integrated the AAindex matrix, which is a fundamental resource in the field of bioinformatics, standing as a comprehensive and systematically curated database of amino acid indices [<xref rid="ref29" ref-type="bibr">29</xref>]. These indices encapsulate various physicochemical and biochemical properties associated with amino acids. AAIndex is instrumental in bridging the gap between the biological sequences of proteins and their structural and functional characteristics.</p><p>Currently, the AAindex database comprises 531 distinct physicochemical properties, which are summarized in the <xref rid="sup1" ref-type="supplementary-material">supplementary material</xref>. In the context of a peptide sequence <inline-formula><tex-math notation="LaTeX" id="ImEquation12">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula>, which has a length of <inline-formula><tex-math notation="LaTeX" id="ImEquation13">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula>, each amino acid is encoded as a <inline-formula><tex-math notation="LaTeX" id="ImEquation14">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$531$\end{document}</tex-math></inline-formula>-dimensional vector. Within this vector, every numerical value represents a specific physicochemical property. Consequently, the peptide sequence <inline-formula><tex-math notation="LaTeX" id="ImEquation15">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula> can be encoded as an <inline-formula><tex-math notation="LaTeX" id="ImEquation16">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L\times 531$\end{document}</tex-math></inline-formula>-dimensional matrix, as depicted below. </p><disp-formula id="deqn02">
+<label>(2)</label>
+<tex-math notation="LaTeX" id="DmEquation2">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} \mathrm{AAindex} &amp;= \left[ \begin{array}{@{}cccc@{}} a_{1,1} &amp; a_{1,2} &amp; \ldots &amp; a_{1,531}\\ a_{2,1} &amp; a_{2,2} &amp; \ldots &amp; a_{2,531}\\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{L,1} &amp; a_{L,2} &amp; \ldots &amp; a_{L,531}, \end{array} \right]\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation17">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$a_{n,i}$\end{document}</tex-math></inline-formula> refers to the <inline-formula><tex-math notation="LaTeX" id="ImEquation18">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula>th physicochemical property of the <inline-formula><tex-math notation="LaTeX" id="ImEquation19">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$n$\end{document}</tex-math></inline-formula>th amino acid.</p><p>By incorporating residue embedding, the BLOSUM62, and AAindex matrices, each residue is encoded as a <inline-formula><tex-math notation="LaTeX" id="ImEquation20">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$1575$\end{document}</tex-math></inline-formula>-dimensional vector. A peptide sequence of length <inline-formula><tex-math notation="LaTeX" id="ImEquation21">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula> is then encoded as an <inline-formula><tex-math notation="LaTeX" id="ImEquation22">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L\times 1575$\end{document}</tex-math></inline-formula>-dimensional comprehensive numerical matrix. We employed PCA for dimensionality reduction to mitigate overfitting and enhance training efficiency. PCA is a fundamental dimensionality reduction technique extensively employed in various scientific domains, particularly in multivariate data analysis, statistics, and machine learning. It aims to uncover the underlying structure or patterns in high-dimensional data by transforming it into a new coordinate system. PCA allows for efficient data representation with reduced dimensionality while retaining as much relevant information as possible. After dimension reduction, a multi-peptide sequence <inline-formula><tex-math notation="LaTeX" id="ImEquation23">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula> with a length of <inline-formula><tex-math notation="LaTeX" id="ImEquation24">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula> is ultimately represented as an <inline-formula><tex-math notation="LaTeX" id="ImEquation25">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L\times 256$\end{document}</tex-math></inline-formula>-dimensional feature matrix.</p></sec><sec><title>Capsule network</title><p>Unlike traditional neural networks, capsule networks employ vector-format inputs and outputs [<xref rid="ref40" ref-type="bibr">40</xref>, <xref rid="ref41" ref-type="bibr">41</xref>]. Each capsule represents a distinct pattern, with each dimension of the capsule signifying a unique feature of that pattern, and the length of the capsule indicating the probability of that pattern’s presence. Typically, Capsule networks are composed of primary capsule layers and type capsule layers. The number of type capsules corresponds to the total categories for final classification labels. In the first stage of ACP-CapsPred, the objective is to distinguish between ACP and non-ACP, which is a binary classification task. Hence, the number of type capsules is set to 2. The computational process between the primary capsule layer and the type capsule layer is illustrated in <xref rid="f2" ref-type="fig">Fig. 2</xref>.</p><fig position="float" id="f2" orientation="portrait"><label>Figure 2</label><caption><p>The computational process between primary capsules and type capsules.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f2.jpg"/></fig><p>The primary capsule layer <inline-formula><tex-math notation="LaTeX" id="ImEquation26">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$u_{i}$\end{document}</tex-math></inline-formula> initially undergoes multiplication with weight matrices <inline-formula><tex-math notation="LaTeX" id="ImEquation27">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$W_{1}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation28">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$W_{2}$\end{document}</tex-math></inline-formula>, yielding intermediate vectors <inline-formula><tex-math notation="LaTeX" id="ImEquation29">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\hat{u}_{1 \mid i}$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation30">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\hat{u}_{2 \mid i}$\end{document}</tex-math></inline-formula> corresponding to the two distinct classification categories. The predictive vectors <inline-formula><tex-math notation="LaTeX" id="ImEquation31">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S_{j}$\end{document}</tex-math></inline-formula>, which represent ACP and non-ACP, are obtained through a weighted sum over all <inline-formula><tex-math notation="LaTeX" id="ImEquation32">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\hat{u}_{j \mid i}$\end{document}</tex-math></inline-formula> and coupling coefficients <inline-formula><tex-math notation="LaTeX" id="ImEquation33">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$c_{i, j}$\end{document}</tex-math></inline-formula>, as expressed in the following formula: </p><disp-formula id="deqn03">
+<label>(3)</label>
+<tex-math notation="LaTeX" id="DmEquation3">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; S_{j}=\sum_{i=1}^{L} c_{i, j} \hat{u}_{j \mid i},\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation34">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L$\end{document}</tex-math></inline-formula> denotes the number of primary capsules.</p><p>The coupling coefficients (<inline-formula><tex-math notation="LaTeX" id="ImEquation35">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$c_{i, j}$\end{document}</tex-math></inline-formula>) delineate the likelihood of establishing connections between the <inline-formula><tex-math notation="LaTeX" id="ImEquation36">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$i$\end{document}</tex-math></inline-formula>th primary capsule and the <inline-formula><tex-math notation="LaTeX" id="ImEquation37">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$j$\end{document}</tex-math></inline-formula>th type capsule. The cumulative value of <inline-formula><tex-math notation="LaTeX" id="ImEquation38">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$c_{i, j}$\end{document}</tex-math></inline-formula> across two type capsules is equal to 1, i.e. <inline-formula><tex-math notation="LaTeX" id="ImEquation39">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\sum _{i=1}^{L} \sum _{j=1}^{2} c_{i,j} = 1$\end{document}</tex-math></inline-formula>. Coupling coefficients are determined by the dynamic routing algorithm; for details on the dynamic routing algorithm refer to the <xref rid="sup1" ref-type="supplementary-material"><bold>Supplementary material</bold></xref>.</p><p>In accordance with the concept of capsule networks, the length of a capsule signifies the likelihood of a specific category’s occurrence. A non-linear function known as Squash operates on the prediction vector <inline-formula><tex-math notation="LaTeX" id="ImEquation40">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula> to obtain the type capsules (<inline-formula><tex-math notation="LaTeX" id="ImEquation41">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$V_{j}$\end{document}</tex-math></inline-formula>), with the Squash function defined as follows: </p><disp-formula id="deqn04">
+<label>(4)</label>
+<tex-math notation="LaTeX" id="DmEquation4">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; \textrm{ Squash}\ (\mathrm{S})=\frac{\|\mathrm{S}\|^{2}}{1+\|\mathrm{S}\|^{2}} \frac{\mathrm{S}}{\|\mathrm{S}\|}.\end{align*}\end{document}</tex-math>
+</disp-formula><p>Utilizing the Squash function, the length of vector <inline-formula><tex-math notation="LaTeX" id="ImEquation42">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$S$\end{document}</tex-math></inline-formula> is compressed within the range of 0 to 1 while preserving its direction. The length of the type capsule indicates the probability associated with the respective category. Consequently, the <inline-formula><tex-math notation="LaTeX" id="ImEquation43">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$L2$\end{document}</tex-math></inline-formula> norms of the type capsules are computed individually to derive the final prediction probabilities, which are shown below. </p><disp-formula id="deqn05">
+<label>(5)</label>
+<tex-math notation="LaTeX" id="DmEquation5">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; p_{j}=\left\|v_{j}\right\|_{2}.\end{align*}\end{document}</tex-math>
+</disp-formula><p>Following the work of Sabour <italic toggle="yes">et al.</italic>[<xref rid="ref40" ref-type="bibr">40</xref>], we have employed margin loss as the model’s loss function, as illustrated below </p><disp-formula id="deqn06">
+<label>(6)</label>
+<tex-math notation="LaTeX" id="DmEquation6">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*}&amp; L_{c}=I_{c} \max \left(0, m^{+}-\left\|v_{c}\right\|_{2}\right)^{2}+\lambda\left(1-I_{c}\right) \max \left(0,\left\|v_{c}\right\|_{2}-m^{-}\right)^{2},\end{align*}\end{document}</tex-math>
+</disp-formula><p>where <inline-formula><tex-math notation="LaTeX" id="ImEquation44">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$c$\end{document}</tex-math></inline-formula> and <inline-formula><tex-math notation="LaTeX" id="ImEquation45">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$I$\end{document}</tex-math></inline-formula> denote the classification category and the binary indicator function, respectively. When a sample belongs to category c, <inline-formula><tex-math notation="LaTeX" id="ImEquation46">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$I_{c}$\end{document}</tex-math></inline-formula> equals 1; otherwise, <inline-formula><tex-math notation="LaTeX" id="ImEquation47">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$I_{c}$\end{document}</tex-math></inline-formula> equals 0. For the hyperparameters <inline-formula><tex-math notation="LaTeX" id="ImEquation48">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\mathrm{m}^{+}, \mathrm{m}^{-}$\end{document}</tex-math></inline-formula>, and <inline-formula><tex-math notation="LaTeX" id="ImEquation49">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\lambda $\end{document}</tex-math></inline-formula>, we have adopted the recommended values, which are 0.9, 0.1, and 0.5, respectively.</p></sec><sec><title>Functional prediction of ACP against various cancers</title><p>Capsule networks demonstrate notable advantages in feature processing and exploration, particularly excelling in capturing intricate hierarchical and spatial relationships within data. In the second stage of ACP-CapsPred, the objective is to predict the functional activities of ACP against distinct cancer types. Given the limited number of samples for different labels, we opted not to retrain the model. Instead, we fully harnessed the capsule network’s feature processing capabilities. We leveraged the well-trained model from the first stage to extract discriminative latent features from type capsules for second-stage prediction. <xref rid="f3" ref-type="fig">Figure 3</xref> illustrates the workflow for this stage.</p><fig position="float" id="f3" orientation="portrait"><label>Figure 3</label><caption><p>The functional prediction workflow for ACP against various cancers in the second stage; due to the potential activity of certain peptides against one or multiple types of cancers, we have established a one-against-all multi-task classification pipeline, and in this stage, ACP-CapsPred utilizes the model from the first stage to extract features and subsequently employs a multi-layer perceptron for classification.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f3.jpg"/></fig><p>As mentioned in Section 8, we gathered the five most abundant ACPs with documented anticancer activities targeting breast, colon, cervical, lung, and skin cancers from CancerPPD. Due to the potential activity of certain sequences against multiple cancers, we employed a one-against-all multi-task learning strategy in the second stage. Subsequently, we established five class-specific classifiers. Sequences exhibiting a specific anticancer activity type were designated as positive instances within the dataset pertaining to the corresponding ACP class classifier. Conversely, sequences not exhibiting the specified activity were categorized as negative instances. For instance, a sequence demonstrating anti-breast activity was considered a positive sample during the construction of the anti-breast classifier but was regarded as a negative sample for the construction of the other classifiers. When constructing class-specific classifiers, ACPs with varying functional activities were input into the model previously trained in the first stage. Subsequently, discriminative features were extracted from the type capsules. Utilizing these features, a multi-layer perceptron was constructed to predict ACP functional activity against specific cancer types.</p></sec><sec><title>Performance assessment</title><p>To assess the performance of our proposed approach, we employed several machine learning evaluation metrics, including Accuracy, Precision, Recall, True Positive Rate (TPR), False Positive Rate (FPR), and F1-score. These metrics are defined as follows: </p><disp-formula id="deqn07">
+<label>(7)</label>
+<tex-math notation="LaTeX" id="DmEquation7">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} Accuracy &amp; = \frac{TP + TN}{TP + TN + FP + FN} \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn08">
+<label>(8)</label>
+<tex-math notation="LaTeX" id="DmEquation8">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} Precision &amp; = \frac{TP}{TP+FP} \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn09">
+<label>(9)</label>
+<tex-math notation="LaTeX" id="DmEquation9">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} Recall &amp; = \frac{TP}{TP+FN} = TPR \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn10">
+<label>(10)</label>
+<tex-math notation="LaTeX" id="DmEquation10">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} FPR &amp; = \frac{FP}{FP+TN} \end{align*}\end{document}</tex-math>
+</disp-formula><disp-formula id="deqn11">
+<label>(11)</label>
+<tex-math notation="LaTeX" id="DmEquation11">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+\begin{align*} F1-score &amp; = \frac{2 \times Precision \times Recall} {Precision + Recall}, \end{align*}\end{document}</tex-math>
+</disp-formula><p>where TP, TN, FP, and FN represent the number of true positives, true negatives, false positives, and false negatives, respectively. The Area Under the Receiver Operating Characteristic Curve (AUROC) and the Area Under the Precision-Recall Curve (AUPRC) are also used to assess the performance in this study.</p><p>The models experienced training for 100 epochs to ensure adequate fitting, utilizing the Adam optimizer [<xref rid="ref42" ref-type="bibr">42</xref>] with an initial learning rate of 0.1. In this study, there are three key hyperparameters: the dimension of primary capsules, the number of routing iterations, and the dimension of type capsules. We employed grid search and cross-validation techniques to explore these hyperparameters, and the specific search space is detailed in Table S2. We systematically evaluated all possible combinations using five-fold cross-validation to determine the optimal hyperparameters that maximize performance. Accuracy served as our criteria. The training curves of ACP-CapsPred on two datasets are shown in Fig. S1. The pipeline of ACP-CapsPred was implemented using PyTorch [<xref rid="ref43" ref-type="bibr">43</xref>], and the training procedure was executed across 4 <inline-formula><tex-math notation="LaTeX" id="ImEquation50">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\times $\end{document}</tex-math></inline-formula> Nvidia 2080 Ti GPUs.</p></sec></sec><sec><title>Results and discussion</title><sec><title>Performance comparison of ACP-CapsPred with existing methods</title><p>We compared ACP-CapsPred with existing ACP prediction methods. In the first stage, which involves distinguishing ACP from non-ACP sequences, ACP-CapsPred achieved state-of-the-art performance, demonstrating precise predictions for ACP, as depicted in <xref rid="TB3" ref-type="table">Table 3</xref>. Their confusion matrices were summarized as shown in Table S3. Specifically, on Set 1, ACP-CapsPred attained the highest Accuracy of 80.25%, surpassing the second-ranked method by 3.1%. Additionally, ACP-CapsPred achieved the highest Precision on Set 1, at 81.70%. Similarly, on Set 2, ACP-CapsPred exhibited outstanding performance with the highest Accuracy and Recall, reaching 95.71% and 95.43%, respectively. Moreover, while ensuring precise predictions for ACP, ACP-CapsPred also achieved more balanced predictions. On both Set 1 and Set 2, ACP-CapsPred achieved the highest F1-score, at 79.86% and 95.90%, respectively. The effectiveness of our proposed approach in precise and balanced ACP prediction can be attributed to several crucial factors.</p><table-wrap position="float" id="TB3" orientation="portrait"><label>Table 3</label><caption><p>Summary of performance comparison with other existing methods in the first stage</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col span="1" align="left"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/><col span="6" align="left"/><col span="7" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Dataset</th><th align="left" rowspan="1" colspan="1">Method</th><th align="left" rowspan="1" colspan="1">Accuracy</th><th align="left" rowspan="1" colspan="1">Precision</th><th align="left" rowspan="1" colspan="1">Recall (=TPR)</th><th align="left" rowspan="1" colspan="1">F1-score</th><th align="left" rowspan="1" colspan="1">FPR</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Set 1 ACP versus non-ACP (AMP)</td><td rowspan="1" colspan="1">AntiCP</td><td rowspan="1" colspan="1">53.29%</td><td rowspan="1" colspan="1">52.03%</td><td rowspan="1" colspan="1">
+<bold>95.65%</bold>
+</td><td rowspan="1" colspan="1">67.40%</td><td rowspan="1" colspan="1">89.87%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">AntiCP2</td><td rowspan="1" colspan="1">70.22%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">62.25%</td><td rowspan="1" colspan="1">67.13%</td><td rowspan="1" colspan="1">20.25%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">AMPFun</td><td rowspan="1" colspan="1">68.65%</td><td rowspan="1" colspan="1">67.84%</td><td rowspan="1" colspan="1">72.05%</td><td rowspan="1" colspan="1">69.88%</td><td rowspan="1" colspan="1">34.81%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">dbAMP</td><td rowspan="1" colspan="1">67.40%</td><td rowspan="1" colspan="1">63.77%</td><td rowspan="1" colspan="1">81.99%</td><td rowspan="1" colspan="1">71.74%</td><td rowspan="1" colspan="1">47.47%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACPred</td><td rowspan="1" colspan="1">54.86%</td><td rowspan="1" colspan="1">53.23%</td><td rowspan="1" colspan="1">86.96%</td><td rowspan="1" colspan="1">66.04%</td><td rowspan="1" colspan="1">77.85%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">iACP-GE</td><td rowspan="1" colspan="1">75.86%</td><td rowspan="1" colspan="1">75.30%</td><td rowspan="1" colspan="1">77.63%</td><td rowspan="1" colspan="1">76.45%</td><td rowspan="1" colspan="1">25.95%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">StackACPred</td><td rowspan="1" colspan="1">73.04%</td><td rowspan="1" colspan="1">75.51%</td><td rowspan="1" colspan="1">68.94%</td><td rowspan="1" colspan="1">72.07%</td><td rowspan="1" colspan="1">22.78%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">DeepACP</td><td rowspan="1" colspan="1">57.99%</td><td rowspan="1" colspan="1">55.05%</td><td rowspan="1" colspan="1">91.30%</td><td rowspan="1" colspan="1">68.69%</td><td rowspan="1" colspan="1">75.95%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-MHCNN</td><td rowspan="1" colspan="1">57.05%</td><td rowspan="1" colspan="1">54.28%</td><td rowspan="1" colspan="1">94.40%</td><td rowspan="1" colspan="1">68.93%</td><td rowspan="1" colspan="1">81.01%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">GRDF</td><td rowspan="1" colspan="1">77.12%</td><td rowspan="1" colspan="1">76.83%</td><td rowspan="1" colspan="1">78.26%</td><td rowspan="1" colspan="1">77.54%</td><td rowspan="1" colspan="1">24.05%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">71.16%</td><td rowspan="1" colspan="1">70.32%</td><td rowspan="1" colspan="1">83.30%</td><td rowspan="1" colspan="1">76.27%</td><td rowspan="1" colspan="1">36.08%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">cACP</td><td rowspan="1" colspan="1">64.57%</td><td rowspan="1" colspan="1">72.50%</td><td rowspan="1" colspan="1">62.70%</td><td rowspan="1" colspan="1">67.24%</td><td rowspan="1" colspan="1">24.05%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">cACP-2LFS</td><td rowspan="1" colspan="1">66.77%</td><td rowspan="1" colspan="1">68.75%</td><td rowspan="1" colspan="1">66.26%</td><td rowspan="1" colspan="1">67.48%</td><td rowspan="1" colspan="1">31.01%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">cACP-DeepGram</td><td rowspan="1" colspan="1">65.20%</td><td rowspan="1" colspan="1">58.75%</td><td rowspan="1" colspan="1">67.62%</td><td rowspan="1" colspan="1">62.87%</td><td rowspan="1" colspan="1">48.73%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">iACP-GAEnsC</td><td rowspan="1" colspan="1">67.39%</td><td rowspan="1" colspan="1">70.00%</td><td rowspan="1" colspan="1">66.66%</td><td rowspan="1" colspan="1">68.28%</td><td rowspan="1" colspan="1">29.11%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ANNprob-ACPs</td><td rowspan="1" colspan="1">73.35%</td><td rowspan="1" colspan="1">73.75%</td><td rowspan="1" colspan="1">73.35%</td><td rowspan="1" colspan="1">73.55%</td><td rowspan="1" colspan="1">26.58%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-ML</td><td rowspan="1" colspan="1">75.55%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">24.68%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">CAPTURE</td><td rowspan="1" colspan="1">75.55%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">75.78%</td><td rowspan="1" colspan="1">24.68%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>This study</bold>
+</td><td rowspan="1" colspan="1">
+<bold>80.25%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>81.70%</bold>
+</td><td rowspan="1" colspan="1">78.12%</td><td rowspan="1" colspan="1">
+<bold>79.86%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>17.61%</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Set 2 ACP versus non-ACP (Random Peptide)</td><td rowspan="1" colspan="1">AntiCP</td><td rowspan="1" colspan="1">87.92%</td><td rowspan="1" colspan="1">
+<bold>100.00%</bold>
+</td><td rowspan="1" colspan="1">76.88%</td><td rowspan="1" colspan="1">86.93%</td><td rowspan="1" colspan="1">
+<bold>0.00%</bold>
+</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">AntiCP2</td><td rowspan="1" colspan="1">91.57%</td><td rowspan="1" colspan="1">92.39%</td><td rowspan="1" colspan="1">91.40%</td><td rowspan="1" colspan="1">91.89%</td><td rowspan="1" colspan="1">8.24%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">AMPFun</td><td rowspan="1" colspan="1">77.25%</td><td rowspan="1" colspan="1">89.47%</td><td rowspan="1" colspan="1">63.89%</td><td rowspan="1" colspan="1">74.61%</td><td rowspan="1" colspan="1">8.24%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">dbAMP</td><td rowspan="1" colspan="1">49.72%</td><td rowspan="1" colspan="1">51.71%</td><td rowspan="1" colspan="1">56.99%</td><td rowspan="1" colspan="1">54.22%</td><td rowspan="1" colspan="1">58.24%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACPred</td><td rowspan="1" colspan="1">88.48%</td><td rowspan="1" colspan="1">89.62%</td><td rowspan="1" colspan="1">88.17%</td><td rowspan="1" colspan="1">88.89%</td><td rowspan="1" colspan="1">11.18%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">iACP-GE</td><td rowspan="1" colspan="1">89.60%</td><td rowspan="1" colspan="1">92.57%</td><td rowspan="1" colspan="1">87.09%</td><td rowspan="1" colspan="1">89.75%</td><td rowspan="1" colspan="1">7.65%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">StackACPred</td><td rowspan="1" colspan="1">92.97%</td><td rowspan="1" colspan="1">96.00%</td><td rowspan="1" colspan="1">90.32%</td><td rowspan="1" colspan="1">93.07%</td><td rowspan="1" colspan="1">4.12%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">DeepACP</td><td rowspan="1" colspan="1">90.73%</td><td rowspan="1" colspan="1">93.60%</td><td rowspan="1" colspan="1">87.97%</td><td rowspan="1" colspan="1">90.70%</td><td rowspan="1" colspan="1">6.47%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-MHCNN</td><td rowspan="1" colspan="1">91.57%</td><td rowspan="1" colspan="1">95.34%</td><td rowspan="1" colspan="1">88.17%</td><td rowspan="1" colspan="1">91.62%</td><td rowspan="1" colspan="1">4.71%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">GRDF</td><td rowspan="1" colspan="1">94.10%</td><td rowspan="1" colspan="1">97.69%</td><td rowspan="1" colspan="1">90.86%</td><td rowspan="1" colspan="1">94.15%</td><td rowspan="1" colspan="1">2.35%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">84.83%</td><td rowspan="1" colspan="1">89.28%</td><td rowspan="1" colspan="1">80.64%</td><td rowspan="1" colspan="1">84.74%</td><td rowspan="1" colspan="1">10.59%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">cACP</td><td rowspan="1" colspan="1">88.28%</td><td rowspan="1" colspan="1">86.93%</td><td rowspan="1" colspan="1">89.47%</td><td rowspan="1" colspan="1">88.18%</td><td rowspan="1" colspan="1">14.71%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">cACP-2LFS</td><td rowspan="1" colspan="1">85.71%</td><td rowspan="1" colspan="1">80.70%</td><td rowspan="1" colspan="1">89.03%</td><td rowspan="1" colspan="1">84.66%</td><td rowspan="1" colspan="1">23.53%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">cACP-DeepGram</td><td rowspan="1" colspan="1">87.14%</td><td rowspan="1" colspan="1">89.47%</td><td rowspan="1" colspan="1">85.00%</td><td rowspan="1" colspan="1">87.17%</td><td rowspan="1" colspan="1">11.18%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">iACP-GAEnsC</td><td rowspan="1" colspan="1">77.14%</td><td rowspan="1" colspan="1">90.64%</td><td rowspan="1" colspan="1">70.77%</td><td rowspan="1" colspan="1">79.48%</td><td rowspan="1" colspan="1">8.24%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ANNprob-ACPs</td><td rowspan="1" colspan="1">91.57%</td><td rowspan="1" colspan="1">91.94%</td><td rowspan="1" colspan="1">91.94%</td><td rowspan="1" colspan="1">91.94%</td><td rowspan="1" colspan="1">8.82%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-ML</td><td rowspan="1" colspan="1">91.57%</td><td rowspan="1" colspan="1">91.94%</td><td rowspan="1" colspan="1">91.94%</td><td rowspan="1" colspan="1">91.94%</td><td rowspan="1" colspan="1">8.82%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">CAPTURE</td><td rowspan="1" colspan="1">92.29%</td><td rowspan="1" colspan="1">84.57%</td><td rowspan="1" colspan="1">92.29%</td><td rowspan="1" colspan="1">88.26%</td><td rowspan="1" colspan="1">18.24%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>This study</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.71%</bold>
+</td><td rowspan="1" colspan="1">95.98%</td><td rowspan="1" colspan="1">
+<bold>95.43%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.90%</bold>
+</td><td rowspan="1" colspan="1">4.12%</td></tr></tbody></table></table-wrap><p>Firstly, ACP-CapsPred integrates residue embedding from the protein language model, which was pretrained on extensive protein datasets. The extracted residue embeddings can learn rich sequence and contextual semantic information from large-scale protein sequence data, helping the model understand relationships between residues, complex interactions, and functional implications. Secondly, ACP-CapsPred incorporates the physicochemical properties of amino acids. By utilizing the AAindex database, we integrate 531 physicochemical properties for each amino acid. Previous research has highlighted the significant utility of physicochemical property information for sequence analysis and multi-omics tasks [<xref rid="ref39" ref-type="bibr">39</xref>]. Thirdly, this study integrates the evolutionary information of peptide sequences. The BLOSUM62 matrix provides insights into the probability of amino acid substitutions, describing the similarity and dissimilarity of protein sequences. By using the BLOSUM62 matrix, we can more effectively identify conserved regions of protein sequences, thus providing important clues about protein functions. Previous studies have demonstrated the value of integrating evolutionary information for protein function prediction [<xref rid="ref36" ref-type="bibr">36</xref>, <xref rid="ref44" ref-type="bibr">44</xref>]. Compared with our previous research based on capsule networks [<xref rid="ref26" ref-type="bibr">26</xref>], ACP-CapsPred integrates residue embeddings extracted from protein language models, the physicochemical properties of residues, and evolutionary information to construct a comprehensive profile of peptides, exemplifying its advancement. Lastly, we employ a next-generation neural network, the capsule network, which conducts hierarchical feature learning and models relationships between features, thus providing a more accurate representation of protein sequences [<xref rid="ref26" ref-type="bibr">26</xref>, <xref rid="ref45" ref-type="bibr">45</xref>, <xref rid="ref46" ref-type="bibr">46</xref>]. Therefore, the achievement of state-of-the-art performance by ACP-CapsPred is not surprising.</p></sec><sec><title>Performance of functional activity prediction of ACP against various cancers</title><p>In the second stage, ACP-CapsPred is employed to predict the functional activity of ACP against various types of cancers. As depicted in Fig. S2, certain ACP sequences exhibit anticancer activity against one or multiple specific cancer types. Consequently, ACP-CapsPred adopts a one-against-all multi-task learning strategy to characterize the functional activity of ACP against different cancer types.</p><p>In prior research, ACP-MLC [<xref rid="ref22" ref-type="bibr">16</xref>] conducted ACP prediction for different types of cancer. Therefore, we considered ACP-MLC as the baseline model, and the comparison results and confusion matrices are shown in <xref rid="TB4" ref-type="table">Tables 4</xref> and S4, respectively. The results indicate that ACP-CapsPred performs slightly worse than ACP-MLC in predicting ACPs against colon cancer, outperforming ACP-MLC in other cancer types. Across the five cancer types, ACP-CapsPred achieves an average accuracy of 90.75% and an average F1-score of 91.38%. Particularly noteworthy is ACP-CapsPred’s highly accurate prediction of ACPs against breast cancer, reaching an accuracy of 94.59%.</p><table-wrap position="float" id="TB4" orientation="portrait"><label>Table 4</label><caption><p>Summary of performance comparison with other existing methods in the second stage</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col span="1" align="left"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/><col span="6" align="left"/><col span="7" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Cancer type</th><th align="left" rowspan="1" colspan="1">Method</th><th align="left" rowspan="1" colspan="1">Accuracy</th><th align="left" rowspan="1" colspan="1">Precision</th><th align="left" rowspan="1" colspan="1">Recall (=TPR)</th><th align="left" rowspan="1" colspan="1">F1-score</th><th align="left" rowspan="1" colspan="1">FPR</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Breast</td><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">93.33%</td><td rowspan="1" colspan="1">92.12%</td><td rowspan="1" colspan="1">92.72%</td><td rowspan="1" colspan="1">92.42%</td><td rowspan="1" colspan="1">13.04%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>94.59%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>96.08%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>96.08%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>96.08%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>3.92%</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Lung</td><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">55.55%</td><td rowspan="1" colspan="1">55.55%</td><td rowspan="1" colspan="1">
+<bold>100.00%</bold>
+</td><td rowspan="1" colspan="1">71.42%</td><td rowspan="1" colspan="1">85.47%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>82.43%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>85.14%</bold>
+</td><td rowspan="1" colspan="1">82.05%</td><td rowspan="1" colspan="1">
+<bold>83.57%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>11.42%</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Colon</td><td rowspan="1" colspan="1">
+<bold>ACP-MLC</bold>
+</td><td rowspan="1" colspan="1">
+<bold>91.89%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>96.07%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>92.45%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>94.23%</bold>
+</td><td rowspan="1" colspan="1">10.71%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">ACP-CapsPred</td><td rowspan="1" colspan="1">91.60%</td><td rowspan="1" colspan="1">90.83%</td><td rowspan="1" colspan="1">92.16%</td><td rowspan="1" colspan="1">91.49%</td><td rowspan="1" colspan="1">
+<bold>8.92%</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Cervical</td><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">49.31%</td><td rowspan="1" colspan="1">51.35%</td><td rowspan="1" colspan="1">50.00%</td><td rowspan="1" colspan="1">50.66%</td><td rowspan="1" colspan="1">8.33%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>94.59%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>92.11%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>97.22%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>94.60%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>2.77%</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Skin</td><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">71.16%</td><td rowspan="1" colspan="1">67.00%</td><td rowspan="1" colspan="1">84.47%</td><td rowspan="1" colspan="1">74.73 %</td><td rowspan="1" colspan="1">41.18%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>90.54%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>90.00%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>92.31%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>91.14%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>11.42%</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Average</td><td rowspan="1" colspan="1">ACP-MLC</td><td rowspan="1" colspan="1">72.25%</td><td rowspan="1" colspan="1">72.42%</td><td rowspan="1" colspan="1">83.93%</td><td rowspan="1" colspan="1">76.69%</td><td rowspan="1" colspan="1">31.74%</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>90.75%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>90.83%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>91.96%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>91.38%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>7.69%</bold>
+</td></tr></tbody></table></table-wrap><p>To further investigate the predictive capability of ACP-CapsPred for different ACP functional activities, we compared it with three common machine learning methods, including RF, SVM, and K-Nearest Neighbors as baseline models. The performance comparison and details of the baseline models are shown in Table S5. ACP-CapsPred outperformed these baseline models, achieving the highest F1-score across the five types of ACP labels. Moreover, ACP-CapsPred demonstrated superior average Accuracy, average Precision, average F1-score, average FPR, average AUROC, and average AUPRC, further confirming its effectiveness. The success of ACP-CapsPred in ACP functional activity prediction can be primarily attributed to the discriminative features extracted by the capsule network, benefiting from its hierarchical feature learning capabilities [<xref rid="ref47" ref-type="bibr">47</xref>].</p></sec><sec><title>The effectiveness of capsule network architecture</title><p>To validate the effectiveness of the capsule network architecture, we visualized the training samples at the primary capsule layer and the type capsule layer. Specifically, for each sample, we concatenated all capsules from the primary capsule layer and the type capsule layer separately to obtain the latent features for each sample in both layers. Then, the PCA technique was employed for dimensionality reduction, converting the high-dimensional features into two dimensions, as presented in <xref rid="f4" ref-type="fig">Fig. 4</xref>. <xref rid="f4" ref-type="fig">Figure 4</xref>A and B represents scatterplots of samples from Set 1 in the primary capsule layer and the type capsule layer, while <xref rid="f4" ref-type="fig">Fig. 4</xref>C and D represents scatterplots of samples from Set 2 in the primary capsule layer and the type capsule layer. The figures show that ACPs represented by red dots and non-ACPs represented by blue dots cluster together in the primary capsule layer and do not exhibit any distinct distribution. However, ACPs and non-ACPs are separable at the type capsule layer. This is attributed to the capsule network’s ability to perform knowledge processing and hierarchical modeling in the primary capsule layer, ultimately extracting discriminative features [<xref rid="ref48" ref-type="bibr">48</xref>].</p><fig position="float" id="f4" orientation="portrait"><label>Figure 4</label><caption><p>PCA visualization of the feature space; (A) visualization of the primary capsule layer of Set 1; (B) visualization of the type capsule layer of Set 1; (C) visualization of the primary capsule layer of Set 2; (D) visualization of the type capsule layer of Set 2, and for each sample, the capsules from the primary capsule layer and the type capsule layer are concatenated separately and then subjected to PCA for dimensionality reduction to visualize each sample in a 2D space; ACPs and non-ACPs are shown in red color and blue color, respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f4.jpg"/></fig><p>In order to investigate the impact of the capsule network architecture on model performance further, we replaced the capsule network architecture with a multi-layer perceptron. We trained the newly configured model on Sets 1 and 2 and compared its performance with ACP-CapsPred, as summarized in <xref rid="TB5" ref-type="table">Table 5</xref>. The table shows that models without the capsule network architecture exhibit a significant drop in performance compared with ACP-CapsPred. Accuracy decreased by 4.70% and 3.14% on Set 1 and Set 2, respectively. Precision, Recall, and F1-score also showed significant decreases.</p><table-wrap position="float" id="TB5" orientation="portrait"><label>Table 5</label><caption><p>Summary of performance comparison with the model without capsule networks</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col span="1" align="left"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/><col span="6" align="left"/><col span="7" align="left"/><col span="8" align="left"/><col span="9" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Dataset</th><th align="left" rowspan="1" colspan="1">Model</th><th align="left" rowspan="1" colspan="1">Accuracy</th><th align="left" rowspan="1" colspan="1">Precision</th><th align="left" rowspan="1" colspan="1">Recall (=TPR)</th><th align="left" rowspan="1" colspan="1">F1-score</th><th align="left" rowspan="1" colspan="1">FPR</th><th align="left" rowspan="1" colspan="1">AUROC</th><th align="left" rowspan="1" colspan="1">AUPRC</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Set 1</td><td rowspan="1" colspan="1">Without Capsule network</td><td rowspan="1" colspan="1">75.55%</td><td rowspan="1" colspan="1">75.95%</td><td rowspan="1" colspan="1">75.50%</td><td rowspan="1" colspan="1">75.72%</td><td rowspan="1" colspan="1">23.75%</td><td rowspan="1" colspan="1">0.863</td><td rowspan="1" colspan="1">0.832</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>80.25%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>81.70%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>78.12%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>79.86%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>17.61%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.942</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.947</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Set 2</td><td rowspan="1" colspan="1">Without Capsule network</td><td rowspan="1" colspan="1">92.57%</td><td rowspan="1" colspan="1">94.05%</td><td rowspan="1" colspan="1">90.80%</td><td rowspan="1" colspan="1">93.30%</td><td rowspan="1" colspan="1">5.85%</td><td rowspan="1" colspan="1">0.962</td><td rowspan="1" colspan="1">0.972</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.71%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.98%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.43%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.90%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>4.12%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.986</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.989</bold>
+</td></tr></tbody></table></table-wrap><p>For a more intuitive performance comparison, we plotted the two models’ ROC and PR curves. The ROC and PR curves for Set 1 and Set 2 are presented in Figs S3 and <xref rid="f5" ref-type="fig">5</xref>, respectively. <xref rid="f5" ref-type="fig">Figure 5</xref> shows that the ROC curve representing ACP-CapsPred is positioned in the upper left corner, achieving a larger AUROC (0.986) than the model without the capsule network. Similarly, the PR curve representing ACP-CapsPred is in the upper right corner, achieving a larger AUPRC (0.989) than the model without the capsule network. The comparison with the model without the capsule network further demonstrates the capsule network’s capability to significantly enhance ACP recognition, which can be attributed to several factors. Firstly, compared with traditional deep neural networks, capsule networks utilize vectors to represent inputs and outputs instead of simple scalars. This allows capsule networks to represent entities more richly, thereby enhancing feature representation capabilities and enabling them to excel in understanding complex data structures. Secondly, the dynamic routing mechanism plays a crucial role, enabling different capsules to communicate, negotiate, and reach a consensus. This mechanism helps model the hierarchical relationships between different features, thereby improving the model’s generalization ability and robustness. Given these advantages, capsule networks are beneficial for modeling the hierarchical relationships of different residues in sequences for ACP activity prediction tasks. Therefore, it is understandable that ACP-CapsPred achieves satisfactory performance in this study.</p><fig position="float" id="f5" orientation="portrait"><label>Figure 5</label><caption><p>ROC and PR curves for ACP-CapsPred and the model without a capsule network on Set 2.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f5.jpg"/></fig></sec><sec><title>Comparing the effectiveness of PCA and other dimensionality reduction methods</title><p>To comprehensively consider the profile of peptide sequences, ACP-CapsPred integrates residue embeddings, the BLOSUM62 matrix, and the AAindex matrix. However, the large dimension of the feature matrix might make the model difficult to train [<xref rid="ref49" ref-type="bibr">49</xref>]. Therefore, we incorporated PCA for dimensionality reduction to eliminate redundant information and noise from the feature matrix, further extracting the most representative features. This process reduces the number of features, accelerates the training process, and decreases storage space and computational costs.</p><p>We compared PCA with several other commonly used dimensionality reduction techniques, including Factor Analysis, Independent Component Analysis, and UMAP, to validate the effectiveness of PCA. The performance comparison is shown in Table S6, which indicates that models using PCA for dimensionality reduction achieved the best performance, with accuracy improvements of 5% and 2.6% over other methods on the two datasets, respectively. Furthermore, the F1-scores with PCA were 7.2% and 2.8% higher than other dimensionality reduction methods on the two datasets. ACP-CapsPred and the models trained with other dimensionality reduction methods share the same architecture. However, ACP-CapsPred significantly outperforms the others, indicating that the PCA dimensionality reduction strategy used by ACP-CapsPred can extract more representative features, thereby enhancing the model’s predictive performance.</p></sec><sec><title>Ablation experiment</title><p>In order to explore the influence of different feature encodings on prediction results, we conducted the following three ablation experiments:</p><list list-type="simple"><list-item><p>(i) Without BLOSUM62: The feature matrix excludes the BLOSUM62 matrix for amino acid sequences and is composed of the AAindex matrix and embeddings from a pre-trained model.</p></list-item><list-item><p>(ii) Without AAindex: The feature matrix excludes the AAindex matrix for amino acid sequences and is composed of the BLOSUM62 matrix and embeddings from a pre-trained model.</p></list-item><list-item><p>(iii) Without pre-trained model: The feature matrix excludes embeddings from a pretrained model and is composed of the BLOSUM62 matrix and AAindex matrix.</p></list-item></list><p>The results of the ablation experiments are presented in <xref rid="TB6" ref-type="table">Table 6</xref>. The predictive model performance is most significantly compromised when the pretrained model is omitted. Particularly, on Set 1, the model without the pretrained model exhibited an accuracy of only 65.52%, representing a decrease of <inline-formula><tex-math notation="LaTeX" id="ImEquation51">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$\sim $\end{document}</tex-math></inline-formula>14.73% compared with ACP-CapsPred. In contrast, the models without BLOSUM62 and AAindex only exhibited decreases of 5.01% and 2.82%, respectively. Similarly, on Set 2, the model without the pretrained model displayed a decrease in accuracy of 2.74% compared with ACP-CapsPred, while the models without BLOSUM62 and AAindex only exhibited decreases of 1.42% and 2.01%, respectively.</p><table-wrap position="float" id="TB6" orientation="portrait"><label>Table 6</label><caption><p>Summary of performance in ablation experiments</p></caption><table frame="hsides" rules="groups"><colgroup span="1"><col span="1" align="left"/><col span="2" align="left"/><col span="3" align="left"/><col span="4" align="left"/><col span="5" align="left"/><col span="6" align="left"/><col span="7" align="left"/><col span="8" align="left"/><col span="9" align="left"/></colgroup><thead><tr><th align="left" rowspan="1" colspan="1">Dataset</th><th align="left" rowspan="1" colspan="1">Model</th><th align="left" rowspan="1" colspan="1">Accuracy</th><th align="left" rowspan="1" colspan="1">Precision</th><th align="left" rowspan="1" colspan="1">Recall (=TPR)</th><th align="left" rowspan="1" colspan="1">F1-score</th><th align="left" rowspan="1" colspan="1">FPR</th><th align="left" rowspan="1" colspan="1">AUROC</th><th align="left" rowspan="1" colspan="1">AUPRC</th></tr></thead><tbody><tr><td rowspan="1" colspan="1">Set 1</td><td rowspan="1" colspan="1">Without BLOSUM62</td><td rowspan="1" colspan="1">75.24%</td><td rowspan="1" colspan="1">74.55%</td><td rowspan="1" colspan="1">76.88%</td><td rowspan="1" colspan="1">74.89%</td><td rowspan="1" colspan="1">26.25%</td><td rowspan="1" colspan="1">0.884</td><td rowspan="1" colspan="1">0.890</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">Without AAindex</td><td rowspan="1" colspan="1">77.43%</td><td rowspan="1" colspan="1">76.83%</td><td rowspan="1" colspan="1">78.75%</td><td rowspan="1" colspan="1">77.13%</td><td rowspan="1" colspan="1">23.75%</td><td rowspan="1" colspan="1">0.909</td><td rowspan="1" colspan="1">0.917</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">Without the pre-trained model</td><td rowspan="1" colspan="1">65.52%</td><td rowspan="1" colspan="1">63.74%</td><td rowspan="1" colspan="1">
+<bold>85.16%</bold>
+</td><td rowspan="1" colspan="1">72.91%</td><td rowspan="1" colspan="1">48.13%</td><td rowspan="1" colspan="1">0.847</td><td rowspan="1" colspan="1">0.844</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>80.25%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>81.70%</bold>
+</td><td rowspan="1" colspan="1">78.12%</td><td rowspan="1" colspan="1">
+<bold>79.86%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>17.61%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.942</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.947</bold>
+</td></tr><tr><td rowspan="1" colspan="1">Set 2</td><td rowspan="1" colspan="1">Without BLOSUM62</td><td rowspan="1" colspan="1">94.29%</td><td rowspan="1" colspan="1">94.25%</td><td rowspan="1" colspan="1">94.25%</td><td rowspan="1" colspan="1">94.25%</td><td rowspan="1" colspan="1">5.85%</td><td rowspan="1" colspan="1">0.980</td><td rowspan="1" colspan="1">0.983</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">Without AAindex</td><td rowspan="1" colspan="1">93.70%</td><td rowspan="1" colspan="1">92.70%</td><td rowspan="1" colspan="1">94.83%</td><td rowspan="1" colspan="1">93.75%</td><td rowspan="1" colspan="1">7.60%</td><td rowspan="1" colspan="1">0.984</td><td rowspan="1" colspan="1">0.987</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">Without the pre-trained model</td><td rowspan="1" colspan="1">92.97%</td><td rowspan="1" colspan="1">
+<bold>96.00%</bold>
+</td><td rowspan="1" colspan="1">90.32%</td><td rowspan="1" colspan="1">93.07%</td><td rowspan="1" colspan="1">4.19%</td><td rowspan="1" colspan="1">0.848</td><td rowspan="1" colspan="1">0.864</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">
+<bold>ACP-CapsPred</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.71%</bold>
+</td><td rowspan="1" colspan="1">95.98%</td><td rowspan="1" colspan="1">
+<bold>95.43%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>95.90%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>4.12%</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.986</bold>
+</td><td rowspan="1" colspan="1">
+<bold>0.989</bold>
+</td></tr></tbody></table></table-wrap><p>To present the results of the ablation experiments more clearly and intuitively, we plotted ROC and PR curves for the three ablation experiments on two datasets, Set 1 and Set 2, as shown in Figs S4 and <xref rid="f6" ref-type="fig">6</xref>, respectively. <xref rid="f6" ref-type="fig">Figure 6</xref>A–C represents the ROC curves corresponding to the models without BLOSUM62, without AAindex, and without the pretrained model, respectively. It can be observed that the areas enclosed by the ROC curves for the three ablation experiments are reduced compared with ACP-CapsPred. Notably, the ROC curves corresponding to models without BLOSUM62 and without AAindex exhibit a relatively high degree of overlap with the ROC curve corresponding to ACP-CapsPred, and their respective AUROC values are close. This suggests that the impact of BLOSUM62 and AAindex on the model’s predictive performance is relatively small. In contrast, as evident from <xref rid="f6" ref-type="fig">Fig. 6</xref>C, when the model excludes embeddings from the pretrained model, its overall ROC curve shifts lower and to the right, achieving only an AUROC of 0.848, representing a decrease of 0.138 compared with ACP-CapsPred. <xref rid="f6" ref-type="fig">Figure 6</xref>D–F corresponds to the PR curves for the models without BLOSUM62, without AAindex, and without the pretrained model, respectively. Similarly, when the model omits embeddings from the pretrained model, its PR curve shifts lower and to the left, achieving only an AUPRC of 0.864, representing a decrease of 0.125 compared with ACP-CapsPred.</p><fig position="float" id="f6" orientation="portrait"><label>Figure 6</label><caption><p>ROC and PR curves of the ablation experiments on Set 2.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f6.jpg"/></fig><p>These findings suggest that the embeddings of protein sequences from pretrained protein language models substantially impact model prediction performance. This underscores the notion that semantic features rich in contextual information exert the most significant contribution compared with physicochemical properties and evolutionary information in the context of ACP prediction tasks. Additionally, we compared our encoding approach with the commonly used one-hot encoding strategy, as shown in Table S7. Compared with ACP-CapsPred, the model using one-hot encoding showed 7.5% and 6% lower accuracy on the two datasets, respectively. This demonstrates that the feature encoding method employed by ACP-CapsPred can incorporate peptide information more comprehensively than one-hot encoding.</p></sec><sec><title>Feature analysis</title><p>The superiority of capsule networks lies in their ability to capture spatial hierarchical relationships among features and more effectively explore features through a dynamic routing mechanism. To visually demonstrate the feature exploration capabilities of capsule networks, we compared features extracted by capsule networks with hand-crafted peptide descriptors, as shown in <xref rid="f7" ref-type="fig">Fig. 7</xref> for Set 2, respectively. We selected five common hand-crafted peptide descriptors, namely AAC, DPC, CKSAAGP, PAAC, and PHYC, and denoted the features extracted by capsule networks as ”Type Capsule.”</p><fig position="float" id="f7" orientation="portrait"><label>Figure 7</label><caption><p>Visualization of positive and negative samples with distinct features is conducted on Set 2; the latent features derived from type capsule of ACP-CapsPred are compared with several widely used hand-craft peptide descriptors, namely AAC, DPC, PAAC, CKSAAGP, and PHYC; the reduction of high-dimensional features to two dimensions is achieved through PCA, and ACPs are represented by red dots, while non-ACPs are represented by blue dots.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f7.jpg"/></fig><p>
+<xref rid="f7" ref-type="fig">Figure 7</xref> shows that, compared with the five hand-crafted peptide descriptors, the features extracted by capsule networks can categorize ACP and non-ACP into two distinct clusters, allowing for better differentiation. This underscores the capacity of capsule networks to process and explore features at a deeper level, which is critical for the precise prediction of ACP.</p></sec><sec><title>Interpretability of ACP-CapsPred</title><p>In order to investigate the impact of amino acid type and sequence region on the anticancer activity of peptides, we employed an <italic toggle="yes">in silico</italic> mutagenesis (ISM) approach [<xref rid="ref50" ref-type="bibr">50</xref>] on all sequences in the dataset. Each reference amino acid of the peptide was mutated to 19 other alternative amino acids to evaluate the predicted score changes. The ISM results for an ACP of 50 amino acids in length are depicted in <xref rid="f8" ref-type="fig">Fig. 8</xref>A, indicating that the front portion of the amino acids, particularly the first ten amino acids, significantly influences the prediction scores.</p><fig position="float" id="f8" orientation="portrait"><label>Figure 8</label><caption><p>The interpretable analysis on region importance with ACP-CapsPred;(A) the amino acid position importance plot obtained from ISM experiments based on a 50 length ACP; (B) the result of the split experiment based on a 50 length ACP; (C) the result of the split experiment based on all ACP sequences longer than 30 amino, and the forward clipping involves cutting the sequence at the head region while preserving the tail region; conversely, the backward clipping involves cutting the sequence at the tail region while preserving the head region.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f8.jpg"/></fig><p>To validate this observation, we conducted clipping experiments on this sequence, and the results are shown in <xref rid="f8" ref-type="fig">Fig. 8</xref>B. We clipped from both the front and rear ends of the sequence and then fed the clipped sequences into the model to assess whether the anticancer activity could be retained. <xref rid="f8" ref-type="fig">Figure 8</xref>B illustrates that a substantial drop in accuracy occurs when the sequence is clipped from the front, especially when the first amino acid is clipped, resulting in about 20% accuracy drop. Conversely, when the amino acids are clipped from the rear, the accuracy remains consistently above 90% as long as fewer than 30 amino acids are removed. This further underscores the significant impact of the front portion of the amino acid sequence on anticancer activity, particularly the first amino acid.</p><p>Next, we repeated the aforementioned experiments for all ACP sequences longer than 30 amino acids, sequentially clipping amino acids from both the front and rear. <xref rid="f8" ref-type="fig">Figure 8</xref>C shows the average accuracy obtained from these experiments. Clipping amino acids from the front has a more pronounced impact on their accuracy, especially when the first amino acid is clipped, resulting in an average accuracy decrease of about 20%. Clipping amino acids from the rear has a lesser impact on accuracy.</p><p>To further demonstrate the above conclusion, we conducted additional explainable analysis using SHAP values, and the results are shown in Fig. S5. We first extracted feature vectors corresponding to each residue in ACP or non-ACP, followed by summing all the values within the feature vector to obtain the normalized feature for each residue in the sequence, which is illustrated in Fig. S5A and C, where the <inline-formula><tex-math notation="LaTeX" id="ImEquation52">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$x$\end{document}</tex-math></inline-formula>-axis represents residue positions and the <inline-formula><tex-math notation="LaTeX" id="ImEquation53">\documentclass[12pt]{minimal}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{upgreek}
+\usepackage{mathrsfs}
+\setlength{\oddsidemargin}{-69pt}
+\begin{document}
+$y$\end{document}</tex-math></inline-formula>-axis represents different sequences. In this analysis, we randomly selected 50 ACPs and 50 non-ACPs sequences from the test set. Figure S5B and D displays the SHAP values for different residue positions in these ACP and non-ACP sequences, respectively, indicating the impact of residues at different positions on the model output. Specifically, Fig. S5B shows the impact of different residue positions on the model output for the 50 randomly selected ACP sequences, where redder colors indicate a greater contribution to correct ACP predictions. It can be easily observed that residues at the initial positions have a more significant impact, as indicated by the redder colors, which is consistent with <xref rid="f8" ref-type="fig">Fig. 8</xref>. Similarly, Fig. S5D shows the impact of different residue positions on the model output for the 50 randomly selected non-ACP sequences, where bluer colors indicate a greater contribution to correct non-ACP predictions. It is also evident that residues at the initial positions have a more significant impact, as indicated by the bluer colors.</p><p>The unique architecture of capsule networks can assist in unraveling the black box of deep learning. To further validate the phenomenon above, we conducted interpretability analysis using capsule networks and generated a heatmap of the importance of amino acid types and positions, as shown in Fig. S6, where darker colors indicate higher importance. Due to variations in the distribution of different sequences, we categorized all sequences into eight groups based on their lengths.</p><p>It is readily observable that, within each group, amino acids at the first position exhibit a more significant number of dark cells, indicating that the first position’s amino acid exerts the most significant influence on the anticancer activity of peptides, consistent with the previous conclusion [<xref rid="ref51" ref-type="bibr">51</xref>]. For example, in sequences of lengths 11 to 15, 16 to 20, and 21 to 25, the amino acid Phenylalanine (F) with hydrophobic properties has the most significant impact at the first position, suggesting a potential link between the anticancer activity of shorter sequences and hydrophobic interactions. In sequences of lengths 26 to 30 and 31 to 35, the amino acid Glycine (G) with polar properties exerts the most significant influence at the first position, implying a strong association between the anticancer activity of longer sequences and electrostatic interactions [<xref rid="ref51" ref-type="bibr">51</xref>, <xref rid="ref52" ref-type="bibr">52</xref>].</p><p>Subsequently, we visualized the frequency of occurrence of the first ten amino acids in ACPs within each group and created sequence logos, as shown in <xref rid="f9" ref-type="fig">Fig. 9</xref>. It is evident that in sequences of lengths 11 to 15, 16 to 20, and 21 to 25, amino acids Phenylalanine (F) with hydrophobic properties and Glycine (G) with polar properties have the highest occurrence rates at the first position [<xref rid="ref53" ref-type="bibr">53</xref>]. In sequences of lengths 26 to 30 and 31 to 35, amino acid G with polar properties has the highest occurrence rate at the first position [<xref rid="ref54" ref-type="bibr">54</xref>]. In sequences of lengths 36 to 40 and 41 to 45, the amino acid Alanine (A) with hydrophobic properties has the highest occurrence rate [<xref rid="ref27" ref-type="bibr">27</xref>]. This further underscores that the mechanism of action for ACPs is associated with hydrophobic and electrostatic interactions, consistent with the earlier findings and prior literature[<xref rid="ref55" ref-type="bibr">55</xref>, <xref rid="ref56" ref-type="bibr">56</xref>]. Furthermore, it is observed that for short peptides, hydrophobic interactions may play a dominant role in anticancer activity [<xref rid="ref57" ref-type="bibr">57</xref>].</p><fig position="float" id="f9" orientation="portrait"><label>Figure 9</label><caption><p>Visualization of frequencies of occurrence regarding first 10 amino acids within ACPs.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="bbae460f9.jpg"/></fig></sec></sec><sec><title>Conclusion</title><p>In this study, we proposed a two-stage computational framework, ACP-CapsPred, for predicting ACPs and their targets across various cancers. The first stage of ACP-CapsPred is dedicated to identifying ACPs, while the second stage focuses on predicting the functional activity of ACPs against different types of cancer. ACP-CapsPred integrates protein language models to extract residue embeddings and incorporates peptides’ physicochemical properties and evolutionary features to construct a comprehensive profile of peptides. Employing a next-generation neural network, capsule networks, ACP-CapsPred demonstrates state-of-the-art performance in both stages. ACP-CapsPred’s convincing performance in predicting ACPs and their targets presents a novel option to expedite the development of ACPs. This study demonstrates the potential of capsule networks in protein sequence analysis. In future research, we encourage researchers to apply our proposed model architecture to other protein sequence analysis tasks, such as predicting other functional activities of proteins. Additionally, we encourage researchers to make further modifications to our model architecture, such as trying different feature encoding methods or using other protein language models to extract residue embeddings, to achieve better prediction performance.</p><p>In conclusion, ACP-CapsPred is a valuable tool for scientists studying ACPs. ACP-CapsPred significantly accelerates the screening process for ACPs, efficiently identifying ACPs from natural or synthetic peptide collections without extensive manual labor. This substantially reduces the time and effort required by researchers for screening potential ACPs, thereby lowering laboratory workload. By enabling high-throughput screening, ACP-CapsPred can help pharmaceutical companies reduce drug development costs. Furthermore, ACP-CapsPred offers better interpretability compared with other existing computational tools, revealing the importance of residues at different positions on anticancer activity, which helps researchers better understand the mechanisms of action of ACP. Clinically, physicians and scientists can use ACP-CapsPred to further optimize peptide structures through molecular docking or molecular dynamics simulations and conduct cell experiments to evaluate their toxicity and efficacy. Additionally, ACPs identified by ACP-CapsPred can be combined with existing treatments including chemotherapy, radiotherapy, and immunotherapy to form combination therapy regimens. By attacking cancer cells through multiple pathways, comprehensive treatment efficacy can be enhanced, potentially setting a new trend in cancer therapy.</p><boxed-text id="box01" position="float" orientation="portrait"><sec id="sec28a"><title>Key Points</title><list list-type="bullet"><list-item><p>This study introduces a computational framework named ACP-CapsPred, designed to identify ACPs and characterize their functional activities across various types of cancer.</p></list-item><list-item><p>ACP-CapsPred integrates residue embeddings from a protein language model with their evolutionary information and physicochemical properties to construct a comprehensive peptide profile. ACP-CapsPred employs a next-generation neural network, specifically capsule networks, to construct classification models to enhance predictive capabilities.</p></list-item><list-item><p>ACP-CapsPred demonstrates satisfactory predictive capabilities in both stages, achieving state-of-the-art performance.</p></list-item><list-item><p>ACP-CapsPred exhibits excellent interpretability, revealing regions and residues associated with anticancer activity, aiding researchers in understanding the mechanism of ACP’s anticancer effects.</p></list-item></list></sec></boxed-text></sec><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material id="sup1" position="float" content-type="local-data" orientation="portrait"><label>supplementary_bbae460</label><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="supplementary_bbae460.pdf" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="ack1"><title>Acknowledgements</title><p>The authors sincerely appreciate Kobilka Institute of Innovative Drug Discovery, The Chinese University of Hong Kong (Shenzhen), and National Yang Ming Chiao Tung University for financially supporting this research.</p></ack><sec><title> </title><p>Conflict of interest: The authors declare no competing interests.</p></sec><sec><title>Funding</title><p>This work was supported by the Guangdong Province Basic and Applied Basic Research Fund (2021A1515012447), National Natural Science Foundation of China (32070659), Shenzhen Science and Technology Innovation Commission (JCYJ20230807114206014), and the Kobilka Institute of Innovative Drug Discovery, The Chinese University of Hong Kong, Shenzhen, China. This work was also financially supported by the Center for Intelligent Drug Systems and Smart Bio-devices (IDS2B) from The Featured Areas Research Center Program within the framework of the Higher Education Sprout Project and Yushan Young Fellow Program (112C1N084C) by the Ministry of Education (MOE) and National Science and Technology Council (NSTC 112-2321-B-A49-016 and 112-2740-B-400-005) in Taiwan.</p><p>
+<italic toggle="yes">Conflict of interest</italic>: The authors declare no competing interests.</p></sec><sec sec-type="data-availability"><title>Data and software availability</title><p>The codes and datasets of ACP-CapsPred are available at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/Cpillar/ACP-CapsPred" ext-link-type="uri">https://github.com/Cpillar/ACP-CapsPred</ext-link>.</p></sec><sec><title>Author contributions</title><p>Lantian Yao and Tzong-Yi Lee presented the idea. Lantian Yao, Peilin Xie, Jiahui Guan, and Wenyang Zhang implemented the framework and built the pipeline. Lantian Yao, Peilin Xie, Chia-Ru Chung, Junyang Deng, and Yixian Huang analysed the results. Tzong-Yi Lee and Ying-Chih Chiang supervised the research project.</p></sec><ref-list id="bib1"><title>References</title><ref id="ref1"><label>1.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Sudhakar</surname>
+<given-names>A</given-names>
+</string-name>
+</person-group>. <article-title>History of cancer, ancient and modern treatment methods</article-title>. <source><italic toggle="yes">J Cancer Sci Ther</italic></source><year>2009</year>; <volume>1</volume>:<fpage>1</fpage>–<lpage>4</lpage>. <pub-id pub-id-type="doi">10.4172/1948-5956.100000e2</pub-id>.<pub-id pub-id-type="pmid">20740081</pub-id>
+</mixed-citation></ref><ref id="ref2"><label>2.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Siegel</surname>
+<given-names>RL</given-names>
+</string-name>, <string-name name-style="western"><surname>Miller</surname><given-names>KD</given-names></string-name>, <string-name name-style="western"><surname>Wagle</surname><given-names>NS</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Cancer statistics, 2023</article-title>. <source><italic toggle="yes">CA Cancer J Clin</italic></source><year>2023</year>; <volume>73</volume>:<fpage>17</fpage>–<lpage>48</lpage>. <pub-id pub-id-type="doi">10.3322/caac.21763</pub-id>.<pub-id pub-id-type="pmid">36633525</pub-id>
+</mixed-citation></ref><ref id="ref3"><label>3.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Dongdong</surname>
+<given-names>W</given-names>
+</string-name>, <string-name name-style="western"><surname>Gao</surname><given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Qi</surname><given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Peptide-based cancer therapy: opportunity and challenge</article-title>. <source><italic toggle="yes">Cancer Lett</italic></source><year>2014</year>; <volume>351</volume>:<fpage>13</fpage>–<lpage>22</lpage>.<pub-id pub-id-type="pmid">24836189</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.canlet.2014.05.002</pub-id></mixed-citation></ref><ref id="ref4"><label>4.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Baudino</surname>
+<given-names>TA</given-names>
+</string-name>
+</person-group>. <article-title>Targeted cancer therapy: The next generation of cancer treatment</article-title>. <source><italic toggle="yes">Curr Drug Discov Technol</italic></source><year>2015</year>; <volume>12</volume>:<fpage>3</fpage>–<lpage>20</lpage>. <pub-id pub-id-type="doi">10.2174/1570163812666150602144310</pub-id>.<pub-id pub-id-type="pmid">26033233</pub-id>
+</mixed-citation></ref><ref id="ref5"><label>5.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Xiao</surname>
+<given-names>Y-F</given-names>
+</string-name>, <string-name name-style="western"><surname>Jie</surname><given-names>M-M</given-names></string-name>, <string-name name-style="western"><surname>Li</surname><given-names>B-S</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Peptide-based treatment: a promising cancer therapy</article-title>. <source><italic toggle="yes">J Immunol Res</italic></source><year>2015</year>; <volume>2015</volume>:<fpage>1</fpage>–<lpage>13</lpage>. <pub-id pub-id-type="doi">10.1155/2015/761820</pub-id>.<pub-id pub-id-type="pmcid">PMC4629048</pub-id><pub-id pub-id-type="pmid">26568964</pub-id></mixed-citation></ref><ref id="ref6"><label>6.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Magana</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Pushpanathan</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Santos</surname><given-names>AL</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>The value of antimicrobial peptides in the age of resistance</article-title>. <source><italic toggle="yes">Lancet Infect Dis</italic></source><year>2020</year>; <volume>20</volume>:<fpage>e216</fpage>–<lpage>30</lpage>. <pub-id pub-id-type="doi">10.1016/S1473-3099(20)30327-3</pub-id>.<pub-id pub-id-type="pmid">32653070</pub-id>
+</mixed-citation></ref><ref id="ref7"><label>7.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Hoskin</surname>
+<given-names>DW</given-names>
+</string-name>, <string-name name-style="western"><surname>Ramamoorthy</surname><given-names>A</given-names></string-name></person-group>. <article-title>Studies on anticancer activities of antimicrobial peptides</article-title>. <source><italic toggle="yes">Biochimica et Biophysica Acta (BBA)-Biomembranes</italic></source><year>2008</year>; <volume>1778</volume>:<fpage>357</fpage>–<lpage>75</lpage>. <pub-id pub-id-type="doi">10.1016/j.bbamem.2007.11.008</pub-id>.<pub-id pub-id-type="pmid">18078805</pub-id>
+<pub-id pub-id-type="pmcid">PMC2238813</pub-id></mixed-citation></ref><ref id="ref8"><label>8.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Thundimadathil</surname>
+<given-names>J</given-names>
+</string-name>
+</person-group>. <article-title>Cancer treatment using peptides: Current therapies and future prospects</article-title>. <source><italic toggle="yes">J Amino Acids</italic></source><year>2012</year>; <volume>2012</volume>:<fpage>1</fpage>–<lpage>13</lpage>. <pub-id pub-id-type="doi">10.1155/2012/967347</pub-id>.<pub-id pub-id-type="pmcid">PMC3539351</pub-id><pub-id pub-id-type="pmid">23316341</pub-id></mixed-citation></ref><ref id="ref9"><label>9.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Xie</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Liu</surname><given-names>D</given-names></string-name>, <string-name name-style="western"><surname>Yang</surname><given-names>Y</given-names></string-name></person-group>. <article-title>Anti-cancer peptides: classification, mechanism of action, reconstruction and modification</article-title>. <source><italic toggle="yes">Open Biol</italic></source><year>2020</year>; <volume>10</volume>:<fpage>200004</fpage>. <pub-id pub-id-type="doi">10.1098/rsob.200004</pub-id>.<pub-id pub-id-type="pmid">32692959</pub-id>
+<pub-id pub-id-type="pmcid">PMC7574553</pub-id></mixed-citation></ref><ref id="ref10"><label>10.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Tyagi</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western"><surname>Kapoor</surname><given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Kumar</surname><given-names>R</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>In silico models for designing and discovering novel anticancer peptides</article-title>. <source><italic toggle="yes">Sci Rep</italic></source><year>2013</year>; <volume>3</volume>. <pub-id pub-id-type="doi">10.1038/srep02984</pub-id>.<pub-id pub-id-type="pmcid">PMC6505669</pub-id><pub-id pub-id-type="pmid">24136089</pub-id></mixed-citation></ref><ref id="ref13"><label>11.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Agrawal</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western"><surname>Bhagat</surname><given-names>D</given-names></string-name>, <string-name name-style="western"><surname>Mahalwal</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Anticp 2.0: an updated model for predicting anticancer peptides</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source><year>2021</year>; <volume>22</volume>:<fpage>bbaa153</fpage>. <pub-id pub-id-type="doi">10.1093/bib/bbaa153</pub-id>.<pub-id pub-id-type="pmid">32770192</pub-id>
+</mixed-citation></ref><ref id="ref12"><label>12.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Schaduangrat</surname>
+<given-names>N</given-names>
+</string-name>, <string-name name-style="western"><surname>Nantasenamat</surname><given-names>C</given-names></string-name>, <string-name name-style="western"><surname>Prachayasittikul</surname><given-names>V</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Acpred: a computational tool for the prediction and analysis of anticancer peptides</article-title>. <source><italic toggle="yes">Molecules</italic></source><year>2019</year>; <volume>24</volume>:<fpage>1973</fpage>. <pub-id pub-id-type="doi">10.3390/molecules24101973</pub-id>.<pub-id pub-id-type="pmid">31121946</pub-id>
+<pub-id pub-id-type="pmcid">PMC6571645</pub-id></mixed-citation></ref><ref id="ref18"><label>13.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Liang</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name name-style="western"><surname>Ma</surname><given-names>X</given-names></string-name></person-group>. <article-title>Iacp-ge: Accurate identification of anticancer peptides by using gradient boosting decision tree and extra tree</article-title>. <source><italic toggle="yes">SAR QSAR Environ Res</italic></source><year>2023</year>; <volume>34</volume>:<fpage>1</fpage>–<lpage>19</lpage>. <pub-id pub-id-type="doi">10.1080/1062936X.2022.2160011</pub-id>.<pub-id pub-id-type="pmid">36562289</pub-id>
+</mixed-citation></ref><ref id="ref19"><label>14.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Arif</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Ahmed</surname><given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Ge</surname><given-names>F</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Stackacpred: prediction of anticancer peptides by integrating optimized multiple feature descriptors with stacked ensemble approach</article-title>. <source><italic toggle="yes">Chemom Intel Lab Syst</italic></source><year>2022</year>; <volume>220</volume>:<fpage>104458</fpage>. <pub-id pub-id-type="doi">10.1016/j.chemolab.2021.104458</pub-id>.</mixed-citation></ref><ref id="ref21"><label>15.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western"><surname>Li</surname><given-names>W</given-names></string-name>, <string-name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Accelerating the discovery of anticancer peptides through deep forest architecture with deep graphical representation</article-title>. <source><italic toggle="yes">Int J Mol Sci</italic></source><year>2023</year>; <volume>24</volume>:<fpage>4328</fpage>. <pub-id pub-id-type="doi">10.3390/ijms24054328</pub-id>.<pub-id pub-id-type="pmid">36901759</pub-id>
+<pub-id pub-id-type="pmcid">PMC10001941</pub-id></mixed-citation></ref><ref id="ref22"><label>16.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Deng</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western"><surname>Ding</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname><given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Acp-mlc: a two-level prediction engine for identification of anticancer peptides and multi-label classification of their functional types</article-title>. <source><italic toggle="yes">Comput Biol Med</italic></source><year>2023</year>; <volume>158</volume>:<fpage>106844</fpage>. <pub-id pub-id-type="doi">10.1016/j.compbiomed.2023.106844</pub-id>.<pub-id pub-id-type="pmid">37058760</pub-id>
+</mixed-citation></ref><ref id="ref14"><label>17.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lezheng</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name name-style="western"><surname>Jing</surname><given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Liu</surname><given-names>F</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Deepacp: a novel computational approach for accurate identification of anticancer peptides by deep learning algorithm</article-title>. <source><italic toggle="yes">Molecular Therapy-Nucleic Acids</italic></source><year>2020</year>; <volume>22</volume>:<fpage>862</fpage>–<lpage>70</lpage>.<pub-id pub-id-type="pmid">33230481</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.omtn.2020.10.005</pub-id><pub-id pub-id-type="pmcid">PMC7658571</pub-id></mixed-citation></ref><ref id="ref17"><label>18.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ahmed</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Muhammod</surname><given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Khan</surname><given-names>ZH</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Acp-mhcnn: an accurate multi-headed deep-convolutional neural network to predict anticancer peptides</article-title>. <source><italic toggle="yes">Sci Rep</italic></source><year>2021</year>; <volume>11</volume>:<fpage>23676</fpage>. <pub-id pub-id-type="doi">10.1038/s41598-021-02703-3</pub-id>.<pub-id pub-id-type="pmid">34880291</pub-id>
+<pub-id pub-id-type="pmcid">PMC8654959</pub-id></mixed-citation></ref><ref id="ref11"><label>19.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Akbar</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Hayat</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Iqbal</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Iacp-gaensc: evolutionary genetic algorithm based ensemble classification of anticancer peptides by utilizing hybrid feature space</article-title>. <source><italic toggle="yes">Artif Intell Med</italic></source><year>2017</year>; <volume>79</volume>:<fpage>62</fpage>–<lpage>70</lpage>. <pub-id pub-id-type="doi">10.1016/j.artmed.2017.06.008</pub-id>.<pub-id pub-id-type="pmid">28655440</pub-id>
+</mixed-citation></ref><ref id="ref15"><label>20.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Akbar</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Rahman</surname><given-names>AU</given-names></string-name>, <string-name name-style="western"><surname>Hayat</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>CACP: classifying anticancer peptides using discriminative intelligent model via chou’s 5-step rules and general pseudo components</article-title>. <source><italic toggle="yes">Chemom Intel Lab Syst</italic></source><year>2020</year>; <volume>196</volume>:<fpage>103912</fpage>. <pub-id pub-id-type="doi">10.1016/j.chemolab.2019.103912</pub-id>.</mixed-citation></ref><ref id="ref16"><label>21.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Akbar</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Hayat</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Tahir</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Cacp-2lfs: classification of anticancer peptides using sequential discriminative model of ksaap and two-level feature selection approach</article-title>. <source><italic toggle="yes">IEEE Access</italic></source><year>2020</year>; <volume>8</volume>:<fpage>131939</fpage>–<lpage>48</lpage>. <pub-id pub-id-type="doi">10.1109/ACCESS.2020.3009125</pub-id>.</mixed-citation></ref><ref id="ref20"><label>22.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Akbar</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Hayat</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Tahir</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Cacp-deepgram: classification of anticancer peptides via deep neural network and skip-gram-based word embedding model</article-title>. <source><italic toggle="yes">Artif Intell Med</italic></source><year>2022</year>; <volume>131</volume>:<fpage>102349</fpage>. <pub-id pub-id-type="doi">10.1016/j.artmed.2022.102349</pub-id>.<pub-id pub-id-type="pmid">36100346</pub-id>
+</mixed-citation></ref><ref id="ref23"><label>23.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Ghafoor</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western"><surname>Asim</surname><given-names>MN</given-names></string-name>, <string-name name-style="western"><surname>Ibrahim</surname><given-names>MA</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Capture: comprehensive anti-cancer peptide predictor with a unique amino acid sequence encoder</article-title>. <source><italic toggle="yes">Comput Biol Med</italic></source><year>2024</year>; <volume>176</volume>:<fpage>108538</fpage>. <pub-id pub-id-type="doi">10.1016/j.compbiomed.2024.108538</pub-id>.<pub-id pub-id-type="pmid">38759585</pub-id>
+</mixed-citation></ref><ref id="ref24"><label>24.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Tasmin Karim</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Shaon</surname><given-names>SH</given-names></string-name>, <string-name name-style="western"><surname>Sultan</surname><given-names>MF</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Annprob-acps: a novel anticancer peptide identifier based on probabilistic feature fusion approach</article-title>. <source><italic toggle="yes">Comput Biol Med</italic></source><year>2024</year>; <volume>169</volume>:<fpage>107915</fpage>. <pub-id pub-id-type="doi">10.1016/j.compbiomed.2023.107915</pub-id>.<pub-id pub-id-type="pmid">38171261</pub-id>
+</mixed-citation></ref><ref id="ref25"><label>25.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Bian</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western"><surname>Liu</surname><given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Dong</surname><given-names>G</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Acp-ml: a sequence-based method for anticancer peptide prediction</article-title>. <source><italic toggle="yes">Comput Biol Med</italic></source><year>2024</year>; <volume>170</volume>:<fpage>108063</fpage>. <pub-id pub-id-type="doi">10.1016/j.compbiomed.2024.108063</pub-id>.<pub-id pub-id-type="pmid">38301519</pub-id>
+</mixed-citation></ref><ref id="ref26"><label>26.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western"><surname>Pang</surname><given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Wan</surname><given-names>J</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Abpcaps: a novel capsule network-based method for the prediction of antibacterial peptides</article-title>. <source><italic toggle="yes">Applied Sciences</italic></source><year>2023</year>; <volume>13</volume>:<fpage>6965</fpage>. <pub-id pub-id-type="doi">10.3390/app13126965</pub-id>.</mixed-citation></ref><ref id="ref27"><label>27.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Tyagi</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western"><surname>Tuknait</surname><given-names>A</given-names></string-name>, <string-name name-style="western"><surname>Anand</surname><given-names>P</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Cancerppd: a database of anticancer peptides and proteins</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source><year>2015</year>; <volume>43</volume>:<fpage>D837</fpage>–<lpage>43</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gku892</pub-id>.<pub-id pub-id-type="pmid">25270878</pub-id>
+<pub-id pub-id-type="pmcid">PMC4384006</pub-id></mixed-citation></ref><ref id="ref28"><label>28.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Elnaggar</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western"><surname>Heinzinger</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Dallago</surname><given-names>C</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Prottrans: toward understanding the language of life through self-supervised learning</article-title>. <source><italic toggle="yes">IEEE Trans Pattern Anal Mach Intell</italic></source><year>2021</year>; <volume>44</volume>:<fpage>7112</fpage>–<lpage>27</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1109/TPAMI.2021.3095381</pub-id><pub-id pub-id-type="pmid">34232869</pub-id></mixed-citation></ref><ref id="ref29"><label>29.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kawashima</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Pokarowski</surname><given-names>P</given-names></string-name>, <string-name name-style="western"><surname>Pokarowska</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Aaindex: amino acid index database, progress report 2008</article-title>. <source><italic toggle="yes">Nucleic Acids Res</italic></source><year>2007</year>; <volume>36</volume>:<fpage>D202</fpage>–<lpage>5</lpage>. <pub-id pub-id-type="doi">10.1093/nar/gkm998</pub-id>.<pub-id pub-id-type="pmid">17998252</pub-id>
+<pub-id pub-id-type="pmcid">PMC2238890</pub-id></mixed-citation></ref><ref id="ref30"><label>30.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wold</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Esbensen</surname><given-names>K</given-names></string-name>, <string-name name-style="western"><surname>Geladi</surname><given-names>P</given-names></string-name></person-group>. <article-title>Principal component analysis</article-title>. <source><italic toggle="yes">Chemom Intel Lab Syst</italic></source><year>1987</year>; <volume>2</volume>:<fpage>37</fpage>–<lpage>52</lpage>. <pub-id pub-id-type="doi">10.1016/0169-7439(87)80084-9</pub-id>.</mixed-citation></ref><ref id="ref31"><label>31.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Rao</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western"><surname>Bhattacharya</surname><given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Thomas</surname><given-names>N</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Evaluating protein transfer learning with tape</article-title>. <source><italic toggle="yes">Adv Neural Inf Process Syst</italic></source><year>2019</year>; <volume>32</volume>:<fpage>9689</fpage>–<lpage>701</lpage>.<pub-id pub-id-type="pmid">33390682</pub-id>
+<pub-id pub-id-type="pmcid">PMC7774645</pub-id></mixed-citation></ref><ref id="ref32"><label>32.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Heinzinger</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Weissenow</surname><given-names>K</given-names></string-name>, <string-name name-style="western"><surname>Sanchez</surname><given-names>JG</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Prostt5: bilingual language model for protein sequence and structure</article-title>. <source><italic toggle="yes">bioRxiv</italic></source><year>2023</year>;<fpage>2023</fpage>–<lpage>07</lpage>.</mixed-citation></ref><ref id="ref33"><label>33.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Devlin</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western"><surname>Chang</surname><given-names>M-W</given-names></string-name>, <string-name name-style="western"><surname>Lee</surname><given-names>K</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Bert: pre-training of deep bidirectional transformers for language understanding</article-title>. <comment>arXiv preprint arXiv:1810.04805</comment>. <year>2018</year>.</mixed-citation></ref><ref id="ref34"><label>34.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Vaswani</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western"><surname>Shazeer</surname><given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Parmar</surname><given-names>N</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Attention is all you need</article-title>. <source><italic toggle="yes">Adv Neural Inf Process Syst</italic></source><year>2017</year>; <volume>30</volume>.</mixed-citation></ref><ref id="ref35"><label>35.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Steinegger</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Mirdita</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Söding</surname><given-names>J</given-names></string-name></person-group>. <article-title>Protein-level assembly increases protein sequence recovery from metagenomic samples manyfold</article-title>. <source><italic toggle="yes">Nat Methods</italic></source><year>2019</year>; <volume>16</volume>:<fpage>603</fpage>–<lpage>6</lpage>. <pub-id pub-id-type="doi">10.1038/s41592-019-0437-4</pub-id>.<pub-id pub-id-type="pmid">31235882</pub-id>
+</mixed-citation></ref><ref id="ref36"><label>36.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Tang</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western"><surname>Zhao</surname><given-names>Y-W</given-names></string-name>, <string-name name-style="western"><surname>Zou</surname><given-names>P</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Hbpred: a tool to identify growth hormone-binding proteins</article-title>. <source><italic toggle="yes">Int J Biol Sci</italic></source><year>2018</year>; <volume>14</volume>:<fpage>957</fpage>–<lpage>64</lpage>. <pub-id pub-id-type="doi">10.7150/ijbs.24174</pub-id>.<pub-id pub-id-type="pmid">29989085</pub-id>
+<pub-id pub-id-type="pmcid">PMC6036759</pub-id></mixed-citation></ref><ref id="ref37"><label>37.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yan</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western"><surname>Fang</surname><given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Yong</surname><given-names>X</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Protein fold recognition based on multi-view modeling</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source><year>2019</year>; <volume>35</volume>:<fpage>2982</fpage>–<lpage>90</lpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btz040</pub-id>.<pub-id pub-id-type="pmid">30668845</pub-id>
+</mixed-citation></ref><ref id="ref38"><label>38.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Yao</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Li</surname><given-names>W</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>D eepafp: an effective computational framework for identifying antifungal peptides based on deep learning</article-title>. <source><italic toggle="yes">Protein Sci</italic></source><year>2023</year>; <volume>32</volume>:<fpage>e4758</fpage>. <pub-id pub-id-type="doi">10.1002/pro.4758</pub-id>.<pub-id pub-id-type="pmid">37595093</pub-id>
+<pub-id pub-id-type="pmcid">PMC10503419</pub-id></mixed-citation></ref><ref id="ref39"><label>39.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lin</surname>
+<given-names>T-T</given-names>
+</string-name>, <string-name name-style="western"><surname>Yang</surname><given-names>L-Y, I-H</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Ai4amp: an antimicrobial peptide predictor using physicochemical property-based encoding method and deep learning</article-title>. <source><italic toggle="yes">Msystems</italic></source><year>2021</year>; <volume>6</volume>:<fpage>e00299</fpage>–<lpage>21</lpage>.<pub-id pub-id-type="pmid">34783578</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1128/mSystems.00299-21</pub-id><pub-id pub-id-type="pmcid">PMC8594441</pub-id></mixed-citation></ref><ref id="ref40"><label>40.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Sabour</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Frosst</surname><given-names>N</given-names></string-name>, <string-name name-style="western"><surname>Hinton</surname><given-names>GE</given-names></string-name></person-group>. <article-title>Dynamic routing between capsules</article-title>. <source><italic toggle="yes">Adv Neural Inf Process Syst</italic></source><year>2017</year>; <volume>30</volume>.</mixed-citation></ref><ref id="ref41"><label>41.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Patrick</surname>
+<given-names>MK</given-names>
+</string-name>, <string-name name-style="western"><surname>Adekoya</surname><given-names>AF</given-names></string-name>, <string-name name-style="western"><surname>Mighty</surname><given-names>AA</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Capsule networks–a survey</article-title>. <source><italic toggle="yes">J King Saud Univ - Comput Inf Sci</italic></source><year>2022</year>; <volume>34</volume>:<fpage>1295</fpage>–<lpage>310</lpage>. <pub-id pub-id-type="doi">10.1016/j.jksuci.2019.09.014</pub-id>.</mixed-citation></ref><ref id="ref42"><label>42.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Kingma</surname>
+<given-names>DP</given-names>
+</string-name>, <string-name name-style="western"><surname>Ba</surname><given-names>J</given-names></string-name></person-group>. <article-title>Adam: a method for stochastic optimization</article-title>. <comment>arXiv preprint arXiv:1412.6980</comment>. <year>2014</year>.</mixed-citation></ref><ref id="ref43"><label>43.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Paszke</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western"><surname>Gross</surname><given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Massa</surname><given-names>F</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Pytorch: an imperative style, high-performance deep learning library</article-title>. <source><italic toggle="yes">Adv Neural Inf Process Syst</italic></source><year>2019</year>; <volume>32</volume>.</mixed-citation></ref><ref id="ref44"><label>44.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Wei</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western"><surname>Ye</surname><given-names>X</given-names></string-name>, <string-name name-style="western"><surname>Xue</surname><given-names>Y</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Atse: a peptide toxicity predictor by exploiting structural and evolutionary information based on graph neural network and attention mechanism</article-title>. <source><italic toggle="yes">Brief Bioinform</italic></source><year>2021</year>; <volume>22</volume>:<fpage>bbab041</fpage>. <pub-id pub-id-type="doi">10.1093/bib/bbab041</pub-id>.<pub-id pub-id-type="pmid">33822870</pub-id>
+</mixed-citation></ref><ref id="ref45"><label>45.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Xi</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western"><surname>Bing</surname><given-names>S</given-names></string-name>, <string-name name-style="western"><surname>Jin</surname><given-names>Y</given-names></string-name></person-group>. <article-title>Capsule network performance on complex data</article-title>. <comment>arXiv preprint arXiv:1712.03480</comment>. <year>2017</year>.</mixed-citation></ref><ref id="ref46"><label>46.</label><mixed-citation publication-type="other">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Rajasegaran</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western"><surname>Jayasundara</surname><given-names>V</given-names></string-name>, <string-name name-style="western"><surname>Jayasekara</surname><given-names>S</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Deepcaps: Going deeper with capsule networks</article-title>. In: <source>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</source>. <year>2019</year>,<fpage>10725</fpage>–<lpage>33</lpage>.</mixed-citation></ref><ref id="ref47"><label>47.</label><mixed-citation publication-type="book">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Lei</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western"><surname>Fu</surname><given-names>Q</given-names></string-name>, <string-name name-style="western"><surname>Liang</surname><given-names>Y</given-names></string-name></person-group>. <article-title>Multi-task learning with capsule networks</article-title>. In: <source>2019 International Joint Conference on Neural Networks (IJCNN)</source>, p. <fpage>1</fpage>–<lpage>8</lpage>.
+<publisher-name>IEEE</publisher-name>, <year>2019</year>.</mixed-citation></ref><ref id="ref48"><label>48.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Afshar</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western"><surname>Naderkhani</surname><given-names>F</given-names></string-name>, <string-name name-style="western"><surname>Oikonomou</surname><given-names>A</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Mixcaps: a capsule network-based mixture of experts for lung nodule malignancy prediction</article-title>. <source><italic toggle="yes">Pattern Recognition</italic></source><year>2021</year>; <volume>116</volume>:107942. <pub-id pub-id-type="doi">10.1016/j.patcog.2021.107942</pub-id>.</mixed-citation></ref><ref id="ref49"><label>49.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Jia</surname>
+<given-names>W</given-names>
+</string-name>, <string-name name-style="western"><surname>Sun</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Lian</surname><given-names>J</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Feature dimensionality reduction: areview</article-title>. <source><italic toggle="yes">Complex Intell Syst</italic></source><year>2022</year>; <volume>8</volume>:<fpage>2663</fpage>–<lpage>93</lpage>. <pub-id pub-id-type="doi">10.1007/s40747-021-00637-x</pub-id>.</mixed-citation></ref><ref id="ref50"><label>50.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Li</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western"><surname>Junru Jin</surname><given-names>Y</given-names></string-name>, <string-name name-style="western"><surname>Wang</surname><given-names>WL</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Example: eplainable deep learning framework for the prediction of plant small secreted peptides</article-title>. <source><italic toggle="yes">Bioinformatics</italic></source><year>2023</year>; <volume>39</volume>:<fpage>btad108</fpage>. <pub-id pub-id-type="doi">10.1093/bioinformatics/btad108</pub-id>.<pub-id pub-id-type="pmid">36897030</pub-id>
+<pub-id pub-id-type="pmcid">PMC10027287</pub-id></mixed-citation></ref><ref id="ref51"><label>51.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Moretto</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western"><surname>Heylen</surname><given-names>R</given-names></string-name>, <string-name name-style="western"><surname>Holroyd</surname><given-names>N</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Modular type i polyketide synthase acyl carrier protein domains share a common n-terminally extended fold</article-title>. <source><italic toggle="yes">Sci Rep</italic></source><year>2019</year>; <volume>9</volume>. <pub-id pub-id-type="doi">10.1038/s41598-019-38747-9</pub-id>.<pub-id pub-id-type="pmcid">PMC6382882</pub-id><pub-id pub-id-type="pmid">30787330</pub-id></mixed-citation></ref><ref id="ref52"><label>52.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Norouzi</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western"><surname>Mirmohammadi</surname><given-names>M</given-names></string-name>, <string-name name-style="western"><surname>Tehrani</surname><given-names>MHH</given-names></string-name></person-group>. <article-title>Anticancer peptides mechanisms, simple and complex</article-title>. <source><italic toggle="yes">Chem Biol Interact</italic></source><year>2022</year>; <volume>368</volume>:<fpage>110194</fpage>. <pub-id pub-id-type="doi">10.1016/j.cbi.2022.110194</pub-id>.<pub-id pub-id-type="pmid">36195187</pub-id>
+</mixed-citation></ref><ref id="ref53"><label>53.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Gabernet</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western"><surname>Müller</surname><given-names>AT</given-names></string-name>, <string-name name-style="western"><surname>Hiss</surname><given-names>JA</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Alex T Müller, Jan a Hiss, and Gisbert Schneider</article-title>. <source><italic toggle="yes">Membranolytic anticancer peptides MedChemComm</italic></source><year>2016</year>; <volume>7</volume>:<fpage>2232</fpage>–<lpage>45</lpage>. <pub-id pub-id-type="doi">10.1039/C6MD00376A</pub-id>.</mixed-citation></ref><ref id="ref54"><label>54.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Doi</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western"><surname>Yamaoka</surname><given-names>I</given-names></string-name>, <string-name name-style="western"><surname>Nakayama</surname><given-names>M</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Isoleucine, a blood glucose-lowering amino acid, increases glucose uptake in rat skeletal muscle in the absence of increases in amp-activated protein kinase activity</article-title>. <source><italic toggle="yes">J Nutr</italic></source><year>2005</year>; <volume>135</volume>:<fpage>2103</fpage>–<lpage>8</lpage>. <pub-id pub-id-type="doi">10.1093/jn/135.9.2103</pub-id>.<pub-id pub-id-type="pmid">16140883</pub-id>
+</mixed-citation></ref><ref id="ref55"><label>55.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Shoji</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western"><surname>Parmelee</surname><given-names>DC</given-names></string-name>, <string-name name-style="western"><surname>Wade</surname><given-names>RD</given-names></string-name>. <etal>et al.</etal></person-group>
+<article-title>Complete amino acid sequence of the catalytic subunit of bovine cardiac muscle cyclic amp-dependent protein kinase</article-title>. <source><italic toggle="yes">Proc Natl Acad Sci</italic></source><year>1981</year>; <volume>78</volume>:<fpage>848</fpage>–<lpage>51</lpage>. <pub-id pub-id-type="doi">10.1073/pnas.78.2.848</pub-id>.<pub-id pub-id-type="pmid">6262777</pub-id>
+<pub-id pub-id-type="pmcid">PMC319900</pub-id></mixed-citation></ref><ref id="ref56"><label>56.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Huang</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name name-style="western"><surname>Huang</surname><given-names>J</given-names></string-name>, <string-name name-style="western"><surname>Chen</surname><given-names>Y</given-names></string-name></person-group>. <article-title>Alpha-helical cationic antimicrobial peptides: rlationships of structure and function</article-title>. <source><italic toggle="yes">Protein Cell</italic></source><year>2010</year>; <volume>1</volume>:<fpage>143</fpage>–<lpage>52</lpage>. <pub-id pub-id-type="doi">10.1007/s13238-010-0004-3</pub-id>.<pub-id pub-id-type="pmid">21203984</pub-id>
+<pub-id pub-id-type="pmcid">PMC4875170</pub-id></mixed-citation></ref><ref id="ref57"><label>57.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<string-name name-style="western">
+<surname>Mishra</surname>
+<given-names>B</given-names>
+</string-name>, <string-name name-style="western"><surname>Wang</surname><given-names>G</given-names></string-name></person-group>. <article-title>The importance of amino acid composition in natural amps: a evolutional, structural, and functional perspective</article-title>. <source><italic toggle="yes">Front Immunol</italic></source><year>2012</year>; <volume>3</volume>:<fpage>221</fpage>.<pub-id pub-id-type="pmid">23060873</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fimmu.2012.00221</pub-id><pub-id pub-id-type="pmcid">PMC3459185</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

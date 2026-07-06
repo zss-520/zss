@@ -1,0 +1,32 @@
+{
+  "source_primary": "openalex",
+  "sources": [
+    "openalex"
+  ],
+  "source_ids": {
+    "openalex": "https://openalex.org/W4402084085"
+  },
+  "openalex_id": "https://openalex.org/W4402084085",
+  "doi": "10.1016/j.jisa.2024.103871",
+  "pmid": null,
+  "pmcid": null,
+  "title": "SQL injection attack: Detection, prioritization &amp; prevention",
+  "abstract": "Web applications have become central in the digital landscape, providing users instant access to information and allowing businesses to expand their reach. Injection attacks, such as SQL injection (SQLi), are prominent attacks on web applications, given that most web applications integrate a database system. While there have been solutions proposed in the literature for SQLi attack detection using learning-based frameworks, the problem is often formulated as a binary, single-attack vector problem without considering the prioritization and prevention component of the attack. In this work, we propose a holistic solution, SQLR34P3R, that formulates the SQLi attack as a multi-class, multi-attack vector, prioritization, and prevention problem. For attack detection and classification, we gathered 457,233 samples of benign and malicious network traffic, as well as 70,023 samples that had SQLi and benign payloads. After evaluating several machine-learning-based algorithms, the hybrid CNN-LSTM models achieve an average F1-Score of 97% in web and network traffic filtering. Furthermore, by using CVEs of SQLi vulnerabilities, SQLR34P3R incorporates a novel risk analysis approach which reduces additional effort while maintaining reasonable coverage to assist businesses in allocating resources effectively by focusing on patching vulnerabilities with high exploitability. We also present an in-the-wild evaluation of the proposed solution by integrating SQLR34P3R into the pipeline of known vulnerable web applications such as Damn Vulnerable Web Application (DVWA) and Vulnado and via network traffic captured using Wireshark from SQLi DNS exfiltration conducted with SQLMap for real-time detection. Finally, we provide a comparative analysis with state-of-the-art SQLi attack detection and risk ratings solutions.",
+  "journal": "Journal of Information Security and Applications",
+  "venue": "Journal of Information Security and Applications",
+  "year": 2024,
+  "authors": [
+    "Alan Paul",
+    "Vishal Sharma",
+    "Oluwafemi Olukoya"
+  ],
+  "urls": [
+    "https://openalex.org/W4402084085",
+    "https://doi.org/10.1016/j.jisa.2024.103871",
+    "https://doi.org/10.1016/j.jisa.2024.103871"
+  ],
+  "is_open_access": true,
+  "cited_by_count": 27,
+  "raw_source_files": [],
+  "candidate_key": "doi:10 1016 j jisa 2024 103871"
+}
