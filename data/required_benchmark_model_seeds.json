@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "policy": "These are required candidates, not automatic winners. Each record must pass bibliographic, primary-publisher, and official-code verification before evidence-pool integration. User-reported benchmark performance remains pending manifest audit.",
+  "models": [
+    {
+      "model_name": "C_AMPs-predict",
+      "aliases": ["c_AMPs-prediction", "c_AMP prediction", "C-AMPs-predict"],
+      "paper_title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning",
+      "source_doi": "10.1038/s41587-022-01226-0",
+      "source_pmid": "35241840",
+      "source_journal": "Nature Biotechnology",
+      "publication_year": 2022,
+      "publisher_article_url": "https://www.nature.com/articles/s41587-022-01226-0",
+      "code_repository_url": "https://github.com/mayuefine/c_AMPs-prediction",
+      "dataset_source_or_link": "https://github.com/mayuefine/c_AMPs-prediction",
+      "model_architecture": "LSTM attention BERT ensemble",
+      "input_representation": "amino-acid sequence tokens",
+      "task_type": "AMP binary prediction/classification",
+      "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit"
+    },
+    {
+      "model_name": "AMPSorter",
+      "parent_model": "ProteoGPT",
+      "aliases": ["ProteoGPT (AMPSorter)", "ProteoGPT AMPSorter"],
+      "paper_title": "A generative artificial intelligence approach for the discovery of antimicrobial peptides against multidrug-resistant bacteria",
+      "source_doi": "10.1038/s41564-025-02114-4",
+      "source_journal": "Nature Microbiology",
+      "publication_year": 2025,
+      "publisher_article_url": "https://www.nature.com/articles/s41564-025-02114-4",
+      "code_repository_url": "https://github.com/W1V1995/AMP_Project",
+      "dataset_source_or_link": "https://doi.org/10.5281/zenodo.16633186",
+      "model_architecture": "ProteoGPT transformer protein language model classifier",
+      "input_representation": "amino-acid sequence tokens",
+      "task_type": "AMP binary prediction/classification",
+      "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit"
+    },
+    {
+      "model_name": "HMD-AMP",
+      "aliases": ["HMD AMP", "HMDAMP"],
+      "paper_title": "Uncovering evolutionarily remote and highly potent antimicrobial peptides with protein language models",
+      "source_doi": "10.1038/s41551-026-01630-w",
+      "source_journal": "Nature Biomedical Engineering",
+      "publication_year": 2026,
+      "publisher_article_url": "https://www.nature.com/articles/s41551-026-01630-w",
+      "code_repository_url": "https://github.com/ml4bio/HMD-AMP",
+      "dataset_source_or_link": "https://doi.org/10.5281/zenodo.15622525",
+      "model_architecture": "protein language model based hierarchical AMP classifier",
+      "input_representation": "protein language model embeddings",
+      "task_type": "AMP binary prediction plus multi-label target annotation",
+      "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit"
+    }
+  ]
+}

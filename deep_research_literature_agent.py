@@ -14,7 +14,7 @@ DeepSeek Multi-Source AMP Literature Agent
 7. Chief 不再删除候选模型：额外保留 all_candidate_models / benchmark_ready_models。
 8. 新增 model_dataset_links / dataset_followup_tasks，避免数据集线索丢失。
 9. literature_deep_research_memory.md 会保存接近 meeting_trace.md 风格的多 Agent 讨论过程。
-10. 新增模型分类梳理和每类 1-2 个代表模型。
+10. 新增模型分类梳理；Architecture 每类按 IF/引用量推荐 3-5 个代表模型。
 11. 全局会议前会对缺少 GitHub 链接的模型自动执行 GitHub 补链搜索。
 12. GitHub 补链结果会作为独立证据写入 evidence pool / compact evidence pool，再进入 Agent 讨论。
 13. 所有原始 evidence、全文缓存、chunk summary、GitHub 补链证据、最终 memory 都落盘。
@@ -27,9 +27,11 @@ DeepSeek Multi-Source AMP Literature Agent
 from __future__ import annotations
 
 import argparse
+import csv
 import datetime as _dt
 import hashlib
 import html
+import itertools
 import json
 import os
 import random
@@ -44,6 +46,9 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
+
+from agent_md_loader import AgentMDLoader
+from benchmark_portfolio import build_benchmark_portfolio
 
 # ------------------------- .env support -------------------------
 try:
@@ -86,8 +91,13 @@ CHUNK_SUMMARIES_JSONL = CHUNK_SUMMARIES_DIR / 'chunk_summaries.jsonl'
 CHUNK_INDEX_JSON = CHUNK_SUMMARIES_DIR / '_chunk_index.json'
 COMPACT_EVIDENCE_POOL_JSON = DATA_DIR / 'compact_evidence_pool.json'
 COMPACT_EVIDENCE_POOL_MD = DATA_DIR / 'compact_evidence_pool.md'
+LLM_MODEL_NOMINATIONS_JSON = DATA_DIR / 'llm_top_journal_model_nominations.json'
+LLM_MODEL_VERIFICATION_JSON = DATA_DIR / 'llm_top_journal_model_verification.json'
 MEMORY_JSON = DATA_DIR / 'literature_deep_research_memory.json'
 MEMORY_MD = DATA_DIR / 'literature_deep_research_memory.md'
+REQUIRED_DATASET_SEEDS_JSON = DATA_DIR / 'required_benchmark_dataset_seeds.json'
+BENCHMARK_MODEL_COVERAGE_TARGETS_JSON = DATA_DIR / 'benchmark_model_coverage_targets.json'
+REQUIRED_BENCHMARK_MODEL_VERIFICATION_JSON = DATA_DIR / 'required_benchmark_model_verification.json'
 INDEX_JSON = DATA_DIR / 'literature_deep_research_index.json'
 GITHUB_MISSING_MODEL_ENRICHMENT_JSONL = DATA_DIR / 'github_missing_model_enrichment.jsonl'
 GITHUB_MISSING_MODEL_ENRICHMENT_JSON = DATA_DIR / 'github_missing_model_enrichment.json'
@@ -97,6 +107,7 @@ QWEN_WEB_ENRICHMENT_JSONL = DATA_DIR / 'qwen_web_enrichment.jsonl'
 QWEN_WEB_ENRICHMENT_JSON = DATA_DIR / 'qwen_web_enrichment.json'
 QWEN_WEB_ENRICHMENT_PENDING_MODELS_TXT = DATA_DIR / 'qwen_web_enrichment_pending_models.txt'
 QWEN_WEB_ENRICHMENT_RUN_REPORT_JSON = DATA_DIR / 'qwen_web_enrichment_run_report.json'
+MODEL_PRIMARY_METADATA_JSON = DATA_DIR / 'model_primary_metadata.json'
 
 for p in [DATA_DIR, SEARCH_CACHE_DIR, FULLTEXT_CACHE_DIR, REPO_CACHE_DIR, DATASET_CACHE_DIR, FAILED_DIR, CHUNK_SUMMARIES_DIR]:
     p.mkdir(parents=True, exist_ok=True)
@@ -168,7 +179,21 @@ def write_jsonl(path: Path, rows: List[Any]) -> None:
 
 def write_json(path: Path, obj: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json_dumps(obj, 2), encoding='utf-8')
+    text = json_dumps(obj, 2)
+    tmp = path.with_name(f'{path.name}.tmp-{os.getpid()}')
+    try:
+        with tmp.open('w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+        os.replace(str(tmp), str(path))
+    except Exception:
+        try:
+            if tmp.exists():
+                tmp.unlink()
+        except Exception:
+            pass
+        # Fall back to the simple writer so callers still see the real OS error.
+        with path.open('w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
 
 
 def read_json(path: Path, default: Any) -> Any:
@@ -181,11 +206,37 @@ def read_json(path: Path, default: Any) -> Any:
 
 
 def read_jsonl(path: Path) -> List[Any]:
-    """读取 JSONL；坏行自动跳过，避免续跑时因为部分日志损坏而中断。"""
-    out: List[Any] = []
+    """Read JSONL plus legacy concatenated/pretty-printed JSON documents.
+
+    Some historical ``*.jsonl`` artifacts were written as multiple indented
+    JSON objects without one-object-per-line framing.  Parsing only individual
+    lines silently returned no paper metadata, which in turn removed journal
+    and citation evidence from refreshed recommendation tables.
+    """
     if not path.exists():
-        return out
-    for line in path.read_text(encoding='utf-8', errors='ignore').splitlines():
+        return []
+    text = path.read_text(encoding='utf-8', errors='ignore')
+    out: List[Any] = []
+    decoder = json.JSONDecoder()
+    offset = 0
+    try:
+        while offset < len(text):
+            while offset < len(text) and text[offset].isspace():
+                offset += 1
+            if offset >= len(text):
+                break
+            value, offset = decoder.raw_decode(text, offset)
+            if isinstance(value, list):
+                out.extend(value)
+            else:
+                out.append(value)
+        if out:
+            return out
+    except json.JSONDecodeError:
+        out = []
+
+    # Recovery path for a conventional JSONL file containing a malformed line.
+    for line in text.splitlines():
         line = line.strip()
         if not line:
             continue
@@ -331,19 +382,13 @@ def cache_raw(source: str, name: str, payload: Any) -> Path:
     return fp
 
 
-# ------------------------- Agent MD loader -------------------------
-class AgentMDLoader:
-    def __init__(self, base_dir: Path):
-        self.base_dir = Path(base_dir)
-
-    def load(self, name: str) -> str:
-        p = self.base_dir / f'{name}.md'
-        if not p.exists():
-            raise FileNotFoundError(f'Agent prompt not found: {p}')
-        return p.read_text(encoding='utf-8')
-
-
 # ------------------------- LLM client -------------------------
+def load_agent_prompt(loader: AgentMDLoader, name: str) -> str:
+    """Compose shared policies when supported; retain simple test/custom loaders."""
+    compose = getattr(loader, "load_composed", None)
+    return compose(name) if callable(compose) else loader.load(name)
+
+
 class DeepSeekChatLLM:
     def __init__(self, provider: str = 'dashscope', config_path: Path = Path('llm_providers.json')):
         if OpenAI is None:
@@ -385,8 +430,11 @@ class DeepSeekChatLLM:
                 time.sleep(min(8, attempt * 2))
         raise RuntimeError(f'DeepSeek call failed: {agent_name}: {last_err}')
 
-    def chat_json(self, agent_name: str, system_prompt: str, user_prompt: str, model: Optional[str] = None) -> Any:
-        raw = self.chat(agent_name, system_prompt, user_prompt, model=model)
+    def chat_json(self, agent_name: str, system_prompt: str, user_prompt: str, model: Optional[str] = None, temperature: float = 0.0) -> Any:
+        # Structured meeting/extraction output should be reproducible when the
+        # evidence pool has not changed.  Callers may opt into a higher value,
+        # but deterministic JSON is the safe default for long-term memory.
+        raw = self.chat(agent_name, system_prompt, user_prompt, model=model, temperature=temperature)
         obj = parse_json_from_text(raw)
         if obj is not None:
             return obj
@@ -591,25 +639,36 @@ DEFAULT_QUERY_PLAN = {
     'pubmed': [
         {'name': 'broad_prediction', 'query': '("antimicrobial peptide" OR "antimicrobial peptides" OR (AMP AND peptide) OR "host defense peptide") AND (prediction OR predictor OR classifier OR classification OR identification OR recognition OR screening OR discrimination)'},
         {'name': 'ml_dl_precision', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND ("machine learning"[tiab] OR "deep learning"[tiab] OR "neural network"[tiab] OR CNN[tiab] OR LSTM[tiab] OR transformer[tiab] OR BERT[tiab] OR SVM[tiab] OR "support vector machine"[tiab] OR "random forest"[tiab] OR XGBoost[tiab]) AND (predictor[tiab] OR classifier[tiab] OR prediction[tiab] OR identification[tiab])'},
+        {'name': 'arch_traditional_ml', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND ("support vector machine"[tiab] OR SVM[tiab] OR "random forest"[tiab] OR XGBoost[tiab] OR LightGBM[tiab] OR "machine learning"[tiab]) AND (predictor[tiab] OR prediction[tiab] OR classifier[tiab])'},
+        {'name': 'arch_cnn', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND (CNN[tiab] OR convolutional[tiab] OR "convolutional neural network"[tiab] OR ResNet[tiab] OR DenseNet[tiab] OR CapsNet[tiab]) AND (predictor[tiab] OR prediction[tiab] OR classifier[tiab])'},
+        {'name': 'arch_rnn_lstm', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND (RNN[tiab] OR LSTM[tiab] OR BiLSTM[tiab] OR GRU[tiab] OR "recurrent neural network"[tiab]) AND (predictor[tiab] OR prediction[tiab] OR classifier[tiab])'},
+        {'name': 'arch_transformer_plm', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND (transformer[tiab] OR BERT[tiab] OR ProtBERT[tiab] OR ProtT5[tiab] OR ESM[tiab] OR "protein language model"[tiab] OR GPT[tiab]) AND (predictor[tiab] OR prediction[tiab] OR classifier[tiab])'},
+        {'name': 'arch_gnn_structure', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND (GNN[tiab] OR GCN[tiab] OR GAT[tiab] OR "graph neural network"[tiab] OR "graph attention"[tiab] OR structure[tiab]) AND (predictor[tiab] OR prediction[tiab] OR classifier[tiab])'},
+        {'name': 'arch_ensemble_pipeline', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND (ensemble[tiab] OR stacking[tiab] OR stacked[tiab] OR pipeline[tiab] OR framework[tiab]) AND (predictor[tiab] OR prediction[tiab] OR classifier[tiab])'},
         {'name': 'software_server_tool', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab] OR "AMP prediction"[tiab]) AND ("web server"[tiab] OR "online tool"[tiab] OR software[tiab] OR standalone[tiab] OR platform[tiab] OR database[tiab])'},
         {'name': 'benchmark_dataset_metrics', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab] OR "AMP"[tiab]) AND (benchmark[tiab] OR dataset[tiab] OR "data set"[tiab] OR "independent test"[tiab] OR "external validation"[tiab] OR evaluation[tiab] OR comparison[tiab] OR metric[tiab])'},
+        {'name': 'recent_sota_watchlist', 'query': '("CG-AMP"[tiab] OR deepAMPNet[tiab] OR UniproLcad[tiab] OR PepNet[tiab]) AND ("antimicrobial peptide"[tiab] OR AMP[tiab])'},
         {'name': 'review_for_model_names', 'query': '("antimicrobial peptide"[tiab] OR "antimicrobial peptides"[tiab]) AND (predictor[tiab] OR classifier[tiab] OR "machine learning"[tiab] OR "deep learning"[tiab]) AND review[pt]'},
     ],
     'europe_pmc': [
         {'name': 'europepmc_broad', 'query': '"antimicrobial peptide" AND (prediction OR predictor OR classifier OR "machine learning" OR "deep learning" OR "web server")'},
+        {'name': 'europepmc_architecture_sweep', 'query': '"antimicrobial peptide" AND (SVM OR "random forest" OR CNN OR LSTM OR transformer OR BERT OR "protein language model" OR GNN OR GAT OR ensemble) AND (prediction OR predictor OR classifier)'},
         {'name': 'europepmc_dataset', 'query': '"antimicrobial peptide" AND (benchmark OR dataset OR "independent test" OR evaluation)'},
     ],
     'crossref': [
         {'name': 'crossref_broad', 'query': 'antimicrobial peptide prediction machine learning'},
         {'name': 'crossref_tool', 'query': 'antimicrobial peptide predictor web server'},
+        {'name': 'crossref_architecture_sweep', 'query': 'antimicrobial peptide prediction CNN LSTM transformer GNN ensemble'},
     ],
     'openalex': [
         {'name': 'openalex_broad', 'query': 'antimicrobial peptide prediction machine learning'},
         {'name': 'openalex_deep_learning', 'query': 'antimicrobial peptide deep learning classifier'},
+        {'name': 'openalex_architecture_sweep', 'query': 'antimicrobial peptide predictor SVM random forest CNN LSTM transformer BERT GNN ensemble'},
     ],
     'semantic_scholar': [
         {'name': 's2_broad', 'query': 'antimicrobial peptide prediction machine learning'},
         {'name': 's2_tool', 'query': 'antimicrobial peptide predictor web server'},
+        {'name': 's2_architecture_sweep', 'query': 'antimicrobial peptide prediction SVM random forest CNN LSTM transformer protein language model graph neural network ensemble'},
     ],
     'preprint': [
         {'name': 'preprint_broad', 'query': '"antimicrobial peptide" AND (prediction OR predictor OR classifier OR "machine learning" OR "deep learning") AND SRC:PPR'},
@@ -617,6 +676,8 @@ DEFAULT_QUERY_PLAN = {
     'github': [
         {'name': 'github_broad', 'query': '"antimicrobial peptide" prediction'},
         {'name': 'github_amp_ml', 'query': 'AMP prediction machine learning peptide'},
+        {'name': 'github_amp_architectures', 'query': 'antimicrobial peptide CNN LSTM transformer GNN predictor'},
+        {'name': 'github_recent_sota_watchlist', 'query': 'CG-AMP deepAMPNet UniproLcad antimicrobial peptide'},
     ],
     'datacite': [
         {'name': 'datacite_dataset', 'query': 'antimicrobial peptide prediction dataset'},
@@ -625,6 +686,242 @@ DEFAULT_QUERY_PLAN = {
         {'name': 'zenodo_dataset', 'query': 'antimicrobial peptide prediction dataset'},
     ],
 }
+
+
+def _copy_query_plan(plan: Dict[str, List[Dict[str, str]]]) -> Dict[str, List[Dict[str, str]]]:
+    return {source: [dict(item) for item in items] for source, items in plan.items()}
+
+
+def _dataset_seed_terms() -> Dict[str, List[str]]:
+    payload = read_json(REQUIRED_DATASET_SEEDS_JSON, {})
+    rows = payload.get('datasets', []) if isinstance(payload, dict) else []
+    names: List[str] = []
+    models: List[str] = []
+    dois: List[str] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        names.extend([
+            str(row.get('dataset_name') or '').strip(),
+            *[str(value).strip() for value in ensure_list(row.get('aliases'))],
+        ])
+        models.extend(str(value).strip() for value in ensure_list(row.get('linked_models')))
+        dois.extend(str(row.get(key) or '').strip() for key in ('source_doi', 'paper_doi'))
+
+    def cleaned(values: Iterable[str], *, local_names: bool = True) -> List[str]:
+        out: List[str] = []
+        seen: set[str] = set()
+        for value in values:
+            value = value.strip()
+            if not value or value.lower() in seen:
+                continue
+            lower_value = value.lower()
+            if not local_names and (
+                'corrected' in lower_value
+                or 'predictions' in lower_value
+                or lower_value.endswith('_test')
+                or '_out' in lower_value
+            ):
+                continue
+            seen.add(value.lower())
+            out.append(value)
+        return out
+
+    return {
+        'names': cleaned(names, local_names=False),
+        'models': cleaned(models),
+        'dois': cleaned(dois),
+    }
+
+
+def augment_query_plan_with_dataset_seeds(
+    plan: Dict[str, List[Dict[str, str]]],
+) -> Dict[str, List[Dict[str, str]]]:
+    """Add config-driven verification queries without forcing any selection."""
+    out = _copy_query_plan(plan)
+    terms = _dataset_seed_terms()
+    names = terms['names'][:12]
+    models = terms['models'][:12]
+    dois = terms['dois'][:12]
+    if not names and not models and not dois:
+        return out
+
+    quoted_names = [f'"{value}"' for value in [*models, *names] if len(value) >= 4]
+    broad_or = ' OR '.join(quoted_names[:18])
+    doi_or = ' OR '.join(f'"{value}"' for value in dois)
+    pubmed_parts = []
+    if broad_or:
+        pubmed_parts.append(f'({broad_or})')
+    if doi_or:
+        pubmed_parts.append(f'({doi_or})')
+    pubmed_query = ' OR '.join(pubmed_parts)
+    if broad_or:
+        pubmed_query = f'({pubmed_query}) AND (dataset[tiab] OR benchmark[tiab] OR test[tiab] OR validation[tiab] OR predictor[tiab])'
+
+    simple_query = ' '.join([*models[:8], *names[:5], *dois[:5]])
+    additions = {
+        'pubmed': {'name': 'verified_dataset_seed_primary_sources', 'query': pubmed_query},
+        'europe_pmc': {'name': 'verified_dataset_seed_evidence', 'query': broad_or or simple_query},
+        'crossref': {'name': 'verified_dataset_seed_evidence', 'query': simple_query},
+        'openalex': {'name': 'verified_dataset_seed_evidence', 'query': simple_query},
+        'semantic_scholar': {'name': 'verified_dataset_seed_evidence', 'query': simple_query},
+        'github': {'name': 'verified_dataset_seed_repositories', 'query': ' '.join(models[:12]) + ' dataset benchmark'},
+        'datacite': {'name': 'verified_dataset_seed_archives', 'query': simple_query},
+        'zenodo': {'name': 'verified_dataset_seed_archives', 'query': simple_query},
+    }
+    for source, item in additions.items():
+        query = str(item.get('query') or '').strip()
+        if not query:
+            continue
+        rows = out.setdefault(source, [])
+        if not any(existing.get('name') == item['name'] for existing in rows):
+            rows.append(item)
+    return out
+
+
+def load_benchmark_model_coverage_targets() -> Dict[str, Any]:
+    payload = read_json(BENCHMARK_MODEL_COVERAGE_TARGETS_JSON, {})
+    rows = [
+        dict(row) for row in ensure_list(payload.get('models') if isinstance(payload, dict) else [])
+        if isinstance(row, dict) and row.get('model_name')
+    ]
+    return {
+        'policy': payload.get('policy') if isinstance(payload, dict) else '',
+        'minimum_coverage_fraction': _safe_float(
+            payload.get('minimum_coverage_fraction') if isinstance(payload, dict) else None,
+            0.70,
+        ),
+        'models': rows,
+    }
+
+
+def configured_required_core_model_names() -> List[str]:
+    return [
+        str(row.get('model_name')).strip()
+        for row in load_benchmark_model_coverage_targets()['models']
+        if row.get('required_core') and row.get('model_name')
+    ]
+
+
+def augment_query_plan_with_model_coverage_targets(
+    plan: Dict[str, List[Dict[str, str]]],
+) -> Dict[str, List[Dict[str, str]]]:
+    """Add exact-name searches for evaluated models without preselecting winners."""
+    out = _copy_query_plan(plan)
+    targets = load_benchmark_model_coverage_targets()['models']
+    searchable = [
+        row for row in targets
+        if normalize_key(row.get('identity_status')) != 'generic internal baseline not unique literature model'
+    ]
+    searchable.sort(key=lambda row: (not bool(row.get('required_core')), normalize_key(row.get('model_name'))))
+    for group_index in range(0, len(searchable), 5):
+        group = searchable[group_index:group_index + 5]
+        search_term_groups: List[List[str]] = []
+        for row in group:
+            terms = [str(value).strip() for value in ensure_list(row.get('search_terms')) if str(value).strip()]
+            if not terms and row.get('model_name'):
+                terms = [str(row.get('model_name')).strip()]
+            if terms:
+                search_term_groups.append(terms[:4])
+        if not search_term_groups:
+            continue
+        exact_or = ' OR '.join(
+            f'"{term}"' for terms in search_term_groups for term in terms
+        )
+        simple_or = ' OR '.join(
+            term for terms in search_term_groups for term in terms
+        )
+        suffix = group_index // 5 + 1
+        additions = {
+            'pubmed': {
+                'name': f'benchmark_model_coverage_{suffix}',
+                'query': f'({exact_or}) AND ("antimicrobial peptide"[tiab] OR AMP[tiab] OR peptide[tiab])',
+            },
+            'europe_pmc': {
+                'name': f'benchmark_model_coverage_{suffix}',
+                'query': f'({exact_or}) AND ("antimicrobial peptide" OR AMP OR peptide)',
+            },
+            'crossref': {'name': f'benchmark_model_coverage_{suffix}', 'query': simple_or},
+            'openalex': {'name': f'benchmark_model_coverage_{suffix}', 'query': simple_or},
+            'semantic_scholar': {'name': f'benchmark_model_coverage_{suffix}', 'query': simple_or},
+            'github': {
+                'name': f'benchmark_model_coverage_{suffix}',
+                'query': f'{simple_or} antimicrobial peptide',
+            },
+        }
+        for source, item in additions.items():
+            rows = out.setdefault(source, [])
+            if not any(existing.get('name') == item['name'] for existing in rows):
+                rows.append(item)
+    return out
+
+
+def augment_query_plan_with_configured_targets(
+    plan: Dict[str, List[Dict[str, str]]],
+) -> Dict[str, List[Dict[str, str]]]:
+    # Keep dataset verification queries last for backward-compatible logs/tests.
+    return augment_query_plan_with_dataset_seeds(
+        augment_query_plan_with_model_coverage_targets(plan)
+    )
+
+
+def load_local_evaluated_dataset_profiles() -> List[Dict[str, Any]]:
+    """Measure class profiles from existing outputs; never treat them as literature proof."""
+    payload = read_json(REQUIRED_DATASET_SEEDS_JSON, {})
+    seeds = [row for row in ensure_list(payload.get('datasets') if isinstance(payload, dict) else []) if isinstance(row, dict)]
+    alias_index: Dict[str, Dict[str, Any]] = {}
+    for seed in seeds:
+        values = [seed.get('dataset_name'), *ensure_list(seed.get('aliases'))]
+        for value in values:
+            key = normalize_key(value)
+            if key:
+                alias_index[key] = seed
+
+    results_root = DATA_DIR / 'results_manual'
+    observations: List[Dict[str, Any]] = []
+    if not results_root.is_dir():
+        return observations
+    for dataset_dir in sorted((path for path in results_root.iterdir() if path.is_dir()), key=lambda path: path.name.casefold()):
+        seed = alias_index.get(normalize_key(dataset_dir.name))
+        prediction_path = dataset_dir / 'final_results_with_predictions.csv'
+        if seed is None or not prediction_path.is_file():
+            continue
+        try:
+            with prediction_path.open('r', encoding='utf-8-sig', newline='') as handle:
+                reader = csv.DictReader(handle)
+                fieldnames = list(reader.fieldnames or [])
+                label_column = next(
+                    (column for column in fieldnames if normalize_key(column) in {'label', 'y true', 'true label', 'amp label'}),
+                    None,
+                )
+                if not label_column:
+                    continue
+                labels = []
+                for row in reader:
+                    raw = str(row.get(label_column) or '').strip()
+                    if raw in {'0', '0.0', '1', '1.0'}:
+                        labels.append(int(float(raw)))
+        except Exception:
+            continue
+        if not labels or len(set(labels)) < 2:
+            continue
+        positive = sum(labels)
+        negative = len(labels) - positive
+        minority_majority_ratio = min(positive, negative) / max(positive, negative)
+        observations.append({
+            'local_dataset_name': dataset_dir.name,
+            'matched_seed_dataset_name': seed.get('dataset_name'),
+            'linked_models': ensure_list(seed.get('linked_models')),
+            'row_count': len(labels),
+            'positive_count': positive,
+            'negative_count': negative,
+            'positive_fraction': round(positive / len(labels), 8),
+            'minority_majority_ratio': round(minority_majority_ratio, 8),
+            'observed_profile': 'balanced' if minority_majority_ratio >= 0.70 else 'imbalanced',
+            'evidence_scope': 'local_observed_profile_not_primary_literature_evidence',
+            'caveat': 'May support profile planning only; provenance, train overlap, homology and source identity still require audit.',
+        })
+    return observations
 
 
 def llm_plan_queries(llm: DeepSeekChatLLM, loader: AgentMDLoader, max_queries: int = 20) -> Dict[str, List[Dict[str, str]]]:
@@ -652,6 +949,9 @@ def llm_plan_queries(llm: DeepSeekChatLLM, loader: AgentMDLoader, max_queries: i
 要求：
 - PubMed query 不要全部加 NOT review，因为 review 可用于提取模型名称。
 - PubMed query 中包含高召回 query 和高精度 query。
+- 必须覆盖架构分桶：traditional ML(SVM/RF/XGBoost), CNN, RNN/LSTM/GRU, CNN+RNN hybrid, Transformer/BERT/ProtT5/ESM/PLM, GNN/GAT/GCN/structure graph, ensemble/stacking/pipeline, web server/software/tool, benchmark/dataset/evaluation。
+- 每个架构至少给 1 条可跨来源迁移的 query；不要只搜索 recent deep learning，也要覆盖早期经典模型和 web-server 模型。
+- query 需要有助于后续提取 model_name, architecture_or_algorithm, source_journal, citation_count, journal_impact_factor, repository/dataset/weights/web server evidence。
 - 不要生成超过 {max_queries} 条总 query。
 - 只返回 JSON。
 """
@@ -659,10 +959,10 @@ def llm_plan_queries(llm: DeepSeekChatLLM, loader: AgentMDLoader, max_queries: i
         obj = llm.chat_json('pubmed_query_planner', system, user)
         plan = normalize_query_plan(obj)
         if plan:
-            return plan
+            return augment_query_plan_with_configured_targets(plan)
     except Exception as e:
         print(f'    ⚠️ Query planner 失败，使用内置 query：{e}')
-    return DEFAULT_QUERY_PLAN
+    return augment_query_plan_with_configured_targets(DEFAULT_QUERY_PLAN)
 
 
 def normalize_query_plan(obj: Any) -> Dict[str, List[Dict[str, str]]]:
@@ -703,9 +1003,12 @@ def candidate_key(c: Dict[str, Any]) -> str:
 def merge_candidate(a: Dict[str, Any], b: Dict[str, Any]) -> Dict[str, Any]:
     out = dict(a)
     for k, v in b.items():
-        if v in [None, '', [], {}]:
+        # Sentinel strings such as ``not_reported_in_available_evidence`` are
+        # missing values too.  Keeping one as the base value used to prevent a
+        # later evidence row from supplying the real repository URL.
+        if is_missing_value(v):
             continue
-        if k not in out or out[k] in [None, '', [], {}]:
+        if k not in out or is_missing_value(out[k]):
             out[k] = v
         elif k in ['sources', 'raw_source_files', 'urls']:
             out[k] = sorted(set(ensure_list(out.get(k)) + ensure_list(v)))
@@ -791,8 +1094,12 @@ class PubMedClient:
         return records
 
     def parse_article(self, art: ET.Element) -> Dict[str, Any]:
-        pmid = ''.join(art.findtext('.//PMID') or '').strip()
-        title = ''.join(art.findtext('.//ArticleTitle') or '').strip()
+        # Keep identifiers scoped to the current PubmedArticle.  A record can
+        # contain references with their own PMID/DOI nodes; descendant-wide
+        # ArticleIdList searches can therefore overwrite the primary article
+        # identifiers with an identifier from a cited paper.
+        pmid = ''.join(art.findtext('./MedlineCitation/PMID') or '').strip()
+        title = ''.join(art.findtext('./MedlineCitation/Article/ArticleTitle') or '').strip()
         abstract_parts = []
         for node in art.findall('.//Abstract/AbstractText'):
             label = node.attrib.get('Label')
@@ -803,7 +1110,7 @@ class PubMedClient:
         journal = ''.join(art.findtext('.//Journal/Title') or art.findtext('.//ISOAbbreviation') or '').strip()
         year = art.findtext('.//PubDate/Year') or art.findtext('.//ArticleDate/Year') or ''
         ids = {}
-        for idn in art.findall('.//ArticleIdList/ArticleId'):
+        for idn in art.findall('./PubmedData/ArticleIdList/ArticleId'):
             typ = idn.attrib.get('IdType') or 'unknown'
             val = ''.join(idn.itertext()).strip()
             if val:
@@ -954,6 +1261,7 @@ class CrossrefClient:
                 'doi': doi, 'title': title, 'abstract': item.get('abstract') or '',
                 'journal': (item.get('container-title') or [''])[0], 'venue': (item.get('container-title') or [''])[0],
                 'year': year, 'authors': authors, 'urls': [u for u in urls if u],
+                'citation_count': item.get('is-referenced-by-count'),
                 'license': item.get('license'), 'raw_source_files': [],
             })
         return out
@@ -1071,6 +1379,10 @@ class SemanticScholarClient:
 class GitHubClient:
     BASE = 'https://api.github.com'
 
+    def __init__(self) -> None:
+        self.disabled_reason = ''
+        self.warned_disabled = False
+
     def headers(self) -> Dict[str, str]:
         h = {'Accept': 'application/vnd.github+json'}
         token = os.getenv('GITHUB_TOKEN')
@@ -1078,11 +1390,32 @@ class GitHubClient:
             h['Authorization'] = f'Bearer {token}'
         return h
 
+    @staticmethod
+    def _should_disable_for_error(err: Exception) -> bool:
+        msg = str(err)
+        return any(x in msg for x in [
+            'HTTP Error 401',
+            'HTTP Error 403',
+            'Bad credentials',
+            'Requires authentication',
+            'rate limit',
+            'API rate limit exceeded',
+        ])
+
     def search_repositories(self, query: str, rows: int = 20) -> List[Dict[str, Any]]:
+        if self.disabled_reason:
+            return []
         try:
             data = HTTP.get_json(f'{self.BASE}/search/repositories', {'q': query, 'per_page': min(rows, 100), 'sort': 'best-match'}, headers=self.headers())
             cache_raw('github', query, data)
         except Exception as e:
+            if self._should_disable_for_error(e):
+                self.disabled_reason = str(e)
+                if not self.warned_disabled:
+                    print(f'    WARNING GitHub enrichment disabled for this run: {e}', flush=True)
+                    print('    Hint: clear invalid GITHUB_TOKEN, set a valid token, or rerun with --no-github-enrichment.', flush=True)
+                    self.warned_disabled = True
+                return []
             print(f'    ⚠️ GitHub 搜索失败：{e}')
             return []
         out = []
@@ -1164,6 +1497,10 @@ NON_MODEL_GITHUB_ENRICHMENT_TERMS = {
     'shap', 'treexplainer', 'treexplainer study', 'treexplainerstudy', 'scikit learn',
     'sklearn', 'tensorflow', 'pytorch', 'keras', 'numpy', 'pandas', 'matplotlib',
     'catboost', 'logistic regression', 'knn', 'k nearest neighbor', 'naive bayes',
+    'alphafold', 'alphafold2', 'alphafold3', 'boltz', 'boltz 1', 'boltz 2',
+    'karmadock', 'karma dock', 'rosetta', 'proteinmpnn', 'molecular docking',
+    'dock', 'dbaasp web server', 'dbamp', 'apd database', 'dramp database',
+    'uniprot', 'ncbi blast', 'blastp', 'hhblits', 'hhsuite',
 }
 
 
@@ -1176,6 +1513,12 @@ def should_skip_github_enrichment_model(name: str, model: Dict[str, Any]) -> boo
     if name_key in {'amp', 'camp', 'dbaasp', 'apd', 'apd3', 'dramp', 'uniprot', 'not provided in evidence', 'not_provided_in_evidence'}:
         return True
     if name_key in NON_MODEL_GITHUB_ENRICHMENT_TERMS or name_compact in {re.sub(r'[^a-z0-9]+', '', x) for x in NON_MODEL_GITHUB_ENRICHMENT_TERMS}:
+        return True
+    if any(x in name_key for x in ['alphafold', 'boltz', 'karmadock', 'karma dock']):
+        return True
+    if 'web server' in name_key and any(x in name_key for x in ['dbaasp', 'apd', 'dramp', 'camp', 'database']):
+        return True
+    if 'database' in name_key and any(x in name_key for x in ['dbaasp', 'apd', 'dramp', 'camp', 'uniprot']):
         return True
     if any(pat in low for pat in ['unnamed ', 'multiple ', 'various ', 'predictive and interpretable', 'collaborative filtering and link prediction model']):
         return True
@@ -1521,9 +1864,21 @@ def load_existing_github_enrichment() -> Dict[str, List[Dict[str, Any]]]:
 
 def write_github_enrichment(rows: List[Dict[str, Any]]) -> None:
     rows = dedupe_objects(rows, 'github_missing_model_enrichment')
-    write_json(GITHUB_MISSING_MODEL_ENRICHMENT_JSON, rows)
+    try:
+        write_json(GITHUB_MISSING_MODEL_ENRICHMENT_JSON, rows)
+    except Exception as e:
+        print(f'    WARNING could not write GitHub enrichment JSON cache: {e}', flush=True)
+        backup = GITHUB_MISSING_MODEL_ENRICHMENT_JSON.with_name(f'{GITHUB_MISSING_MODEL_ENRICHMENT_JSON.stem}.backup.json')
+        try:
+            write_json(backup, rows)
+            print(f'    WARNING GitHub enrichment cache was written to fallback: {backup}', flush=True)
+        except Exception as backup_error:
+            print(f'    WARNING fallback GitHub enrichment cache also failed: {backup_error}', flush=True)
     # v5.0: overwrite cache JSONL rather than append duplicate rows every run.
-    write_jsonl(GITHUB_MISSING_MODEL_ENRICHMENT_JSONL, rows)
+    try:
+        write_jsonl(GITHUB_MISSING_MODEL_ENRICHMENT_JSONL, rows)
+    except Exception as e:
+        print(f'    WARNING could not write GitHub enrichment JSONL cache: {e}', flush=True)
 
 
 def github_enrichment_success_rows(rows: List[Dict[str, Any]], min_score: float = GITHUB_MEDIUM_CONFIDENCE_SCORE) -> List[Dict[str, Any]]:
@@ -1657,10 +2012,15 @@ def search_github_for_missing_model_repos(models: List[Dict[str, Any]], max_mode
     else:
         print('>>> GitHub 补链：没有新的无 GitHub 模型需要搜索，或已存在缓存。', flush=True)
     for idx, (name, model) in enumerate(names, 1):
+        if gh.disabled_reason:
+            print(f'>>> GitHub enrichment stopped early: {gh.disabled_reason}', flush=True)
+            break
         queries = github_search_queries_for_model(name)
         candidate_repos: List[Dict[str, Any]] = []
         seen_urls: set = set()
         for q in queries:
+            if gh.disabled_reason:
+                break
             res = gh.search_repositories(q, rows=max(10, repos_per_model * 5))
             for repo in res:
                 url = repo.get('url')
@@ -2428,7 +2788,7 @@ def regex_evidence_from_records(records: List[Dict[str, Any]]) -> Dict[str, Any]
 
 
 def extract_info_batch(llm: DeepSeekChatLLM, loader: AgentMDLoader, records: List[Dict[str, Any]], batch_no: int) -> Dict[str, Any]:
-    system = loader.load('info_extractor_agent')
+    system = load_agent_prompt(loader, 'info_extractor_agent')
     payload = [compact_record_for_llm(r) for r in records]
     user = f"""
 下面是第 {batch_no} 批多源文献/全文证据。请提取 AMP 预测模型 benchmark 所需关键信息。
@@ -2679,7 +3039,7 @@ def compress_evidence_chunks(llm: DeepSeekChatLLM, loader: AgentMDLoader, eviden
     chunks = build_evidence_chunks(evidence_pool, target_items_per_chunk=target_items_per_chunk, max_chunks=max_chunks)
     write_json(CHUNK_INDEX_JSON, {'created_at': now_str(), 'chunk_count': len(chunks), 'chunks': chunks})
     print(f'>>> Evidence chunks built: {len(chunks)} | index={CHUNK_INDEX_JSON.relative_to(ROOT)}')
-    system = loader.load('evidence_compressor_agent')
+    system = load_agent_prompt(loader, 'evidence_compressor_agent')
     summaries: List[Dict[str, Any]] = []
     for idx, chunk in enumerate(chunks, 1):
         cid = chunk.get('chunk_id') or f'chunk_{idx:03d}'
@@ -2719,6 +3079,224 @@ def compress_evidence_chunks(llm: DeepSeekChatLLM, loader: AgentMDLoader, eviden
 
 
 # ------------------------- Global Meeting -------------------------
+def build_llm_nomination_meeting_context(nominations: Any, verification: Any) -> Dict[str, Any]:
+    """Build a quarantined audit bridge from the 100-model workflow.
+
+    Rejected/unresolved LLM nominations are exposed only as audit outcomes.
+    Only independently verified, evidence-pool-eligible records are converted
+    into model evidence for the global meeting.
+    """
+    nomination_rows = ensure_list(nominations.get('models')) if isinstance(nominations, dict) else []
+    verification_rows = ensure_list(verification.get('results')) if isinstance(verification, dict) else []
+    status_counts: Dict[str, int] = {}
+    verified_models: List[Dict[str, Any]] = []
+    audit_outcomes: List[Dict[str, Any]] = []
+    for row in verification_rows:
+        if not isinstance(row, dict):
+            continue
+        status = str(row.get('verification_status') or 'unknown')
+        status_counts[status] = status_counts.get(status, 0) + 1
+        audit_outcomes.append({
+            'model_name': row.get('model_name'),
+            'verification_status': status,
+            'eligible_for_evidence_pool': row.get('eligible_for_evidence_pool') is True,
+            'verification_errors': ensure_list(row.get('verification_errors'))[:5],
+        })
+        if status != 'verified' or row.get('eligible_for_evidence_pool') is not True:
+            continue
+        nomination = row.get('nomination') if isinstance(row.get('nomination'), dict) else {}
+        repo = row.get('code_repository_url')
+        model = clean_row_dict({
+            'model_name': row.get('model_name'),
+            'canonical_name': row.get('canonical_name') or row.get('model_name'),
+            'publication_year': row.get('publication_year'),
+            'paper_title': row.get('paper_title'),
+            'task_type': row.get('task_type') or 'AMP prediction/classification',
+            'method_family': row.get('model_architecture') or 'architecture_not_verified',
+            'architecture_or_algorithm': row.get('model_architecture'),
+            'input_representation': row.get('input_representation'),
+            'source_journal': row.get('source_journal'),
+            'journal_impact_factor': row.get('journal_impact_factor'),
+            'journal_impact_factor_status': row.get('journal_impact_factor_status'),
+            'citation_count': row.get('citation_count'),
+            'citation_count_status': row.get('citation_count_status'),
+            'citation_evidence_source': row.get('citation_evidence_source'),
+            'source_doi': row.get('source_doi'),
+            'source_pmid': row.get('source_pmid'),
+            'code_repository_url': repo,
+            'web_server_url': row.get('web_server_url'),
+            'dataset_source_or_link': row.get('dataset_source_or_link'),
+            'candidate_reason': nomination.get('why_recommended') or 'LLM nomination independently verified online',
+            'benchmark_candidate': True,
+            'blocking_issues': [] if repo else ['verified_paper_but_code_repository_not_verified'],
+            'evidence_level': 'crossref_openalex_verified_llm_nomination',
+            'confidence': min(1.0, max(0.0, _safe_float(row.get('best_match_score'), 0.0))),
+            'online_verification_sources': ensure_list(row.get('online_verification_sources')),
+            'verification_status': 'verified_before_global_meeting',
+            'provenance': 'llm_nomination_then_crossref_openalex_verification',
+        })
+        verified_models.append(model)
+    return {
+        'policy': 'Raw LLM nominations are quarantined. Only verified and evidence-pool-eligible models may influence recommendations; rejected rows are audit-only.',
+        'nominated_count': len([row for row in nomination_rows if isinstance(row, dict)]),
+        'checked_count': len([row for row in verification_rows if isinstance(row, dict)]),
+        'verified_count': len(verified_models),
+        'rejected_or_unresolved_count': max(0, len(verification_rows) - len(verified_models)),
+        'status_counts': status_counts,
+        'verified_models': dedupe_models_by_name(verified_models),
+        'audit_outcomes': audit_outcomes,
+    }
+
+
+def select_empirically_complementary_dataset_profiles(
+    profiles: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    balanced = [row for row in profiles if row.get('observed_profile') == 'balanced']
+    imbalanced = [row for row in profiles if row.get('observed_profile') == 'imbalanced']
+    if not balanced or len(imbalanced) < 2:
+        return []
+    balanced.sort(key=lambda row: _safe_float(row.get('minority_majority_ratio'), 0.0), reverse=True)
+    best_pair = max(
+        itertools.combinations(imbalanced, 2),
+        key=lambda pair: abs(
+            _safe_float(pair[0].get('positive_fraction'), 0.0)
+            - _safe_float(pair[1].get('positive_fraction'), 0.0)
+        ),
+    )
+    return [balanced[0], *best_pair]
+
+
+def build_dataset_meeting_candidate_context() -> Dict[str, Any]:
+    """Build evidence context for discussion without preselecting dataset winners."""
+    local_profiles = load_local_evaluated_dataset_profiles()
+    return {
+        'selection_policy': (
+            'These rows are evidence-backed acquisition candidates, not a fixed shortlist. '
+            'Every candidate must be accepted, rejected or deferred by the meeting, and final '
+            'selection still requires provenance, sequence-profile and model-specific overlap audits.'
+        ),
+        'alias_policy': (
+            'Local result-directory names and corrected prediction filenames are aliases only. '
+            'Merge them with the corresponding scientific dataset identity before comparison.'
+        ),
+        'verified_acquisition_candidates': load_verified_dataset_acquisition_candidates(),
+        'local_observed_profiles': local_profiles,
+        'empirically_complementary_top3': select_empirically_complementary_dataset_profiles(local_profiles),
+        'empirical_top3_policy': (
+            'Dynamically choose one balanced and two differently imbalanced datasets from real local labels. '
+            'Treat this as a strong meeting proposal, not an automatic final selection; linked-model leakage '
+            'and homology audits can still reject model-dataset cells or the whole dataset.'
+        ),
+        'local_profile_limit': (
+            'Observed class counts may support balanced/imbalanced profile planning only. They do '
+            'not prove source provenance, test independence, absence of homology, or training-set separation.'
+        ),
+    }
+
+
+def load_scientifically_verified_required_models() -> List[Dict[str, Any]]:
+    payload = read_json(REQUIRED_BENCHMARK_MODEL_VERIFICATION_JSON, {})
+    models: List[Dict[str, Any]] = []
+    for result in ensure_list(payload.get('results') if isinstance(payload, dict) else []):
+        if not isinstance(result, dict):
+            continue
+        if result.get('verification_status') != 'scientifically_verified' or result.get('eligible_for_evidence_pool') is not True:
+            continue
+        nomination = result.get('nomination') if isinstance(result.get('nomination'), dict) else {}
+        models.append(clean_row_dict({
+            'model_name': result.get('model_name') or nomination.get('model_name'),
+            'canonical_name': result.get('canonical_name') or result.get('model_name') or nomination.get('model_name'),
+            'aliases': ensure_list(result.get('aliases')) or ensure_list(nomination.get('aliases')),
+            'parent_model': result.get('parent_model') or nomination.get('parent_model'),
+            'paper_title': result.get('paper_title') or nomination.get('paper_title'),
+            'publication_year': result.get('publication_year') or nomination.get('publication_year'),
+            'source_journal': result.get('source_journal') or nomination.get('source_journal'),
+            'source_doi': result.get('source_doi') or nomination.get('source_doi'),
+            'source_pmid': result.get('source_pmid') or nomination.get('source_pmid'),
+            'citation_count': result.get('citation_count'),
+            'journal_impact_factor': result.get('journal_impact_factor'),
+            'architecture_or_algorithm': result.get('architecture_claim') or nomination.get('model_architecture'),
+            'input_representation': result.get('input_representation') or nomination.get('input_representation'),
+            'task_type': result.get('task_type') or nomination.get('task_type'),
+            'code_repository_url': result.get('code_repository_url') or nomination.get('code_repository_url'),
+            'dataset_source_or_link': result.get('dataset_source_or_link') or nomination.get('dataset_source_or_link'),
+            'benchmark_candidate': True,
+            'required_candidate': True,
+            'candidate_reason': 'Required core candidate passed the scientific evidence gate; final ranking remains dynamic.',
+            'evidence_level': 'primary_publisher_crossref_openalex_github_verified',
+            'confidence': 1.0,
+            'verification_status': 'scientifically_verified_before_global_meeting',
+            'blocking_issues': [],
+        }))
+    return dedupe_models_by_name(models)
+
+
+def _coverage_identity_keys(row: Dict[str, Any]) -> set[str]:
+    values = [
+        row.get('model_name'), row.get('canonical_name'), row.get('name'),
+        *ensure_list(row.get('aliases')), *ensure_list(row.get('evaluation_labels')),
+    ]
+    return {
+        re.sub(r'[^a-z0-9]+', '', normalize_key(value))
+        for value in values
+        if value and len(re.sub(r'[^a-z0-9]+', '', normalize_key(value))) >= 4
+    }
+
+
+def build_benchmark_model_coverage_context(
+    compact_evidence_pool: Dict[str, Any],
+    memory_context: Dict[str, Any],
+) -> Dict[str, Any]:
+    config = load_benchmark_model_coverage_targets()
+    evidence_rows = collect_model_rows_for_github_search_from_compact(compact_evidence_pool)
+    evidence_rows.extend(
+        row for row in ensure_list(memory_context.get('historical_model_pool'))
+        if isinstance(row, dict)
+    )
+    verified_required = load_scientifically_verified_required_models()
+    evidence_rows.extend(verified_required)
+    evidence_rows = dedupe_models_by_name(evidence_rows)
+
+    audited: List[Dict[str, Any]] = []
+    for target in config['models']:
+        target_keys = _coverage_identity_keys(target)
+        matches = [row for row in evidence_rows if target_keys & _coverage_identity_keys(row)]
+        matched_names = sorted({
+            str(row.get('model_name') or row.get('canonical_name'))
+            for row in matches if row.get('model_name') or row.get('canonical_name')
+        })
+        audited.append(clean_row_dict({
+            **target,
+            'found_in_evidence_or_memory': bool(matches),
+            'matched_evidence_names': matched_names[:10],
+            'best_evidence_level': first_nonempty(*[row.get('evidence_level') for row in matches]),
+            'scientifically_verified_required_core': any(
+                _coverage_identity_keys(row) & target_keys for row in verified_required
+            ),
+            'decision': 'found_for_meeting_review' if matches else 'search_gap_requires_followup',
+        }))
+
+    denominator_rows = [row for row in audited if row.get('count_toward_coverage') is not False]
+    found_rows = [row for row in denominator_rows if row.get('found_in_evidence_or_memory')]
+    required_rows = [row for row in audited if row.get('required_core')]
+    required_missing = [row.get('model_name') for row in required_rows if not row.get('scientifically_verified_required_core')]
+    coverage_fraction = len(found_rows) / len(denominator_rows) if denominator_rows else 0.0
+    minimum = config['minimum_coverage_fraction']
+    return {
+        'policy': config['policy'],
+        'minimum_coverage_fraction': minimum,
+        'coverage_denominator': len(denominator_rows),
+        'covered_model_count': len(found_rows),
+        'coverage_fraction': round(coverage_fraction, 6),
+        'coverage_gate_passed': coverage_fraction >= minimum and not required_missing,
+        'required_core_models': [row.get('model_name') for row in required_rows],
+        'required_core_missing_scientific_verification': required_missing,
+        'missing_coverage_models': [row.get('model_name') for row in denominator_rows if not row.get('found_in_evidence_or_memory')],
+        'targets': audited,
+        'selection_semantics': 'Coverage is a search/meeting gate, not a fixed recommendation or ranking template.',
+    }
+
+
 def global_meeting(llm: DeepSeekChatLLM, loader: AgentMDLoader, compact_evidence_pool: Dict[str, Any], memory_context: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     meeting_input = {
         'created_at': compact_evidence_pool.get('created_at'),
@@ -2728,46 +3306,83 @@ def global_meeting(llm: DeepSeekChatLLM, loader: AgentMDLoader, compact_evidence
         'chunk_summary_count': compact_evidence_pool.get('chunk_summary_count'),
         'chunk_summaries': ensure_list(compact_evidence_pool.get('chunk_summaries')),
         'paper_overview': ensure_list(compact_evidence_pool.get('paper_overview'))[:200],
+        'llm_nomination_verification': compact_evidence_pool.get('llm_nomination_verification') or {},
     }
     compact_pool_text = trunc(json_dumps(meeting_input, 2), 120000)
+    dataset_candidate_context = build_dataset_meeting_candidate_context()
+    dataset_candidate_text = trunc(json_dumps(dataset_candidate_context, 2), 30000)
+    model_coverage_context = build_benchmark_model_coverage_context(compact_evidence_pool, memory_context)
+    model_coverage_text = trunc(json_dumps(model_coverage_context, 2), 30000)
+    memory_prompt_context = {
+        key: value for key, value in memory_context.items()
+        if key != 'historical_model_pool'
+    }
+    memory_prompt_text = trunc(json_dumps(memory_prompt_context, 2), 50000)
 
     print('    -> [Global Agent 1] 模型与数据集专家全局会议（读取 chunk summaries）...')
-    md_system = loader.load('model_dataset_agent')
+    md_system = load_agent_prompt(loader, 'model_dataset_agent')
     try:
         md_json = llm.chat_json('model_dataset_agent', md_system, f"""
 请基于 compact evidence chunk summaries 进行全局整理，合并重复模型和数据集，判断 benchmark 候选状态。
 重点使用 chunk_summaries，而不是要求读取全文。
+下面的“核验候选上下文”由配置和本地已评测结果动态生成，不是固定推荐名单：
+- 用 aliases 合并本地文件名、模型论文名称和正式数据集名称，避免把同一数据集重复计数。
+- 对每个 verified_acquisition_candidate 都要给出 accept/reject/defer 之一及证据理由；可以拒绝，不能静默忽略。
+- 比较官方来源/DOI、正负样本是否完整、平衡程度、长度范围、负样本构造、训练重叠和模型特异的独立性。
+- 本地类别比例只可辅助规划 balanced/imbalanced 组合，不可代替文献和独立性证据。
+- empirically_complementary_top3 是由真实标签动态选出的强提案；必须优先比较并逐项接受/拒绝。拒绝时说明来源、标签、同源性或模型特异训练重叠理由，不能静默换成弱证据数据集。
+- 使用“评测模型覆盖审计”检查是否找到了图中大部分模型。变体按 canonical model 合并，generic LSTM 不计入论文模型覆盖率。
+- C_AMPs-predict、HMD-AMP、AMPSorter 必须逐项讨论；它们是 required core candidates，不是固定最终排名。
 只返回 JSON。
 
 Compact evidence：
 {compact_pool_text}
 
 已有记忆摘要：
-{trunc(json_dumps(memory_context, 2), 20000)}
+{memory_prompt_text}
+
+核验候选上下文（候选而非指定答案）：
+{dataset_candidate_text}
+
+评测模型覆盖审计：
+{model_coverage_text}
 """)
     except Exception as e:
         append_jsonl(FAILED_DIR / 'failed_global_agents.jsonl', {'agent': 'model_dataset_agent', 'error': str(e), 'traceback': traceback.format_exc()})
         md_json = {'models': [], 'datasets': [], 'repositories': [], 'open_questions': [f'model_dataset_agent failed: {e}']}
 
     print('    -> [Global Agent 2] 指标专家全局会议（读取 chunk summaries）...')
-    metric_system = loader.load('metric_agent')
+    metric_system = load_agent_prompt(loader, 'metric_agent')
     try:
         metric_json = llm.chat_json('metric_agent', metric_system, f"""
 请基于 compact evidence chunk summaries 总结 AMP benchmark 的评价指标、数据集切分、外部验证、推荐主指标。
+同时审查核验候选是否能形成互补的测试组合：优先讨论 1 个近似平衡集和 2 个不平衡程度不同的集合，
+但不得为了凑齐结构而忽略来源、真实正负标签、训练重叠、同源性和独立性风险。
+逐候选输出 accept/reject/defer 建议；本地 observed profile 只是辅助统计证据。
 只返回 JSON。
 
 Compact evidence：
 {compact_pool_text}
+
+核验候选上下文（候选而非指定答案）：
+{dataset_candidate_text}
 """)
     except Exception as e:
         append_jsonl(FAILED_DIR / 'failed_global_agents.jsonl', {'agent': 'metric_agent', 'error': str(e), 'traceback': traceback.format_exc()})
         metric_json = {'metrics': [], 'benchmark_implications': [], 'open_questions': [f'metric_agent failed: {e}']}
 
     print('    -> [Global Agent 3] Critic 全局证据审查...')
-    critic_system = loader.load('critic_agent')
+    critic_system = load_agent_prompt(loader, 'critic_agent')
     try:
         critic_json = llm.chat_json('critic_agent', critic_system, f"""
 请审查模型/数据集/指标结论的证据可靠性，指出不能确认的代码仓库、数据集链接、全文缺失和重复模型。
+必须逐项裁决 Scout 提出的数据集以及核验候选上下文中的每个数据集，给出 accept/reject/defer 和依据。
+有官方直接来源、明确 AMP/非 AMP 标签、可审计测试划分的候选优先；把未标注库随机抽样后临时构造负样本的方案，
+不能作为金标准测试集。模型关联测试集不等于对该模型独立，必须保留 model-specific independence 限制。
+同时检查上一轮 final deployment models 的连续性。旧模型不是固定赢家，但如果本轮建议删除或大幅降级，
+必须指出新的失效证据、任务不匹配、代码门禁失败或更高质量替代者，不能仅因本轮摘要未再次提及而遗忘。
+审查评测模型覆盖率是否达到配置阈值，并确认三个 required core models 都有科学核验证据且进入讨论。
+覆盖目标只约束检索召回和审计，不得直接把目标清单复制成最终推荐榜。
 只返回 JSON。
 
 模型数据集专家结果：
@@ -2775,13 +3390,22 @@ Compact evidence：
 
 指标专家结果：
 {trunc(json_dumps(metric_json, 2), 30000)}
+
+核验候选上下文（候选而非指定答案）：
+{dataset_candidate_text}
+
+历史记忆稳定性上下文：
+{memory_prompt_text}
+
+评测模型覆盖审计：
+{model_coverage_text}
 """)
     except Exception as e:
         append_jsonl(FAILED_DIR / 'failed_global_agents.jsonl', {'agent': 'critic_agent', 'error': str(e), 'traceback': traceback.format_exc()})
         critic_json = {'open_questions': [f'critic_agent failed: {e}'], 'warnings': []}
 
     print('    -> [Global Agent 4] Chief 汇总最终全局记忆 JSON...')
-    chief_system = loader.load('chief_agent')
+    chief_system = load_agent_prompt(loader, 'chief_agent')
     chief_prompt = f"""
 请把三位 Agent 的结果汇总成最终严格 JSON，用于长期记忆。
 
@@ -2795,6 +3419,8 @@ Compact evidence：
   "dataset_links": [],
   "model_dataset_links": [],
   "dataset_followup_tasks": [],
+  "meeting_recommended_datasets": [],
+  "meeting_dataset_decision_trace": [],
   "metrics": [],
   "papers": [],
   "benchmark_implications": [],
@@ -2809,10 +3435,19 @@ Compact evidence：
 - models 可以放更适合 benchmark 的精选模型；benchmark_ready_models 放可优先复现/benchmark 的模型。
 - 对每个模型尽量给出 model_dataset_links；没有数据集链接时也要写 dataset_status=not_reported/source_database_named/described_no_link。
 - dataset_followup_tasks 专门记录需要继续搜索的数据集/补充材料/仓库 README/数据 DOI。
+- meeting_recommended_datasets 必须由本轮 Scout 数据集提案、Metrics 审查和 Critic 裁决共同产生，最多 3 个；禁止使用固定清单填充。优先覆盖 1 个近似平衡目标和 2 个不平衡程度不同的目标。未实测的比例、长度和独立性必须标为 needs_sequence_audit，不能猜测。
+- 核验候选上下文只是强制比较的证据池，不是指定答案；Chief 可以接受、拒绝或暂缓任一候选。aliases 指向同一科学数据集，不得重复占用名额。
+- meeting_dataset_decision_trace 必须覆盖核验候选上下文中的每个候选，并逐候选保存 Scout 提案、Metrics 意见、Critic 接受/拒绝/暂缓决定和 Chief 最终理由。未进入 top 3 的候选也必须有明确理由。
+- 数据集排序优先比较：官方可追溯来源和 DOI、真实且明确的正负标签、外部/独立测试证据、模型特异训练重叠风险、长度与同源性审计可行性，以及类别分布互补性。不得把本地 observed profile 当作来源或独立性证明。
+- 对 empirically_complementary_top3 优先形成共识：它由当前真实评测标签动态产生，并非名称模板。若三者提供“1 平衡 + 2 个不平衡程度不同”的互补组合且官方来源成立，可推荐为 benchmark stress-test trio；但 C_AMPs-predict 关联数据对 C_AMPs-predict、AMPSorter/ProteoGPT 关联数据对 AMPSorter 必须标注 not independent / needs overlap audit。
+- 不得把从未标注数据库或随机“非 AMP”池临时构造的负样本集推荐为金标准；模型关联测试集对关联模型必须标注 not_independent 或 needs_overlap_audit。
 - 所有链接必须来自 evidence/chunk summaries，不要编造。
 - benchmark_implications 必须是对象列表，每个对象包含 topic/decision/reason/evidence。
-- model_classification 要按模型名称/主题/来源综合分类，覆盖：纯二分类、深度学习、传统 ML、Web server/tool、MIC/活性回归、生成式/设计、跨界/非核心、review/低置信。
-- representative_models_by_category 每类选 1-2 个代表模型，并说明为什么代表该类。
+- model_classification 要按模型名称/主题/来源综合分类；Architecture 必须覆盖 traditional ML、CNN、RNN/LSTM、CNN+RNN hybrid、Transformer/PLM、GNN/structure graph、ensemble/pipeline，并把 MIC/活性回归、生成式/设计、跨界/非核心、review/低置信作为阻断或扩展说明。
+- representative_models_by_category 中 Architecture 每类推荐 3-5 个代表模型，按 journal_impact_factor、citation_count、article_impact_score 降序排列；如果证据池不足 3 个，如实少列并说明缺口。Representation 可保留 1-3 个代表用于解释输入表示。
+- 最终 benchmark 模型组合必须分层：至少 3 个有代码的经典基线、至少 3 个近两年且有代码与独立/外部测试证据的“近期 SOTA 候选”，再补齐架构代表。论文自称 SOTA 只能写 candidate，不能直接当成 benchmark 结论。
+- 历史记忆是累积证据池。上一轮 final deployment models 是连续性锚点而非固定名单；若证据和门禁状态未变化，应保持其相对稳定。删除、降级或替换旧模型时，必须在 benchmark_implications/agent_discussion 中写明新证据、门禁失败或更优替代原因，不能因为本轮 chunk 未重复出现就遗忘。
+- 必须报告 benchmark model coverage：目标是覆盖配置文件中至少 minimum_coverage_fraction 的可检索模型，并逐项讨论 C_AMPs-predict、HMD-AMP、AMPSorter。覆盖不足时写 follow-up query，不得伪造模型证据；覆盖达标也不得把覆盖清单当成固定推荐排名。
 - agent_discussion 需要能渲染成接近 meeting_trace.md 的会议记录：Scout 初版、Metrics 初版、Critic 质疑、Scout 辩护、Metrics 辩护、Critic 终审、Final Consensus。
 - 尽量输出紧凑 JSON，不要复制长 evidence。
 - 只返回 JSON。
@@ -2825,6 +3460,15 @@ Compact evidence：
 
 Critic：
 {trunc(json_dumps(critic_json, 2), 30000)}
+
+核验候选上下文（必须比较，但不得自动入选）：
+{dataset_candidate_text}
+
+历史记忆稳定性上下文（旧榜单不是固定赢家）：
+{memory_prompt_text}
+
+评测模型覆盖审计（覆盖目标不是固定榜单）：
+{model_coverage_text}
 """
     try:
         final_json = llm.chat_json('chief_agent', chief_system, chief_prompt)
@@ -2835,10 +3479,37 @@ Critic：
     if not isinstance(final_json, dict):
         final_json = {'models': [], 'repositories': [], 'datasets': [], 'dataset_links': [], 'metrics': [], 'papers': [], 'benchmark_implications': [], 'open_questions': [final_json]}
 
+    # Chief output is not the sole source.  Carry the cumulative historical
+    # candidate pool forward before current chunks and deterministic gates are
+    # applied, so a model is not forgotten merely because one run omitted it.
+    verified_required_models = load_scientifically_verified_required_models()
+    final_json['all_candidate_models'] = merge_items(
+        verified_required_models,
+        ensure_list(final_json.get('all_candidate_models')) + ensure_list(final_json.get('models')),
+        'all_candidate_models',
+    )
+    final_json['benchmark_ready_models'] = merge_items(
+        verified_required_models,
+        ensure_list(final_json.get('benchmark_ready_models')),
+        'benchmark_ready_models',
+    )
+    final_json['benchmark_model_coverage'] = model_coverage_context
+    final_json = merge_historical_model_memory(final_json, memory_context)
     # v3: Chief 的输出不能作为唯一来源。这里从 chunk summaries 自动补回全量候选模型、数据集关系和缺失数据集 follow-up。
     final_json = enrich_final_from_chunks(final_json, compact_evidence_pool, md_json, metric_json, critic_json)
 
-    raw = {'time': now_str(), 'meeting_input_type': 'compact_chunk_summaries', 'model_dataset_agent': md_json, 'metric_agent': metric_json, 'critic_agent': critic_json, 'chief_agent': final_json, 'agent_discussion': final_json.get('agent_discussion', [])}
+    raw = {
+        'time': now_str(),
+        'meeting_input_type': 'compact_chunk_summaries_plus_config_driven_dataset_candidates',
+        'dataset_candidate_context': dataset_candidate_context,
+        'benchmark_model_coverage': model_coverage_context,
+        'memory_continuity': final_json.get('memory_continuity', {}),
+        'model_dataset_agent': md_json,
+        'metric_agent': metric_json,
+        'critic_agent': critic_json,
+        'chief_agent': final_json,
+        'agent_discussion': final_json.get('agent_discussion', []),
+    }
     append_jsonl(GLOBAL_MEETING_RAW_JSONL, raw)
     return final_json, raw
 
@@ -2853,6 +3524,8 @@ def fallback_final_from_agents(md_json: Any, metric_json: Any, critic_json: Any,
         'dataset_links': [],
         'model_dataset_links': [],
         'dataset_followup_tasks': [],
+        'meeting_recommended_datasets': [],
+        'meeting_dataset_decision_trace': [],
         'metrics': [],
         'papers': [],
         'benchmark_implications': [],
@@ -2866,6 +3539,8 @@ def fallback_final_from_agents(md_json: Any, metric_json: Any, critic_json: Any,
         for k in out:
             if k in src:
                 out[k].extend(ensure_list(src.get(k)))
+    if not out['meeting_recommended_datasets'] and isinstance(md_json, dict):
+        out['meeting_recommended_datasets'] = ensure_list(md_json.get('dataset_shortlist_top3'))
     if error:
         out['open_questions'].append({'question': 'chief_agent_failed_or_timed_out', 'reason': error, 'next_action': 'rerun with smaller --chunk-target-size or lower --max-results'})
     for k in out:
@@ -2874,7 +3549,10 @@ def fallback_final_from_agents(md_json: Any, metric_json: Any, critic_json: Any,
 
 
 # ------------------------- Final-data enrichment -------------------------
-BAD_VALUES = {'', 'none', 'null', 'nan', 'n/a', 'na', 'not reported', 'not_reported', 'not_reported_in_available_evidence', 'not available', 'unknown'}
+BAD_VALUES = {
+    '', 'none', 'null', 'nan', 'n a', 'na', 'not reported',
+    'not reported in available evidence', 'not available', 'unknown',
+}
 
 
 def is_missing_value(v: Any) -> bool:
@@ -2883,6 +3561,24 @@ def is_missing_value(v: Any) -> bool:
     if isinstance(v, (list, tuple, set, dict)):
         return len(v) == 0
     return normalize_key(v) in BAD_VALUES
+
+
+def normalize_code_repository_url(value: Any) -> str:
+    """Extract a clean HTTP(S) repository URL from an evidence field."""
+    if is_missing_value(value):
+        return ''
+    match = URL_RE.search(str(value).strip())
+    if not match:
+        return ''
+    return match.group(0).rstrip('.,;:)]}')
+
+
+def has_code_repository_url(item: Any) -> bool:
+    """Return True only for a concrete HTTP(S) URL in code_repository_url."""
+    if not isinstance(item, dict):
+        return False
+    value = normalize_code_repository_url(item.get('code_repository_url'))
+    return value.lower().startswith(('http://', 'https://'))
 
 
 def first_nonempty(*vals: Any) -> Any:
@@ -3142,6 +3838,22 @@ def build_chunk_derived_final(compact_evidence_pool: Dict[str, Any]) -> Dict[str
             elif isinstance(q, str) and q.strip():
                 out['open_questions'].append({'question': q.strip(), 'reason': 'chunk_summary_uncertainty', 'next_action': 'manual_or_followup_search'})
 
+    nomination_audit = compact_evidence_pool.get('llm_nomination_verification') or {}
+    for model in ensure_list(nomination_audit.get('verified_models')):
+        if not isinstance(model, dict):
+            continue
+        out['all_candidate_models'].append(model)
+        if model.get('code_repository_url'):
+            out['benchmark_ready_models'].append(model)
+        out['model_dataset_links'].append(model_dataset_link_from_model(model))
+    if nomination_audit:
+        out['benchmark_implications'].append({
+            'topic': 'LLM 100-model nomination verification',
+            'decision': 'Only independently verified nominations are merged into model evidence; rejected or unresolved nominations remain audit-only.',
+            'reason': 'LLM nomination is a discovery mechanism, not primary evidence.',
+            'evidence': f"nominated={nomination_audit.get('nominated_count', 0)}, checked={nomination_audit.get('checked_count', 0)}, verified={nomination_audit.get('verified_count', 0)}",
+        })
+
     # Dataset follow-up tasks: one per missing/incomplete model-dataset relation
     for link in ensure_list(out.get('model_dataset_links')):
         if isinstance(link, dict) and link.get('needs_followup'):
@@ -3186,6 +3898,8 @@ def build_agent_discussion(md_json: Any, metric_json: Any, critic_json: Any, chi
                 'chunk_summary_count': len(ensure_list(compact_evidence_pool.get('chunk_summaries'))),
                 'paper_count': compact_evidence_pool.get('paper_count'),
                 'source_counts': compact_evidence_pool.get('source_counts'),
+                'llm_nominated_count': (compact_evidence_pool.get('llm_nomination_verification') or {}).get('nominated_count', 0),
+                'llm_verified_count': (compact_evidence_pool.get('llm_nomination_verification') or {}).get('verified_count', 0),
             },
             'key_points': [
                 '每个 chunk 保留 PMID/PMCID/DOI/title/url/source 等可追溯证据。',
@@ -3286,11 +4000,19 @@ MODEL_ALIAS_MAP: Dict[str, str] = {
     'broadamp gpt amp prediction model': 'BroadAMP-GPT AMP prediction model',
     'broadamp gpt generation model': 'BroadAMP-GPT generation model',
     'broadamp gpt mic prediction models': 'BroadAMP-GPT MIC prediction models',
-    'proteogpt ampsorter': 'ProteoGPT (AMPSorter)',
-    'ampsorter': 'ProteoGPT (AMPSorter)',
-    'proteogpt': 'ProteoGPT (AMPSorter)',
+    # ProteoGPT is the parent language model; AMPSorter is the executable AMP
+    # classifier and is therefore the benchmark unit.
+    'proteogpt ampsorter': 'AMPSorter',
+    'proteogpt ampsorter ampgenix': 'AMPSorter',
+    'ampsorter': 'AMPSorter',
+    'proteogpt': 'ProteoGPT',
     'c amps predict': 'C_AMPs-predict',
     'c-amps-predict': 'C_AMPs-predict',
+    'c amps prediction': 'C_AMPs-predict',
+    'c-amps-prediction': 'C_AMPs-predict',
+    'camps prediction': 'C_AMPs-predict',
+    'hmd amp': 'HMD-AMP',
+    'hmdamp': 'HMD-AMP',
     'unidl4biopep': 'UniDL4BioPep',
     'unidl4biopep': 'UniDL4BioPep',
     'samp pfpdeep': 'sAMP-PFPDeep',
@@ -3324,6 +4046,107 @@ def model_key(item: Any) -> str:
     return normalize_key(can)
 
 
+_MODEL_PRIMARY_METADATA_CACHE: Optional[Dict[str, Dict[str, Any]]] = None
+
+
+def load_model_primary_metadata() -> Dict[str, Dict[str, Any]]:
+    """Load immutable original-paper metadata keyed by canonical model name.
+
+    Literature that cites, reviews, or runs a model is useful secondary evidence,
+    but it must never replace the model's own DOI, PMID, year, journal, task, or
+    architecture.  The registry is deliberately small and evidence-audited.
+    """
+    global _MODEL_PRIMARY_METADATA_CACHE
+    if _MODEL_PRIMARY_METADATA_CACHE is None:
+        doc = read_json(MODEL_PRIMARY_METADATA_JSON, {})
+        index: Dict[str, Dict[str, Any]] = {}
+        for item in ensure_list(doc.get('models') if isinstance(doc, dict) else []):
+            if not isinstance(item, dict):
+                continue
+            name = canonicalize_model_name(item.get('model_name'))
+            key = normalize_key(name)
+            if key:
+                row = dict(item)
+                row['model_name'] = name
+                index[key] = row
+        _MODEL_PRIMARY_METADATA_CACHE = index
+    return _MODEL_PRIMARY_METADATA_CACHE
+
+
+def _distinct_metadata_values(value: Any) -> List[Any]:
+    values: List[Any] = []
+    for item in ensure_list(value):
+        if is_missing_value(item):
+            continue
+        if item not in values:
+            values.append(item)
+    return values
+
+
+def apply_model_primary_metadata(row: Dict[str, Any]) -> Dict[str, Any]:
+    """Overlay verified original-paper fields and retain displaced IDs as secondary evidence."""
+    out = dict(row)
+    name = canonicalize_model_name(out.get('model_name') or out.get('canonical_name') or out.get('name'))
+    spec = load_model_primary_metadata().get(normalize_key(name))
+    if not spec:
+        return out
+
+    displaced_fields = {
+        'source_doi': 'secondary_evidence_dois',
+        'source_pmid': 'secondary_evidence_pmids',
+        'source_pmcid': 'secondary_evidence_pmcids',
+    }
+    for field, audit_field in displaced_fields.items():
+        if field not in spec:
+            continue
+        expected = spec.get(field)
+        old_values = _distinct_metadata_values(out.get(field))
+        expected_values = _distinct_metadata_values(expected)
+        displaced = [
+            value for value in old_values
+            if normalize_key(value) not in {normalize_key(x) for x in expected_values}
+        ]
+        if displaced:
+            out[audit_field] = _distinct_metadata_values(ensure_list(out.get(audit_field)) + displaced)
+
+    locked_fields = [
+        'paper_title', 'publication_year', 'source_journal', 'source_doi',
+        'source_pmid', 'source_pmcid', 'task_type', 'method_family',
+        'architecture_or_algorithm', 'input_representation',
+        'representation_category', 'architecture_category',
+        'benchmark_candidate', 'deployment_eligible', 'scope_status',
+        'blocking_issues',
+    ]
+    for field in locked_fields:
+        if field not in spec:
+            continue
+        value = spec.get(field)
+        if value is None:
+            out.pop(field, None)
+        else:
+            out[field] = value
+
+    out['model_name'] = spec.get('model_name') or name
+    out['canonical_name'] = spec.get('model_name') or name
+    out['source_title'] = spec.get('paper_title')
+    out['source_year'] = spec.get('publication_year')
+    out['primary_paper_doi'] = spec.get('source_doi')
+    out['primary_paper_locked'] = True
+    out['primary_metadata_source'] = str(MODEL_PRIMARY_METADATA_JSON.relative_to(ROOT))
+    out['classification_source'] = 'verified_primary_model_registry'
+    resolved_primary_paper_issues = [
+        'original paper needed', 'original publication',
+        'original model paper uncertain', 'original paper verification',
+        'no published paper details',
+    ]
+    if spec.get('benchmark_candidate') is not False:
+        out['blocking_issues'] = [
+            issue for issue in ensure_list(out.get('blocking_issues'))
+            if not any(token in normalize_key(issue) for token in resolved_primary_paper_issues)
+        ]
+    return out
+
+
 def dedupe_models_by_name(items: Any) -> List[Dict[str, Any]]:
     """Deduplicate model-like rows by canonical model name.
     Prefer rows with stronger evidence/code/dataset fields, then merge missing fields.
@@ -3343,7 +4166,7 @@ def dedupe_models_by_name(items: Any) -> List[Dict[str, Any]]:
         if not key:
             continue
         row['model_name'] = canonical
-        row['canonical_name'] = row.get('canonical_name') or canonical
+        row['canonical_name'] = canonical
         if key not in buckets:
             buckets[key] = row
         else:
@@ -3353,6 +4176,21 @@ def dedupe_models_by_name(items: Any) -> List[Dict[str, Any]]:
                 buckets[key] = merge_candidate(row, old)
             else:
                 buckets[key] = merge_candidate(old, row)
+    for key, original_row in list(buckets.items()):
+        row = apply_model_primary_metadata(original_row)
+        buckets[key] = row
+        ev = normalize_key(row.get('evidence_level'))
+        if 'primary publisher' in ev and 'verified' in ev:
+            resolved = {
+                'no code', 'no details', 'no code no details',
+                'original model paper uncertain', 'weights not reported',
+                'github search candidate requires manual verification',
+                'qwen web candidate requires manual verification',
+            }
+            row['blocking_issues'] = [
+                issue for issue in ensure_list(row.get('blocking_issues'))
+                if normalize_key(issue) not in resolved
+            ]
     return list(buckets.values())
 
 
@@ -3485,6 +4323,11 @@ ARCHITECTURE_CATEGORY_DEFS: List[Dict[str, Any]] = [
 
 MODEL_TAXONOMY_DEFS: List[Dict[str, Any]] = REPRESENTATION_CATEGORY_DEFS + ARCHITECTURE_CATEGORY_DEFS
 
+REPRESENTATION_REPRESENTATIVE_MIN = 1
+REPRESENTATION_REPRESENTATIVE_MAX = 3
+ARCHITECTURE_REPRESENTATIVE_MIN = 3
+ARCHITECTURE_REPRESENTATIVE_MAX = 5
+
 
 def _model_text(m: Dict[str, Any]) -> str:
     vals = []
@@ -3541,7 +4384,11 @@ def _load_journal_impact_factor_map() -> Dict[str, float]:
     JSON accepted shapes:
       {"Briefings in Bioinformatics": 9.5, ...}
       [{"journal": "...", "impact_factor": 9.5}, ...]
-    CSV columns: journal, impact_factor.
+    Minimal CSV columns: journal, impact_factor.
+    Rich CSV rows may additionally provide aliases (``;`` or ``|`` separated)
+    and verification_status.  When a status is present, only ``verified_*``
+    rows are eligible for scoring; placeholders such as
+    ``needs_jcr_verification`` are deliberately ignored.
     """
     out: Dict[str, float] = {}
     base = Path('data')
@@ -3552,19 +4399,30 @@ def _load_journal_impact_factor_map() -> Dict[str, float]:
         f = _safe_float(value, 0.0)
         if j and f > 0:
             out[j] = f
+
+    def add_row(row: Dict[str, Any], fallback_journal: Any = None) -> None:
+        status = normalize_key(row.get('verification_status') or row.get('status'))
+        if status and not status.startswith('verified'):
+            return
+        value = row.get('impact_factor') or row.get('journal_impact_factor') or row.get('if')
+        journal = fallback_journal or row.get('journal') or row.get('source_journal') or row.get('venue')
+        add(journal, value)
+        aliases = str(row.get('aliases') or row.get('journal_aliases') or '')
+        for alias in re.split(r'[;|]', aliases):
+            add(alias.strip(), value)
     try:
         if json_path.exists():
             data = json_load(json_path)
             if isinstance(data, dict):
                 for k, v in data.items():
                     if isinstance(v, dict):
-                        add(k or v.get('journal') or v.get('source_journal'), v.get('impact_factor') or v.get('journal_impact_factor') or v.get('if'))
+                        add_row(v, k or v.get('journal') or v.get('source_journal'))
                     else:
                         add(k, v)
             elif isinstance(data, list):
                 for row in data:
                     if isinstance(row, dict):
-                        add(row.get('journal') or row.get('source_journal') or row.get('venue'), row.get('impact_factor') or row.get('journal_impact_factor') or row.get('if'))
+                        add_row(row)
     except Exception as e:
         print(f'    ⚠️ journal_impact_factors.json 读取失败：{e}')
     try:
@@ -3572,7 +4430,7 @@ def _load_journal_impact_factor_map() -> Dict[str, float]:
             import csv
             with csv_path.open('r', encoding='utf-8-sig', newline='') as f:
                 for row in csv.DictReader(f):
-                    add(row.get('journal') or row.get('source_journal') or row.get('venue'), row.get('impact_factor') or row.get('journal_impact_factor') or row.get('if'))
+                    add_row(row)
     except Exception as e:
         print(f'    ⚠️ journal_impact_factors.csv 读取失败：{e}')
     return out
@@ -3621,7 +4479,9 @@ def model_quality_score(m: Dict[str, Any]) -> float:
     ds = m.get('dataset_source_or_link') or ''
     if not is_missing_value(ds) and normalize_key(ds) != 'not reported in available evidence': score += 1.0
     ev = normalize_key(m.get('evidence_level'))
-    if 'fulltext' in ev: score += 2.0
+    if 'primary publisher' in ev and 'verified' in ev: score += 4.0
+    elif 'scientifically verified' in ev: score += 4.0
+    elif 'fulltext' in ev: score += 2.0
     elif 'repository' in ev: score += 1.5
     elif 'abstract' in ev: score += 0.6
     elif 'review' in ev: score += 0.2
@@ -3653,6 +4513,10 @@ def _model_matches_taxonomy(m: Dict[str, Any], spec: Dict[str, Any]) -> bool:
 
 
 def classify_representation_item(m: Dict[str, Any]) -> str:
+    if m.get('primary_paper_locked') and m.get('classification_source') == 'verified_primary_model_registry':
+        locked = str(m.get('representation_category') or '')
+        if locked in {spec['category'] for spec in REPRESENTATION_CATEGORY_DEFS}:
+            return locked
     for spec in REPRESENTATION_CATEGORY_DEFS:
         if _model_matches_taxonomy(m, spec):
             return spec['category']
@@ -3660,6 +4524,10 @@ def classify_representation_item(m: Dict[str, Any]) -> str:
 
 
 def classify_architecture_item(m: Dict[str, Any]) -> str:
+    if m.get('primary_paper_locked') and m.get('classification_source') == 'verified_primary_model_registry':
+        locked = str(m.get('architecture_category') or '')
+        if locked in {spec['category'] for spec in ARCHITECTURE_CATEGORY_DEFS}:
+            return locked
     for spec in ARCHITECTURE_CATEGORY_DEFS:
         if _model_matches_taxonomy(m, spec):
             return spec['category']
@@ -3720,40 +4588,76 @@ def filter_models_with_evidence(items: Any) -> List[Dict[str, Any]]:
     return [m for m in dedupe_models_by_name(items) if model_has_real_evidence(m)]
 
 
+def _representative_limits(spec: Dict[str, Any]) -> Tuple[int, int]:
+    if spec.get('taxonomy') == 'architecture':
+        return ARCHITECTURE_REPRESENTATIVE_MIN, ARCHITECTURE_REPRESENTATIVE_MAX
+    return REPRESENTATION_REPRESENTATIVE_MIN, REPRESENTATION_REPRESENTATIVE_MAX
+
+
+def representative_sort_key(m: Dict[str, Any]) -> Tuple[float, float, float, float]:
+    """Rank representative models by requested literature impact first.
+
+    Primary order: journal impact factor, citation count, article impact score,
+    then local evidence/deployability quality.  Missing IF stays 0 rather than
+    being hallucinated.
+    """
+    return (
+        _impact_factor_from_row(m, None),
+        _citation_count_from_row(m),
+        _safe_float(m.get('article_impact_score'), 0.0),
+        model_quality_score(m),
+    )
+
+
 def _select_representatives(models: List[Dict[str, Any]], spec: Dict[str, Any]) -> List[Dict[str, Any]]:
     selected: List[Dict[str, Any]] = []
     seen: set = set()
-    evidence_models = [m for m in dedupe_models_by_name(models) if model_has_real_evidence(m)]
+    # A representative in the benchmark recommendation table must be runnable
+    # evidence, not merely a highly cited paper or a web-server-only method.
+    # No-code methods remain visible in All Candidate Models.
+    evidence_models = [
+        m for m in dedupe_models_by_name(models)
+        if model_has_real_evidence(m) and has_code_repository_url(m)
+    ]
+    min_count, max_count = _representative_limits(spec)
     # First follow user-specified representatives/examples, but ONLY if the model exists in evidence.
     # Do not fabricate taxonomy-only placeholder rows.
+    seed_rows: List[Dict[str, Any]] = []
     for name in ensure_list(spec.get('preferred_representatives')) + ensure_list(spec.get('model_examples')):
         m = _find_model_by_name(evidence_models, name)
         if m is None:
             continue
+        seed_rows.append(m)
+    for m in sorted(dedupe_models_by_name(seed_rows), key=representative_sort_key, reverse=True):
         k = model_key(m)
         if not k or k in seen:
             continue
         selected.append(m)
         seen.add(k)
-        if len(selected) >= 2:
+        if len(selected) >= max_count:
             break
     # Then fill from evidence rows if needed.
-    if len(selected) < 2:
+    if len(selected) < max_count:
         candidates = [m for m in evidence_models if _model_matches_taxonomy(m, spec) and model_key(m) not in seen]
-        candidates = sorted(candidates, key=model_quality_score, reverse=True)
+        candidates = sorted(candidates, key=representative_sort_key, reverse=True)
         for m in candidates:
             k = model_key(m)
             if not k or k in seen:
                 continue
             selected.append(m)
             seen.add(k)
-            if len(selected) >= 2:
+            if len(selected) >= max_count:
                 break
-    return selected[:2]
+    # If fewer than the target minimum exist in evidence, return what exists and
+    # let model_count/selection_rule make the shortfall visible.
+    return selected[:max_count]
 
 
 def build_model_classification(final_data: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
-    """Build user-requested Representation + Architecture taxonomy and 1-2 representatives per category.
+    """Build Representation + Architecture taxonomy and ranked representatives.
+
+    Architecture categories choose up to 3-5 evidence-backed, code-linked
+    models, sorted first by journal impact factor and citation count.
     Deterministic and deduplicated by canonical model name.
     """
     raw_models: List[Any] = []
@@ -3764,11 +4668,14 @@ def build_model_classification(final_data: Dict[str, Any]) -> Tuple[List[Dict[st
     models = filter_models_with_evidence(raw_models)
 
     # Annotate categories once, then use the same deduped row in all tables.
+    journal_if_map = _load_journal_impact_factor_map()
+    paper_index = _build_paper_impact_index(final_data, journal_if_map)
     annotated: List[Dict[str, Any]] = []
     for m in models:
         row = dict(m)
         row['representation_category'] = classify_representation_item(row)
         row['architecture_category'] = classify_architecture_item(row)
+        row = _attach_article_impact(row, paper_index, journal_if_map)
         # model_category kept for backward compatibility; it mirrors representation_category.
         row['model_category'] = row.get('model_category') or row['representation_category']
         annotated.append(row)
@@ -3783,6 +4690,7 @@ def build_model_classification(final_data: Dict[str, Any]) -> Tuple[List[Dict[st
         else:
             rows = [m for m in annotated if m.get('architecture_category') == cat]
         rows = dedupe_models_by_name(rows)
+        rows = sorted(rows, key=representative_sort_key, reverse=True)
         rep_rows = _select_representatives(rows, spec)
         rep_names = [r.get('model_name') or r.get('canonical_name') for r in rep_rows if r.get('model_name') or r.get('canonical_name')]
         concrete_models = []
@@ -3801,34 +4709,72 @@ def build_model_classification(final_data: Dict[str, Any]) -> Tuple[List[Dict[st
             'model_count': len(rows),
             'concrete_models': concrete_models,
             'representative_models': rep_names,
-            'selection_rule': 'v4.5 用户指定分类体系 + 确定性去重：按 canonical model name 去重；优先选择用户给定示例中已在 evidence 中出现且证据/代码/数据集线索较强的 1-2 个模型。',
+            'selection_rule': 'Architecture 每类优先推荐 3-5 个 evidence-backed 模型；按 journal_impact_factor、citation_count、article_impact_score、复现证据质量降序排序。Representation 表保留 1-3 个代表用于理解输入表示。',
             'models': [r.get('model_name') or r.get('canonical_name') for r in rows if r.get('model_name') or r.get('canonical_name')],
         })
-        for r in rep_rows:
+        for rep_rank, r in enumerate(rep_rows, start=1):
             representatives.append(clean_row_dict({
                 'taxonomy': taxonomy,
                 'category': cat,
                 'category_title': spec['title'],
+                'representative_rank': rep_rank,
                 'model_name': r.get('model_name') or r.get('canonical_name'),
                 'task_type': r.get('task_type'),
                 'method_family': r.get('method_family'),
-                'code_repository_url': r.get('code_repository_url'),
+                'code_repository_url': normalize_code_repository_url(r.get('code_repository_url')),
                 'web_server_url': r.get('web_server_url'),
                 'dataset_source_or_link': r.get('dataset_source_or_link'),
+                'source_journal': r.get('source_journal') or r.get('journal') or r.get('venue'),
+                'citation_count': r.get('citation_count'),
+                'citation_evidence_source': r.get('citation_evidence_source'),
+                'citation_count_status': r.get('citation_count_status'),
+                'journal_impact_factor': r.get('journal_impact_factor'),
+                'journal_impact_factor_status': r.get('journal_impact_factor_status'),
+                'article_impact_score': r.get('article_impact_score'),
                 'source_pmid': r.get('source_pmid'),
                 'source_doi': r.get('source_doi'),
                 'evidence_level': r.get('evidence_level'),
                 'confidence': r.get('confidence'),
-                'why_representative': f"按用户指定的 {spec['title']} 类别选择；优先代表该类输入表示/架构路线，后续先核查代码、权重、数据集和批量推理可行性。",
+                'why_representative': f"属于 {spec['title']}；按期刊影响因子、引用量、文章影响分和复现证据排序后入选，后续先核查代码、权重、数据集和批量推理可行性。",
             }))
     return classification, dedupe_objects(representatives, 'representative_models_by_category')
 
 
 def _is_main_amp_binary_candidate(m: Dict[str, Any]) -> bool:
-    text = normalize_key(' '.join([
-        str(m.get('model_name') or ''), str(m.get('canonical_name') or ''),
+    if m.get('benchmark_candidate') is False or m.get('deployment_eligible') is False:
+        return False
+    issue_text = normalize_key(' '.join(map(str, ensure_list(m.get('blocking_issues')))))
+    scope_text = normalize_key(m.get('scope_status'))
+    explicit_exclusions = [
+        'out of scope', 'out_of_scope', 'task mismatch', 'task_mismatch',
+        'not amp', 'not_amp', 'non amp', 'mic regression', 'mic_regression',
+        'model identity ambiguous', 'model_identity_ambiguous',
+    ]
+    if any(x in issue_text or x in scope_text for x in explicit_exclusions):
+        return False
+    # Positive task evidence intentionally excludes model_name and
+    # blocking_issues.  Otherwise a blocker such as
+    # ``out_of_scope_for_AMP_benchmark`` can accidentally make an unrelated
+    # "... prediction" task look like AMP prediction.
+    task_text = normalize_key(' '.join([
         str(m.get('task_type') or ''), str(m.get('method_family') or ''),
-        str(m.get('candidate_reason') or ''), ' '.join(map(str, ensure_list(m.get('blocking_issues')))),
+        str(m.get('architecture_or_algorithm') or ''),
+    ]))
+    explicit_binary_task = (
+        ('amp' in task_text or 'antimicrobial peptide' in task_text or 'antibacterial peptide' in task_text)
+        and any(x in task_text for x in ['binary', 'classification', 'classifier', 'prediction', 'predictor', 'identification'])
+        and not any(x in task_text for x in ['mic regression', 'mic prediction', 'toxicity', 'hemolysis'])
+    )
+    # A classifier can be reported inside a broader generative-discovery paper.
+    # The paper title must not erase an explicit, evidence-backed binary task
+    # (AMPSorter inside the ProteoGPT study is the motivating case).
+    if explicit_binary_task:
+        return True
+
+    text = normalize_key(' '.join([
+        str(m.get('task_type') or ''), str(m.get('method_family') or ''),
+        str(m.get('candidate_reason') or ''), str(m.get('paper_title') or ''),
+        str(m.get('source_title') or ''), str(m.get('article_source') or ''),
     ]))
     hard_exclude = [
         'anticancer', 'anti cancer', 'antifungal', 'anti fungal', 'antiviral', 'anti viral',
@@ -3946,41 +4892,53 @@ DEPLOYMENT_NAME_ALIASES: Dict[str, List[str]] = {
     'AMP Scanner v2': ['AMP Scanner v2', 'AMPScanner V2', 'Antimicrobial Peptide Scanner vr.2', 'dan-veltri/amp-scanner-v2'],
 }
 
-FINAL_DATASET_RECOMMENDATIONS = [
-    {
-        'dataset_name': 'iAMP-SeE Dataset / Zenodo',
-        'linked_model': 'iAMP-SeE',
-        'recommended_role': 'primary benchmark candidate / 主测试集候选',
-        'why_selected': '当前证据中来源最清楚，包含 DRAMP、dbAMP、CAMPr-4、AMPfun、ADAPTABLE、UniProt 负样本，并有 Zenodo 线索；最适合作为第一版 benchmark 的主数据集候选。',
-        'required_cleaning': '核查 Zenodo 文件；统一 FASTA/CSV 格式；确认正负标签；用 CD-HIT/MMseqs2 去冗余；过滤与模型训练集高度同源序列。',
-    },
-    {
-        'dataset_name': 'Co-AMPpred / DEEP-AmPEP30 derived dataset',
-        'linked_model': 'Co-AMPpred',
-        'recommended_role': 'classic comparison set / 经典对照测试集',
-        'why_selected': 'Co-AMPpred 有 GitHub 和 DEEP-AmPEP30 衍生数据线索，适合做传统 ML 与经典 AMP benchmark 对照。',
-        'required_cleaning': '核查 GitHub 中正负样本数量、负样本来源和去重方式；排除训练集重叠；补充数据集版本记录。',
-    },
-    {
-        'dataset_name': 'AMP-BERT GitHub dataset',
-        'linked_model': 'AMP-BERT',
-        'recommended_role': 'PLM reproduction set / PLM 模型复现测试集',
-        'why_selected': 'AMP-BERT 与 PLM 模型直接配套，GitHub 中有代码和数据线索，适合验证 PLM 路线和复现 AMP-BERT。',
-        'required_cleaning': '核查数据文件、标签列和训练/测试划分；拆分出外部测试集；做低同源过滤，避免 PLM 模型过拟合历史划分。',
-    },
-]
-
 FINAL_METRICS_PLAN = {
+    'primary_endpoint': {
+        'metric_name': 'AUPRC',
+        'decision_role': '唯一预注册主终点；分别在三套数据集上报告，不用综合分替代。',
+        'reason': 'AMP 真实筛选为低患病率/低阳性率任务，AUPRC 同时反映排序质量和阳性基线。',
+    },
+    'secondary_endpoint': {
+        'metric_name': 'MCC',
+        'decision_role': '预注册关键次终点；使用验证集固定阈值后计算。',
+        'reason': '综合 TP/TN/FP/FN，适合类别不平衡二分类。',
+    },
     'primary_weighted_metrics': [
-        {'metric_name': 'AUPRC', 'weight': 0.35, 'reason': '主指标；适合不平衡二分类，优于只看 AUROC。'},
+        {'metric_name': 'AUPRC', 'weight': 0.35, 'reason': '主终点；适合不平衡二分类，优于只看 AUROC。'},
         {'metric_name': 'MCC', 'weight': 0.30, 'reason': '综合 TP/TN/FP/FN，对类别不平衡更稳健。'},
         {'metric_name': 'Recall / Sensitivity', 'weight': 0.20, 'reason': '控制 AMP 漏检，适合发现任务。'},
         {'metric_name': 'Precision', 'weight': 0.15, 'reason': '控制假阳性，避免大量错误候选进入后续实验。'},
     ],
-    'mandatory_report_metrics': ['Accuracy', 'Specificity', 'AUROC', 'F1-score', 'Confusion Matrix'],
-    'statistical_reporting': ['95% bootstrap confidence interval', 'paired bootstrap or McNemar test for model comparison'],
-    'threshold_policy': '在验证集上用 Max MCC 或 Max Youden Index 确定阈值；测试集禁止后验调阈值，禁止默认固定 0.5。',
-    'test_matrix': ['1:1 balanced test', '1:10 mild imbalance test', '1:100 severe imbalance test', 'low-homology independent test'],
+    'composite_score_policy': '四指标加权分只用于探索性排序/会议决策；论文主结论必须逐终点报告效应量和区间。',
+    'mandatory_report_metrics': [
+        'Accuracy', 'Balanced Accuracy', 'Precision', 'Recall/Sensitivity', 'Specificity',
+        'NPV', 'F1-score', 'MCC', 'AUROC', 'AUPRC', 'AUPRC lift', 'Confusion Matrix',
+    ],
+    'calibration_metrics': ['Brier score', '10-bin ECE', '10-bin MCE', 'calibration curve'],
+    'application_utility_metrics': [
+        'Precision@top1%/5%/10%', 'Recall@top1%/5%/10%',
+        'enrichment factor@top1%/5%/10%', 'number needed to test',
+    ],
+    'resource_metrics': ['SLURM elapsed time', 'MaxRSS', 'sequences per second', 'GPU/CPU configuration from run manifest'],
+    'statistical_reporting': [
+        '95% cluster bootstrap confidence interval when homology clusters exist; otherwise sequence bootstrap',
+        'paired bootstrap differences for AUPRC/MCC/Balanced Accuracy/Brier score on common samples',
+        'paired McNemar test for thresholded errors',
+        'Holm family-wise correction across pairwise McNemar comparisons',
+        'effect difference and confidence interval reported alongside p values',
+    ],
+    'threshold_policy': '正式评测仅在独立验证集上用 Max MCC 确定并冻结阈值；0.5 仅作诊断性对照，测试集禁止后验调阈值。Youden Index 只作为预注册敏感性分析。',
+    'test_matrix': [
+        'one near-balanced external test',
+        'two external tests with distinct imbalance severities',
+        'all three must pass exact-overlap and <=40% sequence-identity audits',
+    ],
+    'robustness_reporting': [
+        'per-dataset metrics without pooling away prevalence differences',
+        '10-20/21-30/31-50/51-100 aa length strata when sequence data are present',
+        'negative-sampling stress test',
+        'coverage and invalid-probability rate',
+    ],
 }
 
 
@@ -3988,13 +4946,15 @@ FINAL_METRICS_PLAN = {
 def _paper_key_values(row: Dict[str, Any]) -> List[str]:
     vals: List[str] = []
     for k in ['source_pmid', 'pmid', 'PMID']:
-        v = row.get(k) if isinstance(row, dict) else None
-        if v and not is_missing_value(v):
-            vals.append('pmid:' + str(v).strip())
+        raw = row.get(k) if isinstance(row, dict) else None
+        for v in ensure_list(raw):
+            if v and not is_missing_value(v):
+                vals.append('pmid:' + str(v).strip())
     for k in ['source_doi', 'doi', 'DOI']:
-        v = row.get(k) if isinstance(row, dict) else None
-        if v and not is_missing_value(v):
-            vals.append('doi:' + normalize_key(str(v).strip()))
+        raw = row.get(k) if isinstance(row, dict) else None
+        for v in ensure_list(raw):
+            if v and not is_missing_value(v):
+                vals.append('doi:' + normalize_key(str(v).strip()))
     title = _pick_text_field(row, ['article_source', 'source_title', 'title'])
     if title:
         vals.append('title:' + normalize_key(title)[:180])
@@ -4019,8 +4979,30 @@ def _build_paper_impact_index(final_data: Dict[str, Any], journal_if_map: Dict[s
             impact_row['article_impact_score'] = article_impact_score(impact_row, journal_if_map)
             for key in _paper_key_values(impact_row):
                 old = index.get(key)
-                if old is None or _safe_float(impact_row.get('article_impact_score'), 0) > _safe_float(old.get('article_impact_score'), 0):
-                    index[key] = impact_row
+                if old is None:
+                    index[key] = dict(impact_row)
+                    continue
+                merged = dict(old)
+                for field in ['journal', 'venue', 'source_journal', 'container_title', 'year', 'source_year']:
+                    if is_missing_value(merged.get(field)) and not is_missing_value(impact_row.get(field)):
+                        merged[field] = impact_row.get(field)
+                for field in [
+                    'citation_count', 'cited_by_count', 'openalex_cited_by_count',
+                    'semantic_scholar_citation_count', 'journal_impact_factor', 'impact_factor',
+                ]:
+                    if _safe_float(impact_row.get(field), 0.0) > _safe_float(merged.get(field), 0.0):
+                        merged[field] = impact_row.get(field)
+                merged['citation_count'] = max(_citation_count_from_row(old), _citation_count_from_row(impact_row))
+                merged['journal_impact_factor'] = max(
+                    _impact_factor_from_row(old, journal_if_map),
+                    _impact_factor_from_row(impact_row, journal_if_map),
+                )
+                merged['sources'] = sorted(
+                    set(map(str, ensure_list(old.get('sources') or old.get('source')))) |
+                    set(map(str, ensure_list(impact_row.get('sources') or impact_row.get('source'))))
+                )
+                merged['article_impact_score'] = article_impact_score(merged, journal_if_map)
+                index[key] = merged
     return index
 
 
@@ -4044,13 +5026,19 @@ def _attach_article_impact(row: Dict[str, Any], paper_index: Dict[str, Dict[str,
             ('cited_by_count', 'citation_count'),
             ('openalex_cited_by_count', 'citation_count'),
             ('semantic_scholar_citation_count', 'citation_count'),
+            ('journal_impact_factor', 'journal_impact_factor'),
+            ('impact_factor', 'journal_impact_factor'),
             ('journal', 'source_journal'),
             ('venue', 'source_journal'),
             ('source_journal', 'source_journal'),
             ('year', 'source_year'),
         ]:
-            if is_missing_value(out.get(dst)) and not is_missing_value(matched.get(src)):
-                out[dst] = matched.get(src)
+            source_value = matched.get(src)
+            if dst in {'citation_count', 'journal_impact_factor'}:
+                if _safe_float(out.get(dst), 0.0) <= 0 and _safe_float(source_value, 0.0) > 0:
+                    out[dst] = source_value
+            elif is_missing_value(out.get(dst)) and not is_missing_value(source_value):
+                out[dst] = source_value
     # Direct row values override copied values when present.
     cites = _citation_count_from_row(out)
     jif = _impact_factor_from_row(out, journal_if_map)
@@ -4060,6 +5048,12 @@ def _attach_article_impact(row: Dict[str, Any], paper_index: Dict[str, Dict[str,
     journal = _pick_text_field(out, ['source_journal', 'journal', 'venue'])
     if journal:
         out['source_journal'] = journal
+    evidence_sources = ensure_list((matched or {}).get('sources'))
+    if not evidence_sources and matched:
+        evidence_sources = ensure_list(matched.get('source') or matched.get('source_primary'))
+    out['citation_evidence_source'] = ', '.join(map(str, evidence_sources)) if cites > 0 and evidence_sources else ('local_evidence_snapshot' if cites > 0 else '')
+    out['citation_count_status'] = 'available' if cites > 0 else 'not_available_in_local_snapshot'
+    out['journal_impact_factor_status'] = 'verified_from_curated_mapping' if jif > 0 else 'missing_curated_jif_mapping'
     return out
 
 
@@ -4112,11 +5106,13 @@ def _strict_main_deployment_candidate(m: Dict[str, Any]) -> bool:
     """
     if not isinstance(m, dict):
         return False
+    if m.get('benchmark_candidate') is False or m.get('deployment_eligible') is False:
+        return False
     if not model_has_real_evidence(m):
         return False
     if not _is_main_amp_binary_candidate(m):
         return False
-    if is_missing_value(m.get('code_repository_url')):
+    if not has_code_repository_url(m):
         return False
     text = normalize_key(' '.join([
         str(m.get('model_name') or ''),
@@ -4135,7 +5131,7 @@ def _strict_main_deployment_candidate(m: Dict[str, Any]) -> bool:
         'generation', 'generator', 'generative', 'design', 'webserver only', 'web-server only',
     ]
     # DBAASP / CAMP 这类数据库或平台不能作为本地部署模型；但 APD/DRAMP/dbAMP 作为数据来源不应误杀模型。
-    database_like_names = {'dbaasp', 'camp', 'campr3', 'apd3', 'dramp', 'dbamp', 'ampsphere'}
+    database_like_names = {'amp', 'dbaasp', 'camp', 'campr3', 'apd3', 'dramp', 'dbamp', 'ampsphere'}
     if _deployment_compact_name(m.get('model_name') or m.get('canonical_name')) in database_like_names:
         return False
     return not any(x in text for x in hard_exclude)
@@ -4155,7 +5151,12 @@ def _best_model_row_by_name(models: List[Dict[str, Any]], wanted_name: str) -> O
 
 def _deployment_readiness(m: Dict[str, Any], rank: Optional[int] = None) -> str:
     has_ds = bool(m.get('dataset_source_or_link') and not is_missing_value(m.get('dataset_source_or_link')))
-    prefix = 'core_main_' if rank and rank <= FINAL_DEPLOYMENT_CORE_MIN else 'extended_pool_'
+    if rank and rank <= FINAL_DEPLOYMENT_CORE_MIN:
+        prefix = 'core_main_'
+    elif rank and rank <= FINAL_DEPLOYMENT_MAX:
+        prefix = 'extended_pool_'
+    else:
+        prefix = 'rank_21_plus_reserve_'
     if has_ds:
         return prefix + 'deploy_after_weight_and_data_check'
     return prefix + 'deploy_after_dataset_mapping_and_weight_check'
@@ -4172,7 +5173,11 @@ def _deployment_next_action(m: Dict[str, Any]) -> str:
 
 
 def _deployment_tier(rank: int) -> str:
-    return 'core_main_benchmark_top10' if rank <= FINAL_DEPLOYMENT_CORE_MIN else 'extended_deployment_pool_11_20'
+    if rank <= FINAL_DEPLOYMENT_CORE_MIN:
+        return 'core_main_benchmark_top10'
+    if rank <= FINAL_DEPLOYMENT_MAX:
+        return 'extended_deployment_pool_11_20'
+    return 'rank_21_plus_reserve_pool'
 
 
 def _make_deployment_row(row: Dict[str, Any], rank: int, reason_name: Optional[str] = None) -> Dict[str, Any]:
@@ -4184,9 +5189,14 @@ def _make_deployment_row(row: Dict[str, Any], rank: int, reason_name: Optional[s
         'canonical_name': row.get('canonical_name') or canonicalize_model_name(row.get('model_name') or reason_name),
         'representation_category': row.get('representation_category'),
         'architecture_category': row.get('architecture_category'),
+        'benchmark_role': row.get('benchmark_role'),
+        'benchmark_role_label': row.get('benchmark_role_label'),
+        'benchmark_roles': row.get('benchmark_roles'),
+        'benchmark_role_reason': row.get('benchmark_role_reason'),
+        'publication_year': row.get('publication_year') or row.get('source_year') or row.get('year'),
         'task_type': row.get('task_type'),
         'method_family': row.get('method_family'),
-        'code_repository_url': row.get('code_repository_url'),
+        'code_repository_url': normalize_code_repository_url(row.get('code_repository_url')),
         'web_server_url': row.get('web_server_url'),
         'dataset_source_or_link': row.get('dataset_source_or_link'),
         'deployment_status': _deployment_readiness(row, rank),
@@ -4197,7 +5207,10 @@ def _make_deployment_row(row: Dict[str, Any], rank: int, reason_name: Optional[s
         'confidence': row.get('confidence'),
         'source_journal': row.get('source_journal') or row.get('journal') or row.get('venue'),
         'citation_count': row.get('citation_count'),
+        'citation_evidence_source': row.get('citation_evidence_source'),
+        'citation_count_status': row.get('citation_count_status'),
         'journal_impact_factor': row.get('journal_impact_factor'),
+        'journal_impact_factor_status': row.get('journal_impact_factor_status'),
         'article_impact_score': row.get('article_impact_score'),
         'deployment_selection_score': row.get('deployment_selection_score'),
         'source_pmid': row.get('source_pmid'),
@@ -4205,16 +5218,161 @@ def _make_deployment_row(row: Dict[str, Any], rank: int, reason_name: Optional[s
     })
 
 
-def build_final_deployment_models(final_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """v5.4: 生成 10-20 个最终部署模型，并纳入文章影响力。
+def _row_matches_configured_target(row: Dict[str, Any], target: Dict[str, Any]) -> bool:
+    names = [target.get('model_name'), *ensure_list(target.get('aliases'))]
+    return any(name and _row_matches_deployment_target(row, str(name)) for name in names)
 
-    规则：
-    1. 先过滤：必须是 AMP prediction / classification 主任务，并有代码证据。
-    2. 排序：deployment readiness + evidence quality + citation_count + journal_impact_factor + weak curated-priority prior。
-    3. 引用量来自 evidence/model/paper 记录中的 citation_count / cited_by_count / OpenAlex / Semantic Scholar 字段。
-    4. 影响因子不凭空编；优先使用记录字段，或用户维护的 data/journal_impact_factors.json/csv。
-    5. 输出 Top 10 core main benchmark + 11-20 extended deployment pool。
-    """
+
+def _copy_portfolio_roles(row: Dict[str, Any], role_row: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    out = dict(row)
+    if not role_row:
+        return out
+    for field in ['benchmark_role', 'benchmark_role_label', 'benchmark_roles', 'benchmark_role_reason']:
+        if role_row.get(field) not in [None, '', []]:
+            out[field] = role_row.get(field)
+    return out
+
+
+def _match_best_ranked_row(rows: List[Dict[str, Any]], wanted: Any) -> Optional[Dict[str, Any]]:
+    if isinstance(wanted, dict):
+        names = [wanted.get('model_name'), wanted.get('canonical_name'), *ensure_list(wanted.get('aliases'))]
+    else:
+        names = [wanted]
+    matches = [
+        row for row in rows
+        if any(name and _row_matches_deployment_target(row, str(name)) for name in names)
+    ]
+    return max(matches, key=final_deployment_selection_score) if matches else None
+
+
+def stabilize_top20_membership(
+    ranked_candidates: List[Dict[str, Any]],
+    portfolio_candidates: List[Dict[str, Any]],
+    previous_top20: List[Any],
+    max_models: int = FINAL_DEPLOYMENT_MAX,
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """Keep incumbents unless eligibility is lost or a challenger scores strictly higher."""
+    ranked = sorted(
+        [dict(row) for row in ranked_candidates if isinstance(row, dict)],
+        key=final_deployment_selection_score,
+        reverse=True,
+    )
+    role_by_key = {model_key(row): row for row in portfolio_candidates if model_key(row)}
+    selected: List[Dict[str, Any]] = []
+    selected_keys: set = set()
+    ineligible_previous: List[str] = []
+
+    if not previous_top20:
+        for row in portfolio_candidates + ranked:
+            key = model_key(row)
+            if not key or key in selected_keys:
+                continue
+            selected.append(_copy_portfolio_roles(row, role_by_key.get(key)))
+            selected_keys.add(key)
+            if len(selected) >= max_models:
+                break
+        selected.sort(key=final_deployment_selection_score, reverse=True)
+        return selected, {
+            'policy': 'initial_top20_uses_evidence_gates_and_portfolio_coverage_quotas',
+            'strict_score_comparison': True,
+            'equal_score_replaces_incumbent': False,
+            'previous_top20_names': [],
+            'retained_incumbent_names': [],
+            'selected_top20_names': [
+                str(row.get('model_name') or row.get('canonical_name')) for row in selected
+            ],
+            'ineligible_previous_names': [],
+            'displaced_incumbent_names': [],
+            'replacement_decisions': [],
+        }
+
+    for incumbent in previous_top20[:max_models]:
+        matched = _match_best_ranked_row(ranked, incumbent)
+        incumbent_name = (
+            incumbent.get('model_name') or incumbent.get('canonical_name')
+            if isinstance(incumbent, dict) else str(incumbent or '')
+        )
+        if not matched:
+            if incumbent_name:
+                ineligible_previous.append(str(incumbent_name))
+            continue
+        key = model_key(matched)
+        if not key or key in selected_keys:
+            continue
+        role_source = role_by_key.get(key) or (incumbent if isinstance(incumbent, dict) else None)
+        selected.append(_copy_portfolio_roles(matched, role_source))
+        selected_keys.add(key)
+
+    challenger_pool: List[Dict[str, Any]] = []
+    challenger_seen: set = set()
+    for row in portfolio_candidates + ranked:
+        key = model_key(row)
+        if not key or key in challenger_seen:
+            continue
+        challenger_seen.add(key)
+        challenger_pool.append(_copy_portfolio_roles(row, role_by_key.get(key)))
+    challenger_pool.sort(key=final_deployment_selection_score, reverse=True)
+
+    replacements: List[Dict[str, Any]] = []
+    for challenger in challenger_pool:
+        challenger_key = model_key(challenger)
+        if not challenger_key or challenger_key in selected_keys:
+            continue
+        if len(selected) < max_models:
+            selected.append(challenger)
+            selected_keys.add(challenger_key)
+            replacements.append({
+                'entered_model': challenger.get('model_name') or challenger.get('canonical_name'),
+                'entered_score': final_deployment_selection_score(challenger),
+                'replaced_model': None,
+                'reason': 'filled_vacancy_after_incumbent_became_ineligible_or_list_was_incomplete',
+            })
+            continue
+
+        weakest = min(selected, key=final_deployment_selection_score)
+        weakest_score = final_deployment_selection_score(weakest)
+        challenger_score = final_deployment_selection_score(challenger)
+        if challenger_score <= weakest_score:
+            continue
+        weakest_key = model_key(weakest)
+        selected.remove(weakest)
+        selected_keys.discard(weakest_key)
+        selected.append(challenger)
+        selected_keys.add(challenger_key)
+        replacements.append({
+            'entered_model': challenger.get('model_name') or challenger.get('canonical_name'),
+            'entered_score': challenger_score,
+            'replaced_model': weakest.get('model_name') or weakest.get('canonical_name'),
+            'replaced_score': weakest_score,
+            'score_improvement': challenger_score - weakest_score,
+            'reason': 'strictly_higher_current_composite_score',
+        })
+
+    selected.sort(key=final_deployment_selection_score, reverse=True)
+    previous_names = [
+        str(item.get('model_name') or item.get('canonical_name')) if isinstance(item, dict) else str(item)
+        for item in previous_top20[:max_models]
+        if item
+    ]
+    selected_names = [str(row.get('model_name') or row.get('canonical_name')) for row in selected]
+    retained = [name for name in previous_names if _match_best_ranked_row(selected, name)]
+    displaced = [name for name in previous_names if name not in retained and name not in ineligible_previous]
+    return selected[:max_models], {
+        'policy': 'incumbent_top20_retained_unless_ineligible_or_strictly_outscored',
+        'strict_score_comparison': True,
+        'equal_score_replaces_incumbent': False,
+        'previous_top20_names': previous_names,
+        'retained_incumbent_names': retained,
+        'selected_top20_names': selected_names[:max_models],
+        'ineligible_previous_names': ineligible_previous,
+        'displaced_incumbent_names': displaced,
+        'replacement_decisions': replacements,
+    }
+
+
+def _prepare_deployment_candidates(final_data: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    """Return all evidence rows and the strict deployment-eligible ranking."""
+
     raw: List[Any] = []
     for section in ['benchmark_ready_models', 'models', 'all_candidate_models']:
         raw.extend(ensure_list(final_data.get(section)))
@@ -4265,15 +5423,129 @@ def build_final_deployment_models(final_data: Dict[str, Any]) -> List[Dict[str, 
         all_rows.append(row)
 
     all_rows = sorted(all_rows, key=final_deployment_selection_score, reverse=True)
+    return models, all_rows
+
+
+def build_deployment_rankings(
+    final_data: Dict[str, Any],
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, Any]]:
+    """Build a stable Top 20 and a continuous evidence-backed rank 21+ reserve."""
+    all_evidence_rows, all_rows = _prepare_deployment_candidates(final_data)
+    portfolio = build_benchmark_portfolio(
+        all_rows,
+        current_year=_dt.datetime.now().year,
+        max_models=FINAL_DEPLOYMENT_MAX,
+        classic_min=3,
+        recent_sota_min=3,
+        score_fn=final_deployment_selection_score,
+        required_core_names=configured_required_core_model_names(),
+    )
+
+    continuity_input = final_data.get('memory_continuity') or {}
+    previous_top20 = [
+        row for row in ensure_list(continuity_input.get('previous_final_deployment_models'))
+        if isinstance(row, dict)
+    ][:FINAL_DEPLOYMENT_MAX]
+    if not previous_top20:
+        previous_names = ensure_list(continuity_input.get('previous_final_model_names'))
+        previous_top20 = previous_names[:FINAL_DEPLOYMENT_MAX]
+    if not previous_top20:
+        previous_top20 = [
+            row for row in ensure_list(final_data.get('final_deployment_models'))
+            if isinstance(row, dict)
+        ][:FINAL_DEPLOYMENT_MAX]
+
+    stable_rows, continuity = stabilize_top20_membership(
+        all_rows,
+        [row for row in ensure_list(portfolio.get('selected_models')) if isinstance(row, dict)],
+        previous_top20,
+    )
 
     selected: List[Dict[str, Any]] = []
-    for row in all_rows:
-        if len(selected) >= FINAL_DEPLOYMENT_MAX:
-            break
+    for row in stable_rows:
         rank = len(selected) + 1
         reason_name = row.get('_curated_reason_name') or row.get('model_name') or row.get('canonical_name') or 'evidence-backed AMP model'
-        selected.append(_make_deployment_row(row, rank, reason_name))
+        deployed = _make_deployment_row(row, rank, reason_name)
+        deployed['ranking_scope'] = 'top20'
+        deployed['top20_membership'] = True
+        selected.append(deployed)
 
+    selected_keys = {model_key(row) for row in stable_rows if model_key(row)}
+    reserve_rows = [row for row in all_rows if model_key(row) not in selected_keys]
+
+    configured_targets = [
+        row for row in load_benchmark_model_coverage_targets()['models']
+        if row.get('count_toward_coverage') is not False
+    ]
+    retained_evaluated: List[Tuple[Dict[str, Any], Dict[str, Any]]] = []
+    reserve_keys = {model_key(row) for row in reserve_rows if model_key(row)}
+    for target in configured_targets:
+        target_matches = [
+            row for row in all_evidence_rows if _row_matches_configured_target(row, target)
+        ]
+        matched = max(target_matches, key=final_deployment_selection_score) if target_matches else None
+        if not matched:
+            continue
+        key = model_key(matched)
+        if key in selected_keys or key in reserve_keys:
+            continue
+        retained_evaluated.append((matched, target))
+        reserve_keys.add(key)
+
+    full_ranking = [dict(row) for row in selected]
+    next_rank = len(full_ranking) + 1
+    for row in reserve_rows:
+        reason_name = row.get('_curated_reason_name') or row.get('model_name') or row.get('canonical_name')
+        reserve = _make_deployment_row(row, next_rank, reason_name)
+        reserve['ranking_scope'] = 'rank_21_plus_eligible_reserve'
+        reserve['top20_membership'] = False
+        reserve['retention_reason'] = 'eligible_but_below_current_stable_top20'
+        full_ranking.append(reserve)
+        next_rank += 1
+    for row, target in sorted(retained_evaluated, key=lambda pair: final_deployment_selection_score(pair[0]), reverse=True):
+        retained = _make_deployment_row(row, next_rank, str(target.get('model_name') or ''))
+        retained['ranking_scope'] = 'previously_evaluated_model_with_current_blockers'
+        retained['top20_membership'] = False
+        retained['was_previously_evaluated'] = True
+        retained['evaluation_labels'] = ensure_list(target.get('evaluation_labels'))
+        retained['deployment_status'] = 'retained_for_comparison_not_currently_top20_eligible'
+        retained['retention_reason'] = 'kept_in_full_ranking_because_it_was_in_the_existing_evaluation_set'
+        full_ranking.append(retained)
+        next_rank += 1
+
+    previous_keys = {
+        model_key(matched)
+        for incumbent in previous_top20
+        for matched in [_match_best_ranked_row(all_rows, incumbent)]
+        if matched is not None and model_key(matched)
+    }
+    for ranked_row in full_ranking:
+        target = next(
+            (item for item in configured_targets if _row_matches_configured_target(ranked_row, item)),
+            None,
+        )
+        if target:
+            ranked_row['was_previously_evaluated'] = True
+            ranked_row['evaluation_labels'] = ensure_list(target.get('evaluation_labels'))
+        was_previous_top20 = model_key(ranked_row) in previous_keys
+        if was_previous_top20:
+            ranked_row['was_previous_top20'] = True
+            ranked_row['top20_transition'] = (
+                'retained_in_top20' if ranked_row.get('top20_membership')
+                else 'continued_in_rank_21_plus_after_strictly_higher_challenger'
+            )
+
+    continuity['rank_21_plus_count'] = max(0, len(full_ranking) - FINAL_DEPLOYMENT_MAX)
+    continuity['retained_evaluated_models_beyond_eligibility_gate'] = [
+        row.get('model_name') for row in full_ranking
+        if row.get('ranking_scope') == 'previously_evaluated_model_with_current_blockers'
+    ]
+    return selected, full_ranking, continuity
+
+
+def build_final_deployment_models(final_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Compatibility wrapper returning the stable Top 20 deployment list."""
+    selected, _, _ = build_deployment_rankings(final_data)
     return selected
 
 
@@ -4309,28 +5581,182 @@ def _final_model_reason(name: str) -> str:
 
 
 def build_final_recommended_datasets(final_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-    raw: List[Any] = []
+    """Merge the dynamic audited trio with the literature meeting shortlist.
+
+    A complete empirically evaluated Top 3 takes precedence because it is chosen
+    from real local labels and sequence audits rather than fixed dataset names.
+    The literature meeting remains the fallback and acquisition evidence source.
+    """
+    dataset_agent = final_data.get('dataset_agent_recommendation')
+    if isinstance(dataset_agent, dict):
+        empirical_rows = [
+            row for row in ensure_list(dataset_agent.get('empirically_evaluated_top3'))
+            if isinstance(row, dict)
+        ]
+        empirical_status = str(dataset_agent.get('empirically_evaluated_top3_status') or '')
+        if len(empirical_rows) == 3 and empirical_status.startswith('selected'):
+            out: List[Dict[str, Any]] = []
+            seen: set[str] = set()
+            for spec in empirical_rows:
+                name = str(first_nonempty(spec.get('dataset_name'), spec.get('local_dataset_name')) or '').strip()
+                key = normalize_key(name)
+                if not key or key in seen:
+                    continue
+                seen.add(key)
+                audit = spec.get('audit') if isinstance(spec.get('audit'), dict) else {}
+                length_audit = audit.get('length') if isinstance(audit.get('length'), dict) else {}
+                citation = spec.get('citation') if isinstance(spec.get('citation'), dict) else {}
+                linked_models = ensure_list(spec.get('linked_models'))
+                linked_model = first_nonempty(spec.get('linked_model'), linked_models[0] if linked_models else '')
+                positive = first_nonempty(audit.get('positive_count'), spec.get('positive_samples_evidence'))
+                negative = first_nonempty(audit.get('negative_count'), spec.get('negative_samples_evidence'))
+                profile = first_nonempty(spec.get('selection_profile'), audit.get('observed_profile'), spec.get('dataset_role'))
+                blockers = [str(value) for value in ensure_list(spec.get('formal_blockers')) if str(value).strip()]
+                independence = str(first_nonempty(spec.get('independence_scope'), spec.get('evaluation_scope')) or '').strip()
+                if blockers:
+                    independence = (independence + ' Pending gates: ' + ', '.join(blockers)).strip()
+                evidence_for_profile = (
+                    f"Audited local predictions: rows={audit.get('row_count', '')}, "
+                    f"positive={positive}, negative={negative}, "
+                    f"positive_fraction={audit.get('positive_fraction', '')}, "
+                    f"length_range={length_audit.get('min_aa', '')}-{length_audit.get('max_aa', '')} aa, "
+                    f"within_dataset_duplicates={audit.get('within_dataset_duplicate_count', '')}."
+                )
+                out.append(clean_row_dict({
+                    'dataset_rank': len(out) + 1,
+                    'dataset_name': name,
+                    'linked_model': linked_model,
+                    'linked_models': linked_models,
+                    'recommended_role': profile,
+                    'target_profile': profile,
+                    'dataset_source_or_link': first_nonempty(spec.get('source_url'), spec.get('dataset_source')),
+                    'why_selected': (
+                        'Dynamically selected from locally evaluated datasets to provide a complementary '
+                        'balanced/imbalanced benchmark matrix; dataset names were not fixed in the selector.'
+                    ),
+                    'evidence_for_profile': evidence_for_profile,
+                    'independence_limitations': independence,
+                    'required_cleaning': ', '.join(blockers) if blockers else 'No unresolved structural audit blocker.',
+                    'needs_sequence_audit': bool(blockers),
+                    'positive_samples': positive,
+                    'negative_samples': negative,
+                    'source_pmid': first_nonempty(spec.get('source_pmid'), citation.get('pmid')),
+                    'source_doi': first_nonempty(spec.get('source_doi'), citation.get('doi')),
+                    'evidence_level': spec.get('evidence_level'),
+                    'recommendation_origin': 'dataset_agent_empirical_top3_dynamic_merge',
+                    'status': empirical_status,
+                    'formal_eligible': spec.get('formal_eligible', False),
+                    'formal_blockers': blockers,
+                    'manual_evaluation_available': spec.get('manual_evaluation_available', True),
+                    'local_path': spec.get('local_path'),
+                    'model_specific_exclusions': linked_models if spec.get('independent_external_test') is False else [],
+                }))
+            if len(out) == 3:
+                final_data['final_dataset_selection_context'] = {
+                    'selection_source': 'dataset_agent_empirically_evaluated_top3',
+                    'selection_is_name_template': False,
+                    'selection_status': empirical_status,
+                    'formal_selection_status': dataset_agent.get('formal_selection_status'),
+                    'literature_meeting_shortlist_retained_as_fallback': True,
+                    'selected_dataset_names': [row.get('dataset_name') for row in out],
+                }
+                return out
+
+    meeting_rows = [
+        row for row in ensure_list(final_data.get('meeting_recommended_datasets'))
+        if isinstance(row, dict)
+    ]
+    if not meeting_rows:
+        final_data['final_dataset_selection_context'] = {
+            'selection_source': 'none',
+            'reason': 'no_complete_empirical_top3_and_no_literature_meeting_shortlist',
+        }
+        return []
+
+    evidence_rows = [
+        row for row in ensure_list(final_data.get('datasets')) + load_verified_dataset_acquisition_candidates()
+        if isinstance(row, dict)
+    ]
+    raw_models: List[Any] = []
     for section in ['all_candidate_models', 'benchmark_ready_models', 'models']:
-        raw.extend(ensure_list(final_data.get(section)))
-    models = [m for m in filter_models_with_evidence(raw) if isinstance(m, dict)]
+        raw_models.extend(ensure_list(final_data.get(section)))
+    models = [m for m in filter_models_with_evidence(raw_models) if isinstance(m, dict)]
+    decision_trace = [row for row in ensure_list(final_data.get('meeting_dataset_decision_trace')) if isinstance(row, dict)]
     out: List[Dict[str, Any]] = []
-    for rank, spec in enumerate(FINAL_DATASET_RECOMMENDATIONS, start=1):
-        m = _best_model_row_by_name(models, spec['linked_model']) or {}
-        ds = first_nonempty(m.get('dataset_source_or_link'), spec.get('dataset_source_or_link'), '需要从仓库/Zenodo/补充材料中确认')
+    seen: set[str] = set()
+    for rank, spec in enumerate(meeting_rows, start=1):
+        if len(out) >= 3:
+            break
+        name = str(first_nonempty(spec.get('dataset_name'), spec.get('name')) or '').strip()
+        if not name:
+            continue
+        key = normalize_key(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        source = first_nonempty(spec.get('dataset_source_or_link'), spec.get('source_url'), spec.get('dataset_url'))
+        source_url = normalize_code_repository_url(source)
+        matched = {}
+        for candidate in evidence_rows:
+            candidate_name = str(first_nonempty(candidate.get('dataset_name'), candidate.get('name')) or '')
+            candidate_url = str(first_nonempty(candidate.get('source_url'), candidate.get('dataset_source_or_link'), candidate.get('dataset_url')) or '')
+            aliases = [normalize_key(value) for value in ensure_list(candidate.get('aliases'))]
+            if normalize_key(candidate_name) == key or key in aliases or (source_url and source_url in candidate_url):
+                matched = candidate
+                break
+        linked_models = ensure_list(spec.get('linked_models'))
+        linked_model = first_nonempty(spec.get('linked_model'), linked_models[0] if linked_models else '')
+        model_row = _best_model_row_by_name(models, str(linked_model)) if linked_model else None
+        model_row = model_row or {}
+        trace = next(
+            (
+                row for row in decision_trace
+                if normalize_key(first_nonempty(row.get('dataset_name'), row.get('name'))) == key
+            ),
+            {},
+        )
+        source = first_nonempty(
+            source,
+            matched.get('source_url'),
+            matched.get('dataset_source_or_link'),
+            matched.get('dataset_url'),
+            model_row.get('dataset_source_or_link'),
+        )
         out.append(clean_row_dict({
             'dataset_rank': rank,
-            'dataset_name': spec['dataset_name'],
-            'linked_model': spec['linked_model'],
-            'recommended_role': spec['recommended_role'],
-            'dataset_source_or_link': ds,
-            'why_selected': spec['why_selected'],
-            'required_cleaning': spec['required_cleaning'],
-            'source_pmid': m.get('source_pmid'),
-            'source_doi': m.get('source_doi'),
-            'evidence_level': m.get('evidence_level'),
-            'status': 'recommended_top3_dataset_needs_cleaning_and_version_lock',
+            'dataset_name': name,
+            'linked_model': linked_model,
+            'linked_models': linked_models or ensure_list(matched.get('linked_models')),
+            'recommended_role': first_nonempty(spec.get('recommended_role'), spec.get('target_profile'), spec.get('dataset_role')),
+            'target_profile': first_nonempty(spec.get('target_profile'), spec.get('recommended_role')),
+            'dataset_source_or_link': source,
+            'why_selected': first_nonempty(spec.get('why_selected'), spec.get('reason')),
+            'evidence_for_profile': first_nonempty(spec.get('evidence_for_profile'), matched.get('class_profile_evidence')),
+            'independence_limitations': first_nonempty(spec.get('independence_limitations'), matched.get('independence_scope')),
+            'required_cleaning': first_nonempty(spec.get('required_cleaning'), matched.get('deduplication_method')),
+            'needs_sequence_audit': spec.get('needs_sequence_audit', True),
+            'positive_samples': first_nonempty(spec.get('positive_samples'), matched.get('positive_samples')),
+            'negative_samples': first_nonempty(spec.get('negative_samples'), matched.get('negative_samples')),
+            'source_pmid': first_nonempty(spec.get('source_pmid'), matched.get('source_pmid'), model_row.get('source_pmid')),
+            'source_doi': first_nonempty(spec.get('source_doi'), matched.get('source_doi'), model_row.get('source_doi')),
+            'evidence_level': first_nonempty(spec.get('evidence_level'), matched.get('evidence_level'), model_row.get('evidence_level')),
+            'meeting_decision_trace': trace,
+            'recommendation_origin': 'literature_global_meeting_consensus',
+            'status': 'meeting_recommended_acquisition_candidate_needs_real_sequence_audit',
         }))
+    final_data['final_dataset_selection_context'] = {
+        'selection_source': 'literature_global_meeting_consensus_fallback',
+        'selection_is_name_template': False,
+        'reason': 'complete_empirically_evaluated_top3_not_available',
+        'selected_dataset_names': [row.get('dataset_name') for row in out],
+    }
     return out
+
+
+def load_verified_dataset_acquisition_candidates() -> List[Dict[str, Any]]:
+    payload = read_json(REQUIRED_DATASET_SEEDS_JSON, {})
+    rows = payload.get('datasets', []) if isinstance(payload, dict) else []
+    return [dict(row) for row in rows if isinstance(row, dict)]
 
 
 def build_final_metrics_plan(final_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -4339,9 +5765,13 @@ def build_final_metrics_plan(final_data: Dict[str, Any]) -> Dict[str, Any]:
 
 def build_final_execution_decision(final_data: Dict[str, Any]) -> Dict[str, Any]:
     return {
-        'summary': '核心主榜不少于 10 个模型，扩展部署池最多 20 个模型；部署名单按任务匹配、代码/数据可复现性、文章引用量和期刊影响因子综合排序；推荐 3 个数据集；采用 AUPRC/MCC/Recall/Precision 加权主指标。候选模型和 Agent 讨论放在后文附录。',
+        'summary': '核心主榜不少于 10 个模型，扩展部署池最多 20 个模型；先硬性覆盖至少 3 个经典基线与至少 3 个近期 SOTA 候选，再补齐架构代表并按可复现性、引用量和影响因子排序。SOTA 仅是待统一评测验证的候选标签。',
         'final_models': final_data.get('final_deployment_models', []),
+        'full_model_ranking': final_data.get('full_model_ranking', []),
+        'top20_continuity': final_data.get('top20_continuity', {}),
+        'benchmark_model_portfolio': final_data.get('benchmark_model_portfolio', {}),
         'final_datasets': final_data.get('final_recommended_datasets', []),
+        'final_dataset_selection_context': final_data.get('final_dataset_selection_context', {}),
         'final_metrics_plan': final_data.get('final_metrics_plan', {}),
         'excluded_from_main_benchmark': [
             {'group': '跨界模型', 'examples': ['AI4AFP', 'ESM2-AFPpred', 'ACP-DL', 'CTCM-Neo & ConformaX-PEP'], 'reason': '抗真菌/抗癌/抗疟疾等任务不是通用 AMP 二分类主榜。'},
@@ -4364,10 +5794,37 @@ def enrich_model_taxonomy_and_representatives(final_data: Dict[str, Any]) -> Dic
             row['model_category'] = row.get('model_category') or row['representation_category']
             rows.append(row)
         final_data[section] = rows
-    final_data['final_deployment_models'] = build_final_deployment_models(final_data)
+    top20, full_ranking, top20_continuity = build_deployment_rankings(final_data)
+    final_data['final_deployment_models'] = top20
+    final_data['full_model_ranking'] = full_ranking
+    final_data['top20_continuity'] = top20_continuity
+    portfolio = build_benchmark_portfolio(
+        final_data['final_deployment_models'],
+        current_year=_dt.datetime.now().year,
+        max_models=FINAL_DEPLOYMENT_MAX,
+        classic_min=3,
+        recent_sota_min=3,
+        required_core_names=configured_required_core_model_names(),
+    )
+    portfolio['selected_models'] = final_data['final_deployment_models']
+    final_data['benchmark_model_portfolio'] = portfolio
+    final_data['verified_dataset_acquisition_candidates'] = load_verified_dataset_acquisition_candidates()
+    final_data['dataset_agent_recommendation'] = read_json(
+        DATA_DIR / 'dataset_agent_recommendation.json', {}
+    )
     final_data['final_recommended_datasets'] = build_final_recommended_datasets(final_data)
+    final_data.pop('dataset_agent_recommendation', None)
     final_data['final_metrics_plan'] = build_final_metrics_plan(final_data)
     final_data['final_execution_decision'] = build_final_execution_decision(final_data)
+    missing_code = []
+    for section in ['representative_models_by_category', 'final_deployment_models']:
+        for row in ensure_list(final_data.get(section)):
+            if isinstance(row, dict) and not has_code_repository_url(row):
+                missing_code.append(f"{section}:{row.get('model_name') or row.get('canonical_name') or 'unknown'}")
+    if missing_code:
+        raise ValueError(
+            'Recommendation code_repository_url gate failed: ' + ', '.join(missing_code[:20])
+        )
     return final_data
 
 
@@ -4407,7 +5864,7 @@ def classification_lines_by_taxonomy(classification: List[Dict[str, Any]], taxon
         if not isinstance(c, dict) or c.get('taxonomy') != taxonomy:
             continue
         examples = ', '.join(map(str, ensure_list(c.get('concrete_models'))))
-        reps = ', '.join(map(str, ensure_list(c.get('representative_models'))[:2])) or '待定'
+        reps = ', '.join(map(str, ensure_list(c.get('representative_models'))[:5])) or '待定'
         lines.append(f"| {c.get('title')} | {c.get('description')} | {examples} | {reps} |")
     if not lines:
         lines.append('| 暂无分类 | 暂无 | 暂无 | 待定 |')
@@ -4425,9 +5882,9 @@ def representative_lines_by_taxonomy(reps: List[Dict[str, Any]], taxonomy: str) 
             continue
         seen.add(key)
         link = first_nonempty(r.get('code_repository_url'), r.get('web_server_url'), 'not_reported')
-        lines.append(f"| {r.get('category_title')} | {r.get('model_name')} | {r.get('method_family','')} | {link} | {r.get('dataset_source_or_link','')} | {r.get('why_representative','')} |")
+        lines.append(f"| {r.get('category_title')} | {r.get('representative_rank','')} | {r.get('model_name')} | {r.get('method_family','')} | {r.get('source_journal','')} | {r.get('journal_impact_factor','')} | {r.get('citation_count','')} | {link} | {r.get('dataset_source_or_link','')} | {r.get('why_representative','')} |")
     if not lines:
-        lines.append('| 暂无 | 待定 |  |  |  |  |')
+        lines.append('| 暂无 |  | 待定 |  |  |  |  |  |  |  |')
     return lines
 
 
@@ -4464,23 +5921,23 @@ def build_meeting_trace_markdown(final_data: Dict[str, Any], md_json: Any, metri
 {render_bullet_list(scout_points)}
 
 ### 三、模型分类梳理：数据/输入表示（Representation）
-| 类别 | 类别特点 | 具体模型 | 每类代表模型 1-2 个 |
+| 类别 | 类别特点 | 具体模型 | 每类代表模型 1-3 个 |
 |:---|:---|:---|:---|
 {chr(10).join(rep_class_lines)}
 
 ### 四、Representation 每类代表模型选择依据
-| 类别 | 代表模型 | 方法族 | 代码/工具链接 | 数据集线索 | 代表性理由 |
-|:---|:---|:---|:---|:---|:---|
+| 类别 | 排名 | 代表模型 | 方法族 | 期刊 | IF | 引用量 | 代码/工具链接 | 数据集线索 | 代表性理由 |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 {chr(10).join(rep_model_lines)}
 
 ### 五、模型分类梳理：模型架构（Architecture）
-| 类别 | 类别特点 | 具体模型 | 每类代表模型 1-2 个 |
+| 类别 | 类别特点 | 具体模型 | 每类代表模型 3-5 个（按 IF/引用量排序） |
 |:---|:---|:---|:---|
 {chr(10).join(arch_class_lines)}
 
 ### 六、Architecture 每类代表模型选择依据
-| 类别 | 代表模型 | 方法族 | 代码/工具链接 | 数据集线索 | 代表性理由 |
-|:---|:---|:---|:---|:---|:---|
+| 类别 | 排名 | 代表模型 | 方法族 | 期刊 | IF | 引用量 | 代码/工具链接 | 数据集线索 | 代表性理由 |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 {chr(10).join(arch_model_lines)}
 
 ## 📐 Agent 2 (Metrics) 指标与测试集提案
@@ -4509,7 +5966,7 @@ def build_meeting_trace_markdown(final_data: Dict[str, Any], md_json: Any, metri
 ## 📜 Final Consensus / 执行清单
 1. 保留 `All Candidate Models` 作为全量情报池，不因证据弱而删除。
 2. `Benchmark Ready Models` 只作为优先复现/评测队列，仍需执行权重和推理命令核查。
-3. 按 `Representation` 和 `Architecture` 两套体系分别选择每类 1-2 个代表模型先跑通。
+3. 按 `Architecture` 体系分别选择每类 3-5 个代表模型先跑通；排序优先期刊影响因子、引用量和文章影响力。
 4. 所有模型表按 canonical model name 去重，避免 Co-AMPpred、AMP-BERT、CalcAMP 等重复行。
 5. 数据集继续以 `Model-Dataset Links` 和 `Dataset Follow-up Tasks` 追踪，不再只看单个 dataset 字段。
 6. 会议结论写入 memory.md，原始 Agent JSON 仍保存在 `data/deepseek_meeting_raw.jsonl`。
@@ -4517,9 +5974,78 @@ def build_meeting_trace_markdown(final_data: Dict[str, Any], md_json: Any, metri
 
 
 # ------------------------- Memory -------------------------
+MEMORY_MODEL_PROMPT_FIELDS = [
+    'model_name', 'canonical_name', 'aliases', 'task_type', 'method_family',
+    'architecture_or_algorithm', 'representation_category', 'architecture_category',
+    'publication_year', 'source_journal', 'citation_count', 'journal_impact_factor',
+    'article_impact_score', 'code_repository_url', 'model_weights_url',
+    'dataset_source_or_link', 'source_pmid', 'source_doi', 'evidence_level',
+    'confidence', 'benchmark_candidate', 'deployment_status', 'blocking_issues',
+    'deployment_rank', 'ranking_scope', 'top20_membership', 'retention_reason',
+]
+
+
+def _compact_memory_model(row: Dict[str, Any]) -> Dict[str, Any]:
+    return clean_row_dict({key: row.get(key) for key in MEMORY_MODEL_PROMPT_FIELDS})
+
+
+def build_historical_model_pool(memory: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Return the cumulative, deduplicated model evidence used in later runs."""
+    raw: List[Dict[str, Any]] = []
+    for section in ['full_model_ranking', 'final_deployment_models', 'benchmark_ready_models', 'models', 'all_candidate_models']:
+        raw.extend(row for row in ensure_list(memory.get(section)) if isinstance(row, dict))
+    rows = dedupe_models_by_name(raw)
+    return sorted(
+        rows,
+        key=lambda row: (
+            -final_deployment_selection_score(row),
+            normalize_key(row.get('model_name') or row.get('canonical_name')),
+        ),
+    )
+
+
+def merge_historical_model_memory(final_data: Dict[str, Any], memory_context: Dict[str, Any]) -> Dict[str, Any]:
+    """Make remembered models participate in deterministic post-meeting ranking.
+
+    LLM prompts receive only a compact snapshot, while this programmatic path
+    carries the complete historical model pool forward.  Historical rows are
+    candidates, not pinned winners: the normal scope, code and evidence gates
+    still decide the final deployment list.
+    """
+    if not isinstance(final_data, dict):
+        final_data = {}
+    historical = [
+        row for row in ensure_list(memory_context.get('historical_model_pool'))
+        if isinstance(row, dict)
+    ]
+    if not historical:
+        return final_data
+    current = ensure_list(final_data.get('all_candidate_models')) + ensure_list(final_data.get('models'))
+    final_data['all_candidate_models'] = merge_items(historical, current, 'all_candidate_models')
+    previous_final = [
+        str(row.get('model_name') or row.get('canonical_name'))
+        for row in ensure_list(memory_context.get('previous_final_deployment_models'))
+        if isinstance(row, dict) and (row.get('model_name') or row.get('canonical_name'))
+    ]
+    previous_final_rows = [
+        dict(row) for row in ensure_list(memory_context.get('previous_final_deployment_models'))
+        if isinstance(row, dict)
+    ][:FINAL_DEPLOYMENT_MAX]
+    final_data['memory_continuity'] = {
+        'policy': 'cumulative_candidates_with_incumbent_top20_strict_challenger_replacement',
+        'historical_model_count': len(historical),
+        'previous_final_model_names': previous_final,
+        'previous_final_deployment_models': previous_final_rows,
+        'historical_models_are_fixed_winners': False,
+        'top20_incumbents_require_strictly_better_challenger_or_ineligibility_to_leave': True,
+        'rank_21_plus_is_retained': True,
+    }
+    return final_data
+
+
 class MemoryManager:
     def __init__(self):
-        self.memory = read_json(MEMORY_JSON, {'all_candidate_models': [], 'benchmark_ready_models': [], 'models': [], 'repositories': [], 'datasets': [], 'dataset_links': [], 'model_dataset_links': [], 'dataset_followup_tasks': [], 'model_classification': [], 'representative_models_by_category': [], 'final_deployment_models': [], 'final_recommended_datasets': [], 'final_metrics_plan': {}, 'final_execution_decision': {}, 'github_missing_model_enrichment': [], 'qwen_web_enrichment': [], 'metrics': [], 'papers': [], 'benchmark_implications': [], 'open_questions': [], 'agent_discussion': [], 'runs': []})
+        self.memory = read_json(MEMORY_JSON, {'all_candidate_models': [], 'benchmark_ready_models': [], 'models': [], 'repositories': [], 'datasets': [], 'dataset_links': [], 'model_dataset_links': [], 'dataset_followup_tasks': [], 'meeting_recommended_datasets': [], 'meeting_dataset_decision_trace': [], 'model_classification': [], 'representative_models_by_category': [], 'final_deployment_models': [], 'full_model_ranking': [], 'top20_continuity': {}, 'benchmark_model_portfolio': {}, 'benchmark_model_coverage': {}, 'memory_continuity': {}, 'verified_dataset_acquisition_candidates': [], 'final_recommended_datasets': [], 'final_dataset_selection_context': {}, 'final_metrics_plan': {}, 'final_execution_decision': {}, 'github_missing_model_enrichment': [], 'qwen_web_enrichment': [], 'metrics': [], 'papers': [], 'benchmark_implications': [], 'open_questions': [], 'agent_discussion': [], 'runs': []})
         self.index = read_json(INDEX_JSON, {'processed_keys': [], 'processed_pmids': [], 'processed_dois': [], 'processed_titles': []})
 
     def has_processed(self, rec: Dict[str, Any]) -> bool:
@@ -4531,12 +6057,58 @@ class MemoryManager:
         return bool((rec.get('candidate_key') and str(rec.get('candidate_key')) in keys) or (rec.get('pmid') and str(rec.get('pmid')) in pmids) or (rec.get('doi') and normalize_key(rec.get('doi')) in dois) or (rec.get('title') and normalize_key(rec.get('title')) in titles))
 
     def context(self) -> Dict[str, Any]:
-        return {k: self.memory.get(k, [])[:80] for k in ['all_candidate_models','benchmark_ready_models','models','repositories','datasets','dataset_links','model_dataset_links','dataset_followup_tasks','model_classification','representative_models_by_category','metrics','papers','benchmark_implications','open_questions']}
+        historical_pool = build_historical_model_pool(self.memory)
+        compact_snapshot = [_compact_memory_model(row) for row in historical_pool[:120]]
+        previous_final = [
+            _compact_memory_model(row)
+            for row in ensure_list(self.memory.get('final_deployment_models'))[:20]
+            if isinstance(row, dict)
+        ]
+        return {
+            'memory_policy': (
+                'Cumulative model evidence and the full rank 21+ reserve are retained across runs. '
+                'A previous Top-20 incumbent leaves only after losing eligibility or being strictly '
+                'outscored by a current challenger; equal scores do not replace incumbents.'
+            ),
+            'memory_counts': {
+                key: len(ensure_list(self.memory.get(key)))
+                for key in ['all_candidate_models', 'benchmark_ready_models', 'models', 'datasets', 'papers', 'runs']
+            },
+            'previous_final_deployment_models': previous_final,
+            'previous_full_model_ranking': [
+                _compact_memory_model(row)
+                for row in ensure_list(self.memory.get('full_model_ranking'))[:120]
+                if isinstance(row, dict)
+            ],
+            'previous_top20_continuity': self.memory.get('top20_continuity', {}),
+            'previous_benchmark_model_coverage': self.memory.get('benchmark_model_coverage', {}),
+            'all_candidate_models': compact_snapshot,
+            'benchmark_ready_models': compact_snapshot,
+            'models': compact_snapshot,
+            'representative_models_by_category': ensure_list(self.memory.get('representative_models_by_category'))[:80],
+            'repositories': ensure_list(self.memory.get('repositories'))[:40],
+            'datasets': ensure_list(self.memory.get('datasets'))[:40],
+            'dataset_links': ensure_list(self.memory.get('dataset_links'))[:40],
+            'model_dataset_links': ensure_list(self.memory.get('model_dataset_links'))[:80],
+            'dataset_followup_tasks': ensure_list(self.memory.get('dataset_followup_tasks'))[:40],
+            'meeting_recommended_datasets': ensure_list(self.memory.get('meeting_recommended_datasets'))[:10],
+            'meeting_dataset_decision_trace': ensure_list(self.memory.get('meeting_dataset_decision_trace'))[:20],
+            'metrics': ensure_list(self.memory.get('metrics'))[:40],
+            'benchmark_implications': ensure_list(self.memory.get('benchmark_implications'))[:40],
+            'open_questions': ensure_list(self.memory.get('open_questions'))[:40],
+            # Programmatic continuity pool. global_meeting removes this field
+            # before building prompts, so hundreds of rows never consume tokens.
+            'historical_model_pool': historical_pool,
+        }
 
     def merge_final(self, final_data: Dict[str, Any], records: List[Dict[str, Any]], run_info: Dict[str, Any]) -> None:
-        replace_sections = {'model_classification', 'representative_models_by_category', 'final_deployment_models', 'final_recommended_datasets', 'final_metrics_plan', 'final_execution_decision', 'agent_discussion'}
-        for section in ['all_candidate_models', 'benchmark_ready_models', 'models', 'repositories', 'datasets', 'dataset_links', 'model_dataset_links', 'dataset_followup_tasks', 'model_classification', 'representative_models_by_category', 'final_deployment_models', 'final_recommended_datasets', 'final_metrics_plan', 'final_execution_decision', 'github_missing_model_enrichment', 'qwen_web_enrichment', 'metrics', 'papers', 'benchmark_implications', 'open_questions', 'agent_discussion']:
+        replace_sections = {'meeting_recommended_datasets', 'meeting_dataset_decision_trace', 'model_classification', 'representative_models_by_category', 'final_deployment_models', 'full_model_ranking', 'top20_continuity', 'benchmark_model_portfolio', 'benchmark_model_coverage', 'memory_continuity', 'verified_dataset_acquisition_candidates', 'final_recommended_datasets', 'final_dataset_selection_context', 'final_metrics_plan', 'final_execution_decision', 'agent_discussion'}
+        dict_sections = {'top20_continuity', 'benchmark_model_portfolio', 'benchmark_model_coverage', 'memory_continuity', 'final_dataset_selection_context', 'final_metrics_plan', 'final_execution_decision'}
+        for section in ['all_candidate_models', 'benchmark_ready_models', 'models', 'repositories', 'datasets', 'dataset_links', 'model_dataset_links', 'dataset_followup_tasks', 'meeting_recommended_datasets', 'meeting_dataset_decision_trace', 'model_classification', 'representative_models_by_category', 'final_deployment_models', 'full_model_ranking', 'top20_continuity', 'benchmark_model_portfolio', 'benchmark_model_coverage', 'memory_continuity', 'verified_dataset_acquisition_candidates', 'final_recommended_datasets', 'final_dataset_selection_context', 'final_metrics_plan', 'final_execution_decision', 'github_missing_model_enrichment', 'qwen_web_enrichment', 'metrics', 'papers', 'benchmark_implications', 'open_questions', 'agent_discussion']:
             self.memory.setdefault(section, [])
+            if section in dict_sections and isinstance(final_data.get(section), dict):
+                self.memory[section] = final_data[section]
+                continue
             incoming = ensure_list(final_data.get(section))
             if section in replace_sections and incoming:
                 # v4.2: these sections describe the latest meeting/rendering state. Do not keep stale v3 summaries.
@@ -4666,11 +6238,12 @@ def render_model_classification_md(items: Any) -> str:
             continue
         parts.append(f"### {_taxonomy_label(taxonomy)}")
         parts.append('')
-        parts.append('|类别|类别特点|具体模型|每类代表模型 1-2 个|当前证据池命中数|')
+        label = '每类代表模型 3-5 个（按 IF/引用量）' if taxonomy == 'architecture' else '每类代表模型 1-3 个'
+        parts.append(f'|类别|类别特点|具体模型|{label}|当前证据池命中数|')
         parts.append('|---|---|---|---|---:|')
         for r in sub:
             examples = ', '.join(map(str, ensure_list(r.get('concrete_models'))))
-            reps = ', '.join(map(str, ensure_list(r.get('representative_models'))[:2]))
+            reps = ', '.join(map(str, ensure_list(r.get('representative_models'))[:5]))
             parts.append('|' + '|'.join([
                 str(r.get('title','')).replace('|','\\|'),
                 str(r.get('description','')).replace('|','\\|')[:700],
@@ -4702,7 +6275,7 @@ def render_representative_models_md(items: Any) -> str:
             continue
         parts.append(f"### {_taxonomy_label(taxonomy)}")
         parts.append('')
-        parts.append(render_table(sub, ['category_title','model_name','task_type','method_family','code_repository_url','web_server_url','dataset_source_or_link','source_pmid','source_doi','evidence_level','why_representative']))
+        parts.append(render_table(sub, ['category_title','representative_rank','model_name','task_type','method_family','source_journal','journal_impact_factor','journal_impact_factor_status','citation_count','citation_count_status','citation_evidence_source','article_impact_score','code_repository_url','web_server_url','dataset_source_or_link','source_pmid','source_doi','evidence_level','why_representative']))
         parts.append('')
     return '\n'.join(parts).strip()
 
@@ -4719,7 +6292,8 @@ def render_final_metrics_plan_md(plan: Any) -> str:
     for m in ensure_list(plan.get('primary_weighted_metrics')):
         if not isinstance(m, dict):
             continue
-        lines.append(f"|{m.get('metric_name','')}|{m.get('weight','')}|{str(m.get('reason','')).replace('|','\\|')}|")
+        reason = str(m.get('reason', '')).replace('|', '\\|')
+        lines.append(f"|{m.get('metric_name','')}|{m.get('weight','')}|{reason}|")
     lines.append('')
     lines.append('### 强制报告指标')
     lines.append('')
@@ -4752,7 +6326,7 @@ def render_final_execution_decision_md(mem: Dict[str, Any]) -> str:
     parts.append('')
     parts.append('### 1. 最终先部署模型')
     parts.append('')
-    parts.append(render_table(models, ['deployment_rank','deployment_tier','model_name','representation_category','architecture_category','task_type','code_repository_url','dataset_source_or_link','source_journal','citation_count','journal_impact_factor','article_impact_score','deployment_selection_score','deployment_status','deployment_reason','first_next_action','blocking_issues']))
+    parts.append(render_table(models, ['deployment_rank','deployment_tier','benchmark_role_label','model_name','publication_year','representation_category','architecture_category','task_type','code_repository_url','dataset_source_or_link','source_journal','citation_count','journal_impact_factor','article_impact_score','deployment_selection_score','deployment_status','benchmark_role_reason','deployment_reason','first_next_action','blocking_issues']))
     parts.append('')
     parts.append('### 2. 推荐最合适的 3 个数据集')
     parts.append('')
@@ -4773,14 +6347,98 @@ def render_final_deployment_models_md(items: Any) -> str:
     rows = [r for r in ensure_list(items) if isinstance(r, dict) and item_has_any_value(r)]
     if not rows:
         return '_No evidence-backed deployment candidates yet._'
-    return render_table(rows, ['deployment_rank','deployment_tier','model_name','canonical_name','representation_category','architecture_category','task_type','method_family','code_repository_url','web_server_url','dataset_source_or_link','source_journal','citation_count','journal_impact_factor','article_impact_score','deployment_selection_score','deployment_status','deployment_reason','first_next_action','blocking_issues','evidence_level','confidence','source_pmid','source_doi'])
+    return render_table(rows, ['deployment_rank','deployment_tier','benchmark_role_label','benchmark_roles','model_name','canonical_name','publication_year','representation_category','architecture_category','task_type','method_family','code_repository_url','web_server_url','dataset_source_or_link','source_journal','journal_impact_factor','journal_impact_factor_status','citation_count','citation_count_status','citation_evidence_source','article_impact_score','deployment_selection_score','deployment_status','benchmark_role_reason','deployment_reason','first_next_action','blocking_issues','evidence_level','confidence','source_pmid','source_doi'])
+
+
+def render_top20_continuity_md(continuity: Any) -> str:
+    if not isinstance(continuity, dict) or not continuity:
+        return '_No previous Top-20 continuity decision is available yet._'
+    lines = [
+        f"- Policy: `{continuity.get('policy', '')}`",
+        f"- Strictly higher score required: {continuity.get('strict_score_comparison', False)}",
+        f"- Equal score replaces incumbent: {continuity.get('equal_score_replaces_incumbent', False)}",
+        f"- Retained incumbents: {', '.join(map(str, ensure_list(continuity.get('retained_incumbent_names')))) or 'None'}",
+        f"- Ineligible previous models: {', '.join(map(str, ensure_list(continuity.get('ineligible_previous_names')))) or 'None'}",
+        f"- Score-displaced incumbents: {', '.join(map(str, ensure_list(continuity.get('displaced_incumbent_names')))) or 'None'}",
+        '',
+        render_table(
+            continuity.get('replacement_decisions', []),
+            ['entered_model', 'entered_score', 'replaced_model', 'replaced_score', 'score_improvement', 'reason'],
+        ),
+    ]
+    return '\n'.join(lines).strip()
+
+
+def render_full_model_ranking_md(items: Any) -> str:
+    rows = [r for r in ensure_list(items) if isinstance(r, dict) and item_has_any_value(r)]
+    if not rows:
+        return '_No continuous model ranking has been generated yet._'
+    return render_table(rows, [
+        'deployment_rank', 'ranking_scope', 'top20_membership', 'model_name', 'canonical_name',
+        'architecture_category', 'publication_year', 'deployment_selection_score',
+        'citation_count', 'journal_impact_factor', 'code_repository_url', 'dataset_source_or_link',
+        'deployment_status', 'retention_reason', 'was_previously_evaluated', 'evaluation_labels',
+        'was_previous_top20', 'top20_transition',
+        'blocking_issues', 'evidence_level', 'source_pmid', 'source_doi',
+    ])
+
+
+def render_benchmark_portfolio_md(portfolio: Any) -> str:
+    if not isinstance(portfolio, dict) or not portfolio:
+        return '_No tiered benchmark portfolio has been generated yet._'
+    lines = [
+        f"- Policy version: {portfolio.get('policy_version', '')}",
+        f"- Classic cutoff: ≤ {portfolio.get('classic_cutoff_year', '')}",
+        f"- Recent SOTA candidate window: {portfolio.get('recent_sota_window', '')}",
+        f"- Role counts: `{json_dumps(portfolio.get('role_counts', {}), 0)}`",
+        f"- SOTA semantics: {portfolio.get('sota_semantics', '')}",
+        '',
+        '### Portfolio gaps',
+        '',
+        render_table(portfolio.get('gaps', []), ['type','required','selected','recent_cutoff_year','missing','recommended_search_names']),
+    ]
+    return '\n'.join(lines).strip()
+
+
+def render_benchmark_model_coverage_md(coverage: Any) -> str:
+    if not isinstance(coverage, dict) or not coverage:
+        return '_No benchmark-model coverage audit has been generated yet._'
+    lines = [
+        f"- Covered: {coverage.get('covered_model_count', 0)} / {coverage.get('coverage_denominator', 0)}",
+        f"- Coverage fraction: {coverage.get('coverage_fraction', 0):.1%}",
+        f"- Required minimum: {_safe_float(coverage.get('minimum_coverage_fraction'), 0.7):.1%}",
+        f"- Gate passed: {coverage.get('coverage_gate_passed', False)}",
+        f"- Required core models: {', '.join(map(str, ensure_list(coverage.get('required_core_models'))))}",
+        f"- Missing coverage models: {', '.join(map(str, ensure_list(coverage.get('missing_coverage_models')))) or 'None'}",
+        '',
+        render_table(
+            coverage.get('targets', []),
+            ['model_name', 'evaluation_labels', 'required_core', 'count_toward_coverage',
+             'found_in_evidence_or_memory', 'matched_evidence_names',
+             'scientifically_verified_required_core', 'identity_status', 'decision'],
+        ),
+    ]
+    return '\n'.join(lines).strip()
 
 
 def render_final_recommended_datasets_md(items: Any) -> str:
     rows = [r for r in ensure_list(items) if isinstance(r, dict) and item_has_any_value(r)]
     if not rows:
         return '_No recommended datasets yet._'
-    return render_table(rows, ['dataset_rank','dataset_name','linked_model','recommended_role','dataset_source_or_link','why_selected','required_cleaning','source_pmid','source_doi','evidence_level','status'])
+    return render_table(rows, ['dataset_rank','dataset_name','target_profile','linked_models','model_specific_exclusions','dataset_source_or_link','why_selected','evidence_for_profile','independence_limitations','required_cleaning','needs_sequence_audit','positive_samples','negative_samples','formal_eligible','formal_blockers','local_path','source_pmid','source_doi','evidence_level','recommendation_origin','status'])
+
+
+def render_final_dataset_selection_context_md(context: Any) -> str:
+    if not isinstance(context, dict) or not context:
+        return '_No merged dataset-selection context is available._'
+    return '\n'.join([
+        f"- Selection source: `{context.get('selection_source', '')}`",
+        f"- Fixed-name template: {context.get('selection_is_name_template', False)}",
+        f"- Selection status: `{context.get('selection_status', '')}`",
+        f"- Formal gate status: `{context.get('formal_selection_status', '')}`",
+        f"- Selected datasets: {', '.join(map(str, ensure_list(context.get('selected_dataset_names')))) or 'None'}",
+        f"- Literature shortlist retained as fallback: {context.get('literature_meeting_shortlist_retained_as_fallback', False)}",
+    ])
 
 
 def render_github_enrichment_md(items: Any) -> str:
@@ -4839,9 +6497,19 @@ Updated: {now_str()}
 {json_dumps(run_info, 2)}
 ```
 
+> **Recommendation gate:** only rows in **Representative Models by Category**
+> and **Final Deployment Model List** are benchmark recommendations. Every row
+> in those tables must contain a concrete `code_repository_url`. Models without
+> code remain literature candidates and are not promoted to the executable
+> benchmark portfolio.
+
 {render_final_execution_decision_md(mem)}
 
-## Agent Discussion Process
+## Historical Agent Discussion Process
+
+The transcript below preserves intermediate proposals for provenance. It is not
+an executable recommendation list; unresolved links may appear in historical
+agent messages.
 
 {render_agent_discussion_md(mem.get('agent_discussion', []))}
 
@@ -4857,9 +6525,39 @@ Updated: {now_str()}
 
 {render_final_deployment_models_md(mem.get('final_deployment_models', []))}
 
+## Top-20 Continuity and Replacement Audit
+
+{render_top20_continuity_md(mem.get('top20_continuity', {}))}
+
+## Full Model Ranking (Rank 21+ Reserve Included)
+
+The Top 20 uses the incumbent-challenger rule above. Eligible models continue from
+rank 21, and previously evaluated models that currently fail deployment gates are
+retained after the eligible reserve with their blockers instead of disappearing.
+
+{render_full_model_ranking_md(mem.get('full_model_ranking', []))}
+
+## Tiered Benchmark Portfolio Policy
+
+{render_benchmark_portfolio_md(mem.get('benchmark_model_portfolio', {}))}
+
+## Evaluated-Model Literature Coverage Audit
+
+This is a retrieval and meeting coverage gate, not a fixed recommendation ranking.
+
+{render_benchmark_model_coverage_md(mem.get('benchmark_model_coverage', {}))}
+
 ## Final Recommended Datasets
 
+{render_final_dataset_selection_context_md(mem.get('final_dataset_selection_context', {}))}
+
 {render_final_recommended_datasets_md(mem.get('final_recommended_datasets', []))}
+
+## Verified Dataset Acquisition Candidates
+
+These rows are verified discovery/acquisition candidates, not automatic final benchmark selections. Model-associated datasets are blocked for their linked model until model-specific leakage audits pass.
+
+{render_table(mem.get('verified_dataset_acquisition_candidates', []), ['dataset_name','aliases','linked_models','dataset_role','source_url','source_doi','paper_doi','dataset_version','positive_samples','negative_samples','class_profile_evidence','length_evidence','independent_external_test','independence_scope','quality_status'])}
 
 ## Final Metrics Plan
 
@@ -4967,6 +6665,11 @@ def load_compact_evidence_pool_from_disk() -> Dict[str, Any]:
     if papers and not pool.get('paper_count'):
         pool['paper_count'] = len(papers)
 
+    pool['llm_nomination_verification'] = build_llm_nomination_meeting_context(
+        read_json(LLM_MODEL_NOMINATIONS_JSON, {}),
+        read_json(LLM_MODEL_VERIFICATION_JSON, {}),
+    )
+
     if not ensure_list(pool.get('chunk_summaries')):
         raise FileNotFoundError(
             '没有找到 compact evidence pool 或 chunk summaries。请确认存在 data/compact_evidence_pool.json 或 data/chunk_summaries/*.json。'
@@ -5068,19 +6771,37 @@ def run_resume_global_meeting_only(
         if raw:
             final_data = raw.get('chief_agent') or raw.get('final_data')
             if not isinstance(final_data, dict):
-                print('⚠️ 找到了 global meeting raw，但里面没有可用 chief_agent/final_data；改为从 chunk summaries 直接重建 memory。', flush=True)
+                print('[WARNING] 找到了 global meeting raw，但里面没有可用 chief_agent/final_data；改为从 chunk summaries 直接重建 memory。', flush=True)
                 final_data = build_chunk_derived_final(compact_pool)
         else:
             # v4.5 fallback: --use-existing-meeting 原意是不再调用 DeepSeek。
             # 如果用户机器里没有 data/deepseek_meeting_raw.jsonl，不应直接报错；
             # 直接从 data/compact_evidence_pool.json + data/chunk_summaries/*.json 确定性重建最终 memory。
-            print('⚠️ 没有找到已完成的 global meeting raw；将不调用 DeepSeek，直接从 chunk summaries 重建 memory。', flush=True)
+            print('[WARNING] 没有找到已完成的 global meeting raw；将不调用 DeepSeek，直接从 chunk summaries 重建 memory。', flush=True)
             final_data = build_chunk_derived_final(compact_pool)
             raw = {
                 'fallback_from_chunk_summaries': True,
                 'reason': 'global_meeting_raw_not_found',
                 'created_at': now_str(),
             }
+        # Reusing a raw meeting must retain the cumulative candidate memory too;
+        # otherwise this offline path can silently shrink the deployment pool.
+        offline_memory_context = memory.context()
+        verified_required_models = load_scientifically_verified_required_models()
+        final_data['all_candidate_models'] = merge_items(
+            verified_required_models,
+            ensure_list(final_data.get('all_candidate_models')) + ensure_list(final_data.get('models')),
+            'all_candidate_models',
+        )
+        final_data['benchmark_ready_models'] = merge_items(
+            verified_required_models,
+            ensure_list(final_data.get('benchmark_ready_models')),
+            'benchmark_ready_models',
+        )
+        final_data['benchmark_model_coverage'] = build_benchmark_model_coverage_context(
+            compact_pool, offline_memory_context
+        )
+        final_data = merge_historical_model_memory(final_data, offline_memory_context)
         # 即使复用旧 meeting 或 fallback，也从 chunk summaries 补回全量候选、数据集关系、分类和会议记录。
         final_data = enrich_final_from_chunks(
             final_data,
@@ -5090,7 +6811,7 @@ def run_resume_global_meeting_only(
             raw.get('critic_agent') if isinstance(raw, dict) else None,
         )
         raw_meeting = raw
-        print('✅ 已使用已有 chunk summaries 生成 memory；未重新搜索、未重新抓全文、未重新压缩 chunk、未调用 DeepSeek。', flush=True)
+        print('[OK] 已使用已有 chunk summaries 生成 memory；未重新搜索、未重新抓全文、未重新压缩 chunk、未调用 DeepSeek。', flush=True)
     else:
         llm = DeepSeekChatLLM(provider=provider, config_path=provider_config)
         loader = AgentMDLoader(meeting_agent_dir)
@@ -5114,7 +6835,7 @@ def run_resume_global_meeting_only(
     }
     print('    -> [Safe Write Memory] 写入 MD + JSON 长期记忆，并安全清理 index 中的 dict/list...', flush=True)
     memory.merge_final(final_data, records, run_info)
-    print('✅ 续跑完成。', flush=True)
+    print('[OK] 续跑完成。', flush=True)
     print(f'   Memory MD: {MEMORY_MD.relative_to(ROOT)}')
     print(f'   Memory JSON: {MEMORY_JSON.relative_to(ROOT)}')
     return {'run_info': run_info, 'final_data': final_data, 'raw_meeting': raw_meeting}
@@ -5336,7 +7057,7 @@ def run_pipeline(
     memory = MemoryManager()
 
     if no_planner:
-        plan = DEFAULT_QUERY_PLAN
+        plan = augment_query_plan_with_configured_targets(DEFAULT_QUERY_PLAN)
     else:
         print('\n>>> DeepSeek 正在规划多源搜索 queries...')
         plan = llm_plan_queries(llm, planner_loader, max_queries=max_queries)
@@ -5506,6 +7227,15 @@ def run_pipeline(
     print('\n========== [Evidence Collection Finished] ==========')
     print(f'>>> Evidence batches collected: {len(evidence_batches)}')
     print(f'>>> Failed evidence batches: {len(failed_batches)}')
+    successful_record_keys = {
+        str(key)
+        for ev in evidence_batches if isinstance(ev, dict)
+        for key in ensure_list(ev.get('_record_keys')) if key
+    }
+    successfully_processed_records = [
+        row for row in candidates
+        if str(row.get('candidate_key') or '') in successful_record_keys
+    ]
     evidence_pool = save_evidence_pool(evidence_batches, candidates, repos, datasets)
     print(f'>>> Evidence pool saved: {EVIDENCE_POOL_JSON.relative_to(ROOT)} / {EVIDENCE_POOL_MD.relative_to(ROOT)}')
 
@@ -5549,7 +7279,7 @@ def run_pipeline(
     run_info = {
         'time': now_str(), 'mode': 'multi_source_global_meeting', 'sources': enabled_sources,
         'max_results': max_results, 'batch_size': batch_size, 'paper_count': len(candidates),
-        'processed_this_run': len(new_records), 'evidence_batches': len(evidence_batches), 'failed_evidence_batches': len(failed_batches),
+        'processed_this_run': len(successfully_processed_records), 'evidence_batches': len(evidence_batches), 'failed_evidence_batches': len(failed_batches),
         'source_counts': source_counts(candidates), 'fetch_fulltext': fetch_fulltext,
         'backsearch_models': backsearch_models, 'expand_citations': expand_citations,
         'evidence_compression': evidence_compression, 'chunk_target_size': chunk_target_size,
@@ -5562,17 +7292,83 @@ def run_pipeline(
         'qwen_web_enrichment_file': str(QWEN_WEB_ENRICHMENT_JSON.relative_to(ROOT)) if QWEN_WEB_ENRICHMENT_JSON.exists() else None,
     }
     print('    -> [Write Memory] 写入 MD + JSON 长期记忆...')
-    memory.merge_final(final_data, candidates, run_info)
+    # Only index papers whose evidence batch completed.  Failed batches must
+    # remain retryable on the next incremental run.
+    memory.merge_final(final_data, successfully_processed_records, run_info)
     print('✅ 完成。')
     print(f'   Memory MD: {MEMORY_MD.relative_to(ROOT)}')
     print(f'   Memory JSON: {MEMORY_JSON.relative_to(ROOT)}')
     return {'run_info': run_info, 'final_data': final_data, 'raw_meeting': raw_meeting}
 
 
+def refresh_memory_views_only() -> Dict[str, Any]:
+    """Rebuild deterministic recommendation tables from the existing memory.
+
+    This path performs no literature search, LLM call, GitHub lookup, or other
+    network operation.  It is intended for applying updated validation and
+    rendering rules to an already collected evidence memory.
+    """
+    memory = read_json(MEMORY_JSON, {})
+    if not isinstance(memory, dict) or not memory:
+        raise FileNotFoundError(f'Existing memory not found: {MEMORY_JSON}')
+    memory_context = MemoryManager().context()
+    current_top20 = [
+        dict(row) for row in ensure_list(memory.get('final_deployment_models'))
+        if isinstance(row, dict)
+    ][:FINAL_DEPLOYMENT_MAX]
+    continuity = dict(memory.get('memory_continuity') or {})
+    if not ensure_list(continuity.get('previous_final_deployment_models')):
+        continuity['previous_final_deployment_models'] = current_top20
+    if not ensure_list(continuity.get('previous_final_model_names')):
+        continuity['previous_final_model_names'] = [
+            str(row.get('model_name') or row.get('canonical_name'))
+            for row in current_top20
+            if row.get('model_name') or row.get('canonical_name')
+        ]
+    memory['memory_continuity'] = continuity
+    verified_required_models = load_scientifically_verified_required_models()
+    memory['all_candidate_models'] = merge_items(
+        verified_required_models,
+        ensure_list(memory.get('all_candidate_models')) + ensure_list(memory.get('models')),
+        'all_candidate_models',
+    )
+    memory['benchmark_ready_models'] = merge_items(
+        verified_required_models,
+        ensure_list(memory.get('benchmark_ready_models')),
+        'benchmark_ready_models',
+    )
+    compact_pool = read_json(COMPACT_EVIDENCE_POOL_JSON, {})
+    memory['benchmark_model_coverage'] = build_benchmark_model_coverage_context(
+        compact_pool if isinstance(compact_pool, dict) else {}, memory_context
+    )
+    # Reattach richer paper metadata that is intentionally compacted out of
+    # memory.papers.  These are existing local snapshots, so this remains an
+    # offline operation.
+    had_records_section = 'records' in memory
+    existing_records = memory.get('records')
+    memory['records'] = load_records_for_index_from_disk()
+    memory = enrich_model_taxonomy_and_representatives(memory)
+    if had_records_section:
+        memory['records'] = existing_records
+    else:
+        memory.pop('records', None)
+    previous_run = ensure_list(memory.get('runs'))[-1] if ensure_list(memory.get('runs')) else {}
+    run_info = dict(previous_run) if isinstance(previous_run, dict) else {}
+    run_info.update({
+        'time': now_str(),
+        'mode': 'refresh_memory_views_only',
+        'note': 'Rebuilt code-linked recommendations from existing evidence; no network or LLM calls.',
+    })
+    write_json(MEMORY_JSON, memory)
+    MEMORY_MD.write_text(render_memory_md(memory, run_info), encoding='utf-8')
+    return memory
+
+
 # ------------------------- CLI -------------------------
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description='Multi-source AMP literature evidence collector + DeepSeek global meeting')
     p.add_argument('--max-results', type=int, default=30, help='每个 query 每个来源最多返回多少条。更全面建议 50~100。')
+    p.add_argument('--comprehensive-architecture-search', action='store_true', help='面向“尽可能全面覆盖 AMP 预测模型”的架构分桶检索模式：提高 query/结果/引用扩展/chunk 上限，并在最终记忆中按架构推荐 3-5 个模型。')
     p.add_argument('--batch-size', type=int, default=4, help='DeepSeek evidence 提取批大小。全文较长时建议 2~5。')
     p.add_argument('--year-from', type=int, default=None)
     p.add_argument('--year-to', type=int, default=None)
@@ -5607,11 +7403,25 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--force-qwen-web-enrichment', action='store_true', help='重新搜索失败/低置信 Qwen 联网补漏缓存；默认不重复搜索已成功缓存。')
     p.add_argument('--refresh-all-qwen-web-enrichment', action='store_true', help='真正忽略所有 Qwen 联网补漏缓存，全部重搜。')
     p.add_argument('--resume-note', default='main_resume_global_meeting_only', help='续跑写入 runs 的备注。')
+    p.add_argument('--refresh-memory-views-only', action='store_true', help='只用现有 memory 重建推荐表和 Markdown；不联网、不调用 LLM。')
     return p.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    if args.refresh_memory_views_only:
+        memory = refresh_memory_views_only()
+        print(f"Refreshed {MEMORY_MD.relative_to(ROOT)} and {MEMORY_JSON.relative_to(ROOT)}")
+        print(f"Representative models: {len(ensure_list(memory.get('representative_models_by_category')))}")
+        print(f"Final deployment models: {len(ensure_list(memory.get('final_deployment_models')))}")
+        return
+    if args.comprehensive_architecture_search:
+        args.max_results = max(args.max_results, 100)
+        args.max_queries = max(args.max_queries, 80)
+        args.citation_seed_limit = max(args.citation_seed_limit, 30)
+        args.max_chunks = max(args.max_chunks, 240)
+        args.github_enrich_max_models = max(args.github_enrich_max_models, 200)
+        args.github_enrich_repos_per_model = max(args.github_enrich_repos_per_model, 5)
     if args.resume_global_only or args.use_existing_meeting:
         run_resume_global_meeting_only(
             provider=args.provider,

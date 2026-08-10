@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-07-24T08:44:50.252148+00:00",
+  "source_ranking_csv": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\model_ranking_50_rounds.csv",
+  "target_models": [
+    "C_AMPs-predict",
+    "HMD-AMP",
+    "AMPsorter"
+  ],
+  "target_global_ranks": {
+    "C_AMPs-predict": 3,
+    "HMD-AMP": 2,
+    "AMPsorter": 6
+  },
+  "cutoff_global_rank": 6,
+  "rule": "retain target models and every model originally ranked below the lowest-ranked target",
+  "excluded_models": [
+    {
+      "model": "pepnet_standard",
+      "global_rank": 1
+    },
+    {
+      "model": "amplify_imb",
+      "global_rank": 4
+    },
+    {
+      "model": "amplify_bal",
+      "global_rank": 5
+    }
+  ],
+  "retained_model_count": 15,
+  "scores_recomputed": false,
+  "metric_weights_changed": false,
+  "posthoc_result_conditioned_filter": true,
+  "valid_for_unbiased_global_top3_claim": false,
+  "interpretation": "display-only ranking; complete benchmark ranking remains authoritative",
+  "output_csv": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\posthoc_filtered_view\\posthoc_filtered_model_ranking.csv"
+}

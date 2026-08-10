@@ -1,0 +1,18 @@
+section,field_1,field_2,field_3
+metric,4,export formats,
+metric,300,PNG dpi,
+metric,600,TIFF dpi,
+metric,24,test modules,
+agent,Presentation layer,figures/,Generate publication images from stored results
+agent,Quality layer,tests/,"Check memory, gates, evaluation, manifests and ranking"
+agent,Protocol,SCIENTIFIC_EVALUATION_PROTOCOL.md,Document metric and interpretation rules
+execution,Read,source CSV/JSON,
+execution,Render,Python/matplotlib,
+execution,Export,SVG/PDF/PNG/TIFF,
+execution,Inspect,resolution and overlap,
+execution,Archive,source data + QA notes,
+artifact,figures/*.svg,editable vector,selectable text and editable paths
+artifact,figures/*.pdf,publication vector,submission and review layout
+artifact,figures/*.png + *.tiff,raster export,300-dpi preview and 600-dpi submission
+artifact,source_data_*.csv,traceability,values displayed in each quantitative panel
+artifact,qa_notes.json + tests/,quality evidence,"dimensions, exclusions, caveats and contract tests"

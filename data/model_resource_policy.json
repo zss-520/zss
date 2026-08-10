@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "policy_mode": "measured_budget_gate",
+  "max_runtime_seconds": 3600,
+  "max_peak_memory_mb": 32768,
+  "max_gpu_memory_mb": 24576,
+  "minimum_throughput_sequences_per_second": null,
+  "missing_measurement_policy": "keep_and_flag",
+  "models": {},
+  "notes": [
+    "Resource limits are applied before model scoring and equally to every model.",
+    "Populate models only with measured scheduler or benchmark records.",
+    "Missing measurements remain eligible but are flagged; they are never treated as slow by assumption."
+  ]
+}

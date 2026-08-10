@@ -1,0 +1,19 @@
+stage,agent_role,responsibility,markdown_definition
+Evidence,Evidence compressor,traceable evidence compression,agents/deepseek_meeting/evidence_compressor_agent.md
+Evidence,Information extractor,structured paper metadata,agents/deepseek_meeting/info_extractor_agent.md
+Evidence,Model/dataset scout,candidate model and dataset proposal,agents/deepseek_meeting/model_dataset_agent.md
+Evidence,Metrics specialist,endpoint and metric protocol,agents/deepseek_meeting/metric_agent.md
+Evidence,Independent critic,challenge unsupported evidence,agents/deepseek_meeting/critic_agent.md
+Evidence,Chief decision,reconcile and freeze memory,agents/deepseek_meeting/chief_agent.md
+Execute,Repository inspector,README-to-registry contract,agents/model_onboarding/repository_inspector_system.md
+Execute,Self-heal agent,bounded deployment repair,agents/model_execution/self_heal_system.md
+Execute,Benchmark architect,model invocation and schema,agents/runtime_prompts/benchmark_architect.md
+Execute,Coder,generate executable evaluator,agents/runtime_prompts/coder.md
+Execute,Evaluation critic,audit code and outputs,agents/runtime_prompts/critic.md
+Execute,Principal investigator,approve or request revision,agents/runtime_prompts/pi.md
+Decide,Literature expert,evidence relevance proposal,agents/weight_meeting/literature_agent.md
+Decide,Statistics expert,validity and uncertainty proposal,agents/weight_meeting/statistics_agent.md
+Decide,Screening expert,operational robustness proposal,agents/weight_meeting/screening_agent.md
+Decide,Independent reviewer,blind proposal audit,agents/weight_meeting/reviewer_agent.md
+Decide,Chief decision,accept bounded weight vector,agents/weight_meeting/chief_agent.md
+Decide,Research advisor,Top-3 and ensemble synthesis,agents/weight_meeting/research_advisor.md

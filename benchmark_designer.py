@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import re
 import urllib.request
@@ -22,6 +23,7 @@ from prompts import BENCHMARK_ARCHITECT_PROMPT
 # ==========================================
 DEFAULT_BINARY_AMP_STRATEGY = {
     "task_type": "binary_amp_classification",
+    "dataset_candidate_pool": [],
     "recommended_datasets": [],
     "label_definition": {
         "positive_rule": "实验支持为 AMP 的肽作为正样本",
@@ -47,16 +49,30 @@ DEFAULT_BINARY_AMP_STRATEGY = {
     "reasoning": "默认兜底策略"
 }
 
+ALLOWED_RANKING_METRICS = {
+    "ACC", "AUPRC", "AUROC", "BalancedAccuracy", "BrierScore", "ECE",
+    "F1-Score", "MCC", "NPV", "Precision", "Recall", "Specificity",
+}
+DATASET_RECOMMENDATION_ORIGIN = "dataset_recommendation_agent"
+
 def safe_float(x: Any, default: float = 0.0) -> float:
     try: return float(x)
     except Exception: return default
 
 def normalize_weights(metric_weights: Dict[str, Any]) -> Dict[str, float]:
-    cleaned = {str(k): safe_float(v, 0.0) for k, v in metric_weights.items()}
-    cleaned = {k: v for k, v in cleaned.items() if v > 0}
+    if not isinstance(metric_weights, dict):
+        return DEFAULT_BINARY_AMP_STRATEGY["metric_weights"].copy()
+    cleaned = {str(k): safe_float(v, 0.0) for k, v in metric_weights.items() if str(k) in ALLOWED_RANKING_METRICS}
+    cleaned = {k: v for k, v in cleaned.items() if math.isfinite(v) and v > 0}
     total = sum(cleaned.values())
     if total <= 0: return DEFAULT_BINARY_AMP_STRATEGY["metric_weights"].copy()
-    return {k: round(v / total, 4) for k, v in cleaned.items()}
+    normalized = {k: v / total for k, v in cleaned.items()}
+    # Keep the serialized vector numerically closed without delegating this
+    # invariant to an Agent prompt.
+    last = next(reversed(normalized))
+    rounded = {k: round(v, 8) for k, v in normalized.items()}
+    rounded[last] = round(rounded[last] + (1.0 - sum(rounded.values())), 8)
+    return rounded
 
 def deep_merge(default: Dict[str, Any], custom: Dict[str, Any]) -> Dict[str, Any]:
     merged = dict(default)
@@ -73,9 +89,30 @@ def validate_strategy(strategy_data: Dict[str, Any]) -> Dict[str, Any]:
         strategy_data["task_type"] = "binary_amp_classification"
     strategy_data["metric_weights"] = normalize_weights(strategy_data.get("metric_weights", {}))
     
-    if not isinstance(strategy_data.get("recommended_datasets"), list):
+    if not isinstance(strategy_data.get("dataset_candidate_pool"), list):
+        strategy_data["dataset_candidate_pool"] = []
+    # Literature agents nominate a broad candidate pool.  The executable
+    # recommended_datasets allow-list is written only by Dataset Recommendation
+    # Agent after real-sequence audit.
+    proposed_recommendations = strategy_data.get("recommended_datasets")
+    if not isinstance(proposed_recommendations, list):
+        proposed_recommendations = []
+    origin = str(strategy_data.get("selection_origin") or "")
+    if DATASET_RECOMMENDATION_ORIGIN not in origin:
+        # Benchmark Architect and literature Agents can nominate only. Preserve
+        # their rows in the pool, but never turn them into an execution allow-list.
+        known = {str(row.get("dataset_name") or row.get("name") or "").strip().lower() for row in strategy_data["dataset_candidate_pool"] if isinstance(row, dict)}
+        for row in proposed_recommendations:
+            if not isinstance(row, dict):
+                continue
+            key = str(row.get("dataset_name") or row.get("name") or "").strip().lower()
+            if key and key not in known:
+                strategy_data["dataset_candidate_pool"].append(row)
+                known.add(key)
         strategy_data["recommended_datasets"] = []
-    for ds in strategy_data["recommended_datasets"]:
+    else:
+        strategy_data["recommended_datasets"] = [row for row in proposed_recommendations if isinstance(row, dict)]
+    for ds in strategy_data["dataset_candidate_pool"]:
         if isinstance(ds, dict):
             ds.setdefault("dataset_name", "")
             ds.setdefault("description", "")
