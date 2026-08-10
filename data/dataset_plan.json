@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-07-15T12:06:20Z",
+  "strategy_path": "data/benchmark_strategy.json",
+  "generation_mode": "benchmark_strategy",
+  "dataset_selection_policy": {
+    "enabled": true,
+    "required_dataset_count": 3,
+    "required_profiles": {
+      "balanced": 1,
+      "imbalanced": 2
+    },
+    "balanced_minority_majority_ratio_min": 0.7,
+    "min_imbalanced_minority_fraction_gap": 0.1,
+    "primary_length_min_aa": 10,
+    "primary_length_max_aa": 50,
+    "min_primary_length_fraction": 0.8,
+    "min_primary_length_fraction_per_class": 0.8,
+    "absolute_min_length_aa": 5,
+    "absolute_max_length_aa": 100,
+    "max_class_median_length_gap_aa": 15,
+    "min_total_samples": 500,
+    "min_samples_per_class": 100,
+    "require_source_url": true,
+    "require_citation": true,
+    "require_version": true,
+    "require_retrieval_date": true,
+    "require_license": true,
+    "require_expected_sha256": true,
+    "require_training_references": true,
+    "require_independent_external_test": true,
+    "require_label_definition": true,
+    "require_negative_sampling_strategy": true,
+    "require_low_homology_report": true,
+    "max_training_sequence_identity": 0.4
+  },
+  "datasets": [
+    {
+      "name": "AntiBP2_数据集",
+      "source_url": "",
+      "expected_sha256": {
+        "antibp2.tar.gz": "5a1125ed7c99ade3cd85b529ec761b4e8ff0beaccdee3ae18570ba452e43af61",
+        "antibp2/antibp2_data/C_neg_antiBP2.data": "9a2cf76705589503f4eeb1194daa03211cdc0d13c3fdeb9ab2d048b46536ba04",
+        "antibp2/antibp2_data/C_pos_antiBP2.data": "2eb45bd605c41306a373e0d1b643500b2ac52ed95437f5148d9e80cf57ad2366",
+        "antibp2/antibp2_data/N_neg_antiBP2.data": "9a2cf76705589503f4eeb1194daa03211cdc0d13c3fdeb9ab2d048b46536ba04",
+        "antibp2/antibp2_data/N_pos_antiBP2.data": "725d7ec215bb5de808405255278bc07bab01e3b118cf1e7a23011c50b6d7e153",
+        "antibp2/antibp2_data/NC_neg_antiBP2.data": "daa8f1d2a3d934de7eef15444791c83ad2bd615d5210c81b8b567b84e395315a",
+        "antibp2/antibp2_data/NC_term_pos_antiBP2.data": "e213b76ea5d60f5b3032e7d05a875662513a14ca5590c66aa56b76c2a0ddcde9",
+        "antibp2/antibp2_data/Whole_neg_antiBP2.data": "c2d1593740ca8da119cbf128796c4620ae6cacb1730e43267b17d20ba2f617e7",
+        "antibp2/antibp2_data/Whole_pos_antiBP2.data": "894c6ccab3107613ee0fc4700e39047ee47f9123190e0223f8ae66085afa9c4d"
+      },
+      "description": "Current local balanced candidate; scientific provenance and independence must be completed before formal use.",
+      "role": "balanced_external_test",
+      "leakage_reference_paths": [],
+      "selection_profile": "balanced",
+      "citation": null,
+      "dataset_version": "",
+      "retrieved_at_utc": "",
+      "license": "",
+      "independent_external_test": null,
+      "label_definition": "",
+      "negative_sampling_strategy": "",
+      "homology_report_path": ""
+    },
+    {
+      "name": "Dataset_1_test1",
+      "source_url": "",
+      "expected_sha256": null,
+      "description": "Current local mildly imbalanced candidate; original source files and provenance are missing.",
+      "role": "mildly_imbalanced_external_test",
+      "leakage_reference_paths": [],
+      "selection_profile": "imbalanced",
+      "citation": null,
+      "dataset_version": "",
+      "retrieved_at_utc": "",
+      "license": "",
+      "independent_external_test": null,
+      "label_definition": "",
+      "negative_sampling_strategy": "",
+      "homology_report_path": ""
+    },
+    {
+      "name": "sAMPpred-GAT_测试集",
+      "source_url": "https://github.com/HongWuL/sAMPpred-GAT",
+      "expected_sha256": {
+        "Independent test dataset/AMPs.fasta": "8e10c1a75bd36e40832f84323b13ebc915a4d96e0ed660807a97a59fb680dbef",
+        "Independent test dataset/nonAMPs.fasta": "0fddd94e301fe154854da7217901510296fa133b938bd6cf56b26fdc3467ed9e"
+      },
+      "description": "Independent test split distributed with sAMPpred-GAT; it cannot be assumed independent when sAMPpred-GAT itself is evaluated.",
+      "role": "strongly_imbalanced_external_test",
+      "leakage_reference_paths": [],
+      "selection_profile": "imbalanced",
+      "citation": {
+        "doi": "10.1093/bioinformatics/btac715",
+        "pmid": "36342186",
+        "year": 2023
+      },
+      "dataset_version": "",
+      "retrieved_at_utc": "",
+      "license": "",
+      "independent_external_test": false,
+      "label_definition": "",
+      "negative_sampling_strategy": "",
+      "homology_report_path": ""
+    }
+  ]
+}

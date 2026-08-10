@@ -1,0 +1,45 @@
+﻿order,category,item_name,weight,decision_role,rationale_or_policy,source_section
+1,primary_endpoint,AUPRC,,唯一预注册主终点；分别在三套数据集上报告，不用综合分替代。,AMP 真实筛选为低患病率/低阳性率任务，AUPRC 同时反映排序质量和阳性基线。,primary_endpoint
+2,secondary_endpoint,MCC,,预注册关键次终点；使用验证集固定阈值后计算。,综合 TP/TN/FP/FN，适合类别不平衡二分类。,secondary_endpoint
+3,primary_weighted_metric,AUPRC,0.35,exploratory composite ranking,主终点；适合不平衡二分类，优于只看 AUROC。,primary_weighted_metrics
+4,primary_weighted_metric,MCC,0.3,exploratory composite ranking,综合 TP/TN/FP/FN，对类别不平衡更稳健。,primary_weighted_metrics
+5,primary_weighted_metric,Recall / Sensitivity,0.2,exploratory composite ranking,控制 AMP 漏检，适合发现任务。,primary_weighted_metrics
+6,primary_weighted_metric,Precision,0.15,exploratory composite ranking,控制假阳性，避免大量错误候选进入后续实验。,primary_weighted_metrics
+7,mandatory_report_metrics,Accuracy,,,,mandatory_report_metrics
+8,mandatory_report_metrics,Balanced Accuracy,,,,mandatory_report_metrics
+9,mandatory_report_metrics,Precision,,,,mandatory_report_metrics
+10,mandatory_report_metrics,Recall/Sensitivity,,,,mandatory_report_metrics
+11,mandatory_report_metrics,Specificity,,,,mandatory_report_metrics
+12,mandatory_report_metrics,NPV,,,,mandatory_report_metrics
+13,mandatory_report_metrics,F1-score,,,,mandatory_report_metrics
+14,mandatory_report_metrics,MCC,,,,mandatory_report_metrics
+15,mandatory_report_metrics,AUROC,,,,mandatory_report_metrics
+16,mandatory_report_metrics,AUPRC,,,,mandatory_report_metrics
+17,mandatory_report_metrics,AUPRC lift,,,,mandatory_report_metrics
+18,mandatory_report_metrics,Confusion Matrix,,,,mandatory_report_metrics
+19,calibration_metrics,Brier score,,,,calibration_metrics
+20,calibration_metrics,10-bin ECE,,,,calibration_metrics
+21,calibration_metrics,10-bin MCE,,,,calibration_metrics
+22,calibration_metrics,calibration curve,,,,calibration_metrics
+23,application_utility_metrics,Precision@top1%/5%/10%,,,,application_utility_metrics
+24,application_utility_metrics,Recall@top1%/5%/10%,,,,application_utility_metrics
+25,application_utility_metrics,enrichment factor@top1%/5%/10%,,,,application_utility_metrics
+26,application_utility_metrics,number needed to test,,,,application_utility_metrics
+27,resource_metrics,SLURM elapsed time,,,,resource_metrics
+28,resource_metrics,MaxRSS,,,,resource_metrics
+29,resource_metrics,sequences per second,,,,resource_metrics
+30,resource_metrics,GPU/CPU configuration from run manifest,,,,resource_metrics
+31,statistical_reporting,95% cluster bootstrap confidence interval when homology clusters exist; otherwise sequence bootstrap,,,,statistical_reporting
+32,statistical_reporting,paired bootstrap differences for AUPRC/MCC/Balanced Accuracy/Brier score on common samples,,,,statistical_reporting
+33,statistical_reporting,paired McNemar test for thresholded errors,,,,statistical_reporting
+34,statistical_reporting,Holm family-wise correction across pairwise McNemar comparisons,,,,statistical_reporting
+35,statistical_reporting,effect difference and confidence interval reported alongside p values,,,,statistical_reporting
+36,test_matrix,one near-balanced external test,,,,test_matrix
+37,test_matrix,two external tests with distinct imbalance severities,,,,test_matrix
+38,test_matrix,all three must pass exact-overlap and <=40% sequence-identity audits,,,,test_matrix
+39,robustness_reporting,per-dataset metrics without pooling away prevalence differences,,,,robustness_reporting
+40,robustness_reporting,10-20/21-30/31-50/51-100 aa length strata when sequence data are present,,,,robustness_reporting
+41,robustness_reporting,negative-sampling stress test,,,,robustness_reporting
+42,robustness_reporting,coverage and invalid-probability rate,,,,robustness_reporting
+43,composite_score_policy,composite_score_policy,,policy,四指标加权分只用于探索性排序/会议决策；论文主结论必须逐终点报告效应量和区间。,composite_score_policy
+44,threshold_policy,threshold_policy,,policy,正式评测仅在独立验证集上用 Max MCC 确定并冻结阈值；0.5 仅作诊断性对照，测试集禁止后验调阈值。Youden Index 只作为预注册敏感性分析。,threshold_policy

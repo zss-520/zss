@@ -1,17 +1,24 @@
+from __future__ import annotations
+
 import ast
 import json
 import os
+import shutil
 from config import TARGET_MODEL_NAMES
 from pathlib import Path
 import re
-from openai import OpenAI
 #from vanguard import run_vanguard_exploration
 import pandas as pd
 from agent import Agent
 from config import MODEL_NAME, FIRST_STAGE_OBSERVATION_TXT, METRIC_WEIGHTS, validate_runtime_config
 from prompts import CRITIC_PROMPT
-from run_meeting import run_first_meeting, run_second_meeting
+from run_meeting import _make_openai_client, run_first_meeting, run_second_meeting
 from workflow_utils import run_on_hpc_and_fetch
+from workflow_guards import env_flag, require_models_ready
+from run_manifest import RunManifest
+from scientific_evaluation import evaluate_prediction_table, protocol_config
+from benchmark_portfolio import build_benchmark_portfolio
+from dataset_gate import require_dataset_gate
 import queue
 from concurrent.futures import ThreadPoolExecutor
 # ===== 新增导入数据库管理器 =====
@@ -51,6 +58,12 @@ def _validate_generated_python(py_code: str) -> tuple[bool, str]:
     return True, "OK"
 
 
+def _safe_cache_token(names: list[str]) -> str:
+    raw = "__".join(str(x or "").strip() for x in names if str(x or "").strip()) or "all"
+    token = re.sub(r"[^A-Za-z0-9_.-]+", "_", raw).strip("_")
+    return token[:120] or "all"
+
+
 def _calculate_weighted_scores(real_data: dict, weights: dict) -> dict:
     """遍历评测结果，根据配置的权重计算百分制量化得分"""
     scores = {}
@@ -73,6 +86,7 @@ def _run_critic(real_data: dict, save_directory: Path) -> str:
     
     weights_info = json.dumps(METRIC_WEIGHTS, ensure_ascii=False)
     scores_info = json.dumps(scores, ensure_ascii=False)
+    current_model_names = sorted(str(name) for name in real_data.keys())
     
     # === 新增：读取前期生成的会议决议记录 ===
     trace_path = Path("data/meeting_trace.md")
@@ -83,6 +97,34 @@ def _run_critic(real_data: dict, save_directory: Path) -> str:
     else:
         meeting_trace = "[未找到前置的基准测试规划会议记录 data/meeting_trace.md]"
     # =======================================
+
+    run_scope_note = (
+        "Current run scope: evaluate ONLY these models present in real_data: "
+        + ", ".join(current_model_names)
+        + ". Ignore historical planning notes, stale result directories, and any "
+        "candidate models not present in real_data. Do not say non-target models "
+        "failed or could not run."
+    )
+
+    critic_goal = CRITIC_PROMPT.format(
+        meeting_trace=run_scope_note,
+        real_data=json.dumps(real_data, indent=2, ensure_ascii=False),
+        weights_info=weights_info,
+        quantitative_scores=scores_info
+    ) + (
+        "\n\nCURRENT EVALUATED MODELS: "
+        + ", ".join(current_model_names)
+        + ". You must discuss only these models unless explicitly saying other "
+        "models are outside the current run scope."
+        "\n\nHARD RULE: If metrics are all NaN because prediction files were not "
+        "produced and logs indicate missing databases, missing model weights, "
+        "missing external tools, path errors, or dependency/setup failures, "
+        "classify this as reproduction/infrastructure failure. Do not conclude "
+        "the model has poor biological predictive performance, do not assign a "
+        "scientific performance score of 0/100, and do not recommend removing "
+        "the model for poor accuracy. Say performance is not evaluable until "
+        "resources are fixed."
+    )
 
     critic_agent = Agent(
         model=MODEL_NAME,
@@ -97,7 +139,9 @@ def _run_critic(real_data: dict, save_directory: Path) -> str:
         role="严苛的独立审稿人",
     )
     
-    client = OpenAI()
+    critic_agent.goal = critic_goal
+
+    client = _make_openai_client()
     response = client.chat.completions.create(
         model=critic_agent.model,
         messages=[
@@ -152,7 +196,10 @@ def main():
         print(f"!!! [Fatal] 未找到 {base_datasets_dir} 目录。请先独立运行 standalone_data_prep.py")
         return
         
-    dataset_dirs = [d for d in base_datasets_dir.iterdir() if d.is_dir()]
+    dataset_dirs = sorted(
+        (d for d in base_datasets_dir.iterdir() if d.is_dir()),
+        key=lambda path: path.name.casefold(),
+    )
     if not dataset_dirs:
         print("!!! [Fatal] 数据集目录下没有子文件夹。")
         return
@@ -160,6 +207,14 @@ def main():
     print(f">>> 发现 {len(dataset_dirs)} 份待评测独立数据集:")
     for d in dataset_dirs:
         print(f"    - {d.name}")
+
+    try:
+        require_dataset_gate(Path(__file__).resolve().parent, dataset_dirs)
+    except RuntimeError as exc:
+        print(f"!!! [Fatal] {exc}")
+        print("请先运行: python dataset_gate.py prepare（或在统一菜单中选择 8）")
+        return 2
+    print(">>> 数据集准备门禁通过：manifest 状态有效，标准化文件 SHA256 未发生变化。")
 
     print("\n========== [Phase 0.6] 从静态注册表极速加载模型 ==========")
     registry_path = "data/local_registry.json"
@@ -194,6 +249,47 @@ def main():
     for m in models_info:
         print(f"    - 模型: {m['model_name']} (指定环境: {m['env_name']})")
 
+    allow_unverified_models = env_flag("ALLOW_UNVERIFIED_MODELS", False)
+    try:
+        require_models_ready(models_info, allow_unverified=allow_unverified_models)
+    except RuntimeError as exc:
+        print(f"!!! [Fatal] {exc}")
+        return 2
+
+    selected_portfolio = build_benchmark_portfolio(models_info, max_models=len(models_info))
+    role_counts = selected_portfolio.get("role_counts", {})
+    print(
+        ">>> [Portfolio] 经典基线="
+        f"{role_counts.get('classic_baseline', 0)}，近期 SOTA 候选="
+        f"{role_counts.get('recent_sota_candidate', 0)}"
+    )
+    if selected_portfolio.get("gaps"):
+        print(">>> [Portfolio Warn] 本轮不是完整 benchmark 组合；缺口会写入 manifest。")
+    selected_portfolio["selected_models"] = [
+        {
+            "model_name": row.get("model_name"),
+            "benchmark_role": row.get("benchmark_role"),
+            "benchmark_roles": row.get("benchmark_roles"),
+            "publication_year": row.get("publication_year"),
+            "architecture_category": row.get("architecture_category"),
+        }
+        for row in selected_portfolio.get("selected_models", [])
+    ]
+
+    project_root = Path(__file__).resolve().parent
+    run_manifest = RunManifest.start(
+        root=project_root,
+        models=models_info,
+        datasets=dataset_dirs,
+        metric_protocol=protocol_config(),
+        llm_model=MODEL_NAME,
+        allow_unverified_models=allow_unverified_models,
+        benchmark_portfolio=selected_portfolio,
+    )
+    run_manifest.add_event("preflight", "passed", model_count=len(models_info))
+    print(f">>> [Run] run_id={run_manifest.run_id}")
+    print(f">>> [Run] manifest={run_manifest.path}")
+
 
     print("\n========== [Phase 0.8] 检查 OpenAI 兼容环境变量 ==========")
     print(f"OPENAI_BASE_URL = {os.getenv('OPENAI_BASE_URL')}")
@@ -205,11 +301,14 @@ def main():
    # =========================================================================
     # ⚡ [智能缓存系统] 拆分逻辑：缓存“脑力劳动”，强制“数据运行”
     # =========================================================================
-    stage1_py_cache_path = save_directory / "stage1_code_cache.py"
+    target_signature = ",".join(m.get("model_name", "") for m in models_info)
+    target_cache_token = _safe_cache_token([m.get("model_name", "") for m in models_info])
+    stage1_py_cache_path = save_directory / f"stage1_code_cache_{target_cache_token}.py"
     merged_obs_path = save_directory / "stage1_observation.txt"
+    cached_obs_path = save_directory / f"stage1_observation_{target_cache_token}.txt"
 
     # 新增：记录上一次勘探的是哪个数据集
-    last_ds_record_path = save_directory / "last_explored_dataset.txt"
+    last_ds_record_path = save_directory / f"last_explored_dataset_{target_cache_token}.txt"
 
     first_dataset_dir = dataset_dirs[0]
     current_ds_name = first_dataset_dir.name
@@ -217,14 +316,16 @@ def main():
     # 检查：代码存在、报告存在、且上一次测的也是这个数据集
     has_cache = (
         stage1_py_cache_path.exists() and 
-        merged_obs_path.exists() and 
+        cached_obs_path.exists() and
         last_ds_record_path.exists() and
-        last_ds_record_path.read_text().strip() == current_ds_name
+        last_ds_record_path.read_text(encoding="utf-8").strip() == f"{current_ds_name}\n{target_signature}".strip()
     )
     if has_cache:
         print(f"\n========== ⚡ 触发全量缓存：跳过针对 [{current_ds_name}] 的超算连接 ==========")
         with open(stage1_py_cache_path, "r", encoding="utf-8") as f:
             stage1_py_code = f.read()
+        # Stage 2 consumes the stable filename, so restore the matching snapshot.
+        shutil.copyfile(cached_obs_path, merged_obs_path)
     else:
         print(f"\n========== 🔍 缓存失效或数据集切换：正在为 [{current_ds_name}] 重新连接超算 ==========")
         
@@ -258,6 +359,10 @@ def main():
             f.write(stage1_py_code)
         print(f">>> [Cache Saved] 运行脚本已缓存。")
 
+    stage1_artifact = run_manifest.artifacts_dir / "stage1_model_runner.py"
+    stage1_artifact.write_text(stage1_py_code, encoding="utf-8")
+    run_manifest.record_artifact("stage1_model_runner", stage1_artifact)
+
     # --- 步骤 2：强制执行超算勘探 (针对当前运行环境，不设缓存) ---
     print("\n========== [Phase 2] 执行超算勘探，刷新标准化观测数据 ==========")
     # 每次运行 main.py 都强制去超算跑一次探路，确保拿到的是当前最真实的数据结构
@@ -282,8 +387,14 @@ for i in range({len(models_info)}):
     # 强制给探路者分配 GPU-0，一视同仁
     env['CUDA_VISIBLE_DEVICES'] = "0"
     res = subprocess.run('export CUDA_VISIBLE_DEVICES=0 && python ai_stage1_runner.py', shell=True, env=env, capture_output=True, text=True)
+    obs_path = f'data/stage1_obs_{{i}}.txt'
+    with open(obs_path, 'a', encoding='utf-8') as debug_file:
+        debug_file.write("\\n\\n=== Stage1 wrapper execution ===\\n")
+        debug_file.write(f"Wrapper Return Code: {{res.returncode}}\\n")
+        debug_file.write(f"Wrapper Stdout:\\n{{res.stdout}}\\n")
+        debug_file.write(f"Wrapper Stderr:\\n{{res.stderr}}\\n")
     if res.returncode != 0:
-        with open(f'data/stage1_obs_{{i}}.txt', 'w', encoding='utf-8') as err_file:
+        with open(f'data/stage1_obs_{{i}}.txt', 'a', encoding='utf-8') as err_file:
             err_file.write(f"!!! 勘探崩溃 !!!\\n{{res.stderr}}")
 """
 
@@ -291,15 +402,38 @@ for i in range({len(models_info)}):
         f"data/stage1_obs_{i}.txt": str(save_directory / f"stage1_obs_{i}.txt") 
         for i in range(len(models_info))
     }
+    for local_target in stage1_fetch_targets.values():
+        local_path = Path(local_target)
+        if local_path.exists():
+            local_path.unlink()
     
+    stage1_hpc_metadata = {}
     stage1_real_outputs = run_on_hpc_and_fetch(
         py_code=exploration_wrapper, 
         sh_code="",  
         fetch_targets=stage1_fetch_targets,
         models_info=models_info,
         local_data_dir=str(first_dataset_dir),
-        use_sbatch=True 
+        use_sbatch=True,
+        run_metadata=stage1_hpc_metadata,
     )
+    run_manifest.add_event(
+        "stage1_exploration",
+        "passed" if stage1_real_outputs else "failed",
+        hpc=stage1_hpc_metadata,
+    )
+    missing_stage1 = [
+        path for path in stage1_fetch_targets.values() if not Path(path).exists()
+    ]
+    if not stage1_real_outputs or missing_stage1:
+        run_manifest.finalize(
+            "failed",
+            failure_stage="stage1_exploration",
+            hpc=stage1_hpc_metadata,
+            missing_outputs=missing_stage1,
+        )
+        print("!!! [Fatal] 超算勘探未完整成功，已停止后续评测，防止使用旧观测文件。")
+        return 1
 
     # 合并最新鲜的碎片文件
     with open(merged_obs_path, "w", encoding="utf-8") as fout:
@@ -313,8 +447,10 @@ for i in range({len(models_info)}):
                     fout.write(content + "\n")
     
     print(">>> [Done] 勘探报告已刷新并合并。")
+    # Keep a model-scoped snapshot; the stable file is only the active Stage 2 input.
+    shutil.copyfile(merged_obs_path, cached_obs_path)
     # 3. 🚨 关键：成功合并报告后，记录下这次勘探的数据集名字
-    last_ds_record_path.write_text(current_ds_name)
+    last_ds_record_path.write_text(f"{current_ds_name}\n{target_signature}", encoding="utf-8")
     print(f">>> [Success] 已完成对 {current_ds_name} 的结构锁定，下次运行将自动跳过。")
     # =========================================================================
     print("\n========== [Phase 3] 第二次会议：PI复核第一次输出后生成评测代码 ==========")
@@ -357,6 +493,9 @@ for i in range({len(models_info)}):
         return
 
     print(f">>> [Stage-2] Python脚本已保存: {stage2_py_path}")
+    stage2_artifact = run_manifest.artifacts_dir / "stage2_evaluation.py"
+    stage2_artifact.write_text(stage2_py_code, encoding="utf-8")
+    run_manifest.record_artifact("stage2_evaluation", stage2_artifact)
 
     stage1_context_path = save_directory / "stage1_context_for_stage2.txt"
     with open(stage1_context_path, "w", encoding="utf-8") as f:
@@ -404,6 +543,12 @@ def run_model(i):
     # 拼接完整的执行命令，确保显卡隔离生效
     full_cmd = f"export CUDA_VISIBLE_DEVICES={{gpu_id}} && python stage1_runner.py"
     res = subprocess.run(full_cmd, shell=True, env=env, capture_output=True, text=True)
+    obs_path = f'data/stage1_obs_{{i}}.txt'
+    with open(obs_path, 'a', encoding='utf-8') as debug_file:
+        debug_file.write("\\n\\n=== Stage1 wrapper execution ===\\n")
+        debug_file.write(f"Wrapper Return Code: {{res.returncode}}\\n")
+        debug_file.write(f"Wrapper Stdout:\\n{{res.stdout}}\\n")
+        debug_file.write(f"Wrapper Stderr:\\n{{res.stderr}}\\n")
     
     if res.returncode != 0:
         print(f"!!! 任务 [{{i}}] 发生致命崩溃:\\n{{res.stderr}}")
@@ -458,6 +603,12 @@ rm -f eval_result.json evaluation_curves.png final_results_with_predictions.csv
 python eval_script.py
 echo "finish"
 """
+    combined_artifact = run_manifest.artifacts_dir / "combined_hpc_wrapper.py"
+    combined_artifact.write_text(combined_wrapper_code, encoding="utf-8")
+    run_manifest.record_artifact("combined_hpc_wrapper", combined_artifact)
+    slurm_artifact = run_manifest.artifacts_dir / "run_eval.sh"
+    slurm_artifact.write_text(safe_loop_sh_code, encoding="utf-8")
+    run_manifest.record_artifact("slurm_script", slurm_artifact)
     # ---------------- 替换 Phase 4 结束 ----------------
 
     for ds_dir in dataset_dirs:
@@ -465,45 +616,112 @@ echo "finish"
         print(f"\n=======================================================")
         print(f"   🚀 正在超算上独立评测数据集: [{ds_name}] ")
         
-        res_dir = Path(f"data/results/{ds_name}")
+        res_dir = run_manifest.results_dir / ds_name
         res_dir.mkdir(parents=True, exist_ok=True)
-        
-        real_data = run_on_hpc_and_fetch(
+
+        hpc_metadata = {}
+        run_manifest.record_dataset(ds_name, status="running", hpc=hpc_metadata)
+        generated_eval_path = res_dir / "eval_result_generated.json"
+        hpc_result = run_on_hpc_and_fetch(
             py_code=combined_wrapper_code,
             sh_code=safe_loop_sh_code,  # <--- 我们完美的 4 卡脚本传进去了！
             fetch_targets={
-                "eval_result.json": str(res_dir / "eval_result.json"),
+                "eval_result.json": str(generated_eval_path),
                 "evaluation_curves.png": str(res_dir / "evaluation_curves.png"),
                 "final_results_with_predictions.csv": str(res_dir / "final_results_with_predictions.csv"),
             },
             models_info=models_info,
             local_data_dir=str(ds_dir),
-            use_sbatch=True # <--- 改回 True，老老实实去排队拿 4 张卡！
+            use_sbatch=True, # <--- 改回 True，老老实实去排队拿 4 张卡！
+            run_metadata=hpc_metadata,
         )
-    # ---------------- 替换 Phase 4 结束 ----------------
-        
-        if not real_data:
+
+        predictions_path = res_dir / "final_results_with_predictions.csv"
+        if hpc_metadata.get("status") != "completed" or not predictions_path.exists():
             print(f"!!! [Error] 数据集 {ds_name} 评测执行失败。")
+            run_manifest.record_dataset(
+                ds_name,
+                status="failed",
+                failure_stage="hpc_execution_or_missing_predictions",
+                hpc=hpc_metadata,
+            )
             continue
-            
+
+        validation_path = ds_dir / "validation_results_with_predictions.csv"
+        try:
+            evaluated = evaluate_prediction_table(
+                predictions_path,
+                res_dir,
+                validation_csv=validation_path if validation_path.exists() else None,
+                expected_models=[str(model.get("model_name") or "") for model in models_info],
+                require_validation_threshold=True,
+                execution_metadata=hpc_metadata,
+            )
+            not_evaluable = [
+                name
+                for name, item in evaluated["report"]["models"].items()
+                if item.get("status") != "evaluated"
+            ]
+            if not_evaluable:
+                raise ValueError(
+                    "目标模型没有任何有效预测: " + ", ".join(not_evaluable)
+                )
+            real_data = evaluated["eval_result"]
+        except Exception as exc:
+            print(f"!!! [Error] 数据集 {ds_name} 科学评测协议执行失败: {exc}")
+            run_manifest.record_dataset(
+                ds_name,
+                status="failed",
+                failure_stage="scientific_evaluation",
+                error=str(exc),
+                hpc=hpc_metadata,
+            )
+            continue
+
         print(f"\n>>> 🧪 针对数据集 [{ds_name}] 的科学审判：")
-        critic_response = _run_critic(real_data=real_data, save_directory=res_dir)
-        print(critic_response)
-        
+        critic_path = None
+        try:
+            critic_response = _run_critic(real_data=real_data, save_directory=res_dir)
+            print(critic_response)
+            critic_path = res_dir / "critic_individual.md"
+        except Exception as exc:
+            print(f"⚠️ [Critic] 报告生成失败；数值评测仍记为成功: {exc}")
+            run_manifest.add_event(
+                "critic",
+                "failed",
+                dataset=ds_name,
+                error=str(exc),
+            )
+
         all_results_summary[ds_name] = {
             "outputs": real_data,
-            "critic_md": str(res_dir / "critic_individual.md")
+            "critic_md": str(critic_path) if critic_path else None,
+            "scientific_evaluation": str(res_dir / "scientific_evaluation.json"),
+            "hpc": hpc_metadata,
         }
+        run_manifest.record_dataset(
+            ds_name,
+            status="success",
+            hpc=hpc_metadata,
+            generated_eval_result=str(generated_eval_path),
+            standardized_eval_result=str(res_dir / "eval_result.json"),
+            predictions=str(predictions_path),
+            scientific_evaluation=str(res_dir / "scientific_evaluation.json"),
+            critic=str(critic_path) if critic_path else None,
+        )
 
     print("\n========== [Phase 6] 主流程结束，保存最终摘要 ==========")
     workflow_summary = {
         "datasets_results": all_results_summary
     }
-    summary_path = save_directory / "main_workflow_summary.json"
+    summary_path = run_manifest.run_dir / "main_workflow_summary.json"
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(workflow_summary, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✨ >>> [Done] 所有 {len(dataset_dirs)} 份数据集独立评测完毕！主流程摘要已保存: {summary_path}")
+    print(
+        f"\n✨ >>> [Done] 数据集处理完毕：成功 {len(all_results_summary)}/{len(dataset_dirs)}；"
+        f"主流程摘要已保存: {summary_path}"
+    )
 
 # ========================================================
 # Phase 7：基于跨数据集评测结果生成 AMP 模型未来发展方向报告
@@ -514,8 +732,8 @@ echo "finish"
         from amp_research_advisor import generate_amp_future_directions_report
 
         future_report_path = generate_amp_future_directions_report(
-            results_dir=Path("data/results"),
-            output_dir=Path("data/results"),
+            results_dir=run_manifest.results_dir,
+            output_dir=run_manifest.results_dir,
         )
 
         print(f"\n🧭 >>> [Research Advisor] AMP 未来发展方向报告已保存: {future_report_path}")
@@ -523,5 +741,22 @@ echo "finish"
     except Exception as e:
         print(f"⚠️ [Research Advisor] 未来发展方向报告生成失败，但主流程已完成。错误信息: {e}")
 
+    success_count = len(all_results_summary)
+    final_status = (
+        "success"
+        if success_count == len(dataset_dirs)
+        else "partial_failure"
+        if success_count
+        else "failed"
+    )
+    run_manifest.finalize(
+        final_status,
+        summary_path=str(summary_path),
+        successful_datasets=success_count,
+        failed_datasets=len(dataset_dirs) - success_count,
+        advisor_report=str(future_report_path) if "future_report_path" in locals() else None,
+    )
+    return 0 if final_status == "success" else 1
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

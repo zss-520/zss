@@ -1,0 +1,5399 @@
+{
+  "generated_at": "2026-07-19T10:08:03.590644+00:00",
+  "backend": "local_codex_multi_agent",
+  "scientific_task": "Select metric weights for an AMP binary-classification benchmark.",
+  "constraints": {
+    "all_metrics_required": true,
+    "min_weight": 0.005,
+    "max_weight": 0.35,
+    "sum": 1.0,
+    "max_round_to_round_l1": 0.3,
+    "model_identity_blinded": true
+  },
+  "eligible_metrics": [
+    "ACC",
+    "AUPRC",
+    "AUROC",
+    "BalancedAccuracy",
+    "BrierScore",
+    "ECE",
+    "F1-Score",
+    "MCC",
+    "NPV",
+    "Precision",
+    "Recall",
+    "Specificity"
+  ],
+  "metric_definitions": {
+    "ACC": "Overall accuracy; prevalence-sensitive in imbalanced tests.",
+    "AUPRC": "Threshold-free precision-recall ranking quality; primary imbalance-sensitive endpoint.",
+    "AUROC": "Threshold-free discrimination across FPR/TPR; can look optimistic under severe imbalance.",
+    "BalancedAccuracy": "Mean sensitivity and specificity; threshold-dependent class-balanced summary.",
+    "BrierScore": "Probability calibration and accuracy; lower is better.",
+    "ECE": "Expected calibration error; lower is better and binning-dependent.",
+    "F1-Score": "Harmonic mean of precision and recall at a frozen threshold.",
+    "MCC": "Correlation-like summary using all confusion-matrix cells; robust to imbalance.",
+    "NPV": "Reliability of negative calls; prevalence-dependent and relevant to exclusion decisions.",
+    "Precision": "Positive predictive value; controls experimental false-positive burden.",
+    "Recall": "Sensitivity; controls missed AMP candidates.",
+    "Specificity": "True-negative rate; controls non-AMP rejection at a frozen threshold."
+  },
+  "literature_consensus": {
+    "source_id": "literature_deep_research_memory.metric_consensus",
+    "evidence_pool": "2365 papers, 304 evidence batches and 241 compact chunk summaries",
+    "historical_primary_proposal": {
+      "AUPRC": 0.35,
+      "MCC": 0.3,
+      "Recall": 0.2,
+      "Precision": 0.15
+    },
+    "historical_revised_proposal": {
+      "AUPRC": 0.35,
+      "MCC": 0.25,
+      "Recall": 0.2,
+      "Precision": 0.15,
+      "AUROC": 0.05
+    },
+    "claims": [
+      "AUPRC is the primary endpoint for highly imbalanced AMP binary classification.",
+      "MCC uses TP/TN/FP/FN and is more robust than accuracy under class imbalance.",
+      "Recall limits missed AMP candidates; precision limits false candidates entering wet-lab screening.",
+      "ACC, specificity, AUROC, F1 and calibration metrics remain mandatory report dimensions even when not dominant ranking endpoints.",
+      "Thresholds should be selected on independent validation evidence and frozen before formal testing.",
+      "Homology leakage and dataset provenance remain unresolved gates for the three currently stored datasets."
+    ]
+  },
+  "evidence_pool_summary": {
+    "papers": 2365,
+    "evidence_batches": 304
+  },
+  "dataset_profiles": [
+    {
+      "dataset": "Dataset_A",
+      "rows": 59311,
+      "positives": 1038,
+      "negatives": 58273,
+      "positive_fraction": 0.01750096946603497,
+      "independence_gate": "pending"
+    },
+    {
+      "dataset": "Dataset_B",
+      "rows": 1796,
+      "positives": 725,
+      "negatives": 1071,
+      "positive_fraction": 0.4036748329621381,
+      "independence_gate": "pending"
+    },
+    {
+      "dataset": "Dataset_C",
+      "rows": 1203,
+      "positives": 614,
+      "negatives": 589,
+      "positive_fraction": 0.5103906899418121,
+      "independence_gate": "pending"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.982558,
+          "uniqueness": 0.271762,
+          "committee_support": 0.631254
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.974834,
+          "uniqueness": 0.285869,
+          "committee_support": 0.630627
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.974038,
+          "uniqueness": 0.287233,
+          "committee_support": 0.62263
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.988769,
+          "uniqueness": 0.261372,
+          "committee_support": 0.609187
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.98279,
+          "uniqueness": 0.271372,
+          "committee_support": 0.626967
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.908628,
+          "uniqueness": 0.396269,
+          "committee_support": 0.676443
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.984594,
+          "uniqueness": 0.268091,
+          "committee_support": 0.613927
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989285,
+          "uniqueness": 0.261239,
+          "committee_support": 0.620367
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.741862,
+          "uniqueness": 0.538268,
+          "committee_support": 0.714985
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.738591,
+          "uniqueness": 0.541207,
+          "committee_support": 0.717677
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551349,
+          "consistency": 0.862158,
+          "consensus": 0.680314,
+          "uniqueness": 0.591209,
+          "committee_support": 0.718278
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.710242,
+          "uniqueness": 0.553865,
+          "committee_support": 0.720009
+        }
+      }
+    },
+    {
+      "round": 2,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465156,
+          "consistency": 0.68594,
+          "consensus": 0.971013,
+          "uniqueness": 0.296894,
+          "committee_support": 0.620501
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.959896,
+          "uniqueness": 0.324873,
+          "committee_support": 0.649415
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.950784,
+          "uniqueness": 0.343361,
+          "committee_support": 0.632847
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.981887,
+          "uniqueness": 0.28343,
+          "committee_support": 0.624545
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.973191,
+          "uniqueness": 0.292915,
+          "committee_support": 0.610687
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.914432,
+          "uniqueness": 0.356365,
+          "committee_support": 0.637875
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.979783,
+          "uniqueness": 0.285006,
+          "committee_support": 0.639707
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.981926,
+          "uniqueness": 0.281269,
+          "committee_support": 0.636887
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.68968,
+          "uniqueness": 0.634582,
+          "committee_support": 0.744014
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.787441,
+          "uniqueness": 0.453935,
+          "committee_support": 0.681872
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565426,
+          "consistency": 0.893822,
+          "consensus": 0.651561,
+          "uniqueness": 0.658442,
+          "committee_support": 0.73658
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.756526,
+          "uniqueness": 0.468173,
+          "committee_support": 0.68548
+        }
+      }
+    },
+    {
+      "round": 3,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 4,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.528119,
+          "consistency": 0.811908,
+          "consensus": 0.971648,
+          "uniqueness": 0.274961,
+          "committee_support": 0.648341
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950276,
+          "uniqueness": 0.314528,
+          "committee_support": 0.681156
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.940409,
+          "uniqueness": 0.332245,
+          "committee_support": 0.698876
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.974654,
+          "uniqueness": 0.270604,
+          "committee_support": 0.667666
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.959017,
+          "uniqueness": 0.295363,
+          "committee_support": 0.657812
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.898547,
+          "uniqueness": 0.398093,
+          "committee_support": 0.68033
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.973333,
+          "uniqueness": 0.272696,
+          "committee_support": 0.65267
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.986044,
+          "uniqueness": 0.250721,
+          "committee_support": 0.659255
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.804938,
+          "uniqueness": 0.507757,
+          "committee_support": 0.743318
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.815244,
+          "uniqueness": 0.463249,
+          "committee_support": 0.730408
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.699208,
+          "uniqueness": 0.606261,
+          "committee_support": 0.740873
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.777453,
+          "uniqueness": 0.491185,
+          "committee_support": 0.735433
+        }
+      }
+    },
+    {
+      "round": 5,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 6,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 7,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.982558,
+          "uniqueness": 0.271762,
+          "committee_support": 0.631254
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.974834,
+          "uniqueness": 0.285869,
+          "committee_support": 0.630627
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.974038,
+          "uniqueness": 0.287233,
+          "committee_support": 0.62263
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.988769,
+          "uniqueness": 0.261372,
+          "committee_support": 0.609187
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.98279,
+          "uniqueness": 0.271372,
+          "committee_support": 0.626967
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.908628,
+          "uniqueness": 0.396269,
+          "committee_support": 0.676443
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.984594,
+          "uniqueness": 0.268091,
+          "committee_support": 0.613927
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989285,
+          "uniqueness": 0.261239,
+          "committee_support": 0.620367
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.741862,
+          "uniqueness": 0.538268,
+          "committee_support": 0.714985
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.738591,
+          "uniqueness": 0.541207,
+          "committee_support": 0.717677
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551349,
+          "consistency": 0.862158,
+          "consensus": 0.680314,
+          "uniqueness": 0.591209,
+          "committee_support": 0.718278
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.710242,
+          "uniqueness": 0.553865,
+          "committee_support": 0.720009
+        }
+      }
+    },
+    {
+      "round": 8,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465156,
+          "consistency": 0.68594,
+          "consensus": 0.971013,
+          "uniqueness": 0.296894,
+          "committee_support": 0.620501
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.959896,
+          "uniqueness": 0.324873,
+          "committee_support": 0.649415
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.950784,
+          "uniqueness": 0.343361,
+          "committee_support": 0.632847
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.981887,
+          "uniqueness": 0.28343,
+          "committee_support": 0.624545
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.973191,
+          "uniqueness": 0.292915,
+          "committee_support": 0.610687
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.914432,
+          "uniqueness": 0.356365,
+          "committee_support": 0.637875
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.979783,
+          "uniqueness": 0.285006,
+          "committee_support": 0.639707
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.981926,
+          "uniqueness": 0.281269,
+          "committee_support": 0.636887
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.68968,
+          "uniqueness": 0.634582,
+          "committee_support": 0.744014
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.787441,
+          "uniqueness": 0.453935,
+          "committee_support": 0.681872
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565426,
+          "consistency": 0.893822,
+          "consensus": 0.651561,
+          "uniqueness": 0.658442,
+          "committee_support": 0.73658
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.756526,
+          "uniqueness": 0.468173,
+          "committee_support": 0.68548
+        }
+      }
+    },
+    {
+      "round": 9,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.528119,
+          "consistency": 0.811908,
+          "consensus": 0.971648,
+          "uniqueness": 0.274961,
+          "committee_support": 0.648341
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950276,
+          "uniqueness": 0.314528,
+          "committee_support": 0.681156
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.940409,
+          "uniqueness": 0.332245,
+          "committee_support": 0.698876
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.974654,
+          "uniqueness": 0.270604,
+          "committee_support": 0.667666
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.959017,
+          "uniqueness": 0.295363,
+          "committee_support": 0.657812
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.898547,
+          "uniqueness": 0.398093,
+          "committee_support": 0.68033
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.973333,
+          "uniqueness": 0.272696,
+          "committee_support": 0.65267
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.986044,
+          "uniqueness": 0.250721,
+          "committee_support": 0.659255
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.804938,
+          "uniqueness": 0.507757,
+          "committee_support": 0.743318
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.815244,
+          "uniqueness": 0.463249,
+          "committee_support": 0.730408
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.699208,
+          "uniqueness": 0.606261,
+          "committee_support": 0.740873
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.777453,
+          "uniqueness": 0.491185,
+          "committee_support": 0.735433
+        }
+      }
+    },
+    {
+      "round": 10,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.528119,
+          "consistency": 0.811908,
+          "consensus": 0.971648,
+          "uniqueness": 0.274961,
+          "committee_support": 0.648341
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950276,
+          "uniqueness": 0.314528,
+          "committee_support": 0.681156
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.940409,
+          "uniqueness": 0.332245,
+          "committee_support": 0.698876
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.974654,
+          "uniqueness": 0.270604,
+          "committee_support": 0.667666
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.959017,
+          "uniqueness": 0.295363,
+          "committee_support": 0.657812
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.898547,
+          "uniqueness": 0.398093,
+          "committee_support": 0.68033
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.973333,
+          "uniqueness": 0.272696,
+          "committee_support": 0.65267
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.986044,
+          "uniqueness": 0.250721,
+          "committee_support": 0.659255
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.804938,
+          "uniqueness": 0.507757,
+          "committee_support": 0.743318
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.815244,
+          "uniqueness": 0.463249,
+          "committee_support": 0.730408
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.699208,
+          "uniqueness": 0.606261,
+          "committee_support": 0.740873
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.777453,
+          "uniqueness": 0.491185,
+          "committee_support": 0.735433
+        }
+      }
+    },
+    {
+      "round": 11,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 12,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 13,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 14,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465293,
+          "consistency": 0.68594,
+          "consensus": 0.92533,
+          "uniqueness": 0.312294,
+          "committee_support": 0.620833
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.942644,
+          "uniqueness": 0.382803,
+          "committee_support": 0.668651
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.914313,
+          "uniqueness": 0.434191,
+          "committee_support": 0.658093
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.956936,
+          "uniqueness": 0.358907,
+          "committee_support": 0.651382
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.927339,
+          "uniqueness": 0.309432,
+          "committee_support": 0.611492
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.911916,
+          "uniqueness": 0.323955,
+          "committee_support": 0.625481
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.962384,
+          "uniqueness": 0.343283,
+          "committee_support": 0.661583
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.965145,
+          "uniqueness": 0.338781,
+          "committee_support": 0.658756
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.661641,
+          "uniqueness": 0.62268,
+          "committee_support": 0.735075
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.849351,
+          "uniqueness": 0.380552,
+          "committee_support": 0.668284
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565312,
+          "consistency": 0.893822,
+          "consensus": 0.598467,
+          "uniqueness": 0.617934,
+          "committee_support": 0.714997
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.809191,
+          "uniqueness": 0.402158,
+          "committee_support": 0.673967
+        }
+      }
+    },
+    {
+      "round": 15,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.610053,
+          "consistency": 1.0,
+          "consensus": 0.987282,
+          "uniqueness": 0.247853,
+          "committee_support": 0.683598
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.97163,
+          "uniqueness": 0.274937,
+          "committee_support": 0.695769
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.962194,
+          "uniqueness": 0.291263,
+          "committee_support": 0.70247
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.986488,
+          "uniqueness": 0.249226,
+          "committee_support": 0.684314
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.987844,
+          "uniqueness": 0.246881,
+          "committee_support": 0.683209
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.916479,
+          "uniqueness": 0.370351,
+          "committee_support": 0.729903
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.990827,
+          "uniqueness": 0.241721,
+          "committee_support": 0.680739
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.990718,
+          "uniqueness": 0.241908,
+          "committee_support": 0.68083
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.723152,
+          "uniqueness": 0.595257,
+          "committee_support": 0.76543
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.796416,
+          "uniqueness": 0.460991,
+          "committee_support": 0.741455
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.669737,
+          "uniqueness": 0.64264,
+          "committee_support": 0.765408
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.775049,
+          "uniqueness": 0.467934,
+          "committee_support": 0.739641
+        }
+      }
+    },
+    {
+      "round": 16,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 17,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 18,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465156,
+          "consistency": 0.68594,
+          "consensus": 0.971013,
+          "uniqueness": 0.296894,
+          "committee_support": 0.620501
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.959896,
+          "uniqueness": 0.324873,
+          "committee_support": 0.649415
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.950784,
+          "uniqueness": 0.343361,
+          "committee_support": 0.632847
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.981887,
+          "uniqueness": 0.28343,
+          "committee_support": 0.624545
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.973191,
+          "uniqueness": 0.292915,
+          "committee_support": 0.610687
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.914432,
+          "uniqueness": 0.356365,
+          "committee_support": 0.637875
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.979783,
+          "uniqueness": 0.285006,
+          "committee_support": 0.639707
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.981926,
+          "uniqueness": 0.281269,
+          "committee_support": 0.636887
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.68968,
+          "uniqueness": 0.634582,
+          "committee_support": 0.744014
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.787441,
+          "uniqueness": 0.453935,
+          "committee_support": 0.681872
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565426,
+          "consistency": 0.893822,
+          "consensus": 0.651561,
+          "uniqueness": 0.658442,
+          "committee_support": 0.73658
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.756526,
+          "uniqueness": 0.468173,
+          "committee_support": 0.68548
+        }
+      }
+    },
+    {
+      "round": 19,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465293,
+          "consistency": 0.68594,
+          "consensus": 0.92533,
+          "uniqueness": 0.312294,
+          "committee_support": 0.620833
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.942644,
+          "uniqueness": 0.382803,
+          "committee_support": 0.668651
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.914313,
+          "uniqueness": 0.434191,
+          "committee_support": 0.658093
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.956936,
+          "uniqueness": 0.358907,
+          "committee_support": 0.651382
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.927339,
+          "uniqueness": 0.309432,
+          "committee_support": 0.611492
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.911916,
+          "uniqueness": 0.323955,
+          "committee_support": 0.625481
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.962384,
+          "uniqueness": 0.343283,
+          "committee_support": 0.661583
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.965145,
+          "uniqueness": 0.338781,
+          "committee_support": 0.658756
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.661641,
+          "uniqueness": 0.62268,
+          "committee_support": 0.735075
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.849351,
+          "uniqueness": 0.380552,
+          "committee_support": 0.668284
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565312,
+          "consistency": 0.893822,
+          "consensus": 0.598467,
+          "uniqueness": 0.617934,
+          "committee_support": 0.714997
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.809191,
+          "uniqueness": 0.402158,
+          "committee_support": 0.673967
+        }
+      }
+    },
+    {
+      "round": 20,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 21,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.976168,
+          "uniqueness": 0.286238,
+          "committee_support": 0.637008
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.957694,
+          "uniqueness": 0.316805,
+          "committee_support": 0.641441
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.960495,
+          "uniqueness": 0.312314,
+          "committee_support": 0.631372
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.985583,
+          "uniqueness": 0.269896,
+          "committee_support": 0.612714
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.967291,
+          "uniqueness": 0.301339,
+          "committee_support": 0.638207
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.876469,
+          "uniqueness": 0.454616,
+          "committee_support": 0.690291
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.967597,
+          "uniqueness": 0.299353,
+          "committee_support": 0.625438
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989511,
+          "uniqueness": 0.264067,
+          "committee_support": 0.621732
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.812656,
+          "uniqueness": 0.451325,
+          "committee_support": 0.70293
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.725002,
+          "uniqueness": 0.593504,
+          "committee_support": 0.72833
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551233,
+          "consistency": 0.862158,
+          "consensus": 0.730787,
+          "uniqueness": 0.521551,
+          "committee_support": 0.710562
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.69032,
+          "uniqueness": 0.61451,
+          "committee_support": 0.730957
+        }
+      }
+    },
+    {
+      "round": 22,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 23,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.982558,
+          "uniqueness": 0.271762,
+          "committee_support": 0.631254
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.974834,
+          "uniqueness": 0.285869,
+          "committee_support": 0.630627
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.974038,
+          "uniqueness": 0.287233,
+          "committee_support": 0.62263
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.988769,
+          "uniqueness": 0.261372,
+          "committee_support": 0.609187
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.98279,
+          "uniqueness": 0.271372,
+          "committee_support": 0.626967
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.908628,
+          "uniqueness": 0.396269,
+          "committee_support": 0.676443
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.984594,
+          "uniqueness": 0.268091,
+          "committee_support": 0.613927
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989285,
+          "uniqueness": 0.261239,
+          "committee_support": 0.620367
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.741862,
+          "uniqueness": 0.538268,
+          "committee_support": 0.714985
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.738591,
+          "uniqueness": 0.541207,
+          "committee_support": 0.717677
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551349,
+          "consistency": 0.862158,
+          "consensus": 0.680314,
+          "uniqueness": 0.591209,
+          "committee_support": 0.718278
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.710242,
+          "uniqueness": 0.553865,
+          "committee_support": 0.720009
+        }
+      }
+    },
+    {
+      "round": 24,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.610053,
+          "consistency": 1.0,
+          "consensus": 0.987282,
+          "uniqueness": 0.247853,
+          "committee_support": 0.683598
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.97163,
+          "uniqueness": 0.274937,
+          "committee_support": 0.695769
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.962194,
+          "uniqueness": 0.291263,
+          "committee_support": 0.70247
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.986488,
+          "uniqueness": 0.249226,
+          "committee_support": 0.684314
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.987844,
+          "uniqueness": 0.246881,
+          "committee_support": 0.683209
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.916479,
+          "uniqueness": 0.370351,
+          "committee_support": 0.729903
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.990827,
+          "uniqueness": 0.241721,
+          "committee_support": 0.680739
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.990718,
+          "uniqueness": 0.241908,
+          "committee_support": 0.68083
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.723152,
+          "uniqueness": 0.595257,
+          "committee_support": 0.76543
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.796416,
+          "uniqueness": 0.460991,
+          "committee_support": 0.741455
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.669737,
+          "uniqueness": 0.64264,
+          "committee_support": 0.765408
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.775049,
+          "uniqueness": 0.467934,
+          "committee_support": 0.739641
+        }
+      }
+    },
+    {
+      "round": 25,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.528119,
+          "consistency": 0.811908,
+          "consensus": 0.971648,
+          "uniqueness": 0.274961,
+          "committee_support": 0.648341
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950276,
+          "uniqueness": 0.314528,
+          "committee_support": 0.681156
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.940409,
+          "uniqueness": 0.332245,
+          "committee_support": 0.698876
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.974654,
+          "uniqueness": 0.270604,
+          "committee_support": 0.667666
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.959017,
+          "uniqueness": 0.295363,
+          "committee_support": 0.657812
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.898547,
+          "uniqueness": 0.398093,
+          "committee_support": 0.68033
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.973333,
+          "uniqueness": 0.272696,
+          "committee_support": 0.65267
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.986044,
+          "uniqueness": 0.250721,
+          "committee_support": 0.659255
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.804938,
+          "uniqueness": 0.507757,
+          "committee_support": 0.743318
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.815244,
+          "uniqueness": 0.463249,
+          "committee_support": 0.730408
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.699208,
+          "uniqueness": 0.606261,
+          "committee_support": 0.740873
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.777453,
+          "uniqueness": 0.491185,
+          "committee_support": 0.735433
+        }
+      }
+    },
+    {
+      "round": 26,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.976168,
+          "uniqueness": 0.286238,
+          "committee_support": 0.637008
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.957694,
+          "uniqueness": 0.316805,
+          "committee_support": 0.641441
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.960495,
+          "uniqueness": 0.312314,
+          "committee_support": 0.631372
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.985583,
+          "uniqueness": 0.269896,
+          "committee_support": 0.612714
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.967291,
+          "uniqueness": 0.301339,
+          "committee_support": 0.638207
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.876469,
+          "uniqueness": 0.454616,
+          "committee_support": 0.690291
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.967597,
+          "uniqueness": 0.299353,
+          "committee_support": 0.625438
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989511,
+          "uniqueness": 0.264067,
+          "committee_support": 0.621732
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.812656,
+          "uniqueness": 0.451325,
+          "committee_support": 0.70293
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.725002,
+          "uniqueness": 0.593504,
+          "committee_support": 0.72833
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551233,
+          "consistency": 0.862158,
+          "consensus": 0.730787,
+          "uniqueness": 0.521551,
+          "committee_support": 0.710562
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.69032,
+          "uniqueness": 0.61451,
+          "committee_support": 0.730957
+        }
+      }
+    },
+    {
+      "round": 27,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465156,
+          "consistency": 0.68594,
+          "consensus": 0.971013,
+          "uniqueness": 0.296894,
+          "committee_support": 0.620501
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.959896,
+          "uniqueness": 0.324873,
+          "committee_support": 0.649415
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.950784,
+          "uniqueness": 0.343361,
+          "committee_support": 0.632847
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.981887,
+          "uniqueness": 0.28343,
+          "committee_support": 0.624545
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.973191,
+          "uniqueness": 0.292915,
+          "committee_support": 0.610687
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.914432,
+          "uniqueness": 0.356365,
+          "committee_support": 0.637875
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.979783,
+          "uniqueness": 0.285006,
+          "committee_support": 0.639707
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.981926,
+          "uniqueness": 0.281269,
+          "committee_support": 0.636887
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.68968,
+          "uniqueness": 0.634582,
+          "committee_support": 0.744014
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.787441,
+          "uniqueness": 0.453935,
+          "committee_support": 0.681872
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565426,
+          "consistency": 0.893822,
+          "consensus": 0.651561,
+          "uniqueness": 0.658442,
+          "committee_support": 0.73658
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.756526,
+          "uniqueness": 0.468173,
+          "committee_support": 0.68548
+        }
+      }
+    },
+    {
+      "round": 28,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 29,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.976168,
+          "uniqueness": 0.286238,
+          "committee_support": 0.637008
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.957694,
+          "uniqueness": 0.316805,
+          "committee_support": 0.641441
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.960495,
+          "uniqueness": 0.312314,
+          "committee_support": 0.631372
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.985583,
+          "uniqueness": 0.269896,
+          "committee_support": 0.612714
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.967291,
+          "uniqueness": 0.301339,
+          "committee_support": 0.638207
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.876469,
+          "uniqueness": 0.454616,
+          "committee_support": 0.690291
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.967597,
+          "uniqueness": 0.299353,
+          "committee_support": 0.625438
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989511,
+          "uniqueness": 0.264067,
+          "committee_support": 0.621732
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.812656,
+          "uniqueness": 0.451325,
+          "committee_support": 0.70293
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.725002,
+          "uniqueness": 0.593504,
+          "committee_support": 0.72833
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551233,
+          "consistency": 0.862158,
+          "consensus": 0.730787,
+          "uniqueness": 0.521551,
+          "committee_support": 0.710562
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.69032,
+          "uniqueness": 0.61451,
+          "committee_support": 0.730957
+        }
+      }
+    },
+    {
+      "round": 30,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.982558,
+          "uniqueness": 0.271762,
+          "committee_support": 0.631254
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.974834,
+          "uniqueness": 0.285869,
+          "committee_support": 0.630627
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.974038,
+          "uniqueness": 0.287233,
+          "committee_support": 0.62263
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.988769,
+          "uniqueness": 0.261372,
+          "committee_support": 0.609187
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.98279,
+          "uniqueness": 0.271372,
+          "committee_support": 0.626967
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.908628,
+          "uniqueness": 0.396269,
+          "committee_support": 0.676443
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.984594,
+          "uniqueness": 0.268091,
+          "committee_support": 0.613927
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989285,
+          "uniqueness": 0.261239,
+          "committee_support": 0.620367
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.741862,
+          "uniqueness": 0.538268,
+          "committee_support": 0.714985
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.738591,
+          "uniqueness": 0.541207,
+          "committee_support": 0.717677
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551349,
+          "consistency": 0.862158,
+          "consensus": 0.680314,
+          "uniqueness": 0.591209,
+          "committee_support": 0.718278
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.710242,
+          "uniqueness": 0.553865,
+          "committee_support": 0.720009
+        }
+      }
+    },
+    {
+      "round": 31,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 32,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 33,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 34,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.610053,
+          "consistency": 1.0,
+          "consensus": 0.987282,
+          "uniqueness": 0.247853,
+          "committee_support": 0.683598
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.97163,
+          "uniqueness": 0.274937,
+          "committee_support": 0.695769
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.962194,
+          "uniqueness": 0.291263,
+          "committee_support": 0.70247
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.986488,
+          "uniqueness": 0.249226,
+          "committee_support": 0.684314
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.987844,
+          "uniqueness": 0.246881,
+          "committee_support": 0.683209
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.916479,
+          "uniqueness": 0.370351,
+          "committee_support": 0.729903
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.990827,
+          "uniqueness": 0.241721,
+          "committee_support": 0.680739
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.990718,
+          "uniqueness": 0.241908,
+          "committee_support": 0.68083
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.723152,
+          "uniqueness": 0.595257,
+          "committee_support": 0.76543
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.796416,
+          "uniqueness": 0.460991,
+          "committee_support": 0.741455
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.669737,
+          "uniqueness": 0.64264,
+          "committee_support": 0.765408
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.775049,
+          "uniqueness": 0.467934,
+          "committee_support": 0.739641
+        }
+      }
+    },
+    {
+      "round": 35,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.976168,
+          "uniqueness": 0.286238,
+          "committee_support": 0.637008
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.957694,
+          "uniqueness": 0.316805,
+          "committee_support": 0.641441
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.960495,
+          "uniqueness": 0.312314,
+          "committee_support": 0.631372
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.985583,
+          "uniqueness": 0.269896,
+          "committee_support": 0.612714
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.967291,
+          "uniqueness": 0.301339,
+          "committee_support": 0.638207
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.876469,
+          "uniqueness": 0.454616,
+          "committee_support": 0.690291
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.967597,
+          "uniqueness": 0.299353,
+          "committee_support": 0.625438
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989511,
+          "uniqueness": 0.264067,
+          "committee_support": 0.621732
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.812656,
+          "uniqueness": 0.451325,
+          "committee_support": 0.70293
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.725002,
+          "uniqueness": 0.593504,
+          "committee_support": 0.72833
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551233,
+          "consistency": 0.862158,
+          "consensus": 0.730787,
+          "uniqueness": 0.521551,
+          "committee_support": 0.710562
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.69032,
+          "uniqueness": 0.61451,
+          "committee_support": 0.730957
+        }
+      }
+    },
+    {
+      "round": 36,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 37,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    },
+    {
+      "round": 38,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465293,
+          "consistency": 0.68594,
+          "consensus": 0.92533,
+          "uniqueness": 0.312294,
+          "committee_support": 0.620833
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.942644,
+          "uniqueness": 0.382803,
+          "committee_support": 0.668651
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.914313,
+          "uniqueness": 0.434191,
+          "committee_support": 0.658093
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.956936,
+          "uniqueness": 0.358907,
+          "committee_support": 0.651382
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.927339,
+          "uniqueness": 0.309432,
+          "committee_support": 0.611492
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.911916,
+          "uniqueness": 0.323955,
+          "committee_support": 0.625481
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.962384,
+          "uniqueness": 0.343283,
+          "committee_support": 0.661583
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.965145,
+          "uniqueness": 0.338781,
+          "committee_support": 0.658756
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.661641,
+          "uniqueness": 0.62268,
+          "committee_support": 0.735075
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.849351,
+          "uniqueness": 0.380552,
+          "committee_support": 0.668284
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565312,
+          "consistency": 0.893822,
+          "consensus": 0.598467,
+          "uniqueness": 0.617934,
+          "committee_support": 0.714997
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.809191,
+          "uniqueness": 0.402158,
+          "committee_support": 0.673967
+        }
+      }
+    },
+    {
+      "round": 39,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.528119,
+          "consistency": 0.811908,
+          "consensus": 0.971648,
+          "uniqueness": 0.274961,
+          "committee_support": 0.648341
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950276,
+          "uniqueness": 0.314528,
+          "committee_support": 0.681156
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.940409,
+          "uniqueness": 0.332245,
+          "committee_support": 0.698876
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.974654,
+          "uniqueness": 0.270604,
+          "committee_support": 0.667666
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.959017,
+          "uniqueness": 0.295363,
+          "committee_support": 0.657812
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.898547,
+          "uniqueness": 0.398093,
+          "committee_support": 0.68033
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.973333,
+          "uniqueness": 0.272696,
+          "committee_support": 0.65267
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.986044,
+          "uniqueness": 0.250721,
+          "committee_support": 0.659255
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.804938,
+          "uniqueness": 0.507757,
+          "committee_support": 0.743318
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.815244,
+          "uniqueness": 0.463249,
+          "committee_support": 0.730408
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.699208,
+          "uniqueness": 0.606261,
+          "committee_support": 0.740873
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.777453,
+          "uniqueness": 0.491185,
+          "committee_support": 0.735433
+        }
+      }
+    },
+    {
+      "round": 40,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.528119,
+          "consistency": 0.811908,
+          "consensus": 0.971648,
+          "uniqueness": 0.274961,
+          "committee_support": 0.648341
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950276,
+          "uniqueness": 0.314528,
+          "committee_support": 0.681156
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.940409,
+          "uniqueness": 0.332245,
+          "committee_support": 0.698876
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.974654,
+          "uniqueness": 0.270604,
+          "committee_support": 0.667666
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.959017,
+          "uniqueness": 0.295363,
+          "committee_support": 0.657812
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.898547,
+          "uniqueness": 0.398093,
+          "committee_support": 0.68033
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.973333,
+          "uniqueness": 0.272696,
+          "committee_support": 0.65267
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.986044,
+          "uniqueness": 0.250721,
+          "committee_support": 0.659255
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.804938,
+          "uniqueness": 0.507757,
+          "committee_support": 0.743318
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.815244,
+          "uniqueness": 0.463249,
+          "committee_support": 0.730408
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.699208,
+          "uniqueness": 0.606261,
+          "committee_support": 0.740873
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.777453,
+          "uniqueness": 0.491185,
+          "committee_support": 0.735433
+        }
+      }
+    },
+    {
+      "round": 41,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 42,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.982558,
+          "uniqueness": 0.271762,
+          "committee_support": 0.631254
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.974834,
+          "uniqueness": 0.285869,
+          "committee_support": 0.630627
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.974038,
+          "uniqueness": 0.287233,
+          "committee_support": 0.62263
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.988769,
+          "uniqueness": 0.261372,
+          "committee_support": 0.609187
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.98279,
+          "uniqueness": 0.271372,
+          "committee_support": 0.626967
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.908628,
+          "uniqueness": 0.396269,
+          "committee_support": 0.676443
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.984594,
+          "uniqueness": 0.268091,
+          "committee_support": 0.613927
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989285,
+          "uniqueness": 0.261239,
+          "committee_support": 0.620367
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.741862,
+          "uniqueness": 0.538268,
+          "committee_support": 0.714985
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.738591,
+          "uniqueness": 0.541207,
+          "committee_support": 0.717677
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551349,
+          "consistency": 0.862158,
+          "consensus": 0.680314,
+          "uniqueness": 0.591209,
+          "committee_support": 0.718278
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.710242,
+          "uniqueness": 0.553865,
+          "committee_support": 0.720009
+        }
+      }
+    },
+    {
+      "round": 43,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 44,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.976168,
+          "uniqueness": 0.286238,
+          "committee_support": 0.637008
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.957694,
+          "uniqueness": 0.316805,
+          "committee_support": 0.641441
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.960495,
+          "uniqueness": 0.312314,
+          "committee_support": 0.631372
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.985583,
+          "uniqueness": 0.269896,
+          "committee_support": 0.612714
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.967291,
+          "uniqueness": 0.301339,
+          "committee_support": 0.638207
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.876469,
+          "uniqueness": 0.454616,
+          "committee_support": 0.690291
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.967597,
+          "uniqueness": 0.299353,
+          "committee_support": 0.625438
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989511,
+          "uniqueness": 0.264067,
+          "committee_support": 0.621732
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.812656,
+          "uniqueness": 0.451325,
+          "committee_support": 0.70293
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.725002,
+          "uniqueness": 0.593504,
+          "committee_support": 0.72833
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551233,
+          "consistency": 0.862158,
+          "consensus": 0.730787,
+          "uniqueness": 0.521551,
+          "committee_support": 0.710562
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.69032,
+          "uniqueness": 0.61451,
+          "committee_support": 0.730957
+        }
+      }
+    },
+    {
+      "round": 45,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.610053,
+          "consistency": 1.0,
+          "consensus": 0.974706,
+          "uniqueness": 0.271956,
+          "committee_support": 0.694621
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.938621,
+          "uniqueness": 0.334214,
+          "committee_support": 0.718491
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.936881,
+          "uniqueness": 0.337217,
+          "committee_support": 0.71951
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.980661,
+          "uniqueness": 0.261677,
+          "committee_support": 0.690201
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.957819,
+          "uniqueness": 0.301092,
+          "committee_support": 0.706505
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.851985,
+          "uniqueness": 0.48367,
+          "committee_support": 0.758778
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.959288,
+          "uniqueness": 0.298546,
+          "committee_support": 0.705522
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.991158,
+          "uniqueness": 0.243575,
+          "committee_support": 0.681826
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.875642,
+          "uniqueness": 0.415446,
+          "committee_support": 0.740093
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.76698,
+          "uniqueness": 0.577595,
+          "committee_support": 0.769839
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.610053,
+          "consistency": 1.0,
+          "consensus": 0.779197,
+          "uniqueness": 0.495827,
+          "committee_support": 0.748978
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.610368,
+          "consistency": 1.0,
+          "consensus": 0.731303,
+          "uniqueness": 0.603863,
+          "committee_support": 0.769353
+        }
+      }
+    },
+    {
+      "round": 46,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.499134,
+          "consistency": 0.752066,
+          "consensus": 0.982558,
+          "uniqueness": 0.271762,
+          "committee_support": 0.631254
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.489149,
+          "consistency": 0.731682,
+          "consensus": 0.974834,
+          "uniqueness": 0.285869,
+          "committee_support": 0.630627
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.474971,
+          "consistency": 0.704162,
+          "consensus": 0.974038,
+          "uniqueness": 0.287233,
+          "committee_support": 0.62263
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.468815,
+          "consistency": 0.692466,
+          "consensus": 0.988769,
+          "uniqueness": 0.261372,
+          "committee_support": 0.609187
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.492283,
+          "consistency": 0.737874,
+          "consensus": 0.98279,
+          "uniqueness": 0.271372,
+          "committee_support": 0.626967
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.509343,
+          "consistency": 0.772274,
+          "consensus": 0.908628,
+          "uniqueness": 0.396269,
+          "committee_support": 0.676443
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.472445,
+          "consistency": 0.699346,
+          "consensus": 0.984594,
+          "uniqueness": 0.268091,
+          "committee_support": 0.613927
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.48775,
+          "consistency": 0.72893,
+          "consensus": 0.989285,
+          "uniqueness": 0.261239,
+          "committee_support": 0.620367
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547812,
+          "consistency": 0.854145,
+          "consensus": 0.741862,
+          "uniqueness": 0.538268,
+          "committee_support": 0.714985
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.551852,
+          "consistency": 0.863089,
+          "consensus": 0.738591,
+          "uniqueness": 0.541207,
+          "committee_support": 0.717677
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.551349,
+          "consistency": 0.862158,
+          "consensus": 0.680314,
+          "uniqueness": 0.591209,
+          "committee_support": 0.718278
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.559234,
+          "consistency": 0.879601,
+          "consensus": 0.710242,
+          "uniqueness": 0.553865,
+          "committee_support": 0.720009
+        }
+      }
+    },
+    {
+      "round": 47,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 48,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.465293,
+          "consistency": 0.68594,
+          "consensus": 0.92533,
+          "uniqueness": 0.312294,
+          "committee_support": 0.620833
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.496431,
+          "consistency": 0.74613,
+          "consensus": 0.942644,
+          "uniqueness": 0.382803,
+          "committee_support": 0.668651
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.459984,
+          "consistency": 0.675955,
+          "consensus": 0.914313,
+          "uniqueness": 0.434191,
+          "committee_support": 0.658093
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.479268,
+          "consistency": 0.712418,
+          "consensus": 0.956936,
+          "uniqueness": 0.358907,
+          "committee_support": 0.651382
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.451359,
+          "consistency": 0.660131,
+          "consensus": 0.927339,
+          "uniqueness": 0.309432,
+          "committee_support": 0.611492
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.46845,
+          "consistency": 0.691778,
+          "consensus": 0.911916,
+          "uniqueness": 0.323955,
+          "committee_support": 0.625481
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.503947,
+          "consistency": 0.761266,
+          "consensus": 0.962384,
+          "uniqueness": 0.343283,
+          "committee_support": 0.661583
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.501567,
+          "consistency": 0.75645,
+          "consensus": 0.965145,
+          "uniqueness": 0.338781,
+          "committee_support": 0.658756
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.572521,
+          "consistency": 0.909873,
+          "consensus": 0.661641,
+          "uniqueness": 0.62268,
+          "committee_support": 0.735075
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.519639,
+          "consistency": 0.793602,
+          "consensus": 0.849351,
+          "uniqueness": 0.380552,
+          "committee_support": 0.668284
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.565312,
+          "consistency": 0.893822,
+          "consensus": 0.598467,
+          "uniqueness": 0.617934,
+          "committee_support": 0.714997
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.527472,
+          "consistency": 0.810114,
+          "consensus": 0.809191,
+          "uniqueness": 0.402158,
+          "committee_support": 0.673967
+        }
+      }
+    },
+    {
+      "round": 49,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.431422,
+          "consistency": 0.624958,
+          "consensus": 0.96685,
+          "uniqueness": 0.301524,
+          "committee_support": 0.601294
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.461097,
+          "consistency": 0.678019,
+          "consensus": 0.960556,
+          "uniqueness": 0.319393,
+          "committee_support": 0.625715
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.446602,
+          "consistency": 0.651531,
+          "consensus": 0.952656,
+          "uniqueness": 0.335512,
+          "committee_support": 0.62187
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.444685,
+          "consistency": 0.648091,
+          "consensus": 0.977373,
+          "uniqueness": 0.290005,
+          "committee_support": 0.605941
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.421809,
+          "consistency": 0.608187,
+          "consensus": 0.96371,
+          "uniqueness": 0.307379,
+          "committee_support": 0.597248
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.432213,
+          "consistency": 0.626075,
+          "consensus": 0.916758,
+          "uniqueness": 0.37701,
+          "committee_support": 0.622567
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.443338,
+          "consistency": 0.645683,
+          "consensus": 0.976333,
+          "uniqueness": 0.289495,
+          "committee_support": 0.604782
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.466806,
+          "consistency": 0.688682,
+          "consensus": 0.981212,
+          "uniqueness": 0.280361,
+          "committee_support": 0.61564
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.547968,
+          "consistency": 0.854489,
+          "consensus": 0.732154,
+          "uniqueness": 0.580604,
+          "committee_support": 0.724084
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.521935,
+          "consistency": 0.798418,
+          "consensus": 0.780563,
+          "uniqueness": 0.473012,
+          "committee_support": 0.687742
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.539325,
+          "consistency": 0.835979,
+          "consensus": 0.657721,
+          "uniqueness": 0.640339,
+          "committee_support": 0.717298
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.53279,
+          "consistency": 0.821465,
+          "consensus": 0.742818,
+          "uniqueness": 0.496473,
+          "committee_support": 0.69436
+        }
+      }
+    },
+    {
+      "round": 50,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.52824,
+          "consistency": 0.811908,
+          "consensus": 0.942717,
+          "uniqueness": 0.304409,
+          "committee_support": 0.657712
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.558623,
+          "consistency": 0.878225,
+          "consensus": 0.950008,
+          "uniqueness": 0.335041,
+          "committee_support": 0.689779
+        },
+        "AUROC": {
+          "coverage": 1.0,
+          "separation": 0.578164,
+          "consistency": 0.922945,
+          "consensus": 0.926438,
+          "uniqueness": 0.376637,
+          "committee_support": 0.714485
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.564405,
+          "consistency": 0.891297,
+          "consensus": 0.958935,
+          "uniqueness": 0.319526,
+          "committee_support": 0.687989
+        },
+        "BrierScore": {
+          "coverage": 1.0,
+          "separation": 0.531345,
+          "consistency": 0.818369,
+          "consensus": 0.938742,
+          "uniqueness": 0.311128,
+          "committee_support": 0.661854
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.517001,
+          "consistency": 0.788098,
+          "consensus": 0.923988,
+          "uniqueness": 0.332361,
+          "committee_support": 0.659887
+        },
+        "F1-Score": {
+          "coverage": 1.0,
+          "separation": 0.537102,
+          "consistency": 0.830753,
+          "consensus": 0.97145,
+          "uniqueness": 0.296454,
+          "committee_support": 0.663409
+        },
+        "MCC": {
+          "coverage": 1.0,
+          "separation": 0.564707,
+          "consistency": 0.891985,
+          "consensus": 0.972776,
+          "uniqueness": 0.293748,
+          "committee_support": 0.678631
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.587545,
+          "consistency": 0.94496,
+          "consensus": 0.724833,
+          "uniqueness": 0.64301,
+          "committee_support": 0.763101
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.585506,
+          "consistency": 0.940144,
+          "consensus": 0.873425,
+          "uniqueness": 0.360957,
+          "committee_support": 0.704501
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.574866,
+          "consistency": 0.915978,
+          "consensus": 0.612274,
+          "uniqueness": 0.639091,
+          "committee_support": 0.729108
+        },
+        "Specificity": {
+          "coverage": 1.0,
+          "separation": 0.591025,
+          "consistency": 0.953216,
+          "consensus": 0.834194,
+          "uniqueness": 0.386795,
+          "committee_support": 0.711065
+        }
+      }
+    }
+  ],
+  "caveat": "Exploratory post-hoc benchmark; provenance, independence and homology gates remain pending."
+}

@@ -12,15 +12,6 @@
     "seq_col": "Sequence",
     "prob_col": "AMP_probability"
   },
-  "AMP-Scanner-v2": {
-    "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
-    "file_ext": ".csv",
-    "sep": ",",
-    "comment_char": null,
-    "id_col": "SeqID",
-    "seq_col": "Sequence",
-    "prob_col": "Prediction_Probability"
-  },
   "amPEPpy": {
     "file_path": "data/amPEPpy_out/predictions.txt",
     "file_ext": ".txt",
@@ -44,14 +35,11 @@
 
 ## PI
 
-# 📜 PI指令文档：评测算分阶段核心逻辑约束
-**致 MLOps 工程师：**
-这是第二次会议（评测算分阶段）。数据架构师已完成各模型特征 Schema 提炼。现下达评测脚本编写的**核心逻辑约束**。本架构已强制升级为极其稳健的**【先标准化，后合并】**两步走 ETL 模式。以下要求为硬性红线，原样照做，不得进行任何“创造性”偏离。任何未遵循防御性编程原则的代码将在 Code Review 阶段直接打回。
+# 【PI指令】评测脚本核心逻辑约束 - 严格执行标准
 
----
+MLOps 工程师，以下是评测脚本的**核心逻辑约束**，你必须**逐条严格执行**，不得有任何偏差：
 
-## 🔴 约束 1：硬编码字典与前置配置
-直接在脚本顶层写入以下字典，作为全链路唯一数据源配置。**禁止**从外部 YAML/JSON 动态读取，确保版本强绑定。
+## 🔥 **1. 硬编码字典与前置配置**
 ```python
 DATA_SCHEMA = {
     "Macrel": {
@@ -60,17 +48,8 @@ DATA_SCHEMA = {
         "sep": "\t",
         "comment_char": "#",
         "id_col": "Access",
-        "seq_col": "Sequence",
+        "seq_col": "Sequence", 
         "prob_col": "AMP_probability"
-    },
-    "AMP-Scanner-v2": {
-        "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
-        "file_ext": ".csv",
-        "sep": ",",
-        "comment_char": None,
-        "id_col": "SeqID",
-        "seq_col": "Sequence",
-        "prob_col": "Prediction_Probability"
     },
     "amPEPpy": {
         "file_path": "data/amPEPpy_out/predictions.txt",
@@ -93,54 +72,65 @@ DATA_SCHEMA = {
 }
 ```
 
-## 🔴 约束 2：动态递归加载真值表（极度致命）
-**绝对禁止**写死 `pd.read_csv("data/ground_truth.csv")`。必须使用 `glob` 递归穿透子目录。真值表必须进行暴力清洗并构建报告基座。
+## 🔥 **2. 动态递归加载真值表（极度致命）**
 ```python
+import pandas as pd
+import numpy as np
 import glob
+from sklearn.metrics import *
+
+# 绝对禁止硬编码路径！必须使用递归搜索
 gt_files = glob.glob("data/**/ground_truth.csv", recursive=True)
 if not gt_files:
     raise FileNotFoundError("在 data/ 及其所有子目录中均未找到 ground_truth.csv！")
 gt_df = pd.read_csv(gt_files[0])
+```
 
-# 动态列提取
+## 🔥 **3. 真值表的绝对标准化（增加暴力清洗）**
+```python
+# 强制提取序列列和标签列
 gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
 gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
 
-# 终极字符串清洗 & 主键构建
+# 暴力字符串清洗
 gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
 gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
+
+# 去重
 gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
 
-# 创建报告基座（进入模型循环前必须初始化）
+# 创建报告基座
 report_df = gt_df[['Standard_ID', 'True_Label']].copy()
 ```
 
-## 🔴 约束 3：模型预测输出的绝对标准化（防弹隔离版）
-遍历 `DATA_SCHEMA`，逐模型独立加载、清洗、映射。**严禁**跨模型共享 DataFrame 状态。
+## 🔥 **4. 模型预测输出的绝对标准化（防弹隔离版）**
 ```python
 for model_name, m_dict in DATA_SCHEMA.items():
     # 动态寻找文件
     found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
     if not found_files:
-        print(f"[WARNING] 未找到 {model_name} 的输出文件"); report_df[f"{model_name}_Prob"] = np.nan; continue
+        print(f"[WARNING] 未找到 {model_name} 的输出文件")
+        report_df[f"{model_name}_Prob"] = np.nan
+        continue
+    
     file_path = found_files[0]
     
-    # Pandas 直读
+    # 直接使用Pandas读取
     pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
     pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
     
+    # 极简强悍的列提取纪律
     try:
         target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
         prob_col_name = m_dict['prob_col']
-        
-        # 暴力的字符串清洗
+
+        # 暴力字符串清洗
         pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
         pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
         
         prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
         mapped_probs = report_df['Standard_ID'].map(prob_map)
 
-        # 匹配失败降级策略：强制行号对齐
         if mapped_probs.isna().all() and len(pred_df) == len(report_df):
             print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
             report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
@@ -158,61 +148,100 @@ for model_name, m_dict in DATA_SCHEMA.items():
         continue
 ```
 
-## 🔴 约束 4：极简合并与防御性算分死纪律
-算分前必须过滤无效对，指标映射必须动态化，计算过程必须包裹防御装甲。
-```python
-from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score
+## 🔥 **5. 极简合并与防御性算分死纪律**
 
-# 动态指标映射字典
+### **5.1 动态sklearn映射字典**
+```python
 metric_funcs = {
     "ACC": accuracy_score,
     "Recall": recall_score,
+    "Sensitivity": recall_score,
+    "Specificity": lambda y_t, y_p: recall_score(y_t, y_p, pos_label=0),
+    "F1-Score": f1_score,
     "MCC": matthews_corrcoef,
     "AUROC": roc_auc_score,
     "AUPRC": average_precision_score
 }
-
-eval_result = {}
-
-for model_name in DATA_SCHEMA.keys():
-    y_true = report_df['True_Label'].values
-    y_prob = report_df[f"{model_name}_Prob"].values
-    
-    # 防御性过滤：仅保留双非空的有效行
-    valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-    y_t_valid = y_true[valid_mask]
-    y_p_valid = y_prob[valid_mask]
-    
-    model_metrics = {}
-    for metric_name, func in metric_funcs.items():
-        try:
-            # 防御单分类/全空等导致 sklearn 崩溃的场景
-            if len(np.unique(y_t_valid)) < 2:
-                raise ValueError("真实标签类别数不足2，无法计算区分度指标")
-            score = func(y_t_valid, y_p_valid)
-            model_metrics[metric_name] = float(score)
-        except Exception:
-            model_metrics[metric_name] = float('nan')
-            
-    eval_result[model_name] = model_metrics
-
-# 持久化输出
-with open("eval_result.json", "w", encoding="utf-8") as f:
-    json.dump(eval_result, f, indent=4, ensure_ascii=False)
-print("[SUCCESS] 评测完成，结果已保存至 eval_result.json")
 ```
 
----
+### **5.2 防御装甲算分逻辑**
+```python
+eval_results = {}
 
-## 🛡️ PI 验收红线（Project Manager Checklist）
-1. **零硬编码路径**：GT 文件与模型输出文件必须通过 `glob` 动态定位，否则视为架构违规。
-2. **状态隔离**：`report_df` 是全局唯一事实来源（Single Source of Truth），模型循环内严禁修改其结构或索引顺序。
-3. **容错优先**：任何 `ValueError`、`KeyError` 或 `NaN` 泛滥必须被 `try-except` 或阈值拦截捕获，**绝不允许中断整个评测流水线**。
-4. **输出契约**：`eval_result.json` 的键名必须且只能为 `["ACC", "Recall", "MCC", "AUROC", "AUPRC"]`，顺序不限但名称必须严格一致。
-5. **依赖声明**：脚本顶部必须显式导入 `pandas`, `numpy`, `glob`, `json` 及 `sklearn.metrics` 对应函数。
+for model_name, m_dict in DATA_SCHEMA.items():
+    y_true = report_df['True_Label'].values
+    y_prob_series = report_df[f"{model_name}_Prob"]
+    
+    # 必须先过滤有效行
+    valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+    
+    if not valid_mask.any():
+        print(f"[ERROR] {model_name} 无有效数据，跳过算分")
+        eval_results[model_name] = {
+            "ACC": float('nan'),
+            "Recall": float('nan'), 
+            "MCC": float('nan'),
+            "AUROC": float('nan'),
+            "AUPRC": float('nan')
+        }
+        continue
+    
+    y_true_valid = y_true[valid_mask]
+    y_prob_valid = y_prob_series[valid_mask].values
+    
+    # 检查标签是否足够进行二分类评估
+    if len(np.unique(y_true_valid)) < 2:
+        print(f"[ERROR] {model_name} 标签类别不足，无法计算AUROC/AUPRC")
+        eval_results[model_name] = {
+            "ACC": accuracy_score(y_true_valid, (y_prob_valid >= 0.5).astype(int)),
+            "Recall": float('nan'),
+            "MCC": float('nan'),
+            "AUROC": float('nan'),
+            "AUPRC": float('nan')
+        }
+        continue
+    
+    # 动态计算各项指标
+    model_metrics = {}
+    required_metrics = ["ACC", "Recall", "MCC", "AUROC", "AUPRC"]
+    
+    for metric_name in required_metrics:
+        try:
+            if metric_name in ["AUROC", "AUPRC"]:
+                # 这些指标需要概率值
+                score = metric_funcs[metric_name](y_true_valid, y_prob_valid)
+            elif metric_name in ["ACC", "Recall", "MCC"]:
+                # 这些指标需要分类结果
+                y_pred = (y_prob_valid >= 0.5).astype(int)
+                if metric_name == "Recall":
+                    score = metric_funcs[metric_name](y_true_valid, y_pred)
+                elif metric_name == "MCC":
+                    score = metric_funcs[metric_name](y_true_valid, y_pred)
+                else:
+                    score = metric_funcs[metric_name](y_true_valid, y_pred)
+            else:
+                y_pred = (y_prob_valid >= 0.5).astype(int)
+                score = metric_funcs[metric_name](y_true_valid, y_pred)
+            
+            model_metrics[metric_name] = float(score)
+        except Exception:
+            print(f"[WARNING] {model_name} 计算 {metric_name} 失败")
+            model_metrics[metric_name] = float('nan')
+    
+    eval_results[model_name] = model_metrics
+```
 
-**执行指令：**
-按此约束完成 `evaluate_pipeline.py` 编写。提交 PR 前请自行运行 `pytest` 验证边界用例（如缺失文件、全NaN概率、单类标签、FASTA头符号干扰）。架构已定，逻辑已锁，请严格按规范落地。
+## ⚠️ **最终检查清单**
+- [ ] 使用递归搜索查找ground_truth.csv
+- [ ] 真值表标准化包含暴力字符串清洗
+- [ ] 模型文件动态查找而非硬编码路径
+- [ ] 列提取使用try-except包裹
+- [ ] 算分前过滤有效行
+- [ ] 动态sklearn映射包含所有要求指标
+- [ ] 防御装甲处理异常情况
+- [ ] 输出JSON格式严格对应["ACC", "Recall", "MCC", "AUROC", "AUPRC"]
+
+**执行完毕后，生成 `eval_result.json` 文件，格式必须严格遵循上述要求！**
 
 ## MLOps Coder (V1)
 
@@ -220,89 +249,93 @@ print("[SUCCESS] 评测完成，结果已保存至 eval_result.json")
 import pandas as pd
 import numpy as np
 import glob
+from sklearn.metrics import *
 import json
-import os
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score, roc_curve, precision_recall_curve
-
-DATA_SCHEMA = {
-    "Macrel": {
-        "file_path": "data/Macrel_out/macrel.out.prediction.gz",
-        "file_ext": ".gz",
-        "sep": "\t",
-        "comment_char": "#",
-        "id_col": "Access",
-        "seq_col": "Sequence",
-        "prob_col": "AMP_probability"
-    },
-    "AMP-Scanner-v2": {
-        "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
-        "file_ext": ".csv",
-        "sep": ",",
-        "comment_char": None,
-        "id_col": "SeqID",
-        "seq_col": "Sequence",
-        "prob_col": "Prediction_Probability"
-    },
-    "amPEPpy": {
-        "file_path": "data/amPEPpy_out/predictions.txt",
-        "file_ext": ".txt",
-        "sep": "\t",
-        "comment_char": None,
-        "id_col": "seq_id",
-        "seq_col": None,
-        "prob_col": "probability_AMP"
-    },
-    "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
-        "file_ext": ".tsv",
-        "sep": "\t",
-        "comment_char": None,
-        "id_col": "Sequence_ID",
-        "seq_col": "Sequence",
-        "prob_col": "Probability_score"
-    }
-}
+from sklearn.preprocessing import label_binarize
+from itertools import cycle
 
 def main():
-    # 约束2：动态递归加载真值表
+    # 🔥 **1. 硬编码字典与前置配置**
+    DATA_SCHEMA = {
+        "Macrel": {
+            "file_path": "data/Macrel_out/macrel.out.prediction.gz",
+            "file_ext": ".gz",
+            "sep": "\t",
+            "comment_char": "#",
+            "id_col": "Access",
+            "seq_col": "Sequence", 
+            "prob_col": "AMP_probability"
+        },
+        "amPEPpy": {
+            "file_path": "data/amPEPpy_out/predictions.txt",
+            "file_ext": ".txt",
+            "sep": "\t",
+            "comment_char": None,
+            "id_col": "seq_id",
+            "seq_col": None,
+            "prob_col": "probability_AMP"
+        },
+        "AMPlify": {
+            "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
+            "file_ext": ".tsv",
+            "sep": "\t",
+            "comment_char": None,
+            "id_col": "Sequence_ID",
+            "seq_col": "Sequence",
+            "prob_col": "Probability_score"
+        }
+    }
+
+    # 🔥 **2. 动态递归加载真值表（极度致命）**
+    # 绝对禁止硬编码路径！必须使用递归搜索
     gt_files = glob.glob("data/**/ground_truth.csv", recursive=True)
     if not gt_files:
         raise FileNotFoundError("在 data/ 及其所有子目录中均未找到 ground_truth.csv！")
     gt_df = pd.read_csv(gt_files[0])
 
+    # 🔥 **3. 真值表的绝对标准化（增加暴力清洗）**
+    # 强制提取序列列和标签列
     gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
     gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
 
+    # 暴力字符串清洗
     gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
     gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
+
+    # 去重
     gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
 
+    # 创建报告基座
     report_df = gt_df[['Standard_ID', 'True_Label']].copy()
 
-    # 约束3：模型预测输出的绝对标准化
+    # 🔥 **4. 模型预测输出的绝对标准化（防弹隔离版）**
     for model_name, m_dict in DATA_SCHEMA.items():
+        # 动态寻找文件
         found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
         if not found_files:
             print(f"[WARNING] 未找到 {model_name} 的输出文件")
             report_df[f"{model_name}_Prob"] = np.nan
             continue
+        
         file_path = found_files[0]
-
+        
+        # 直接使用Pandas读取
         pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
         pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
+        
+        # 极简强悍的列提取纪律
         try:
             target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
             prob_col_name = m_dict['prob_col']
 
+            # 暴力字符串清洗
             pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
             pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
-
+            
             prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
             mapped_probs = report_df['Standard_ID'].map(prob_map)
 
-            # 匹配失败降级策略：强制行号对齐
             if mapped_probs.isna().all() and len(pred_df) == len(report_df):
                 print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
                 report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
@@ -313,80 +346,210 @@ def main():
                     report_df[f"{model_name}_Prob"] = np.nan
                 else:
                     report_df[f"{model_name}_Prob"] = mapped_probs
+
         except Exception as e:
             print(f"[ERROR] 解析 {model_name} 时发生崩溃: {e}")
             report_df[f"{model_name}_Prob"] = np.nan
             continue
 
-    # 约束4：极简合并与防御性算分死纪律
+    # 🔥 **5. 极简合并与防御性算分死纪律**
+
+    # 5.1 动态sklearn映射字典
     metric_funcs = {
         "ACC": accuracy_score,
         "Recall": recall_score,
+        "Sensitivity": recall_score,
+        "Specificity": lambda y_t, y_p: recall_score(y_t, y_p, pos_label=0),
+        "F1-Score": f1_score,
         "MCC": matthews_corrcoef,
         "AUROC": roc_auc_score,
         "AUPRC": average_precision_score
     }
 
-    eval_result = {}
+    # 5.2 防御装甲算分逻辑
+    eval_results = {}
 
-    for model_name in DATA_SCHEMA.keys():
+    for model_name, m_dict in DATA_SCHEMA.items():
         y_true = report_df['True_Label'].values
-        y_prob = report_df[f"{model_name}_Prob"].values
-
-        valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-        y_t_valid = y_true[valid_mask]
-        y_p_valid = y_prob[valid_mask]
-
+        y_prob_series = report_df[f"{model_name}_Prob"]
+        
+        # 必须先过滤有效行
+        valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+        
+        if not valid_mask.any():
+            print(f"[ERROR] {model_name} 无有效数据，跳过算分")
+            eval_results[model_name] = {
+                "ACC": float('nan'),
+                "Recall": float('nan'), 
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+        
+        y_true_valid = y_true[valid_mask]
+        y_prob_valid = y_prob_series[valid_mask].values
+        
+        # 检查标签是否足够进行二分类评估
+        if len(np.unique(y_true_valid)) < 2:
+            print(f"[ERROR] {model_name} 标签类别不足，无法计算AUROC/AUPRC")
+            eval_results[model_name] = {
+                "ACC": accuracy_score(y_true_valid, (y_prob_valid >= 0.5).astype(int)),
+                "Recall": float('nan'),
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+        
+        # 动态计算各项指标
         model_metrics = {}
-        for metric_name, func in metric_funcs.items():
+        required_metrics = ["ACC", "Recall", "MCC", "AUROC", "AUPRC"]
+        
+        for metric_name in required_metrics:
             try:
-                if len(np.unique(y_t_valid)) < 2:
-                    raise ValueError("真实标签类别数不足2，无法计算区分度指标")
-                score = func(y_t_valid, y_p_valid)
+                if metric_name in ["AUROC", "AUPRC"]:
+                    # 这些指标需要概率值
+                    score = metric_funcs[metric_name](y_true_valid, y_prob_valid)
+                elif metric_name in ["ACC", "Recall", "MCC"]:
+                    # 这些指标需要分类结果
+                    y_pred = (y_prob_valid >= 0.5).astype(int)
+                    if metric_name == "Recall":
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                    elif metric_name == "MCC":
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                    else:
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                else:
+                    y_pred = (y_prob_valid >= 0.5).astype(int)
+                    score = metric_funcs[metric_name](y_true_valid, y_pred)
+                
                 model_metrics[metric_name] = float(score)
             except Exception:
+                print(f"[WARNING] {model_name} 计算 {metric_name} 失败")
                 model_metrics[metric_name] = float('nan')
+        
+        eval_results[model_name] = model_metrics
 
-        eval_result[model_name] = model_metrics
+    # 保存评估结果到JSON文件
+    with open('eval_result.json', 'w') as f:
+        json.dump(eval_results, f, indent=4)
 
-    # 持久化输出
-    with open("eval_result.json", "w", encoding="utf-8") as f:
-        json.dump(eval_result, f, indent=4, ensure_ascii=False)
-    print("[SUCCESS] 评测完成，结果已保存至 eval_result.json")
+    # 保存带有预测结果的CSV文件
+    report_df.to_csv('final_results_with_predictions.csv', index=False)
 
-    report_df.to_csv("final_results_with_predictions.csv", index=False)
-    print("[SUCCESS] 预测结果与真值已保存至 final_results_with_predictions.csv")
-
-    # 生成评估曲线
-    plt.figure(figsize=(12, 5))
-    for i, model_name in enumerate(DATA_SCHEMA.keys()):
+    # 绘制评估曲线
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+    
+    # ROC曲线
+    ax_roc = axes[0, 0]
+    for model_name in DATA_SCHEMA.keys():
         y_true = report_df['True_Label'].values
-        y_prob = report_df[f"{model_name}_Prob"].values
-        valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-        y_t_v = y_true[valid_mask]
-        y_p_v = y_prob[valid_mask]
+        y_prob_series = report_df[f"{model_name}_Prob"]
+        valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+        
+        if valid_mask.any():
+            y_true_valid = y_true[valid_mask]
+            y_prob_valid = y_prob_series[valid_mask].values
+            
+            if len(np.unique(y_true_valid)) > 1:
+                try:
+                    from sklearn.metrics import roc_curve
+                    fpr, tpr, _ = roc_curve(y_true_valid, y_prob_valid)
+                    ax_roc.plot(fpr, tpr, label=f'{model_name}')
+                except:
+                    pass
+    
+    ax_roc.plot([0, 1], [0, 1], 'k--', label='Random')
+    ax_roc.set_xlabel('False Positive Rate')
+    ax_roc.set_ylabel('True Positive Rate')
+    ax_roc.set_title('ROC Curves')
+    ax_roc.legend()
 
-        if len(np.unique(y_t_v)) < 2 or len(y_t_v) == 0:
-            continue
+    # PR曲线
+    ax_pr = axes[0, 1]
+    for model_name in DATA_SCHEMA.keys():
+        y_true = report_df['True_Label'].values
+        y_prob_series = report_df[f"{model_name}_Prob"]
+        valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+        
+        if valid_mask.any():
+            y_true_valid = y_true[valid_mask]
+            y_prob_valid = y_prob_series[valid_mask].values
+            
+            if len(np.unique(y_true_valid)) > 1:
+                try:
+                    from sklearn.metrics import precision_recall_curve
+                    precision, recall, _ = precision_recall_curve(y_true_valid, y_prob_valid)
+                    ax_pr.plot(recall, precision, label=f'{model_name}')
+                except:
+                    pass
+    
+    ax_pr.set_xlabel('Recall')
+    ax_pr.set_ylabel('Precision')
+    ax_pr.set_title('Precision-Recall Curves')
+    ax_pr.legend()
 
-        ax1 = plt.subplot(1, 2, 1)
-        fpr, tpr, _ = roc_curve(y_t_v, y_p_v)
-        auc_val = roc_auc_score(y_t_v, y_p_v)
-        ax1.plot(fpr, tpr, label=f'{model_name} (AUC={auc_val:.2f})')
-        ax1.set_title('ROC Curve')
-        ax1.legend()
+    # 混淆矩阵热图（仅显示第一个有效模型）
+    ax_cm = axes[1, 0]
+    first_model = None
+    for model_name in DATA_SCHEMA.keys():
+        y_true = report_df['True_Label'].values
+        y_prob_series = report_df[f"{model_name}_Prob"]
+        valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+        
+        if valid_mask.any():
+            y_true_valid = y_true[valid_mask]
+            y_prob_valid = y_prob_series[valid_mask].values
+            y_pred_valid = (y_prob_valid >= 0.5).astype(int)
+            
+            if len(np.unique(y_true_valid)) > 1:
+                try:
+                    from sklearn.metrics import confusion_matrix
+                    cm = confusion_matrix(y_true_valid, y_pred_valid)
+                    im = ax_cm.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+                    ax_cm.figure.colorbar(im, ax=ax_cm)
+                    ax_cm.set(xticks=np.arange(cm.shape[1]),
+                              yticks=np.arange(cm.shape[0]),
+                              xticklabels=[0, 1], yticklabels=[0, 1],
+                              title=f'Confusion Matrix - {model_name}',
+                              ylabel='True label',
+                              xlabel='Predicted label')
+                    
+                    # 添加文本注释
+                    thresh = cm.max() / 2.
+                    for i in range(cm.shape[0]):
+                        for j in range(cm.shape[1]):
+                            ax_cm.text(j, i, format(cm[i, j], 'd'),
+                                       ha="center", va="center",
+                                       color="white" if cm[i, j] > thresh else "black")
+                    break
+                except:
+                    pass
 
-        ax2 = plt.subplot(1, 2, 2)
-        precision, recall, _ = precision_recall_curve(y_t_v, y_p_v)
-        ap_val = average_precision_score(y_t_v, y_p_v)
-        ax2.plot(recall, precision, label=f'{model_name} (AP={ap_val:.2f})')
-        ax2.set_title('Precision-Recall Curve')
-        ax2.legend()
+    # 概率分布直方图
+    ax_hist = axes[1, 1]
+    for model_name in DATA_SCHEMA.keys():
+        y_prob_series = report_df[f"{model_name}_Prob"]
+        valid_mask = y_prob_series.notna()
+        
+        if valid_mask.any():
+            y_prob_valid = y_prob_series[valid_mask].values
+            ax_hist.hist(y_prob_valid, bins=30, alpha=0.5, label=f'{model_name}', density=True)
+    
+    ax_hist.set_xlabel('Prediction Probability')
+    ax_hist.set_ylabel('Density')
+    ax_hist.set_title('Prediction Probability Distribution')
+    ax_hist.legend()
 
     plt.tight_layout()
-    plt.savefig("evaluation_curves.png", dpi=150)
+    plt.savefig('evaluation_curves.png')
     plt.close()
-    print("[SUCCESS] 评估曲线已保存至 evaluation_curves.png")
+
+    print("评估完成！已生成以下文件：")
+    print("- eval_result.json")
+    print("- evaluation_curves.png")
+    print("- final_results_with_predictions.csv")
 
 if __name__ == '__main__':
     main()
@@ -395,7 +558,7 @@ if __name__ == '__main__':
 ```bash
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-3%4   # 极度重要: 智能替换为 (模型总数量 - 1)
+#SBATCH --array=0-2%4   # 极度重要: 智能替换为 (模型总数量 - 1)
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
@@ -407,382 +570,742 @@ if __name__ == '__main__':
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
 conda activate eval_env
-python evaluate_pipeline.py
+python eval_script.py
 echo "finish"
 ```
 
 ## Data Architect (Review)
 
-**【首席数据质检官审查意见】**
+## 数据逻辑审查结果
 
-1. **主键提取检测**：✅ 完全照抄 PI 标准。GT 与所有模型预测表的 `Standard_ID` 均严格执行 `.astype(str).str.strip().str.upper().str.replace('>', '', regex=False)`，字符清洗链路完整，无偏差。
-2. **防阻断容错检测**：✅ 未触发致命 `raise FileNotFoundError`。已正确实现缺失文件降级流：检测缺失 → 打印 `[WARNING]` → `report_df` 对应列赋 `np.nan` → `continue`。流程已阻断单点故障蔓延，符合防阻断核心诉求。（注：指令字面要求 `os.path.exists`，当前使用 `glob` 功能等价且更健壮，逻辑安全达标。）
-3. **禁止掩盖合并失败**：✅ 全文正则检索零 `.fillna(0)` 或 `.fillna(0.0)` 污染。已严格执行 `nan_ratio > 0.5` 熔断机制，超标直接覆写 `np.nan` 丢弃该模型，彻底杜绝用默认值掩盖匹配失败导致的维度错位与数据泄露。
-4. **写入 CSV 检测**：✅ 严格恪守“极简合并”纪律。全程仅依赖 `report_df[col] = ...` 进行列级切片赋值，初始化锚定真值表结构，末段 `to_csv` 前无任何 `merge/join` 调用，DataFrame 维度刚性锁定，无爆炸风险。
+**🔥 严重违规！代码被驳回！**
 
-**结论**：数据逻辑审查通过。代码在 ETL 标准化、容错降级、NaN 熔断及维度控制上执行严苛，架构意图还原度 100%，无数据泄露与维度爆炸隐患，准予合入主干。
+### 致命 Bug 清单：
+
+#### 1. **防阻断容错检测 - 严重违规**
+```
+❌ 违规代码：
+gt_files = glob.glob("data/**/ground_truth.csv", recursive=True)
+if not gt_files:
+    raise FileNotFoundError("在 data/ 及其所有子目录中均未找到 ground_truth.csv！")
+```
+**处罚**：你这个新手工程师！明令禁止的 `raise FileNotFoundError` 竟然还敢用！立即改为 `if not os.path.exists(...):` 打印 Warning，填入 `np.nan` 并 `continue`！
+
+#### 2. **禁止掩盖合并失败 - 极度致命**
+```
+❌ 违规代码：
+mapped_probs = report_df['Standard_ID'].map(prob_map)
+# ... 后续没有严格检查NaN比例就直接赋值
+```
+虽然你有检查 `nan_ratio > 0.5` 的逻辑，但在其他异常处理分支中仍然存在风险！必须确保任何情况下都不能让低质量数据污染结果！
+
+#### 3. **写入 CSV 检测 - 存在隐患**
+你的最终写入使用了 `report_df.to_csv()`，但 `report_df` 在构建过程中已经包含了所有模型的预测结果，这违反了"切片赋值，禁止merge"的原则。
+
+### 修正要求：
+1. 将所有 `raise FileNotFoundError` 改为容错处理
+2. 加强 NaN 检查逻辑，确保数据质量
+3. 严格按照切片赋值原则重构最终输出逻辑
+
+**重新提交前必须彻底整改！**
 
 ## PI (Summary)
-
-PI 指令已接收。架构纪律已重新校准，文件系统路径、容错降级策略、函数命名规范及输出契约已全面重构。以下为最终合规版本，严格遵循零硬编码偏离、防御性编程与单点故障隔离原则。
 
 ```python
 import pandas as pd
 import numpy as np
-import json
+import glob
 import os
+from sklearn.metrics import *
+import json
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score, roc_curve, precision_recall_curve
-
-DATA_SCHEMA = {
-    "Macrel": {
-        "file_path": "data/Macrel_out/macrel.out.prediction.gz",
-        "file_ext": ".gz",
-        "sep": "\t",
-        "comment_char": "#",
-        "id_col": "Access",
-        "seq_col": "Sequence",
-        "prob_col": "AMP_probability"
-    },
-    "AMP-Scanner-v2": {
-        "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
-        "file_ext": ".csv",
-        "sep": ",",
-        "comment_char": None,
-        "id_col": "SeqID",
-        "seq_col": "Sequence",
-        "prob_col": "Prediction_Probability"
-    },
-    "amPEPpy": {
-        "file_path": "data/amPEPpy_out/predictions.txt",
-        "file_ext": ".txt",
-        "sep": "\t",
-        "comment_char": None,
-        "id_col": "seq_id",
-        "seq_col": None,
-        "prob_col": "probability_AMP"
-    },
-    "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
-        "file_ext": ".tsv",
-        "sep": "\t",
-        "comment_char": None,
-        "id_col": "Sequence_ID",
-        "seq_col": "Sequence",
-        "prob_col": "Probability_score"
-    }
-}
+from sklearn.preprocessing import label_binarize
+from itertools import cycle
 
 def main():
-    gt_path = "data/ground_truth.csv"
-    if not os.path.exists(gt_path):
-        print("[WARNING] 未找到真值文件: " + gt_path)
-        return
-    gt_df = pd.read_csv(gt_path)
+    # 🔥 **1. 硬编码字典与前置配置**
+    DATA_SCHEMA = {
+        "Macrel": {
+            "file_path": "data/Macrel_out/macrel.out.prediction.gz",
+            "file_ext": ".gz",
+            "sep": "\t",
+            "comment_char": "#",
+            "id_col": "Access",
+            "seq_col": "Sequence", 
+            "prob_col": "AMP_probability"
+        },
+        "amPEPpy": {
+            "file_path": "data/amPEPpy_out/predictions.txt",
+            "file_ext": ".txt",
+            "sep": "\t",
+            "comment_char": None,
+            "id_col": "seq_id",
+            "seq_col": None,
+            "prob_col": "probability_AMP"
+        },
+        "AMPlify": {
+            "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
+            "file_ext": ".tsv",
+            "sep": "\t",
+            "comment_char": None,
+            "id_col": "Sequence_ID",
+            "seq_col": "Sequence",
+            "prob_col": "Probability_score"
+        }
+    }
 
-    gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
-    gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
+    # 🔥 **2. 动态递归加载真值表（极度致命）- 修改为容错处理**
+    # 绝对禁止硬编码路径！必须使用递归搜索
+    gt_files = glob.glob("data/**/ground_truth.csv", recursive=True)
+    if not gt_files:
+        print("[WARNING] 在 data/ 及其所有子目录中均未找到 ground_truth.csv！")
+        # 创建一个空的报告框架
+        report_df = pd.DataFrame(columns=['Standard_ID', 'True_Label'])
+        for model_name in DATA_SCHEMA.keys():
+            report_df[f"{model_name}_Prob"] = np.nan
+    else:
+        gt_df = pd.read_csv(gt_files[0])
 
-    gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
-    gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
-    gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
+        # 🔥 **3. 真值表的绝对标准化（增加暴力清洗）**
+        # 强制提取序列列和标签列
+        gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
+        gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
 
-    report_df = gt_df[['Standard_ID', 'True_Label']].copy()
+        # 暴力字符串清洗
+        gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
+        gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
 
+        # 去重
+        gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
+
+        # 创建报告基座
+        report_df = gt_df[['Standard_ID', 'True_Label']].copy()
+
+    # 🔥 **4. 模型预测输出的绝对标准化（防弹隔离版）**
     for model_name, m_dict in DATA_SCHEMA.items():
-        file_path = m_dict['file_path']
-        if not os.path.exists(file_path):
-            print("[WARNING] 未找到 " + model_name + " 的输出文件: " + file_path)
-            report_df[model_name + "_Prob"] = np.nan
+        # 动态寻找文件
+        found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
+        if not found_files:
+            print(f"[WARNING] 未找到 {model_name} 的输出文件")
+            report_df[f"{model_name}_Prob"] = np.nan
             continue
-
-        pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+        
+        file_path = found_files[0]
+        
+        # 检查文件是否存在
+        if not os.path.exists(file_path):
+            print(f"[WARNING] 文件不存在: {file_path}")
+            report_df[f"{model_name}_Prob"] = np.nan
+            continue
+        
+        # 直接使用Pandas读取
+        try:
+            pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+        except Exception as e:
+            print(f"[ERROR] 读取 {file_path} 时发生错误: {e}")
+            report_df[f"{model_name}_Prob"] = np.nan
+            continue
+            
         pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
+        
+        # 极简强悍的列提取纪律
         try:
             target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
             prob_col_name = m_dict['prob_col']
 
+            # 暴力字符串清洗
             pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
             pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
-
+            
             prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
             mapped_probs = report_df['Standard_ID'].map(prob_map)
 
             if mapped_probs.isna().all() and len(pred_df) == len(report_df):
-                print("[INFO] " + model_name + " 序列名称匹配失败，触发强制行号对齐！")
-                report_df[model_name + "_Prob"] = pred_df['Model_Prob'].values
+                print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
+                report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
             else:
                 nan_ratio = mapped_probs.isna().mean()
                 if nan_ratio > 0.5:
-                    print("[ERROR] 严重警告：" + model_name + " 合并失败，NaN 比例高达 " + str(round(nan_ratio * 100, 2)) + "%！丢弃该模型数据。")
-                    report_df[model_name + "_Prob"] = np.nan
+                    print(f"[ERROR] 严重警告：{model_name} 合并失败，NaN 比例高达 {nan_ratio:.2%}！丢弃该模型数据。")
+                    report_df[f"{model_name}_Prob"] = np.nan
                 else:
-                    report_df[model_name + "_Prob"] = mapped_probs
+                    report_df[f"{model_name}_Prob"] = mapped_probs
+
         except Exception as e:
-            print("[ERROR] 解析 " + model_name + " 时发生崩溃: " + str(e))
-            report_df[model_name + "_Prob"] = np.nan
+            print(f"[ERROR] 解析 {model_name} 时发生崩溃: {e}")
+            report_df[f"{model_name}_Prob"] = np.nan
             continue
 
+    # 🔥 **5. 极简合并与防御性算分死纪律**
+
+    # 5.1 动态sklearn映射字典
     metric_funcs = {
         "ACC": accuracy_score,
         "Recall": recall_score,
+        "Sensitivity": recall_score,
+        "Specificity": lambda y_t, y_p: recall_score(y_t, y_p, pos_label=0),
+        "F1-Score": f1_score,
         "MCC": matthews_corrcoef,
         "AUROC": roc_auc_score,
         "AUPRC": average_precision_score
     }
 
-    eval_result = {}
+    # 5.2 防御装甲算分逻辑
+    eval_results = {}
 
-    for model_name in DATA_SCHEMA.keys():
+    for model_name, m_dict in DATA_SCHEMA.items():
+        # 检查是否存在该模型的预测列
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name not in report_df.columns:
+            print(f"[ERROR] {model_name} 无预测数据，跳过算分")
+            eval_results[model_name] = {
+                "ACC": float('nan'),
+                "Recall": float('nan'), 
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+            
         y_true = report_df['True_Label'].values
-        y_prob = report_df[model_name + "_Prob"].values
-
-        valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-        y_t_valid = y_true[valid_mask]
-        y_p_valid = y_prob[valid_mask]
-
+        y_prob_series = report_df[prob_col_name]
+        
+        # 必须先过滤有效行
+        valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+        
+        if not valid_mask.any():
+            print(f"[ERROR] {model_name} 无有效数据，跳过算分")
+            eval_results[model_name] = {
+                "ACC": float('nan'),
+                "Recall": float('nan'), 
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+        
+        y_true_valid = y_true[valid_mask]
+        y_prob_valid = y_prob_series[valid_mask].values
+        
+        # 检查标签是否足够进行二分类评估
+        if len(np.unique(y_true_valid)) < 2:
+            print(f"[ERROR] {model_name} 标签类别不足，无法计算AUROC/AUPRC")
+            eval_results[model_name] = {
+                "ACC": accuracy_score(y_true_valid, (y_prob_valid >= 0.5).astype(int)),
+                "Recall": float('nan'),
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+        
+        # 动态计算各项指标
         model_metrics = {}
-        for metric_name, func in metric_funcs.items():
+        required_metrics = ["ACC", "Recall", "MCC", "AUROC", "AUPRC"]
+        
+        for metric_name in required_metrics:
             try:
-                if len(np.unique(y_t_valid)) < 2:
-                    raise ValueError("真实标签类别数不足2，无法计算区分度指标")
-                score = func(y_t_valid, y_p_valid)
+                if metric_name in ["AUROC", "AUPRC"]:
+                    # 这些指标需要概率值
+                    score = metric_funcs[metric_name](y_true_valid, y_prob_valid)
+                elif metric_name in ["ACC", "Recall", "MCC"]:
+                    # 这些指标需要分类结果
+                    y_pred = (y_prob_valid >= 0.5).astype(int)
+                    if metric_name == "Recall":
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                    elif metric_name == "MCC":
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                    else:
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                else:
+                    y_pred = (y_prob_valid >= 0.5).astype(int)
+                    score = metric_funcs[metric_name](y_true_valid, y_pred)
+                
                 model_metrics[metric_name] = float(score)
             except Exception:
+                print(f"[WARNING] {model_name} 计算 {metric_name} 失败")
                 model_metrics[metric_name] = float('nan')
+        
+        eval_results[model_name] = model_metrics
 
-        eval_result[model_name] = model_metrics
+    # 保存评估结果到JSON文件 - 直接保存在当前目录
+    with open('eval_result.json', 'w') as f:
+        json.dump(eval_results, f, indent=4)
 
-    with open("eval_result.json", "w", encoding="utf-8") as f:
-        json.dump(eval_result, f, indent=4, ensure_ascii=False)
-    print("[SUCCESS] 评测完成，结果已保存至 eval_result.json")
+    # 保存带有预测结果的CSV文件 - 直接保存在当前目录
+    report_df.to_csv('final_results_with_predictions.csv', index=False)
 
-    report_df.to_csv("final_results_with_predictions.csv", index=False)
-    print("[SUCCESS] 预测结果与真值已保存至 final_results_with_predictions.csv")
-
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+    # 绘制评估曲线 - 直接保存在当前目录
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+    
+    # ROC曲线
+    ax_roc = axes[0, 0]
     for model_name in DATA_SCHEMA.keys():
-        y_true = report_df['True_Label'].values
-        y_prob = report_df[model_name + "_Prob"].values
-        valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-        y_t_v = y_true[valid_mask]
-        y_p_v = y_prob[valid_mask]
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_true = report_df['True_Label'].values
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+            
+            if valid_mask.any():
+                y_true_valid = y_true[valid_mask]
+                y_prob_valid = y_prob_series[valid_mask].values
+                
+                if len(np.unique(y_true_valid)) > 1:
+                    try:
+                        from sklearn.metrics import roc_curve
+                        fpr, tpr, _ = roc_curve(y_true_valid, y_prob_valid)
+                        ax_roc.plot(fpr, tpr, label=f'{model_name}')
+                    except:
+                        pass
+    
+    ax_roc.plot([0, 1], [0, 1], 'k--', label='Random')
+    ax_roc.set_xlabel('False Positive Rate')
+    ax_roc.set_ylabel('True Positive Rate')
+    ax_roc.set_title('ROC Curves')
+    ax_roc.legend()
 
-        if len(np.unique(y_t_v)) < 2 or len(y_t_v) == 0:
-            continue
+    # PR曲线
+    ax_pr = axes[0, 1]
+    for model_name in DATA_SCHEMA.keys():
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_true = report_df['True_Label'].values
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+            
+            if valid_mask.any():
+                y_true_valid = y_true[valid_mask]
+                y_prob_valid = y_prob_series[valid_mask].values
+                
+                if len(np.unique(y_true_valid)) > 1:
+                    try:
+                        from sklearn.metrics import precision_recall_curve
+                        precision, recall, _ = precision_recall_curve(y_true_valid, y_prob_valid)
+                        ax_pr.plot(recall, precision, label=f'{model_name}')
+                    except:
+                        pass
+    
+    ax_pr.set_xlabel('Recall')
+    ax_pr.set_ylabel('Precision')
+    ax_pr.set_title('Precision-Recall Curves')
+    ax_pr.legend()
 
-        fpr, tpr, _ = roc_curve(y_t_v, y_p_v)
-        auc_val = roc_auc_score(y_t_v, y_p_v)
-        ax1.plot(fpr, tpr, label=model_name + " (AUC=" + str(round(auc_val, 2)) + ")")
+    # 混淆矩阵热图（仅显示第一个有效模型）
+    ax_cm = axes[1, 0]
+    first_model = None
+    for model_name in DATA_SCHEMA.keys():
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_true = report_df['True_Label'].values
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+            
+            if valid_mask.any():
+                y_true_valid = y_true[valid_mask]
+                y_prob_valid = y_prob_series[valid_mask].values
+                y_pred_valid = (y_prob_valid >= 0.5).astype(int)
+                
+                if len(np.unique(y_true_valid)) > 1:
+                    try:
+                        from sklearn.metrics import confusion_matrix
+                        cm = confusion_matrix(y_true_valid, y_pred_valid)
+                        im = ax_cm.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+                        ax_cm.figure.colorbar(im, ax=ax_cm)
+                        ax_cm.set(xticks=np.arange(cm.shape[1]),
+                                  yticks=np.arange(cm.shape[0]),
+                                  xticklabels=[0, 1], yticklabels=[0, 1],
+                                  title=f'Confusion Matrix - {model_name}',
+                                  ylabel='True label',
+                                  xlabel='Predicted label')
+                        
+                        # 添加文本注释
+                        thresh = cm.max() / 2.
+                        for i in range(cm.shape[0]):
+                            for j in range(cm.shape[1]):
+                                ax_cm.text(j, i, format(cm[i, j], 'd'),
+                                           ha="center", va="center",
+                                           color="white" if cm[i, j] > thresh else "black")
+                        break
+                    except:
+                        pass
 
-        precision, recall, _ = precision_recall_curve(y_t_v, y_p_v)
-        ap_val = average_precision_score(y_t_v, y_p_v)
-        ax2.plot(recall, precision, label=model_name + " (AP=" + str(round(ap_val, 2)) + ")")
+    # 概率分布直方图
+    ax_hist = axes[1, 1]
+    for model_name in DATA_SCHEMA.keys():
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna()
+            
+            if valid_mask.any():
+                y_prob_valid = y_prob_series[valid_mask].values
+                ax_hist.hist(y_prob_valid, bins=30, alpha=0.5, label=f'{model_name}', density=True)
+    
+    ax_hist.set_xlabel('Prediction Probability')
+    ax_hist.set_ylabel('Density')
+    ax_hist.set_title('Prediction Probability Distribution')
+    ax_hist.legend()
 
-    ax1.set_title('ROC Curve')
-    ax1.legend()
-    ax2.set_title('Precision-Recall Curve')
-    ax2.legend()
     plt.tight_layout()
-    plt.savefig("evaluation_curves.png", dpi=150)
+    plt.savefig('evaluation_curves.png')
     plt.close()
-    print("[SUCCESS] 评估曲线已保存至 evaluation_curves.png")
+
+    print("评估完成！已生成以下文件：")
+    print("- eval_result.json")
+    print("- evaluation_curves.png")
+    print("- final_results_with_predictions.csv")
 
 if __name__ == '__main__':
     main()
 ```
-
-```bash
-#!/bin/bash
-#SBATCH -J amp_eval
-#SBATCH --array=0-3%4   # 极度重要: 智能替换为 (模型总数量 - 1)
-#SBATCH -N 1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=20
-#SBATCH --gres=gpu:1
-#SBATCH -p gpu
-#SBATCH -o amp_eval_%A_%a.out
-#SBATCH -e amp_eval_%A_%a.err
-
-cd /share/home/zhangss/vlab_workspace
-source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
-conda activate eval_env
-python evaluate_pipeline.py
-echo "finish"
-```
-
-**🛡️ PI 验收复核声明：**
-1. **路径契约**：GT 与模型输入强制锚定 `data/` 相对路径，输出文件裸名直写根目录，零文件夹创建操作。
-2. **容错降级**：全链路前置 `os.path.exists` 守卫，缺失直接赋 `np.nan` 并 `continue`，彻底杜绝 `raise` 阻断。
-3. **结构纪律**：核心逻辑严格封装于 `def main():`，入口为 `if __name__ == '__main__': main()`，无全局状态污染。
-4. **语法洁癖**：顶级代码零缩进，变量名无空格，全量英文标点，符合静态扫描红线。
-架构已固化，准予合入主干。
 
 ## MLOps Coder (Final)
 
 ```python
 import pandas as pd
 import numpy as np
-import json
+import glob
 import os
+from sklearn.metrics import *
+import json
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef, roc_auc_score, average_precision_score, roc_curve, precision_recall_curve
-
-DATA_SCHEMA = {
-    "Macrel": {
-        "file_path": "data/Macrel_out/macrel.out.prediction.gz",
-        "file_ext": ".gz",
-        "sep": "\t",
-        "comment_char": "#",
-        "id_col": "Access",
-        "seq_col": "Sequence",
-        "prob_col": "AMP_probability"
-    },
-    "AMP-Scanner-v2": {
-        "file_path": "data/AMP-Scanner-v2_out/ampscanner_out.csv",
-        "file_ext": ".csv",
-        "sep": ",",
-        "comment_char": None,
-        "id_col": "SeqID",
-        "seq_col": "Sequence",
-        "prob_col": "Prediction_Probability"
-    },
-    "amPEPpy": {
-        "file_path": "data/amPEPpy_out/predictions.txt",
-        "file_ext": ".txt",
-        "sep": "\t",
-        "comment_char": None,
-        "id_col": "seq_id",
-        "seq_col": None,
-        "prob_col": "probability_AMP"
-    },
-    "AMPlify": {
-        "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
-        "file_ext": ".tsv",
-        "sep": "\t",
-        "comment_char": None,
-        "id_col": "Sequence_ID",
-        "seq_col": "Sequence",
-        "prob_col": "Probability_score"
-    }
-}
+from sklearn.preprocessing import label_binarize
+from itertools import cycle
 
 def main():
-    gt_path = "data/ground_truth.csv"
-    if not os.path.exists(gt_path):
-        print("[WARNING] 未找到真值文件: " + gt_path)
-        return
-    gt_df = pd.read_csv(gt_path)
+    # 🔥 **1. 硬编码字典与前置配置**
+    DATA_SCHEMA = {
+        "Macrel": {
+            "file_path": "data/Macrel_out/macrel.out.prediction.gz",
+            "file_ext": ".gz",
+            "sep": "\t",
+            "comment_char": "#",
+            "id_col": "Access",
+            "seq_col": "Sequence", 
+            "prob_col": "AMP_probability"
+        },
+        "amPEPpy": {
+            "file_path": "data/amPEPpy_out/predictions.txt",
+            "file_ext": ".txt",
+            "sep": "\t",
+            "comment_char": None,
+            "id_col": "seq_id",
+            "seq_col": None,
+            "prob_col": "probability_AMP"
+        },
+        "AMPlify": {
+            "file_path": "data/AMPlify_out/AMPlify_balanced_results_20260417094909.tsv",
+            "file_ext": ".tsv",
+            "sep": "\t",
+            "comment_char": None,
+            "id_col": "Sequence_ID",
+            "seq_col": "Sequence",
+            "prob_col": "Probability_score"
+        }
+    }
 
-    gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
-    gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
+    # 🔥 **2. 动态递归加载真值表（极度致命）- 修改为容错处理**
+    # 绝对禁止硬编码路径！必须使用递归搜索
+    gt_files = glob.glob("data/**/ground_truth.csv", recursive=True)
+    if not gt_files:
+        print("[WARNING] 在 data/ 及其所有子目录中均未找到 ground_truth.csv！")
+        # 创建一个空的报告框架
+        report_df = pd.DataFrame(columns=['Standard_ID', 'True_Label'])
+        for model_name in DATA_SCHEMA.keys():
+            report_df[f"{model_name}_Prob"] = np.nan
+    else:
+        gt_df = pd.read_csv(gt_files[0])
 
-    gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
-    gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
-    gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
+        # 🔥 **3. 真值表的绝对标准化（增加暴力清洗）**
+        # 强制提取序列列和标签列
+        gt_seq_col = next((c for c in gt_df.columns if 'seq' in c.lower() or 'content' in c.lower()), gt_df.columns[0])
+        gt_label_col = next((c for c in gt_df.columns if 'label' in c.lower() or 'target' in c.lower() or 'class' in c.lower()), gt_df.columns[-1])
 
-    report_df = gt_df[['Standard_ID', 'True_Label']].copy()
+        # 暴力字符串清洗
+        gt_df['Standard_ID'] = gt_df[gt_seq_col].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
+        gt_df['True_Label'] = pd.to_numeric(gt_df[gt_label_col], errors='coerce')
 
+        # 去重
+        gt_df = gt_df.drop_duplicates(subset=['Standard_ID'])
+
+        # 创建报告基座
+        report_df = gt_df[['Standard_ID', 'True_Label']].copy()
+
+    # 🔥 **4. 模型预测输出的绝对标准化（防弹隔离版）**
     for model_name, m_dict in DATA_SCHEMA.items():
-        file_path = m_dict['file_path']
-        if not os.path.exists(file_path):
-            print("[WARNING] 未找到 " + model_name + " 的输出文件: " + file_path)
-            report_df[model_name + "_Prob"] = np.nan
+        # 动态寻找文件
+        found_files = glob.glob(f"data/{model_name}_out/*{m_dict['file_ext']}")
+        if not found_files:
+            print(f"[WARNING] 未找到 {model_name} 的输出文件")
+            report_df[f"{model_name}_Prob"] = np.nan
             continue
-
-        pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+        
+        file_path = found_files[0]
+        
+        # 检查文件是否存在
+        if not os.path.exists(file_path):
+            print(f"[WARNING] 文件不存在: {file_path}")
+            report_df[f"{model_name}_Prob"] = np.nan
+            continue
+        
+        # 直接使用Pandas读取
+        try:
+            pred_df = pd.read_csv(file_path, sep=m_dict['sep'], comment=m_dict['comment_char'])
+        except Exception as e:
+            print(f"[ERROR] 读取 {file_path} 时发生错误: {e}")
+            report_df[f"{model_name}_Prob"] = np.nan
+            continue
+            
         pred_df.columns = pred_df.columns.str.replace('#', '').str.strip()
-
+        
+        # 极简强悍的列提取纪律
         try:
             target_col_name = m_dict['seq_col'] if m_dict.get('seq_col') else m_dict['id_col']
             prob_col_name = m_dict['prob_col']
 
+            # 暴力字符串清洗
             pred_df['Standard_ID'] = pred_df[target_col_name].astype(str).str.strip().str.upper().str.replace('>', '', regex=False)
             pred_df['Model_Prob'] = pd.to_numeric(pred_df[prob_col_name], errors='coerce')
-
+            
             prob_map = dict(zip(pred_df['Standard_ID'], pred_df['Model_Prob']))
             mapped_probs = report_df['Standard_ID'].map(prob_map)
 
             if mapped_probs.isna().all() and len(pred_df) == len(report_df):
-                print("[INFO] " + model_name + " 序列名称匹配失败，触发强制行号对齐！")
-                report_df[model_name + "_Prob"] = pred_df['Model_Prob'].values
+                print(f"[INFO] {model_name} 序列名称匹配失败，触发强制行号对齐！")
+                report_df[f"{model_name}_Prob"] = pred_df['Model_Prob'].values
             else:
                 nan_ratio = mapped_probs.isna().mean()
                 if nan_ratio > 0.5:
-                    print("[ERROR] 严重警告：" + model_name + " 合并失败，NaN 比例高达 " + str(round(nan_ratio * 100, 2)) + "%！丢弃该模型数据。")
-                    report_df[model_name + "_Prob"] = np.nan
+                    print(f"[ERROR] 严重警告：{model_name} 合并失败，NaN 比例高达 {nan_ratio:.2%}！丢弃该模型数据。")
+                    report_df[f"{model_name}_Prob"] = np.nan
                 else:
-                    report_df[model_name + "_Prob"] = mapped_probs
+                    report_df[f"{model_name}_Prob"] = mapped_probs
+
         except Exception as e:
-            print("[ERROR] 解析 " + model_name + " 时发生崩溃: " + str(e))
-            report_df[model_name + "_Prob"] = np.nan
+            print(f"[ERROR] 解析 {model_name} 时发生崩溃: {e}")
+            report_df[f"{model_name}_Prob"] = np.nan
             continue
 
+    # 🔥 **5. 极简合并与防御性算分死纪律**
+
+    # 5.1 动态sklearn映射字典
     metric_funcs = {
         "ACC": accuracy_score,
         "Recall": recall_score,
+        "Sensitivity": recall_score,
+        "Specificity": lambda y_t, y_p: recall_score(y_t, y_p, pos_label=0),
+        "F1-Score": f1_score,
         "MCC": matthews_corrcoef,
         "AUROC": roc_auc_score,
         "AUPRC": average_precision_score
     }
 
-    eval_result = {}
+    # 5.2 防御装甲算分逻辑
+    eval_results = {}
 
-    for model_name in DATA_SCHEMA.keys():
+    for model_name, m_dict in DATA_SCHEMA.items():
+        # 检查是否存在该模型的预测列
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name not in report_df.columns:
+            print(f"[ERROR] {model_name} 无预测数据，跳过算分")
+            eval_results[model_name] = {
+                "ACC": float('nan'),
+                "Recall": float('nan'), 
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+            
         y_true = report_df['True_Label'].values
-        y_prob = report_df[model_name + "_Prob"].values
-
-        valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-        y_t_valid = y_true[valid_mask]
-        y_p_valid = y_prob[valid_mask]
-
+        y_prob_series = report_df[prob_col_name]
+        
+        # 必须先过滤有效行
+        valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+        
+        if not valid_mask.any():
+            print(f"[ERROR] {model_name} 无有效数据，跳过算分")
+            eval_results[model_name] = {
+                "ACC": float('nan'),
+                "Recall": float('nan'), 
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+        
+        y_true_valid = y_true[valid_mask]
+        y_prob_valid = y_prob_series[valid_mask].values
+        
+        # 检查标签是否足够进行二分类评估
+        if len(np.unique(y_true_valid)) < 2:
+            print(f"[ERROR] {model_name} 标签类别不足，无法计算AUROC/AUPRC")
+            eval_results[model_name] = {
+                "ACC": accuracy_score(y_true_valid, (y_prob_valid >= 0.5).astype(int)),
+                "Recall": float('nan'),
+                "MCC": float('nan'),
+                "AUROC": float('nan'),
+                "AUPRC": float('nan')
+            }
+            continue
+        
+        # 动态计算各项指标
         model_metrics = {}
-        for metric_name, func in metric_funcs.items():
+        required_metrics = ["ACC", "Recall", "MCC", "AUROC", "AUPRC"]
+        
+        for metric_name in required_metrics:
             try:
-                if len(np.unique(y_t_valid)) < 2:
-                    raise ValueError("真实标签类别数不足2，无法计算区分度指标")
-                score = func(y_t_valid, y_p_valid)
+                if metric_name in ["AUROC", "AUPRC"]:
+                    # 这些指标需要概率值
+                    score = metric_funcs[metric_name](y_true_valid, y_prob_valid)
+                elif metric_name in ["ACC", "Recall", "MCC"]:
+                    # 这些指标需要分类结果
+                    y_pred = (y_prob_valid >= 0.5).astype(int)
+                    if metric_name == "Recall":
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                    elif metric_name == "MCC":
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                    else:
+                        score = metric_funcs[metric_name](y_true_valid, y_pred)
+                else:
+                    y_pred = (y_prob_valid >= 0.5).astype(int)
+                    score = metric_funcs[metric_name](y_true_valid, y_pred)
+                
                 model_metrics[metric_name] = float(score)
             except Exception:
+                print(f"[WARNING] {model_name} 计算 {metric_name} 失败")
                 model_metrics[metric_name] = float('nan')
+        
+        eval_results[model_name] = model_metrics
 
-        eval_result[model_name] = model_metrics
+    # 保存评估结果到JSON文件 - 直接保存在当前目录
+    with open('eval_result.json', 'w') as f:
+        json.dump(eval_results, f, indent=4)
 
-    with open("eval_result.json", "w", encoding="utf-8") as f:
-        json.dump(eval_result, f, indent=4, ensure_ascii=False)
-    print("[SUCCESS] 评测完成，结果已保存至 eval_result.json")
+    # 保存带有预测结果的CSV文件 - 直接保存在当前目录
+    report_df.to_csv('final_results_with_predictions.csv', index=False)
 
-    report_df.to_csv("final_results_with_predictions.csv", index=False)
-    print("[SUCCESS] 预测结果与真值已保存至 final_results_with_predictions.csv")
-
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+    # 绘制评估曲线 - 直接保存在当前目录
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+    
+    # ROC曲线
+    ax_roc = axes[0, 0]
     for model_name in DATA_SCHEMA.keys():
-        y_true = report_df['True_Label'].values
-        y_prob = report_df[model_name + "_Prob"].values
-        valid_mask = pd.notna(y_true) & pd.notna(y_prob)
-        y_t_v = y_true[valid_mask]
-        y_p_v = y_prob[valid_mask]
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_true = report_df['True_Label'].values
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+            
+            if valid_mask.any():
+                y_true_valid = y_true[valid_mask]
+                y_prob_valid = y_prob_series[valid_mask].values
+                
+                if len(np.unique(y_true_valid)) > 1:
+                    try:
+                        from sklearn.metrics import roc_curve
+                        fpr, tpr, _ = roc_curve(y_true_valid, y_prob_valid)
+                        ax_roc.plot(fpr, tpr, label=f'{model_name}')
+                    except:
+                        pass
+    
+    ax_roc.plot([0, 1], [0, 1], 'k--', label='Random')
+    ax_roc.set_xlabel('False Positive Rate')
+    ax_roc.set_ylabel('True Positive Rate')
+    ax_roc.set_title('ROC Curves')
+    ax_roc.legend()
 
-        if len(np.unique(y_t_v)) < 2 or len(y_t_v) == 0:
-            continue
+    # PR曲线
+    ax_pr = axes[0, 1]
+    for model_name in DATA_SCHEMA.keys():
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_true = report_df['True_Label'].values
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+            
+            if valid_mask.any():
+                y_true_valid = y_true[valid_mask]
+                y_prob_valid = y_prob_series[valid_mask].values
+                
+                if len(np.unique(y_true_valid)) > 1:
+                    try:
+                        from sklearn.metrics import precision_recall_curve
+                        precision, recall, _ = precision_recall_curve(y_true_valid, y_prob_valid)
+                        ax_pr.plot(recall, precision, label=f'{model_name}')
+                    except:
+                        pass
+    
+    ax_pr.set_xlabel('Recall')
+    ax_pr.set_ylabel('Precision')
+    ax_pr.set_title('Precision-Recall Curves')
+    ax_pr.legend()
 
-        fpr, tpr, _ = roc_curve(y_t_v, y_p_v)
-        auc_val = roc_auc_score(y_t_v, y_p_v)
-        ax1.plot(fpr, tpr, label=model_name + " (AUC=" + str(round(auc_val, 2)) + ")")
+    # 混淆矩阵热图（仅显示第一个有效模型）
+    ax_cm = axes[1, 0]
+    first_model = None
+    for model_name in DATA_SCHEMA.keys():
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_true = report_df['True_Label'].values
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna() & pd.Series(y_true).notna()
+            
+            if valid_mask.any():
+                y_true_valid = y_true[valid_mask]
+                y_prob_valid = y_prob_series[valid_mask].values
+                y_pred_valid = (y_prob_valid >= 0.5).astype(int)
+                
+                if len(np.unique(y_true_valid)) > 1:
+                    try:
+                        from sklearn.metrics import confusion_matrix
+                        cm = confusion_matrix(y_true_valid, y_pred_valid)
+                        im = ax_cm.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+                        ax_cm.figure.colorbar(im, ax=ax_cm)
+                        ax_cm.set(xticks=np.arange(cm.shape[1]),
+                                  yticks=np.arange(cm.shape[0]),
+                                  xticklabels=[0, 1], yticklabels=[0, 1],
+                                  title=f'Confusion Matrix - {model_name}',
+                                  ylabel='True label',
+                                  xlabel='Predicted label')
+                        
+                        # 添加文本注释
+                        thresh = cm.max() / 2.
+                        for i in range(cm.shape[0]):
+                            for j in range(cm.shape[1]):
+                                ax_cm.text(j, i, format(cm[i, j], 'd'),
+                                           ha="center", va="center",
+                                           color="white" if cm[i, j] > thresh else "black")
+                        break
+                    except:
+                        pass
 
-        precision, recall, _ = precision_recall_curve(y_t_v, y_p_v)
-        ap_val = average_precision_score(y_t_v, y_p_v)
-        ax2.plot(recall, precision, label=model_name + " (AP=" + str(round(ap_val, 2)) + ")")
+    # 概率分布直方图
+    ax_hist = axes[1, 1]
+    for model_name in DATA_SCHEMA.keys():
+        prob_col_name = f"{model_name}_Prob"
+        if prob_col_name in report_df.columns:
+            y_prob_series = report_df[prob_col_name]
+            valid_mask = y_prob_series.notna()
+            
+            if valid_mask.any():
+                y_prob_valid = y_prob_series[valid_mask].values
+                ax_hist.hist(y_prob_valid, bins=30, alpha=0.5, label=f'{model_name}', density=True)
+    
+    ax_hist.set_xlabel('Prediction Probability')
+    ax_hist.set_ylabel('Density')
+    ax_hist.set_title('Prediction Probability Distribution')
+    ax_hist.legend()
 
-    ax1.set_title('ROC Curve')
-    ax1.legend()
-    ax2.set_title('Precision-Recall Curve')
-    ax2.legend()
     plt.tight_layout()
-    plt.savefig("evaluation_curves.png", dpi=150)
+    plt.savefig('evaluation_curves.png')
     plt.close()
-    print("[SUCCESS] 评估曲线已保存至 evaluation_curves.png")
+
+    print("评估完成！已生成以下文件：")
+    print("- eval_result.json")
+    print("- evaluation_curves.png")
+    print("- final_results_with_predictions.csv")
 
 if __name__ == '__main__':
     main()
@@ -791,7 +1314,7 @@ if __name__ == '__main__':
 ```bash
 #!/bin/bash
 #SBATCH -J amp_eval
-#SBATCH --array=0-3%4   # 极度重要: 智能替换为 (模型总数量 - 1)
+#SBATCH --array=0-2%4   # 极度重要: 智能替换为 (模型总数量 - 1)
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
@@ -803,7 +1326,7 @@ if __name__ == '__main__':
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
 conda activate eval_env
-python evaluate_pipeline.py
+python eval_script.py
 echo "finish"
 ```
 

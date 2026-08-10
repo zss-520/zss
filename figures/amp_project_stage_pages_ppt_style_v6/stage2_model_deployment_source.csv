@@ -1,0 +1,19 @@
+section,field_1,field_2,field_3
+metric,8,registry entries,
+metric,8,marked ready,
+metric,42,repair artifacts,
+metric,1,smoke-test gate,
+agent,Repository inspector,model_onboarding/repository_inspector_system.md,"Translate README, requirements and commands into a registry proposal"
+agent,Inspector task,model_onboarding/repository_inspector_task.md,Constrain the repository-specific extraction task
+agent,Self-heal system,model_execution/self_heal_system.md,Diagnose logs and propose bounded repairs
+agent,Self-heal task,model_execution/self_heal_task.md,Retry only approved environment or invocation changes
+execution,Inspect,README + requirements,
+execution,Register,local_registry.json,
+execution,Upload,repository -> HPC,
+execution,Build,Conda + dependencies,
+execution,Admit,smoke-test success,
+artifact,new_model_onboarding.py,local engine,repository inspection and registry generation
+artifact,hpc_model_ops.py,HPC engine,"upload, environment creation, repair and smoke test"
+artifact,data/local_registry.json,durable model state,"repository, environment, command and readiness"
+artifact,data/hpc_self_heal/,repair evidence,"failure logs, proposed repair and retry record"
+artifact,skip_env_setup=true,admission state,written only after the deployment gate succeeds

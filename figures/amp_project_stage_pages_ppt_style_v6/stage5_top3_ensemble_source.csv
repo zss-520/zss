@@ -1,0 +1,18 @@
+section,field_1,field_2,field_3
+metric,18,eligible models,
+metric,816,three-model combinations,
+metric,3,benchmark datasets,
+metric,1,recommended trio,
+agent,Chief handoff,chief_agent.md,Provides the accepted ranking evidence
+agent,Research advisor,research_advisor.md,Interprets stability and complementary errors
+agent,Combination engine,ensemble_top3_selector.py,Scores every unique three-model combination
+execution,Align,three datasets,
+execution,Enumerate,all 3-model sets,
+execution,Vote,equal probability mean,
+execution,Score,stored 50-round evidence,
+execution,Recommend,external validation trio,
+artifact,ensemble_top3_selector.py,selection engine,exhaustive equal-probability soft voting
+artifact,ensemble_top3_combination_ranking.csv,full ranking,816 evaluated combinations
+artifact,ensemble_top3_selection.json,selection record,"method, datasets, models, ranking and caveat"
+artifact,recommended_models,current trio,C_AMPs-predict / esm-AxP-GDL / pepnet_standard
+artifact,amp_research_advisor.py,interpretation,"performance, stability and future validation plan"

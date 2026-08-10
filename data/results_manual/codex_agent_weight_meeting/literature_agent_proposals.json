@@ -1,0 +1,4563 @@
+{
+  "role": "literature_agent",
+  "role_mandate": "Protect endpoint intent using the supplied literature-memory consensus; interpret only anonymous metric evidence and dataset prevalence, never model identity, score, or rank.",
+  "policy": {
+    "information_boundary": "Reads only agent_evidence_bundle.json. No model identities, predictions, scores, leaderboards, or downstream winner information are accessed.",
+    "source_policy": "literature_consensus is treated as supplied project memory. Statements labelled llm_prior are this Agent's methodological judgement, not new external citations.",
+    "weight_policy": "All 12 metrics remain present; weights are constrained to [0.005, 0.35], sum to 1, and each round is smoothed from this role's preceding proposal with L1 <= 0.30.",
+    "update_rule": "Round target = 0.78 literature/task anchor + 0.22 normalized anonymous evidence; proposal = 0.65 previous role proposal + 0.35 current target."
+  },
+  "initial": {
+    "analysis": "The supplied project literature memory identifies AUPRC as the primary endpoint for strong imbalance, MCC as an all-confusion-cell robust summary, and Recall/Precision as the missed-candidate versus wet-lab-burden pair. I therefore retain these four as the largest components while reserving meaningful mass for AUROC, balanced accuracy, F1, calibration, and negative-class behaviour. llm_prior: calibration should remain visible because this benchmark compares candidate probabilities, but it should not displace the literature-defined primary discrimination endpoints before calibration protocols are audited.",
+    "evidence_sources": [
+      {
+        "source": "supplied literature_consensus.historical_primary_proposal",
+        "use": "sets AUPRC, MCC, Recall, and Precision as dominant endpoint family"
+      },
+      {
+        "source": "supplied literature_consensus.historical_revised_proposal",
+        "use": "retains AUROC as a secondary threshold-free view"
+      },
+      {
+        "source": "supplied metric_definitions and dataset_profiles",
+        "use": "preserves threshold, calibration, and negative-class dimensions across severe and moderate prevalence"
+      },
+      {
+        "source": "llm_prior",
+        "use": "allocates mandatory residual mass across complementary metrics; not an external citation"
+      }
+    ],
+    "weights": {
+      "ACC": 0.015,
+      "AUPRC": 0.25,
+      "AUROC": 0.075,
+      "BalancedAccuracy": 0.06,
+      "BrierScore": 0.04,
+      "ECE": 0.03,
+      "F1-Score": 0.055,
+      "MCC": 0.19,
+      "NPV": 0.025,
+      "Precision": 0.1,
+      "Recall": 0.13,
+      "Specificity": 0.03
+    },
+    "confidence": 0.76,
+    "uncertainties": [
+      "The supplied consensus is a project memory summary rather than a claim-level citation audit.",
+      "Homology leakage and independence gates are pending for all three datasets.",
+      "Threshold-selection and calibration protocols have not yet been independently verified."
+    ]
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 1 anonymous evidence is strongest for Specificity=0.719, Precision=0.718, NPV=0.715 and weakest for BalancedAccuracy=0.657, F1-Score=0.661. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.005, NPV=0.005 and most decreases AUPRC=-0.013, MCC=-0.008 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.237, MCC=0.182, Recall=0.127, Precision=0.099, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.718946
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.717625
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714799
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.657433
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.66057
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.02988898,
+          "AUPRC": 0.212683817,
+          "AUROC": 0.076362894,
+          "BalancedAccuracy": 0.064391388,
+          "BrierScore": 0.049166748,
+          "ECE": 0.041962184,
+          "F1-Score": 0.06066197,
+          "MCC": 0.166233192,
+          "NPV": 0.038532624,
+          "Precision": 0.097107855,
+          "Recall": 0.120465316,
+          "Specificity": 0.042543032
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.020211143,
+        "AUPRC": 0.236939336,
+        "AUROC": 0.075477013,
+        "BalancedAccuracy": 0.061536986,
+        "BrierScore": 0.043208362,
+        "ECE": 0.034186764,
+        "F1-Score": 0.05698169,
+        "MCC": 0.181681617,
+        "NPV": 0.029736418,
+        "Precision": 0.098987749,
+        "Recall": 0.126662861,
+        "Specificity": 0.034390061
+      },
+      "previous_role_weights": {
+        "ACC": 0.015,
+        "AUPRC": 0.25,
+        "AUROC": 0.075,
+        "BalancedAccuracy": 0.06,
+        "BrierScore": 0.04,
+        "ECE": 0.03,
+        "F1-Score": 0.055,
+        "MCC": 0.19,
+        "NPV": 0.025,
+        "Precision": 0.1,
+        "Recall": 0.13,
+        "Specificity": 0.03
+      },
+      "l1_from_previous": 0.051456874,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 2,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "Round 2 anonymous evidence is strongest for NPV=0.738, Recall=0.728, Specificity=0.690 and weakest for BrierScore=0.649, ACC=0.659. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.003, ACC=0.003 and most decreases AUPRC=-0.008, MCC=-0.005 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.229, MCC=0.177, Recall=0.125, Precision=0.098, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.738231
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.727828
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.690359
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.649162
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.659066
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028688238,
+          "AUPRC": 0.213662968,
+          "AUROC": 0.076054108,
+          "BalancedAccuracy": 0.064871567,
+          "BrierScore": 0.048644379,
+          "ECE": 0.041175297,
+          "F1-Score": 0.061229517,
+          "MCC": 0.166923441,
+          "NPV": 0.039014238,
+          "Precision": 0.096633461,
+          "Recall": 0.121181633,
+          "Specificity": 0.041921153
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.023178128,
+        "AUPRC": 0.228792607,
+        "AUROC": 0.075678996,
+        "BalancedAccuracy": 0.062704089,
+        "BrierScore": 0.045110968,
+        "ECE": 0.036632751,
+        "F1-Score": 0.058468429,
+        "MCC": 0.176516255,
+        "NPV": 0.032983655,
+        "Precision": 0.098163748,
+        "Recall": 0.124744431,
+        "Specificity": 0.037025943
+      },
+      "previous_role_weights": {
+        "ACC": 0.020211143,
+        "AUPRC": 0.236939336,
+        "AUROC": 0.075477013,
+        "BalancedAccuracy": 0.061536986,
+        "BrierScore": 0.043208362,
+        "ECE": 0.034186764,
+        "F1-Score": 0.05698169,
+        "MCC": 0.181681617,
+        "NPV": 0.029736418,
+        "Precision": 0.098987749,
+        "Recall": 0.126662861,
+        "Specificity": 0.034390061
+      },
+      "l1_from_previous": 0.032109044,
+      "confidence": 0.792,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 3,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 3 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.002, Specificity=0.002 and most decreases AUPRC=-0.005, MCC=-0.003 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.223, MCC=0.173, Recall=0.123, Precision=0.098, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.025057629,
+        "AUPRC": 0.22342284,
+        "AUROC": 0.075878826,
+        "BalancedAccuracy": 0.063409016,
+        "BrierScore": 0.046332939,
+        "ECE": 0.038196812,
+        "F1-Score": 0.059207805,
+        "MCC": 0.173094033,
+        "NPV": 0.035107839,
+        "Precision": 0.097841301,
+        "Recall": 0.123477537,
+        "Specificity": 0.038973423
+      },
+      "previous_role_weights": {
+        "ACC": 0.023178128,
+        "AUPRC": 0.228792607,
+        "AUROC": 0.075678996,
+        "BalancedAccuracy": 0.062704089,
+        "BrierScore": 0.045110968,
+        "ECE": 0.036632751,
+        "F1-Score": 0.058468429,
+        "MCC": 0.176516255,
+        "NPV": 0.032983655,
+        "Precision": 0.098163748,
+        "Recall": 0.124744431,
+        "Specificity": 0.037025943
+      },
+      "l1_from_previous": 0.02076266,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 4,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "Round 4 anonymous evidence is strongest for NPV=0.754, Specificity=0.748, Precision=0.747 and weakest for ACC=0.699, ECE=0.701. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases ACC=0.001, Specificity=0.001 and most decreases AUPRC=-0.003, MCC=-0.002 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.220, MCC=0.171, Recall=0.122, Precision=0.098, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.754173
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.747614
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.74663
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.698995
+          },
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.700869
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028654663,
+          "AUPRC": 0.213621317,
+          "AUROC": 0.077056299,
+          "BalancedAccuracy": 0.065263821,
+          "BrierScore": 0.048980378,
+          "ECE": 0.041122916,
+          "F1-Score": 0.06064818,
+          "MCC": 0.166850229,
+          "NPV": 0.038259721,
+          "Precision": 0.097003285,
+          "Recall": 0.120265072,
+          "Specificity": 0.042274119
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.026316591,
+        "AUPRC": 0.219992306,
+        "AUROC": 0.076290942,
+        "BalancedAccuracy": 0.064058198,
+        "BrierScore": 0.047259543,
+        "ECE": 0.039220948,
+        "F1-Score": 0.059711936,
+        "MCC": 0.170908702,
+        "NPV": 0.036210998,
+        "Precision": 0.097547995,
+        "Recall": 0.122353174,
+        "Specificity": 0.040128667
+      },
+      "previous_role_weights": {
+        "ACC": 0.025057629,
+        "AUPRC": 0.22342284,
+        "AUROC": 0.075878826,
+        "BalancedAccuracy": 0.063409016,
+        "BrierScore": 0.046332939,
+        "ECE": 0.038196812,
+        "F1-Score": 0.059207805,
+        "MCC": 0.173094033,
+        "NPV": 0.035107839,
+        "Precision": 0.097841301,
+        "Recall": 0.123477537,
+        "Specificity": 0.038973423
+      },
+      "l1_from_previous": 0.014067068,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 5,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "Round 5 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.001, Specificity=0.001 and most decreases AUPRC=-0.002, MCC=-0.001 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.218, MCC=0.169, Recall=0.122, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.027097629,
+        "AUPRC": 0.217702644,
+        "AUROC": 0.076276591,
+        "BalancedAccuracy": 0.064289187,
+        "BrierScore": 0.047729513,
+        "ECE": 0.039879141,
+        "F1-Score": 0.060016084,
+        "MCC": 0.169449123,
+        "NPV": 0.037205612,
+        "Precision": 0.097441062,
+        "Recall": 0.12192322,
+        "Specificity": 0.040990194
+      },
+      "previous_role_weights": {
+        "ACC": 0.026316591,
+        "AUPRC": 0.219992306,
+        "AUROC": 0.076290942,
+        "BalancedAccuracy": 0.064058198,
+        "BrierScore": 0.047259543,
+        "ECE": 0.039220948,
+        "F1-Score": 0.059711936,
+        "MCC": 0.170908702,
+        "NPV": 0.036210998,
+        "Precision": 0.097547995,
+        "Recall": 0.122353174,
+        "Specificity": 0.040128667
+      },
+      "l1_from_previous": 0.008600958,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 6,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "Round 6 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases BrierScore=0.000, BalancedAccuracy=0.000 and most decreases AUPRC=-0.001, MCC=-0.001 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.217, MCC=0.169, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.027389191,
+        "AUPRC": 0.216528066,
+        "AUROC": 0.076490726,
+        "BalancedAccuracy": 0.064734535,
+        "BrierScore": 0.048184005,
+        "ECE": 0.040270142,
+        "F1-Score": 0.060213992,
+        "MCC": 0.168692879,
+        "NPV": 0.037539206,
+        "Precision": 0.097291687,
+        "Recall": 0.121275649,
+        "Specificity": 0.041389922
+      },
+      "previous_role_weights": {
+        "ACC": 0.027097629,
+        "AUPRC": 0.217702644,
+        "AUROC": 0.076276591,
+        "BalancedAccuracy": 0.064289187,
+        "BrierScore": 0.047729513,
+        "ECE": 0.039879141,
+        "F1-Score": 0.060016084,
+        "MCC": 0.169449123,
+        "NPV": 0.037205612,
+        "Precision": 0.097441062,
+        "Recall": 0.12192322,
+        "Specificity": 0.040990194
+      },
+      "l1_from_previous": 0.005455536,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 7,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 7 anonymous evidence is strongest for Specificity=0.719, Precision=0.718, NPV=0.715 and weakest for BalancedAccuracy=0.657, F1-Score=0.661. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.001, ECE=0.001 and most decreases AUPRC=-0.001, MCC=-0.001 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.215, MCC=0.168, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.718946
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.717625
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714799
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.657433
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.66057
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.02988898,
+          "AUPRC": 0.212683817,
+          "AUROC": 0.076362894,
+          "BalancedAccuracy": 0.064391388,
+          "BrierScore": 0.049166748,
+          "ECE": 0.041962184,
+          "F1-Score": 0.06066197,
+          "MCC": 0.166233192,
+          "NPV": 0.038532624,
+          "Precision": 0.097107855,
+          "Recall": 0.120465316,
+          "Specificity": 0.042543032
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028264117,
+        "AUPRC": 0.215182578,
+        "AUROC": 0.076445985,
+        "BalancedAccuracy": 0.064614434,
+        "BrierScore": 0.048527965,
+        "ECE": 0.040862357,
+        "F1-Score": 0.060370784,
+        "MCC": 0.167831989,
+        "NPV": 0.037886902,
+        "Precision": 0.097227346,
+        "Recall": 0.120992032,
+        "Specificity": 0.041793511
+      },
+      "previous_role_weights": {
+        "ACC": 0.027389191,
+        "AUPRC": 0.216528066,
+        "AUROC": 0.076490726,
+        "BalancedAccuracy": 0.064734535,
+        "BrierScore": 0.048184005,
+        "ECE": 0.040270142,
+        "F1-Score": 0.060213992,
+        "MCC": 0.168692879,
+        "NPV": 0.037539206,
+        "Precision": 0.097291687,
+        "Recall": 0.121275649,
+        "Specificity": 0.041389922
+      },
+      "l1_from_previous": 0.005438356,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 8,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "Round 8 anonymous evidence is strongest for NPV=0.738, Recall=0.728, Specificity=0.690 and weakest for BrierScore=0.649, ACC=0.659. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.000, F1-Score=0.000 and most decreases AUPRC=-0.001, MCC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.215, MCC=0.168, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.738231
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.727828
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.690359
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.649162
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.659066
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028688238,
+          "AUPRC": 0.213662968,
+          "AUROC": 0.076054108,
+          "BalancedAccuracy": 0.064871567,
+          "BrierScore": 0.048644379,
+          "ECE": 0.041175297,
+          "F1-Score": 0.061229517,
+          "MCC": 0.166923441,
+          "NPV": 0.039014238,
+          "Precision": 0.096633461,
+          "Recall": 0.121181633,
+          "Specificity": 0.041921153
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028412559,
+        "AUPRC": 0.214650714,
+        "AUROC": 0.076308828,
+        "BalancedAccuracy": 0.064704431,
+        "BrierScore": 0.04856871,
+        "ECE": 0.040971886,
+        "F1-Score": 0.060671341,
+        "MCC": 0.167513997,
+        "NPV": 0.03828147,
+        "Precision": 0.097019486,
+        "Recall": 0.121058392,
+        "Specificity": 0.041838186
+      },
+      "previous_role_weights": {
+        "ACC": 0.028264117,
+        "AUPRC": 0.215182578,
+        "AUROC": 0.076445985,
+        "BalancedAccuracy": 0.064614434,
+        "BrierScore": 0.048527965,
+        "ECE": 0.040862357,
+        "F1-Score": 0.060370784,
+        "MCC": 0.167831989,
+        "NPV": 0.037886902,
+        "Precision": 0.097227346,
+        "Recall": 0.120992032,
+        "Specificity": 0.041793511
+      },
+      "l1_from_previous": 0.002389746,
+      "confidence": 0.792,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 9,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "Round 9 anonymous evidence is strongest for NPV=0.754, Specificity=0.748, Precision=0.747 and weakest for ACC=0.699, ECE=0.701. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUROC=0.000, BalancedAccuracy=0.000 and most decreases AUPRC=-0.000, Recall=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.754173
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.747614
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.74663
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.698995
+          },
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.700869
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028654663,
+          "AUPRC": 0.213621317,
+          "AUROC": 0.077056299,
+          "BalancedAccuracy": 0.065263821,
+          "BrierScore": 0.048980378,
+          "ECE": 0.041122916,
+          "F1-Score": 0.06064818,
+          "MCC": 0.166850229,
+          "NPV": 0.038259721,
+          "Precision": 0.097003285,
+          "Recall": 0.120265072,
+          "Specificity": 0.042274119
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028497295,
+        "AUPRC": 0.214290424,
+        "AUROC": 0.076570443,
+        "BalancedAccuracy": 0.064900217,
+        "BrierScore": 0.048712794,
+        "ECE": 0.041024747,
+        "F1-Score": 0.060663235,
+        "MCC": 0.167281678,
+        "NPV": 0.038273858,
+        "Precision": 0.097013816,
+        "Recall": 0.12078073,
+        "Specificity": 0.041990763
+      },
+      "previous_role_weights": {
+        "ACC": 0.028412559,
+        "AUPRC": 0.214650714,
+        "AUROC": 0.076308828,
+        "BalancedAccuracy": 0.064704431,
+        "BrierScore": 0.04856871,
+        "ECE": 0.040971886,
+        "F1-Score": 0.060671341,
+        "MCC": 0.167513997,
+        "NPV": 0.03828147,
+        "Precision": 0.097019486,
+        "Recall": 0.121058392,
+        "Specificity": 0.041838186
+      },
+      "l1_from_previous": 0.001783318,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 10,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "Round 10 anonymous evidence is strongest for NPV=0.754, Specificity=0.748, Precision=0.747 and weakest for ACC=0.699, ECE=0.701. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUROC=0.000, BalancedAccuracy=0.000 and most decreases AUPRC=-0.000, Recall=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.754173
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.747614
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.74663
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.698995
+          },
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.700869
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028654663,
+          "AUPRC": 0.213621317,
+          "AUROC": 0.077056299,
+          "BalancedAccuracy": 0.065263821,
+          "BrierScore": 0.048980378,
+          "ECE": 0.041122916,
+          "F1-Score": 0.06064818,
+          "MCC": 0.166850229,
+          "NPV": 0.038259721,
+          "Precision": 0.097003285,
+          "Recall": 0.120265072,
+          "Specificity": 0.042274119
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028552374,
+        "AUPRC": 0.214056236,
+        "AUROC": 0.076740493,
+        "BalancedAccuracy": 0.065027478,
+        "BrierScore": 0.048806448,
+        "ECE": 0.041059106,
+        "F1-Score": 0.060657966,
+        "MCC": 0.167130671,
+        "NPV": 0.03826891,
+        "Precision": 0.09701013,
+        "Recall": 0.12060025,
+        "Specificity": 0.042089938
+      },
+      "previous_role_weights": {
+        "ACC": 0.028497295,
+        "AUPRC": 0.214290424,
+        "AUROC": 0.076570443,
+        "BalancedAccuracy": 0.064900217,
+        "BrierScore": 0.048712794,
+        "ECE": 0.041024747,
+        "F1-Score": 0.060663235,
+        "MCC": 0.167281678,
+        "NPV": 0.038273858,
+        "Precision": 0.097013816,
+        "Recall": 0.12078073,
+        "Specificity": 0.041990763
+      },
+      "l1_from_previous": 0.001159156,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 11,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "Round 11 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases BalancedAccuracy=0.000, AUPRC=0.000 and most decreases ACC=-0.000, Recall=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028334775,
+        "AUPRC": 0.214157902,
+        "AUROC": 0.076792262,
+        "BalancedAccuracy": 0.065214424,
+        "BrierScore": 0.048884013,
+        "ECE": 0.041037119,
+        "F1-Score": 0.060631215,
+        "MCC": 0.167185885,
+        "NPV": 0.03823035,
+        "Precision": 0.097011581,
+        "Recall": 0.120415718,
+        "Specificity": 0.042104756
+      },
+      "previous_role_weights": {
+        "ACC": 0.028552374,
+        "AUPRC": 0.214056236,
+        "AUROC": 0.076740493,
+        "BalancedAccuracy": 0.065027478,
+        "BrierScore": 0.048806448,
+        "ECE": 0.041059106,
+        "F1-Score": 0.060657966,
+        "MCC": 0.167130671,
+        "NPV": 0.03826891,
+        "Precision": 0.09701013,
+        "Recall": 0.12060025,
+        "Specificity": 0.042089938
+      },
+      "l1_from_previous": 0.000978858,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 12,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "Round 12 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.000, Recall=0.000 and most decreases AUPRC=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028409449,
+        "AUPRC": 0.213910282,
+        "AUROC": 0.076602449,
+        "BalancedAccuracy": 0.065040734,
+        "BrierScore": 0.048785418,
+        "ECE": 0.041059652,
+        "F1-Score": 0.060613616,
+        "MCC": 0.167029292,
+        "NPV": 0.03851819,
+        "Precision": 0.097092392,
+        "Recall": 0.120663874,
+        "Specificity": 0.042274652
+      },
+      "previous_role_weights": {
+        "ACC": 0.028334775,
+        "AUPRC": 0.214157902,
+        "AUROC": 0.076792262,
+        "BalancedAccuracy": 0.065214424,
+        "BrierScore": 0.048884013,
+        "ECE": 0.041037119,
+        "F1-Score": 0.060631215,
+        "MCC": 0.167185885,
+        "NPV": 0.03823035,
+        "Precision": 0.097011581,
+        "Recall": 0.120415718,
+        "Specificity": 0.042104756
+      },
+      "l1_from_previous": 0.00176782,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 13,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "Round 13 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.000, Recall=0.000 and most decreases AUPRC=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028457988,
+        "AUPRC": 0.213749329,
+        "AUROC": 0.07647907,
+        "BalancedAccuracy": 0.064927835,
+        "BrierScore": 0.048721332,
+        "ECE": 0.041074298,
+        "F1-Score": 0.060602176,
+        "MCC": 0.166927507,
+        "NPV": 0.038705286,
+        "Precision": 0.09714492,
+        "Recall": 0.120825175,
+        "Specificity": 0.042385084
+      },
+      "previous_role_weights": {
+        "ACC": 0.028409449,
+        "AUPRC": 0.213910282,
+        "AUROC": 0.076602449,
+        "BalancedAccuracy": 0.065040734,
+        "BrierScore": 0.048785418,
+        "ECE": 0.041059652,
+        "F1-Score": 0.060613616,
+        "MCC": 0.167029292,
+        "NPV": 0.03851819,
+        "Precision": 0.097092392,
+        "Recall": 0.120663874,
+        "Specificity": 0.042274652
+      },
+      "l1_from_previous": 0.001149084,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 14,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "Round 14 anonymous evidence is strongest for NPV=0.730, Recall=0.708, F1-Score=0.694 and weakest for BrierScore=0.643, ACC=0.653. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, F1-Score=0.000 and most decreases ACC=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.72964
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.708396
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.694203
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.642927
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.652648
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027794837,
+          "AUPRC": 0.214501013,
+          "AUROC": 0.076003329,
+          "BalancedAccuracy": 0.065257499,
+          "BrierScore": 0.048545041,
+          "ECE": 0.041053492,
+          "F1-Score": 0.06126414,
+          "MCC": 0.167417899,
+          "NPV": 0.038546347,
+          "Precision": 0.096817848,
+          "Recall": 0.120852014,
+          "Specificity": 0.041946541
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028225886,
+        "AUPRC": 0.214012418,
+        "AUROC": 0.076312561,
+        "BalancedAccuracy": 0.065043217,
+        "BrierScore": 0.04865963,
+        "ECE": 0.041067016,
+        "F1-Score": 0.060833863,
+        "MCC": 0.167099144,
+        "NPV": 0.038649657,
+        "Precision": 0.097030445,
+        "Recall": 0.120834569,
+        "Specificity": 0.042231594
+      },
+      "previous_role_weights": {
+        "ACC": 0.028457988,
+        "AUPRC": 0.213749329,
+        "AUROC": 0.07647907,
+        "BalancedAccuracy": 0.064927835,
+        "BrierScore": 0.048721332,
+        "ECE": 0.041074298,
+        "F1-Score": 0.060602176,
+        "MCC": 0.166927507,
+        "NPV": 0.038705286,
+        "Precision": 0.09714492,
+        "Recall": 0.120825175,
+        "Specificity": 0.042385084
+      },
+      "l1_from_previous": 0.001582378,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 15,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "Round 15 anonymous evidence is strongest for ECE=0.770, NPV=0.769, Recall=0.765 and weakest for F1-Score=0.757, MCC=0.757. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.001, ECE=0.000 and most decreases AUPRC=-0.000, Recall=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.770254
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.769077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.764669
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.757197
+          },
+          {
+            "metric": "MCC",
+            "agent_evidence_score": 0.75722
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 3
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029995638,
+          "AUPRC": 0.213014234,
+          "AUROC": 0.077007593,
+          "BalancedAccuracy": 0.065101676,
+          "BrierScore": 0.049404993,
+          "ECE": 0.041903094,
+          "F1-Score": 0.061268629,
+          "MCC": 0.166569203,
+          "NPV": 0.03797481,
+          "Precision": 0.096292831,
+          "Recall": 0.119859406,
+          "Specificity": 0.041607893
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028845299,
+        "AUPRC": 0.213663053,
+        "AUROC": 0.076555822,
+        "BalancedAccuracy": 0.065063678,
+        "BrierScore": 0.048920507,
+        "ECE": 0.041359643,
+        "F1-Score": 0.060986031,
+        "MCC": 0.166913665,
+        "NPV": 0.038413461,
+        "Precision": 0.09677228,
+        "Recall": 0.120493262,
+        "Specificity": 0.042013299
+      },
+      "previous_role_weights": {
+        "ACC": 0.028225886,
+        "AUPRC": 0.214012418,
+        "AUROC": 0.076312561,
+        "BalancedAccuracy": 0.065043217,
+        "BrierScore": 0.04865963,
+        "ECE": 0.041067016,
+        "F1-Score": 0.060833863,
+        "MCC": 0.167099144,
+        "NPV": 0.038649657,
+        "Precision": 0.097030445,
+        "Recall": 0.120834569,
+        "Specificity": 0.042231594
+      },
+      "l1_from_previous": 0.003177614,
+      "confidence": 0.799,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 16,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 16 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.000, Recall=0.000 and most decreases F1-Score=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028741289,
+        "AUPRC": 0.21358863,
+        "AUROC": 0.076448763,
+        "BalancedAccuracy": 0.064942749,
+        "BrierScore": 0.048809139,
+        "ECE": 0.041269292,
+        "F1-Score": 0.060844246,
+        "MCC": 0.166852349,
+        "NPV": 0.038637213,
+        "Precision": 0.096936847,
+        "Recall": 0.120714278,
+        "Specificity": 0.042215205
+      },
+      "previous_role_weights": {
+        "ACC": 0.028845299,
+        "AUPRC": 0.213663053,
+        "AUROC": 0.076555822,
+        "BalancedAccuracy": 0.065063678,
+        "BrierScore": 0.048920507,
+        "ECE": 0.041359643,
+        "F1-Score": 0.060986031,
+        "MCC": 0.166913665,
+        "NPV": 0.038413461,
+        "Precision": 0.09677228,
+        "Recall": 0.120493262,
+        "Specificity": 0.042013299
+      },
+      "l1_from_previous": 0.001622482,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 17,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "Round 17 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.000, Recall=0.000 and most decreases F1-Score=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028673683,
+        "AUPRC": 0.213540255,
+        "AUROC": 0.076379175,
+        "BalancedAccuracy": 0.064864145,
+        "BrierScore": 0.04873675,
+        "ECE": 0.041210564,
+        "F1-Score": 0.060752086,
+        "MCC": 0.166812494,
+        "NPV": 0.038782651,
+        "Precision": 0.097043815,
+        "Recall": 0.120857938,
+        "Specificity": 0.042346444
+      },
+      "previous_role_weights": {
+        "ACC": 0.028741289,
+        "AUPRC": 0.21358863,
+        "AUROC": 0.076448763,
+        "BalancedAccuracy": 0.064942749,
+        "BrierScore": 0.048809139,
+        "ECE": 0.041269292,
+        "F1-Score": 0.060844246,
+        "MCC": 0.166852349,
+        "NPV": 0.038637213,
+        "Precision": 0.096936847,
+        "Recall": 0.120714278,
+        "Specificity": 0.042215205
+      },
+      "l1_from_previous": 0.00105461,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 18,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "Round 18 anonymous evidence is strongest for NPV=0.738, Recall=0.728, Specificity=0.690 and weakest for BrierScore=0.649, ACC=0.659. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases F1-Score=0.000, Recall=0.000 and most decreases Specificity=-0.000, Precision=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.738231
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.727828
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.690359
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.649162
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.659066
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028688238,
+          "AUPRC": 0.213662968,
+          "AUROC": 0.076054108,
+          "BalancedAccuracy": 0.064871567,
+          "BrierScore": 0.048644379,
+          "ECE": 0.041175297,
+          "F1-Score": 0.061229517,
+          "MCC": 0.166923441,
+          "NPV": 0.039014238,
+          "Precision": 0.096633461,
+          "Recall": 0.121181633,
+          "Specificity": 0.041921153
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028678777,
+        "AUPRC": 0.213583205,
+        "AUROC": 0.076265402,
+        "BalancedAccuracy": 0.064866743,
+        "BrierScore": 0.04870442,
+        "ECE": 0.041198221,
+        "F1-Score": 0.060919187,
+        "MCC": 0.166851325,
+        "NPV": 0.038863706,
+        "Precision": 0.096900191,
+        "Recall": 0.120971231,
+        "Specificity": 0.042197592
+      },
+      "previous_role_weights": {
+        "ACC": 0.028673683,
+        "AUPRC": 0.213540255,
+        "AUROC": 0.076379175,
+        "BalancedAccuracy": 0.064864145,
+        "BrierScore": 0.04873675,
+        "ECE": 0.041210564,
+        "F1-Score": 0.060752086,
+        "MCC": 0.166812494,
+        "NPV": 0.038782651,
+        "Precision": 0.097043815,
+        "Recall": 0.120857938,
+        "Specificity": 0.042346444
+      },
+      "l1_from_previous": 0.000901844,
+      "confidence": 0.792,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 19,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "Round 19 anonymous evidence is strongest for NPV=0.730, Recall=0.708, F1-Score=0.694 and weakest for BrierScore=0.643, ACC=0.653. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, MCC=0.000 and most decreases ACC=-0.000, NPV=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.72964
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.708396
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.694203
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.642927
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.652648
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027794837,
+          "AUPRC": 0.214501013,
+          "AUROC": 0.076003329,
+          "BalancedAccuracy": 0.065257499,
+          "BrierScore": 0.048545041,
+          "ECE": 0.041053492,
+          "F1-Score": 0.06126414,
+          "MCC": 0.167417899,
+          "NPV": 0.038546347,
+          "Precision": 0.096817848,
+          "Recall": 0.120852014,
+          "Specificity": 0.041946541
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028369398,
+        "AUPRC": 0.213904438,
+        "AUROC": 0.076173676,
+        "BalancedAccuracy": 0.065003508,
+        "BrierScore": 0.048648637,
+        "ECE": 0.041147566,
+        "F1-Score": 0.061039921,
+        "MCC": 0.167049626,
+        "NPV": 0.03875263,
+        "Precision": 0.096871371,
+        "Recall": 0.120929505,
+        "Specificity": 0.042109724
+      },
+      "previous_role_weights": {
+        "ACC": 0.028678777,
+        "AUPRC": 0.213583205,
+        "AUROC": 0.076265402,
+        "BalancedAccuracy": 0.064866743,
+        "BrierScore": 0.04870442,
+        "ECE": 0.041198221,
+        "F1-Score": 0.060919187,
+        "MCC": 0.166851325,
+        "NPV": 0.038863706,
+        "Precision": 0.096900191,
+        "Recall": 0.120971231,
+        "Specificity": 0.042197592
+      },
+      "l1_from_previous": 0.001554066,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 20,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 20 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Specificity=0.000, Precision=0.000 and most decreases F1-Score=-0.000, AUPRC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028431955,
+        "AUPRC": 0.213745531,
+        "AUROC": 0.076200368,
+        "BalancedAccuracy": 0.064903638,
+        "BrierScore": 0.048632424,
+        "ECE": 0.041131442,
+        "F1-Score": 0.060879274,
+        "MCC": 0.166940724,
+        "NPV": 0.038857672,
+        "Precision": 0.097001256,
+        "Recall": 0.120997835,
+        "Specificity": 0.042277881
+      },
+      "previous_role_weights": {
+        "ACC": 0.028369398,
+        "AUPRC": 0.213904438,
+        "AUROC": 0.076173676,
+        "BalancedAccuracy": 0.065003508,
+        "BrierScore": 0.048648637,
+        "ECE": 0.041147566,
+        "F1-Score": 0.061039921,
+        "MCC": 0.167049626,
+        "NPV": 0.03875263,
+        "Precision": 0.096871371,
+        "Recall": 0.120929505,
+        "Specificity": 0.042109724
+      },
+      "l1_from_previous": 0.001121326,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 21,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 21 anonymous evidence is strongest for Specificity=0.725, Precision=0.724, NPV=0.715 and weakest for BalancedAccuracy=0.659, F1-Score=0.664. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.001, ECE=0.000 and most decreases AUPRC=-0.000, MCC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.724768
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.723595
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714965
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.658679
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.663827
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029870092,
+          "AUPRC": 0.212695669,
+          "AUROC": 0.076362256,
+          "BalancedAccuracy": 0.064357846,
+          "BrierScore": 0.049186544,
+          "ECE": 0.042000278,
+          "F1-Score": 0.060681818,
+          "MCC": 0.166183326,
+          "NPV": 0.03846479,
+          "Precision": 0.097193702,
+          "Recall": 0.120378857,
+          "Specificity": 0.042624822
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028935303,
+        "AUPRC": 0.213378079,
+        "AUROC": 0.076257029,
+        "BalancedAccuracy": 0.064712611,
+        "BrierScore": 0.048826366,
+        "ECE": 0.041435535,
+        "F1-Score": 0.060810164,
+        "MCC": 0.166675635,
+        "NPV": 0.038720163,
+        "Precision": 0.097068612,
+        "Recall": 0.120781193,
+        "Specificity": 0.04239931
+      },
+      "previous_role_weights": {
+        "ACC": 0.028431955,
+        "AUPRC": 0.213745531,
+        "AUROC": 0.076200368,
+        "BalancedAccuracy": 0.064903638,
+        "BrierScore": 0.048632424,
+        "ECE": 0.041131442,
+        "F1-Score": 0.060879274,
+        "MCC": 0.166940724,
+        "NPV": 0.038857672,
+        "Precision": 0.097001256,
+        "Recall": 0.120997835,
+        "Specificity": 0.042277881
+      },
+      "l1_from_previous": 0.002493658,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 22,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "Round 22 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, BalancedAccuracy=0.000 and most decreases ACC=-0.000, Recall=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.02858368,
+        "AUPRC": 0.213717101,
+        "AUROC": 0.07647801,
+        "BalancedAccuracy": 0.06500976,
+        "BrierScore": 0.048896959,
+        "ECE": 0.041281798,
+        "F1-Score": 0.060730144,
+        "MCC": 0.166890112,
+        "NPV": 0.038523664,
+        "Precision": 0.097049594,
+        "Recall": 0.120533331,
+        "Specificity": 0.042305847
+      },
+      "previous_role_weights": {
+        "ACC": 0.028935303,
+        "AUPRC": 0.213378079,
+        "AUROC": 0.076257029,
+        "BalancedAccuracy": 0.064712611,
+        "BrierScore": 0.048826366,
+        "ECE": 0.041435535,
+        "F1-Score": 0.060810164,
+        "MCC": 0.166675635,
+        "NPV": 0.038720163,
+        "Precision": 0.097068612,
+        "Recall": 0.120781193,
+        "Specificity": 0.04239931
+      },
+      "l1_from_previous": 0.002284444,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 23,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 23 anonymous evidence is strongest for Specificity=0.719, Precision=0.718, NPV=0.715 and weakest for BalancedAccuracy=0.657, F1-Score=0.661. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, MCC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.718946
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.717625
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714799
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.657433
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.66057
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.02988898,
+          "AUPRC": 0.212683817,
+          "AUROC": 0.076362894,
+          "BalancedAccuracy": 0.064391388,
+          "BrierScore": 0.049166748,
+          "ECE": 0.041962184,
+          "F1-Score": 0.06066197,
+          "MCC": 0.166233192,
+          "NPV": 0.038532624,
+          "Precision": 0.097107855,
+          "Recall": 0.120465316,
+          "Specificity": 0.042543032
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029040535,
+        "AUPRC": 0.213355452,
+        "AUROC": 0.076437719,
+        "BalancedAccuracy": 0.06479333,
+        "BrierScore": 0.048991385,
+        "ECE": 0.041519933,
+        "F1-Score": 0.060706283,
+        "MCC": 0.16666019,
+        "NPV": 0.0385268,
+        "Precision": 0.097069985,
+        "Recall": 0.120509526,
+        "Specificity": 0.042388862
+      },
+      "previous_role_weights": {
+        "ACC": 0.02858368,
+        "AUPRC": 0.213717101,
+        "AUROC": 0.07647801,
+        "BalancedAccuracy": 0.06500976,
+        "BrierScore": 0.048896959,
+        "ECE": 0.041281798,
+        "F1-Score": 0.060730144,
+        "MCC": 0.166890112,
+        "NPV": 0.038523664,
+        "Precision": 0.097049594,
+        "Recall": 0.120533331,
+        "Specificity": 0.042305847
+      },
+      "l1_from_previous": 0.001791916,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 24,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "Round 24 anonymous evidence is strongest for ECE=0.770, NPV=0.769, Recall=0.765 and weakest for F1-Score=0.757, MCC=0.757. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, AUROC=0.000 and most decreases Specificity=-0.000, Precision=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.770254
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.769077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.764669
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.757197
+          },
+          {
+            "metric": "MCC",
+            "agent_evidence_score": 0.75722
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 3
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029995638,
+          "AUPRC": 0.213014234,
+          "AUROC": 0.077007593,
+          "BalancedAccuracy": 0.065101676,
+          "BrierScore": 0.049404993,
+          "ECE": 0.041903094,
+          "F1-Score": 0.061268629,
+          "MCC": 0.166569203,
+          "NPV": 0.03797481,
+          "Precision": 0.096292831,
+          "Recall": 0.119859406,
+          "Specificity": 0.041607893
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029374821,
+        "AUPRC": 0.213236026,
+        "AUROC": 0.076637175,
+        "BalancedAccuracy": 0.064901251,
+        "BrierScore": 0.049136148,
+        "ECE": 0.041654039,
+        "F1-Score": 0.060903104,
+        "MCC": 0.166628345,
+        "NPV": 0.038333603,
+        "Precision": 0.096797981,
+        "Recall": 0.120281984,
+        "Specificity": 0.042115523
+      },
+      "previous_role_weights": {
+        "ACC": 0.029040535,
+        "AUPRC": 0.213355452,
+        "AUROC": 0.076437719,
+        "BalancedAccuracy": 0.06479333,
+        "BrierScore": 0.048991385,
+        "ECE": 0.041519933,
+        "F1-Score": 0.060706283,
+        "MCC": 0.16666019,
+        "NPV": 0.0385268,
+        "Precision": 0.097069985,
+        "Recall": 0.120509526,
+        "Specificity": 0.042388862
+      },
+      "l1_from_previous": 0.002234706,
+      "confidence": 0.799,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 25,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "Round 25 anonymous evidence is strongest for NPV=0.754, Specificity=0.748, Precision=0.747 and weakest for ACC=0.699, ECE=0.701. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUROC=0.000, AUPRC=0.000 and most decreases ACC=-0.000, ECE=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.754173
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.747614
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.74663
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.698995
+          },
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.700869
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028654663,
+          "AUPRC": 0.213621317,
+          "AUROC": 0.077056299,
+          "BalancedAccuracy": 0.065263821,
+          "BrierScore": 0.048980378,
+          "ECE": 0.041122916,
+          "F1-Score": 0.06064818,
+          "MCC": 0.166850229,
+          "NPV": 0.038259721,
+          "Precision": 0.097003285,
+          "Recall": 0.120265072,
+          "Specificity": 0.042274119
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029122766,
+        "AUPRC": 0.213370878,
+        "AUROC": 0.076783868,
+        "BalancedAccuracy": 0.06502815,
+        "BrierScore": 0.049081629,
+        "ECE": 0.041468146,
+        "F1-Score": 0.060813881,
+        "MCC": 0.166706004,
+        "NPV": 0.038307744,
+        "Precision": 0.096869837,
+        "Recall": 0.120276065,
+        "Specificity": 0.042171032
+      },
+      "previous_role_weights": {
+        "ACC": 0.029374821,
+        "AUPRC": 0.213236026,
+        "AUROC": 0.076637175,
+        "BalancedAccuracy": 0.064901251,
+        "BrierScore": 0.049136148,
+        "ECE": 0.041654039,
+        "F1-Score": 0.060903104,
+        "MCC": 0.166628345,
+        "NPV": 0.038333603,
+        "Precision": 0.096797981,
+        "Recall": 0.120281984,
+        "Specificity": 0.042115523
+      },
+      "l1_from_previous": 0.001226936,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 26,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "Round 26 anonymous evidence is strongest for Specificity=0.725, Precision=0.724, NPV=0.715 and weakest for BalancedAccuracy=0.659, F1-Score=0.664. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.724768
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.723595
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714965
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.658679
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.663827
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029870092,
+          "AUPRC": 0.212695669,
+          "AUROC": 0.076362256,
+          "BalancedAccuracy": 0.064357846,
+          "BrierScore": 0.049186544,
+          "ECE": 0.042000278,
+          "F1-Score": 0.060681818,
+          "MCC": 0.166183326,
+          "NPV": 0.03846479,
+          "Precision": 0.097193702,
+          "Recall": 0.120378857,
+          "Specificity": 0.042624822
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.02938433,
+        "AUPRC": 0.213134555,
+        "AUROC": 0.076636304,
+        "BalancedAccuracy": 0.064793544,
+        "BrierScore": 0.049118349,
+        "ECE": 0.041654392,
+        "F1-Score": 0.060767659,
+        "MCC": 0.166523067,
+        "NPV": 0.03836271,
+        "Precision": 0.09698319,
+        "Recall": 0.120312042,
+        "Specificity": 0.042329858
+      },
+      "previous_role_weights": {
+        "ACC": 0.029122766,
+        "AUPRC": 0.213370878,
+        "AUROC": 0.076783868,
+        "BalancedAccuracy": 0.06502815,
+        "BrierScore": 0.049081629,
+        "ECE": 0.041468146,
+        "F1-Score": 0.060813881,
+        "MCC": 0.166706004,
+        "NPV": 0.038307744,
+        "Precision": 0.096869837,
+        "Recall": 0.120276065,
+        "Specificity": 0.042171032
+      },
+      "l1_from_previous": 0.001695304,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 27,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "Round 27 anonymous evidence is strongest for NPV=0.738, Recall=0.728, Specificity=0.690 and weakest for BrierScore=0.649, ACC=0.659. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Recall=0.000, NPV=0.000 and most decreases ACC=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.738231
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.727828
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.690359
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.649162
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.659066
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028688238,
+          "AUPRC": 0.213662968,
+          "AUROC": 0.076054108,
+          "BalancedAccuracy": 0.064871567,
+          "BrierScore": 0.048644379,
+          "ECE": 0.041175297,
+          "F1-Score": 0.061229517,
+          "MCC": 0.166923441,
+          "NPV": 0.039014238,
+          "Precision": 0.096633461,
+          "Recall": 0.121181633,
+          "Specificity": 0.041921153
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029140698,
+        "AUPRC": 0.213319499,
+        "AUROC": 0.076432535,
+        "BalancedAccuracy": 0.064820852,
+        "BrierScore": 0.04895246,
+        "ECE": 0.041486709,
+        "F1-Score": 0.060929309,
+        "MCC": 0.166663198,
+        "NPV": 0.038590745,
+        "Precision": 0.096860785,
+        "Recall": 0.120616399,
+        "Specificity": 0.042186811
+      },
+      "previous_role_weights": {
+        "ACC": 0.02938433,
+        "AUPRC": 0.213134555,
+        "AUROC": 0.076636304,
+        "BalancedAccuracy": 0.064793544,
+        "BrierScore": 0.049118349,
+        "ECE": 0.041654392,
+        "F1-Score": 0.060767659,
+        "MCC": 0.166523067,
+        "NPV": 0.03836271,
+        "Precision": 0.09698319,
+        "Recall": 0.120312042,
+        "Specificity": 0.042329858
+      },
+      "l1_from_previous": 0.00209285,
+      "confidence": 0.792,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 28,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "Round 28 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, BalancedAccuracy=0.000 and most decreases ACC=-0.000, Recall=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028717185,
+        "AUPRC": 0.213679024,
+        "AUROC": 0.076592089,
+        "BalancedAccuracy": 0.065080117,
+        "BrierScore": 0.04897892,
+        "ECE": 0.041315061,
+        "F1-Score": 0.060807588,
+        "MCC": 0.166882028,
+        "NPV": 0.038439543,
+        "Precision": 0.096914507,
+        "Recall": 0.120426215,
+        "Specificity": 0.042167723
+      },
+      "previous_role_weights": {
+        "ACC": 0.029140698,
+        "AUPRC": 0.213319499,
+        "AUROC": 0.076432535,
+        "BalancedAccuracy": 0.064820852,
+        "BrierScore": 0.04895246,
+        "ECE": 0.041486709,
+        "F1-Score": 0.060929309,
+        "MCC": 0.166663198,
+        "NPV": 0.038590745,
+        "Precision": 0.096860785,
+        "Recall": 0.120616399,
+        "Specificity": 0.042186811
+      },
+      "l1_from_previous": 0.002154712,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 29,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "Round 29 anonymous evidence is strongest for Specificity=0.725, Precision=0.724, NPV=0.715 and weakest for BalancedAccuracy=0.659, F1-Score=0.664. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.724768
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.723595
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714965
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.658679
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.663827
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029870092,
+          "AUPRC": 0.212695669,
+          "AUROC": 0.076362256,
+          "BalancedAccuracy": 0.064357846,
+          "BrierScore": 0.049186544,
+          "ECE": 0.042000278,
+          "F1-Score": 0.060681818,
+          "MCC": 0.166183326,
+          "NPV": 0.03846479,
+          "Precision": 0.097193702,
+          "Recall": 0.120378857,
+          "Specificity": 0.042624822
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029120703,
+        "AUPRC": 0.21333485,
+        "AUROC": 0.076511647,
+        "BalancedAccuracy": 0.064827322,
+        "BrierScore": 0.049051588,
+        "ECE": 0.041554887,
+        "F1-Score": 0.060763569,
+        "MCC": 0.166637482,
+        "NPV": 0.038448379,
+        "Precision": 0.097012225,
+        "Recall": 0.12040964,
+        "Specificity": 0.042327708
+      },
+      "previous_role_weights": {
+        "ACC": 0.028717185,
+        "AUPRC": 0.213679024,
+        "AUROC": 0.076592089,
+        "BalancedAccuracy": 0.065080117,
+        "BrierScore": 0.04897892,
+        "ECE": 0.041315061,
+        "F1-Score": 0.060807588,
+        "MCC": 0.166882028,
+        "NPV": 0.038439543,
+        "Precision": 0.096914507,
+        "Recall": 0.120426215,
+        "Specificity": 0.042167723
+      },
+      "l1_from_previous": 0.001965102,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 30,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 30 anonymous evidence is strongest for Specificity=0.719, Precision=0.718, NPV=0.715 and weakest for BalancedAccuracy=0.657, F1-Score=0.661. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.166, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.718946
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.717625
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714799
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.657433
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.66057
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.02988898,
+          "AUPRC": 0.212683817,
+          "AUROC": 0.076362894,
+          "BalancedAccuracy": 0.064391388,
+          "BrierScore": 0.049166748,
+          "ECE": 0.041962184,
+          "F1-Score": 0.06066197,
+          "MCC": 0.166233192,
+          "NPV": 0.038532624,
+          "Precision": 0.097107855,
+          "Recall": 0.120465316,
+          "Specificity": 0.042543032
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.0293896,
+        "AUPRC": 0.213106988,
+        "AUROC": 0.076459583,
+        "BalancedAccuracy": 0.064674745,
+        "BrierScore": 0.049091894,
+        "ECE": 0.041697441,
+        "F1-Score": 0.060728009,
+        "MCC": 0.166495981,
+        "NPV": 0.038477865,
+        "Precision": 0.097045696,
+        "Recall": 0.120429127,
+        "Specificity": 0.042403071
+      },
+      "previous_role_weights": {
+        "ACC": 0.029120703,
+        "AUPRC": 0.21333485,
+        "AUROC": 0.076511647,
+        "BalancedAccuracy": 0.064827322,
+        "BrierScore": 0.049051588,
+        "ECE": 0.041554887,
+        "F1-Score": 0.060763569,
+        "MCC": 0.166637482,
+        "NPV": 0.038448379,
+        "Precision": 0.097012225,
+        "Recall": 0.12040964,
+        "Specificity": 0.042327708
+      },
+      "l1_from_previous": 0.001219128,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 31,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "Round 31 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, BalancedAccuracy=0.000 and most decreases ACC=-0.001, ECE=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028878972,
+        "AUPRC": 0.213540891,
+        "AUROC": 0.07660967,
+        "BalancedAccuracy": 0.064985147,
+        "BrierScore": 0.049069552,
+        "ECE": 0.041452037,
+        "F1-Score": 0.060676743,
+        "MCC": 0.166773337,
+        "NPV": 0.038366171,
+        "Precision": 0.097034699,
+        "Recall": 0.120304489,
+        "Specificity": 0.042308292
+      },
+      "previous_role_weights": {
+        "ACC": 0.0293896,
+        "AUPRC": 0.213106988,
+        "AUROC": 0.076459583,
+        "BalancedAccuracy": 0.064674745,
+        "BrierScore": 0.049091894,
+        "ECE": 0.041697441,
+        "F1-Score": 0.060728009,
+        "MCC": 0.166495981,
+        "NPV": 0.038477865,
+        "Precision": 0.097045696,
+        "Recall": 0.120429127,
+        "Specificity": 0.042403071
+      },
+      "l1_from_previous": 0.002343496,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 32,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 32 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Recall=0.000, NPV=0.000 and most decreases BrierScore=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028763177,
+        "AUPRC": 0.213509225,
+        "AUROC": 0.076483764,
+        "BalancedAccuracy": 0.064891704,
+        "BrierScore": 0.048906019,
+        "ECE": 0.041329348,
+        "F1-Score": 0.060643209,
+        "MCC": 0.166761136,
+        "NPV": 0.038606474,
+        "Precision": 0.097107419,
+        "Recall": 0.120591575,
+        "Specificity": 0.04240695
+      },
+      "previous_role_weights": {
+        "ACC": 0.028878972,
+        "AUPRC": 0.213540891,
+        "AUROC": 0.07660967,
+        "BalancedAccuracy": 0.064985147,
+        "BrierScore": 0.049069552,
+        "ECE": 0.041452037,
+        "F1-Score": 0.060676743,
+        "MCC": 0.166773337,
+        "NPV": 0.038366171,
+        "Precision": 0.097034699,
+        "Recall": 0.120304489,
+        "Specificity": 0.042308292
+      },
+      "l1_from_previous": 0.001397534,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 33,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "Round 33 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Recall=0.000, NPV=0.000 and most decreases BrierScore=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.02868791,
+        "AUPRC": 0.213488642,
+        "AUROC": 0.076401925,
+        "BalancedAccuracy": 0.064830966,
+        "BrierScore": 0.048799722,
+        "ECE": 0.041249601,
+        "F1-Score": 0.060621412,
+        "MCC": 0.166753205,
+        "NPV": 0.038762671,
+        "Precision": 0.097154687,
+        "Recall": 0.120778181,
+        "Specificity": 0.042471078
+      },
+      "previous_role_weights": {
+        "ACC": 0.028763177,
+        "AUPRC": 0.213509225,
+        "AUROC": 0.076483764,
+        "BalancedAccuracy": 0.064891704,
+        "BrierScore": 0.048906019,
+        "ECE": 0.041329348,
+        "F1-Score": 0.060643209,
+        "MCC": 0.166761136,
+        "NPV": 0.038606474,
+        "Precision": 0.097107419,
+        "Recall": 0.120591575,
+        "Specificity": 0.04240695
+      },
+      "l1_from_previous": 0.000908398,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 34,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "Round 34 anonymous evidence is strongest for ECE=0.770, NPV=0.769, Recall=0.765 and weakest for F1-Score=0.757, MCC=0.757. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases Recall=-0.000, Specificity=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.770254
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.769077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.764669
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.757197
+          },
+          {
+            "metric": "MCC",
+            "agent_evidence_score": 0.75722
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 3
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029995638,
+          "AUPRC": 0.213014234,
+          "AUROC": 0.077007593,
+          "BalancedAccuracy": 0.065101676,
+          "BrierScore": 0.049404993,
+          "ECE": 0.041903094,
+          "F1-Score": 0.061268629,
+          "MCC": 0.166569203,
+          "NPV": 0.03797481,
+          "Precision": 0.096292831,
+          "Recall": 0.119859406,
+          "Specificity": 0.041607893
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029145615,
+        "AUPRC": 0.213322598,
+        "AUROC": 0.076613909,
+        "BalancedAccuracy": 0.064925715,
+        "BrierScore": 0.049011567,
+        "ECE": 0.041478324,
+        "F1-Score": 0.060847938,
+        "MCC": 0.166688804,
+        "NPV": 0.03848692,
+        "Precision": 0.096853037,
+        "Recall": 0.12045661,
+        "Specificity": 0.042168963
+      },
+      "previous_role_weights": {
+        "ACC": 0.02868791,
+        "AUPRC": 0.213488642,
+        "AUROC": 0.076401925,
+        "BalancedAccuracy": 0.064830966,
+        "BrierScore": 0.048799722,
+        "ECE": 0.041249601,
+        "F1-Score": 0.060621412,
+        "MCC": 0.166753205,
+        "NPV": 0.038762671,
+        "Precision": 0.097154687,
+        "Recall": 0.120778181,
+        "Specificity": 0.042471078
+      },
+      "l1_from_previous": 0.002863064,
+      "confidence": 0.799,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 35,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 35 anonymous evidence is strongest for Specificity=0.725, Precision=0.724, NPV=0.715 and weakest for BalancedAccuracy=0.659, F1-Score=0.664. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.724768
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.723595
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714965
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.658679
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.663827
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029870092,
+          "AUPRC": 0.212695669,
+          "AUROC": 0.076362256,
+          "BalancedAccuracy": 0.064357846,
+          "BrierScore": 0.049186544,
+          "ECE": 0.042000278,
+          "F1-Score": 0.060681818,
+          "MCC": 0.166183326,
+          "NPV": 0.03846479,
+          "Precision": 0.097193702,
+          "Recall": 0.120378857,
+          "Specificity": 0.042624822
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029399182,
+        "AUPRC": 0.213103172,
+        "AUROC": 0.07652583,
+        "BalancedAccuracy": 0.064726961,
+        "BrierScore": 0.049072809,
+        "ECE": 0.041661008,
+        "F1-Score": 0.060789796,
+        "MCC": 0.166511887,
+        "NPV": 0.038479175,
+        "Precision": 0.09697227,
+        "Recall": 0.120429396,
+        "Specificity": 0.042328514
+      },
+      "previous_role_weights": {
+        "ACC": 0.029145615,
+        "AUPRC": 0.213322598,
+        "AUROC": 0.076613909,
+        "BalancedAccuracy": 0.064925715,
+        "BrierScore": 0.049011567,
+        "ECE": 0.041478324,
+        "F1-Score": 0.060847938,
+        "MCC": 0.166688804,
+        "NPV": 0.03848692,
+        "Precision": 0.096853037,
+        "Recall": 0.12045661,
+        "Specificity": 0.042168963
+      },
+      "l1_from_previous": 0.001552554,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 36,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "Round 36 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, BalancedAccuracy=0.000 and most decreases ACC=-0.001, ECE=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.0288852,
+        "AUPRC": 0.213538411,
+        "AUROC": 0.076652731,
+        "BalancedAccuracy": 0.065019088,
+        "BrierScore": 0.049057147,
+        "ECE": 0.041428356,
+        "F1-Score": 0.060716904,
+        "MCC": 0.166783676,
+        "NPV": 0.038367022,
+        "Precision": 0.096986972,
+        "Recall": 0.120304663,
+        "Specificity": 0.04225983
+      },
+      "previous_role_weights": {
+        "ACC": 0.029399182,
+        "AUPRC": 0.213103172,
+        "AUROC": 0.07652583,
+        "BalancedAccuracy": 0.064726961,
+        "BrierScore": 0.049072809,
+        "ECE": 0.041661008,
+        "F1-Score": 0.060789796,
+        "MCC": 0.166511887,
+        "NPV": 0.038479175,
+        "Precision": 0.09697227,
+        "Recall": 0.120429396,
+        "Specificity": 0.042328514
+      },
+      "l1_from_previous": 0.002281516,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 37,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "Round 37 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, BalancedAccuracy=0.000 and most decreases ACC=-0.000, ECE=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028551112,
+        "AUPRC": 0.213821316,
+        "AUROC": 0.076735217,
+        "BalancedAccuracy": 0.06520897,
+        "BrierScore": 0.049046967,
+        "ECE": 0.041277132,
+        "F1-Score": 0.060669525,
+        "MCC": 0.166960338,
+        "NPV": 0.038294123,
+        "Precision": 0.096996528,
+        "Recall": 0.120223587,
+        "Specificity": 0.042215185
+      },
+      "previous_role_weights": {
+        "ACC": 0.0288852,
+        "AUPRC": 0.213538411,
+        "AUROC": 0.076652731,
+        "BalancedAccuracy": 0.065019088,
+        "BrierScore": 0.049057147,
+        "ECE": 0.041428356,
+        "F1-Score": 0.060716904,
+        "MCC": 0.166783676,
+        "NPV": 0.038367022,
+        "Precision": 0.096986972,
+        "Recall": 0.120304663,
+        "Specificity": 0.04225983
+      },
+      "l1_from_previous": 0.001482982,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 38,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "Round 38 anonymous evidence is strongest for NPV=0.730, Recall=0.708, F1-Score=0.694 and weakest for BrierScore=0.643, ACC=0.653. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, Recall=0.000 and most decreases ACC=-0.000, AUROC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.72964
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.708396
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.694203
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.642927
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.652648
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027794837,
+          "AUPRC": 0.214501013,
+          "AUROC": 0.076003329,
+          "BalancedAccuracy": 0.065257499,
+          "BrierScore": 0.048545041,
+          "ECE": 0.041053492,
+          "F1-Score": 0.06126414,
+          "MCC": 0.167417899,
+          "NPV": 0.038546347,
+          "Precision": 0.096817848,
+          "Recall": 0.120852014,
+          "Specificity": 0.041946541
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028286417,
+        "AUPRC": 0.21405921,
+        "AUROC": 0.076479056,
+        "BalancedAccuracy": 0.065225955,
+        "BrierScore": 0.048871293,
+        "ECE": 0.041198858,
+        "F1-Score": 0.06087764,
+        "MCC": 0.167120484,
+        "NPV": 0.038382401,
+        "Precision": 0.09693399,
+        "Recall": 0.120443536,
+        "Specificity": 0.04212116
+      },
+      "previous_role_weights": {
+        "ACC": 0.028551112,
+        "AUPRC": 0.213821316,
+        "AUROC": 0.076735217,
+        "BalancedAccuracy": 0.06520897,
+        "BrierScore": 0.049046967,
+        "ECE": 0.041277132,
+        "F1-Score": 0.060669525,
+        "MCC": 0.166960338,
+        "NPV": 0.038294123,
+        "Precision": 0.096996528,
+        "Recall": 0.120223587,
+        "Specificity": 0.042215185
+      },
+      "l1_from_previous": 0.001862734,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 39,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "Round 39 anonymous evidence is strongest for NPV=0.754, Specificity=0.748, Precision=0.747 and weakest for ACC=0.699, ECE=0.701. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUROC=0.000, ACC=0.000 and most decreases AUPRC=-0.000, MCC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.754173
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.747614
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.74663
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.698995
+          },
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.700869
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028654663,
+          "AUPRC": 0.213621317,
+          "AUROC": 0.077056299,
+          "BalancedAccuracy": 0.065263821,
+          "BrierScore": 0.048980378,
+          "ECE": 0.041122916,
+          "F1-Score": 0.06064818,
+          "MCC": 0.166850229,
+          "NPV": 0.038259721,
+          "Precision": 0.097003285,
+          "Recall": 0.120265072,
+          "Specificity": 0.042274119
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028415303,
+        "AUPRC": 0.213905947,
+        "AUROC": 0.076681091,
+        "BalancedAccuracy": 0.065239208,
+        "BrierScore": 0.048909473,
+        "ECE": 0.041172278,
+        "F1-Score": 0.060797329,
+        "MCC": 0.167025895,
+        "NPV": 0.038339463,
+        "Precision": 0.096958243,
+        "Recall": 0.120381074,
+        "Specificity": 0.042174696
+      },
+      "previous_role_weights": {
+        "ACC": 0.028286417,
+        "AUPRC": 0.21405921,
+        "AUROC": 0.076479056,
+        "BalancedAccuracy": 0.065225955,
+        "BrierScore": 0.048871293,
+        "ECE": 0.041198858,
+        "F1-Score": 0.06087764,
+        "MCC": 0.167120484,
+        "NPV": 0.038382401,
+        "Precision": 0.09693399,
+        "Recall": 0.120443536,
+        "Specificity": 0.04212116
+      },
+      "l1_from_previous": 0.000920286,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 40,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "Round 40 anonymous evidence is strongest for NPV=0.754, Specificity=0.748, Precision=0.747 and weakest for ACC=0.699, ECE=0.701. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUROC=0.000, ACC=0.000 and most decreases AUPRC=-0.000, MCC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.754173
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.747614
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.74663
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.698995
+          },
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.700869
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028654663,
+          "AUPRC": 0.213621317,
+          "AUROC": 0.077056299,
+          "BalancedAccuracy": 0.065263821,
+          "BrierScore": 0.048980378,
+          "ECE": 0.041122916,
+          "F1-Score": 0.06064818,
+          "MCC": 0.166850229,
+          "NPV": 0.038259721,
+          "Precision": 0.097003285,
+          "Recall": 0.120265072,
+          "Specificity": 0.042274119
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028499079,
+        "AUPRC": 0.213806326,
+        "AUROC": 0.076812414,
+        "BalancedAccuracy": 0.065247823,
+        "BrierScore": 0.04893429,
+        "ECE": 0.041155001,
+        "F1-Score": 0.060745127,
+        "MCC": 0.166964412,
+        "NPV": 0.038311553,
+        "Precision": 0.096974008,
+        "Recall": 0.120340473,
+        "Specificity": 0.042209494
+      },
+      "previous_role_weights": {
+        "ACC": 0.028415303,
+        "AUPRC": 0.213905947,
+        "AUROC": 0.076681091,
+        "BalancedAccuracy": 0.065239208,
+        "BrierScore": 0.048909473,
+        "ECE": 0.041172278,
+        "F1-Score": 0.060797329,
+        "MCC": 0.167025895,
+        "NPV": 0.038339463,
+        "Precision": 0.096958243,
+        "Recall": 0.120381074,
+        "Specificity": 0.042174696
+      },
+      "l1_from_previous": 0.000598188,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 41,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "Round 41 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Recall=0.000, NPV=0.000 and most decreases AUROC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028516246,
+        "AUPRC": 0.213681758,
+        "AUROC": 0.076615548,
+        "BalancedAccuracy": 0.065062443,
+        "BrierScore": 0.048818098,
+        "ECE": 0.041136275,
+        "F1-Score": 0.060687658,
+        "MCC": 0.166885335,
+        "NPV": 0.038570972,
+        "Precision": 0.09706797,
+        "Recall": 0.120614965,
+        "Specificity": 0.042342732
+      },
+      "previous_role_weights": {
+        "ACC": 0.028499079,
+        "AUPRC": 0.213806326,
+        "AUROC": 0.076812414,
+        "BalancedAccuracy": 0.065247823,
+        "BrierScore": 0.04893429,
+        "ECE": 0.041155001,
+        "F1-Score": 0.060745127,
+        "MCC": 0.166964412,
+        "NPV": 0.038311553,
+        "Precision": 0.096974008,
+        "Recall": 0.120340473,
+        "Specificity": 0.042209494
+      },
+      "l1_from_previous": 0.001556556,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 42,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 42 anonymous evidence is strongest for Specificity=0.719, Precision=0.718, NPV=0.715 and weakest for BalancedAccuracy=0.657, F1-Score=0.661. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.718946
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.717625
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714799
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.657433
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.66057
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.02988898,
+          "AUPRC": 0.212683817,
+          "AUROC": 0.076362894,
+          "BalancedAccuracy": 0.064391388,
+          "BrierScore": 0.049166748,
+          "ECE": 0.041962184,
+          "F1-Score": 0.06066197,
+          "MCC": 0.166233192,
+          "NPV": 0.038532624,
+          "Precision": 0.097107855,
+          "Recall": 0.120465316,
+          "Specificity": 0.042543032
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028996703,
+        "AUPRC": 0.213332478,
+        "AUROC": 0.076527119,
+        "BalancedAccuracy": 0.064827574,
+        "BrierScore": 0.048940126,
+        "ECE": 0.041425343,
+        "F1-Score": 0.060678667,
+        "MCC": 0.166657085,
+        "NPV": 0.03855755,
+        "Precision": 0.09708193,
+        "Recall": 0.120562588,
+        "Specificity": 0.042412837
+      },
+      "previous_role_weights": {
+        "ACC": 0.028516246,
+        "AUPRC": 0.213681758,
+        "AUROC": 0.076615548,
+        "BalancedAccuracy": 0.065062443,
+        "BrierScore": 0.048818098,
+        "ECE": 0.041136275,
+        "F1-Score": 0.060687658,
+        "MCC": 0.166885335,
+        "NPV": 0.038570972,
+        "Precision": 0.09706797,
+        "Recall": 0.120614965,
+        "Specificity": 0.042342732
+      },
+      "l1_from_previous": 0.001951236,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 43,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 43 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Recall=0.000, NPV=0.000 and most decreases ACC=-0.000, BrierScore=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028839703,
+        "AUPRC": 0.213373757,
+        "AUROC": 0.076430106,
+        "BalancedAccuracy": 0.064789281,
+        "BrierScore": 0.048821892,
+        "ECE": 0.041311997,
+        "F1-Score": 0.060644459,
+        "MCC": 0.166685572,
+        "NPV": 0.03873087,
+        "Precision": 0.097138119,
+        "Recall": 0.120759339,
+        "Specificity": 0.042474905
+      },
+      "previous_role_weights": {
+        "ACC": 0.028996703,
+        "AUPRC": 0.213332478,
+        "AUROC": 0.076527119,
+        "BalancedAccuracy": 0.064827574,
+        "BrierScore": 0.048940126,
+        "ECE": 0.041425343,
+        "F1-Score": 0.060678667,
+        "MCC": 0.166657085,
+        "NPV": 0.03855755,
+        "Precision": 0.09708193,
+        "Recall": 0.120562588,
+        "Specificity": 0.042412837
+      },
+      "l1_from_previous": 0.001116188,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 44,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 44 anonymous evidence is strongest for Specificity=0.725, Precision=0.724, NPV=0.715 and weakest for BalancedAccuracy=0.659, F1-Score=0.664. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, MCC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.724768
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.723595
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714965
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.658679
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.663827
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 2,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029870092,
+          "AUPRC": 0.212695669,
+          "AUROC": 0.076362256,
+          "BalancedAccuracy": 0.064357846,
+          "BrierScore": 0.049186544,
+          "ECE": 0.042000278,
+          "F1-Score": 0.060681818,
+          "MCC": 0.166183326,
+          "NPV": 0.03846479,
+          "Precision": 0.097193702,
+          "Recall": 0.120378857,
+          "Specificity": 0.042624822
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.02920034,
+        "AUPRC": 0.213136426,
+        "AUROC": 0.076406358,
+        "BalancedAccuracy": 0.064638279,
+        "BrierScore": 0.04894952,
+        "ECE": 0.041552895,
+        "F1-Score": 0.060657535,
+        "MCC": 0.166509786,
+        "NPV": 0.038637742,
+        "Precision": 0.097157573,
+        "Recall": 0.12062617,
+        "Specificity": 0.042527376
+      },
+      "previous_role_weights": {
+        "ACC": 0.028839703,
+        "AUPRC": 0.213373757,
+        "AUROC": 0.076430106,
+        "BalancedAccuracy": 0.064789281,
+        "BrierScore": 0.048821892,
+        "ECE": 0.041311997,
+        "F1-Score": 0.060644459,
+        "MCC": 0.166685572,
+        "NPV": 0.03873087,
+        "Precision": 0.097138119,
+        "Recall": 0.120759339,
+        "Specificity": 0.042474905
+      },
+      "l1_from_previous": 0.001628328,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 45,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "Round 45 anonymous evidence is strongest for ECE=0.778, Precision=0.776, Specificity=0.772 and weakest for MCC=0.758, BalancedAccuracy=0.760. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, F1-Score=0.000 and most decreases Recall=-0.000, NPV=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.166, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.778329
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.776125
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.772471
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "MCC",
+            "agent_evidence_score": 0.757732
+          },
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.759927
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 3,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.029936933,
+          "AUPRC": 0.21302932,
+          "AUROC": 0.0769866,
+          "BalancedAccuracy": 0.065010555,
+          "BrierScore": 0.049423827,
+          "ECE": 0.041960098,
+          "F1-Score": 0.061297078,
+          "MCC": 0.166446952,
+          "NPV": 0.037871294,
+          "Precision": 0.096507544,
+          "Recall": 0.119709386,
+          "Specificity": 0.041820413
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029458148,
+        "AUPRC": 0.213098938,
+        "AUROC": 0.076609443,
+        "BalancedAccuracy": 0.064768576,
+        "BrierScore": 0.049115527,
+        "ECE": 0.041695416,
+        "F1-Score": 0.060881375,
+        "MCC": 0.166487794,
+        "NPV": 0.038369485,
+        "Precision": 0.096930063,
+        "Recall": 0.120305296,
+        "Specificity": 0.042279939
+      },
+      "previous_role_weights": {
+        "ACC": 0.02920034,
+        "AUPRC": 0.213136426,
+        "AUROC": 0.076406358,
+        "BalancedAccuracy": 0.064638279,
+        "BrierScore": 0.04894952,
+        "ECE": 0.041552895,
+        "F1-Score": 0.060657535,
+        "MCC": 0.166509786,
+        "NPV": 0.038637742,
+        "Precision": 0.097157573,
+        "Recall": 0.12062617,
+        "Specificity": 0.042527376
+      },
+      "l1_from_previous": 0.002247116,
+      "confidence": 0.798,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 46,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "Round 46 anonymous evidence is strongest for Specificity=0.719, Precision=0.718, NPV=0.715 and weakest for BalancedAccuracy=0.657, F1-Score=0.661. This resample contains only Dataset_B/C; I retain the global imbalance anchor rather than letting a locally balanced resample erase the benchmark's severe-imbalance use case. The smoothed response most increases ACC=0.000, ECE=0.000 and most decreases AUPRC=-0.000, BalancedAccuracy=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.166, Recall=0.120, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.718946
+          },
+          {
+            "metric": "Precision",
+            "agent_evidence_score": 0.717625
+          },
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.714799
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BalancedAccuracy",
+            "agent_evidence_score": 0.657433
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.66057
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 0,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 2
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.02988898,
+          "AUPRC": 0.212683817,
+          "AUROC": 0.076362894,
+          "BalancedAccuracy": 0.064391388,
+          "BrierScore": 0.049166748,
+          "ECE": 0.041962184,
+          "F1-Score": 0.06066197,
+          "MCC": 0.166233192,
+          "NPV": 0.038532624,
+          "Precision": 0.097107855,
+          "Recall": 0.120465316,
+          "Specificity": 0.042543032
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029608939,
+        "AUPRC": 0.212953646,
+        "AUROC": 0.076523151,
+        "BalancedAccuracy": 0.06463656,
+        "BrierScore": 0.049133454,
+        "ECE": 0.041788785,
+        "F1-Score": 0.060804583,
+        "MCC": 0.166398683,
+        "NPV": 0.038426584,
+        "Precision": 0.09699229,
+        "Recall": 0.120361303,
+        "Specificity": 0.042372022
+      },
+      "previous_role_weights": {
+        "ACC": 0.029458148,
+        "AUPRC": 0.213098938,
+        "AUROC": 0.076609443,
+        "BalancedAccuracy": 0.064768576,
+        "BrierScore": 0.049115527,
+        "ECE": 0.041695416,
+        "F1-Score": 0.060881375,
+        "MCC": 0.166487794,
+        "NPV": 0.038369485,
+        "Precision": 0.096930063,
+        "Recall": 0.120305296,
+        "Specificity": 0.042279939
+      },
+      "l1_from_previous": 0.001059006,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 47,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "Round 47 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases Recall=0.000, NPV=0.000 and most decreases ACC=-0.000, ECE=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.213, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.029237655,
+        "AUPRC": 0.213127516,
+        "AUROC": 0.076427527,
+        "BalancedAccuracy": 0.064665122,
+        "BrierScore": 0.048947555,
+        "ECE": 0.041548235,
+        "F1-Score": 0.060726305,
+        "MCC": 0.166517611,
+        "NPV": 0.038645742,
+        "Precision": 0.097079853,
+        "Recall": 0.120628504,
+        "Specificity": 0.042448375
+      },
+      "previous_role_weights": {
+        "ACC": 0.029608939,
+        "AUPRC": 0.212953646,
+        "AUROC": 0.076523151,
+        "BalancedAccuracy": 0.06463656,
+        "BrierScore": 0.049133454,
+        "ECE": 0.041788785,
+        "F1-Score": 0.060804583,
+        "MCC": 0.166398683,
+        "NPV": 0.038426584,
+        "Precision": 0.09699229,
+        "Recall": 0.120361303,
+        "Specificity": 0.042372022
+      },
+      "l1_from_previous": 0.00194327,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 48,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "Round 48 anonymous evidence is strongest for NPV=0.730, Recall=0.708, F1-Score=0.694 and weakest for BrierScore=0.643, ACC=0.653. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, MCC=0.000 and most decreases ACC=-0.001, Specificity=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.72964
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.708396
+          },
+          {
+            "metric": "F1-Score",
+            "agent_evidence_score": 0.694203
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.642927
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.652648
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 0,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027794837,
+          "AUPRC": 0.214501013,
+          "AUROC": 0.076003329,
+          "BalancedAccuracy": 0.065257499,
+          "BrierScore": 0.048545041,
+          "ECE": 0.041053492,
+          "F1-Score": 0.06126414,
+          "MCC": 0.167417899,
+          "NPV": 0.038546347,
+          "Precision": 0.096817848,
+          "Recall": 0.120852014,
+          "Specificity": 0.041946541
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028732669,
+        "AUPRC": 0.21360824,
+        "AUROC": 0.076279058,
+        "BalancedAccuracy": 0.064872454,
+        "BrierScore": 0.048806675,
+        "ECE": 0.041375075,
+        "F1-Score": 0.060914547,
+        "MCC": 0.166832712,
+        "NPV": 0.038610954,
+        "Precision": 0.096988151,
+        "Recall": 0.120706732,
+        "Specificity": 0.042272733
+      },
+      "previous_role_weights": {
+        "ACC": 0.029237655,
+        "AUPRC": 0.213127516,
+        "AUROC": 0.076427527,
+        "BalancedAccuracy": 0.064665122,
+        "BrierScore": 0.048947555,
+        "ECE": 0.041548235,
+        "F1-Score": 0.060726305,
+        "MCC": 0.166517611,
+        "NPV": 0.038645742,
+        "Precision": 0.097079853,
+        "Recall": 0.120628504,
+        "Specificity": 0.042448375
+      },
+      "l1_from_previous": 0.002539254,
+      "confidence": 0.793,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 49,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "Round 49 anonymous evidence is strongest for NPV=0.720, Recall=0.706, Specificity=0.696 and weakest for BrierScore=0.630, ACC=0.636. Dataset_A appears 1/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases NPV=0.000, Recall=0.000 and most decreases F1-Score=-0.000, ECE=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.720077
+          },
+          {
+            "metric": "Recall",
+            "agent_evidence_score": 0.706493
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.696331
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "BrierScore",
+            "agent_evidence_score": 0.630427
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.636301
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 1,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 1
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.028548128,
+          "AUPRC": 0.213450417,
+          "AUROC": 0.076249939,
+          "BalancedAccuracy": 0.064718166,
+          "BrierScore": 0.048602314,
+          "ECE": 0.041101498,
+          "F1-Score": 0.060580931,
+          "MCC": 0.166738477,
+          "NPV": 0.039052751,
+          "Precision": 0.097242471,
+          "Recall": 0.121124735,
+          "Specificity": 0.042590173
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.02866808,
+        "AUPRC": 0.213553002,
+        "AUROC": 0.076268866,
+        "BalancedAccuracy": 0.064818453,
+        "BrierScore": 0.048735149,
+        "ECE": 0.041279323,
+        "F1-Score": 0.060797781,
+        "MCC": 0.16679973,
+        "NPV": 0.038765583,
+        "Precision": 0.097077163,
+        "Recall": 0.120853033,
+        "Specificity": 0.042383837
+      },
+      "previous_role_weights": {
+        "ACC": 0.028732669,
+        "AUPRC": 0.21360824,
+        "AUROC": 0.076279058,
+        "BalancedAccuracy": 0.064872454,
+        "BrierScore": 0.048806675,
+        "ECE": 0.041375075,
+        "F1-Score": 0.060914547,
+        "MCC": 0.166832712,
+        "NPV": 0.038610954,
+        "Precision": 0.096988151,
+        "Recall": 0.120706732,
+        "Specificity": 0.042272733
+      },
+      "l1_from_previous": 0.001002092,
+      "confidence": 0.791,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    },
+    {
+      "round": 50,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "Round 50 anonymous evidence is strongest for NPV=0.760, AUROC=0.749, Specificity=0.740 and weakest for ECE=0.693, ACC=0.699. Dataset_A appears 2/3 times; its supplied positive fraction is about 1.75%, so imbalance-sensitive endpoints retain priority. The smoothed response most increases AUPRC=0.000, BalancedAccuracy=0.000 and most decreases Recall=-0.000, ACC=-0.000 relative to this Literature Agent's own prior-round proposal. The resulting leading weights remain AUPRC=0.214, MCC=0.167, Recall=0.121, Precision=0.097, consistent with the supplied endpoint hierarchy.",
+      "evidence_response": {
+        "anonymous_evidence_top": [
+          {
+            "metric": "NPV",
+            "agent_evidence_score": 0.759578
+          },
+          {
+            "metric": "AUROC",
+            "agent_evidence_score": 0.748573
+          },
+          {
+            "metric": "Specificity",
+            "agent_evidence_score": 0.740252
+          }
+        ],
+        "anonymous_evidence_bottom": [
+          {
+            "metric": "ECE",
+            "agent_evidence_score": 0.693107
+          },
+          {
+            "metric": "ACC",
+            "agent_evidence_score": 0.699393
+          }
+        ],
+        "sample_context": {
+          "Dataset_A_count": 2,
+          "Dataset_B_count": 1,
+          "Dataset_C_count": 0
+        },
+        "method": "llm_prior: weighted synthesis of coverage, separation, consistency, consensus, uniqueness, and committee_support, then blended with the supplied literature anchor; these coefficients are Agent judgement, not published coefficients.",
+        "target_before_role_smoothing": {
+          "ACC": 0.027930662,
+          "AUPRC": 0.214346712,
+          "AUROC": 0.076888404,
+          "BalancedAccuracy": 0.065561609,
+          "BrierScore": 0.049028061,
+          "ECE": 0.040996287,
+          "F1-Score": 0.060581534,
+          "MCC": 0.167288426,
+          "NPV": 0.038158738,
+          "Precision": 0.097014276,
+          "Recall": 0.120073017,
+          "Specificity": 0.042132274
+        }
+      },
+      "proposed_weights": {
+        "ACC": 0.028409984,
+        "AUPRC": 0.2138308,
+        "AUROC": 0.076485704,
+        "BalancedAccuracy": 0.065078558,
+        "BrierScore": 0.048837668,
+        "ECE": 0.04118026,
+        "F1-Score": 0.060722095,
+        "MCC": 0.166970774,
+        "NPV": 0.038553187,
+        "Precision": 0.097055153,
+        "Recall": 0.120580027,
+        "Specificity": 0.04229579
+      },
+      "previous_role_weights": {
+        "ACC": 0.02866808,
+        "AUPRC": 0.213553002,
+        "AUROC": 0.076268866,
+        "BalancedAccuracy": 0.064818453,
+        "BrierScore": 0.048735149,
+        "ECE": 0.041279323,
+        "F1-Score": 0.060797781,
+        "MCC": 0.16679973,
+        "NPV": 0.038765583,
+        "Precision": 0.097077163,
+        "Recall": 0.120853033,
+        "Specificity": 0.042383837
+      },
+      "l1_from_previous": 0.002056608,
+      "confidence": 0.794,
+      "uncertainties": [
+        "Bootstrap composition changes evidence emphasis but does not establish dataset independence.",
+        "Anonymous committee_support is interpreted as supplied internal evidence, not a literature citation.",
+        "llm_prior synthesis coefficients encode methodological judgement and require Chief/Reviewer scrutiny."
+      ]
+    }
+  ],
+  "generated_at": "2026-07-19T10:11:28.946105+00:00",
+  "input_bundle": "data/results_manual/codex_agent_weight_meeting/agent_evidence_bundle.json",
+  "validation": {
+    "weight_groups_checked": 51,
+    "metric_count_each": 12,
+    "all_sums_equal_one": true,
+    "all_weights_within_bounds": true,
+    "all_round_l1_within_0_30": true,
+    "maximum_observed_l1": 0.051456874
+  }
+}

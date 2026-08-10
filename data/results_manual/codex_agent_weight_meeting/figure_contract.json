@@ -1,0 +1,17 @@
+{
+  "core_conclusion": "A robust model ranking emerges across 50 blinded Agent-derived metric-weight rounds.",
+  "archetype": "quantitative grid",
+  "target": "Nature-family double-column figure",
+  "backend": "Python/matplotlib only",
+  "final_size": "183 mm wide; 7.2 x 6.5 inches",
+  "panels": {
+    "a": "18 model-score boxplots plus all 50 observed scores per model",
+    "b": "model ranking bubble plot; size is Top-3 frequency and color is score uncertainty"
+  },
+  "statistics": "50 bootstrap deliberation rounds; median, IQR and Top-3 recurrence",
+  "source_data": [
+    "codex_agent_model_scores_50_rounds.csv",
+    "codex_agent_model_ranking_50_rounds.csv"
+  ],
+  "reviewer_risk": "exploratory post-hoc results; independence and homology gates unresolved"
+}

@@ -1,0 +1,3 @@
+# Supplementary Figure | Three auditable Agent workflows for AMP model benchmarking
+
+Flow I records evidence compression, model and dataset scouting, statistical review, independent criticism and Chief-mediated memory updates. Flow II documents repository-derived model registration, bounded HPC self-healing, output-schema extraction, automatic or manual prediction alignment and scientific evaluation. Flow III records blinded metric proposals, independent methodology review, bounded Chief consensus, 50-round rank aggregation, exhaustive three-model complementarity analysis and evidence-grounded reporting. Green lines identify outputs verified from current project artifacts; source lines link each compact prompt record to its defining Markdown or Python implementation.

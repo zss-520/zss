@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "policy": "Coverage targets guide search and meeting audits; they are not a fixed final ranking or automatic deployment list. A target counts as found only when current or remembered evidence contains an exact canonical name or configured alias. Required core models must be searched and discussed, but still pass scientific and deployment gates.",
+  "minimum_coverage_fraction": 0.7,
+  "models": [
+    {
+      "model_name": "C_AMPs-predict",
+      "aliases": ["C_AMPs-predict", "c_AMPs-prediction", "C-AMPs-predict"],
+      "evaluation_labels": ["C_AMPs-predict"],
+      "required_core": true,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "HMD-AMP",
+      "aliases": ["HMD-AMP", "HMD AMP", "HMDAMP"],
+      "evaluation_labels": ["HMD-AMP"],
+      "required_core": true,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "AMPSorter",
+      "aliases": ["AMPSorter", "AMPsorter", "ProteoGPT AMPSorter", "ProteoGPT (AMPSorter)"],
+      "evaluation_labels": ["AMPsorter"],
+      "required_core": true,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "amPEPpy",
+      "aliases": ["amPEPpy", "amPEPpy 1.0"],
+      "evaluation_labels": ["amPEPpy"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "ampir",
+      "aliases": ["ampir", "ampir package"],
+      "evaluation_labels": ["ampir"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "AMPlify",
+      "aliases": ["AMPlify", "amplify_bal", "amplify_imb"],
+      "evaluation_labels": ["amplify_bal", "amplify_imb"],
+      "variant_policy": "Two evaluation calibrations map to one literature model.",
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "APEX 1.1",
+      "aliases": ["APEX 1.1", "APEX1.1", "apex1.1", "APEX predictor"],
+      "evaluation_labels": ["apex1.1"],
+      "identity_status": "needs_primary_source_resolution",
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "APIN",
+      "aliases": ["APIN", "APIN-fusion", "APIN fusion"],
+      "evaluation_labels": ["apin"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "ASCAN2",
+      "aliases": ["ASCAN2", "ascan2", "AS-CAN 2", "AS-CAN2"],
+      "search_terms": ["ASCAN2", "AS-CAN 2", "AS-CAN2"],
+      "evaluation_labels": ["ascan2"],
+      "identity_status": "needs_primary_source_resolution",
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "LSTM evaluation baseline",
+      "aliases": ["lstm"],
+      "evaluation_labels": ["lstm"],
+      "identity_status": "generic_internal_baseline_not_unique_literature_model",
+      "required_core": false,
+      "count_toward_coverage": false
+    },
+    {
+      "model_name": "Macrel",
+      "aliases": ["Macrel", "macrel"],
+      "evaluation_labels": ["macrel"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "iAMP-CA2L",
+      "aliases": ["iAMP-CA2L", "iamp-ca2l", "iAMP CA2L"],
+      "evaluation_labels": ["iamp-ca2l"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "PepNet",
+      "aliases": ["PepNet", "pepnet_fast", "pepnet_standard"],
+      "evaluation_labels": ["pepnet_fast", "pepnet_standard"],
+      "variant_policy": "Fast and standard evaluation modes map to one literature model.",
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "iAMPCN",
+      "aliases": ["iAMPCN", "iampcn"],
+      "evaluation_labels": ["iampcn"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "AI4AMP",
+      "aliases": ["AI4AMP", "ai4amp"],
+      "evaluation_labels": ["ai4amp"],
+      "required_core": false,
+      "count_toward_coverage": true
+    },
+    {
+      "model_name": "esm-AxP-GDL",
+      "aliases": ["esm-AxP-GDL", "ESM-AxP-GDL", "esm AxP GDL"],
+      "evaluation_labels": ["esm-AxP-GDL"],
+      "required_core": false,
+      "count_toward_coverage": true
+    }
+  ]
+}

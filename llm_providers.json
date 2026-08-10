@@ -25,8 +25,12 @@
     "web_search_model": "qwen3.7-max",
     "llm_api_mode": "responses",
     "tools": [
-      {"type": "web_search"},
-      {"type": "web_extractor"}
+      {
+        "type": "web_search"
+      },
+      {
+        "type": "web_extractor"
+      }
     ],
     "instructions_prefix": "Use web_search to find current public web evidence and web_extractor to inspect relevant pages when available. Return JSON only. Treat all URLs as candidate evidence requiring verification.",
     "timeout": 240,
@@ -43,6 +47,108 @@
     "web_search_extra_body": {
       "enable_search": true
     },
+    "timeout": 240,
+    "max_retries": 3
+  },
+  "openai_gpt52_responses": {
+    "provider": "openai",
+    "display_name": "OpenAI / GPT-5.2 Responses API",
+    "api_key_env": "OPENAI_API_KEY",
+    "chat_api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "chat_base_url": "https://api.openai.com/v1",
+    "chat_model": "gpt-5.2",
+    "planner_model": "gpt-5.2",
+    "meeting_model": "gpt-5.2",
+    "llm_api_mode": "responses",
+    "reasoning_effort": "medium",
+    "max_output_tokens": 20000,
+    "timeout": 300,
+    "max_retries": 4,
+    "use_response_format": false
+  },
+  "openai_gpt55_responses": {
+    "provider": "openai",
+    "display_name": "OpenAI / GPT-5.5 Responses API",
+    "api_key_env": "OPENAI_API_KEY",
+    "chat_api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "chat_base_url": "https://api.openai.com/v1",
+    "chat_model": "gpt-5.5",
+    "planner_model": "gpt-5.5",
+    "meeting_model": "gpt-5.5",
+    "llm_api_mode": "responses",
+    "reasoning_effort": "medium",
+    "max_output_tokens": 20000,
+    "timeout": 300,
+    "max_retries": 4,
+    "use_response_format": false
+  },
+  "openai_gpt54_responses": {
+    "provider": "openai",
+    "display_name": "OpenAI / GPT-5.4 Responses API",
+    "api_key_env": "OPENAI_API_KEY",
+    "chat_api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "chat_base_url": "https://api.openai.com/v1",
+    "chat_model": "gpt-5.4",
+    "planner_model": "gpt-5.4",
+    "meeting_model": "gpt-5.4",
+    "llm_api_mode": "responses",
+    "reasoning_effort": "medium",
+    "max_output_tokens": 20000,
+    "timeout": 300,
+    "max_retries": 4,
+    "use_response_format": false
+  },
+  "openai_gpt52_web_search": {
+    "provider": "openai_responses",
+    "display_name": "OpenAI / GPT-5.2 Responses Web Search",
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-5.2",
+    "web_search_model": "gpt-5.2",
+    "llm_api_mode": "responses",
+    "tools": [
+      {
+        "type": "web_search"
+      }
+    ],
+    "instructions_prefix": "Use web_search to find current public web evidence. Return JSON only. Treat all URLs as candidate evidence requiring verification.",
+    "timeout": 240,
+    "max_retries": 3
+  },
+  "openai_gpt55_web_search": {
+    "provider": "openai_responses",
+    "display_name": "OpenAI / GPT-5.5 Responses Web Search",
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-5.5",
+    "web_search_model": "gpt-5.5",
+    "llm_api_mode": "responses",
+    "tools": [
+      {
+        "type": "web_search"
+      }
+    ],
+    "instructions_prefix": "Use web_search to find current public web evidence. Return JSON only. Treat all URLs as candidate evidence requiring verification.",
+    "timeout": 240,
+    "max_retries": 3
+  },
+  "openai_gpt54_web_search": {
+    "provider": "openai_responses",
+    "display_name": "OpenAI / GPT-5.4 Responses Web Search",
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-5.4",
+    "web_search_model": "gpt-5.4",
+    "llm_api_mode": "responses",
+    "tools": [
+      {
+        "type": "web_search"
+      }
+    ],
+    "instructions_prefix": "Use web_search to find current public web evidence. Return JSON only. Treat all URLs as candidate evidence requiring verification.",
     "timeout": 240,
     "max_retries": 3
   }

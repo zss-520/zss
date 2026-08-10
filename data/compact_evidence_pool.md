@@ -1,46 +1,246 @@
 # Compact Evidence Pool
 
-- Created: 2026-07-03 13:48:45
-- Chunk summaries: 40
+- Created: 2026-07-15 03:13:46
+- Chunk summaries: 240
 
 ## Chunk Summaries
-- **model_acpred** | type=model | name=ACPred | status=ok | entities=ACPred, AMPfun, AntiCP, AntiCP2.0, iAMPpred, Macrel, HAPPENN, HemoPred
-- **model_adam** | type=model | name=ADAM | status=ok | entities=ADAM, CAMPR3, DBAASP, AmPEP, AntiBP, BAGEL3, AMP prediction server (biosino)
-- **model_adam_prediction_tool** | type=model | name=ADAM (prediction tool) | status=ok | entities=AxPEP3, Deep-AmPEP30, RF-AmPEP30, CAMPR34, CLASSAMP5, DBAASP6, ADAM, APSvr.2
-- **model_admetlab_3** | type=model | name=ADMETlab 3 | status=ok | entities=ADMETlab 3, PeptideRanker, PMC12986296, PMC13276608
-- **model_allenccf** | type=model | name=allenCCF | status=ok | entities=allenCCF (GitHub repository), Paper: A time window for memory consolidation during NREM sleep revealed by cAMP oscillation, Paper: Bioactive Peptides from Yellowfin Tuna By-Products: Structural Characterization and Neuro-Related Activities in PC12 Cells
-- **model_amp_de_novo_design_cdgan** | type=model | name=amp_de_novo_design_cdGAN | status=ok | entities=Multi-label weighted KNN-MLR model (Wang2017), cdGAN (Tizoc2025)
-- **model_amp_gsm** | type=model | name=AMP-GSM | status=ok | entities=AMP-GSM model, ISCAPE model, AMP-GSM paper (doi:10.3390/app13085106), ISCAPE paper (doi:10.1016/j.jmgm.2025.109188)
-- **model_amp_mic_predictor_cnn_rnn** | type=model | name=AMP MIC predictor (CNN/RNN) | status=ok | entities=AMP MIC predictor (CNN/RNN)
-- **model_amp_scanner_v2** | type=model | name=AMP Scanner V2 | status=ok | entities=AMP Scanner V2, Macrel, AxPEP, AmPEP, AMPlify, AMPGenix, hydramp, AntiBP2
-- **model_ampep** | type=model | name=AmPEP | status=ok | entities=AmPEP, StackAMP, Macrel, AMP Scanner V2, AMPlify_bal, AMPlify_imbal, AMPGenix
-- **model_ampep_web_server** | type=model | name=AmPEP web server | status=ok | entities=AmPEP, StackAMP
-- **model_amper** | type=model | name=AMPer | status=ok | entities=PeptideRanker, AMPer, CAMP, AntiBP2, HydrAMP, Macrel, AmPEP, AMP Scanner v2
-- **model_amper_web_server** | type=model | name=AMPer web server | status=ok | entities=PeptideRanker, AMPer, CAMP, AntiBP2
-- **model_ampfun** | type=model | name=AMPfun | status=ok | entities=AMPfun, AntiCP, AntiCP2.0, ACPred, iAMPpred, Macrel, HAPPENN, HemoPred
-- **model_ampgenix** | type=model | name=AMPGenix | status=ok | entities=Macrel, AmPEP, AMP Scanner V2, AMPlify_bal, AMPlify_imbal, AMPGenix
-- **model_amplify** | type=model | name=AMPlify | status=ok | entities=AMPlify, HydrAMP
-- **model_amplify_bal** | type=model | name=AMPlify_bal | status=ok | entities=Macrel, AmPEP, AMP Scanner V2, AMPlify_bal, AMPlify_imbal, AMPGenix
-- **model_amplify_github** | type=model | name=AMPlify GitHub | status=ok | entities=AMPlify
-- **model_amplify_imbal** | type=model | name=AMPlify_imbal | status=ok | entities=AMPlify_imbal, AMPlify_bal, Macrel, AmPEP, AMP Scanner V2, AMPGenix
-- **model_anti_cp** | type=model | name=Anti_Cp | status=ok | entities=WeightedEnsemble_L3 (AMP activity classifier), DBAASP-derived dataset, Anti_Cp GitHub repository
-- **model_anti_cp_git** | type=model | name=Anti_Cp.git | status=ok | entities=WeightedEnsemble_L3, Anti_Cp, DBAASP, AutoGluon, AMP prediction
-- **model_antibp** | type=model | name=AntiBP | status=ok | entities=ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP, DBAASP, AntiBP, AntiBP2, BAGEL3
-- **model_antibp2** | type=model | name=AntiBP2 | status=ok | entities=AntiBP2, PeptideRanker, AMPer, CAMP, ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP
-- **model_anticp** | type=model | name=AntiCP | status=ok | entities=AntiCP, AntiCP2.0, ACPred, AMPfun, iAMPpred, Macrel, HAPPENN, HemoPred
-- **model_anticp2_0** | type=model | name=AntiCP2.0 | status=ok | entities=AntiCP2.0, AntiCP, AMPfun, ACPred, iAMPpred, Macrel, HAPPENN, HemoPred
-- **model_antimicrobial** | type=model | name=Antimicrobial | status=ok | entities=PLUM
-- **model_antimicrobial_peptide_database_apd3** | type=model | name=Antimicrobial Peptide Database (APD3) | status=ok | entities=CAMPR3, Deep-AmPEP30, APD3, AVPpred, AVCpred
-- **model_apd3** | type=model | name=APD3 | status=ok | entities=APD3, CAMPR3, Deep-AmPEP30, AVPpred, AVCpred
-- **model_apex** | type=model | name=APEX | status=ok | entities=APEX, ApexGO
-- **model_apex_1_1** | type=model | name=APEX 1.1 | status=ok | entities=APEX model, ApexGO model, Venomics AI paper (PMID:39764027), ApexGO paper (PMID:42206144)
-- **model_apex_generative_optimization** | type=model | name=APEX generative optimization | status=ok | entities=APEX (MIC prediction model), ApexGO (generative optimization model), Venomics AI (2024), ApexGO paper (2026), DBAASP database, ConoServer, ArachnoServer, ISOB
-- **model_apexgo** | type=model | name=ApexGO | status=ok | entities=APEX, ApexGO
-- **model_aro** | type=model | name=aro | status=ok | entities=Macrel, FESNov antimicrobial peptide families, nov-fams-pipeline, aro
-- **model_avcpred** | type=model | name=AVCpred | status=ok | entities=AVCpred, AVPpred, CAMPR3, Deep-AmPEP30, APD3
-- **model_avppred** | type=model | name=AVPpred | status=ok | entities=CAMPR3, Deep-AmPEP30, APD3, AVPpred, AVCpred
-- **model_axpep** | type=model | name=AxPEP | status=ok | entities=Macrel, AxPEP, AMP Scanner V2, Paper: Bioactive Plasmid- and Phage-Encoded Antimicrobial Peptides (AMPs) in the Human Gut (PMID:41315055)
-- **model_axpep3** | type=model | name=AxPEP3 | status=ok | entities=AxPEP3, Deep-AmPEP30, RF-AmPEP30, CAMPR34, CLASSAMP5, DBAASP6, ADAM (prediction tool), APSvr.2
-- **model_bagel3** | type=model | name=BAGEL3 | status=ok | entities=ADAM, CAMPR3(RF), CAMPR3(SVM), MLAMP, DBAASP, AntiBP, AntiBP2, BAGEL3
-- **model_c_amps_prediction** | type=model | name=c_AMPs-prediction | status=ok | entities=c_AMPs-prediction model
-- **model_camp** | type=model | name=CAMP | status=ok | entities=PeptideRanker, AMPer, CAMP, AntiBP2
+- **model_3d_structure_based_amp_activity_prediction_model** | type=model | name=3D structure-based AMP activity prediction model | status=ok | entities=Li_2021_selectivity_RF, Liu_2018_3D_AMP, Vishnepolsky_2014_LCAP
+- **model_abp_finder** | type=model | name=ABP-Finder | status=ok | entities=ABP-Finder, multiAMP
+- **model_abp_xgboost** | type=model | name=ABP_XGBoost | status=ok | entities=Antibacterial Peptide Binary Classifier (XGBoost), Design of Multifunctional Bioactive Peptides for Potential Application in Food Packaging: A Machine-Learning-Integrated Optimization Framework
+- **model_acp_esm** | type=model | name=acp-esm | status=ok | entities=ACP-ESM
+- **model_acpp_qsar_model** | type=model | name=aCPP-QSAR model | status=ok | entities=BAGEL2, aCPP-QSAR model
+- **model_adam** | type=model | name=ADAM | status=ok | entities=ADAM, AVPIden, AMP scanner v.2, iAMPpred, Antibp, E-CLEAP, AMPlify, UniproLcad
+- **model_adam_a_database_of_antimicrobial_peptides** | type=model | name=ADAM (A Database of Antimicrobial peptides) | status=ok | entities=ADAM (A Database of Antimicrobial peptides), AmpGram, CAMPR3 (Collection of Anti-Microbial Peptides), DBAASP (Database of Antimicrobial Activity and Structure of Peptides)
+- **model_adaptable** | type=model | name=ADAPTABLE | status=ok | entities=sAMP-VGG16, iDPF-PseRAAAC, AMPA, ADAPTABLE
+- **model_adaptable_web_server** | type=model | name=ADAPTABLE web server | status=ok | entities=sAMP-VGG16, iDPF-PseRAAAC, AMPA, ADAPTABLE
+- **model_adp3** | type=model | name=ADP3 | status=ok | entities=ADP3, NSGA-II-GRU, AMPpred-DLFF
+- **model_aepma** | type=model | name=AEPMA (and co-extracted models) | status=ok | entities=STAMP, AMPActiPred, AEPMA, MAPLE, BioPepPred-DLEmb, TriNet
+- **model_aepma_github** | type=model | name=AEPMA GitHub | status=ok | entities=AEPMA, TriNet
+- **model_afp_ae_cae** | type=model | name=AFP-AE-CAE | status=ok | entities=AFP-AE-CAE, SA-MTP, StarPepDB
+- **model_afp_predictor** | type=model | name=AFP predictor | status=ok | entities=AmpGram, Antifp, StackDPPred
+- **model_afptransferpred** | type=model | name=AFPtransferPred | status=ok | entities=AFPtransferPred, BERT-based AMP prediction model, ProteinBERT
+- **model_afptransferpred_huggingface_space** | type=model | name=AFPtransferPred HuggingFace Space | status=ok | entities=AFPtransferPred, BERT-based AMP prediction model (2020), ProteinBERT, DBAASP antifungal peptide dataset
+- **model_afptransferpred_selectfight** | type=model | name=AFPtransferPred SelectFight | status=ok | entities=AFPtransferPred, BERT-based AMP prediction model (2020), ProteinBERT
+- **model_agramp** | type=model | name=AGRAMP | status=ok | entities=AGRAMP
+- **model_agramp_webserver** | type=model | name=AGRAMP webserver | status=ok | entities=AGRAMP, AMP-APD, NOAMP1, EMEM
+- **model_agricultural_n_grams_antimicrobial_peptides** | type=model | name=Agricultural N-grams Antimicrobial Peptides | status=ok | entities=AGRAMP
+- **model_ai_driven_amp_motif_analysis_framework** | type=model | name=AI-driven AMP motif analysis framework | status=ok | entities=AI-driven AMP motif analysis framework (LDA, ESM2, physicochemical properties, MIC prediction)
+- **model_ai_driven_amp_motif_framework** | type=model | name=AI-driven_AMP_motif_framework | status=ok | entities=AI-driven AMP motif analysis framework, LDA topic model, ESM2 structural prediction, membrane activity prediction, MIC prediction
+- **model_aigcrs_amp30** | type=model | name=AIGCRS-AMP30 | status=ok | entities=MOFormer, AIGCRS-AMP30
+- **model_aipampds** | type=model | name=AIPAMPDS | status=ok | entities=AIPAMPDS, InversePep, AMP-RL
+- **model_aipampds_web_server** | type=model | name=AIPAMPDS web server | status=ok | entities=AIPAMPDS, InversePep, AMP-RL
+- **model_allopipe** | type=model | name=Allopipe | status=ok | entities=Allopipe (minor histocompatibility antigen prediction tool), MS²PIP (mass spectrometry peak intensity prediction), IL5pred (IL-5 inducing peptide prediction), AMP prediction study using existing tools (PMID:32636825)
+- **model_alphafold** | type=model | name=alphafold. | status=ok | entities=AlphaFold
+- **model_alphafold_server** | type=model | name=AlphaFold Server | status=ok | entities=ML-guided directed evolution for AMP development, DRAMP, AVP Predictor, dbAMP, AlphaFold Server, IEDB PepSySco
+- **model_alphafold3** | type=model | name=alphafold3 | status=ok | entities=
+- **model_amp_bert** | type=model | name=AMP-BERT | status=ok | entities=iAMP-bert, LM_pred (BFD), BERT-Protein, LMPred, cAMPs-pred, AMP-BERT, Comprehensive Assessment of BERT-Based Methods for Predicting Antimicrobial Peptides (2024)
+- **model_amp_class_prediction_models** | type=model | name=AMP class prediction models | status=ok | entities=ExtraTree-based AMP classifiers, AMP_MetaAnalysis_ML_models
+- **model_amp_clip** | type=model | name=AMP-CLIP | status=ok | entities=AMP-CLIP, Deep2Pep, HemoPI-1, HemoPI-2, HemoPI-3, RNN-Hem, Hlppredfuse, AMP-Combined
+- **model_amp_diffusion** | type=model | name=AMP-Diffusion | status=ok | entities=AMP-Diffusion (2025 version), APEX predictor, AMP-Diffusion (2024 preprint)
+- **model_amp_diffusion_apex_predictor** | type=model | name=AMP-Diffusion, APEX predictor | status=ok | entities=AMP-Diffusion, APEX predictor
+- **model_amp_diffusion_github** | type=model | name=AMP-Diffusion GitHub | status=ok | entities=AMP-Diffusion, APEX predictor
+- **model_amp_ef** | type=model | name=AMP-EF | status=ok | entities=EIPpred, AMP-EF, HAPPENN, EIPpred training and independent dataset, AMP-EF benchmark datasets, HAPPENN dataset
+- **model_amp_ef_github** | type=model | name=AMP-EF GitHub | status=ok | entities=EIPpred, AMP-EF, HAPPENN
+- **model_amp_metaanalysis** | type=model | name=AMP_MetaAnalysis | status=ok | entities=ExtraTree-based AMP classifiers, AMP_MetaAnalysis_ML_models, PMID:40423878
+- **model_amp_metaanalysis_ml_models** | type=model | name=AMP_MetaAnalysis_ML_models | status=ok | entities=ExtraTree-based AMP classifiers, AMP_MetaAnalysis_class_specific_datasets
+- **model_amp_mining_pipeline_from_shanxi_aged_vinegar_microbiome** | type=model | name=AMP mining pipeline from Shanxi aged vinegar microbiome | status=ok | entities=AMPml, AMP mining pipeline from Shanxi aged vinegar microbiome
+- **model_amp_mining_pipeline_shanxi_vinegar** | type=model | name=AMP_mining_pipeline_Shanxi_vinegar | status=ok | entities=AMPml, AMP mining pipeline from Shanxi aged vinegar
+- **model_amp_pipeline** | type=model | name=AMP pipeline | status=ok | entities=Antimicrobial Peptide Pipeline
+- **model_amp_prediction_by_multidimensional_feature_embedding** | type=model | name=AMP prediction by multidimensional feature embedding | status=ok | entities=Dong et al. 2022 deep learning AMP classifier, rAMPage AMP discovery pipeline, Sharma et al. 2021 AMP dataset, ClassAMP, CAMPR3, AMP Scanner v2, AntiCP 2.0, CancerPPD2
+- **model_amp_prediction_model_by_dong_et_al_2022** | type=model | name=AMP_prediction_model_by_Dong_et_al_2022 | status=ok | entities=AMP_prediction_model_by_Dong_et_al_2022, rAMPage, ClassAMP, CAMPR3, AMP Scanner v2, AntiCP 2.0, CancerPPD2
+- **model_amp_regression_ec_sa** | type=model | name=AMP_regression_EC_SA | status=ok | entities=BERT-AmPEP60
+- **model_amp_rl** | type=model | name=AMP-RL. | status=ok | entities=AIPAMPDS, InversePep, AMP-RL
+- **model_amp_scanner** | type=model | name=AMP_scanner | status=ok | entities=AMP_scanner
+- **model_amp_scanner_v_2** | type=model | name=AMP scanner v.2 | status=ok | entities=AVPIden, ADAM, AMP scanner v.2, iAMPpred, Antibp, E-CLEAP, AMPlify, UniproLcad
+- **model_amp_scanner_v2** | type=model | name=AMP Scanner v2 | status=ok | entities=AMP_prediction_model_by_Dong_et_al_2022, rAMPage, ClassAMP, CAMPR3, AMP Scanner v2, AntiCP 2.0, CancerPPD2
+- **model_amp_scanner_vr_2** | type=model | name=AMP scanner vr.2 | status=ok | entities=AMP scanner v.2, iAMPpred, CAMPR3, AVPIden, ADAM, Antibp, E-CLEAP, AMPlify
+- **model_amp_target_specificity_siamese_network** | type=model | name=AMP target specificity Siamese network | status=ok | entities=AMP target specificity Siamese network, AmpLyze, DBAASP
+- **model_ampa** | type=model | name=AMPA | status=ok | entities=AMPA, sAMP-VGG16, iDPF-PseRAAAC, ADAPTABLE
+- **model_ampa_web_server** | type=model | name=AMPA web server | status=ok | entities=sAMP-VGG16, iDPF-PseRAAAC, AMPA, ADAPTABLE
+- **model_ampactipred** | type=model | name=AMPActiPred | status=ok | entities=STAMP, AMPActiPred, AEPMA, MAPLE, BioPepPred-DLEmb
+- **model_ampdeep** | type=model | name=AMPDeep | status=ok | entities=AMPDeep, Hemolytik
+- **model_ampfinder** | type=model | name=AMPFinder | status=ok | entities=AMPFinder
+- **model_ampfinder_github_repository** | type=model | name=AMPFinder GitHub repository | status=ok | entities=AMPFinder
+- **model_ampfun** | type=model | name=AMPfun | status=ok | entities=AMPfun, dbAMP 2.0 AMP scanning tool, NSGA-II-GRU AMP designer, AMPpred-DLFF
+- **model_ampfun_web_server** | type=model | name=AMPfun web server | status=ok | entities=AMPfun, dbAMP 2.0 scanning tool, dbAMP 2.0 database
+- **model_ampgan_v2** | type=model | name=AMPGAN v2 | status=ok | entities=AMPGAN v2
+- **model_ampgen** | type=model | name=AMPGen | status=ok | entities=AMPGen
+- **model_ampgpt2** | type=model | name=AmpGPT2 | status=ok | entities=AmpGPT2, COMPASS database
+- **model_ampgram** | type=model | name=AmpGram | status=ok | entities=
+- **model_ampgram_web_server** | type=model | name=AmpGram web server | status=ok | entities=CAMPR3, AmpGram, iAMPpred
+- **model_ampidentifier** | type=model | name=AMPidentifier | status=ok | entities=RF_AMP_Wani2021, AMPidentifier_Blattella2024, AMPs dataset (Wani et al. 2021), Gut microbiome of Blattella germanica (AMPidentifier source)
+- **model_ampidentifier_blattella2024** | type=model | name=AMPidentifier_Blattella2024 | status=ok | entities=RF-based AMP prediction model (Wani et al. 2021), AMPidentifier (in-house tool, Blattella2024)
+- **model_ampir** | type=model | name=ampir | status=ok | entities=ampir, AMPml
+- **model_amplify** | type=model | name=AMPlify | status=ok | entities=AMPlify, E-CLEAP, AVPIden, ADAM, AMP scanner v.2, iAMPpred, Antibp, UniproLcad
+- **model_amplyze** | type=model | name=AmpLyze | status=ok | entities=AmpLyze, AMP target specificity Siamese network
+- **model_ampml** | type=model | name=AMPml | status=ok | entities=AMPml, ampir, AMP mining pipeline from Shanxi aged vinegar
+- **model_amppred** | type=model | name=amppred | status=ok | entities=amppred
+- **model_amppred_dlff** | type=model | name=AMPpred-DLFF | status=ok | entities=AMPpred-DLFF, AMP prediction, deep learning, multi-view fusion, ESM-2, graph attention network, convolutional neural network
+- **model_amppred_web_server** | type=model | name=amppred web server | status=ok | entities=amppred
+- **model_ampsphere** | type=model | name=AMPSphere | status=ok | entities=AMPSphere, machine learning-based AMP prediction, global microbiome, antimicrobial peptides, experimental validation
+- **model_amyamp** | type=model | name=amyAMP | status=ok | entities=amyAMP, iAFP-fLRM
+- **model_anaconda_package_data** | type=model | name=anaconda-package-data | status=ok | entities=GPR-antifungal-selectivity, CancerGram
+- **model_anoxpepred** | type=model | name=AnOxPePred. | status=ok | entities=BERT-TextCNN-AMP-2023
+- **model_antibacterial_peptide_binary_classifier_xgboost** | type=model | name=Antibacterial Peptide Binary Classifier (XGBoost) | status=ok | entities=Antibacterial Peptide Binary Classifier (XGBoost), ABP dataset from DRAMP and UniProt, Multifunctional Bioactive Peptide Design Tool
+- **model_antibp** | type=model | name=Antibp | status=ok | entities=Antibp, AVPIden, ADAM, AMP scanner v.2, iAMPpred, E-CLEAP, AMPlify, UniproLcad
+- **model_antibp_webserver** | type=model | name=AntiBP webserver | status=ok | entities=AntiBP
+- **model_antibp2** | type=model | name=AntiBP2 | status=ok | entities=CAMP database, AntiBP2, APD2 prediction
+- **model_antibp2_web_server** | type=model | name=AntiBP2 web server | status=ok | entities=AntiBP2, CAMP database, APD2 prediction
+- **model_anticp** | type=model | name=ANTICP | status=ok | entities=ANTICP, NSGA-II-GRU, AMPpred-DLFF, iACP, Red Sea SVM model
+- **model_anticp_2_0** | type=model | name=AntiCP 2.0 | status=ok | entities=AMP_prediction_model_by_Dong_et_al_2022, rAMPage, AntiCP 2.0 webserver, ClassAMP webserver, CAMPR3 webserver, AMP Scanner v2 webserver, CancerPPD2 webserver
+- **model_anticp_web_server** | type=model | name=AntiCP web server | status=ok | entities=AntiCP, iACP, Red Sea anticancer peptide SVM model
+- **model_antifp** | type=model | name=Antifp | status=ok | entities=AmpGram, Antifp, StackDPPred
+- **model_antifp_main** | type=model | name=Antifp_Main | status=ok | entities=AmpGram, Antifp, StackDPPred, Antifp_Main dataset, StackDPPred dataset
+- **model_antifp_web_server** | type=model | name=Antifp web server | status=ok | entities=AmpGram, Antifp, StackDPPred
+- **model_antifreeze_peptide_discovery** | type=model | name=Antifreeze-Peptide-Discovery. | status=ok | entities=PPGC-DVAE, Antifreeze-Peptide-Discovery. repository, PPGC-DVAE repository, AMP generation, antifreeze peptides, anti-dengue peptides, mRNA cancer vaccine
+- **model_antifungal** | type=model | name=antifungal | status=ok | entities=AFPtransferPred, BERT-based AMP prediction model (2020), ProteinBERT (for AMP classification)
+- **model_antifungal_peptide_predictor_ae_cae** | type=model | name=Antifungal Peptide Predictor (AE-CAE) | status=ok | entities=SA-MTP, AFP-AE-CAE, SA-MTP: a structure-aware framework for multifunctional therapeutic peptide annotation, Prediction and Effect Analysis of Antifungal Peptides Based on Autoencoders and Convolutional Autoencoders
+- **model_antimicrobial_peptide_database** | type=model | name=Antimicrobial Peptide Database | status=ok | entities=DBAASP, APD (Antimicrobial Peptide Database), CAMP (Collection of Antimicrobial Peptides), dbAMP (Database of Antimicrobial Peptides)
+- **model_antimicrobial_peptide_database_apd_prediction** | type=model | name=Antimicrobial Peptide Database (APD) prediction | status=ok | entities=Rough set-based AMP prediction model, APD prediction tool, Antimicrobial Peptide Database (APD)
+- **model_antimicrobial_peptide_database_calculator_and_predictor** | type=model | name=Antimicrobial Peptide Database Calculator and Predictor | status=ok | entities=PLSR-based α/β-peptide activity predictor, CAMPR4, APD6 Predictor
+- **model_antimicrobial_peptide_pipeline** | type=model | name=Antimicrobial Peptide Pipeline | status=ok | entities=Antimicrobial Peptide Pipeline
+- **model_antimicrobial_peptide_predictor** | type=model | name=Antimicrobial Peptide Predictor | status=ok | entities=PRRSV-AVPeP-ML-Omics, FungiGuard, Peptide_Predictor, PlantPepDB, Antimicrobial Peptide Database (APD), PRRSV proteomics peptides
+- **model_antimpmod** | type=model | name=AntiMPmod | status=ok | entities=AntiMPmod, Cysmotif searcher pipeline
+- **model_antimpmod_web_server** | type=model | name=AntiMPmod web server | status=ok | entities=AntiMPmod, Cysmotif searcher pipeline, α-hairpinin prediction, chemically modified peptide prediction
+- **model_antitbpred** | type=model | name=AntiTbPred | status=ok | entities=AntiTbPred, tuberculosis, antitubercular peptides, SVM ensemble, peptide encodings benchmark
+- **model_aop_drl** | type=model | name=AOP_DRL. | status=ok | entities=BERT-TextCNN-AMP-2023, AnOxPePred (repository), AOP_DRL (repository)
+- **model_apd** | type=model | name=APD | status=ok | entities=Rough set-based AMP prediction model, APD prediction tool, DBAASP, APD (Antimicrobial Peptide Database), CAMP (Collection of Antimicrobial Peptides), dbAMP (Database of Antimicrobial Peptides)
+- **model_apd_antimicrobial_peptide_database** | type=model | name=APD (Antimicrobial Peptide Database) | status=ok | entities=DBAASP, APD (Antimicrobial Peptide Database), CAMP (Collection of Antimicrobial Peptides), dbAMP (Database of Antimicrobial Peptides)
+- **model_apd_prediction** | type=model | name=APD Prediction | status=ok | entities=APD Prediction webserver, CAMPR3 webserver, ADAM webserver, dbAMP webserver, ClassAMP webserver, iAMPpred webserver, AntiBp webserver, APD3 database
+- **model_apd_prediction_tool** | type=model | name=APD prediction tool | status=ok | entities=Rough set-based AMP prediction model, Antimicrobial Peptide Database (APD) prediction, APD (Antimicrobial Peptide Database)
+- **model_apd_web_server** | type=model | name=APD web server | status=ok | entities=Rough set-based AMP prediction model, APD prediction tool, Antimicrobial Peptide Database (APD)
+- **model_apd2** | type=model | name=APD2 | status=ok | entities=CAMP database, AntiBP2, APD2 prediction
+- **model_apd2_prediction** | type=model | name=APD2 prediction | status=ok | entities=CAMP database, AntiBP2, APD2 prediction
+- **model_apd2_prediction_web_server** | type=model | name=APD2 prediction web server | status=ok | entities=CAMP database, AntiBP2, APD2 prediction
+- **model_apd6_prediction_server** | type=model | name=APD6 prediction server | status=ok | entities=PLSR-based α/β-peptide activity predictor, CAMPR4, APD6 Predictor
+- **model_apd6_predictor** | type=model | name=APD6 Predictor | status=ok | entities=PLSR-based α/β-peptide activity predictor, CAMPR4, APD6 Predictor
+- **model_apex_predictor** | type=model | name=APEX predictor | status=ok | entities=AMP-Diffusion, APEX predictor
+- **model_apex_predictor_gitlab** | type=model | name=APEX predictor GitLab | status=ok | entities=AMP-Diffusion, APEX predictor, Generative latent diffusion language modeling yields anti-infective synthetic peptides
+- **model_apexamphion** | type=model | name=ApexAmphion | status=ok | entities=ApexAmphion, GAC-BTCNN-Pred, StaBle-ABPpred, Bioproteom AAC AMP predictor
+- **model_app_algorithm_of_dbaasp** | type=model | name=APP algorithm of DBAASP | status=ok | entities=CLABP, DBAASP APP tool, ABPDB, dbAMP3
+- **model_arcadiamp** | type=model | name=ARCADIAMP | status=ok | entities=ARCADIAMP, DeepPepQSAR, ChatGPT-based AMP classifier
+- **model_assemblytics** | type=model | name=AMPSphere | status=ok | entities=AMPSphere
+- **model_asv** | type=model | name=asv | status=ok | entities=GPR-antifungal-selectivity, CancerGram
+- **model_atp_program** | type=model | name=ATP-Program | status=ok | entities=ATP-Program (mononucleotide binding site predictor, not AMP)
+- **model_avp_ic50pred** | type=model | name=AVP-IC50Pred | status=ok | entities=AVP-IC50Pred (webserver for antiviral peptide IC50 prediction)
+- **model_avp_prediction_framework_guan_et_al_2024** | type=model | name=AVP prediction framework (Guan et al. 2024) | status=ok | entities=ClassAMP, AVP prediction framework (Guan et al. 2024)
+- **model_avp_prediction_web_server** | type=model | name=AVP prediction web server | status=ok | entities=ClassAMP, Two-stage AVP prediction framework (Guan et al. 2024)
+- **model_avp_predictor** | type=model | name=AVP-predictor | status=ok | entities=AVP-predictor, ML-guided directed evolution for AMP development
+- **model_avpiden** | type=model | name=AVPIden | status=ok | entities=AVPIden, ADAM, AMP scanner v.2, iAMPpred, Antibp, E-CLEAP, AMPlify, UniproLcad
+- **model_avpiden_web_server** | type=model | name=AVPIden web server | status=ok | entities=AVPIden, DBAASP_MSS_AMP_predictor, Bacillus_AMP_DL_models, Plant_AMP_XGBoost_framework
+- **model_avppred** | type=model | name=AVPpred | status=ok | entities=AVPpred, antiviral peptide prediction webserver
+- **model_bacillus_amp_dl_models** | type=model | name=Bacillus_AMP_DL_models | status=ok | entities=Bacillus_AMP_DL_models, Plant_AMP_XGBoost_framework, AVPIden, DBAASP_MSS_AMP_predictor, Discovery of antimicrobial peptides from Bacillus genomes against phytopathogens with deep learning models, Development of an interpretable machine learning framework for de novo identification of antimicrobial peptides from plant proteomes with computational validation, AVPIden: a new scheme for identification and functional prediction of antiviral peptides based on machine learning approaches, Comparative analysis of machine learning algorithms on the microbial strain-specific AMP prediction
+- **model_baclab_deep_learning_neural_network** | type=model | name=BacLAB-Deep-Learning-Neural-Network. | status=ok | entities=SMO-based lantibiotic predictor
+- **model_bacteria_centric_amp_predictor** | type=model | name=Bacteria-Centric AMP Predictor | status=ok | entities=Antimicrobial Peptide Pipeline, Bacteria-Centric AMP Predictor
+- **model_bacterial_amp_database_bw_database** | type=model | name=Bacterial AMP database (BW database) | status=ok | entities=AMPA, Bacterial AMP Database (BW database)
+- **model_bacterial_wars** | type=model | name=Bacterial Wars | status=ok | entities=Bacterial Wars (web server for bacterial predominance prediction), antimicrobial peptide resistance mechanisms, AMP design and screening
+- **model_bagel2** | type=model | name=BAGEL2 | status=ok | entities=BAGEL2, aCPP-QSAR model
+- **model_bagel2_webserver** | type=model | name=BAGEL2 webserver | status=ok | entities=BAGEL2, aCPP-QSAR model, BAGEL2 bacteriocin database
+- **model_bagel4_webserver** | type=model | name=BAGEL4 webserver | status=ok | entities=BAGEL4 webserver, Peptide Utility search server, AVPdb, BaAMPs, DBAASP, YADAMP, CancerPPD, SATpdb
+- **model_beltran2018_amp_classifier** | type=model | name=Beltran2018_AMP_classifier | status=ok | entities=Evolutionary feature weighting approach for AMP classification, Generative approach for precision antimicrobial peptide design
+- **model_benchmarking_of_phenotype_driven_gene_prioritization_methods** | type=model | name=Benchmarking-of-Phenotype-driven-Gene-Prioritization-Methods. | status=ok | entities=
+- **model_bert_ampep60** | type=model | name=BERT-AmPEP60 | status=ok | entities=BERT-AmPEP60, MIC regression, Escherichia coli, Staphylococcus aureus, DBAASP
+- **model_bert_ampep60_web_server** | type=model | name=BERT-AmPEP60 web server | status=ok | entities=BERT-AmPEP60, DBAASP-derived AMP dataset, AMP_regression_EC_SA repository, BERT-AmPEP60 web server
+- **model_bert_based_amp_prediction_model** | type=model | name=BERT-based AMP prediction model | status=ok | entities=AFPtransferPred, BERT-based AMP prediction model (2020), ProteinBERT (for AMP classification)
+- **model_bert_based_amp_prediction_model_2020** | type=model | name=BERT-based AMP prediction model (2020) | status=ok | entities=AFPtransferPred, BERT-based AMP prediction model (2020), ProteinBERT (for AMP classification)
+- **model_bert_gru** | type=model | name=BERT-GRU | status=ok | entities=BERT-GRU model
+- **model_bert_protein** | type=model | name=BERT-Protein | status=ok | entities=iAMP-bert, LM_pred (BFD), BERT-Protein, LMPred, cAMPs-pred, AMP-BERT
+- **model_bert_textcnn_amp_2023** | type=model | name=BERT-TextCNN-AMP-2023 | status=ok | entities=BERT-TextCNN-AMP-2023, antimicrobial peptide classification
+- **model_bert_textcnn_based_amp_recognition_tool** | type=model | name=BERT-TextCNN-based AMP recognition tool | status=ok | entities=BERT-TextCNN-based AMP recognition tool, antimicrobial peptide classification
+- **model_bioampify** | type=model | name=BioAMPify | status=ok | entities=BioAMPify
+- **model_biofilm_amp_b_amp** | type=model | name=Biofilm-AMP (B-AMP) | status=ok | entities=Biofilm-AMP (B-AMP) database, APD, DRAMP, DBAASP datasets
+- **model_biopeppred_dlemb** | type=model | name=BioPepPred-DLEmb | status=ok | entities=STAMP, AMPActiPred, AEPMA, MAPLE, BioPepPred-DLEmb
+- **model_bioproteom_aac_amp_predictor** | type=model | name=Bioproteom AAC AMP predictor | status=ok | entities=GAC-BTCNN-Pred, StaBle-ABPpred, ApexAmphion, Bioproteom AAC AMP predictor, defensin prediction, antibacterial peptide prediction, antimicrobial peptide design, amino acid composition classifier
+- **model_bioproteom_amp_prediction_server** | type=model | name=Bioproteom AMP prediction server | status=ok | entities=GAC-BTCNN-Pred, StaBle-ABPpred, ApexAmphion, Bioproteom AAC AMP predictor
+- **model_brca_exchange** | type=model | name=brca-exchange | status=ok | entities=AMPFinder
+- **model_c_pamp** | type=model | name=C-PAmP | status=ok | entities=C-PAmP classifier, Sequential Properties RNN model (SP-RNN)
+- **model_c_pamp_classifier** | type=model | name=C-PAmP classifier | status=ok | entities=C-PAmP classifier, Sequential Properties RNN model
+- **model_c_pamp_svm** | type=model | name=C-PAmP SVM | status=ok | entities=C-PAmP classifier, Sequential Properties RNN model (SP-RNN)
+- **model_c_pamp_web_server** | type=model | name=C-PAmP web server | status=ok | entities=C-PAmP classifier, Sequential Properties RNN model
+- **model_camp** | type=model | name=CAMP | status=ok | entities=DBAASP, APD (Antimicrobial Peptide Database), CAMP (Collection of Antimicrobial Peptides), dbAMP, AntiBP2
+- **model_camp_collection_of_anti_microbial_peptides** | type=model | name=CAMP (Collection of Anti-Microbial Peptides) | status=ok | entities=CAMP database, APD, DRAMP, computational AMP design review
+- **model_camp_collection_of_antimicrobial_peptides** | type=model | name=CAMP (Collection of Antimicrobial Peptides) | status=ok | entities=DBAASP, APD, CAMP, dbAMP
+- **model_camp_database** | type=model | name=CAMP database | status=ok | entities=CAMP database, AntiBP2, APD2 prediction
+- **model_camp_database_web_server** | type=model | name=CAMP database web server | status=ok | entities=CAMP database, AntiBP2, APD2 prediction
+- **model_camp_r3** | type=model | name=CAMP-R3 | status=ok | entities=NSGA-II-GRU, AMPpred-DLFF, CAMP-R3, ADP3, AMPfun, ANTICP, ToxinPred2, ToxIBTL
+- **model_camp_rl** | type=model | name=CAMP-RL | status=ok | entities=CAMP-RL, Antimicrobial peptides generation, Multi-property optimization, Reinforcement learning, Conditional VAE, Conditional independence regularization
+- **model_camper** | type=model | name=CAMPER | status=ok | entities=CAMPER, DBAASP
+- **model_campr3** | type=model | name=CAMPR3 | status=ok | entities=CAMPR3, ADAM, AmpGram, iAMPpred, DBAASP, ClassAMP, AntiBp, APD Prediction
+- **model_campr3_collection_of_anti_microbial_peptides** | type=model | name=CAMPR3 (Collection of Anti-Microbial Peptides) | status=ok | entities=ADAM (A Database of Antimicrobial peptides), AmpGram, CAMPR3 (Collection of Anti-Microbial Peptides), DBAASP (Database of Antimicrobial Activity and Structure of Peptides)
+- **model_campr3_predict** | type=model | name=CAMPR3 Predict | status=ok | entities=CAMPR3
+- **model_campr3_web_server** | type=model | name=CAMPR3 web server | status=ok | entities=CAMPR3, AmpGram, iAMPpred
+- **model_campr4** | type=model | name=CAMPR4 | status=ok | entities=CAMPR4, APD6 Predictor, PLSR-based α/β-peptide activity predictor
+- **model_campr4_web_server** | type=model | name=CAMPR4 web server | status=ok | entities=PLSR-based α/β-peptide activity predictor, CAMPR4, APD6 Predictor, α/β-peptide library (aurein 1.2-based)
+- **model_camps_pred** | type=model | name=cAMPs-pred | status=ok | entities=iAMP-bert, LM_pred (BFD), BERT-Protein, LMPred, cAMPs-pred, AMP-BERT, Comprehensive Assessment of BERT-Based Methods for Predicting Antimicrobial Peptides, AMP_benchmark_dataset
+- **model_cancergram** | type=model | name=CancerGram | status=ok | entities=CancerGram, GPR-based antifungal peptide selectivity predictor
+- **model_cast** | type=model | name=CAST | status=ok | entities=CAST (cross-modal attention AMP classifier)
+- **model_cd_hit_web_server** | type=model | name=CD-HIT web server | status=ok | entities=CD-HIT web server, APD3 database, dryad dataset (10.5061/dryad.3n5tb2rz2)
+- **model_cela_mfp** | type=model | name=CELA-MFP | status=ok | entities=CELA-MFP, TriNet
+- **model_cela_mfp_github** | type=model | name=CELA-MFP GitHub | status=ok | entities=CELA-MFP, TriNet, MFBP dataset, MFTP dataset
+- **model_cela_mfp_web_server** | type=model | name=CELA-MFP web server | status=ok | entities=CELA-MFP, TriNet
+- **model_cellppd** | type=model | name=CellPPD | status=ok | entities=iAMPred, CellPPD
+- **model_characterization_and_identification_of_natural_antimicrobial_peptides_on_differe** | type=model | name=Characterization and Identification of Natural Antimicrobial Peptides on Different Organisms | status=ok | entities=Target-AMP, Unnamed RF-based AMP model from PMID 32024233
+- **model_chatgpt_based_amp_classifier** | type=model | name=ChatGPT-based AMP classifier | status=ok | entities=ARCADIAMP, DeepPepQSAR, ChatGPT-based AMP classifier
+- **model_chatgpt_for_peptide_classification** | type=model | name=ChatGPT for peptide classification | status=ok | entities=ARCADIAMP, DeepPepQSAR, ChatGPT-based AMP classifier
+- **model_chord_plots_hm_compounds_allergy** | type=model | name=Chord_plots_HM_compounds_allergy | status=ok | entities=DeepMAMP
+- **model_circda_git** | type=model | name=CircDA.git | status=ok | entities=Antimicrobial Peptide Pipeline (Bacteria-Centric AMP Predictor)
+- **model_claamp** | type=model | name=ClaAMP | status=ok | entities=Embedded-AMP, ClaAMP, PreAMP
+- **model_claamp_preamp** | type=model | name=ClaAMP, PreAMP | status=ok | entities=ClaAMP, PreAMP, Embedded-AMP
+- **model_clabp** | type=model | name=CLABP | status=ok | entities=CLABP, DBAASP APP tool
+- **model_clabp_github_repository** | type=model | name=CLABP GitHub repository | status=ok | entities=CLABP, DBAASP APP tool, ABPDB, dbAMP3
+- **model_classamp** | type=model | name=ClassAMP | status=ok | entities=ClassAMP, Two-stage AVP prediction framework, AMP_prediction_model_by_Dong_et_al_2022, rAMPage
+- **model_classamp_web_server** | type=model | name=ClassAMP web server | status=ok | entities=ClassAMP, Two-stage AVP prediction framework
+- **model_cnn_based_amp_hemolytic_activity_predictor** | type=model | name=CNN-based AMP hemolytic activity predictor | status=ok | entities=CNN-based AMP hemolytic activity predictor, MSCMamba, HemoPI-1, HemoPI-2, HemoPI-3, RNN-Hem, Hlppredfuse, AMP-Combined
+- **model_cnn_based_pda_mechanochromic_fingerprint_amp_identification** | type=model | name=CNN-based PDA mechanochromic fingerprint AMP identification | status=ok | entities=PDA-CNN AMP identification, Deep Learning Enables Identification of Antimicrobial Peptides Through Mechanochromic Fingerprints
+- **model_collection_of_anti_microbial_peptides** | type=model | name=Collection of Anti-Microbial Peptides (PLSR, CAMPR4, APD6) | status=ok | entities=PLSR-based α/β-peptide activity predictor, CAMPR4, APD6 Predictor
+- **model_compahradex** | type=model | name=compahradex. | status=ok | entities=DBAASP linear AMP prediction, DBAASP web server, CAMPR4 database, HRaDeX
+- **model_computational_amp_prediction_from_proteomes_monsalve_et_al** | type=model | name=Computational AMP prediction from proteomes (Monsalve et al.) | status=ok | entities=Monsalve2024_AMP_prediction, Houyvet2018_AMP_prediction
+- **model_consamphemo** | type=model | name=ConsAMPHemo | status=ok | entities=smAMPsTK, ConsAMPHemo, AMP prediction, hemolysis prediction
+- **model_consamphemo_github** | type=model | name=ConsAMPHemo GitHub | status=ok | entities=ConsAMPHemo, smAMPsTK
+- **model_cpp_mechanism_predictor** | type=model | name=cpp-mechanism-predictor. | status=ok | entities=CPPMechPred
+- **model_cpython** | type=model | name=cpython | status=ok | entities=GPR-based antifungal peptide selectivity predictor, CancerGram, Machine learning-driven discovery of highly selective antifungal peptides containing non-canonical β-amino acids, CancerGram: An Effective Classifier for Differentiating Anticancer from Antimicrobial Peptides, Incorporating support vector machine with sequential minimal optimization to identify anticancer peptides, Unsupervised encoding selection through ensemble pruning for biomedical classification
+- **model_cs_amppred** | type=model | name=CS-AMPPred | status=ok | entities=CS-AMPPred, CAMPR3, CS-AMPPred cysteine-stabilized peptide dataset
+- **model_cs_amppred_standalone** | type=model | name=CS-AMPPred standalone | status=ok | entities=CS-AMPPred, CAMPR3
+- **model_cvfs_hfe** | type=model | name=cvfs_hfe. | status=ok | entities=cvfs_hfe (bacteriocin prediction model)
+- **model_cysmotif_searcher** | type=model | name=Cysmotif searcher | status=ok | entities=Cysmotif searcher, AntiMPmod, Cysmotif searcher pipeline (α-hairpinin)
+- **model_cysmotif_searcher_pipeline** | type=model | name=Cysmotif searcher pipeline | status=ok | entities=AntiMPmod, Cysmotif searcher pipeline
+- **model_cysmotifsearcher** | type=model | name=cysmotifsearcher | status=ok | entities=Cysmotif searcher, Cysmotif Searcher Pipeline for Antimicrobial Peptide Identification in Plant Transcriptomes (PMID:30482154), One Thousand Plant Transcriptomes (1KP) project data
+- **model_dbaasp** | type=model | name=DBAASP | status=ok | entities=DBAASP, APD, CAMP, dbAMP, ADAM, AmpGram, CAMPR3, CAMPR4
+- **model_dbaasp_amp_prediction** | type=model | name=DBAASP_AMP_prediction | status=ok | entities=LSTM-based AMP design model, DBAASP linear AMP prediction
+- **model_dbaasp_antibacterial_peptide_prediction_app_algorithm** | type=model | name=DBAASP Antibacterial Peptide Prediction (APP) algorithm | status=ok | entities=CLABP, DBAASP APP tool
+- **model_dbaasp_app_tool** | type=model | name=DBAASP APP tool | status=ok | entities=CLABP, DBAASP APP tool
+- **model_dbaasp_database_of_antimicrobial_activity_and_structure_of_peptides** | type=model | name=DBAASP (Database of Antimicrobial Activity and Structure of Peptides) | status=ok | entities=ADAM, AmpGram, CAMPR3, DBAASP
+- **model_dbaasp_genome_prediction_tool** | type=model | name=DBAASP Genome Prediction Tool | status=ok | entities=Bacillus_AMP_DL_models, Plant_AMP_XGBoost_framework, AVPIden, DBAASP_MSS_AMP_predictor
+- **model_dbaasp_linear_amp_prediction** | type=model | name=DBAASP linear AMP prediction | status=ok | entities=LSTM-based AMP design model, DBAASP linear AMP prediction
+- **model_dbaasp_linear_amp_prediction_tool** | type=model | name=DBAASP linear-amp-prediction tool | status=ok | entities=VEIP prediction model, DBAASP linear-amp-prediction tool
+- **model_dbaasp_linear_amp_prediction_web_server** | type=model | name=DBAASP linear AMP prediction web server | status=ok | entities=LSTM-based AMP design model, DBAASP linear AMP prediction
+- **model_dbaasp_microbial_strain_specific_amp_predictor** | type=model | name=DBAASP microbial strain-specific AMP predictor | status=ok | entities=DBAASP microbial strain-specific AMP predictor, MSS AMP predictor (DBAASP), DBAASP database
+- **model_dbaasp_mss_amp_prediction_server** | type=model | name=DBAASP MSS AMP prediction server | status=ok | entities=DBAASP microbial strain-specific AMP predictor, Comparative analysis of machine learning algorithms on the microbial strain-specific AMP prediction, DBAASP database
+- **model_dbaasp_mss_amp_predictor** | type=model | name=DBAASP_MSS_AMP_predictor | status=ok | entities=Bacillus_AMP_DL_models, Plant_AMP_XGBoost_framework, AVPIden, DBAASP_MSS_AMP_predictor
+- **model_dbaasp_prediction_tool** | type=model | name=DBAASP prediction tool | status=ok | entities=Host defense peptide selectivity Random Forest model, 3D structure-based AMP activity prediction model, Linear cationic AMP prediction method
+- **model_dbaasp_random_forest_adaboost_amp_prediction** | type=model | name=DBAASP Random Forest/AdaBoost AMP prediction | status=ok | entities=LSTM-based AMP design model, DBAASP linear AMP prediction
+- **model_dbaasp_v3** | type=model | name=DBAASP v3 | status=ok | entities=DBAASP v3, DBAASP v3 PGA, DBAASP v3 PAASS, DBAASP v3 database
+- **model_dbaasp_v3_paass** | type=model | name=DBAASP v3 PAASS | status=ok | entities=DBAASP v3, antimicrobial peptide prediction, PGA, PAASS, DBAASP database
+- **model_dbaasp_v3_pga** | type=model | name=DBAASP v3 PGA | status=ok | entities=DBAASP v3, DBAASP database, PGA tool, PAASS tool
+- **model_dbaasp_v3_prediction_tools** | type=model | name=DBAASP v3 prediction tools | status=ok | entities=DBAASP v3, DBAASP v3 PGA, DBAASP v3 PAASS
+- **model_dbaasp_v3_web_server** | type=model | name=DBAASP v3 Web Server | status=ok | entities=DBAASP v3, DBAASP v3 prediction tools (PGA, PAASS)
+- **model_dbaasp_web_server** | type=model | name=DBAASP Web Server | status=ok | entities=DBAASP linear AMP prediction, CAMPR4 database
+- **model_dbamp** | type=model | name=dbAMP | status=ok | entities=DBAASP, APD, CAMP, CAMPR3, dbAMP, ADAM, ClassAMP, iAMPpred
+- **model_dbamp_2_0_amp_scanning_tool** | type=model | name=dbAMP 2.0 AMP scanning tool | status=ok | entities=AMPfun, dbAMP 2.0 scanning tool, dbAMP 2.0 database
+- **model_dbamp_2_0_scanning_tool** | type=model | name=dbAMP 2.0 scanning tool | status=ok | entities=AMPfun, dbAMP 2.0 AMP scanning tool, dbAMP 2.0
+- **model_dbamp_2_0_web_server** | type=model | name=dbAMP 2.0 web server | status=ok | entities=AMPfun, dbAMP 2.0, dbAMP 2.0 AMP scanning tool
+- **model_dbamp_database_of_antimicrobial_peptides** | type=model | name=dbAMP (Database of Antimicrobial Peptides) | status=ok | entities=DBAASP, APD (Antimicrobial Peptide Database), CAMP (Collection of Antimicrobial Peptides), dbAMP (Database of Antimicrobial Peptides)
+- **model_dcf** | type=model | name=dcf. | status=ok | entities=AntiTbPred
+- **model_ddm** | type=model | name=DDM. | status=ok | entities=iAMP-DL, DMAMP, An efficient hybrid deep learning architecture for predicting short antimicrobial peptides, DMAMP: A Deep-Learning Model for Detecting Antimicrobial Peptides and Their Multi-Activities, Antimicrobial Peptides Prediction method based on sequence multidimensional feature embedding, Machine learning in burn care and research: A systematic review of the literature
+- **model_de_novo_designed_bifunctional_amp_deep_learning_model** | type=model | name=de novo designed bifunctional AMP deep learning model | status=ok | entities=ESMFold + ESM-2 graph deep learning AMP predictor, de novo designed bifunctional AMP deep learning model
+- **model_de_novo_designed_bifunctional_antimicrobial_peptide_dl_model** | type=model | name=De novo designed bifunctional antimicrobial peptide DL model | status=ok | entities=De novo designed bifunctional antimicrobial peptide DL model
+- **model_decision_tree_model_for_antimicrobial_peptide_activity_prediction** | type=model | name=Decision tree model for antimicrobial peptide activity prediction | status=ok | entities={'type': 'model', 'name': 'Decision tree model (Lira et al. 2013)', 'role': 'AMP activity prediction using decision tree and physicochemical features from APD'}
+- **model_decision_tree_model_lira_et_al_2013** | type=model | name=Decision tree model (Lira et al. 2013) | status=ok | entities=Decision tree model (Lira et al. 2013)
+- **model_decrippter** | type=model | name=decRiPPter | status=ok | entities=SSEL-CPP, Top-ML, Insect VGSC inhibitor prediction model
+- **model_deep_abppred** | type=model | name=Deep-ABPpred | status=ok | entities=Deep-ABPpred
+- **model_deep_attention_based_variational_autoencoder** | type=model | name=Deep attention based variational autoencoder | status=ok | entities=Deep attention based variational autoencoder for antimicrobial peptide discovery
+- **model_deep_attention_based_variational_autoencoder_for_antimicrobial_peptide_discovery** | type=model | name=Deep attention based variational autoencoder for antimicrobial peptide discovery | status=ok | entities=Deep attention based variational autoencoder for antimicrobial peptide discovery
+- **model_deep_avpiden** | type=model | name=Deep-AVPiden | status=ok | entities=Deep-AVPiden, Deep-AVPiden (DS), antiviral peptide prediction, separable temporal convolutional networks (TCN), point-wise separable convolutions
+- **model_deep_avpiden_ds** | type=model | name=Deep-AVPiden (DS) | status=ok | entities=Deep-AVPiden, Deep-AVPiden (DS), antiviral peptide prediction, separable temporal convolutional networks
+- **model_deep_avpiden_web_app** | type=model | name=Deep-AVPiden web app | status=ok | entities=Deep-AVPiden (antiviral peptide prediction model), A separable temporal convolutional networks based deep learning technique for discovering antiviral medicines (PMID:37608092)
+- **model_deep_learning_based_amp_design_for_oral_pathogens** | type=model | name=Deep learning-based AMP design for oral pathogens | status=ok | entities=ProtBert-NN AMP activity predictor, Deep learning-based AMP design for oral pathogens

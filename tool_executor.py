@@ -14,7 +14,9 @@ class ToolRegistry:
     def download_zenodo_dataset(target_url: str, output_dir: Path) -> bool:
         """【工具 1】Zenodo API 自动化流式下载器"""
         record_id = None
-        match = re.search(r'zenodo\.(\d+)', target_url)
+        match = re.search(r'zenodo\.org/(?:records|record)/(\d+)', target_url)
+        if not match:
+            match = re.search(r'zenodo\.(\d+)', target_url)
         if match:
             record_id = match.group(1)
         elif target_url.isdigit():
