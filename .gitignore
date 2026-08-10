@@ -1,0 +1,72 @@
+# Local secrets. Keep only the documented template in Git.
+.env
+.env.*
+!.env.example
+
+# Python bytecode and tool caches.
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environments and editor/OS files.
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Plotting/runtime caches.
+.matplotlib-cache/
+.matplotlib/
+.nature-figure.json
+.nature-figure*.json
+.codex/
+.codex_tmp/
+outputs/
+tmp/
+*.inspect.ndjson
+Stage2_Supplementary_Appendix_Two_Stage_style_harmonized.pptx
+
+# The figure workspace contains many iterative drafts and oversized exports.
+# Keep it local by default; publication assets are force-added explicitly.
+figures/
+*.tif
+*.tiff
+*.zip
+
+# Manual-result directories contain many alternate renderings. Selected final
+# PNG/SVG/PDF assets are force-added explicitly alongside their source data.
+data/results_manual/**/*.png
+data/results_manual/**/*.svg
+data/results_manual/**/*.pdf
+
+# Rebuildable literature/download caches.
+data/search_cache/
+data/fulltext_cache/
+data/chunk_summaries/
+data/repository_cache/
+data/dataset_cache/
+data/failed_agent_outputs/
+data/hpc_self_heal/
+
+# Dataset-gate acquisition/extraction scratch directories. The immutable
+# dataset_plan, dataset_source_lock and dataset_manifests stay trackable.
+data/datasets/*/_downloads/
+data/datasets/*/_source_repo/
+data/datasets/*/_extracted/
+
+# Generated workflow scratch files. Final reports under data/results remain tracked.
+data/vlab_discussions/__pycache__/
+data/vlab_discussions/stage1_obs_*.txt
+data/vlab_discussions/stage1_observation*.txt
+data/vlab_discussions/stage1_context_for_stage2.txt
+data/vlab_discussions/stage1_code_cache*.py
+data/vlab_discussions/last_explored_dataset*.txt

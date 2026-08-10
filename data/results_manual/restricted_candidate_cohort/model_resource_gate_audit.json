@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-07-24T08:30:31.687030+00:00",
+  "policy_mode": "measured_budget_gate",
+  "policy_path": "E:\\agentbenmark_amp\\zss\\data\\model_resource_policy.json",
+  "enabled": true,
+  "missing_measurement_policy": "keep_and_flag",
+  "limits": {
+    "runtime_seconds": 3600.0,
+    "peak_memory_mb": 32768.0,
+    "gpu_memory_mb": 24576.0,
+    "minimum_throughput_sequences_per_second": null
+  },
+  "models_before": 3,
+  "models_after": 3,
+  "rows_before": 135,
+  "rows_after": 135,
+  "eligible_models": [
+    "AMPsorter",
+    "C_AMPs-predict",
+    "HMD-AMP"
+  ],
+  "excluded_models": [],
+  "flagged_models": [
+    "AMPsorter",
+    "C_AMPs-predict",
+    "HMD-AMP"
+  ],
+  "checks": [
+    {
+      "model": "AMPsorter",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "C_AMPs-predict",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "HMD-AMP",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    }
+  ],
+  "principle": "Eligibility uses measured resource evidence only; ranking values and model names are not gate inputs."
+}

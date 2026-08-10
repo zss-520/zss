@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "dataset_selection_policy": {
+    "enabled": true,
+    "required_dataset_count": 3,
+    "required_profiles": {
+      "balanced": 1,
+      "imbalanced": 2
+    },
+    "balanced_minority_majority_ratio_min": 0.7,
+    "min_imbalanced_minority_fraction_gap": 0.1,
+    "primary_length_min_aa": 10,
+    "primary_length_max_aa": 50,
+    "min_primary_length_fraction": 0.8,
+    "min_primary_length_fraction_per_class": 0.8,
+    "absolute_min_length_aa": 5,
+    "absolute_max_length_aa": 100,
+    "max_class_median_length_gap_aa": 15,
+    "min_total_samples": 500,
+    "min_samples_per_class": 100,
+    "require_source_url": true,
+    "require_citation": true,
+    "require_version": true,
+    "require_retrieval_date": true,
+    "require_license": true,
+    "require_expected_sha256": true,
+    "require_training_references": true,
+    "require_independent_external_test": true,
+    "require_label_definition": true,
+    "require_negative_sampling_strategy": true,
+    "require_low_homology_report": true,
+    "max_training_sequence_identity": 0.4
+  }
+}

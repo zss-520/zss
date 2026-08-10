@@ -1,0 +1,20 @@
+section,field_1,field_2,field_3
+metric,"59,311",C_AMPs-predict test,
+metric,"1,203",Veltri test,
+metric,"1,796",ProteoGPT test,
+metric,18,usable models,
+agent,Architect,runtime_prompts/benchmark_architect.md,Infer model invocation and output schema
+agent,Coder,runtime_prompts/coder.md,Generate executable evaluation code
+agent,ETL,runtime_prompts/dataset_etl_agent.md,"Align sequence IDs, labels and probabilities"
+agent,Critic,runtime_prompts/critic.md,"Audit code, outputs and missingness"
+agent,PI,runtime_prompts/pi.md,"Approve, reject or request a bounded revision"
+execution,Auto,main -> HPC/SLURM,
+execution,Manual,import prediction CSV,
+execution,Normalize,sample/label/probability,
+execution,Evaluate,scientific_evaluation.py,
+execution,Persist,prediction + metric bundle,
+artifact,data/runs/{run_id}/manifest.json,automatic provenance,"HPC inputs, events and retrieved artifacts"
+artifact,data/manual_predictions/{dataset}/,manual provenance,archived source prediction tables
+artifact,final_results_with_predictions.csv,standard table,"aligned sample IDs, labels and probabilities"
+artifact,eval_result.json + scientific_evaluation.json/.md,metric evidence,common metric protocol and statistical summaries
+artifact,critic_individual.md,independent audit,dataset-specific interpretation and failure review

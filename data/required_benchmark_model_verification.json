@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-16 14:57:27",
+  "seed_file": "data\\required_benchmark_model_seeds.json",
+  "verified_count": 3,
+  "results": [
+    {
+      "model_name": "C_AMPs-predict",
+      "canonical_name": "C_AMPs-predict",
+      "nomination_batch": "required_scientific_seed",
+      "verification_status": "scientifically_verified",
+      "eligible_for_evidence_pool": true,
+      "best_match_score": 1.0,
+      "paper_title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning",
+      "publication_year": 2022,
+      "source_journal": "Nature Biotechnology",
+      "source_doi": "10.1038/s41587-022-01226-0",
+      "source_pmid": "35241840",
+      "source_openalex_id": null,
+      "citation_count": null,
+      "citation_count_status": "pending_exact_doi_refresh",
+      "citation_evidence_source": null,
+      "citation_snapshot_date": "2026-07-16",
+      "journal_impact_factor": null,
+      "journal_impact_factor_status": "missing_curated_jif_mapping",
+      "jif_data_year": null,
+      "jif_source_url": null,
+      "top_journal_level": false,
+      "model_architecture": null,
+      "architecture_claim": "LSTM attention BERT ensemble",
+      "architecture_verification_status": "unverified_architecture_claim",
+      "architecture_evidence_terms": [],
+      "input_representation": "amino-acid sequence tokens",
+      "task_type": "AMP binary prediction/classification",
+      "code_repository_url": "https://github.com/mayuefine/c_AMPs-prediction",
+      "code_repository_verification_status": "verified_from_primary_publisher_code_availability",
+      "dataset_source_or_link": "https://github.com/mayuefine/c_AMPs-prediction",
+      "web_server_url": null,
+      "reported_metrics": {},
+      "online_verification_sources": [
+        "https://www.nature.com/articles/s41587-022-01226-0",
+        "https://doi.org/10.1038/s41587-022-01226-0"
+      ],
+      "verification_errors": [
+        "openalex:RuntimeError"
+      ],
+      "verified_at": "2026-07-16 13:53:44",
+      "paper_record": {
+        "source_primary": "required_model_primary_metadata_lock",
+        "sources": [
+          "https://www.nature.com/articles/s41587-022-01226-0",
+          "required_model_primary_source_verification"
+        ],
+        "source_ids": {
+          "doi": "10.1038/s41587-022-01226-0",
+          "pmid": "35241840"
+        },
+        "title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning",
+        "doi": "10.1038/s41587-022-01226-0",
+        "journal": "Nature Biotechnology",
+        "year": 2022,
+        "pmid": "35241840",
+        "urls": [
+          "https://www.nature.com/articles/s41587-022-01226-0",
+          "https://doi.org/10.1038/s41587-022-01226-0"
+        ],
+        "citation_count": 0,
+        "cited_by_count": 0
+      },
+      "nomination": {
+        "model_name": "C_AMPs-predict",
+        "aliases": [
+          "c_AMPs-prediction",
+          "c_AMP prediction",
+          "C-AMPs-predict"
+        ],
+        "paper_title": "Identification of antimicrobial peptides from the human gut microbiome using deep learning",
+        "source_doi": "10.1038/s41587-022-01226-0",
+        "source_journal": "Nature Biotechnology",
+        "publication_year": 2022,
+        "publisher_article_url": "https://www.nature.com/articles/s41587-022-01226-0",
+        "code_repository_url": "https://github.com/mayuefine/c_AMPs-prediction",
+        "dataset_source_or_link": "https://github.com/mayuefine/c_AMPs-prediction",
+        "model_architecture": "LSTM attention BERT ensemble",
+        "input_representation": "amino-acid sequence tokens",
+        "task_type": "AMP binary prediction/classification",
+        "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit",
+        "nomination_batch": "required_scientific_seed"
+      },
+      "required_candidate": true,
+      "seed_file": "data\\required_benchmark_model_seeds.json",
+      "publisher_article_url": "https://www.nature.com/articles/s41587-022-01226-0",
+      "publisher_evidence_checks": {
+        "primary_doi_on_publisher_page": true,
+        "model_identity_on_publisher_page": true,
+        "official_repository_on_publisher_page": true,
+        "official_dataset_on_publisher_page": true
+      },
+      "publisher_fetch_error": null,
+      "bibliographic_identity_verified": true,
+      "official_repository_verified": true,
+      "aliases": [
+        "c_AMPs-prediction",
+        "c_AMP prediction",
+        "C-AMPs-predict"
+      ],
+      "parent_model": null,
+      "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit",
+      "scientific_gate_policy": "exact DOI/title + primary publisher model/link evidence + repository existence when available",
+      "official_repository_verification_basis": "primary_publisher_code_availability_statement"
+    },
+    {
+      "model_name": "AMPSorter",
+      "canonical_name": "AMPSorter",
+      "nomination_batch": "required_scientific_seed",
+      "verification_status": "scientifically_verified",
+      "eligible_for_evidence_pool": true,
+      "best_match_score": 1.0,
+      "paper_title": "A generative artificial intelligence approach for the discovery of antimicrobial peptides against multidrug-resistant bacteria",
+      "publication_year": 2025,
+      "source_journal": "Nature Microbiology",
+      "source_doi": "10.1038/s41564-025-02114-4",
+      "source_pmid": null,
+      "source_openalex_id": null,
+      "citation_count": 44,
+      "citation_count_status": "missing_openalex_citation",
+      "citation_evidence_source": null,
+      "citation_snapshot_date": "2026-07-16",
+      "journal_impact_factor": null,
+      "journal_impact_factor_status": "missing_curated_jif_mapping",
+      "jif_data_year": null,
+      "jif_source_url": null,
+      "top_journal_level": false,
+      "model_architecture": null,
+      "architecture_claim": "ProteoGPT transformer protein language model classifier",
+      "architecture_verification_status": "unverified_architecture_claim",
+      "architecture_evidence_terms": [],
+      "input_representation": "amino-acid sequence tokens",
+      "task_type": "AMP binary prediction/classification",
+      "code_repository_url": "https://github.com/W1V1995/AMP_Project",
+      "code_repository_verification_status": "verified_from_primary_publisher_code_availability",
+      "dataset_source_or_link": "https://doi.org/10.5281/zenodo.16633186",
+      "web_server_url": null,
+      "reported_metrics": {},
+      "online_verification_sources": [
+        "https://doi.org/10.1038/s41564-025-02114-4"
+      ],
+      "verification_errors": [
+        "openalex:RuntimeError"
+      ],
+      "verified_at": "2026-07-16 13:55:20",
+      "paper_record": {
+        "source_primary": "crossref",
+        "sources": [
+          "crossref"
+        ],
+        "source_ids": {
+          "crossref": "10.1038/s41564-025-02114-4"
+        },
+        "doi": "10.1038/s41564-025-02114-4",
+        "title": "A generative artificial intelligence approach for the discovery of antimicrobial peptides against multidrug-resistant bacteria",
+        "journal": "Nature Microbiology",
+        "venue": "Nature Microbiology",
+        "year": 2025,
+        "authors": [
+          "Yihui Wang",
+          "Lanlan Zhao",
+          "Ziyun Li",
+          "Yaxuan Xi",
+          "Yingmiao Pan",
+          "Guoping Zhao",
+          "Lei Zhang"
+        ],
+        "urls": [
+          "https://doi.org/10.1038/s41564-025-02114-4",
+          "https://doi.org/10.1038/s41564-025-02114-4"
+        ],
+        "citation_count": 44,
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  3
+                ]
+              ],
+              "date-time": "2025-10-03T00:00:00Z",
+              "timestamp": 1759449600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  3
+                ]
+              ],
+              "date-time": "2025-10-03T00:00:00Z",
+              "timestamp": 1759449600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          }
+        ],
+        "cited_by_count": 44.0
+      },
+      "nomination": {
+        "model_name": "AMPSorter",
+        "parent_model": "ProteoGPT",
+        "aliases": [
+          "ProteoGPT (AMPSorter)",
+          "ProteoGPT AMPSorter"
+        ],
+        "paper_title": "A generative artificial intelligence approach for the discovery of antimicrobial peptides against multidrug-resistant bacteria",
+        "source_doi": "10.1038/s41564-025-02114-4",
+        "source_journal": "Nature Microbiology",
+        "publication_year": 2025,
+        "publisher_article_url": "https://www.nature.com/articles/s41564-025-02114-4",
+        "code_repository_url": "https://github.com/W1V1995/AMP_Project",
+        "dataset_source_or_link": "https://doi.org/10.5281/zenodo.16633186",
+        "model_architecture": "ProteoGPT transformer protein language model classifier",
+        "input_representation": "amino-acid sequence tokens",
+        "task_type": "AMP binary prediction/classification",
+        "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit",
+        "nomination_batch": "required_scientific_seed"
+      },
+      "required_candidate": true,
+      "seed_file": "data\\required_benchmark_model_seeds.json",
+      "publisher_article_url": "https://www.nature.com/articles/s41564-025-02114-4",
+      "publisher_evidence_checks": {
+        "primary_doi_on_publisher_page": true,
+        "model_identity_on_publisher_page": true,
+        "official_repository_on_publisher_page": true,
+        "official_dataset_on_publisher_page": true
+      },
+      "publisher_fetch_error": null,
+      "bibliographic_identity_verified": true,
+      "official_repository_verified": true,
+      "aliases": [
+        "ProteoGPT (AMPSorter)",
+        "ProteoGPT AMPSorter"
+      ],
+      "parent_model": "ProteoGPT",
+      "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit",
+      "scientific_gate_policy": "exact DOI/title + primary publisher model/link evidence + repository existence when available",
+      "official_repository_verification_basis": "primary_publisher_code_availability_statement"
+    },
+    {
+      "model_name": "HMD-AMP",
+      "canonical_name": "HMD-AMP",
+      "nomination_batch": "required_scientific_seed",
+      "verification_status": "scientifically_verified",
+      "eligible_for_evidence_pool": true,
+      "best_match_score": 1.0,
+      "paper_title": "Uncovering evolutionarily remote and highly potent antimicrobial peptides with protein language models",
+      "publication_year": 2026,
+      "source_journal": "Nature Biomedical Engineering",
+      "source_doi": "10.1038/s41551-026-01630-w",
+      "source_pmid": null,
+      "source_openalex_id": null,
+      "citation_count": 3,
+      "citation_count_status": "missing_openalex_citation",
+      "citation_evidence_source": null,
+      "citation_snapshot_date": "2026-07-16",
+      "journal_impact_factor": null,
+      "journal_impact_factor_status": "missing_curated_jif_mapping",
+      "jif_data_year": null,
+      "jif_source_url": null,
+      "top_journal_level": false,
+      "model_architecture": "protein language model based hierarchical AMP classifier",
+      "architecture_claim": "protein language model based hierarchical AMP classifier",
+      "architecture_verification_status": "verified_from_title_or_abstract",
+      "architecture_evidence_terms": [
+        "protein language model"
+      ],
+      "input_representation": "protein language model embeddings",
+      "task_type": "AMP binary prediction plus multi-label target annotation",
+      "code_repository_url": "https://github.com/ml4bio/HMD-AMP",
+      "code_repository_verification_status": "verified_from_primary_publisher_code_availability",
+      "dataset_source_or_link": "https://doi.org/10.5281/zenodo.15622525",
+      "web_server_url": null,
+      "reported_metrics": {},
+      "online_verification_sources": [
+        "https://doi.org/10.1038/s41551-026-01630-w"
+      ],
+      "verification_errors": [
+        "openalex:RuntimeError"
+      ],
+      "verified_at": "2026-07-16 13:56:57",
+      "paper_record": {
+        "source_primary": "crossref",
+        "sources": [
+          "crossref"
+        ],
+        "source_ids": {
+          "crossref": "10.1038/s41551-026-01630-w"
+        },
+        "doi": "10.1038/s41551-026-01630-w",
+        "title": "Uncovering evolutionarily remote and highly potent antimicrobial peptides with protein language models",
+        "journal": "Nature Biomedical Engineering",
+        "venue": "Nature Biomedical Engineering",
+        "year": 2026,
+        "authors": [
+          "Qinze Yu",
+          "Hongbin Liu",
+          "Haimei Shi",
+          "Yerzhan Abdrakhmanov",
+          "Junbo Shen",
+          "Chunhe Zhang",
+          "Zhihang Dong",
+          "Licheng Zong",
+          "Longlong Si",
+          "Lei Dai",
+          "Yu Li"
+        ],
+        "urls": [
+          "https://doi.org/10.1038/s41551-026-01630-w",
+          "https://doi.org/10.1038/s41551-026-01630-w"
+        ],
+        "citation_count": 3,
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  3
+                ]
+              ],
+              "date-time": "2026-03-03T00:00:00Z",
+              "timestamp": 1772496000000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  3
+                ]
+              ],
+              "date-time": "2026-03-03T00:00:00Z",
+              "timestamp": 1772496000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "cited_by_count": 3.0
+      },
+      "nomination": {
+        "model_name": "HMD-AMP",
+        "aliases": [
+          "HMD AMP",
+          "HMDAMP"
+        ],
+        "paper_title": "Uncovering evolutionarily remote and highly potent antimicrobial peptides with protein language models",
+        "source_doi": "10.1038/s41551-026-01630-w",
+        "source_journal": "Nature Biomedical Engineering",
+        "publication_year": 2026,
+        "publisher_article_url": "https://www.nature.com/articles/s41551-026-01630-w",
+        "code_repository_url": "https://github.com/ml4bio/HMD-AMP",
+        "dataset_source_or_link": "https://doi.org/10.5281/zenodo.15622525",
+        "model_architecture": "protein language model based hierarchical AMP classifier",
+        "input_representation": "protein language model embeddings",
+        "task_type": "AMP binary prediction plus multi-label target annotation",
+        "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit",
+        "nomination_batch": "required_scientific_seed"
+      },
+      "required_candidate": true,
+      "seed_file": "data\\required_benchmark_model_seeds.json",
+      "publisher_article_url": "https://www.nature.com/articles/s41551-026-01630-w",
+      "publisher_evidence_checks": {
+        "primary_doi_on_publisher_page": true,
+        "model_identity_on_publisher_page": true,
+        "official_repository_on_publisher_page": true,
+        "official_dataset_on_publisher_page": true
+      },
+      "publisher_fetch_error": null,
+      "bibliographic_identity_verified": true,
+      "official_repository_verified": true,
+      "aliases": [
+        "HMD AMP",
+        "HMDAMP"
+      ],
+      "parent_model": null,
+      "manual_benchmark_status": "user_reported_top_performer_pending_manifest_audit",
+      "scientific_gate_policy": "exact DOI/title + primary publisher model/link evidence + repository existence when available",
+      "official_repository_verification_basis": "primary_publisher_code_availability_statement"
+    }
+  ],
+  "repair_mode": "offline_primary_metadata_lock"
+}

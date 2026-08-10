@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "gate_id": "20260714T100728Z_0562001c",
+  "status": "failed",
+  "created_at_utc": "2026-07-14T10:07:28Z",
+  "completed_at_utc": "2026-07-14T10:07:29Z",
+  "policy": {
+    "allow_cross_dataset_overlap": false,
+    "require_expected_sha256": false,
+    "checksum_policy": "official checksum when supplied; otherwise TOFU baseline recorded for subsequent verification"
+  },
+  "plan": {
+    "path": "data/dataset_plan.json",
+    "sha256": "aa2249ec9acbc3b2d8e78028c919e5eda711bf022876376b898eb0d5fc2d114f",
+    "generation_mode": "local_bootstrap"
+  },
+  "datasets": [
+    {
+      "name": "AntiBP2_数据集",
+      "source_url": null,
+      "role": "benchmark_test",
+      "status": "prepared",
+      "stages": {
+        "download": {
+          "status": "passed",
+          "method": "existing_local",
+          "file_count": 9
+        },
+        "sha256": {
+          "status": "passed",
+          "integrity_status": "recorded_tofu"
+        },
+        "extract": {
+          "status": "passed",
+          "archive_count": 1
+        },
+        "standardize": {
+          "status": "passed",
+          "method": "validated_existing"
+        }
+      },
+      "path": "data/datasets/AntiBP2_数据集",
+      "source_files": [
+        {
+          "path": "antibp2.tar.gz",
+          "size_bytes": 74325,
+          "sha256": "5a1125ed7c99ade3cd85b529ec761b4e8ff0beaccdee3ae18570ba452e43af61",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/C_neg_antiBP2.data",
+          "size_bytes": 13362,
+          "sha256": "9a2cf76705589503f4eeb1194daa03211cdc0d13c3fdeb9ab2d048b46536ba04",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/C_pos_antiBP2.data",
+          "size_bytes": 13362,
+          "sha256": "2eb45bd605c41306a373e0d1b643500b2ac52ed95437f5148d9e80cf57ad2366",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/N_neg_antiBP2.data",
+          "size_bytes": 13362,
+          "sha256": "9a2cf76705589503f4eeb1194daa03211cdc0d13c3fdeb9ab2d048b46536ba04",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/N_pos_antiBP2.data",
+          "size_bytes": 13294,
+          "sha256": "725d7ec215bb5de808405255278bc07bab01e3b118cf1e7a23011c50b6d7e153",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/NC_neg_antiBP2.data",
+          "size_bytes": 27552,
+          "sha256": "daa8f1d2a3d934de7eef15444791c83ad2bd615d5210c81b8b567b84e395315a",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/NC_term_pos_antiBP2.data",
+          "size_bytes": 27552,
+          "sha256": "e213b76ea5d60f5b3032e7d05a875662513a14ca5590c66aa56b76c2a0ddcde9",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/Whole_neg_antiBP2.data",
+          "size_bytes": 31668,
+          "sha256": "c2d1593740ca8da119cbf128796c4620ae6cacb1730e43267b17d20ba2f617e7",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "antibp2/antibp2_data/Whole_pos_antiBP2.data",
+          "size_bytes": 31668,
+          "sha256": "894c6ccab3107613ee0fc4700e39047ee47f9123190e0223f8ae66085afa9c4d",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        }
+      ],
+      "extracted_archives": [
+        {
+          "archive": "antibp2.tar.gz",
+          "destination": "_extracted/antibp2",
+          "file_count": 10
+        }
+      ],
+      "standardized": {
+        "row_count": 5888,
+        "positive_count": 3309,
+        "negative_count": 2579,
+        "files": [
+          {
+            "path": "ground_truth.csv",
+            "size_bytes": 302594,
+            "sha256": "99dafe50d0156661942688bc5992a9bc12f2d6f22ce23b8328987558911c4f0f"
+          },
+          {
+            "path": "combined_test.fasta",
+            "size_bytes": 302575,
+            "sha256": "eed62043b63ae0de805429fb5e8d03b57a512c6732dfc10ee69eaf6a80dca525"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dataset_1_test1",
+      "source_url": null,
+      "role": "benchmark_test",
+      "status": "failed",
+      "stages": {
+        "download": {
+          "status": "passed",
+          "method": "existing_local",
+          "file_count": 0
+        },
+        "sha256": {
+          "status": "passed",
+          "integrity_status": "standardized_only"
+        },
+        "extract": {
+          "status": "passed",
+          "archive_count": 0
+        }
+      },
+      "path": "data/datasets/Dataset_1_test1",
+      "source_files": [],
+      "extracted_archives": [],
+      "error": "E:\\agentbenmark_amp\\zss\\data\\datasets\\Dataset_1_test1\\ground_truth.csv: ground_truth.csv 必须包含 id,sequence,label"
+    },
+    {
+      "name": "sAMPpred-GAT_测试集",
+      "source_url": null,
+      "role": "benchmark_test",
+      "status": "prepared",
+      "stages": {
+        "download": {
+          "status": "passed",
+          "method": "existing_local",
+          "file_count": 2
+        },
+        "sha256": {
+          "status": "passed",
+          "integrity_status": "recorded_tofu"
+        },
+        "extract": {
+          "status": "passed",
+          "archive_count": 0
+        },
+        "standardize": {
+          "status": "passed",
+          "method": "validated_existing"
+        }
+      },
+      "path": "data/datasets/sAMPpred-GAT_测试集",
+      "source_files": [
+        {
+          "path": "Independent test dataset/AMPs.fasta",
+          "size_bytes": 118126,
+          "sha256": "8e10c1a75bd36e40832f84323b13ebc915a4d96e0ed660807a97a59fb680dbef",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        },
+        {
+          "path": "Independent test dataset/nonAMPs.fasta",
+          "size_bytes": 156900,
+          "sha256": "0fddd94e301fe154854da7217901510296fa133b938bd6cf56b26fdc3467ed9e",
+          "expected_sha256": null,
+          "verified_against_expected": false
+        }
+      ],
+      "extracted_archives": [],
+      "standardized": {
+        "row_count": 663,
+        "positive_count": 527,
+        "negative_count": 136,
+        "files": [
+          {
+            "path": "ground_truth.csv",
+            "size_bytes": 36236,
+            "sha256": "1e0244340118464a134cba8049225a6ad7d90b997db00b0008f62aa33727f11e"
+          },
+          {
+            "path": "combined_test.fasta",
+            "size_bytes": 36217,
+            "sha256": "ce4e0dc0118dc5ffb8da7ffb877fb138ec339fdeb9a91c69e6be1534d6ce3e80"
+          }
+        ]
+      }
+    }
+  ],
+  "leakage_check": {
+    "status": "not_run",
+    "reason": "前置数据集阶段失败"
+  },
+  "errors": [
+    "Dataset_1_test1: E:\\agentbenmark_amp\\zss\\data\\datasets\\Dataset_1_test1\\ground_truth.csv: ground_truth.csv 必须包含 id,sequence,label"
+  ]
+}

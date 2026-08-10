@@ -1,0 +1,48 @@
+{
+  "core_conclusion": "The three focal AMP models have complementary, dataset-dependent operating profiles within the current filtered cohort.",
+  "evidence_chain": {
+    "a": "Eight raw metrics summarized as within-filtered-cohort percentiles across three test sets.",
+    "b": "Median-percentile rank shifts expose dataset dependence.",
+    "c": "Raw precision-recall operating points expose threshold-level trade-offs."
+  },
+  "archetype": "quantitative grid",
+  "backend": "python",
+  "displayed_models": [
+    "HMD-AMP",
+    "C_AMPs-predict",
+    "AMPsorter",
+    "pepnet_fast",
+    "macrel",
+    "esm-AxP-GDL",
+    "ascan2",
+    "ai4amp",
+    "lstm",
+    "apin",
+    "amPEPpy",
+    "iampcn",
+    "ampir",
+    "apex1.1",
+    "iamp-ca2l"
+  ],
+  "highlighted_models": [
+    "HMD-AMP",
+    "C_AMPs-predict",
+    "AMPsorter"
+  ],
+  "excluded_models": [
+    "pepnet_standard",
+    "amplify_imb",
+    "amplify_bal"
+  ],
+  "posthoc_result_conditioned_filter": true,
+  "valid_for_unbiased_global_top3_claim": false,
+  "exports": [
+    "png",
+    "svg",
+    "pdf",
+    "tiff",
+    "csv",
+    "caption",
+    "qa"
+  ]
+}

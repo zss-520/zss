@@ -1,0 +1,87 @@
+stage,stage_title,layer,item,stage_summary
+0,ENTRY & CONFIG,agent_definition,No role-specific Agent,workflow entry
+0,ENTRY & CONFIG,agent_definition,Global controls and guards,workflow entry
+0,ENTRY & CONFIG,execution,run_menu.bat -> amp_benchmark_menu.py,workflow entry
+0,ENTRY & CONFIG,execution,config.py + .env,workflow entry
+0,ENTRY & CONFIG,execution,workflow_guards.py | run_manifest.py,workflow entry
+0,ENTRY & CONFIG,persisted_artifact,runtime selection + validated configuration,workflow entry
+0,ENTRY & CONFIG,persisted_artifact,run checkpoint and artifact provenance,workflow entry
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,agents/shared/,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,agents/deepseek_meeting/,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,  evidence_compressor_agent.md,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,  info_extractor_agent.md,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,  model_dataset_agent.md,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,  metric_agent.md,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,agent_definition,  critic_agent.md -> chief_agent.md,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,execution,agent_md_loader.py,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,execution,deep_research_literature_agent.py,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,execution,dataset_recommendation_agent.py,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,execution,benchmark_portfolio.py,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,data/evidence_pool.json,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,  -> compact_evidence_pool.json,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,  -> literature_meeting_screening_decisions.csv,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,  -> literature_deep_research_memory.json/.md,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,data/dataset_candidate_pool.json -> dataset_plan.json,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,data/exports/literature_recommendations/,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,  recommended_models.csv,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,  recommended_datasets.csv,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+1,LITERATURE SEARCH & RECOMMENDATION,persisted_artifact,  recommended_metrics.csv,"2,365 papers -> 20 models / 3 datasets / 44 metric rows"
+2,MODEL REGISTRATION & HPC DEPLOYMENT,agent_definition,agents/model_onboarding/,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,agent_definition,  repository_inspector_system.md,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,agent_definition,  repository_inspector_task.md,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,agent_definition,agents/model_execution/,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,agent_definition,  self_heal_system.md | self_heal_task.md,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,execution,new_model_onboarding.py,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,execution,  -> hpc_model_ops.py,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,execution,README -> registry -> upload,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,execution,-> Conda/deps -> smoke/self-heal,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,persisted_artifact,data/local_registry.json,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,persisted_artifact,  repository + env + command + status,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,persisted_artifact,data/hpc_self_heal/,registered model state
+2,MODEL REGISTRATION & HPC DEPLOYMENT,persisted_artifact,  failure logs + bounded repair records,registered model state
+3,DATASET BENCHMARKING,agent_definition,agents/runtime_prompts/,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,agent_definition,  benchmark_architect.md,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,agent_definition,  coder.md | critic.md | pi.md,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,agent_definition,  dataset_etl_agent.md,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,AUTO BRANCH,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,  main.py -> run_meeting.py,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,  -> workflow_utils.py,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,MANUAL BRANCH,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,  import_manual_prediction_results.py,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,COMMON,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,execution,  -> scientific_evaluation.py,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,persisted_artifact,data/runs/{run_id}/,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,persisted_artifact,  manifest.json + artifacts/ + results/{dataset}/,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,persisted_artifact,data/results_manual/{dataset}/,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,persisted_artifact,  final_results_with_predictions.csv,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,persisted_artifact,  eval_result.json + scientific_evaluation.json/.md,"3 datasets / 62,310 sequences / 18 usable model outputs"
+3,DATASET BENCHMARKING,persisted_artifact,  critic_individual.md,"3 datasets / 62,310 sequences / 18 usable model outputs"
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,agents/weight_meeting/,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,  shared_system.md,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,  literature_agent.md,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,  statistics_agent.md,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,  screening_agent.md,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,  reviewer_agent.md,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,agent_definition,  chief_agent.md | research_advisor.md,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,execution,codex_agent_weight_meeting.py,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,execution,or llm_agent_weight_meeting.py,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,execution,-> iterative_weight_meeting.py,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,execution,blind proposals -> audit -> Chief,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,execution,-> 50 bounded updates,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,data/results_manual/codex_agent_weight_meeting/,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,  agent_evidence_bundle.json,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,"  {literature,statistics,screening}_agent_proposals.json",12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,  reviewer_agent_audit.json -> chief_initial_decision.json,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,  rounds/round_001.json ... round_050.json,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,  metric_weights_50_rounds.csv,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,  model_scores_50_rounds.csv,12 metrics / 50 rounds / 600 weights / 900 scores
+4,50-ROUND MULTI-AGENT RANKING,persisted_artifact,  model_ranking_50_rounds.csv + future-directions report,12 metrics / 50 rounds / 600 weights / 900 scores
+5,TOP-3 & ENSEMBLE LEARNING,agent_definition,Consumes Stage 4 Chief decision,Top-3 and complementarity
+5,TOP-3 & ENSEMBLE LEARNING,agent_definition,Research Advisor synthesis,Top-3 and complementarity
+5,TOP-3 & ENSEMBLE LEARNING,execution,ensemble_top3_selector.py,Top-3 and complementarity
+5,TOP-3 & ENSEMBLE LEARNING,execution,amp_research_advisor.py,Top-3 and complementarity
+5,TOP-3 & ENSEMBLE LEARNING,persisted_artifact,ensemble_top3_selection.json,Top-3 and complementarity
+5,TOP-3 & ENSEMBLE LEARNING,persisted_artifact,ensemble_top3_combination_ranking.csv,Top-3 and complementarity
+6,PAPER FIGURES & QUALITY ASSURANCE,agent_definition,Presentation only; no reverse scoring,reporting layer
+6,PAPER FIGURES & QUALITY ASSURANCE,execution,figures/ plotting scripts | tests/,reporting layer
+6,PAPER FIGURES & QUALITY ASSURANCE,persisted_artifact,SVG / PDF / PNG / TIFF + QA notes + source CSV,reporting layer

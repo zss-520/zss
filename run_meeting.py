@@ -1,6 +1,7 @@
 """两阶段 agent 会议编排：第一次生成模型运行代码，第二次基于第一次输出生成评测代码。"""
 
 import json
+import time
 from pathlib import Path
 from openai import OpenAI
 import os
@@ -70,13 +71,72 @@ def _save_discussion(discussion: list[dict], save_dir: Path, save_name: str) -> 
     print(f">>> [Meeting] Markdown 已保存: {md_path}")
 
 
-def _chat_once(client: OpenAI, agent: Agent, messages: list[dict], temperature: float) -> str:
-    response = client.chat.completions.create(
-        model=agent.model,
-        messages=[agent.message, *messages],
-        temperature=temperature,
+def _make_openai_client() -> OpenAI:
+    timeout = float(os.getenv("MEETING_LLM_TIMEOUT_SECONDS", "300"))
+    max_retries = int(os.getenv("MEETING_LLM_SDK_MAX_RETRIES", "0"))
+    base_url = os.getenv("OPENAI_BASE_URL") or os.getenv("MEETING_LLM_BASE_URL")
+    api_key = os.getenv("OPENAI_API_KEY")
+    model_name = str(MODEL_NAME or "").lower()
+
+    if not base_url and model_name.startswith(("qwen", "deepseek")):
+        base_url = os.getenv("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
+        api_key = os.getenv("DASHSCOPE_API_KEY") or api_key
+    elif base_url and "dashscope" in base_url.lower():
+        api_key = os.getenv("DASHSCOPE_API_KEY") or api_key
+
+    kwargs = {"timeout": timeout, "max_retries": max_retries}
+    if base_url:
+        kwargs["base_url"] = base_url
+    if api_key:
+        kwargs["api_key"] = api_key
+    return OpenAI(**kwargs)
+
+
+def _is_retryable_llm_error(exc: Exception) -> bool:
+    name = exc.__class__.__name__.lower()
+    text = str(exc).lower()
+    retryable_names = (
+        "timeout",
+        "apitimeouterror",
+        "apiconnectionerror",
+        "ratelimiterror",
+        "internalservererror",
     )
-    return response.choices[0].message.content or ""
+    retryable_text = (
+        "timed out",
+        "timeout",
+        "connection",
+        "temporarily unavailable",
+        "rate limit",
+        "429",
+        "500",
+        "502",
+        "503",
+        "504",
+    )
+    return any(x in name for x in retryable_names) or any(x in text for x in retryable_text)
+
+
+def _chat_once(client: OpenAI, agent: Agent, messages: list[dict], temperature: float) -> str:
+    max_attempts = int(os.getenv("MEETING_LLM_MAX_ATTEMPTS", "5"))
+    last_error: Exception | None = None
+    for attempt in range(1, max_attempts + 1):
+        try:
+            print(f">>> [Meeting LLM] {agent.title} request attempt {attempt}/{max_attempts}")
+            response = client.chat.completions.create(
+                model=agent.model,
+                messages=[agent.message, *messages],
+                temperature=temperature,
+            )
+            return response.choices[0].message.content or ""
+        except Exception as exc:
+            last_error = exc
+            if attempt >= max_attempts or not _is_retryable_llm_error(exc):
+                raise
+            wait = min(10 * (2 ** (attempt - 1)), 120)
+            print(f"⚠️ [Meeting LLM] transient error: {exc.__class__.__name__}: {exc}; retry in {wait}s")
+            time.sleep(wait)
+    raise RuntimeError(f"LLM request failed after {max_attempts} attempts: {last_error}")
 
 
 def _build_coder_input_for_stage(save_name: str) -> str:
@@ -126,7 +186,7 @@ def run_two_agent_meeting(
     coder_agent: Agent | None = None,
     temperature: float = 0.2,
 ) -> list[dict]:
-    client = OpenAI()
+    client = _make_openai_client()
     pi_agent = pi_agent or DEFAULT_PI
     coder_agent = coder_agent or DEFAULT_CODER
     save_dir = _ensure_dir(save_dir)
@@ -198,7 +258,7 @@ def run_second_meeting(
     gt_sample: str = "[未提供真实数据切片]",  # <=== 补上这行，接收真值表样本
 ) -> dict:
     save_dir = _ensure_dir(save_dir)
-    client = OpenAI()
+    client = _make_openai_client()
     
     # 获取第一阶段勘探报告
     raw_stage1_context = build_stage2_context_from_stage1_outputs(stage1_output_dir)

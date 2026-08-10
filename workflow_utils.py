@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import ast
 import json
 import os
@@ -210,6 +212,47 @@ def extract_code(text: str, stage: str = "generic") -> tuple[str, str]:
     return py_code, sh_code
 
 
+def validate_generated_python_contract(code: str, stage: str = "generic") -> None:
+    """Enforce executable and artifact invariants outside the LLM prompt."""
+    try:
+        tree = ast.parse(code)
+    except SyntaxError as exc:
+        raise ValueError(f"Generated Python is not syntactically valid: {exc}") from exc
+    if not any(isinstance(node, ast.FunctionDef) and node.name == "main" for node in tree.body):
+        raise ValueError("Generated Python must define a top-level main()")
+    if not re.search(r"if\s+__name__\s*==\s*['\"]__main__['\"]\s*:", code):
+        raise ValueError("Generated Python must call main() from an __main__ guard")
+
+    required_literals = {
+        "stage1": ("stage1_observation.txt",),
+        "stage2": ("eval_result.json", "evaluation_curves.png", "final_results_with_predictions.csv"),
+    }.get(stage, ())
+    missing = [value for value in required_literals if value not in code]
+    if missing:
+        raise ValueError(f"Generated {stage} Python is missing required artifacts: {', '.join(missing)}")
+    if stage == "stage1" and any(name in code for name in ("roc_auc_score", "average_precision_score", "evaluation_curves.png")):
+        raise ValueError("Stage 1 code must not calculate final metrics or evaluation curves")
+    if stage == "stage2":
+        if "ground_truth.csv" not in code:
+            raise ValueError("Stage 2 code must read ground_truth.csv")
+        if re.search(r"\.fillna\(\s*0(?:\.0+)?\s*\)", code):
+            raise ValueError("Stage 2 code must not hide failed prediction joins with fillna(0)")
+
+
+def validate_generated_shell_contract(code: str, python_filename: str) -> None:
+    """Reject unsafe or incomplete generated launch scripts before writing them."""
+    if not code.strip():
+        raise ValueError("Generated Bash script is empty")
+    lowered = code.lower()
+    blocked = ("rm -rf", "sudo ", "mkfs", "shutdown", "reboot", "dd if=", ":(){")
+    if any(token in lowered for token in blocked):
+        raise ValueError("Generated Bash script contains a blocked command")
+    if "#!/bin/bash" not in code and "#!/usr/bin/env bash" not in code:
+        raise ValueError("Generated Bash script must declare a Bash interpreter")
+    if python_filename not in code and "eval_script.py" not in code:
+        raise ValueError(f"Generated Bash script does not invoke {python_filename}")
+
+
 def collect_strings_from_json(obj):
     texts = []
     if isinstance(obj, dict):
@@ -285,11 +328,17 @@ def save_generated_code_from_meeting(
     sh_save_path = os.path.join(save_directory, sh_filename)
 
     if py_code:
+        validate_generated_python_contract(py_code, stage=stage)
+        if stage == "stage2":
+            # SLURM resources, environment paths and the Python entry point are
+            # authoritative runtime configuration, not Agent-generated text.
+            sh_code = build_standard_run_eval_sh(py_filename, py_code)
         with open(py_save_path, "w", encoding="utf-8") as f:
             f.write(py_code + "\n")
         print(f">>> [OK] Python 代码已保存到: {py_save_path}")
 
     if sh_code:
+        validate_generated_shell_contract(sh_code, py_filename)
         with open(sh_save_path, "w", encoding="utf-8") as f:
             f.write(sh_code + "\n")
         print(f">>> [OK] Bash 脚本已保存到: {sh_save_path}")
@@ -298,11 +347,25 @@ def save_generated_code_from_meeting(
 
 
 def build_stage2_context_from_stage1_outputs(output_dir: str | Path, **kwargs) -> str:
+    max_chars = int(os.getenv("STAGE2_CONTEXT_MAX_CHARS", "200000"))
+
+    def compact_context(text: str) -> str:
+        if len(text) <= max_chars:
+            return text
+        head_size = max_chars // 2
+        tail_size = max_chars - head_size
+        return (
+            text[:head_size]
+            + "\n\n[stage1_observation truncated: "
+            + f"{len(text)} chars > {max_chars}; keeping head and tail]\n\n"
+            + text[-tail_size:]
+        )
+
     obs_path = Path(output_dir) / "stage1_observation.txt"
     if obs_path.exists():
         try:
             with open(obs_path, "r", encoding="utf-8") as f:
-                return f.read()
+                return compact_context(f.read())
         except Exception as e:
             return f"[读取 stage1_observation.txt 失败] {e}"
     return "[警告：未找到第一阶段的勘探报告 stage1_observation.txt，这通常意味着第一阶段运行失败]"
@@ -324,6 +387,100 @@ def read_remote_text(ssh, cmd: str, stream: bool = False) -> tuple[str, str]:
         err = stderr.read().decode("utf-8", errors="ignore")
         
     return out, err
+
+
+def parse_sacct_output(text: str, job_id: str) -> dict[str, str] | None:
+    """Parse the allocation row from ``sacct -X -n -P`` output."""
+    rows: list[dict[str, str]] = []
+    for raw_line in (text or "").splitlines():
+        parts = [part.strip() for part in raw_line.strip().split("|")]
+        if len(parts) < 5 or not parts[0]:
+            continue
+        rows.append(
+            {
+                "job_id": parts[0],
+                "state": parts[1].split("+")[0].split()[0].upper(),
+                "exit_code": parts[2],
+                "elapsed": parts[3],
+                "max_rss": parts[4],
+            }
+        )
+    exact = next((row for row in rows if row["job_id"] == str(job_id)), None)
+    return exact or (rows[0] if rows else None)
+
+
+def slurm_job_succeeded(record: dict[str, str] | None) -> bool:
+    return bool(
+        record
+        and record.get("state") == "COMPLETED"
+        and record.get("exit_code") == "0:0"
+    )
+
+
+def wait_for_slurm_job(
+    ssh,
+    job_id: str,
+    *,
+    poll_seconds: float | None = None,
+    timeout_seconds: float | None = None,
+    accounting_retries: int | None = None,
+    accounting_retry_seconds: float | None = None,
+    sleep_fn=time.sleep,
+    monotonic_fn=time.monotonic,
+) -> dict[str, str]:
+    """Wait for a SLURM job and require sacct COMPLETED with ExitCode 0:0."""
+    poll_seconds = float(os.getenv("SLURM_POLL_SECONDS", "15")) if poll_seconds is None else poll_seconds
+    timeout_seconds = float(os.getenv("SLURM_JOB_TIMEOUT_SECONDS", "21600")) if timeout_seconds is None else timeout_seconds
+    accounting_retries = int(os.getenv("SLURM_SACCT_RETRIES", "6")) if accounting_retries is None else accounting_retries
+    accounting_retry_seconds = (
+        float(os.getenv("SLURM_SACCT_RETRY_SECONDS", "5"))
+        if accounting_retry_seconds is None
+        else accounting_retry_seconds
+    )
+    started = monotonic_fn()
+    while True:
+        if monotonic_fn() - started > timeout_seconds:
+            read_remote_text(ssh, f"scancel {job_id}")
+            raise TimeoutError(
+                f"SLURM job {job_id} exceeded {timeout_seconds:g}s and was cancelled"
+            )
+        queue_out, _ = read_remote_text(ssh, f"squeue -h -j {job_id} -o %T")
+        if not queue_out.strip():
+            break
+        print(".", end="", flush=True)
+        sleep_fn(max(0.0, poll_seconds))
+
+    record = None
+    for attempt in range(max(1, accounting_retries)):
+        sacct_out, _ = read_remote_text(
+            ssh,
+            f"sacct -X -n -P -j {job_id} --format=JobIDRaw,State,ExitCode,Elapsed,MaxRSS",
+        )
+        record = parse_sacct_output(sacct_out, job_id)
+        if record:
+            state = record.get("state", "")
+            if slurm_job_succeeded(record) or state in {
+                "BOOT_FAIL",
+                "CANCELLED",
+                "DEADLINE",
+                "FAILED",
+                "NODE_FAIL",
+                "OUT_OF_MEMORY",
+                "PREEMPTED",
+                "REVOKED",
+                "TIMEOUT",
+            }:
+                break
+        if attempt + 1 < max(1, accounting_retries):
+            sleep_fn(max(0.0, accounting_retry_seconds))
+    if not record:
+        raise RuntimeError(f"SLURM job {job_id} disappeared but sacct returned no allocation record")
+    if not slurm_job_succeeded(record):
+        raise RuntimeError(
+            f"SLURM job {job_id} failed: state={record.get('state')}, "
+            f"exit_code={record.get('exit_code')}, elapsed={record.get('elapsed')}"
+        )
+    return record
 
 
 def _stdlib_modules() -> set[str]:
@@ -708,6 +865,7 @@ def run_on_hpc_and_fetch(
     models_info: list[dict] = None,  
     local_data_dir: str = "data",
     use_sbatch: bool = True,  # <==== 【核心修改 1】：增加免排队开关，默认依然走 SLURM
+    run_metadata: dict | None = None,
 ):
     print("\n>>> [SSH] 正在连接物理超算节点...")
     ssh = paramiko.SSHClient()
@@ -718,6 +876,8 @@ def run_on_hpc_and_fetch(
         "data/evaluation_curves.png": "data/evaluation_curves.png",
         "data/final_results_with_predictions.csv": "data/final_results_with_predictions.csv",
     }
+    run_metadata = run_metadata if run_metadata is not None else {}
+    run_metadata.update({"execution_mode": "sbatch" if use_sbatch else "direct", "status": "starting"})
 
     try:
         # 🚨 核心修复：强行关闭 GSS-API 认证并设置超时，解决卡死问题
@@ -813,26 +973,33 @@ def run_on_hpc_and_fetch(
                 print("!!! [Error] Slurm任务提交失败")
                 print(submit_out)
                 print(submit_err)
-                return None
+                raise RuntimeError(f"Slurm任务提交失败: {submit_out or submit_err}")
 
             match = re.search(r"Submitted batch job (\d+)", submit_out)
             if not match:
-                print("!!! [Error] 无法从 sbatch 输出中解析 job id")
-                return None
+                raise RuntimeError("无法从 sbatch 输出中解析 job id")
 
             job_id = match.group(1)
+            run_metadata.update({"job_id": job_id, "status": "submitted"})
             print(f">>> [Slurm] 等待计算节点完成 (Job ID: {job_id})", end="")
-            while True:
-                sq_out, _ = read_remote_text(ssh, f"squeue -j {job_id}")
-                if job_id not in sq_out:
-                    print("\n>>> [Slurm] 任务完毕。")
-                    break
-                print(".", end="", flush=True)
-                time.sleep(15)
+            accounting = wait_for_slurm_job(ssh, job_id)
+            run_metadata.update({"status": "completed", "slurm": accounting})
+            print("\n>>> [Slurm] sacct 已确认 COMPLETED / ExitCode 0:0。")
         else:
             print(">>> [SSH] (免排队模式) 正在登录节点直接运行脚本...")
             # 开启 stream=True 可以直接在终端看到 Zenodo 下载的进度条！
-            out, err = read_remote_text(ssh, f"cd {HPC_TARGET_DIR} && bash run_eval.sh", stream=True)
+            out, err = read_remote_text(
+                ssh,
+                f"cd {HPC_TARGET_DIR} && bash run_eval.sh; rc=$?; echo __AMP_EXIT_CODE__=$rc; exit $rc",
+                stream=True,
+            )
+            exit_match = re.search(r"__AMP_EXIT_CODE__=(\d+)", out)
+            if not exit_match or exit_match.group(1) != "0":
+                raise RuntimeError(
+                    f"direct HPC execution failed with exit code "
+                    f"{exit_match.group(1) if exit_match else 'unknown'}: {err}"
+                )
+            run_metadata.update({"status": "completed", "exit_code": 0})
             print(">>> [SSH] 免排队任务运行完毕。")
         # =======================================================================
 
@@ -859,6 +1026,8 @@ def run_on_hpc_and_fetch(
             if not got_it:
                 print(f">>> [Warn] 未取回 {remote_name}: 在根目录和 data/ 目录都未找到")
 
+        run_metadata["fetched_outputs"] = dict(fetched)
+
         if "eval_result.json" in fetched:
             try:
                 with open(fetched["eval_result.json"], "r", encoding="utf-8") as f:
@@ -869,6 +1038,7 @@ def run_on_hpc_and_fetch(
         return fetched or None
 
     except Exception as e:
+        run_metadata.update({"status": "failed", "error": str(e)})
         print(f"!!! [Error] run_on_hpc_and_fetch 失败: {e}")
         return None
 

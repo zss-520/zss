@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "label_policy": "Human-audited seed set for evaluating literature retrieval and meeting screening. This file is evaluation truth, not a source for changing model decisions.",
+  "labels": [
+    {
+      "model_name": "AMP Scanner v2",
+      "gold_label": "eligible_main_amp_binary",
+      "adjudication_reason": "Original AMP binary classifier with runnable public code.",
+      "expected_primary_metadata": {
+        "publication_year": 2018,
+        "source_doi": "10.1093/bioinformatics/bty179",
+        "source_pmid": "29590297",
+        "architecture_category": "cnn_rnn_hybrid_models"
+      }
+    },
+    {
+      "model_name": "C_AMPs-predict",
+      "gold_label": "eligible_main_amp_binary",
+      "adjudication_reason": "Primary paper, official code and AMP classification task verified.",
+      "expected_primary_metadata": {
+        "publication_year": 2022,
+        "source_doi": "10.1038/s41587-022-01226-0",
+        "source_pmid": "35241840"
+      }
+    },
+    {
+      "model_name": "UniproLcad",
+      "gold_label": "eligible_main_amp_binary",
+      "adjudication_reason": "AMP classifier; original paper is distinct from the later review that mentioned it.",
+      "expected_primary_metadata": {
+        "publication_year": 2024,
+        "source_doi": "10.3390/sym16040464",
+        "architecture_category": "cnn_rnn_hybrid_models"
+      }
+    },
+    {
+      "model_name": "ACEP",
+      "gold_label": "eligible_main_amp_binary",
+      "adjudication_reason": "AMP recognition model with original paper and code.",
+      "expected_primary_metadata": {
+        "publication_year": 2020,
+        "source_doi": "10.1186/s12864-020-06978-0",
+        "source_pmid": "32859150"
+      }
+    },
+    {
+      "model_name": "iAMP-DL",
+      "gold_label": "eligible_main_amp_binary",
+      "adjudication_reason": "Short-AMP binary classifier; original Proteomics paper verified.",
+      "expected_primary_metadata": {
+        "publication_year": 2024,
+        "source_doi": "10.1002/pmic.202300382",
+        "source_pmid": "38837544",
+        "architecture_category": "cnn_rnn_hybrid_models"
+      }
+    },
+    {
+      "model_name": "EIPpred",
+      "gold_label": "ineligible_main_amp_binary",
+      "adjudication_reason": "MIC regression/design task rather than the preregistered AMP binary classification task.",
+      "expected_primary_metadata": {
+        "publication_year": 2025,
+        "source_doi": "10.1038/s41598-025-86638-z",
+        "source_pmid": "39920259"
+      }
+    },
+    {
+      "model_name": "Allopipe",
+      "gold_label": "ineligible_main_amp_binary",
+      "adjudication_reason": "Minor histocompatibility antigen/HLA pipeline, unrelated to antimicrobial peptide classification.",
+      "expected_primary_metadata": {
+        "publication_year": 2026,
+        "source_doi": "10.1111/tan.70590",
+        "source_pmid": "41672724"
+      }
+    },
+    {
+      "model_name": "AMP",
+      "gold_label": "ineligible_main_amp_binary",
+      "adjudication_reason": "Ambiguous generic identity; a deployable benchmark unit requires a unique canonical model name."
+    }
+  ]
+}

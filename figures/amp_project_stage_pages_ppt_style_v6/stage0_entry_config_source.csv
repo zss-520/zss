@@ -1,0 +1,17 @@
+section,field_1,field_2,field_3
+metric,1,unified menu,
+metric,4,control files,
+metric,1,environment file,
+metric,1,run manifest,
+agent,Workflow control,No role-specific Agent,Human workflow selection and authorization
+agent,Global safeguards,workflow_guards.py,Preflight checks before deployment or evaluation
+execution,Select,run_menu.bat,
+execution,Dispatch,amp_benchmark_menu.py,
+execution,Configure,config.py + .env,
+execution,Gate,workflow_guards.py,
+execution,Record,run_manifest.py,
+artifact,run_menu.bat,entry,starts the interactive workflow
+artifact,amp_benchmark_menu.py,orchestrator,"routes literature, onboarding and benchmark tasks"
+artifact,config.py + .env,configuration,"API, HPC, SLURM, model and metric settings"
+artifact,workflow_guards.py,gate,blocks incomplete or unsafe runs
+artifact,run_manifest.py,provenance,"records inputs, versions, events and artifacts"

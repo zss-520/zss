@@ -1,0 +1,4911 @@
+{
+  "method": "local evidence-driven multi-role deliberation with dataset bootstrap",
+  "rounds": 50,
+  "seed": 20260716,
+  "models": [
+    "AMPsorter",
+    "C_AMPs-predict",
+    "HMD-AMP"
+  ],
+  "datasets": [
+    "C_AMPs-predict_test",
+    "ProteoGPT_all_predictions",
+    "Veltri_test"
+  ],
+  "eligible_metrics": [
+    "ACC",
+    "AUPRC",
+    "BalancedAccuracy",
+    "ECE",
+    "NPV",
+    "Precision",
+    "Recall"
+  ],
+  "excluded_fields": [
+    "threshold"
+  ],
+  "duplicate_metrics_removed": {
+    "AUPRC-Lift": "AUPRC",
+    "AUROC": "AUPRC",
+    "BrierScore": "ACC",
+    "F1-Score": "ACC",
+    "MCC": "ACC",
+    "Specificity": "Precision"
+  },
+  "resource_gate": {
+    "generated_at": "2026-07-24T08:30:31.687030+00:00",
+    "policy_mode": "measured_budget_gate",
+    "policy_path": "E:\\agentbenmark_amp\\zss\\data\\model_resource_policy.json",
+    "enabled": true,
+    "missing_measurement_policy": "keep_and_flag",
+    "limits": {
+      "runtime_seconds": 3600.0,
+      "peak_memory_mb": 32768.0,
+      "gpu_memory_mb": 24576.0,
+      "minimum_throughput_sequences_per_second": null
+    },
+    "models_before": 3,
+    "models_after": 3,
+    "rows_before": 135,
+    "rows_after": 135,
+    "eligible_models": [
+      "AMPsorter",
+      "C_AMPs-predict",
+      "HMD-AMP"
+    ],
+    "excluded_models": [],
+    "flagged_models": [
+      "AMPsorter",
+      "C_AMPs-predict",
+      "HMD-AMP"
+    ],
+    "checks": [
+      {
+        "model": "AMPsorter",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "C_AMPs-predict",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "HMD-AMP",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      }
+    ],
+    "principle": "Eligibility uses measured resource evidence only; ranking values and model names are not gate inputs."
+  },
+  "resource_gate_audit_files": {
+    "json": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\restricted_candidate_cohort\\model_resource_gate_audit.json",
+    "csv": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\restricted_candidate_cohort\\model_resource_gate_audit.csv"
+  },
+  "initial_weights": {
+    "ACC": 0.14285714,
+    "AUPRC": 0.14285714,
+    "BalancedAccuracy": 0.14285714,
+    "ECE": 0.14285714,
+    "NPV": 0.14285714,
+    "Precision": 0.14285714,
+    "Recall": 0.14285714
+  },
+  "final_weights_median": {
+    "ACC": 0.10479424,
+    "AUPRC": 0.12847242,
+    "BalancedAccuracy": 0.14420817,
+    "ECE": 0.13636181,
+    "NPV": 0.1658821,
+    "Precision": 0.15641289,
+    "Recall": 0.16386837
+  },
+  "final_ranking": [
+    {
+      "model": "HMD-AMP",
+      "median_score": 0.63976869,
+      "mean_score": 0.63255788,
+      "score_iqr": 0.17723562,
+      "median_rank": 1.0,
+      "mean_rank": 1.44,
+      "top3_frequency": 1.0,
+      "rounds": 50,
+      "rank": 1
+    },
+    {
+      "model": "C_AMPs-predict",
+      "median_score": 0.51343964,
+      "mean_score": 0.48690164,
+      "score_iqr": 0.20061171,
+      "median_rank": 2.0,
+      "mean_rank": 2.1,
+      "top3_frequency": 1.0,
+      "rounds": 50,
+      "rank": 2
+    },
+    {
+      "model": "AMPsorter",
+      "median_score": 0.34549684,
+      "mean_score": 0.38054047,
+      "score_iqr": 0.21114768,
+      "median_rank": 3.0,
+      "mean_rank": 2.46,
+      "top3_frequency": 1.0,
+      "rounds": 50,
+      "rank": 3
+    }
+  ],
+  "figure_files": {
+    "png": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\restricted_candidate_cohort\\iterative_weight_ranking.png",
+    "svg": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\restricted_candidate_cohort\\iterative_weight_ranking.svg",
+    "pdf": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\restricted_candidate_cohort\\iterative_weight_ranking.pdf",
+    "tiff": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\restricted_candidate_cohort\\iterative_weight_ranking.tiff"
+  },
+  "round_records": [
+    {
+      "round": 1,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.38,
+      "weights_before": {
+        "ACC": 0.14285714,
+        "AUPRC": 0.14285714,
+        "BalancedAccuracy": 0.14285714,
+        "ECE": 0.14285714,
+        "NPV": 0.14285714,
+        "Precision": 0.14285714,
+        "Recall": 0.14285714
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.13919547,
+        "AUPRC": 0.14836464,
+        "BalancedAccuracy": 0.14422408,
+        "ECE": 0.13126041,
+        "NPV": 0.14106864,
+        "Precision": 0.15481814,
+        "Recall": 0.14106864
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "AMPsorter",
+        "HMD-AMP"
+      ]
+    },
+    {
+      "round": 2,
+      "sampled_datasets": [
+        "Veltri_test",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.268701,
+      "weights_before": {
+        "ACC": 0.13919547,
+        "AUPRC": 0.14836464,
+        "BalancedAccuracy": 0.14422408,
+        "ECE": 0.13126041,
+        "NPV": 0.14106864,
+        "Precision": 0.15481814,
+        "Recall": 0.14106864
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.25,
+          "uniqueness": 0.633193,
+          "committee_support": 0.427994
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.027544,
+          "uniqueness": 0.221786,
+          "committee_support": 0.325712
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.155536,
+          "committee_support": 0.661846
+        }
+      },
+      "weights_after": {
+        "ACC": 0.14214241,
+        "AUPRC": 0.13810351,
+        "BalancedAccuracy": 0.14581983,
+        "ECE": 0.14103493,
+        "NPV": 0.14820768,
+        "Precision": 0.13574805,
+        "Recall": 0.14894359
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "AMPsorter",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 3,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.219393,
+      "weights_before": {
+        "ACC": 0.14214241,
+        "AUPRC": 0.13810351,
+        "BalancedAccuracy": 0.14581983,
+        "ECE": 0.14103493,
+        "NPV": 0.14820768,
+        "Precision": 0.13574805,
+        "Recall": 0.14894359
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.25,
+          "uniqueness": 0.633193,
+          "committee_support": 0.427994
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.027544,
+          "uniqueness": 0.221786,
+          "committee_support": 0.325712
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.155536,
+          "committee_support": 0.661846
+        }
+      },
+      "weights_after": {
+        "ACC": 0.14390204,
+        "AUPRC": 0.13197655,
+        "BalancedAccuracy": 0.14677266,
+        "ECE": 0.14687133,
+        "NPV": 0.15247043,
+        "Precision": 0.12436124,
+        "Recall": 0.15364575
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "AMPsorter",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 4,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.19,
+      "weights_before": {
+        "ACC": 0.14390204,
+        "AUPRC": 0.13197655,
+        "BalancedAccuracy": 0.14677266,
+        "ECE": 0.14687133,
+        "NPV": 0.15247043,
+        "Precision": 0.12436124,
+        "Recall": 0.15364575
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.11876465,
+        "AUPRC": 0.12854044,
+        "BalancedAccuracy": 0.14658984,
+        "ECE": 0.14666977,
+        "NPV": 0.16112755,
+        "Precision": 0.13760549,
+        "Recall": 0.16070224
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 5,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "Veltri_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.169941,
+      "weights_before": {
+        "ACC": 0.11876465,
+        "AUPRC": 0.12854044,
+        "BalancedAccuracy": 0.14658984,
+        "ECE": 0.14666977,
+        "NPV": 0.16112755,
+        "Precision": 0.13760549,
+        "Recall": 0.16070224
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.992162,
+          "uniqueness": 0.380018,
+          "committee_support": 0.742878
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.814309,
+          "uniqueness": 0.68503,
+          "committee_support": 0.854458
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.310846,
+          "committee_support": 0.687339
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.669711,
+          "uniqueness": 0.512185,
+          "committee_support": 0.728959
+        }
+      },
+      "weights_after": {
+        "ACC": 0.11952694,
+        "AUPRC": 0.12764142,
+        "BalancedAccuracy": 0.14808026,
+        "ECE": 0.14268983,
+        "NPV": 0.164113,
+        "Precision": 0.13864885,
+        "Recall": 0.1592997
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ECE; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 6,
+      "sampled_datasets": [
+        "Veltri_test",
+        "Veltri_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.155134,
+      "weights_before": {
+        "ACC": 0.11952694,
+        "AUPRC": 0.12764142,
+        "BalancedAccuracy": 0.14808026,
+        "ECE": 0.14268983,
+        "NPV": 0.164113,
+        "Precision": 0.13864885,
+        "Recall": 0.1592997
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 1.0,
+          "uniqueness": 0.184858,
+          "committee_support": 0.644181
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.972456,
+          "uniqueness": 0.252017,
+          "committee_support": 0.724854
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.75,
+          "uniqueness": 0.474509,
+          "committee_support": 0.734347
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.75,
+          "uniqueness": 0.543682,
+          "committee_support": 0.754608
+        }
+      },
+      "weights_after": {
+        "ACC": 0.1196726,
+        "AUPRC": 0.12652825,
+        "BalancedAccuracy": 0.14743777,
+        "ECE": 0.13924213,
+        "NPV": 0.16377972,
+        "Precision": 0.142595,
+        "Recall": 0.16074452
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 7,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.143626,
+      "weights_before": {
+        "ACC": 0.1196726,
+        "AUPRC": 0.12652825,
+        "BalancedAccuracy": 0.14743777,
+        "ECE": 0.13924213,
+        "NPV": 0.16377972,
+        "Precision": 0.142595,
+        "Recall": 0.16074452
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.992162,
+          "uniqueness": 0.380018,
+          "committee_support": 0.742878
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.814309,
+          "uniqueness": 0.68503,
+          "committee_support": 0.854458
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.310846,
+          "committee_support": 0.687339
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.669711,
+          "uniqueness": 0.512185,
+          "committee_support": 0.728959
+        }
+      },
+      "weights_after": {
+        "ACC": 0.12018645,
+        "AUPRC": 0.12605744,
+        "BalancedAccuracy": 0.14857562,
+        "ECE": 0.13694527,
+        "NPV": 0.16592196,
+        "Precision": 0.14276018,
+        "Recall": 0.15955308
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ECE; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 8,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.13435,
+      "weights_before": {
+        "ACC": 0.12018645,
+        "AUPRC": 0.12605744,
+        "BalancedAccuracy": 0.14857562,
+        "ECE": 0.13694527,
+        "NPV": 0.16592196,
+        "Precision": 0.14276018,
+        "Recall": 0.15955308
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.10559783,
+        "AUPRC": 0.12442298,
+        "BalancedAccuracy": 0.14820412,
+        "ECE": 0.13813632,
+        "NPV": 0.17023625,
+        "Precision": 0.14965337,
+        "Recall": 0.16374913
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 9,
+      "sampled_datasets": [
+        "Veltri_test",
+        "C_AMPs-predict_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.126667,
+      "weights_before": {
+        "ACC": 0.10559783,
+        "AUPRC": 0.12442298,
+        "BalancedAccuracy": 0.14820412,
+        "ECE": 0.13813632,
+        "NPV": 0.17023625,
+        "Precision": 0.14965337,
+        "Recall": 0.16374913
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.992162,
+          "uniqueness": 0.380018,
+          "committee_support": 0.742878
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.814309,
+          "uniqueness": 0.68503,
+          "committee_support": 0.854458
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.310846,
+          "committee_support": 0.687339
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.669711,
+          "uniqueness": 0.512185,
+          "committee_support": 0.728959
+        }
+      },
+      "weights_after": {
+        "ACC": 0.1078338,
+        "AUPRC": 0.12427443,
+        "BalancedAccuracy": 0.14911054,
+        "ECE": 0.13625075,
+        "NPV": 0.1713077,
+        "Precision": 0.14890498,
+        "Recall": 0.16231779
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 10,
+      "sampled_datasets": [
+        "Veltri_test",
+        "Veltri_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.120167,
+      "weights_before": {
+        "ACC": 0.1078338,
+        "AUPRC": 0.12427443,
+        "BalancedAccuracy": 0.14911054,
+        "ECE": 0.13625075,
+        "NPV": 0.1713077,
+        "Precision": 0.14890498,
+        "Recall": 0.16231779
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.97691,
+          "uniqueness": 0.281524,
+          "committee_support": 0.477987
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.442646,
+          "uniqueness": 0.685787,
+          "committee_support": 0.71136
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.868522,
+          "uniqueness": 0.250027,
+          "committee_support": 0.707529
+        }
+      },
+      "weights_after": {
+        "ACC": 0.10959303,
+        "AUPRC": 0.12287679,
+        "BalancedAccuracy": 0.14590969,
+        "ECE": 0.13838542,
+        "NPV": 0.16922971,
+        "Precision": 0.1511564,
+        "Recall": 0.16284895
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: BalancedAccuracy; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 11,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.10959303,
+        "AUPRC": 0.12287679,
+        "BalancedAccuracy": 0.14590969,
+        "ECE": 0.13838542,
+        "NPV": 0.16922971,
+        "Precision": 0.1511564,
+        "Recall": 0.16284895
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.09783387,
+        "AUPRC": 0.12179859,
+        "BalancedAccuracy": 0.14589779,
+        "ECE": 0.13927643,
+        "NPV": 0.17268625,
+        "Precision": 0.15630577,
+        "Recall": 0.1662013
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 12,
+      "sampled_datasets": [
+        "Veltri_test",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.09783387,
+        "AUPRC": 0.12179859,
+        "BalancedAccuracy": 0.14589779,
+        "ECE": 0.13927643,
+        "NPV": 0.17268625,
+        "Precision": 0.15630577,
+        "Recall": 0.1662013
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08748581,
+        "AUPRC": 0.12084978,
+        "BalancedAccuracy": 0.14588731,
+        "ECE": 0.14006052,
+        "NPV": 0.17572801,
+        "Precision": 0.16083721,
+        "Recall": 0.16915137
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 13,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08748581,
+        "AUPRC": 0.12084978,
+        "BalancedAccuracy": 0.14588731,
+        "ECE": 0.14006052,
+        "NPV": 0.17572801,
+        "Precision": 0.16083721,
+        "Recall": 0.16915137
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.07837951,
+        "AUPRC": 0.12001482,
+        "BalancedAccuracy": 0.14587809,
+        "ECE": 0.14075051,
+        "NPV": 0.17840475,
+        "Precision": 0.16482488,
+        "Recall": 0.17174743
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 14,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.07837951,
+        "AUPRC": 0.12001482,
+        "BalancedAccuracy": 0.14587809,
+        "ECE": 0.14075051,
+        "NPV": 0.17840475,
+        "Precision": 0.16482488,
+        "Recall": 0.17174743
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08496051,
+        "AUPRC": 0.12449511,
+        "BalancedAccuracy": 0.14594724,
+        "ECE": 0.13734118,
+        "NPV": 0.17357425,
+        "Precision": 0.16596591,
+        "Recall": 0.1677158
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 15,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "Veltri_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08496051,
+        "AUPRC": 0.12449511,
+        "BalancedAccuracy": 0.14594724,
+        "ECE": 0.13734118,
+        "NPV": 0.17357425,
+        "Precision": 0.16596591,
+        "Recall": 0.1677158
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.07615725,
+        "AUPRC": 0.12322271,
+        "BalancedAccuracy": 0.14593083,
+        "ECE": 0.1383575,
+        "NPV": 0.17650945,
+        "Precision": 0.16933814,
+        "Recall": 0.17048413
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 16,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.07615725,
+        "AUPRC": 0.12322271,
+        "BalancedAccuracy": 0.14593083,
+        "ECE": 0.1383575,
+        "NPV": 0.17650945,
+        "Precision": 0.16933814,
+        "Recall": 0.17048413
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.985363,
+          "uniqueness": 0.416667,
+          "committee_support": 0.803652
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.638675,
+          "uniqueness": 0.5,
+          "committee_support": 0.76426
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.985363,
+          "uniqueness": 0.416667,
+          "committee_support": 0.803652
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.153312,
+          "uniqueness": 0.25,
+          "committee_support": 0.500143
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08637002,
+        "AUPRC": 0.12683907,
+        "BalancedAccuracy": 0.14777077,
+        "ECE": 0.13870473,
+        "NPV": 0.17227844,
+        "Precision": 0.16106081,
+        "Recall": 0.16697616
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 17,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08637002,
+        "AUPRC": 0.12683907,
+        "BalancedAccuracy": 0.14777077,
+        "ECE": 0.13870473,
+        "NPV": 0.17227844,
+        "Precision": 0.16106081,
+        "Recall": 0.16697616
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.09544033,
+        "AUPRC": 0.13000581,
+        "BalancedAccuracy": 0.14609338,
+        "ECE": 0.13535852,
+        "NPV": 0.16973415,
+        "Precision": 0.15829967,
+        "Recall": 0.16506815
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 18,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.09544033,
+        "AUPRC": 0.13000581,
+        "BalancedAccuracy": 0.14609338,
+        "ECE": 0.13535852,
+        "NPV": 0.16973415,
+        "Precision": 0.15829967,
+        "Recall": 0.16506815
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.10342221,
+        "AUPRC": 0.13279254,
+        "BalancedAccuracy": 0.14461727,
+        "ECE": 0.13241385,
+        "NPV": 0.16749518,
+        "Precision": 0.15586986,
+        "Recall": 0.16338909
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 19,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.10342221,
+        "AUPRC": 0.13279254,
+        "BalancedAccuracy": 0.14461727,
+        "ECE": 0.13241385,
+        "NPV": 0.16749518,
+        "Precision": 0.15586986,
+        "Recall": 0.16338909
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.09240354,
+        "AUPRC": 0.13052445,
+        "BalancedAccuracy": 0.14476046,
+        "ECE": 0.13402145,
+        "NPV": 0.17115986,
+        "Precision": 0.16045361,
+        "Recall": 0.16667663
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 20,
+      "sampled_datasets": [
+        "Veltri_test",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.09240354,
+        "AUPRC": 0.13052445,
+        "BalancedAccuracy": 0.14476046,
+        "ECE": 0.13402145,
+        "NPV": 0.17115986,
+        "Precision": 0.16045361,
+        "Recall": 0.16667663
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08270712,
+        "AUPRC": 0.12852853,
+        "BalancedAccuracy": 0.14488646,
+        "ECE": 0.13543613,
+        "NPV": 0.17438479,
+        "Precision": 0.16448731,
+        "Recall": 0.16956965
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 21,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08270712,
+        "AUPRC": 0.12852853,
+        "BalancedAccuracy": 0.14488646,
+        "ECE": 0.13543613,
+        "NPV": 0.17438479,
+        "Precision": 0.16448731,
+        "Recall": 0.16956965
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.97691,
+          "uniqueness": 0.281524,
+          "committee_support": 0.477987
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.442646,
+          "uniqueness": 0.685787,
+          "committee_support": 0.71136
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.868522,
+          "uniqueness": 0.250027,
+          "committee_support": 0.707529
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08747912,
+        "AUPRC": 0.12662234,
+        "BalancedAccuracy": 0.14219694,
+        "ECE": 0.1376656,
+        "NPV": 0.17194042,
+        "Precision": 0.16486573,
+        "Recall": 0.16922985
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 22,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08747912,
+        "AUPRC": 0.12662234,
+        "BalancedAccuracy": 0.14219694,
+        "ECE": 0.1376656,
+        "NPV": 0.17194042,
+        "Precision": 0.16486573,
+        "Recall": 0.16922985
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.09296816,
+        "AUPRC": 0.13030972,
+        "BalancedAccuracy": 0.14270783,
+        "ECE": 0.13462646,
+        "NPV": 0.16788563,
+        "Precision": 0.16600186,
+        "Recall": 0.16550034
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 23,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.09296816,
+        "AUPRC": 0.13030972,
+        "BalancedAccuracy": 0.14270783,
+        "ECE": 0.13462646,
+        "NPV": 0.16788563,
+        "Precision": 0.16600186,
+        "Recall": 0.16550034
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.1012467,
+        "AUPRC": 0.13305998,
+        "BalancedAccuracy": 0.14163799,
+        "ECE": 0.13176964,
+        "NPV": 0.16586848,
+        "Precision": 0.16264779,
+        "Recall": 0.16376942
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 24,
+      "sampled_datasets": [
+        "Veltri_test",
+        "ProteoGPT_all_predictions",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.1012467,
+        "AUPRC": 0.13305998,
+        "BalancedAccuracy": 0.14163799,
+        "ECE": 0.13176964,
+        "NPV": 0.16586848,
+        "Precision": 0.16264779,
+        "Recall": 0.16376942
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.97691,
+          "uniqueness": 0.281524,
+          "committee_support": 0.477987
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.442646,
+          "uniqueness": 0.685787,
+          "committee_support": 0.71136
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.868522,
+          "uniqueness": 0.250027,
+          "committee_support": 0.707529
+        }
+      },
+      "weights_after": {
+        "ACC": 0.10379394,
+        "AUPRC": 0.13061001,
+        "BalancedAccuracy": 0.13933828,
+        "ECE": 0.13443909,
+        "NPV": 0.16444607,
+        "Precision": 0.16324695,
+        "Recall": 0.16412565
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ECE; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 25,
+      "sampled_datasets": [
+        "Veltri_test",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.10379394,
+        "AUPRC": 0.13061001,
+        "BalancedAccuracy": 0.13933828,
+        "ECE": 0.13443909,
+        "NPV": 0.16444607,
+        "Precision": 0.16324695,
+        "Recall": 0.16412565
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.09273067,
+        "AUPRC": 0.12860383,
+        "BalancedAccuracy": 0.14011495,
+        "ECE": 0.13580366,
+        "NPV": 0.16847665,
+        "Precision": 0.16694545,
+        "Recall": 0.1673248
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 26,
+      "sampled_datasets": [
+        "Veltri_test",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.09273067,
+        "AUPRC": 0.12860383,
+        "BalancedAccuracy": 0.14011495,
+        "ECE": 0.13580366,
+        "NPV": 0.16847665,
+        "Precision": 0.16694545,
+        "Recall": 0.1673248
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08299499,
+        "AUPRC": 0.12683838,
+        "BalancedAccuracy": 0.14079841,
+        "ECE": 0.13700448,
+        "NPV": 0.17202356,
+        "Precision": 0.17020013,
+        "Recall": 0.17014004
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 27,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08299499,
+        "AUPRC": 0.12683838,
+        "BalancedAccuracy": 0.14079841,
+        "ECE": 0.13700448,
+        "NPV": 0.17202356,
+        "Precision": 0.17020013,
+        "Recall": 0.17014004
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08902213,
+        "AUPRC": 0.13049984,
+        "BalancedAccuracy": 0.14147712,
+        "ECE": 0.13404467,
+        "NPV": 0.1679588,
+        "Precision": 0.17069613,
+        "Recall": 0.1663013
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 28,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08902213,
+        "AUPRC": 0.13049984,
+        "BalancedAccuracy": 0.14147712,
+        "ECE": 0.13404467,
+        "NPV": 0.1679588,
+        "Precision": 0.17069613,
+        "Recall": 0.1663013
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.07973148,
+        "AUPRC": 0.12850688,
+        "BalancedAccuracy": 0.14199713,
+        "ECE": 0.13545657,
+        "NPV": 0.17156785,
+        "Precision": 0.17350073,
+        "Recall": 0.16923937
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 29,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.07973148,
+        "AUPRC": 0.12850688,
+        "BalancedAccuracy": 0.14199713,
+        "ECE": 0.13545657,
+        "NPV": 0.17156785,
+        "Precision": 0.17350073,
+        "Recall": 0.16923937
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.0715557,
+        "AUPRC": 0.12675306,
+        "BalancedAccuracy": 0.14245473,
+        "ECE": 0.13669904,
+        "NPV": 0.17474381,
+        "Precision": 0.17596878,
+        "Recall": 0.17182487
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 30,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "Veltri_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.0715557,
+        "AUPRC": 0.12675306,
+        "BalancedAccuracy": 0.14245473,
+        "ECE": 0.13669904,
+        "NPV": 0.17474381,
+        "Precision": 0.17596878,
+        "Recall": 0.17182487
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 1.0,
+          "uniqueness": 0.184858,
+          "committee_support": 0.644181
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.972456,
+          "uniqueness": 0.252017,
+          "committee_support": 0.724854
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.75,
+          "uniqueness": 0.474509,
+          "committee_support": 0.734347
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.75,
+          "uniqueness": 0.543682,
+          "committee_support": 0.754608
+        }
+      },
+      "weights_after": {
+        "ACC": 0.07742492,
+        "AUPRC": 0.1259986,
+        "BalancedAccuracy": 0.14263281,
+        "ECE": 0.13475106,
+        "NPV": 0.17321032,
+        "Precision": 0.17454283,
+        "Recall": 0.17143945
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 31,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.07742492,
+        "AUPRC": 0.1259986,
+        "BalancedAccuracy": 0.14263281,
+        "ECE": 0.13475106,
+        "NPV": 0.17321032,
+        "Precision": 0.17454283,
+        "Recall": 0.17143945
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.25,
+          "uniqueness": 0.633193,
+          "committee_support": 0.427994
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.027544,
+          "uniqueness": 0.221786,
+          "committee_support": 0.325712
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.155536,
+          "committee_support": 0.661846
+        }
+      },
+      "weights_after": {
+        "ACC": 0.08615347,
+        "AUPRC": 0.12409997,
+        "BalancedAccuracy": 0.14353642,
+        "ECE": 0.13869743,
+        "NPV": 0.17254157,
+        "Precision": 0.16365928,
+        "Recall": 0.17131186
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "AMPsorter",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 32,
+      "sampled_datasets": [
+        "Veltri_test",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.08615347,
+        "AUPRC": 0.12409997,
+        "BalancedAccuracy": 0.14353642,
+        "ECE": 0.13869743,
+        "NPV": 0.17254157,
+        "Precision": 0.16365928,
+        "Recall": 0.17131186
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.25,
+          "uniqueness": 0.633193,
+          "committee_support": 0.427994
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.027544,
+          "uniqueness": 0.221786,
+          "committee_support": 0.325712
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.155536,
+          "committee_support": 0.661846
+        }
+      },
+      "weights_after": {
+        "ACC": 0.0938346,
+        "AUPRC": 0.12242917,
+        "BalancedAccuracy": 0.14433159,
+        "ECE": 0.14217022,
+        "NPV": 0.17195307,
+        "Precision": 0.15408177,
+        "Recall": 0.17119958
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "AMPsorter",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 33,
+      "sampled_datasets": [
+        "Veltri_test",
+        "ProteoGPT_all_predictions",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.0938346,
+        "AUPRC": 0.12242917,
+        "BalancedAccuracy": 0.14433159,
+        "ECE": 0.14217022,
+        "NPV": 0.17195307,
+        "Precision": 0.15408177,
+        "Recall": 0.17119958
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.97691,
+          "uniqueness": 0.281524,
+          "committee_support": 0.477987
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.442646,
+          "uniqueness": 0.685787,
+          "committee_support": 0.71136
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.868522,
+          "uniqueness": 0.250027,
+          "committee_support": 0.707529
+        }
+      },
+      "weights_after": {
+        "ACC": 0.0972713,
+        "AUPRC": 0.1212549,
+        "BalancedAccuracy": 0.14170865,
+        "ECE": 0.1435916,
+        "NPV": 0.16980051,
+        "Precision": 0.15570885,
+        "Recall": 0.17066419
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 34,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.0972713,
+        "AUPRC": 0.1212549,
+        "BalancedAccuracy": 0.14170865,
+        "ECE": 0.1435916,
+        "NPV": 0.16980051,
+        "Precision": 0.15570885,
+        "Recall": 0.17066419
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.10158528,
+        "AUPRC": 0.12558638,
+        "BalancedAccuracy": 0.14227813,
+        "ECE": 0.13984134,
+        "NPV": 0.16600251,
+        "Precision": 0.1579438,
+        "Recall": 0.16676255
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: AUPRC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 35,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.10158528,
+        "AUPRC": 0.12558638,
+        "BalancedAccuracy": 0.14227813,
+        "ECE": 0.13984134,
+        "NPV": 0.16600251,
+        "Precision": 0.1579438,
+        "Recall": 0.16676255
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.97691,
+          "uniqueness": 0.281524,
+          "committee_support": 0.477987
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.988111,
+          "uniqueness": 0.162777,
+          "committee_support": 0.5197
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.999799,
+          "uniqueness": 0.198724,
+          "committee_support": 0.653541
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.442646,
+          "uniqueness": 0.685787,
+          "committee_support": 0.71136
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.868522,
+          "uniqueness": 0.250027,
+          "committee_support": 0.707529
+        }
+      },
+      "weights_after": {
+        "ACC": 0.1040919,
+        "AUPRC": 0.12403324,
+        "BalancedAccuracy": 0.13990161,
+        "ECE": 0.14154219,
+        "NPV": 0.16456402,
+        "Precision": 0.15910744,
+        "Recall": 0.1667596
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 36,
+      "sampled_datasets": [
+        "Veltri_test",
+        "Veltri_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.1040919,
+        "AUPRC": 0.12403324,
+        "BalancedAccuracy": 0.13990161,
+        "ECE": 0.14154219,
+        "NPV": 0.16456402,
+        "Precision": 0.15910744,
+        "Recall": 0.1667596
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.75,
+          "uniqueness": 0.5,
+          "committee_support": 0.789218
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.75,
+          "uniqueness": 0.5,
+          "committee_support": 0.789218
+        }
+      },
+      "weights_after": {
+        "ACC": 0.10792261,
+        "AUPRC": 0.12547099,
+        "BalancedAccuracy": 0.13943515,
+        "ECE": 0.14087887,
+        "NPV": 0.16113808,
+        "Precision": 0.1592102,
+        "Recall": 0.1659441
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 37,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.10792261,
+        "AUPRC": 0.12547099,
+        "BalancedAccuracy": 0.13943515,
+        "ECE": 0.14087887,
+        "NPV": 0.16113808,
+        "Precision": 0.1592102,
+        "Recall": 0.1659441
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.11440661,
+        "AUPRC": 0.1288019,
+        "BalancedAccuracy": 0.13875804,
+        "ECE": 0.13727176,
+        "NPV": 0.15993063,
+        "Precision": 0.15667113,
+        "Recall": 0.16415993
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 38,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "Veltri_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.11440661,
+        "AUPRC": 0.1288019,
+        "BalancedAccuracy": 0.13875804,
+        "ECE": 0.13727176,
+        "NPV": 0.15993063,
+        "Precision": 0.15667113,
+        "Recall": 0.16415993
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.992162,
+          "uniqueness": 0.380018,
+          "committee_support": 0.742878
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.888857,
+          "uniqueness": 0.33934,
+          "committee_support": 0.58934
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.814309,
+          "uniqueness": 0.68503,
+          "committee_support": 0.854458
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.310846,
+          "committee_support": 0.687339
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.669711,
+          "uniqueness": 0.512185,
+          "committee_support": 0.728959
+        }
+      },
+      "weights_after": {
+        "ACC": 0.11546785,
+        "AUPRC": 0.1281357,
+        "BalancedAccuracy": 0.14075028,
+        "ECE": 0.13558918,
+        "NPV": 0.16218237,
+        "Precision": 0.15511999,
+        "Recall": 0.16275463
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: NPV; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 39,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.11546785,
+        "AUPRC": 0.1281357,
+        "BalancedAccuracy": 0.14075028,
+        "ECE": 0.13558918,
+        "NPV": 0.16218237,
+        "Precision": 0.15511999,
+        "Recall": 0.16275463
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.11759825,
+        "AUPRC": 0.13164149,
+        "BalancedAccuracy": 0.14143477,
+        "ECE": 0.13279921,
+        "NPV": 0.15929855,
+        "Precision": 0.15742561,
+        "Recall": 0.15980214
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: AUPRC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 40,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.11759825,
+        "AUPRC": 0.13164149,
+        "BalancedAccuracy": 0.14143477,
+        "ECE": 0.13279921,
+        "NPV": 0.15929855,
+        "Precision": 0.15742561,
+        "Recall": 0.15980214
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.75,
+          "uniqueness": 0.220335,
+          "committee_support": 0.522518
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.827327,
+          "uniqueness": 0.180345,
+          "committee_support": 0.617158
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.738842,
+          "committee_support": 0.574421
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.440616
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.933013,
+          "uniqueness": 0.196201,
+          "committee_support": 0.683768
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.336337,
+          "uniqueness": 0.231435,
+          "committee_support": 0.541852
+        }
+      },
+      "weights_after": {
+        "ACC": 0.11947299,
+        "AUPRC": 0.13472657,
+        "BalancedAccuracy": 0.14203711,
+        "ECE": 0.13034403,
+        "NPV": 0.15676079,
+        "Precision": 0.15945455,
+        "Recall": 0.15720395
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: AUPRC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "C_AMPs-predict",
+        "HMD-AMP",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 41,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.11947299,
+        "AUPRC": 0.13472657,
+        "BalancedAccuracy": 0.14203711,
+        "ECE": 0.13034403,
+        "NPV": 0.15676079,
+        "Precision": 0.15945455,
+        "Recall": 0.15720395
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.985363,
+          "uniqueness": 0.416667,
+          "committee_support": 0.803652
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.638675,
+          "uniqueness": 0.5,
+          "committee_support": 0.76426
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.985363,
+          "uniqueness": 0.416667,
+          "committee_support": 0.803652
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.153312,
+          "uniqueness": 0.25,
+          "committee_support": 0.500143
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        }
+      },
+      "weights_after": {
+        "ACC": 0.12448787,
+        "AUPRC": 0.13696248,
+        "BalancedAccuracy": 0.1443443,
+        "ECE": 0.13165288,
+        "NPV": 0.15489962,
+        "Precision": 0.15236326,
+        "Recall": 0.1552896
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 42,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.12448787,
+        "AUPRC": 0.13696248,
+        "BalancedAccuracy": 0.1443443,
+        "ECE": 0.13165288,
+        "NPV": 0.15489962,
+        "Precision": 0.15236326,
+        "Recall": 0.1552896
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.25,
+          "uniqueness": 0.633193,
+          "committee_support": 0.427994
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.027544,
+          "uniqueness": 0.221786,
+          "committee_support": 0.325712
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.155536,
+          "committee_support": 0.661846
+        }
+      },
+      "weights_after": {
+        "ACC": 0.12756887,
+        "AUPRC": 0.13374818,
+        "BalancedAccuracy": 0.14504252,
+        "ECE": 0.13597102,
+        "NPV": 0.15642816,
+        "Precision": 0.14414126,
+        "Recall": 0.15709999
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "AMPsorter",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 43,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.12756887,
+        "AUPRC": 0.13374818,
+        "BalancedAccuracy": 0.14504252,
+        "ECE": 0.13597102,
+        "NPV": 0.15642816,
+        "Precision": 0.14414126,
+        "Recall": 0.15709999
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.985363,
+          "uniqueness": 0.416667,
+          "committee_support": 0.803652
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.638675,
+          "uniqueness": 0.5,
+          "committee_support": 0.76426
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.985363,
+          "uniqueness": 0.416667,
+          "committee_support": 0.803652
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.153312,
+          "uniqueness": 0.25,
+          "committee_support": 0.500143
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.846688,
+          "uniqueness": 0.25,
+          "committee_support": 0.70392
+        }
+      },
+      "weights_after": {
+        "ACC": 0.13161224,
+        "AUPRC": 0.13610149,
+        "BalancedAccuracy": 0.14698906,
+        "ECE": 0.13660463,
+        "NPV": 0.1546069,
+        "Precision": 0.13888756,
+        "Recall": 0.15519812
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 44,
+      "sampled_datasets": [
+        "C_AMPs-predict_test",
+        "Veltri_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.13161224,
+        "AUPRC": 0.13610149,
+        "BalancedAccuracy": 0.14698906,
+        "ECE": 0.13660463,
+        "NPV": 0.1546069,
+        "Precision": 0.13888756,
+        "Recall": 0.15519812
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 1.0,
+          "uniqueness": 0.184858,
+          "committee_support": 0.644181
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.99099,
+          "uniqueness": 0.195002,
+          "committee_support": 0.539131
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.972456,
+          "uniqueness": 0.252017,
+          "committee_support": 0.724854
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.75,
+          "uniqueness": 0.474509,
+          "committee_support": 0.734347
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.75,
+          "uniqueness": 0.543682,
+          "committee_support": 0.754608
+        }
+      },
+      "weights_after": {
+        "ACC": 0.13027468,
+        "AUPRC": 0.13422522,
+        "BalancedAccuracy": 0.14662302,
+        "ECE": 0.13466798,
+        "NPV": 0.15548984,
+        "Precision": 0.14191136,
+        "Recall": 0.15680791
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 45,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.13027468,
+        "AUPRC": 0.13422522,
+        "BalancedAccuracy": 0.14662302,
+        "ECE": 0.13466798,
+        "NPV": 0.15548984,
+        "Precision": 0.14191136,
+        "Recall": 0.15680791
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.13407643,
+        "AUPRC": 0.13650562,
+        "BalancedAccuracy": 0.14508336,
+        "ECE": 0.13180618,
+        "NPV": 0.15496018,
+        "Precision": 0.14144815,
+        "Recall": 0.15612009
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 46,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.13407643,
+        "AUPRC": 0.13650562,
+        "BalancedAccuracy": 0.14508336,
+        "ECE": 0.13180618,
+        "NPV": 0.15496018,
+        "Precision": 0.14144815,
+        "Recall": 0.15612009
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.13742198,
+        "AUPRC": 0.13851237,
+        "BalancedAccuracy": 0.14372846,
+        "ECE": 0.12928779,
+        "NPV": 0.15449408,
+        "Precision": 0.14104052,
+        "Recall": 0.1555148
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 47,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.13742198,
+        "AUPRC": 0.13851237,
+        "BalancedAccuracy": 0.14372846,
+        "ECE": 0.12928779,
+        "NPV": 0.15449408,
+        "Precision": 0.14104052,
+        "Recall": 0.1555148
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.0,
+          "consistency": 0.25,
+          "consensus": 0.5,
+          "uniqueness": 1.0,
+          "committee_support": 0.041628
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.320395,
+          "uniqueness": 0.392375,
+          "committee_support": 0.408714
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.993915,
+          "uniqueness": 0.43503,
+          "committee_support": 0.523258
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.941249,
+          "uniqueness": 0.320946,
+          "committee_support": 0.710669
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.483029,
+          "uniqueness": 0.565235,
+          "committee_support": 0.696435
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.822451,
+          "uniqueness": 0.304824,
+          "committee_support": 0.684655
+        }
+      },
+      "weights_after": {
+        "ACC": 0.12232334,
+        "AUPRC": 0.1355579,
+        "BalancedAccuracy": 0.1439783,
+        "ECE": 0.13127052,
+        "NPV": 0.1597189,
+        "Precision": 0.14740379,
+        "Recall": 0.15974725
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports NPV in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 48,
+      "sampled_datasets": [
+        "Veltri_test",
+        "Veltri_test",
+        "Veltri_test"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.12232334,
+        "AUPRC": 0.1355579,
+        "BalancedAccuracy": 0.1439783,
+        "ECE": 0.13127052,
+        "NPV": 0.1597189,
+        "Precision": 0.14740379,
+        "Recall": 0.15974725
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.166667,
+          "committee_support": 0.671059
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.75,
+          "uniqueness": 0.5,
+          "committee_support": 0.789218
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.75,
+          "uniqueness": 0.5,
+          "committee_support": 0.789218
+        }
+      },
+      "weights_after": {
+        "ACC": 0.12396628,
+        "AUPRC": 0.13561269,
+        "BalancedAccuracy": 0.14302265,
+        "ECE": 0.1318398,
+        "NPV": 0.15687437,
+        "Precision": 0.14891099,
+        "Recall": 0.15977323
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Precision in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: NPV; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "C_AMPs-predict",
+        "AMPsorter"
+      ]
+    },
+    {
+      "round": 49,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "Veltri_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.12396628,
+        "AUPRC": 0.13561269,
+        "BalancedAccuracy": 0.14302265,
+        "ECE": 0.1318398,
+        "NPV": 0.15687437,
+        "Precision": 0.14891099,
+        "Recall": 0.15977323
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.25,
+          "uniqueness": 0.633193,
+          "committee_support": 0.427994
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.307114,
+          "committee_support": 0.583325
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.972456,
+          "uniqueness": 0.20069,
+          "committee_support": 0.651207
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.027544,
+          "uniqueness": 0.221786,
+          "committee_support": 0.325712
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 1.0,
+          "uniqueness": 0.155536,
+          "committee_support": 0.661846
+        }
+      },
+      "weights_after": {
+        "ACC": 0.12710987,
+        "AUPRC": 0.13256037,
+        "BalancedAccuracy": 0.14387947,
+        "ECE": 0.13613551,
+        "NPV": 0.15816594,
+        "Precision": 0.14110326,
+        "Recall": 0.16104558
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports Recall in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: Precision; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "HMD-AMP",
+        "AMPsorter",
+        "C_AMPs-predict"
+      ]
+    },
+    {
+      "round": 50,
+      "sampled_datasets": [
+        "ProteoGPT_all_predictions",
+        "C_AMPs-predict_test",
+        "ProteoGPT_all_predictions"
+      ],
+      "learning_rate": 0.12,
+      "weights_before": {
+        "ACC": 0.12710987,
+        "AUPRC": 0.13256037,
+        "BalancedAccuracy": 0.14387947,
+        "ECE": 0.13613551,
+        "NPV": 0.15816594,
+        "Precision": 0.14110326,
+        "Recall": 0.16104558
+      },
+      "metric_evidence": {
+        "ACC": {
+          "coverage": 1.0,
+          "separation": 0.471405,
+          "consistency": 0.5,
+          "consensus": 0.933013,
+          "uniqueness": 0.637445,
+          "committee_support": 0.675054
+        },
+        "AUPRC": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.297894,
+          "committee_support": 0.638677
+        },
+        "BalancedAccuracy": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 1.0,
+          "uniqueness": 0.594505,
+          "committee_support": 0.557665
+        },
+        "ECE": {
+          "coverage": 1.0,
+          "separation": 0.272166,
+          "consistency": 0.333333,
+          "consensus": 0.75,
+          "uniqueness": 0.309041,
+          "committee_support": 0.461911
+        },
+        "NPV": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        },
+        "Precision": {
+          "coverage": 1.0,
+          "separation": 0.816497,
+          "consistency": 1.0,
+          "consensus": 0.25,
+          "uniqueness": 0.309041,
+          "committee_support": 0.575416
+        },
+        "Recall": {
+          "coverage": 1.0,
+          "separation": 0.720082,
+          "consistency": 0.833333,
+          "consensus": 0.594491,
+          "uniqueness": 0.27755,
+          "committee_support": 0.629705
+        }
+      },
+      "weights_after": {
+        "ACC": 0.1312914,
+        "AUPRC": 0.13504055,
+        "BalancedAccuracy": 0.14266904,
+        "ECE": 0.13309761,
+        "NPV": 0.15731515,
+        "Precision": 0.14073702,
+        "Recall": 0.15984923
+      },
+      "discussion": {
+        "statistics_expert": "Bootstrap evidence most strongly supports ACC in this round.",
+        "screening_expert": "Model scores were recomputed with rank normalization so metric scales cannot dominate the decision.",
+        "reviewer": "Largest weight revision: ACC; missingness and metric redundancy were penalized."
+      },
+      "top3": [
+        "AMPsorter",
+        "HMD-AMP",
+        "C_AMPs-predict"
+      ]
+    }
+  ]
+}

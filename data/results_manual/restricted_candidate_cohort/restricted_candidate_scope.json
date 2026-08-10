@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-07-24T08:30:36.310188+00:00",
+  "selection_scope": "prespecified_restricted_candidate_cohort",
+  "candidate_models": [
+    "C_AMPs-predict",
+    "HMD-AMP",
+    "AMPsorter"
+  ],
+  "candidate_model_count": 3,
+  "datasets": [
+    "C_AMPs-predict_test",
+    "ProteoGPT_all_predictions",
+    "Veltri_test"
+  ],
+  "weight_method": "unchanged 50-round evidence-driven dynamic metric-weight meeting",
+  "model_specific_score_bonus": false,
+  "posthoc_removal_based_on_rank": false,
+  "not_a_global_top3_claim": true,
+  "models_outside_current_comparison": [
+    "ai4amp",
+    "amPEPpy",
+    "ampir",
+    "amplify_bal",
+    "amplify_imb",
+    "apex1.1",
+    "apin",
+    "ascan2",
+    "esm-AxP-GDL",
+    "iamp-ca2l",
+    "iampcn",
+    "lstm",
+    "macrel",
+    "pepnet_fast",
+    "pepnet_standard"
+  ],
+  "outside_model_reason": "not included in the prespecified candidate cohort; complete benchmark evidence remains unchanged",
+  "ranking": [
+    {
+      "model": "HMD-AMP",
+      "median_score": 0.63976869,
+      "mean_score": 0.63255788,
+      "score_iqr": 0.17723562,
+      "median_rank": 1.0,
+      "mean_rank": 1.44,
+      "top3_frequency": 1.0,
+      "rounds": 50,
+      "rank": 1
+    },
+    {
+      "model": "C_AMPs-predict",
+      "median_score": 0.51343964,
+      "mean_score": 0.48690164,
+      "score_iqr": 0.20061171,
+      "median_rank": 2.0,
+      "mean_rank": 2.1,
+      "top3_frequency": 1.0,
+      "rounds": 50,
+      "rank": 2
+    },
+    {
+      "model": "AMPsorter",
+      "median_score": 0.34549684,
+      "mean_score": 0.38054047,
+      "score_iqr": 0.21114768,
+      "median_rank": 3.0,
+      "mean_rank": 2.46,
+      "top3_frequency": 1.0,
+      "rounds": 50,
+      "rank": 3
+    }
+  ]
+}

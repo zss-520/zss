@@ -1,0 +1,21 @@
+section,field_1,field_2,field_3
+metric,"2,365",papers,
+metric,304,evidence batches,
+metric,241,compact chunks,
+metric,20,recommended models,
+agent,Compress,evidence_compressor_agent.md,Retain traceable evidence while reducing context
+agent,Extract,info_extractor_agent.md,Produce structured paper and repository metadata
+agent,Scout,model_dataset_agent.md,Propose models and benchmark datasets
+agent,Metrics,metric_agent.md,Define endpoints and evaluation evidence
+agent,Critic,critic_agent.md,Challenge unsupported or incomplete claims
+agent,Chief,chief_agent.md,Reconcile decisions and write persistent memory
+execution,Retrieve,multi-source search,
+execution,Compress,compact evidence,
+execution,Propose,models/data/metrics,
+execution,Audit,critic challenge,
+execution,Freeze,memory + CSV exports,
+artifact,evidence_pool.json,raw evidence,"2,365 papers / 304 batches"
+artifact,compact_evidence_pool.json,compressed evidence,"2,361 papers / 241 chunks"
+artifact,literature_meeting_screening_decisions.csv,audit decisions,487 identities / 59 accepted
+artifact,literature_deep_research_memory.json/.md,long-term memory,machine-readable state plus human-readable record
+artifact,"recommended_{models,datasets,metrics}.csv",frozen handoff,20 models / 3 datasets / 44 metric rows
