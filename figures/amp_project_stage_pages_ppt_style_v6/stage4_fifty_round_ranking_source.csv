@@ -1,0 +1,21 @@
+section,field_1,field_2,field_3
+metric,12,eligible metrics,
+metric,50,decision rounds,
+metric,600,weight rows,
+metric,900,model scores,
+agent,Literature,weight_meeting/literature_agent.md,Judge biological relevance and evidence support
+agent,Statistics,weight_meeting/statistics_agent.md,"Judge validity, uncertainty and metric behavior"
+agent,Screening,weight_meeting/screening_agent.md,Judge operational robustness and screening utility
+agent,Reviewer,weight_meeting/reviewer_agent.md,Audit proposals against blinded evidence
+agent,Chief,weight_meeting/chief_agent.md,Accept a bounded weight vector or request revision
+agent,Advisor,weight_meeting/research_advisor.md,"Interpret stability, complementarity and Top-3"
+execution,Blind,agent evidence bundle,
+execution,Propose,three expert vectors,
+execution,Audit,independent reviewer,
+execution,Accept,Chief bounded update,
+execution,Aggregate,50-round consensus,
+artifact,agent_evidence_bundle.json,blinded evidence,3 datasets / 18 models / eligible metrics
+artifact,*_agent_proposals.json,specialist proposals,"Literature, Statistics and Screening vectors"
+artifact,reviewer_agent_audit.json,independent audit,proposal-level challenges and decisions
+artifact,chief_initial_decision.json + rounds/round_001-050.json,decision state,initial vector plus every accepted update
+artifact,weights/scores/ranking_50_rounds.csv,terminal evidence,current Top-3: pepnet_standard / amplify_imb / C_AMPs-predict

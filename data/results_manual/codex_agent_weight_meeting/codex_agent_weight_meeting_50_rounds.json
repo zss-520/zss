@@ -1,0 +1,499 @@
+{
+  "generated_at": "2026-07-22T07:39:08.126175+00:00",
+  "backend": "local_codex_multi_agent",
+  "rounds": 50,
+  "roles": [
+    "literature_agent",
+    "statistics_agent",
+    "screening_agent",
+    "reviewer_agent",
+    "chief_agent"
+  ],
+  "dimensions": {
+    "datasets": 3,
+    "models": 18,
+    "metrics": 12
+  },
+  "initial_weights": {
+    "ACC": 0.0176378429,
+    "AUPRC": 0.2268091047,
+    "AUROC": 0.0643839846,
+    "BalancedAccuracy": 0.059400695,
+    "BrierScore": 0.0474778445,
+    "ECE": 0.0388711624,
+    "F1-Score": 0.0555688118,
+    "MCC": 0.1846632483,
+    "NPV": 0.0311560065,
+    "Precision": 0.1025003946,
+    "Recall": 0.1322399398,
+    "Specificity": 0.0392909649
+  },
+  "final_weights": {
+    "ACC": 0.0221432859,
+    "AUPRC": 0.2083013306,
+    "AUROC": 0.0663444151,
+    "BalancedAccuracy": 0.0610078353,
+    "BrierScore": 0.0538131984,
+    "ECE": 0.0451704385,
+    "F1-Score": 0.0559206103,
+    "MCC": 0.1671076979,
+    "NPV": 0.038474616,
+    "Precision": 0.1024706415,
+    "Recall": 0.133358185,
+    "Specificity": 0.0458877455
+  },
+  "ranking": [
+    {
+      "model": "pepnet_standard",
+      "median_score": 0.73886349,
+      "mean_score": 0.74064428,
+      "score_iqr": 0.05422723,
+      "median_rank": 2.0,
+      "mean_rank": 2.68,
+      "top3_frequency": 0.7,
+      "rounds": 50,
+      "rank": 1
+    },
+    {
+      "model": "amplify_imb",
+      "median_score": 0.70614553,
+      "mean_score": 0.70443028,
+      "score_iqr": 0.17908211,
+      "median_rank": 2.0,
+      "mean_rank": 3.58,
+      "top3_frequency": 0.66,
+      "rounds": 50,
+      "rank": 2
+    },
+    {
+      "model": "C_AMPs-predict",
+      "median_score": 0.69737369,
+      "mean_score": 0.69314995,
+      "score_iqr": 0.08699574,
+      "median_rank": 3.5,
+      "mean_rank": 3.86,
+      "top3_frequency": 0.5,
+      "rounds": 50,
+      "rank": 3
+    },
+    {
+      "model": "HMD-AMP",
+      "median_score": 0.67581546,
+      "mean_score": 0.68352583,
+      "score_iqr": 0.1267561,
+      "median_rank": 4.0,
+      "mean_rank": 4.54,
+      "top3_frequency": 0.3,
+      "rounds": 50,
+      "rank": 4
+    },
+    {
+      "model": "amplify_bal",
+      "median_score": 0.64855985,
+      "mean_score": 0.64369769,
+      "score_iqr": 0.04564738,
+      "median_rank": 5.0,
+      "mean_rank": 5.74,
+      "top3_frequency": 0.16,
+      "rounds": 50,
+      "rank": 5
+    },
+    {
+      "model": "AMPsorter",
+      "median_score": 0.62512333,
+      "mean_score": 0.6262977,
+      "score_iqr": 0.22123922,
+      "median_rank": 6.0,
+      "mean_rank": 6.04,
+      "top3_frequency": 0.3,
+      "rounds": 50,
+      "rank": 6
+    },
+    {
+      "model": "pepnet_fast",
+      "median_score": 0.59635285,
+      "mean_score": 0.59151052,
+      "score_iqr": 0.10487684,
+      "median_rank": 7.0,
+      "mean_rank": 7.42,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 7
+    },
+    {
+      "model": "macrel",
+      "median_score": 0.59231748,
+      "mean_score": 0.59472959,
+      "score_iqr": 0.14743863,
+      "median_rank": 8.0,
+      "mean_rank": 7.1,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 8
+    },
+    {
+      "model": "esm-AxP-GDL",
+      "median_score": 0.54210402,
+      "mean_score": 0.5388705,
+      "score_iqr": 0.30056997,
+      "median_rank": 9.0,
+      "mean_rank": 8.82,
+      "top3_frequency": 0.12,
+      "rounds": 50,
+      "rank": 9
+    },
+    {
+      "model": "ascan2",
+      "median_score": 0.49179328,
+      "mean_score": 0.49593762,
+      "score_iqr": 0.38276362,
+      "median_rank": 10.0,
+      "mean_rank": 9.66,
+      "top3_frequency": 0.26,
+      "rounds": 50,
+      "rank": 10
+    },
+    {
+      "model": "lstm",
+      "median_score": 0.43948657,
+      "mean_score": 0.44074342,
+      "score_iqr": 0.03039744,
+      "median_rank": 12.0,
+      "mean_rank": 11.74,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 11
+    },
+    {
+      "model": "ai4amp",
+      "median_score": 0.43093671,
+      "mean_score": 0.43206558,
+      "score_iqr": 0.09274851,
+      "median_rank": 12.0,
+      "mean_rank": 12.0,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 12
+    },
+    {
+      "model": "iampcn",
+      "median_score": 0.42979775,
+      "mean_score": 0.43208985,
+      "score_iqr": 0.08591859,
+      "median_rank": 13.0,
+      "mean_rank": 12.2,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 13
+    },
+    {
+      "model": "apin",
+      "median_score": 0.42631843,
+      "mean_score": 0.42964189,
+      "score_iqr": 0.17752844,
+      "median_rank": 14.0,
+      "mean_rank": 12.28,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 14
+    },
+    {
+      "model": "amPEPpy",
+      "median_score": 0.38870452,
+      "mean_score": 0.38361658,
+      "score_iqr": 0.08232459,
+      "median_rank": 14.0,
+      "mean_rank": 13.7,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 15
+    },
+    {
+      "model": "ampir",
+      "median_score": 0.33272394,
+      "mean_score": 0.33334183,
+      "score_iqr": 0.14438412,
+      "median_rank": 16.0,
+      "mean_rank": 14.78,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 16
+    },
+    {
+      "model": "apex1.1",
+      "median_score": 0.21160971,
+      "mean_score": 0.20932973,
+      "score_iqr": 0.04279763,
+      "median_rank": 17.0,
+      "mean_rank": 16.86,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 17
+    },
+    {
+      "model": "iamp-ca2l",
+      "median_score": 0.02611958,
+      "mean_score": 0.02637716,
+      "score_iqr": 0.02620823,
+      "median_rank": 18.0,
+      "mean_rank": 18.0,
+      "top3_frequency": 0.0,
+      "rounds": 50,
+      "rank": 18
+    }
+  ],
+  "resource_gate": {
+    "generated_at": "2026-07-22T07:39:03.540120+00:00",
+    "policy_mode": "measured_budget_gate",
+    "policy_path": "E:\\agentbenmark_amp\\zss\\data\\model_resource_policy.json",
+    "enabled": true,
+    "missing_measurement_policy": "keep_and_flag",
+    "limits": {
+      "runtime_seconds": 3600.0,
+      "peak_memory_mb": 32768.0,
+      "gpu_memory_mb": 24576.0,
+      "minimum_throughput_sequences_per_second": null
+    },
+    "models_before": 18,
+    "models_after": 18,
+    "rows_before": 810,
+    "rows_after": 810,
+    "eligible_models": [
+      "ai4amp",
+      "amPEPpy",
+      "ampir",
+      "amplify_bal",
+      "amplify_imb",
+      "AMPsorter",
+      "apex1.1",
+      "apin",
+      "ascan2",
+      "C_AMPs-predict",
+      "esm-AxP-GDL",
+      "HMD-AMP",
+      "iamp-ca2l",
+      "iampcn",
+      "lstm",
+      "macrel",
+      "pepnet_fast",
+      "pepnet_standard"
+    ],
+    "excluded_models": [],
+    "flagged_models": [
+      "ai4amp",
+      "amPEPpy",
+      "ampir",
+      "amplify_bal",
+      "amplify_imb",
+      "AMPsorter",
+      "apex1.1",
+      "apin",
+      "ascan2",
+      "C_AMPs-predict",
+      "esm-AxP-GDL",
+      "HMD-AMP",
+      "iamp-ca2l",
+      "iampcn",
+      "lstm",
+      "macrel",
+      "pepnet_fast",
+      "pepnet_standard"
+    ],
+    "checks": [
+      {
+        "model": "ai4amp",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "amPEPpy",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "ampir",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "amplify_bal",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "amplify_imb",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "AMPsorter",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "apex1.1",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "apin",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "ascan2",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "C_AMPs-predict",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "esm-AxP-GDL",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "HMD-AMP",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "iamp-ca2l",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "iampcn",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "lstm",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "macrel",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "pepnet_fast",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      },
+      {
+        "model": "pepnet_standard",
+        "status": "eligible_missing_resource_measurement",
+        "runtime_seconds": null,
+        "peak_memory_mb": null,
+        "gpu_memory_mb": null,
+        "throughput_sequences_per_second": null,
+        "measurement_source": "",
+        "reasons": []
+      }
+    ],
+    "principle": "Eligibility uses measured resource evidence only; ranking values and model names are not gate inputs."
+  },
+  "resource_gate_audit_files": {
+    "json": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\model_resource_gate_audit.json",
+    "csv": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\model_resource_gate_audit.csv"
+  },
+  "figures": {
+    "png": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\codex_agent_model_score_boxplot_bubble.png",
+    "svg": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\codex_agent_model_score_boxplot_bubble.svg",
+    "pdf": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\codex_agent_model_score_boxplot_bubble.pdf",
+    "tiff": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\codex_agent_model_score_boxplot_bubble.tiff"
+  },
+  "discussion_markdown": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\codex_agent_discussion_50_rounds.md",
+  "final_report": "E:\\agentbenmark_amp\\zss\\data\\results_manual\\codex_agent_weight_meeting\\amp_future_directions_report_codex_agents.md",
+  "scientific_caveat": "Exploratory post-hoc benchmark; provenance, independence and homology gates remain pending."
+}

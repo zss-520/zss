@@ -31,13 +31,13 @@ import statistics
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from openai import OpenAI
-
-from config import MODEL_NAME, METRIC_WEIGHTS, BENCHMARK_STRATEGY
+from config import MODEL_NAME, BENCHMARK_STRATEGY, TARGET_MODEL_NAMES
+from iterative_weight_meeting import run_iterative_weight_meeting
 from prompts import (
     AMP_RESEARCH_ADVISOR_SYSTEM_PROMPT,
     build_amp_research_advisor_prompt,
 )
+from run_meeting import _make_openai_client
 
 
 # ========================================================
@@ -88,8 +88,8 @@ def load_meeting_metric_weights() -> Dict[str, float]:
 
     优先级：
     1. data/benchmark_strategy.json 中的 metric_weights
-    2. config.py 中已经加载好的 METRIC_WEIGHTS
-    3. 如果都没有，返回空字典，后续根据 eval_result 自动推断指标但不加权
+    2. config.py 中已加载的 BENCHMARK_STRATEGY（同一会议文件的内存副本）
+    3. 如果都没有，返回空字典，由 50 轮会议从等权先验开始更新
     """
     strategy_path = Path("data/benchmark_strategy.json")
     strategy = _safe_load_json(strategy_path)
@@ -103,9 +103,6 @@ def load_meeting_metric_weights() -> Dict[str, float]:
         weights = BENCHMARK_STRATEGY.get("metric_weights", {})
         if isinstance(weights, dict) and weights:
             return _normalize_weight_dict(weights)
-
-    if isinstance(METRIC_WEIGHTS, dict) and METRIC_WEIGHTS:
-        return _normalize_weight_dict(METRIC_WEIGHTS)
 
     return {}
 
@@ -234,6 +231,8 @@ def collect_eval_results(results_dir: Path) -> List[Dict[str, Any]]:
     }
     """
     rows: List[Dict[str, Any]] = []
+    is_manual_import = (results_dir / "manual_import_manifest.json").exists()
+    target_models = set() if is_manual_import else set(TARGET_MODEL_NAMES or [])
 
     if not results_dir.exists():
         return rows
@@ -250,6 +249,8 @@ def collect_eval_results(results_dir: Path) -> List[Dict[str, Any]]:
         dataset_name = ds_dir.name
 
         for model_name, metrics in eval_data.items():
+            if target_models and str(model_name) not in target_models:
+                continue
             if not isinstance(metrics, dict):
                 continue
 
@@ -486,10 +487,29 @@ def summarize_metric_coverage(
 # 构建 AI 分析上下文
 # ========================================================
 
-def build_development_context(results_dir: Path = Path("data/results")) -> Dict[str, Any]:
+def build_development_context(
+    results_dir: Path = Path("data/results"),
+    output_dir: Optional[Path] = None,
+    weight_rounds: int = 50,
+    weight_seed: int = 20260716,
+) -> Dict[str, Any]:
     rows = collect_eval_results(results_dir)
     critics = collect_dataset_critics(results_dir)
-    metric_weights = load_meeting_metric_weights()
+    initial_metric_weights = load_meeting_metric_weights()
+    manual_import_manifest = _safe_load_json(results_dir / "manual_import_manifest.json") or {}
+    target_model_names = list(TARGET_MODEL_NAMES or [])
+
+    iterative_meeting: Dict[str, Any] = {}
+    metric_weights = initial_metric_weights
+    if rows:
+        iterative_meeting = run_iterative_weight_meeting(
+            rows=rows,
+            output_dir=output_dir or results_dir,
+            rounds=weight_rounds,
+            seed=weight_seed,
+            initial_weights=initial_metric_weights,
+        )
+        metric_weights = iterative_meeting.get("final_weights_median", {})
 
     performance_summary = summarize_model_performance(rows, metric_weights)
     metric_coverage = summarize_metric_coverage(rows, metric_weights)
@@ -511,10 +531,22 @@ def build_development_context(results_dir: Path = Path("data/results")) -> Dict[
     context = {
         "task": "AMP binary classification benchmark and future direction analysis",
         "results_dir": str(results_dir),
+        "target_model_names": target_model_names,
+        "scope_note": (
+            "Only models in target_model_names are in scope for this report. "
+            "Ignore stale critic text or historical result files mentioning non-target models."
+            if target_model_names
+            else "No TARGET_MODEL_NAMES filter is active; all valid eval_result models are in scope."
+        ),
         "available_datasets": datasets,
         "evaluated_models": models,
         "actual_metrics_in_eval_results": actual_metrics,
         "meeting_metric_weights": metric_weights,
+        "initial_literature_meeting_weights": initial_metric_weights,
+        "iterative_weight_meeting": {
+            key: value for key, value in iterative_meeting.items() if key != "round_records"
+        },
+        "manual_import_manifest": manual_import_manifest if isinstance(manual_import_manifest, dict) else {},
         "metric_coverage": metric_coverage,
         "num_result_rows": len(rows),
         "performance_rows_preview": compact_rows,
@@ -529,7 +561,9 @@ def build_development_context(results_dir: Path = Path("data/results")) -> Dict[
             "papers_preview": papers_in_db[:30],
         },
         "analysis_focus": [
-            "Use the dynamic metric weights from the literature-analysis meeting.",
+            "Use the median metric weights and model ranking from the 50-round evidence meeting.",
+            "Do not apply model-specific priority bonuses or manually force a Top3.",
+            "Respect target_model_names. Do not discuss non-target models as failed in the current run.",
             "Identify model families that generalize well across datasets.",
             "Identify models that are dataset-sensitive or unstable.",
             "Infer possible benchmark/data issues such as leakage, easy negatives, or distribution shift.",
@@ -546,16 +580,202 @@ def build_development_context(results_dir: Path = Path("data/results")) -> Dict[
 # 报告生成
 # ========================================================
 
+def _offline_future_directions_report(context: Dict[str, Any], error: Optional[Exception] = None) -> str:
+    """Generate a deterministic local report when the LLM API is unavailable."""
+    rows = context.get("performance_rows_preview", [])
+    by_model: Dict[str, Dict[str, List[float]]] = {}
+    datasets_by_model: Dict[str, set] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        model = str(row.get("model") or "").strip()
+        metric = str(row.get("metric") or "").strip()
+        value = _to_float(row.get("value"))
+        dataset = str(row.get("dataset") or "").strip()
+        if not model or not metric or value is None:
+            continue
+        by_model.setdefault(model, {}).setdefault(metric, []).append(value)
+        if dataset:
+            datasets_by_model.setdefault(model, set()).add(dataset)
+
+    weights = context.get("meeting_metric_weights") or {}
+    if not isinstance(weights, dict):
+        weights = {}
+    meeting_summary = context.get("iterative_weight_meeting")
+    if not isinstance(meeting_summary, dict):
+        meeting_summary = {}
+    meeting_ranking = meeting_summary.get("final_ranking")
+    if not isinstance(meeting_ranking, list):
+        meeting_ranking = []
+    resource_gate = meeting_summary.get("resource_gate")
+    if not isinstance(resource_gate, dict):
+        resource_gate = {}
+
+    def metric_mean(model: str, metric: str) -> Optional[float]:
+        values = by_model.get(model, {}).get(metric, [])
+        values = [v for v in values if v is not None]
+        return statistics.mean(values) if values else None
+
+    def metric_std(model: str, metric: str) -> float:
+        values = by_model.get(model, {}).get(metric, [])
+        values = [v for v in values if v is not None]
+        return statistics.pstdev(values) if len(values) > 1 else 0.0
+
+    def metric_weighted_score(model: str) -> float:
+        total = 0.0
+        used = 0.0
+        for metric, weight in weights.items():
+            m = metric_mean(model, str(metric))
+            if m is None:
+                continue
+            w = _to_float(weight) or 0.0
+            total += m * w
+            used += w
+        return total / used if used else 0.0
+
+    scored = []
+    ranking_lookup = {
+        str(row.get("model")): row
+        for row in meeting_ranking
+        if isinstance(row, dict) and row.get("model")
+    }
+    for model in sorted(by_model):
+        meeting_row = ranking_lookup.get(model, {})
+        score = _to_float(meeting_row.get("median_score"))
+        if score is None:
+            score = metric_weighted_score(model)
+        scored.append(
+            {
+                "model": model,
+                "score": score,
+                "mean_score": _to_float(meeting_row.get("mean_score")),
+                "score_iqr": _to_float(meeting_row.get("score_iqr")),
+                "top3_frequency": _to_float(meeting_row.get("top3_frequency")),
+                "auprc": metric_mean(model, "AUPRC"),
+                "mcc": metric_mean(model, "MCC"),
+                "recall": metric_mean(model, "Recall"),
+                "precision": metric_mean(model, "Precision"),
+                "auroc": metric_mean(model, "AUROC"),
+                "datasets": len(datasets_by_model.get(model, set())),
+                "stability_penalty": metric_std(model, "AUPRC") + metric_std(model, "MCC"),
+            }
+        )
+    scored.sort(
+        key=lambda x: (
+            x["score"],
+            x["auprc"] if x["auprc"] is not None else -1,
+            x["mcc"] if x["mcc"] is not None else -1,
+            x["datasets"],
+            -x["stability_penalty"],
+        ),
+        reverse=True,
+    )
+    top3 = scored[:3]
+
+    def fmt(v: Any) -> str:
+        fv = _to_float(v)
+        return f"{fv:.4f}" if fv is not None else "NA"
+
+    lines = [
+        "# AMP 模型未来发展方向报告",
+        "",
+        "> 本报告由本地确定性兜底逻辑生成：没有把评测数据发送到外部 LLM API。",
+        "",
+        "## 当前评测概况",
+        "",
+        f"- 结果目录：`{context.get('results_dir')}`",
+        f"- 数据集数量：{len(context.get('available_datasets') or [])}",
+        f"- 有效参评模型数量：{len(by_model)}",
+        f"- 实际指标：{', '.join(context.get('actual_metrics_in_eval_results') or [])}",
+        f"- 权重更新轮数：{meeting_summary.get('rounds', 0)}",
+        f"- 最终指标权重（50 轮中位数）：{weights}",
+        "- 模型特定优先加分：未启用",
+        f"- 资源资格规则：{resource_gate.get('policy_mode', '未记录')}（在性能评分前统一执行）",
+        f"- 因实测资源超限排除：{', '.join(resource_gate.get('excluded_models') or []) or '无'}",
+        f"- 尚缺资源测量但暂时保留：{len(resource_gate.get('flagged_models') or [])} 个模型",
+    ]
+    if error is not None:
+        lines.append(f"- LLM 报告生成失败原因：`{type(error).__name__}: {error}`")
+    lines.extend([
+        "",
+        "## 跨数据集综合排名",
+        "",
+        "| Rank | Model | Median score | Mean score | Score IQR | Top3 frequency | AUPRC | MCC | Recall | Precision | AUROC | Datasets |",
+        "|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ])
+    for i, row in enumerate(scored[:10], 1):
+        lines.append(
+            "| " + " | ".join([
+                str(i),
+                row["model"],
+                fmt(row["score"]),
+                fmt(row["mean_score"]),
+                fmt(row["score_iqr"]),
+                fmt(row["top3_frequency"]),
+                fmt(row["auprc"]),
+                fmt(row["mcc"]),
+                fmt(row["recall"]),
+                fmt(row["precision"]),
+                fmt(row["auroc"]),
+                str(row["datasets"]),
+            ]) + " |"
+        )
+
+    lines.extend(["", "## Top3 集成学习候选模型推荐", ""])
+    if len(top3) < 3:
+        lines.append("当前不足以组成 Top3；建议继续补齐至少 3 个有完整概率输出和跨数据集结果的模型后再训练 ensemble。")
+    else:
+        names = [x["model"] for x in top3]
+        lines.append(f"推荐 Top3：**{names[0]}**, **{names[1]}**, **{names[2]}**。")
+        lines.extend(["", "| Rank | Model | 推荐理由 |", "|---:|---|---|"])
+        for i, row in enumerate(top3, 1):
+            lines.append(
+                f"| {i} | {row['model']} | 50 轮中位综合分 {fmt(row['score'])}、IQR {fmt(row['score_iqr'])}、进入 Top3 频率 {fmt(row['top3_frequency'])}；AUPRC {fmt(row['auprc'])}，MCC {fmt(row['mcc'])}，Recall {fmt(row['recall'])}，Precision {fmt(row['precision'])}；覆盖 {row['datasets']} 个数据集。 |"
+            )
+        lines.extend([
+            "",
+            "### 为什么推荐集成学习",
+            "",
+            "这组模型的互补性主要来自 Precision/Recall 取舍和跨数据集稳定性差异。AUPRC 更高的模型更适合做候选排序主干，Recall 更高的模型适合扩大候选召回，MCC/Precision 更高的模型适合在后处理阶段压低假阳性。单模型通常只能固定在一个阈值策略上，而 ensemble 可以把排序能力、召回能力和阈值决策拆开组合。",
+            "",
+            "### 推荐集成策略",
+            "",
+            "- **首选 rank averaging / soft voting**：当前已有多个模型的概率输出，最容易无训练集泄漏地实现，可先按跨数据集 AUPRC/MCC 作为权重做加权平均。",
+            "- **可选 stacking/meta-classifier**：如果后续有独立验证集，可用 Logistic Regression 或 LightGBM 作为二层模型；没有验证集时不建议在测试集上调参。",
+            "- **high-recall candidate union**：用于湿实验筛选前置阶段，先用高 Recall 模型并集扩大候选，再用高 Precision/MCC 模型二次排序。",
+            "- **不建议只做 hard voting**：hard voting 会丢失概率排序信息，对 AUPRC 和早期富集不友好。",
+        ])
+
+    lines.extend([
+        "",
+        "## 下一步建议",
+        "",
+        "1. 保留当前手动预测文件作为 raw evidence，并固定 `final_results_with_predictions.csv` 作为后续复现实验输入。",
+        "2. 为 Top3 候选构建独立验证集，避免在测试集上选择 ensemble 权重或阈值。",
+        "3. 优先报告 AUPRC、MCC、Recall、Precision 和覆盖率；如果用于湿实验筛选，额外加入 top-k enrichment 或 Recall@Precision。",
+        "4. 对高 Recall 但 Precision 较弱的模型做二阶段过滤，对高 Precision 但 Recall 较弱的模型做候选排序校准。",
+    ])
+    return "\n".join(lines) + "\n"
+
+
 def generate_amp_future_directions_report(
     results_dir: Path = Path("data/results"),
     output_dir: Path = Path("data/results"),
+    weight_rounds: int = 50,
+    weight_seed: int = 20260716,
+    use_llm_report: bool = True,
 ) -> Path:
     """
     主入口：生成 AMP 模型未来发展方向报告。
     """
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    context = build_development_context(results_dir=results_dir)
+    context = build_development_context(
+        results_dir=results_dir,
+        output_dir=output_dir,
+        weight_rounds=weight_rounds,
+        weight_seed=weight_seed,
+    )
     metric_weights = context.get("meeting_metric_weights", {})
 
     context_path = output_dir / "amp_development_context.json"
@@ -599,35 +819,59 @@ python amp_research_advisor.py
         dynamic_metrics_text=dynamic_metrics_text,
     )
 
-    client = OpenAI()
-
-    response = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=[
-            {
-                "role": "system",
-                "content": AMP_RESEARCH_ADVISOR_SYSTEM_PROMPT,
-            },
-            {
-                "role": "user",
-                "content": prompt,
-            },
-        ],
-        temperature=0.2,
-    )
-
-    report = response.choices[0].message.content or ""
+    if use_llm_report:
+        try:
+            client = _make_openai_client()
+            response = client.chat.completions.create(
+                model=MODEL_NAME,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": AMP_RESEARCH_ADVISOR_SYSTEM_PROMPT,
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    },
+                ],
+                temperature=0.2,
+            )
+            report = response.choices[0].message.content or ""
+        except Exception as exc:
+            print(f"WARNING: LLM report generation failed; writing offline deterministic report: {exc}")
+            report = _offline_future_directions_report(context, error=exc)
+    else:
+        report = _offline_future_directions_report(context)
 
     report_path = output_dir / "amp_future_directions_report.md"
     report_path.write_text(report, encoding="utf-8")
 
-    print(f"\n✅ AMP 未来发展方向报告已生成: {report_path}")
-    print(f"✅ 分析上下文已保存: {context_path}")
-    print("✅ 本次报告使用的会议动态指标：")
+    print(f"\n[OK] AMP 未来发展方向报告已生成: {report_path}")
+    print(f"[OK] 分析上下文已保存: {context_path}")
+    print("[OK] 本次报告使用的会议动态指标：")
     print(dynamic_metrics_text)
 
     return report_path
 
 
 if __name__ == "__main__":
-    generate_amp_future_directions_report()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="基于一次 benchmark run 的结果生成研究建议")
+    parser.add_argument("--results-dir", type=Path, default=Path("data/results"))
+    parser.add_argument("--output-dir", type=Path, default=None)
+    parser.add_argument("--weight-rounds", type=int, default=50)
+    parser.add_argument("--weight-seed", type=int, default=20260716)
+    parser.add_argument("--offline-report", action="store_true", help="Generate the report locally without calling an external LLM.")
+    args = parser.parse_args()
+    raise SystemExit(
+        0
+        if generate_amp_future_directions_report(
+            results_dir=args.results_dir,
+            output_dir=args.output_dir or args.results_dir,
+            weight_rounds=args.weight_rounds,
+            weight_seed=args.weight_seed,
+            use_llm_report=not args.offline_report,
+        )
+        else 1
+    )

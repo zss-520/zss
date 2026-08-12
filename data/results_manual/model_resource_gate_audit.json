@@ -1,0 +1,241 @@
+{
+  "generated_at": "2026-07-22T07:40:28.285704+00:00",
+  "policy_mode": "measured_budget_gate",
+  "policy_path": "E:\\agentbenmark_amp\\zss\\data\\model_resource_policy.json",
+  "enabled": true,
+  "missing_measurement_policy": "keep_and_flag",
+  "limits": {
+    "runtime_seconds": 3600.0,
+    "peak_memory_mb": 32768.0,
+    "gpu_memory_mb": 24576.0,
+    "minimum_throughput_sequences_per_second": null
+  },
+  "models_before": 18,
+  "models_after": 18,
+  "rows_before": 810,
+  "rows_after": 810,
+  "eligible_models": [
+    "ai4amp",
+    "amPEPpy",
+    "ampir",
+    "amplify_bal",
+    "amplify_imb",
+    "AMPsorter",
+    "apex1.1",
+    "apin",
+    "ascan2",
+    "C_AMPs-predict",
+    "esm-AxP-GDL",
+    "HMD-AMP",
+    "iamp-ca2l",
+    "iampcn",
+    "lstm",
+    "macrel",
+    "pepnet_fast",
+    "pepnet_standard"
+  ],
+  "excluded_models": [],
+  "flagged_models": [
+    "ai4amp",
+    "amPEPpy",
+    "ampir",
+    "amplify_bal",
+    "amplify_imb",
+    "AMPsorter",
+    "apex1.1",
+    "apin",
+    "ascan2",
+    "C_AMPs-predict",
+    "esm-AxP-GDL",
+    "HMD-AMP",
+    "iamp-ca2l",
+    "iampcn",
+    "lstm",
+    "macrel",
+    "pepnet_fast",
+    "pepnet_standard"
+  ],
+  "checks": [
+    {
+      "model": "ai4amp",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "amPEPpy",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "ampir",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "amplify_bal",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "amplify_imb",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "AMPsorter",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "apex1.1",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "apin",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "ascan2",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "C_AMPs-predict",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "esm-AxP-GDL",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "HMD-AMP",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "iamp-ca2l",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "iampcn",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "lstm",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "macrel",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "pepnet_fast",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    },
+    {
+      "model": "pepnet_standard",
+      "status": "eligible_missing_resource_measurement",
+      "runtime_seconds": null,
+      "peak_memory_mb": null,
+      "gpu_memory_mb": null,
+      "throughput_sequences_per_second": null,
+      "measurement_source": "",
+      "reasons": []
+    }
+  ],
+  "principle": "Eligibility uses measured resource evidence only; ranking values and model names are not gate inputs."
+}

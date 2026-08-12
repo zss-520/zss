@@ -1,0 +1,2608 @@
+{
+  "role": "Benchmark Statistics Agent",
+  "role_mandate": "在模型身份、模型分数与排名完全盲化的条件下，为AMP二分类基准提出可审计的指标权重；统筹类别不均衡、指标冗余、阈值依赖、跨数据集稳定性与概率校准。",
+  "policy": {
+    "model_blinding": "No model identity, model score, or ranking is read or used.",
+    "knowledge_separation": "llm_prior defines construct importance; benchmark_evidence controls round adaptation.",
+    "evidence_formula": "0.17 coverage + 0.20 separation + 0.17 consistency + 0.16 consensus + 0.16 uniqueness + 0.14 committee_support, followed by construct, threshold, redundancy and calibration adjustments",
+    "temporal_smoothing": "42% current prior/evidence target + 58% previous role proposal.",
+    "constraints": {
+      "min_weight": 0.005,
+      "max_weight": 0.35,
+      "sum": 1.0,
+      "max_l1": 0.3
+    }
+  },
+  "initial": {
+    "analysis": "初始提案以AUPRC与MCC为不均衡二分类的主干；Recall与Precision分别约束漏掉AMP候选和将假阳性送入湿实验的代价。AUROC提供阈值无关的补充判别信息。BalancedAccuracy、F1、Specificity、NPV与ACC均保留但因阈值依赖和混淆矩阵信息重叠而降权，ACC另受流行率影响。BrierScore与ECE保留独立校准维度，其中Brier是适当评分规则，ECE因分箱依赖而权重较低。",
+    "evidence_sources": {
+      "llm_prior": [
+        "不均衡分类中AUPRC比ACC或单独AUROC更贴近阳性检索质量。",
+        "MCC利用TP/TN/FP/FN并对类别不均衡更稳健。",
+        "Recall与Precision编码AMP发现漏检和实验假阳性两类不同代价。",
+        "概率输出需要用BrierScore与ECE检查校准，不能只报告判别能力。"
+      ],
+      "literature_evidence": [
+        "AUPRC is the primary endpoint for highly imbalanced AMP binary classification.",
+        "MCC uses TP/TN/FP/FN and is more robust than accuracy under class imbalance.",
+        "Recall limits missed AMP candidates; precision limits false candidates entering wet-lab screening.",
+        "ACC, specificity, AUROC, F1 and calibration metrics remain mandatory report dimensions even when not dominant ranking endpoints.",
+        "Thresholds should be selected on independent validation evidence and frozen before formal testing.",
+        "Homology leakage and dataset provenance remain unresolved gates for the three currently stored datasets."
+      ],
+      "benchmark_evidence": "初始会议尚无单轮重采样证据，故不利用任何模型结果。"
+    },
+    "weights": {
+      "ACC": 0.025,
+      "AUPRC": 0.21,
+      "AUROC": 0.07,
+      "BalancedAccuracy": 0.065,
+      "BrierScore": 0.07,
+      "ECE": 0.055,
+      "F1-Score": 0.06,
+      "MCC": 0.19,
+      "NPV": 0.025,
+      "Precision": 0.095,
+      "Recall": 0.1,
+      "Specificity": 0.035
+    },
+    "confidence": 0.76,
+    "uncertainties": [
+      "不同应用场景中漏检与假阳性成本尚未由前瞻性实验量化。",
+      "数据集独立性、同源性去泄漏与来源门控尚未解决。",
+      "阈值选择协议及ECE分箱方案需要预注册。"
+    ]
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第1轮匿名重采样为 Dataset_C, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.659。本轮上调 BrierScore, ECE, Specificity，下调 MCC, AUPRC, F1-Score。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.975, uniqueness=0.286, committee_support=0.631); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.989, uniqueness=0.261, committee_support=0.620); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.680, uniqueness=0.591, committee_support=0.718)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, ECE, Specificity，下调 MCC, AUPRC, F1-Score。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.983, uniqueness=0.271, committee_support=0.627); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.909, uniqueness=0.396, committee_support=0.676)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.0257343,
+        "AUPRC": 0.20006076,
+        "AUROC": 0.07262446,
+        "BalancedAccuracy": 0.06542015,
+        "BrierScore": 0.07517744,
+        "ECE": 0.05906194,
+        "F1-Score": 0.05953044,
+        "MCC": 0.17905029,
+        "NPV": 0.02758842,
+        "Precision": 0.09567338,
+        "Recall": 0.10136005,
+        "Specificity": 0.03871837
+      },
+      "previous_role_weights": {
+        "ACC": 0.025,
+        "AUPRC": 0.21,
+        "AUROC": 0.07,
+        "BalancedAccuracy": 0.065,
+        "BrierScore": 0.07,
+        "ECE": 0.055,
+        "F1-Score": 0.06,
+        "MCC": 0.19,
+        "NPV": 0.025,
+        "Precision": 0.095,
+        "Recall": 0.1,
+        "Specificity": 0.035
+      },
+      "l1_from_previous": 0.04271702,
+      "confidence": 0.7886,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 2,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "第2轮匿名重采样为 Dataset_C, Dataset_C, Dataset_A。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.658。本轮上调 BrierScore, NPV, ECE，下调 MCC, AUPRC, Precision。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.960, uniqueness=0.325, committee_support=0.649); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.982, uniqueness=0.281, committee_support=0.637); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.652, uniqueness=0.658, committee_support=0.737)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, NPV, ECE，下调 MCC, AUPRC, Precision。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.973, uniqueness=0.293, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.914, uniqueness=0.356, committee_support=0.638)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02610077,
+        "AUPRC": 0.19471271,
+        "AUROC": 0.07415717,
+        "BalancedAccuracy": 0.0659147,
+        "BrierScore": 0.07769678,
+        "ECE": 0.06085279,
+        "F1-Score": 0.05962457,
+        "MCC": 0.17314164,
+        "NPV": 0.0295148,
+        "Precision": 0.0950996,
+        "Recall": 0.10286561,
+        "Specificity": 0.04031886
+      },
+      "previous_role_weights": {
+        "ACC": 0.0257343,
+        "AUPRC": 0.20006076,
+        "AUROC": 0.07262446,
+        "BalancedAccuracy": 0.06542015,
+        "BrierScore": 0.07517744,
+        "ECE": 0.05906194,
+        "F1-Score": 0.05953044,
+        "MCC": 0.17905029,
+        "NPV": 0.02758842,
+        "Precision": 0.09567338,
+        "Recall": 0.10136005,
+        "Specificity": 0.03871837
+      },
+      "l1_from_previous": 0.02366096,
+      "confidence": 0.7853,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 3,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第3轮匿名重采样为 Dataset_A, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 BrierScore, Specificity, AUROC，下调 MCC, AUPRC, F1-Score。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, Specificity, AUROC，下调 MCC, AUPRC, F1-Score。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02629552,
+        "AUPRC": 0.19137691,
+        "AUROC": 0.07517963,
+        "BalancedAccuracy": 0.06615225,
+        "BrierScore": 0.07914738,
+        "ECE": 0.06186946,
+        "F1-Score": 0.05940784,
+        "MCC": 0.16954891,
+        "NPV": 0.03050349,
+        "Precision": 0.095281,
+        "Recall": 0.1036304,
+        "Specificity": 0.04160721
+      },
+      "previous_role_weights": {
+        "ACC": 0.02610077,
+        "AUPRC": 0.19471271,
+        "AUROC": 0.07415717,
+        "BalancedAccuracy": 0.0659147,
+        "BrierScore": 0.07769678,
+        "ECE": 0.06085279,
+        "F1-Score": 0.05962457,
+        "MCC": 0.17314164,
+        "NPV": 0.0295148,
+        "Precision": 0.0950996,
+        "Recall": 0.10286561,
+        "Specificity": 0.04031886
+      },
+      "l1_from_previous": 0.01429052,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 4,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "第4轮匿名重采样为 Dataset_B, Dataset_A, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.691。本轮上调 AUROC, BrierScore, ECE，下调 MCC, AUPRC, Recall。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.315, committee_support=0.681); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.986, uniqueness=0.251, committee_support=0.659); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.699, uniqueness=0.606, committee_support=0.741)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BrierScore, ECE，下调 MCC, AUPRC, Recall。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.959, uniqueness=0.295, committee_support=0.658); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.899, uniqueness=0.398, committee_support=0.680)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02640363,
+        "AUPRC": 0.18972974,
+        "AUROC": 0.07638049,
+        "BalancedAccuracy": 0.06658409,
+        "BrierScore": 0.08033561,
+        "ECE": 0.06252586,
+        "F1-Score": 0.0593183,
+        "MCC": 0.16756173,
+        "NPV": 0.03065538,
+        "Precision": 0.09513956,
+        "Recall": 0.10317977,
+        "Specificity": 0.04218584
+      },
+      "previous_role_weights": {
+        "ACC": 0.02629552,
+        "AUPRC": 0.19137691,
+        "AUROC": 0.07517963,
+        "BalancedAccuracy": 0.06615225,
+        "BrierScore": 0.07914738,
+        "ECE": 0.06186946,
+        "F1-Score": 0.05940784,
+        "MCC": 0.16954891,
+        "NPV": 0.03050349,
+        "Precision": 0.095281,
+        "Recall": 0.1036304,
+        "Specificity": 0.04160721
+      },
+      "l1_from_previous": 0.00863192,
+      "confidence": 0.8186,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 5,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "第5轮匿名重采样为 Dataset_B, Dataset_C, Dataset_A。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, NPV, Specificity，下调 MCC, AUPRC, F1-Score。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, NPV, Specificity，下调 MCC, AUPRC, F1-Score。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02647118,
+        "AUPRC": 0.18848679,
+        "AUROC": 0.07646916,
+        "BalancedAccuracy": 0.0665405,
+        "BrierScore": 0.0806779,
+        "ECE": 0.06283984,
+        "F1-Score": 0.0592302,
+        "MCC": 0.16631256,
+        "NPV": 0.03116503,
+        "Precision": 0.09530417,
+        "Recall": 0.10381261,
+        "Specificity": 0.04269006
+      },
+      "previous_role_weights": {
+        "ACC": 0.02640363,
+        "AUPRC": 0.18972974,
+        "AUROC": 0.07638049,
+        "BalancedAccuracy": 0.06658409,
+        "BrierScore": 0.08033561,
+        "ECE": 0.06252586,
+        "F1-Score": 0.0593183,
+        "MCC": 0.16756173,
+        "NPV": 0.03065538,
+        "Precision": 0.09513956,
+        "Recall": 0.10317977,
+        "Specificity": 0.04218584
+      },
+      "l1_from_previous": 0.00524762,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 6,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "第6轮匿名重采样为 Dataset_A, Dataset_A, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, BrierScore，下调 Precision, Recall, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, BrierScore，下调 Precision, Recall, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.0265852,
+        "AUPRC": 0.1881596,
+        "AUROC": 0.07724169,
+        "BalancedAccuracy": 0.06705906,
+        "BrierScore": 0.08119258,
+        "ECE": 0.06290678,
+        "F1-Score": 0.05931078,
+        "MCC": 0.16597586,
+        "NPV": 0.03137843,
+        "Precision": 0.09448104,
+        "Recall": 0.10329354,
+        "Specificity": 0.04241544
+      },
+      "previous_role_weights": {
+        "ACC": 0.02647118,
+        "AUPRC": 0.18848679,
+        "AUROC": 0.07646916,
+        "BalancedAccuracy": 0.0665405,
+        "BrierScore": 0.0806779,
+        "ECE": 0.06283984,
+        "F1-Score": 0.0592302,
+        "MCC": 0.16631256,
+        "NPV": 0.03116503,
+        "Precision": 0.09530417,
+        "Recall": 0.10381261,
+        "Specificity": 0.04269006
+      },
+      "l1_from_previous": 0.00456142,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 7,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第7轮匿名重采样为 Dataset_C, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.659。本轮上调 Precision, ECE, Specificity，下调 MCC, AUPRC, BalancedAccuracy。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.975, uniqueness=0.286, committee_support=0.631); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.989, uniqueness=0.261, committee_support=0.620); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.680, uniqueness=0.591, committee_support=0.718)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, ECE, Specificity，下调 MCC, AUPRC, BalancedAccuracy。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.983, uniqueness=0.271, committee_support=0.627); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.909, uniqueness=0.396, committee_support=0.676)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02665372,
+        "AUPRC": 0.18739333,
+        "AUROC": 0.07682464,
+        "BalancedAccuracy": 0.06661441,
+        "BrierScore": 0.08166914,
+        "ECE": 0.06364787,
+        "F1-Score": 0.05913069,
+        "MCC": 0.16511627,
+        "NPV": 0.03128791,
+        "Precision": 0.09537238,
+        "Recall": 0.10327031,
+        "Specificity": 0.04301933
+      },
+      "previous_role_weights": {
+        "ACC": 0.0265852,
+        "AUPRC": 0.1881596,
+        "AUROC": 0.07724169,
+        "BalancedAccuracy": 0.06705906,
+        "BrierScore": 0.08119258,
+        "ECE": 0.06290678,
+        "F1-Score": 0.05931078,
+        "MCC": 0.16597586,
+        "NPV": 0.03137843,
+        "Precision": 0.09448104,
+        "Recall": 0.10329354,
+        "Specificity": 0.04241544
+      },
+      "l1_from_previous": 0.0055628,
+      "confidence": 0.7886,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 8,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "第8轮匿名重采样为 Dataset_A, Dataset_C, Dataset_C。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.658。本轮上调 Recall, NPV, F1-Score，下调 Precision, AUROC, BrierScore。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.960, uniqueness=0.325, committee_support=0.649); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.982, uniqueness=0.281, committee_support=0.637); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.652, uniqueness=0.658, committee_support=0.737)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, NPV, F1-Score，下调 Precision, AUROC, BrierScore。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.973, uniqueness=0.293, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.914, uniqueness=0.356, committee_support=0.638)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02663403,
+        "AUPRC": 0.1873656,
+        "AUROC": 0.07659328,
+        "BalancedAccuracy": 0.06660737,
+        "BrierScore": 0.08146197,
+        "ECE": 0.06351263,
+        "F1-Score": 0.05939272,
+        "MCC": 0.16505991,
+        "NPV": 0.0316605,
+        "Precision": 0.09492502,
+        "Recall": 0.10397356,
+        "Specificity": 0.04281341
+      },
+      "previous_role_weights": {
+        "ACC": 0.02665372,
+        "AUPRC": 0.18739333,
+        "AUROC": 0.07682464,
+        "BalancedAccuracy": 0.06661441,
+        "BrierScore": 0.08166914,
+        "ECE": 0.06364787,
+        "F1-Score": 0.05913069,
+        "MCC": 0.16511627,
+        "NPV": 0.03128791,
+        "Precision": 0.09537238,
+        "Recall": 0.10327031,
+        "Specificity": 0.04301933
+      },
+      "l1_from_previous": 0.00267574,
+      "confidence": 0.7853,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 9,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "第9轮匿名重采样为 Dataset_A, Dataset_B, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.691。本轮上调 AUROC, BalancedAccuracy, BrierScore，下调 Recall, NPV, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.315, committee_support=0.681); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.986, uniqueness=0.251, committee_support=0.659); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.699, uniqueness=0.606, committee_support=0.741)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, BrierScore，下调 Recall, NPV, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.959, uniqueness=0.295, committee_support=0.658); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.899, uniqueness=0.398, committee_support=0.680)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02659997,
+        "AUPRC": 0.18740318,
+        "AUROC": 0.0772004,
+        "BalancedAccuracy": 0.06684806,
+        "BrierScore": 0.08167808,
+        "ECE": 0.0634789,
+        "F1-Score": 0.05930953,
+        "MCC": 0.16495811,
+        "NPV": 0.03132644,
+        "Precision": 0.09493309,
+        "Recall": 0.1033788,
+        "Specificity": 0.04288544
+      },
+      "previous_role_weights": {
+        "ACC": 0.02663403,
+        "AUPRC": 0.1873656,
+        "AUROC": 0.07659328,
+        "BalancedAccuracy": 0.06660737,
+        "BrierScore": 0.08146197,
+        "ECE": 0.06351263,
+        "F1-Score": 0.05939272,
+        "MCC": 0.16505991,
+        "NPV": 0.0316605,
+        "Precision": 0.09492502,
+        "Recall": 0.10397356,
+        "Specificity": 0.04281341
+      },
+      "l1_from_previous": 0.0023632,
+      "confidence": 0.8186,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 10,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "第10轮匿名重采样为 Dataset_A, Dataset_B, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.691。本轮上调 AUROC, BalancedAccuracy, BrierScore，下调 Recall, NPV, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.315, committee_support=0.681); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.986, uniqueness=0.251, committee_support=0.659); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.699, uniqueness=0.606, committee_support=0.741)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, BrierScore，下调 Recall, NPV, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.959, uniqueness=0.295, committee_support=0.658); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.899, uniqueness=0.398, committee_support=0.680)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02658021,
+        "AUPRC": 0.18742497,
+        "AUROC": 0.07755253,
+        "BalancedAccuracy": 0.06698766,
+        "BrierScore": 0.08180342,
+        "ECE": 0.06345933,
+        "F1-Score": 0.05926128,
+        "MCC": 0.16489908,
+        "NPV": 0.03113269,
+        "Precision": 0.09493777,
+        "Recall": 0.10303384,
+        "Specificity": 0.04292722
+      },
+      "previous_role_weights": {
+        "ACC": 0.02659997,
+        "AUPRC": 0.18740318,
+        "AUROC": 0.0772004,
+        "BalancedAccuracy": 0.06684806,
+        "BrierScore": 0.08167808,
+        "ECE": 0.0634789,
+        "F1-Score": 0.05930953,
+        "MCC": 0.16495811,
+        "NPV": 0.03132644,
+        "Precision": 0.09493309,
+        "Recall": 0.1033788,
+        "Specificity": 0.04288544
+      },
+      "l1_from_previous": 0.00137064,
+      "confidence": 0.8186,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 11,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "第11轮匿名重采样为 Dataset_A, Dataset_B, Dataset_A。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 BalancedAccuracy, AUROC, MCC，下调 Precision, Specificity, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BalancedAccuracy, AUROC, MCC，下调 Precision, Specificity, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02664843,
+        "AUPRC": 0.18754375,
+        "AUROC": 0.07787004,
+        "BalancedAccuracy": 0.06731841,
+        "BrierScore": 0.08184538,
+        "ECE": 0.06326609,
+        "F1-Score": 0.0593288,
+        "MCC": 0.16515605,
+        "NPV": 0.03135967,
+        "Precision": 0.09426853,
+        "Recall": 0.10284186,
+        "Specificity": 0.04255299
+      },
+      "previous_role_weights": {
+        "ACC": 0.02658021,
+        "AUPRC": 0.18742497,
+        "AUROC": 0.07755253,
+        "BalancedAccuracy": 0.06698766,
+        "BrierScore": 0.08180342,
+        "ECE": 0.06345933,
+        "F1-Score": 0.05926128,
+        "MCC": 0.16489908,
+        "NPV": 0.03113269,
+        "Precision": 0.09493777,
+        "Recall": 0.10303384,
+        "Specificity": 0.04292722
+      },
+      "l1_from_previous": 0.00285738,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 12,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "第12轮匿名重采样为 Dataset_B, Dataset_C, Dataset_A。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, Precision, Specificity，下调 AUROC, BalancedAccuracy, AUPRC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, Precision, Specificity，下调 AUROC, BalancedAccuracy, AUPRC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02661316,
+        "AUPRC": 0.18721891,
+        "AUROC": 0.0773331,
+        "BalancedAccuracy": 0.0669664,
+        "BrierScore": 0.08155356,
+        "ECE": 0.06326918,
+        "F1-Score": 0.05923629,
+        "MCC": 0.16491727,
+        "NPV": 0.03157352,
+        "Precision": 0.09479898,
+        "Recall": 0.10361662,
+        "Specificity": 0.04290301
+      },
+      "previous_role_weights": {
+        "ACC": 0.02664843,
+        "AUPRC": 0.18754375,
+        "AUROC": 0.07787004,
+        "BalancedAccuracy": 0.06731841,
+        "BrierScore": 0.08184538,
+        "ECE": 0.06326609,
+        "F1-Score": 0.0593288,
+        "MCC": 0.16515605,
+        "NPV": 0.03135967,
+        "Precision": 0.09426853,
+        "Recall": 0.10284186,
+        "Specificity": 0.04255299
+      },
+      "l1_from_previous": 0.00374434,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 13,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "第13轮匿名重采样为 Dataset_B, Dataset_A, Dataset_C。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, Precision, Specificity，下调 AUROC, BalancedAccuracy, AUPRC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, Precision, Specificity，下调 AUROC, BalancedAccuracy, AUPRC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02659271,
+        "AUPRC": 0.18703051,
+        "AUROC": 0.07702167,
+        "BalancedAccuracy": 0.06676224,
+        "BrierScore": 0.08138431,
+        "ECE": 0.06327097,
+        "F1-Score": 0.05918263,
+        "MCC": 0.16477877,
+        "NPV": 0.03169755,
+        "Precision": 0.09510664,
+        "Recall": 0.10406598,
+        "Specificity": 0.04310602
+      },
+      "previous_role_weights": {
+        "ACC": 0.02661316,
+        "AUPRC": 0.18721891,
+        "AUROC": 0.0773331,
+        "BalancedAccuracy": 0.0669664,
+        "BrierScore": 0.08155356,
+        "ECE": 0.06326918,
+        "F1-Score": 0.05923629,
+        "MCC": 0.16491727,
+        "NPV": 0.03157352,
+        "Precision": 0.09479898,
+        "Recall": 0.10361662,
+        "Specificity": 0.04290301
+      },
+      "l1_from_previous": 0.0021717,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 14,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "第14轮匿名重采样为 Dataset_A, Dataset_A, Dataset_C。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.662。本轮上调 F1-Score, MCC, AUPRC，下调 Precision, Specificity, BrierScore。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.943, uniqueness=0.383, committee_support=0.669); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.965, uniqueness=0.339, committee_support=0.659); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.598, uniqueness=0.618, committee_support=0.715)。对 MCC, F1-Score, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 F1-Score, MCC, AUPRC，下调 Precision, Specificity, BrierScore。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.927, uniqueness=0.309, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.912, uniqueness=0.324, committee_support=0.625)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02663652,
+        "AUPRC": 0.187423,
+        "AUROC": 0.07692921,
+        "BalancedAccuracy": 0.06708006,
+        "BrierScore": 0.08115373,
+        "ECE": 0.0631352,
+        "F1-Score": 0.05967397,
+        "MCC": 0.16525729,
+        "NPV": 0.03183186,
+        "Precision": 0.09430092,
+        "Recall": 0.1039635,
+        "Specificity": 0.04261474
+      },
+      "previous_role_weights": {
+        "ACC": 0.02659271,
+        "AUPRC": 0.18703051,
+        "AUROC": 0.07702167,
+        "BalancedAccuracy": 0.06676224,
+        "BrierScore": 0.08138431,
+        "ECE": 0.06327097,
+        "F1-Score": 0.05918263,
+        "MCC": 0.16477877,
+        "NPV": 0.03169755,
+        "Precision": 0.09510664,
+        "Recall": 0.10406598,
+        "Specificity": 0.04310602
+      },
+      "l1_from_previous": 0.00371658,
+      "confidence": 0.786,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 15,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "第15轮匿名重采样为 Dataset_C, Dataset_C, Dataset_C。最低覆盖率为1.000，平均一致性为1.000，平均委员会支持为0.713。本轮上调 BrierScore, ECE, AUROC，下调 Recall, NPV, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.972, uniqueness=0.275, committee_support=0.696); MCC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.991, uniqueness=0.242, committee_support=0.681); Recall(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.670, uniqueness=0.643, committee_support=0.765)。对 F1-Score, MCC, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, ECE, AUROC，下调 Recall, NPV, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 F1-Score, MCC, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.988, uniqueness=0.247, committee_support=0.683); ECE evidence=ECE(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.916, uniqueness=0.370, committee_support=0.730)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02667586,
+        "AUPRC": 0.18739604,
+        "AUROC": 0.07711138,
+        "BalancedAccuracy": 0.06700677,
+        "BrierScore": 0.08186169,
+        "ECE": 0.06374922,
+        "F1-Score": 0.05956651,
+        "MCC": 0.16500653,
+        "NPV": 0.03149624,
+        "Precision": 0.09424541,
+        "Recall": 0.1034222,
+        "Specificity": 0.04246215
+      },
+      "previous_role_weights": {
+        "ACC": 0.02663652,
+        "AUPRC": 0.187423,
+        "AUROC": 0.07692921,
+        "BalancedAccuracy": 0.06708006,
+        "BrierScore": 0.08115373,
+        "ECE": 0.0631352,
+        "F1-Score": 0.05967397,
+        "MCC": 0.16525729,
+        "NPV": 0.03183186,
+        "Precision": 0.09430092,
+        "Recall": 0.1039635,
+        "Specificity": 0.04261474
+      },
+      "l1_from_previous": 0.00308698,
+      "confidence": 0.8483,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 16,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第16轮匿名重采样为 Dataset_A, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Precision, Recall, Specificity，下调 BrierScore, AUPRC, BalancedAccuracy。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Recall, Specificity，下调 BrierScore, AUPRC, BalancedAccuracy。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02662907,
+        "AUPRC": 0.18713324,
+        "AUROC": 0.07689308,
+        "BalancedAccuracy": 0.06678565,
+        "BrierScore": 0.08156302,
+        "ECE": 0.06354939,
+        "F1-Score": 0.05937416,
+        "MCC": 0.16483055,
+        "NPV": 0.03165273,
+        "Precision": 0.09478557,
+        "Recall": 0.10395322,
+        "Specificity": 0.04285032
+      },
+      "previous_role_weights": {
+        "ACC": 0.02667586,
+        "AUPRC": 0.18739604,
+        "AUROC": 0.07711138,
+        "BalancedAccuracy": 0.06700677,
+        "BrierScore": 0.08186169,
+        "ECE": 0.06374922,
+        "F1-Score": 0.05956651,
+        "MCC": 0.16500653,
+        "NPV": 0.03149624,
+        "Precision": 0.09424541,
+        "Recall": 0.1034222,
+        "Specificity": 0.04246215
+      },
+      "l1_from_previous": 0.00323168,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 17,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "第17轮匿名重采样为 Dataset_B, Dataset_C, Dataset_A。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Precision, Recall, Specificity，下调 BrierScore, AUPRC, BalancedAccuracy。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Recall, Specificity，下调 BrierScore, AUPRC, BalancedAccuracy。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02660193,
+        "AUPRC": 0.18698082,
+        "AUROC": 0.07676646,
+        "BalancedAccuracy": 0.0666574,
+        "BrierScore": 0.0813898,
+        "ECE": 0.06343349,
+        "F1-Score": 0.0592626,
+        "MCC": 0.16472848,
+        "NPV": 0.03174349,
+        "Precision": 0.09509886,
+        "Recall": 0.10426121,
+        "Specificity": 0.04307546
+      },
+      "previous_role_weights": {
+        "ACC": 0.02662907,
+        "AUPRC": 0.18713324,
+        "AUROC": 0.07689308,
+        "BalancedAccuracy": 0.06678565,
+        "BrierScore": 0.08156302,
+        "ECE": 0.06354939,
+        "F1-Score": 0.05937416,
+        "MCC": 0.16483055,
+        "NPV": 0.03165273,
+        "Precision": 0.09478557,
+        "Recall": 0.10395322,
+        "Specificity": 0.04285032
+      },
+      "l1_from_previous": 0.00187436,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 18,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "第18轮匿名重采样为 Dataset_C, Dataset_A, Dataset_C。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.658。本轮上调 Recall, F1-Score, NPV，下调 Precision, Specificity, AUROC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.960, uniqueness=0.325, committee_support=0.649); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.982, uniqueness=0.281, committee_support=0.637); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.652, uniqueness=0.658, committee_support=0.737)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, F1-Score, NPV，下调 Precision, Specificity, AUROC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.973, uniqueness=0.293, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.914, uniqueness=0.356, committee_support=0.638)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02660399,
+        "AUPRC": 0.18712635,
+        "AUROC": 0.07655953,
+        "BalancedAccuracy": 0.0666323,
+        "BrierScore": 0.08129995,
+        "ECE": 0.06338829,
+        "F1-Score": 0.05946922,
+        "MCC": 0.164835,
+        "NPV": 0.03192474,
+        "Precision": 0.09476638,
+        "Recall": 0.10454828,
+        "Specificity": 0.04284597
+      },
+      "previous_role_weights": {
+        "ACC": 0.02660193,
+        "AUPRC": 0.18698082,
+        "AUROC": 0.07676646,
+        "BalancedAccuracy": 0.0666574,
+        "BrierScore": 0.0813898,
+        "ECE": 0.06343349,
+        "F1-Score": 0.0592626,
+        "MCC": 0.16472848,
+        "NPV": 0.03174349,
+        "Precision": 0.09509886,
+        "Recall": 0.10426121,
+        "Specificity": 0.04307546
+      },
+      "l1_from_previous": 0.0018581,
+      "confidence": 0.7853,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 19,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "第19轮匿名重采样为 Dataset_C, Dataset_A, Dataset_A。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.662。本轮上调 MCC, BalancedAccuracy, F1-Score，下调 Precision, Specificity, Recall。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.943, uniqueness=0.383, committee_support=0.669); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.965, uniqueness=0.339, committee_support=0.659); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.598, uniqueness=0.618, committee_support=0.715)。对 MCC, F1-Score, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 MCC, BalancedAccuracy, F1-Score，下调 Precision, Specificity, Recall。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.927, uniqueness=0.309, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.912, uniqueness=0.324, committee_support=0.625)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02664307,
+        "AUPRC": 0.18747858,
+        "AUROC": 0.07666117,
+        "BalancedAccuracy": 0.0670047,
+        "BrierScore": 0.08110481,
+        "ECE": 0.06320325,
+        "F1-Score": 0.05984019,
+        "MCC": 0.16528989,
+        "NPV": 0.03196363,
+        "Precision": 0.09410357,
+        "Recall": 0.10424323,
+        "Specificity": 0.04246391
+      },
+      "previous_role_weights": {
+        "ACC": 0.02660399,
+        "AUPRC": 0.18712635,
+        "AUROC": 0.07655953,
+        "BalancedAccuracy": 0.0666323,
+        "BrierScore": 0.08129995,
+        "ECE": 0.06338829,
+        "F1-Score": 0.05946922,
+        "MCC": 0.164835,
+        "NPV": 0.03192474,
+        "Precision": 0.09476638,
+        "Recall": 0.10454828,
+        "Specificity": 0.04284597
+      },
+      "l1_from_previous": 0.0034602,
+      "confidence": 0.786,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 20,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第20轮匿名重采样为 Dataset_A, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Precision, Specificity, Recall，下调 F1-Score, AUPRC, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Specificity, Recall，下调 F1-Score, AUPRC, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02661005,
+        "AUPRC": 0.18718112,
+        "AUROC": 0.07663195,
+        "BalancedAccuracy": 0.06678445,
+        "BrierScore": 0.08112403,
+        "ECE": 0.06323273,
+        "F1-Score": 0.0595329,
+        "MCC": 0.1649949,
+        "NPV": 0.03192381,
+        "Precision": 0.0947033,
+        "Recall": 0.10442942,
+        "Specificity": 0.04285134
+      },
+      "previous_role_weights": {
+        "ACC": 0.02664307,
+        "AUPRC": 0.18747858,
+        "AUROC": 0.07666117,
+        "BalancedAccuracy": 0.0670047,
+        "BrierScore": 0.08110481,
+        "ECE": 0.06320325,
+        "F1-Score": 0.05984019,
+        "MCC": 0.16528989,
+        "NPV": 0.03196363,
+        "Precision": 0.09410357,
+        "Recall": 0.10424323,
+        "Specificity": 0.04246391
+      },
+      "l1_from_previous": 0.0024441,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 21,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第21轮匿名重采样为 Dataset_B, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.664。本轮上调 Precision, ECE, Specificity，下调 Recall, NPV, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.958, uniqueness=0.317, committee_support=0.641); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.990, uniqueness=0.264, committee_support=0.622); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.731, uniqueness=0.522, committee_support=0.711)。对 MCC, BalancedAccuracy, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, ECE, Specificity，下调 Recall, NPV, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.967, uniqueness=0.301, committee_support=0.638); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.876, uniqueness=0.455, committee_support=0.690)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02669456,
+        "AUPRC": 0.18687174,
+        "AUROC": 0.07648553,
+        "BalancedAccuracy": 0.06646371,
+        "BrierScore": 0.0816652,
+        "ECE": 0.06390312,
+        "F1-Score": 0.05936578,
+        "MCC": 0.16450451,
+        "NPV": 0.03136189,
+        "Precision": 0.09579646,
+        "Recall": 0.1034143,
+        "Specificity": 0.0434732
+      },
+      "previous_role_weights": {
+        "ACC": 0.02661005,
+        "AUPRC": 0.18718112,
+        "AUROC": 0.07663195,
+        "BalancedAccuracy": 0.06678445,
+        "BrierScore": 0.08112403,
+        "ECE": 0.06323273,
+        "F1-Score": 0.0595329,
+        "MCC": 0.1649949,
+        "NPV": 0.03192381,
+        "Precision": 0.0947033,
+        "Recall": 0.10442942,
+        "Specificity": 0.04285134
+      },
+      "l1_from_previous": 0.00602218,
+      "confidence": 0.7897,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 22,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "第22轮匿名重采样为 Dataset_A, Dataset_B, Dataset_A。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02671476,
+        "AUPRC": 0.18722287,
+        "AUROC": 0.07725118,
+        "BalancedAccuracy": 0.06701452,
+        "BrierScore": 0.08176521,
+        "ECE": 0.06352349,
+        "F1-Score": 0.05938941,
+        "MCC": 0.1649272,
+        "NPV": 0.03149261,
+        "Precision": 0.09476657,
+        "Recall": 0.10306252,
+        "Specificity": 0.04286966
+      },
+      "previous_role_weights": {
+        "ACC": 0.02669456,
+        "AUPRC": 0.18687174,
+        "AUROC": 0.07648553,
+        "BalancedAccuracy": 0.06646371,
+        "BrierScore": 0.0816652,
+        "ECE": 0.06390312,
+        "F1-Score": 0.05936578,
+        "MCC": 0.16450451,
+        "NPV": 0.03136189,
+        "Precision": 0.09579646,
+        "Recall": 0.1034143,
+        "Specificity": 0.0434732
+      },
+      "l1_from_previous": 0.00472968,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 23,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第23轮匿名重采样为 Dataset_C, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.659。本轮上调 Precision, ECE, Specificity，下调 BalancedAccuracy, AUROC, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.975, uniqueness=0.286, committee_support=0.631); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.989, uniqueness=0.261, committee_support=0.620); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.680, uniqueness=0.591, committee_support=0.718)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, ECE, Specificity，下调 BalancedAccuracy, AUROC, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.983, uniqueness=0.271, committee_support=0.627); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.909, uniqueness=0.396, committee_support=0.676)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02672886,
+        "AUPRC": 0.18685002,
+        "AUROC": 0.07683015,
+        "BalancedAccuracy": 0.06658857,
+        "BrierScore": 0.08200126,
+        "ECE": 0.06400557,
+        "F1-Score": 0.05917629,
+        "MCC": 0.16450807,
+        "NPV": 0.03135413,
+        "Precision": 0.09553799,
+        "Recall": 0.10313631,
+        "Specificity": 0.04328278
+      },
+      "previous_role_weights": {
+        "ACC": 0.02671476,
+        "AUPRC": 0.18722287,
+        "AUROC": 0.07725118,
+        "BalancedAccuracy": 0.06701452,
+        "BrierScore": 0.08176521,
+        "ECE": 0.06352349,
+        "F1-Score": 0.05938941,
+        "MCC": 0.1649272,
+        "NPV": 0.03149261,
+        "Precision": 0.09476657,
+        "Recall": 0.10306252,
+        "Specificity": 0.04286966
+      },
+      "l1_from_previous": 0.00398112,
+      "confidence": 0.7886,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 24,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "第24轮匿名重采样为 Dataset_C, Dataset_C, Dataset_C。最低覆盖率为1.000，平均一致性为1.000，平均委员会支持为0.713。本轮上调 BrierScore, ECE, AUROC，下调 Precision, Specificity, Recall。证据质量领先的是 AUPRC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.972, uniqueness=0.275, committee_support=0.696); MCC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.991, uniqueness=0.242, committee_support=0.681); Recall(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.670, uniqueness=0.643, committee_support=0.765)。对 F1-Score, MCC, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, ECE, AUROC，下调 Precision, Specificity, Recall。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 F1-Score, MCC, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.988, uniqueness=0.247, committee_support=0.683); ECE evidence=ECE(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.916, uniqueness=0.370, committee_support=0.730)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02672942,
+        "AUPRC": 0.18706371,
+        "AUROC": 0.07705393,
+        "BalancedAccuracy": 0.0667217,
+        "BrierScore": 0.08235325,
+        "ECE": 0.06425404,
+        "F1-Score": 0.05927786,
+        "MCC": 0.16457197,
+        "NPV": 0.03121916,
+        "Precision": 0.09496291,
+        "Recall": 0.10294243,
+        "Specificity": 0.04284962
+      },
+      "previous_role_weights": {
+        "ACC": 0.02672886,
+        "AUPRC": 0.18685002,
+        "AUROC": 0.07683015,
+        "BalancedAccuracy": 0.06658857,
+        "BrierScore": 0.08200126,
+        "ECE": 0.06400557,
+        "F1-Score": 0.05917629,
+        "MCC": 0.16450807,
+        "NPV": 0.03135413,
+        "Precision": 0.09553799,
+        "Recall": 0.10313631,
+        "Specificity": 0.04328278
+      },
+      "l1_from_previous": 0.00267418,
+      "confidence": 0.8483,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 25,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "第25轮匿名重采样为 Dataset_B, Dataset_B, Dataset_A。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.691。本轮上调 AUROC, BalancedAccuracy, AUPRC，下调 ECE, Recall, BrierScore。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.315, committee_support=0.681); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.986, uniqueness=0.251, committee_support=0.659); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.699, uniqueness=0.606, committee_support=0.741)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, AUPRC，下调 ECE, Recall, BrierScore。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.959, uniqueness=0.295, committee_support=0.658); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.899, uniqueness=0.398, committee_support=0.680)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02665529,
+        "AUPRC": 0.18722808,
+        "AUROC": 0.07746758,
+        "BalancedAccuracy": 0.06691437,
+        "BrierScore": 0.08219502,
+        "ECE": 0.06390891,
+        "F1-Score": 0.05924291,
+        "MCC": 0.16467513,
+        "NPV": 0.03107047,
+        "Precision": 0.09495506,
+        "Recall": 0.10278074,
+        "Specificity": 0.04290644
+      },
+      "previous_role_weights": {
+        "ACC": 0.02672942,
+        "AUPRC": 0.18706371,
+        "AUROC": 0.07705393,
+        "BalancedAccuracy": 0.0667217,
+        "BrierScore": 0.08235325,
+        "ECE": 0.06425404,
+        "F1-Score": 0.05927786,
+        "MCC": 0.16457197,
+        "NPV": 0.03121916,
+        "Precision": 0.09496291,
+        "Recall": 0.10294243,
+        "Specificity": 0.04284962
+      },
+      "l1_from_previous": 0.00186134,
+      "confidence": 0.8186,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 26,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "第26轮匿名重采样为 Dataset_C, Dataset_B, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.664。本轮上调 Precision, Specificity, ECE，下调 AUROC, BalancedAccuracy, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.958, uniqueness=0.317, committee_support=0.641); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.990, uniqueness=0.264, committee_support=0.622); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.731, uniqueness=0.522, committee_support=0.711)。对 MCC, BalancedAccuracy, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Specificity, ECE，下调 AUROC, BalancedAccuracy, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.967, uniqueness=0.301, committee_support=0.638); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.876, uniqueness=0.455, committee_support=0.690)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.0267208,
+        "AUPRC": 0.18689898,
+        "AUROC": 0.07697019,
+        "BalancedAccuracy": 0.06653907,
+        "BrierScore": 0.08228638,
+        "ECE": 0.06429531,
+        "F1-Score": 0.05919759,
+        "MCC": 0.16431903,
+        "NPV": 0.03086695,
+        "Precision": 0.09594248,
+        "Recall": 0.10245807,
+        "Specificity": 0.04350515
+      },
+      "previous_role_weights": {
+        "ACC": 0.02665529,
+        "AUPRC": 0.18722808,
+        "AUROC": 0.07746758,
+        "BalancedAccuracy": 0.06691437,
+        "BrierScore": 0.08219502,
+        "ECE": 0.06390891,
+        "F1-Score": 0.05924291,
+        "MCC": 0.16467513,
+        "NPV": 0.03107047,
+        "Precision": 0.09495506,
+        "Recall": 0.10278074,
+        "Specificity": 0.04290644
+      },
+      "l1_from_previous": 0.0042588,
+      "confidence": 0.7897,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 27,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "第27轮匿名重采样为 Dataset_C, Dataset_A, Dataset_C。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.658。本轮上调 Recall, NPV, MCC，下调 Precision, BrierScore, Specificity。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.960, uniqueness=0.325, committee_support=0.649); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.982, uniqueness=0.281, committee_support=0.637); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.652, uniqueness=0.658, committee_support=0.737)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, NPV, MCC，下调 Precision, BrierScore, Specificity。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.973, uniqueness=0.293, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.914, uniqueness=0.356, committee_support=0.638)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02667294,
+        "AUPRC": 0.18707888,
+        "AUROC": 0.0766777,
+        "BalancedAccuracy": 0.06656367,
+        "BrierScore": 0.08181997,
+        "ECE": 0.06388815,
+        "F1-Score": 0.05943152,
+        "MCC": 0.1645975,
+        "NPV": 0.03141634,
+        "Precision": 0.09525568,
+        "Recall": 0.10350246,
+        "Specificity": 0.04309519
+      },
+      "previous_role_weights": {
+        "ACC": 0.0267208,
+        "AUPRC": 0.18689898,
+        "AUROC": 0.07697019,
+        "BalancedAccuracy": 0.06653907,
+        "BrierScore": 0.08228638,
+        "ECE": 0.06429531,
+        "F1-Score": 0.05919759,
+        "MCC": 0.16431903,
+        "NPV": 0.03086695,
+        "Precision": 0.09594248,
+        "Recall": 0.10245807,
+        "Specificity": 0.04350515
+      },
+      "l1_from_previous": 0.00462136,
+      "confidence": 0.7853,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 28,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_A"
+      ],
+      "analysis": "第28轮匿名重采样为 Dataset_A, Dataset_B, Dataset_A。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, Recall。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, Recall。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02670222,
+        "AUPRC": 0.18734301,
+        "AUROC": 0.07736264,
+        "BalancedAccuracy": 0.0670725,
+        "BrierScore": 0.08185498,
+        "ECE": 0.0635148,
+        "F1-Score": 0.05942754,
+        "MCC": 0.16498113,
+        "NPV": 0.03152419,
+        "Precision": 0.09445292,
+        "Recall": 0.10311366,
+        "Specificity": 0.04265041
+      },
+      "previous_role_weights": {
+        "ACC": 0.02667294,
+        "AUPRC": 0.18707888,
+        "AUROC": 0.0766777,
+        "BalancedAccuracy": 0.06656367,
+        "BrierScore": 0.08181997,
+        "ECE": 0.06388815,
+        "F1-Score": 0.05943152,
+        "MCC": 0.1645975,
+        "NPV": 0.03141634,
+        "Precision": 0.09525568,
+        "Recall": 0.10350246,
+        "Specificity": 0.04309519
+      },
+      "l1_from_previous": 0.00402734,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 29,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "第29轮匿名重采样为 Dataset_C, Dataset_B, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.664。本轮上调 Precision, Specificity, ECE，下调 MCC, Recall, AUROC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.958, uniqueness=0.317, committee_support=0.641); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.990, uniqueness=0.264, committee_support=0.622); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.731, uniqueness=0.522, committee_support=0.711)。对 MCC, BalancedAccuracy, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Specificity, ECE，下调 MCC, Recall, AUROC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.967, uniqueness=0.301, committee_support=0.638); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.876, uniqueness=0.455, committee_support=0.690)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02674802,
+        "AUPRC": 0.18696564,
+        "AUROC": 0.07690933,
+        "BalancedAccuracy": 0.06663078,
+        "BrierScore": 0.08208916,
+        "ECE": 0.06406672,
+        "F1-Score": 0.05930467,
+        "MCC": 0.16449652,
+        "NPV": 0.03113011,
+        "Precision": 0.09565123,
+        "Recall": 0.10265116,
+        "Specificity": 0.04335666
+      },
+      "previous_role_weights": {
+        "ACC": 0.02670222,
+        "AUPRC": 0.18734301,
+        "AUROC": 0.07736264,
+        "BalancedAccuracy": 0.0670725,
+        "BrierScore": 0.08185498,
+        "ECE": 0.0635148,
+        "F1-Score": 0.05942754,
+        "MCC": 0.16498113,
+        "NPV": 0.03152419,
+        "Precision": 0.09445292,
+        "Recall": 0.10311366,
+        "Specificity": 0.04265041
+      },
+      "l1_from_previous": 0.00547292,
+      "confidence": 0.7897,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 30,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第30轮匿名重采样为 Dataset_C, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.659。本轮上调 Precision, ECE, Recall，下调 AUROC, AUPRC, BalancedAccuracy。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.975, uniqueness=0.286, committee_support=0.631); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.989, uniqueness=0.261, committee_support=0.620); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.680, uniqueness=0.591, committee_support=0.718)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, ECE, Recall，下调 AUROC, AUPRC, BalancedAccuracy。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.983, uniqueness=0.271, committee_support=0.627); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.909, uniqueness=0.396, committee_support=0.676)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02674815,
+        "AUPRC": 0.18670083,
+        "AUROC": 0.07663187,
+        "BalancedAccuracy": 0.066366,
+        "BrierScore": 0.08218915,
+        "ECE": 0.06432064,
+        "F1-Score": 0.05912714,
+        "MCC": 0.16425828,
+        "NPV": 0.03114388,
+        "Precision": 0.09605109,
+        "Recall": 0.10289773,
+        "Specificity": 0.04356524
+      },
+      "previous_role_weights": {
+        "ACC": 0.02674802,
+        "AUPRC": 0.18696564,
+        "AUROC": 0.07690933,
+        "BalancedAccuracy": 0.06663078,
+        "BrierScore": 0.08208916,
+        "ECE": 0.06406672,
+        "F1-Score": 0.05930467,
+        "MCC": 0.16449652,
+        "NPV": 0.03113011,
+        "Precision": 0.09565123,
+        "Recall": 0.10265116,
+        "Specificity": 0.04335666
+      },
+      "l1_from_previous": 0.00244564,
+      "confidence": 0.7886,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 31,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "第31轮匿名重采样为 Dataset_B, Dataset_A, Dataset_A。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02674584,
+        "AUPRC": 0.18712374,
+        "AUROC": 0.07733606,
+        "BalancedAccuracy": 0.06695785,
+        "BrierScore": 0.08206911,
+        "ECE": 0.06376565,
+        "F1-Score": 0.059251,
+        "MCC": 0.16478438,
+        "NPV": 0.03136616,
+        "Precision": 0.09491426,
+        "Recall": 0.10276291,
+        "Specificity": 0.04292304
+      },
+      "previous_role_weights": {
+        "ACC": 0.02674815,
+        "AUPRC": 0.18670083,
+        "AUROC": 0.07663187,
+        "BalancedAccuracy": 0.066366,
+        "BrierScore": 0.08218915,
+        "ECE": 0.06432064,
+        "F1-Score": 0.05912714,
+        "MCC": 0.16425828,
+        "NPV": 0.03114388,
+        "Precision": 0.09605109,
+        "Recall": 0.10289773,
+        "Specificity": 0.04356524
+      },
+      "l1_from_previous": 0.00518238,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 32,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第32轮匿名重采样为 Dataset_A, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, Precision, NPV，下调 BrierScore, AUROC, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, Precision, NPV，下调 BrierScore, AUROC, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02666966,
+        "AUPRC": 0.18697531,
+        "AUROC": 0.07702339,
+        "BalancedAccuracy": 0.06675728,
+        "BrierScore": 0.08168333,
+        "ECE": 0.06355892,
+        "F1-Score": 0.05919117,
+        "MCC": 0.16470169,
+        "NPV": 0.03157728,
+        "Precision": 0.0951735,
+        "Recall": 0.10357083,
+        "Specificity": 0.04311764
+      },
+      "previous_role_weights": {
+        "ACC": 0.02674584,
+        "AUPRC": 0.18712374,
+        "AUROC": 0.07733606,
+        "BalancedAccuracy": 0.06695785,
+        "BrierScore": 0.08206911,
+        "ECE": 0.06376565,
+        "F1-Score": 0.059251,
+        "MCC": 0.16478438,
+        "NPV": 0.03136616,
+        "Precision": 0.09491426,
+        "Recall": 0.10276291,
+        "Specificity": 0.04292304
+      },
+      "l1_from_previous": 0.00294576,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 33,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "第33轮匿名重采样为 Dataset_B, Dataset_C, Dataset_A。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, Precision, NPV，下调 BrierScore, AUROC, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, Precision, NPV，下调 BrierScore, AUROC, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02662548,
+        "AUPRC": 0.18688922,
+        "AUROC": 0.07684204,
+        "BalancedAccuracy": 0.06664095,
+        "BrierScore": 0.08145958,
+        "ECE": 0.06343902,
+        "F1-Score": 0.05915647,
+        "MCC": 0.16465372,
+        "NPV": 0.03169973,
+        "Precision": 0.09532386,
+        "Recall": 0.10403942,
+        "Specificity": 0.04323051
+      },
+      "previous_role_weights": {
+        "ACC": 0.02666966,
+        "AUPRC": 0.18697531,
+        "AUROC": 0.07702339,
+        "BalancedAccuracy": 0.06675728,
+        "BrierScore": 0.08168333,
+        "ECE": 0.06355892,
+        "F1-Score": 0.05919117,
+        "MCC": 0.16470169,
+        "NPV": 0.03157728,
+        "Precision": 0.0951735,
+        "Recall": 0.10357083,
+        "Specificity": 0.04311764
+      },
+      "l1_from_previous": 0.00170854,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 34,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_C"
+      ],
+      "analysis": "第34轮匿名重采样为 Dataset_C, Dataset_C, Dataset_C。最低覆盖率为1.000，平均一致性为1.000，平均委员会支持为0.713。本轮上调 BrierScore, ECE, AUROC，下调 Recall, Precision, Specificity。证据质量领先的是 AUPRC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.972, uniqueness=0.275, committee_support=0.696); MCC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.991, uniqueness=0.242, committee_support=0.681); Recall(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.670, uniqueness=0.643, committee_support=0.765)。对 F1-Score, MCC, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, ECE, AUROC，下调 Recall, Precision, Specificity。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 F1-Score, MCC, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.988, uniqueness=0.247, committee_support=0.683); ECE evidence=ECE(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.916, uniqueness=0.370, committee_support=0.730)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02666946,
+        "AUPRC": 0.18708644,
+        "AUROC": 0.07706082,
+        "BalancedAccuracy": 0.06675208,
+        "BrierScore": 0.08203908,
+        "ECE": 0.06392544,
+        "F1-Score": 0.05926636,
+        "MCC": 0.16465647,
+        "NPV": 0.03141961,
+        "Precision": 0.09483871,
+        "Recall": 0.10346623,
+        "Specificity": 0.0428193
+      },
+      "previous_role_weights": {
+        "ACC": 0.02662548,
+        "AUPRC": 0.18688922,
+        "AUROC": 0.07684204,
+        "BalancedAccuracy": 0.06664095,
+        "BrierScore": 0.08145958,
+        "ECE": 0.06343902,
+        "F1-Score": 0.05915647,
+        "MCC": 0.16465372,
+        "NPV": 0.03169973,
+        "Precision": 0.09532386,
+        "Recall": 0.10403942,
+        "Specificity": 0.04323051
+      },
+      "l1_from_previous": 0.00349934,
+      "confidence": 0.8483,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 35,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第35轮匿名重采样为 Dataset_B, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.664。本轮上调 Precision, Specificity, ECE，下调 Recall, NPV, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.958, uniqueness=0.317, committee_support=0.641); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.990, uniqueness=0.264, committee_support=0.622); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.731, uniqueness=0.522, committee_support=0.711)。对 MCC, BalancedAccuracy, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Specificity, ECE，下调 Recall, NPV, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.967, uniqueness=0.301, committee_support=0.638); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.876, uniqueness=0.455, committee_support=0.690)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02672902,
+        "AUPRC": 0.18681683,
+        "AUROC": 0.07673427,
+        "BalancedAccuracy": 0.06644494,
+        "BrierScore": 0.08219593,
+        "ECE": 0.06430489,
+        "F1-Score": 0.05921119,
+        "MCC": 0.16430823,
+        "NPV": 0.03106945,
+        "Precision": 0.09587499,
+        "Recall": 0.10285565,
+        "Specificity": 0.04345461
+      },
+      "previous_role_weights": {
+        "ACC": 0.02666946,
+        "AUPRC": 0.18708644,
+        "AUROC": 0.07706082,
+        "BalancedAccuracy": 0.06675208,
+        "BrierScore": 0.08203908,
+        "ECE": 0.06392544,
+        "F1-Score": 0.05926636,
+        "MCC": 0.16465647,
+        "NPV": 0.03141961,
+        "Precision": 0.09483871,
+        "Recall": 0.10346623,
+        "Specificity": 0.0428193
+      },
+      "l1_from_previous": 0.0045349,
+      "confidence": 0.7897,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 36,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "第36轮匿名重采样为 Dataset_B, Dataset_A, Dataset_A。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02673474,
+        "AUPRC": 0.18719102,
+        "AUROC": 0.07739545,
+        "BalancedAccuracy": 0.06700363,
+        "BrierScore": 0.08207304,
+        "ECE": 0.06375651,
+        "F1-Score": 0.05929975,
+        "MCC": 0.16481336,
+        "NPV": 0.03132299,
+        "Precision": 0.09481212,
+        "Recall": 0.10273851,
+        "Specificity": 0.04285888
+      },
+      "previous_role_weights": {
+        "ACC": 0.02672902,
+        "AUPRC": 0.18681683,
+        "AUROC": 0.07673427,
+        "BalancedAccuracy": 0.06644494,
+        "BrierScore": 0.08219593,
+        "ECE": 0.06430489,
+        "F1-Score": 0.05921119,
+        "MCC": 0.16430823,
+        "NPV": 0.03106945,
+        "Precision": 0.09587499,
+        "Recall": 0.10285565,
+        "Specificity": 0.04345461
+      },
+      "l1_from_previous": 0.00489402,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 37,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "第37轮匿名重采样为 Dataset_A, Dataset_A, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Specificity, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02673806,
+        "AUPRC": 0.18740805,
+        "AUROC": 0.07777894,
+        "BalancedAccuracy": 0.06732767,
+        "BrierScore": 0.08200176,
+        "ECE": 0.06343845,
+        "F1-Score": 0.05935112,
+        "MCC": 0.16510634,
+        "NPV": 0.03147004,
+        "Precision": 0.09419565,
+        "Recall": 0.10267057,
+        "Specificity": 0.04251335
+      },
+      "previous_role_weights": {
+        "ACC": 0.02673474,
+        "AUPRC": 0.18719102,
+        "AUROC": 0.07739545,
+        "BalancedAccuracy": 0.06700363,
+        "BrierScore": 0.08207304,
+        "ECE": 0.06375651,
+        "F1-Score": 0.05929975,
+        "MCC": 0.16481336,
+        "NPV": 0.03132299,
+        "Precision": 0.09481212,
+        "Recall": 0.10273851,
+        "Specificity": 0.04285888
+      },
+      "l1_from_previous": 0.00283856,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 38,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "第38轮匿名重采样为 Dataset_C, Dataset_A, Dataset_A。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.662。本轮上调 Recall, F1-Score, MCC，下调 BrierScore, Precision, AUROC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.943, uniqueness=0.383, committee_support=0.669); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.965, uniqueness=0.339, committee_support=0.659); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.598, uniqueness=0.618, committee_support=0.715)。对 MCC, F1-Score, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, F1-Score, MCC，下调 BrierScore, Precision, AUROC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.927, uniqueness=0.309, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.912, uniqueness=0.324, committee_support=0.625)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02672083,
+        "AUPRC": 0.18764197,
+        "AUROC": 0.07736843,
+        "BalancedAccuracy": 0.06740801,
+        "BrierScore": 0.08151186,
+        "ECE": 0.06323234,
+        "F1-Score": 0.0597717,
+        "MCC": 0.16544726,
+        "NPV": 0.0316999,
+        "Precision": 0.09377255,
+        "Recall": 0.10315416,
+        "Specificity": 0.04227099
+      },
+      "previous_role_weights": {
+        "ACC": 0.02673806,
+        "AUPRC": 0.18740805,
+        "AUROC": 0.07777894,
+        "BalancedAccuracy": 0.06732767,
+        "BrierScore": 0.08200176,
+        "ECE": 0.06343845,
+        "F1-Score": 0.05935112,
+        "MCC": 0.16510634,
+        "NPV": 0.03147004,
+        "Precision": 0.09419565,
+        "Recall": 0.10267057,
+        "Specificity": 0.04251335
+      },
+      "l1_from_previous": 0.00357842,
+      "confidence": 0.786,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 39,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "第39轮匿名重采样为 Dataset_B, Dataset_A, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.691。本轮上调 Precision, Specificity, AUROC，下调 NPV, MCC, Recall。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.315, committee_support=0.681); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.986, uniqueness=0.251, committee_support=0.659); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.699, uniqueness=0.606, committee_support=0.741)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Specificity, AUROC，下调 NPV, MCC, Recall。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.959, uniqueness=0.295, committee_support=0.658); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.899, uniqueness=0.398, committee_support=0.680)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02665031,
+        "AUPRC": 0.18756347,
+        "AUROC": 0.07764999,
+        "BalancedAccuracy": 0.06731243,
+        "BrierScore": 0.08170701,
+        "ECE": 0.06331633,
+        "F1-Score": 0.05952934,
+        "MCC": 0.16518277,
+        "NPV": 0.0313493,
+        "Precision": 0.09426466,
+        "Recall": 0.10290355,
+        "Specificity": 0.04257084
+      },
+      "previous_role_weights": {
+        "ACC": 0.02672083,
+        "AUPRC": 0.18764197,
+        "AUROC": 0.07736843,
+        "BalancedAccuracy": 0.06740801,
+        "BrierScore": 0.08151186,
+        "ECE": 0.06323234,
+        "F1-Score": 0.0597717,
+        "MCC": 0.16544726,
+        "NPV": 0.0316999,
+        "Precision": 0.09377255,
+        "Recall": 0.10315416,
+        "Specificity": 0.04227099
+      },
+      "l1_from_previous": 0.00270532,
+      "confidence": 0.8186,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 40,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "第40轮匿名重采样为 Dataset_A, Dataset_B, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.691。本轮上调 Precision, Specificity, AUROC，下调 NPV, MCC, Recall。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.315, committee_support=0.681); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.986, uniqueness=0.251, committee_support=0.659); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.699, uniqueness=0.606, committee_support=0.741)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, Specificity, AUROC，下调 NPV, MCC, Recall。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.959, uniqueness=0.295, committee_support=0.658); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.899, uniqueness=0.398, committee_support=0.680)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02660941,
+        "AUPRC": 0.18751794,
+        "AUROC": 0.07781329,
+        "BalancedAccuracy": 0.06725699,
+        "BrierScore": 0.0818202,
+        "ECE": 0.06336504,
+        "F1-Score": 0.05938877,
+        "MCC": 0.16502939,
+        "NPV": 0.03114595,
+        "Precision": 0.09455008,
+        "Recall": 0.10275819,
+        "Specificity": 0.04274475
+      },
+      "previous_role_weights": {
+        "ACC": 0.02665031,
+        "AUPRC": 0.18756347,
+        "AUROC": 0.07764999,
+        "BalancedAccuracy": 0.06731243,
+        "BrierScore": 0.08170701,
+        "ECE": 0.06331633,
+        "F1-Score": 0.05952934,
+        "MCC": 0.16518277,
+        "NPV": 0.0313493,
+        "Precision": 0.09426466,
+        "Recall": 0.10290355,
+        "Specificity": 0.04257084
+      },
+      "l1_from_previous": 0.00156906,
+      "confidence": 0.8186,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 41,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_A"
+      ],
+      "analysis": "第41轮匿名重采样为 Dataset_B, Dataset_C, Dataset_A。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, Precision, NPV，下调 AUROC, BalancedAccuracy, AUPRC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, Precision, NPV，下调 AUROC, BalancedAccuracy, AUPRC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02659053,
+        "AUPRC": 0.18720394,
+        "AUROC": 0.07730018,
+        "BalancedAccuracy": 0.06693078,
+        "BrierScore": 0.08153896,
+        "ECE": 0.06332657,
+        "F1-Score": 0.05927107,
+        "MCC": 0.16484381,
+        "NPV": 0.03144956,
+        "Precision": 0.09496228,
+        "Recall": 0.10356809,
+        "Specificity": 0.04301423
+      },
+      "previous_role_weights": {
+        "ACC": 0.02660941,
+        "AUPRC": 0.18751794,
+        "AUROC": 0.07781329,
+        "BalancedAccuracy": 0.06725699,
+        "BrierScore": 0.0818202,
+        "ECE": 0.06336504,
+        "F1-Score": 0.05938877,
+        "MCC": 0.16502939,
+        "NPV": 0.03114595,
+        "Precision": 0.09455008,
+        "Recall": 0.10275819,
+        "Specificity": 0.04274475
+      },
+      "l1_from_previous": 0.00359038,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 42,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第42轮匿名重采样为 Dataset_C, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.659。本轮上调 Precision, ECE, Specificity，下调 AUROC, BalancedAccuracy, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.975, uniqueness=0.286, committee_support=0.631); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.989, uniqueness=0.261, committee_support=0.620); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.680, uniqueness=0.591, committee_support=0.718)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, ECE, Specificity，下调 AUROC, BalancedAccuracy, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.983, uniqueness=0.271, committee_support=0.627); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.909, uniqueness=0.396, committee_support=0.676)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02665681,
+        "AUPRC": 0.18683904,
+        "AUROC": 0.07685857,
+        "BalancedAccuracy": 0.06654,
+        "BrierScore": 0.08187004,
+        "ECE": 0.06389135,
+        "F1-Score": 0.05910766,
+        "MCC": 0.1644597,
+        "NPV": 0.03132916,
+        "Precision": 0.0956515,
+        "Recall": 0.10342954,
+        "Specificity": 0.04336663
+      },
+      "previous_role_weights": {
+        "ACC": 0.02659053,
+        "AUPRC": 0.18720394,
+        "AUROC": 0.07730018,
+        "BalancedAccuracy": 0.06693078,
+        "BrierScore": 0.08153896,
+        "ECE": 0.06332657,
+        "F1-Score": 0.05927107,
+        "MCC": 0.16484381,
+        "NPV": 0.03144956,
+        "Precision": 0.09496228,
+        "Recall": 0.10356809,
+        "Specificity": 0.04301423
+      },
+      "l1_from_previous": 0.00400752,
+      "confidence": 0.7886,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 43,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第43轮匿名重采样为 Dataset_A, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, NPV, MCC，下调 BrierScore, ECE, AUROC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, NPV, MCC，下调 BrierScore, ECE, AUROC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02661802,
+        "AUPRC": 0.18681018,
+        "AUROC": 0.07674645,
+        "BalancedAccuracy": 0.06651493,
+        "BrierScore": 0.08156787,
+        "ECE": 0.06363183,
+        "F1-Score": 0.05910803,
+        "MCC": 0.16451337,
+        "NPV": 0.03155582,
+        "Precision": 0.0956011,
+        "Recall": 0.10395748,
+        "Specificity": 0.04337492
+      },
+      "previous_role_weights": {
+        "ACC": 0.02665681,
+        "AUPRC": 0.18683904,
+        "AUROC": 0.07685857,
+        "BalancedAccuracy": 0.06654,
+        "BrierScore": 0.08187004,
+        "ECE": 0.06389135,
+        "F1-Score": 0.05910766,
+        "MCC": 0.1644597,
+        "NPV": 0.03132916,
+        "Precision": 0.0956515,
+        "Recall": 0.10342954,
+        "Specificity": 0.04336663
+      },
+      "l1_from_previous": 0.00163386,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 44,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第44轮匿名重采样为 Dataset_B, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.664。本轮上调 Precision, ECE, Specificity，下调 Recall, NPV, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.958, uniqueness=0.317, committee_support=0.641); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.990, uniqueness=0.264, committee_support=0.622); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.731, uniqueness=0.522, committee_support=0.711)。对 MCC, BalancedAccuracy, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Precision, ECE, Specificity，下调 Recall, NPV, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.967, uniqueness=0.301, committee_support=0.638); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.876, uniqueness=0.455, committee_support=0.690)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02669918,
+        "AUPRC": 0.18665659,
+        "AUROC": 0.07655194,
+        "BalancedAccuracy": 0.06630739,
+        "BrierScore": 0.08192263,
+        "ECE": 0.0641346,
+        "F1-Score": 0.05911936,
+        "MCC": 0.16422523,
+        "NPV": 0.03114845,
+        "Precision": 0.09631718,
+        "Recall": 0.10314058,
+        "Specificity": 0.04377687
+      },
+      "previous_role_weights": {
+        "ACC": 0.02661802,
+        "AUPRC": 0.18681018,
+        "AUROC": 0.07674645,
+        "BalancedAccuracy": 0.06651493,
+        "BrierScore": 0.08156787,
+        "ECE": 0.06363183,
+        "F1-Score": 0.05910803,
+        "MCC": 0.16451337,
+        "NPV": 0.03155582,
+        "Precision": 0.0956011,
+        "Recall": 0.10395748,
+        "Specificity": 0.04337492
+      },
+      "l1_from_previous": 0.0041361,
+      "confidence": 0.7897,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 45,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_B",
+        "Dataset_B"
+      ],
+      "analysis": "第45轮匿名重采样为 Dataset_B, Dataset_B, Dataset_B。最低覆盖率为1.000，平均一致性为1.000，平均委员会支持为0.725。本轮上调 BrierScore, AUPRC, AUROC，下调 Recall, NPV, Precision。证据质量领先的是 AUPRC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.939, uniqueness=0.334, committee_support=0.718); MCC(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.991, uniqueness=0.244, committee_support=0.682); BrierScore(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.958, uniqueness=0.301, committee_support=0.707)。对 MCC, BalancedAccuracy, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 BrierScore, AUPRC, AUROC，下调 Recall, NPV, Precision。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.958, uniqueness=0.301, committee_support=0.707); ECE evidence=ECE(coverage=1.000, separation=0.610, consistency=1.000, consensus=0.852, uniqueness=0.484, committee_support=0.759)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02675467,
+        "AUPRC": 0.18703632,
+        "AUROC": 0.07691099,
+        "BalancedAccuracy": 0.06655728,
+        "BrierScore": 0.08236143,
+        "ECE": 0.06444621,
+        "F1-Score": 0.05944118,
+        "MCC": 0.1643021,
+        "NPV": 0.03062341,
+        "Precision": 0.09606453,
+        "Recall": 0.10192318,
+        "Specificity": 0.0435787
+      },
+      "previous_role_weights": {
+        "ACC": 0.02669918,
+        "AUPRC": 0.18665659,
+        "AUROC": 0.07655194,
+        "BalancedAccuracy": 0.06630739,
+        "BrierScore": 0.08192263,
+        "ECE": 0.0641346,
+        "F1-Score": 0.05911936,
+        "MCC": 0.16422523,
+        "NPV": 0.03114845,
+        "Precision": 0.09631718,
+        "Recall": 0.10314058,
+        "Specificity": 0.04377687
+      },
+      "l1_from_previous": 0.00438652,
+      "confidence": 0.8506,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 46,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_C",
+        "Dataset_B"
+      ],
+      "analysis": "第46轮匿名重采样为 Dataset_C, Dataset_C, Dataset_B。最低覆盖率为1.000，平均一致性为0.773，平均委员会支持为0.659。本轮上调 Recall, NPV, Precision，下调 AUPRC, AUROC, F1-Score。证据质量领先的是 AUPRC(coverage=1.000, separation=0.489, consistency=0.732, consensus=0.975, uniqueness=0.286, committee_support=0.631); MCC(coverage=1.000, separation=0.488, consistency=0.729, consensus=0.989, uniqueness=0.261, committee_support=0.620); Recall(coverage=1.000, separation=0.551, consistency=0.862, consensus=0.680, uniqueness=0.591, committee_support=0.718)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, NPV, Precision，下调 AUPRC, AUROC, F1-Score。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.492, consistency=0.738, consensus=0.983, uniqueness=0.271, committee_support=0.627); ECE evidence=ECE(coverage=1.000, separation=0.509, consistency=0.772, consensus=0.909, uniqueness=0.396, committee_support=0.676)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02675201,
+        "AUPRC": 0.18674182,
+        "AUROC": 0.07663284,
+        "BalancedAccuracy": 0.06632337,
+        "BrierScore": 0.08234707,
+        "ECE": 0.06454074,
+        "F1-Score": 0.05920632,
+        "MCC": 0.16414551,
+        "NPV": 0.03085,
+        "Precision": 0.0962908,
+        "Recall": 0.1024755,
+        "Specificity": 0.04369402
+      },
+      "previous_role_weights": {
+        "ACC": 0.02675467,
+        "AUPRC": 0.18703632,
+        "AUROC": 0.07691099,
+        "BalancedAccuracy": 0.06655728,
+        "BrierScore": 0.08236143,
+        "ECE": 0.06444621,
+        "F1-Score": 0.05944118,
+        "MCC": 0.1643021,
+        "NPV": 0.03062341,
+        "Precision": 0.09606453,
+        "Recall": 0.10192318,
+        "Specificity": 0.0435787
+      },
+      "l1_from_previous": 0.00243006,
+      "confidence": 0.7886,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 47,
+      "sampled_datasets": [
+        "Dataset_B",
+        "Dataset_A",
+        "Dataset_C"
+      ],
+      "analysis": "第47轮匿名重采样为 Dataset_B, Dataset_A, Dataset_C。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, NPV, MCC，下调 ECE, BrierScore, Precision。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, NPV, MCC，下调 ECE, BrierScore, Precision。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02667324,
+        "AUPRC": 0.18675379,
+        "AUROC": 0.07661552,
+        "BalancedAccuracy": 0.06638928,
+        "BrierScore": 0.08184454,
+        "ECE": 0.06400847,
+        "F1-Score": 0.05916525,
+        "MCC": 0.16433117,
+        "NPV": 0.03127791,
+        "Precision": 0.09597189,
+        "Recall": 0.10340413,
+        "Specificity": 0.04356481
+      },
+      "previous_role_weights": {
+        "ACC": 0.02675201,
+        "AUPRC": 0.18674182,
+        "AUROC": 0.07663284,
+        "BalancedAccuracy": 0.06632337,
+        "BrierScore": 0.08234707,
+        "ECE": 0.06454074,
+        "F1-Score": 0.05920632,
+        "MCC": 0.16414551,
+        "NPV": 0.03085,
+        "Precision": 0.0962908,
+        "Recall": 0.1024755,
+        "Specificity": 0.04369402
+      },
+      "l1_from_previous": 0.00324016,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 48,
+      "sampled_datasets": [
+        "Dataset_C",
+        "Dataset_A",
+        "Dataset_A"
+      ],
+      "analysis": "第48轮匿名重采样为 Dataset_C, Dataset_A, Dataset_A。最低覆盖率为1.000，平均一致性为0.758，平均委员会支持为0.662。本轮上调 MCC, AUPRC, F1-Score，下调 Precision, Specificity, ECE。证据质量领先的是 AUPRC(coverage=1.000, separation=0.496, consistency=0.746, consensus=0.943, uniqueness=0.383, committee_support=0.669); MCC(coverage=1.000, separation=0.502, consistency=0.756, consensus=0.965, uniqueness=0.339, committee_support=0.659); Recall(coverage=1.000, separation=0.565, consistency=0.894, consensus=0.598, uniqueness=0.618, committee_support=0.715)。对 MCC, F1-Score, ACC 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 MCC, AUPRC, F1-Score，下调 Precision, Specificity, ECE。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, ACC；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.451, consistency=0.660, consensus=0.927, uniqueness=0.309, committee_support=0.611); ECE evidence=ECE(coverage=1.000, separation=0.468, consistency=0.692, consensus=0.912, uniqueness=0.324, committee_support=0.625)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02668323,
+        "AUPRC": 0.1872625,
+        "AUROC": 0.07669364,
+        "BalancedAccuracy": 0.06686375,
+        "BrierScore": 0.08142067,
+        "ECE": 0.06356295,
+        "F1-Score": 0.05966389,
+        "MCC": 0.16499767,
+        "NPV": 0.03158847,
+        "Precision": 0.09480277,
+        "Recall": 0.10357962,
+        "Specificity": 0.04288084
+      },
+      "previous_role_weights": {
+        "ACC": 0.02667324,
+        "AUPRC": 0.18675379,
+        "AUROC": 0.07661552,
+        "BalancedAccuracy": 0.06638928,
+        "BrierScore": 0.08184454,
+        "ECE": 0.06400847,
+        "F1-Score": 0.05916525,
+        "MCC": 0.16433117,
+        "NPV": 0.03127791,
+        "Precision": 0.09597189,
+        "Recall": 0.10340413,
+        "Specificity": 0.04356481
+      },
+      "l1_from_previous": 0.00544496,
+      "confidence": 0.786,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 49,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_B",
+        "Dataset_C"
+      ],
+      "analysis": "第49轮匿名重采样为 Dataset_A, Dataset_B, Dataset_C。最低覆盖率为1.000，平均一致性为0.707，平均委员会支持为0.643。本轮上调 Recall, Precision, Specificity，下调 F1-Score, AUPRC, MCC。证据质量领先的是 AUPRC(coverage=1.000, separation=0.461, consistency=0.678, consensus=0.961, uniqueness=0.319, committee_support=0.626); MCC(coverage=1.000, separation=0.467, consistency=0.689, consensus=0.981, uniqueness=0.280, committee_support=0.616); Recall(coverage=1.000, separation=0.539, consistency=0.836, consensus=0.658, uniqueness=0.640, committee_support=0.717)。对 MCC, BalancedAccuracy, F1-Score 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 Recall, Precision, Specificity，下调 F1-Score, AUPRC, MCC。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, BalancedAccuracy, F1-Score；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.422, consistency=0.608, consensus=0.964, uniqueness=0.307, committee_support=0.597); ECE evidence=ECE(coverage=1.000, separation=0.432, consistency=0.626, consensus=0.917, uniqueness=0.377, committee_support=0.623)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02663335,
+        "AUPRC": 0.18705579,
+        "AUROC": 0.07665079,
+        "BalancedAccuracy": 0.0667027,
+        "BrierScore": 0.08130723,
+        "ECE": 0.06344136,
+        "F1-Score": 0.05943064,
+        "MCC": 0.1648254,
+        "NPV": 0.03170622,
+        "Precision": 0.09510884,
+        "Recall": 0.10404452,
+        "Specificity": 0.04309316
+      },
+      "previous_role_weights": {
+        "ACC": 0.02668323,
+        "AUPRC": 0.1872625,
+        "AUROC": 0.07669364,
+        "BalancedAccuracy": 0.06686375,
+        "BrierScore": 0.08142067,
+        "ECE": 0.06356295,
+        "F1-Score": 0.05966389,
+        "MCC": 0.16499767,
+        "NPV": 0.03158847,
+        "Precision": 0.09480277,
+        "Recall": 0.10357962,
+        "Specificity": 0.04288084
+      },
+      "l1_from_previous": 0.00220208,
+      "confidence": 0.7713,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    },
+    {
+      "round": 50,
+      "sampled_datasets": [
+        "Dataset_A",
+        "Dataset_A",
+        "Dataset_B"
+      ],
+      "analysis": "第50轮匿名重采样为 Dataset_A, Dataset_A, Dataset_B。最低覆盖率为1.000，平均一致性为0.882，平均委员会支持为0.693。本轮上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Recall, Specificity。证据质量领先的是 AUPRC(coverage=1.000, separation=0.559, consistency=0.878, consensus=0.950, uniqueness=0.335, committee_support=0.690); MCC(coverage=1.000, separation=0.565, consistency=0.892, consensus=0.973, uniqueness=0.294, committee_support=0.679); Recall(coverage=1.000, separation=0.575, consistency=0.916, consensus=0.612, uniqueness=0.639, committee_support=0.729)。对 MCC, F1-Score, BalancedAccuracy 的高共识但低独特性按冗余处理；阈值型指标仅在阈值由独立验证集确定并冻结时可解释。校准维度同时保留BrierScore与ECE，但因ECE受分箱影响，其独特性不直接等同于可靠性。",
+      "evidence_response": {
+        "llm_prior": "文献与统计知识将AUPRC和MCC作为类别不均衡下的主干证据，Recall/Precision反映漏检与实验假阳性代价；AUROC、阈值型混淆矩阵指标及校准指标必须保留但避免重复计权。",
+        "benchmark_evidence": "仅使用本轮匿名metric_evidence；综合coverage、separation、consistency、consensus、uniqueness与committee_support后，上调 AUROC, BalancedAccuracy, MCC，下调 Precision, Recall, Specificity。未使用模型身份、得分或排名。",
+        "redundancy_control": "本轮冗余折扣优先作用于 MCC, F1-Score, BalancedAccuracy；ACC在不均衡数据上使用更强折扣，MCC因使用完整混淆矩阵而仅轻度折扣。",
+        "calibration_control": "BrierScore evidence=BrierScore(coverage=1.000, separation=0.531, consistency=0.818, consensus=0.939, uniqueness=0.311, committee_support=0.662); ECE evidence=ECE(coverage=1.000, separation=0.517, consistency=0.788, consensus=0.924, uniqueness=0.332, committee_support=0.660)。"
+      },
+      "proposed_weights": {
+        "ACC": 0.02667926,
+        "AUPRC": 0.18732962,
+        "AUROC": 0.07734703,
+        "BalancedAccuracy": 0.06715313,
+        "BrierScore": 0.08155759,
+        "ECE": 0.06325567,
+        "F1-Score": 0.05942703,
+        "MCC": 0.16511331,
+        "NPV": 0.03169232,
+        "Precision": 0.09436775,
+        "Recall": 0.10342805,
+        "Specificity": 0.04264924
+      },
+      "previous_role_weights": {
+        "ACC": 0.02663335,
+        "AUPRC": 0.18705579,
+        "AUROC": 0.07665079,
+        "BalancedAccuracy": 0.0667027,
+        "BrierScore": 0.08130723,
+        "ECE": 0.06344136,
+        "F1-Score": 0.05943064,
+        "MCC": 0.1648254,
+        "NPV": 0.03170622,
+        "Precision": 0.09510884,
+        "Recall": 0.10404452,
+        "Specificity": 0.04309316
+      },
+      "l1_from_previous": 0.00400936,
+      "confidence": 0.8189,
+      "uncertainties": [
+        "三个匿名数据集的独立性、同源性去泄漏与来源门控仍为pending。",
+        "Precision、NPV及ACC受类别流行率影响，跨数据集迁移解释受限。",
+        "所有阈值型指标要求在独立验证证据上选阈值并在测试前冻结。",
+        "ECE依赖分箱方案；BrierScore同时混合校准与概率分辨能力。"
+      ]
+    }
+  ]
+}

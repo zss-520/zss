@@ -3,7 +3,7 @@
 现在开始会议。请先由 PI 审阅任务并提出明确要求，然后由代码工程师给出最终完整代码。
 
 会议任务如下：
-当前需要评测的计算生物学模型清单：Macrel, AMP-Scanner-v2, amPEPpy, AI4AMP, AMPlify。
+当前需要评测的计算生物学模型清单：Macrel, amPEPpy, AMPlify。
 
 请严格遵守以下编程规范，完全由你自主编写高质量的 Python 自动化评估脚本：
 
@@ -14,17 +14,9 @@
   【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"
   【输出目录】: data/Macrel_out
 
-- 【模型名称】: AMP-Scanner-v2
-  【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv"
-  【输出目录】: data/AMP-Scanner-v2_out
-
 - 【模型名称】: amPEPpy
   【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model"
   【输出目录】: data/amPEPpy_out
-
-- 【模型名称】: AI4AMP
-  【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv"
-  【输出目录】: data/AI4AMP_out
 
 - 【模型名称】: AMPlify
   【运行命令】: bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out"
@@ -67,276 +59,191 @@
 
 ## PI
 
-# 会议记录：AMP 模型自动化评估管线（阶段一：勘探与执行）
+## PI 审阅任务并提出明确要求
 
-## 🟢 PI 审阅与要求确认 (Principal Investigator Review)
+### 硬性要求确认：
+1. **Slurm Array 模式执行**：通过 `SLURM_ARRAY_TASK_ID` 获取任务索引，仅执行对应模型
+2. **三个模型矩阵**：Macrel(task_id=0), amPEPpy(task_id=1), AMPlify(task_id=2)
+3. **智能自愈机制**：清理→执行→失败检查→自愈重试→日志记录
+4. **Stage 1 探勘目标**：发现各模型实际输出文件结构和格式
+5. **隔离写入纪律**：`log_file = f"data/stage1_obs_{task_id}.txt"`，绝对禁止共享文件
 
-各位同事，针对本次 AMP 模型评测任务，作为 PI，我必须再次强调以下**不可逾越的红线**。这直接关系到我们后续数据整合的成败以及计算资源的浪费。请代码工程师在编写脚本时，逐条核对以下约束：
+### 关键风险点强调：
+- Macrel 会因目录已存在而失败，必须先清理再执行
+- 部分模型需要自愈重试机制处理目录创建问题
+- .gz 文件读取需要特殊处理
+- 错误日志必须独立记录
 
-### 1. 任务调度与隔离性 (Job Array & Isolation)
-*   **Slurm 集成**：脚本必须通过 `SLURM_ARRAY_TASK_ID` 环境变量识别当前任务。
-*   **一对一映射**：`task_id` 0-4 分别对应 Macrel, AMP-Scanner-v2, amPEPpy, AI4AMP, AMPlify。**严禁**在一个任务中循环运行所有模型。
-*   **越界保护**：若 `task_id` 超出 [0, 4] 范围，必须优雅退出并打印警告，**严禁**抛出未捕获异常导致 Slurm 任务状态混乱。
-
-### 2. 命令完整性与路径安全 (Command Integrity)
-*   **绝对路径锁死**：提供的运行命令中，凡是涉及 `/share/home/zhangss/...` 的绝对路径，**一字不改**。不要尝试拼接或修正，除非明确告知是相对路径。
-*   **Conda 环境激活**：命令中已包含 `source ... && conda activate ...`，保持原样，确保依赖环境正确加载。
-
-### 3. 智能自愈机制 (Self-Healing Protocol)
-这是本脚本的核心难点，必须严格执行以下顺序：
-1.  **预清理**：运行前，使用 `shutil.rmtree` 强制删除目标输出目录（防止 Macrel 因目录存在而崩溃）。**禁止**预先 `os.makedirs`。
-2.  **首次盲测**：直接 `subprocess.run`。
-3.  **动态诊断与重试**：
-    *   若失败且报错含 `"already exists"` -> 执行 `rmtree` -> **重试**。
-    *   若失败且报错含 `"No such file"` -> 执行 `os.makedirs` -> **重试**。
-    *   其他错误 -> 记录日志，终止该模型任务，**不阻断主程序**。
-
-### 4. 勘探报告隔离写入 (Isolated Observation Logging)
-*   **文件命名铁律**：每个任务的观察报告必须独立保存。代码中必须出现且仅出现这一行赋值逻辑：
-    ```python
-    log_file = f"data/stage1_obs_{task_id}.txt"
-    ```
-*   **内容规范**：仅记录文件路径、类型及头部内容摘要。**严禁**在此阶段进行任何 Pandas 合并、清洗或指标计算。
-*   **无锁机制**：禁止使用 `fcntl` 等文件锁，依靠 Slurm Array 的任务隔离性保证写入安全。
-
-### 5. 代码交付标准
-*   单一 Python 文件，可直接 `python script.py` 或在 Slurm 中调用。
-*   包含完整的 `import` 和 `if __name__ == '__main__':` 入口。
-*   处理 `.gz` 文件的读取需引入 `gzip` 模块。
-
----
-
-## 🔵 代码工程师交付 (Engineer Implementation)
-
-收到 PI 指令。以下是严格遵循上述约束编写的 Python 自动化评估与勘探脚本。
+## 代码工程师最终完整代码
 
 ```python
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-AMP Model Evaluation Pipeline - Stage 1: Execution & Exploration
-Author: Engineer
-Date: 2023-10-27
-Constraints: Slurm Array Mode, Self-Healing, Isolated Logging, No Pandas Merge
-"""
-
 import os
-import sys
 import subprocess
 import shutil
 import glob
 import gzip
-import time
 
-# -----------------------------------------------------------------------------
-# Configuration: Model Definitions
-# -----------------------------------------------------------------------------
-MODELS = [
-    {
-        "name": "Macrel",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives\"",
-        "out_dir": "data/Macrel_out"
-    },
-    {
-        "name": "AMP-Scanner-v2",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv\"",
-        "out_dir": "data/AMP-Scanner-v2_out"
-    },
-    {
-        "name": "amPEPpy",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model\"",
-        "out_dir": "data/amPEPpy_out"
-    },
-    {
-        "name": "AI4AMP",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv\"",
-        "out_dir": "data/AI4AMP_out"
-    },
-    {
-        "name": "AMPlify",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out\"",
-        "out_dir": "data/AMPlify_out"
-    }
-]
-
-MAX_RETRIES = 2
-
-def get_head_content(file_path, max_lines=10):
-    """Read head content handling gzip compression."""
-    lines = []
+def read_file_head(filepath, lines=10):
+    """读取文件头部内容，支持gzip压缩文件"""
     try:
-        if file_path.endswith('.gz'):
-            with gzip.open(file_path, 'rt', encoding='utf-8', errors='ignore') as f:
+        if filepath.endswith('.gz'):
+            with gzip.open(filepath, 'rt') as f:
+                content = []
                 for i, line in enumerate(f):
-                    if i >= max_lines:
+                    if i >= lines:
                         break
-                    lines.append(line.strip())
+                    content.append(line.rstrip())
+                return '\n'.join(content)
         else:
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(filepath, 'r') as f:
+                content = []
                 for i, line in enumerate(f):
-                    if i >= max_lines:
+                    if i >= lines:
                         break
-                    lines.append(line.strip())
-        return "\n".join(lines)
+                    content.append(line.rstrip())
+                return '\n'.join(content)
     except Exception as e:
-        return f"[Error reading file: {str(e)}]"
+        return f"Error reading file: {str(e)}"
 
-def run_model_with_healing(model_config, task_id):
-    """Execute model with self-healing directory management."""
-    name = model_config["name"]
-    cmd = model_config["cmd"]
-    out_dir = model_config["out_dir"]
+def explore_output_directory(output_dir, model_name):
+    """勘探输出目录中的所有文件并生成报告"""
+    report_lines = [f"=== Model: {model_name} Output Exploration Report ==="]
     
-    print(f"[Task {task_id}] Starting execution for {name}...")
+    if not os.path.exists(output_dir):
+        report_lines.append(f"Output directory {output_dir} does not exist!")
+        return '\n'.join(report_lines)
     
-    # Step 1: Pre-cleanup (Critical for Macrel compatibility)
-    # DO NOT use os.makedirs here. Only remove if exists.
-    if os.path.exists(out_dir):
-        try:
-            shutil.rmtree(out_dir, ignore_errors=True)
-            print(f"[Task {task_id}] Cleaned existing output directory: {out_dir}")
-        except Exception as e:
-            print(f"[Task {task_id}] Warning: Failed to clean directory {out_dir}: {e}")
-
-    last_error = None
-    
-    for attempt in range(MAX_RETRIES):
-        try:
-            res = subprocess.run(
-                cmd, 
-                shell=True, 
-                capture_output=True, 
-                text=True, 
-                timeout=600 # 10 min timeout per model
-            )
-            
-            if res.returncode == 0:
-                print(f"[Task {task_id}] Success: {name} completed.")
-                return True
-            
-            # Analyze Error for Self-Healing
-            error_msg = res.stderr + res.stdout
-            last_error = error_msg
-            
-            print(f"[Task {task_id}] Attempt {attempt+1} failed for {name}. Return code: {res.returncode}")
-            
-            # Healing Logic
-            if "already exists" in error_msg.lower() or "exists" in error_msg.lower():
-                print(f"[Task {task_id}] Healing: Directory exists conflict detected. Removing and retrying...")
-                shutil.rmtree(out_dir, ignore_errors=True)
-                continue
-                
-            elif "No such file" in error_msg or "NotFoundError" in error_msg or "not found" in error_msg:
-                print(f"[Task {task_id}] Healing: Missing directory detected. Creating and retrying...")
-                os.makedirs(out_dir, exist_ok=True)
-                continue
-            
-            else:
-                # Unknown error, stop retrying
-                print(f"[Task {task_id}] Fatal Error for {name}: {error_msg[:200]}...")
-                break
-                
-        except subprocess.TimeoutExpired:
-            print(f"[Task {task_id}] Timeout for {name}.")
-            last_error = "Timeout"
-            break
-        except Exception as e:
-            print(f"[Task {task_id}] Exception during run: {e}")
-            last_error = str(e)
-            break
-
-    # Final Failure Logging
-    if last_error:
-        err_log_path = f"data/error_task_{task_id}.log"
-        os.makedirs("data", exist_ok=True)
-        with open(err_log_path, "a") as f:
-            f.write(f"--- Task {task_id} ({name}) Failed ---\n")
-            f.write(last_error + "\n\n")
-        return False
-        
-    return True
-
-def explore_output(task_id, model_config):
-    """Explore generated files and write isolated observation report."""
-    out_dir = model_config["out_dir"]
-    
-    # Ensure data directory exists for log file
-    os.makedirs("data", exist_ok=True)
-    
-    # 🚨 ISOLATION LOGIC: Strictly follow the variable assignment requirement
-    log_file = f"data/stage1_obs_{task_id}.txt"
-    
-    report_lines = []
-    report_lines.append(f"=== Stage 1 Exploration Report ===")
-    report_lines.append(f"Task ID: {task_id}")
-    report_lines.append(f"Model: {model_config['name']}")
-    report_lines.append(f"Target Dir: {out_dir}")
-    report_lines.append(f"Time: {time.strftime('%Y-%m-%d %H:%M:%S')}")
-    report_lines.append("=" * 50 + "\n")
-    
-    if not os.path.exists(out_dir):
-        report_lines.append(f"[WARNING] Output directory does not exist: {out_dir}")
-        with open(log_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(report_lines))
-        return
-
-    # Traverse and find files
-    found_files = []
-    for root, dirs, files in os.walk(out_dir):
+    # 查找所有文件（包括子目录）
+    all_files = []
+    for root, dirs, files in os.walk(output_dir):
         for file in files:
-            full_path = os.path.join(root, file)
-            found_files.append(full_path)
+            all_files.append(os.path.join(root, file))
     
-    if not found_files:
-        report_lines.append("[INFO] No files found in output directory.")
-    else:
-        report_lines.append(f"[INFO] Found {len(found_files)} files:")
-        for f_path in sorted(found_files):
-            rel_path = os.path.relpath(f_path, "data")
-            size = os.path.getsize(f_path)
-            header = get_head_content(f_path)
-            
-            report_lines.append(f"\nFile: {rel_path}")
-            report_lines.append(f"Size: {size} bytes")
-            report_lines.append(f"Head Content:\n{header}")
-            report_lines.append("-" * 30)
-
-    # Write Isolated Log
-    with open(log_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(report_lines))
+    if not all_files:
+        report_lines.append(f"No files found in {output_dir}")
+        return '\n'.join(report_lines)
     
-    print(f"[Task {task_id}] Exploration report saved to: {log_file}")
+    report_lines.append(f"Found {len(all_files)} files in {output_dir}:")
+    
+    for filepath in all_files:
+        rel_path = os.path.relpath(filepath, output_dir)
+        abs_path = os.path.abspath(filepath)
+        file_size = os.path.getsize(filepath)
+        
+        report_lines.append(f"\n--- File: {rel_path} ---")
+        report_lines.append(f"Absolute path: {abs_path}")
+        report_lines.append(f"Size: {file_size} bytes")
+        
+        # 读取文件头部内容
+        head_content = read_file_head(filepath, 10)
+        report_lines.append("Head content:")
+        report_lines.append(head_content)
+        report_lines.append("-" * 50)
+    
+    return '\n'.join(report_lines)
 
 def main():
-    # 1. Get Task ID from Environment
+    # 获取任务ID
+    task_id = int(os.environ.get('SLURM_ARRAY_TASK_ID', 0))
+    
+    # 定义模型配置
+    models = [
+        {
+            "name": "Macrel",
+            "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"',
+            "output_dir": "data/Macrel_out"
+        },
+        {
+            "name": "amPEPpy", 
+            "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model"',
+            "output_dir": "data/amPEPpy_out"
+        },
+        {
+            "name": "AMPlify",
+            "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out"',
+            "output_dir": "data/AMPlify_out"
+        }
+    ]
+    
+    # 检查task_id是否有效
+    if task_id >= len(models):
+        print(f"Task ID {task_id} exceeds available models (0-{len(models)-1}). Exiting.")
+        return
+    
+    model = models[task_id]
+    model_name = model["name"]
+    cmd = model["cmd"]
+    output_dir = model["output_dir"]
+    
+    print(f"Starting task {task_id}: Running {model_name}")
+    
+    # 执行模型并实现自愈机制
     try:
-        task_id_str = os.environ.get('SLURM_ARRAY_TASK_ID', '0')
-        task_id = int(task_id_str)
-    except ValueError:
-        print("Error: SLURM_ARRAY_TASK_ID is not a valid integer. Exiting.")
-        sys.exit(1)
-
-    # 2. Validate Range
-    if task_id < 0 or task_id >= len(MODELS):
-        print(f"Warning: Task ID {task_id} is out of range [0-{len(MODELS)-1}]. Exiting safely.")
-        # Create a minimal log indicating skip
-        os.makedirs("data", exist_ok=True)
+        # 第一步：清理历史数据（防止冲突）
+        print(f"Cleaning old output directory: {output_dir}")
+        shutil.rmtree(output_dir, ignore_errors=True)
+        
+        # 执行模型
+        print(f"Executing {model_name}...")
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        
+        # 检查是否执行失败
+        if res.returncode != 0:
+            print(f"{model_name} execution failed. Return code: {res.returncode}")
+            print(f"Stderr: {res.stderr}")
+            
+            # 检查错误类型并尝试自愈
+            error_msg = res.stderr + res.stdout
+            if "No such file" in error_msg or "NotFoundError" in error_msg or "not found" in error_msg:
+                print("Detected missing directory error. Creating output directory and retrying...")
+                os.makedirs(output_dir, exist_ok=True)
+                
+                # 重新执行
+                res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                
+                if res.returncode != 0:
+                    print(f"Retry failed for {model_name}. Final stderr: {res.stderr}")
+                    
+                    # 再次检查错误类型
+                    final_error_msg = res.stderr + res.stdout
+                    if "already exists" in final_error_msg or "exists" in final_error_msg:
+                        print("Detected directory exists conflict. Removing and retrying...")
+                        shutil.rmtree(output_dir, ignore_errors=True)
+                        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        
+        # 记录执行结果
         log_file = f"data/stage1_obs_{task_id}.txt"
-        with open(log_file, "w") as f:
-            f.write(f"Task {task_id} skipped: Out of range.\n")
-        sys.exit(0)
-
-    # 3. Select Model
-    current_model = MODELS[task_id]
-    print(f"Selected Model for Task {task_id}: {current_model['name']}")
-
-    # 4. Execute with Healing
-    success = run_model_with_healing(current_model, task_id)
-
-    # 5. Explore Output (Even if failed, check what happened)
-    explore_output(task_id, current_model)
-
-    print(f"Task {task_id} finished.")
+        os.makedirs("data", exist_ok=True)
+        
+        with open(log_file, 'w') as f:
+            f.write(f"Model Execution Report for Task {task_id}\n")
+            f.write(f"Model: {model_name}\n")
+            f.write(f"Command: {cmd}\n")
+            f.write(f"Return Code: {res.returncode}\n")
+            f.write(f"Stdout:\n{res.stdout}\n")
+            f.write(f"Stderr:\n{res.stderr}\n")
+            f.write("="*60 + "\n\n")
+            
+            # 勘探输出目录
+            exploration_report = explore_output_directory(output_dir, model_name)
+            f.write(exploration_report)
+        
+        print(f"Exploration report saved to {log_file}")
+        
+    except Exception as e:
+        print(f"Exception occurred during execution of {model_name}: {str(e)}")
+        log_file = f"data/stage1_obs_{task_id}.txt"
+        os.makedirs("data", exist_ok=True)
+        
+        with open(log_file, 'w') as f:
+            f.write(f"Model Execution Error Report for Task {task_id}\n")
+            f.write(f"Model: {model_name}\n")
+            f.write(f"Exception: {str(e)}\n")
+            f.write("="*60 + "\n\n")
+            
+            # 即使出错也要尝试勘探目录
+            exploration_report = explore_output_directory(output_dir, model_name)
+            f.write(exploration_report)
 
 if __name__ == '__main__':
     main()
@@ -404,201 +311,172 @@ if __name__ == '__main__':
 
 ```python
 import os
-import sys
 import subprocess
 import shutil
 import glob
 import gzip
-import time
 
-MODELS = [
-    {
-        "name": "Macrel",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives\"",
-        "out_dir": "data/Macrel_out"
-    },
-    {
-        "name": "AMP-Scanner-v2",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ascan2_tf1 && python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f data/combined_test.fasta -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p data/AMP-Scanner-v2_out/ampscanner_out.csv\"",
-        "out_dir": "data/AMP-Scanner-v2_out"
-    },
-    {
-        "name": "amPEPpy",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model\"",
-        "out_dir": "data/amPEPpy_out"
-    },
-    {
-        "name": "AI4AMP",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate ai4amp && python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f data/combined_test.fasta -o data/AI4AMP_out/predictions.csv\"",
-        "out_dir": "data/AI4AMP_out"
-    },
-    {
-        "name": "AMPlify",
-        "cmd": "bash -c \"source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out\"",
-        "out_dir": "data/AMPlify_out"
-    }
-]
-
-MAX_RETRIES = 2
-
-def get_head_content(file_path, max_lines=10):
-    lines = []
+def read_file_head(filepath, lines=10):
+    """读取文件头部内容，支持gzip压缩文件"""
     try:
-        if file_path.endswith('.gz'):
-            with gzip.open(file_path, 'rt', encoding='utf-8', errors='ignore') as f:
+        if filepath.endswith('.gz'):
+            with gzip.open(filepath, 'rt') as f:
+                content = []
                 for i, line in enumerate(f):
-                    if i >= max_lines:
+                    if i >= lines:
                         break
-                    lines.append(line.strip())
+                    content.append(line.rstrip())
+                return '\n'.join(content)
         else:
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(filepath, 'r') as f:
+                content = []
                 for i, line in enumerate(f):
-                    if i >= max_lines:
+                    if i >= lines:
                         break
-                    lines.append(line.strip())
-        return "\n".join(lines)
+                    content.append(line.rstrip())
+                return '\n'.join(content)
     except Exception as e:
-        return f"[Error reading file: {str(e)}]"
+        return f"Error reading file: {str(e)}"
 
-def run_model_with_healing(model_config, task_id):
-    name = model_config["name"]
-    cmd = model_config["cmd"]
-    out_dir = model_config["out_dir"]
+def explore_output_directory(output_dir, model_name):
+    """勘探输出目录中的所有文件并生成报告"""
+    report_lines = [f"=== Model: {model_name} Output Exploration Report ==="]
     
-    print(f"[Task {task_id}] Starting execution for {name}...")
+    if not os.path.exists(output_dir):
+        report_lines.append(f"Output directory {output_dir} does not exist!")
+        return '\n'.join(report_lines)
     
-    if os.path.exists(out_dir):
-        try:
-            shutil.rmtree(out_dir, ignore_errors=True)
-            print(f"[Task {task_id}] Cleaned existing output directory: {out_dir}")
-        except Exception as e:
-            print(f"[Task {task_id}] Warning: Failed to clean directory {out_dir}: {e}")
-
-    last_error = None
-    
-    for attempt in range(MAX_RETRIES):
-        try:
-            res = subprocess.run(
-                cmd, 
-                shell=True, 
-                capture_output=True, 
-                text=True, 
-                timeout=600
-            )
-            
-            if res.returncode == 0:
-                print(f"[Task {task_id}] Success: {name} completed.")
-                return True
-            
-            error_msg = res.stderr + res.stdout
-            last_error = error_msg
-            
-            print(f"[Task {task_id}] Attempt {attempt+1} failed for {name}. Return code: {res.returncode}")
-            
-            if "already exists" in error_msg.lower() or "exists" in error_msg.lower():
-                print(f"[Task {task_id}] Healing: Directory exists conflict detected. Removing and retrying...")
-                shutil.rmtree(out_dir, ignore_errors=True)
-                continue
-                
-            elif "No such file" in error_msg or "NotFoundError" in error_msg or "not found" in error_msg:
-                print(f"[Task {task_id}] Healing: Missing directory detected. Creating and retrying...")
-                os.makedirs(out_dir, exist_ok=True)
-                continue
-            
-            else:
-                print(f"[Task {task_id}] Fatal Error for {name}: {error_msg[:200]}...")
-                break
-                
-        except subprocess.TimeoutExpired:
-            print(f"[Task {task_id}] Timeout for {name}.")
-            last_error = "Timeout"
-            break
-        except Exception as e:
-            print(f"[Task {task_id}] Exception during run: {e}")
-            last_error = str(e)
-            break
-
-    if last_error:
-        err_log_path = f"data/error_task_{task_id}.log"
-        os.makedirs("data", exist_ok=True)
-        with open(err_log_path, "a") as f:
-            f.write(f"--- Task {task_id} ({name}) Failed ---\n")
-            f.write(last_error + "\n\n")
-        return False
-        
-    return True
-
-def explore_output(task_id, model_config):
-    out_dir = model_config["out_dir"]
-    
-    os.makedirs("data", exist_ok=True)
-    
-    # 🚨 ISOLATION LOGIC: Strictly follow the variable assignment requirement
-    log_file = f"data/stage1_obs_{task_id}.txt"
-    
-    report_lines = []
-    report_lines.append(f"=== Stage 1 Exploration Report ===")
-    report_lines.append(f"Task ID: {task_id}")
-    report_lines.append(f"Model: {model_config['name']}")
-    report_lines.append(f"Target Dir: {out_dir}")
-    report_lines.append(f"Time: {time.strftime('%Y-%m-%d %H:%M:%S')}")
-    report_lines.append("=" * 50 + "\n")
-    
-    if not os.path.exists(out_dir):
-        report_lines.append(f"[WARNING] Output directory does not exist: {out_dir}")
-        with open(log_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(report_lines))
-        return
-
-    found_files = []
-    for root, dirs, files in os.walk(out_dir):
+    # 查找所有文件（包括子目录）
+    all_files = []
+    for root, dirs, files in os.walk(output_dir):
         for file in files:
-            full_path = os.path.join(root, file)
-            found_files.append(full_path)
+            all_files.append(os.path.join(root, file))
     
-    if not found_files:
-        report_lines.append("[INFO] No files found in output directory.")
-    else:
-        report_lines.append(f"[INFO] Found {len(found_files)} files:")
-        for f_path in sorted(found_files):
-            rel_path = os.path.relpath(f_path, "data")
-            size = os.path.getsize(f_path)
-            header = get_head_content(f_path)
-            
-            report_lines.append(f"\nFile: {rel_path}")
-            report_lines.append(f"Size: {size} bytes")
-            report_lines.append(f"Head Content:\n{header}")
-            report_lines.append("-" * 30)
-
-    with open(log_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(report_lines))
+    if not all_files:
+        report_lines.append(f"No files found in {output_dir}")
+        return '\n'.join(report_lines)
     
-    print(f"[Task {task_id}] Exploration report saved to: {log_file}")
+    report_lines.append(f"Found {len(all_files)} files in {output_dir}:")
+    
+    for filepath in all_files:
+        rel_path = os.path.relpath(filepath, output_dir)
+        abs_path = os.path.abspath(filepath)
+        file_size = os.path.getsize(filepath)
+        
+        report_lines.append(f"\n--- File: {rel_path} ---")
+        report_lines.append(f"Absolute path: {abs_path}")
+        report_lines.append(f"Size: {file_size} bytes")
+        
+        # 读取文件头部内容
+        head_content = read_file_head(filepath, 10)
+        report_lines.append("Head content:")
+        report_lines.append(head_content)
+        report_lines.append("-" * 50)
+    
+    return '\n'.join(report_lines)
 
 def main():
+    # 获取任务ID
+    task_id = int(os.environ.get('SLURM_ARRAY_TASK_ID', 0))
+    
+    # 定义模型配置
+    models = [
+        {
+            "name": "Macrel",
+            "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate env_macrel && macrel peptides --fasta data/combined_test.fasta --output data/Macrel_out --keep-negatives"',
+            "output_dir": "data/Macrel_out"
+        },
+        {
+            "name": "amPEPpy", 
+            "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amPEP && ampep predict -i data/combined_test.fasta -o data/amPEPpy_out/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model"',
+            "output_dir": "data/amPEPpy_out"
+        },
+        {
+            "name": "AMPlify",
+            "cmd": 'bash -c "source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh && conda activate amplify && AMPlify -s data/combined_test.fasta -m balanced -of tsv -od data/AMPlify_out"',
+            "output_dir": "data/AMPlify_out"
+        }
+    ]
+    
+    # 检查task_id是否有效
+    if task_id >= len(models):
+        print(f"Task ID {task_id} exceeds available models (0-{len(models)-1}). Exiting.")
+        return
+    
+    model = models[task_id]
+    model_name = model["name"]
+    cmd = model["cmd"]
+    output_dir = model["output_dir"]
+    
+    print(f"Starting task {task_id}: Running {model_name}")
+    
+    # 执行模型并实现自愈机制
     try:
-        task_id_str = os.environ.get('SLURM_ARRAY_TASK_ID', '0')
-        task_id = int(task_id_str)
-    except ValueError:
-        print("Error: SLURM_ARRAY_TASK_ID is not a valid integer. Exiting.")
-        sys.exit(1)
-
-    if task_id < 0 or task_id >= len(MODELS):
-        print(f"Warning: Task ID {task_id} is out of range [0-{len(MODELS)-1}]. Exiting safely.")
-        os.makedirs("data", exist_ok=True)
+        # 第一步：清理历史数据（防止冲突）
+        print(f"Cleaning old output directory: {output_dir}")
+        shutil.rmtree(output_dir, ignore_errors=True)
+        
+        # 执行模型
+        print(f"Executing {model_name}...")
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        
+        # 检查是否执行失败
+        if res.returncode != 0:
+            print(f"{model_name} execution failed. Return code: {res.returncode}")
+            print(f"Stderr: {res.stderr}")
+            
+            # 检查错误类型并尝试自愈
+            error_msg = res.stderr + res.stdout
+            if "No such file" in error_msg or "NotFoundError" in error_msg or "not found" in error_msg:
+                print("Detected missing directory error. Creating output directory and retrying...")
+                os.makedirs(output_dir, exist_ok=True)
+                
+                # 重新执行
+                res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                
+                if res.returncode != 0:
+                    print(f"Retry failed for {model_name}. Final stderr: {res.stderr}")
+                    
+                    # 再次检查错误类型
+                    final_error_msg = res.stderr + res.stdout
+                    if "already exists" in final_error_msg or "exists" in final_error_msg:
+                        print("Detected directory exists conflict. Removing and retrying...")
+                        shutil.rmtree(output_dir, ignore_errors=True)
+                        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        
+        # 记录执行结果
         log_file = f"data/stage1_obs_{task_id}.txt"
-        with open(log_file, "w") as f:
-            f.write(f"Task {task_id} skipped: Out of range.\n")
-        sys.exit(0)
-
-    current_model = MODELS[task_id]
-    print(f"Selected Model for Task {task_id}: {current_model['name']}")
-
-    success = run_model_with_healing(current_model, task_id)
-
-    explore_output(task_id, current_model)
-
-    print(f"Task {task_id} finished.")
+        os.makedirs("data", exist_ok=True)
+        
+        with open(log_file, 'w') as f:
+            f.write(f"Model Execution Report for Task {task_id}\n")
+            f.write(f"Model: {model_name}\n")
+            f.write(f"Command: {cmd}\n")
+            f.write(f"Return Code: {res.returncode}\n")
+            f.write(f"Stdout:\n{res.stdout}\n")
+            f.write(f"Stderr:\n{res.stderr}\n")
+            f.write("="*60 + "\n\n")
+            
+            # 勘探输出目录
+            exploration_report = explore_output_directory(output_dir, model_name)
+            f.write(exploration_report)
+        
+        print(f"Exploration report saved to {log_file}")
+        
+    except Exception as e:
+        print(f"Exception occurred during execution of {model_name}: {str(e)}")
+        log_file = f"data/stage1_obs_{task_id}.txt"
+        os.makedirs("data", exist_ok=True)
+        
+        with open(log_file, 'w') as f:
+            f.write(f"Model Execution Error Report for Task {task_id}\n")
+            f.write(f"Model: {model_name}\n")
+            f.write(f"Exception: {str(e)}\n")
+            f.write("="*60 + "\n\n")
+            
+            # 即使出错也要尝试勘探目录
+            exploration_report = explore_output_directory(output_dir, model_name)
+            f.write(exploration_report)
 
 if __name__ == '__main__':
     main()
@@ -606,20 +484,20 @@ if __name__ == '__main__':
 
 ```bash
 #!/bin/bash
-#SBATCH -J amp_stage1
-#SBATCH --array=0-4%4
+#SBATCH -J stage1_explore
+#SBATCH --array=0-2%3
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
 #SBATCH --gres=gpu:1
 #SBATCH -p gpu
-#SBATCH -o stage1_%A_%a.out
-#SBATCH -e stage1_%A_%a.err
+#SBATCH -o stage1_explore_%A_%a.out
+#SBATCH -e stage1_explore_%A_%a.err
 
 cd /share/home/zhangss/vlab_workspace
 source /share/home/zhangss/miniconda3/etc/profile.d/conda.sh
-conda activate base
-python stage1_explore.py
+conda activate eval_env
+python stage1_exploration.py
 echo "finish"
 ```
 

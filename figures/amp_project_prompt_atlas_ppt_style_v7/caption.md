@@ -1,0 +1,3 @@
+# Supplementary Figure | Auditable Agent prompts across the AMP benchmark workflow
+
+Five A4 pages document the role-specific instructions and runtime tasks used for literature evidence synthesis, repository onboarding and HPC self-healing, dataset alignment and scientific evaluation, blinded 50-round metric weighting, and Top-3 ensemble reporting. Each numbered record contains a compact rendering of the project instruction, its runtime request, the verified output artifact and the source implementation. The pages expose the handoff between LLM reasoning and deterministic validation while preserving the complete machine-readable records in the cited JSON, CSV and Markdown artifacts.

@@ -1,0 +1,209 @@
+# ============================================================
+# 1. 密钥与本地配置（仅保留 .env.example 模板）
+# ============================================================
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# 2. Python 字节码与工具缓存
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ============================================================
+# 3. 虚拟环境与编辑器/OS 文件
+# ============================================================
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+.DS_Store
+._.DS_Store
+Thumbs.db
+
+# ============================================================
+# 4. 绘图/运行时缓存与临时目录
+# ============================================================
+.matplotlib-cache/
+.matplotlib/
+.nature-figure.json
+.nature-figure*.json
+.codex/
+.codex_tmp/
+outputs/
+tmp/
+*.inspect.ndjson
+
+# ============================================================
+# 5. 图片文件（全局排除，论文配图草稿和评估曲线图均可重建）
+# ============================================================
+figures/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.tif
+*.tiff
+*.bmp
+*.gif
+*.webp
+
+# ============================================================
+# 6. Office 文档与压缩包
+# ============================================================
+*.pptx
+*.docx
+*.xlsx
+*.zip
+*.tar.gz
+*.tar
+*.gz
+*.7z
+
+# ============================================================
+# 7. 本地发布工作树（git worktree 副本，不属于主仓库）
+# ============================================================
+.publish_worktree/
+
+# ============================================================
+# 8. 数据集文件（体积大，可从数据源重新获取）
+#    — data/datasets/ 下的实际数据文件（FASTA/CSV/DATA/tar.gz）
+#    — data/test1/、data/test2/、data/test3/ 原始测试集
+#    — Dataset_2_test2/ 根目录测试集
+#    — data/standardized_datasets/ 标准化基准数据集
+#    — data/combined_test.fasta 顶层合并测试集
+# ============================================================
+data/datasets/
+data/test1/
+data/test2/
+data/test3/
+Dataset_2_test2/
+data/standardized_datasets/
+data/combined_test.fasta
+
+# ============================================================
+# 9. 模型权重与二进制特征缓存（可重建，体积大）
+#    — data/models/ 下的 *.py 源码保留，仅排除权重和特征文件
+# ============================================================
+*.model
+*.pkl
+*.h5
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.a3m
+*.hhm
+*.npz
+*.pssm
+*.hhr
+data/models/sAMPpred-GAT/saved_models/
+data/models/sAMPpred-GAT/example/
+data/models/sAMPpred-GAT/datasets/
+data/models/Deep-AmPEP30/**/train_po.fasta
+data/models/Deep-AmPEP30/**/train_po.csv
+
+# ============================================================
+# 10. 文献全文/搜索缓存（可重建的中间结果）
+# ============================================================
+data/papers/
+data/benchmark_papers/
+
+# ============================================================
+# 11. 可重建的文献检索/API 缓存目录
+# ============================================================
+data/search_cache/
+data/fulltext_cache/
+data/chunk_summaries/
+data/repository_cache/
+data/dataset_cache/
+data/failed_agent_outputs/
+data/hpc_self_heal/
+
+# ============================================================
+# 12. 数据集门禁的临时下载/解压目录
+#     （dataset_plan、dataset_source_lock、dataset_manifests 保持跟踪）
+# ============================================================
+data/datasets/*/_downloads/
+data/datasets/*/_source_repo/
+data/datasets/*/_extracted/
+
+# ============================================================
+# 13. 可重建的文献证据池与 API 原始响应转储（JSON/JSONL/MD）
+#     这些是文献检索管线的中间结果，可通过重新运行管线恢复
+# ============================================================
+data/evidence_pool.json
+data/evidence_pool.md
+data/compact_evidence_pool.json
+data/compact_evidence_pool.md
+data/literature_deep_research_memory.json
+data/literature_deep_research_memory.md
+data/literature_deep_research_index.json
+data/pubmed_records.jsonl
+data/pubmed_search_results.json
+data/pubmed_fulltext_key_evidence.jsonl
+data/normalized_papers.jsonl
+data/normalized_datasets.jsonl
+data/normalized_repositories.jsonl
+data/raw_candidates.jsonl
+data/qwen_deep_research_evidence.jsonl
+data/qwen_web_enrichment.json
+data/qwen_web_enrichment.jsonl
+data/qwen_web_enrichment_pending_models.txt
+data/deepseek_meeting_raw.jsonl
+data/github_enrichment_run_report.json
+data/github_enrichment_pending_models.txt
+data/github_missing_model_enrichment.json
+data/github_missing_model_enrichment.jsonl
+data/extracted_reports_cache.json
+data/multi_source_search_summary.json
+data/literature_agent_evaluation.json
+data/literature_agent_evaluation.md
+data/literature_agent_gold_labels.json
+data/llm_top_journal_model_nominations.json
+data/llm_top_journal_model_nominations.md
+data/llm_top_journal_model_verification.json
+data/llm_top_journal_model_verification.md
+data/dataset_agent_recommendation.json
+data/dataset_agent_recommendation.md
+data/dataset_candidate_pool.json
+data/dataset_candidate_pool.md
+data/dataset_metadata.json
+data/local_registry.json
+data/model_primary_metadata.json
+data/meeting_trace.md
+data/nature_figure_config.json
+data/stage1_filter_results.json
+data/benchmark_model_coverage_targets.json
+
+# ============================================================
+# 14. 816 种三模型组合的集成结果（用户要求只上传 15 种单模型评价）
+# ============================================================
+data/results_manual/ensemble_top3_combination_ranking.csv
+data/results_manual/ensemble_top3_selection.json
+data/results_manual/ensemble_review_meeting/
+
+# ============================================================
+# 15. vlab_discussions 工作流临时文件
+# ============================================================
+data/vlab_discussions/__pycache__/
+data/vlab_discussions/stage1_obs_*.txt
+data/vlab_discussions/stage1_observation*.txt
+data/vlab_discussions/stage1_context_for_stage2.txt
+data/vlab_discussions/stage1_code_cache*.py
+data/vlab_discussions/last_explored_dataset*.txt
+
+# ============================================================
+# 16. 根目录散落的评测缓存副本
+# ============================================================
+/eval_result.json

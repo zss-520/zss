@@ -1,0 +1,41 @@
+{
+  "input_model_count": 18,
+  "displayed_model_count": 15,
+  "excluded_models": [
+    "pepnet_standard",
+    "amplify_imb",
+    "amplify_bal"
+  ],
+  "displayed_models": [
+    "HMD-AMP",
+    "C_AMPs-predict",
+    "AMPsorter",
+    "pepnet_fast",
+    "macrel",
+    "esm-AxP-GDL",
+    "ascan2",
+    "ai4amp",
+    "lstm",
+    "apin",
+    "amPEPpy",
+    "iampcn",
+    "ampir",
+    "apex1.1",
+    "iamp-ca2l"
+  ],
+  "datasets": [
+    "C_AMPs-predict_test",
+    "Veltri_test",
+    "ProteoGPT_all_predictions"
+  ],
+  "threshold": 0.5,
+  "curves_recomputed_from_sample_probabilities": true,
+  "scores_in_ranking_recomputed": false,
+  "posthoc_result_conditioned_filter": true,
+  "valid_for_unbiased_global_top3_claim": false,
+  "source_files": [
+    "data/results_manual/C_AMPs-predict_test/final_results_with_predictions.csv",
+    "data/results_manual/Veltri_test/final_results_with_predictions.csv",
+    "data/results_manual/ProteoGPT_all_predictions/final_results_with_predictions.csv"
+  ]
+}

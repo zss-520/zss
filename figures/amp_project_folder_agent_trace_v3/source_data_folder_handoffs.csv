@@ -1,0 +1,10 @@
+stage,agent_folder,execution_engine,input_artifact,persisted_output
+Stage 1,agents/deepseek_meeting/*.md,deep_research_literature_agent.py,evidence_pool.json,compact_evidence_pool.json
+Stage 1,agents/deepseek_meeting/*.md,dataset_recommendation_agent.py,literature_deep_research_memory.json,recommended_models/datasets/metrics.csv
+Stage 2,agents/model_onboarding/*.md,new_model_onboarding.py,README + repository,local_registry.json
+Stage 2,agents/model_execution/*.md,hpc_model_ops.py,registry + HPC log,smoke-test state
+Stage 2,agents/runtime_prompts/*.md,main.py + run_meeting.py,FASTA + registry,predictions.csv
+Stage 2,agents/runtime_prompts/*.md,scientific_evaluation.py,prediction table,eval_result.json + scientific_evaluation.json
+Stage 3,agents/weight_meeting/*.md,codex_agent_weight_meeting.py,agent_evidence_bundle.json,round_001-050.json
+Stage 3,agents/weight_meeting/*.md,iterative_weight_meeting.py,accepted weights,model scores + final ranking
+Stage 3,agents/weight_meeting/research_advisor.md,amp_research_advisor.py,ranking + critics,future-directions report

@@ -1,59 +1,105 @@
 [
-    {
-        "model_name": "Macrel",
-        "env_name": "env_macrel",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "macrel peptides --fasta {fasta_path} --output {output_dir} --keep-negatives",
-        "skip_env_setup": true
-    },
-    {
-        "model_name": "AMP-Scanner-v2",
-        "env_name": "ascan2_tf1",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f {fasta_path} -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p {output_dir}/ampscanner_out.csv",
-        "skip_env_setup": true
-    },
-    {
-        "model_name": "amPEPpy",
-        "env_name": "amPEP",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "ampep predict -i {fasta_path} -o {output_dir}/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model",
-        "skip_env_setup": true
-    },
-    {
-        "model_name": "APIN",
-        "env_name": "apin",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "python /share/home/zhangss/APIN/proposed_model.py -test_file {fasta_path} -false_train_file /share/home/zhangss/APIN/data/DECOY.tr.fa -true_train_file /share/home/zhangss/APIN/data/AMP.tr.fa -prediction_file {output_dir}/predictions.txt",
-        "skip_env_setup": true
-    },
-    {
-        "model_name": "AI4AMP",
-        "env_name": "ai4amp",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f {fasta_path} -o {output_dir}/predictions.csv",
-        "skip_env_setup": true
-    },
-    {
-        "model_name": "AMPlify",
-        "env_name": "amplify",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "AMPlify -s {fasta_path} -m balanced -of tsv -od {output_dir}",
-        "skip_env_setup": true
-    },
-    {
-        "model_name": "PepFun",
-        "env_name": "pepfun",
-        "repo_url": "",
-        "dependencies": [],
-        "inference_cmd_template": "python /share/home/zhangss/PepFun/batch_pepfun.py -f {fasta_path} -o {output_dir}/pepfun_results.csv",
-        "skip_env_setup": true
-    }
-    
+  {
+    "model_name": "Macrel",
+    "env_name": "env_macrel",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "macrel peptides --fasta {fasta_path} --output {output_dir} --keep-negatives",
+    "skip_env_setup": true,
+    "remote_repo_dir": "/share/home/zhangss/repos/macrel",
+    "hpc_env_status": "failed_or_incomplete",
+    "hpc_smoke_test": "failed",
+    "last_hpc_setup_time": "2026-07-11 15:15:31"
+  },
+  {
+    "model_name": "AMP-Scanner-v2",
+    "env_name": "ascan2_tf1",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "python /share/home/zhangss/amp-scanner-v2/amp_scanner_v2_predict_tf1.py -f {fasta_path} -m /share/home/zhangss/amp-scanner-v2/trained-models/020419_FULL_MODEL.h5 -p {output_dir}/ampscanner_out.csv",
+    "skip_env_setup": true
+  },
+  {
+    "model_name": "amPEPpy",
+    "env_name": "amPEP",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "ampep predict -i {fasta_path} -o {output_dir}/predictions.txt -m /share/home/zhangss/amPEPpy/pretrained_models/amPEP.model",
+    "skip_env_setup": true,
+    "remote_repo_dir": "/share/home/zhangss/repos/ampeppy",
+    "hpc_env_status": "ready",
+    "hpc_smoke_test": "passed",
+    "last_hpc_setup_time": "2026-07-11 15:15:34"
+  },
+  {
+    "model_name": "APIN",
+    "env_name": "apin",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "python /share/home/zhangss/APIN/proposed_model.py -test_file {fasta_path} -false_train_file /share/home/zhangss/APIN/data/DECOY.tr.fa -true_train_file /share/home/zhangss/APIN/data/AMP.tr.fa -prediction_file {output_dir}/predictions.txt",
+    "skip_env_setup": true
+  },
+  {
+    "model_name": "AI4AMP",
+    "env_name": "ai4amp",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "python /share/home/zhangss/AI4AMP_predictor/PC6/PC6_predictor.py -f {fasta_path} -o {output_dir}/predictions.csv",
+    "skip_env_setup": true
+  },
+  {
+    "model_name": "AMPlify",
+    "env_name": "amplify",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "AMPlify -s {fasta_path} -m balanced -of tsv -od {output_dir}",
+    "skip_env_setup": true,
+    "remote_repo_dir": "/share/home/zhangss/repos/amplify",
+    "hpc_env_status": "ready",
+    "hpc_smoke_test": "passed",
+    "last_hpc_setup_time": "2026-07-11 15:15:50"
+  },
+  {
+    "model_name": "PepFun",
+    "env_name": "pepfun",
+    "repo_url": "",
+    "dependencies": [],
+    "inference_cmd_template": "python /share/home/zhangss/PepFun/batch_pepfun.py -f {fasta_path} -o {output_dir}/pepfun_results.csv",
+    "skip_env_setup": true
+  },
+  {
+    "model_name": "sAMPpred-GAT",
+    "env_name": "env_samppred_gat",
+    "repo_url": "https://github.com/HongWuL/sAMPpred-GAT.git",
+    "local_model_dir": "data\\models\\sAMPpred-GAT",
+    "dependencies": [
+      "numpy==1.21.6",
+      "pandas",
+      "scikit-learn==1.0.2",
+      "scipy==1.7.3",
+      "torch-geometric==1.7.2",
+      "torch-cluster==1.6.0",
+      "torch-scatter==2.0.9",
+      "torch-sparse==0.6.15",
+      "torch==1.11.0+cu113",
+      "torchaudio==0.11.0+cu113",
+      "torchvision==0.12.0+cu113",
+      "tqdm==4.64.1"
+    ],
+    "python_version": "3.9",
+    "inference_cmd_template": "python samppred_gat_adapter.py --input {fasta_path} --output {output_dir}/predictions.csv",
+    "skip_env_setup": true,
+    "dataset_source_or_link": "https://github.com/HongWuL/sAMPpred-GAT/",
+    "model_weights_url": "",
+    "source_doi": "10.1093/bioinformatics/btac715",
+    "source_pmid": "36342186",
+    "agent_registry_confidence": 0.35,
+    "agent_registry_note": "fallback_heuristic; HPC smoke test passed; formal inference uses samppred_gat_adapter.py to split combined FASTA by ground_truth.csv, generate graph features, run test.py, and emit id/sequence/score/pred.",
+    "env_setup_commands": [],
+    "remote_repo_dir": "/share/home/zhangss/repos/samppred-gat",
+    "hpc_env_status": "ready",
+    "hpc_smoke_test": "passed",
+    "matched_base_env": "base_pt1",
+    "last_hpc_setup_time": "2026-07-10 18:50:36"
+  }
 ]

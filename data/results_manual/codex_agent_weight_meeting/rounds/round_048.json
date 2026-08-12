@@ -1,0 +1,500 @@
+{
+  "round": 48,
+  "sampled_dataset_aliases": [
+    "Dataset_C",
+    "Dataset_A",
+    "Dataset_A"
+  ],
+  "metric_evidence": {
+    "ACC": {
+      "coverage": 1.0,
+      "separation": 0.465293,
+      "consistency": 0.68594,
+      "consensus": 0.92533,
+      "uniqueness": 0.312294,
+      "committee_support": 0.620833
+    },
+    "AUPRC": {
+      "coverage": 1.0,
+      "separation": 0.496431,
+      "consistency": 0.74613,
+      "consensus": 0.942644,
+      "uniqueness": 0.382803,
+      "committee_support": 0.668651
+    },
+    "AUROC": {
+      "coverage": 1.0,
+      "separation": 0.459984,
+      "consistency": 0.675955,
+      "consensus": 0.914313,
+      "uniqueness": 0.434191,
+      "committee_support": 0.658093
+    },
+    "BalancedAccuracy": {
+      "coverage": 1.0,
+      "separation": 0.479268,
+      "consistency": 0.712418,
+      "consensus": 0.956936,
+      "uniqueness": 0.358907,
+      "committee_support": 0.651382
+    },
+    "BrierScore": {
+      "coverage": 1.0,
+      "separation": 0.451359,
+      "consistency": 0.660131,
+      "consensus": 0.927339,
+      "uniqueness": 0.309432,
+      "committee_support": 0.611492
+    },
+    "ECE": {
+      "coverage": 1.0,
+      "separation": 0.46845,
+      "consistency": 0.691778,
+      "consensus": 0.911916,
+      "uniqueness": 0.323955,
+      "committee_support": 0.625481
+    },
+    "F1-Score": {
+      "coverage": 1.0,
+      "separation": 0.503947,
+      "consistency": 0.761266,
+      "consensus": 0.962384,
+      "uniqueness": 0.343283,
+      "committee_support": 0.661583
+    },
+    "MCC": {
+      "coverage": 1.0,
+      "separation": 0.501567,
+      "consistency": 0.75645,
+      "consensus": 0.965145,
+      "uniqueness": 0.338781,
+      "committee_support": 0.658756
+    },
+    "NPV": {
+      "coverage": 1.0,
+      "separation": 0.572521,
+      "consistency": 0.909873,
+      "consensus": 0.661641,
+      "uniqueness": 0.62268,
+      "committee_support": 0.735075
+    },
+    "Precision": {
+      "coverage": 1.0,
+      "separation": 0.519639,
+      "consistency": 0.793602,
+      "consensus": 0.849351,
+      "uniqueness": 0.380552,
+      "committee_support": 0.668284
+    },
+    "Recall": {
+      "coverage": 1.0,
+      "separation": 0.565312,
+      "consistency": 0.893822,
+      "consensus": 0.598467,
+      "uniqueness": 0.617934,
+      "committee_support": 0.714997
+    },
+    "Specificity": {
+      "coverage": 1.0,
+      "separation": 0.527472,
+      "consistency": 0.810114,
+      "consensus": 0.809191,
+      "uniqueness": 0.402158,
+      "committee_support": 0.673967
+    }
+  },
+  "expert_proposals": {
+    "literature_agent": {
+      "ACC": 0.028732669,
+      "AUPRC": 0.21360824,
+      "AUROC": 0.076279058,
+      "BalancedAccuracy": 0.064872454,
+      "BrierScore": 0.048806675,
+      "ECE": 0.041375075,
+      "F1-Score": 0.060914547,
+      "MCC": 0.166832712,
+      "NPV": 0.038610954,
+      "Precision": 0.096988151,
+      "Recall": 0.120706732,
+      "Specificity": 0.042272733
+    },
+    "statistics_agent": {
+      "ACC": 0.02668323,
+      "AUPRC": 0.1872625,
+      "AUROC": 0.07669364,
+      "BalancedAccuracy": 0.06686375,
+      "BrierScore": 0.08142067,
+      "ECE": 0.06356295,
+      "F1-Score": 0.05966389,
+      "MCC": 0.16499767,
+      "NPV": 0.03158847,
+      "Precision": 0.09480277,
+      "Recall": 0.10357962,
+      "Specificity": 0.04288084
+    },
+    "screening_agent": {
+      "ACC": 0.014321,
+      "AUPRC": 0.213127,
+      "AUROC": 0.048064,
+      "BalancedAccuracy": 0.054088,
+      "BrierScore": 0.029048,
+      "ECE": 0.029338,
+      "F1-Score": 0.05305,
+      "MCC": 0.169401,
+      "NPV": 0.04538,
+      "Precision": 0.115754,
+      "Recall": 0.174232,
+      "Specificity": 0.054197
+    }
+  },
+  "reviewer_audit": {
+    "round": 48,
+    "analysis": "Independent review of round 48: the three experts allocate, on average, 0.272 to threshold-free discrimination, 0.310 to overlapping confusion-matrix summaries, 0.320 to operating-point rates, and 0.098 to calibration. The widest proposal ranges are Recall (0.0707), BrierScore (0.0524), and ECE (0.0342). Anonymous evidence favours NPV, Recall, Specificity and is weakest for ECE, ACC, BrierScore under the Reviewer composite. This is descriptive post-hoc evidence, not permission to optimise on a formal test set.",
+    "criticisms": [
+      "Literature/llm_prior boundary: the supplied literature consensus supports AUPRC, MCC, Recall and Precision as central constructs, but exact residual allocations and any miss-versus-false-positive cost ratio remain llm_prior rather than measured literature facts.",
+      "Hidden preference check: the reviewed files expose metric-level evidence and role proposals but no model identity, model score or rank. No proposal may be justified by an implied winner.",
+      "Post-hoc tuning risk: resampled benchmark metric evidence is useful for sensitivity analysis but must not be used to claim a leakage-free test ranking; weights require preregistration or an independent development set before confirmatory evaluation.",
+      "Redundancy risk: the proposed mean mass on confusion-matrix summaries is 0.310; ACC, BalancedAccuracy, F1 and MCC partially reuse the same contingency-table information and should not be treated as four independent votes.",
+      "Calibration visibility: BrierScore plus ECE receive mean mass 0.098. BrierScore is a proper scoring rule while ECE is binning-dependent; both must remain visible, with protocol and directionality documented.",
+      "Prevalence/threshold dependence: ACC, predictive values, F1, sensitivity and specificity depend on prevalence and/or a decision threshold. The threshold-selection dataset and freezing point remain unresolved, so round-specific movements in these metrics are provisional.",
+      "Material expert conflict persists for Recall: screening_agent proposes the most and statistics_agent the least. The Chief must record a construct-based rationale for resolving this gap.",
+      "This round's lowest uniqueness occurs for BrierScore, ACC, ECE; increasing all of them together would amplify redundant evidence rather than add independent information."
+    ],
+    "required_changes": [
+      "Keep literature-supported claims separate from statements labelled llm_prior; do not present an exact allocation as citation-derived.",
+      "Do not use model identity, score, rank, winner frequency, or downstream ranking stability when adjudicating metric priority.",
+      "Treat these 50 adaptive rounds as exploratory sensitivity analysis and freeze a single rule before any confirmatory test evaluation.",
+      "Audit metric redundancy explicitly, particularly confusion-matrix summaries and the Recall/Specificity-derived composites.",
+      "Retain both discrimination and calibration dimensions; state that lower BrierScore/ECE is better before normalization.",
+      "Document prevalence, threshold-selection source, threshold freezing, homology partitioning, and dataset independence before a formal benchmark claim.",
+      "For round 48, explain why evidence leaders NPV, Recall, Specificity should or should not override construct concerns, and why evidence laggards ECE, ACC, BrierScore remain represented."
+    ],
+    "preferred_directions": {
+      "increase": [
+        "AUPRC",
+        "BrierScore",
+        "ECE",
+        "MCC",
+        "Recall"
+      ],
+      "slight_increase": [
+        "NPV",
+        "Precision"
+      ],
+      "hold_or_reconcile": [
+        "AUROC",
+        "BalancedAccuracy"
+      ],
+      "slight_decrease": [
+        "F1-Score",
+        "Specificity"
+      ],
+      "decrease": [
+        "ACC"
+      ],
+      "interpretation": "Directions summarize Reviewer pressure only. They are not weights, do not sum to one, and must be reconciled by the Chief with explicit reasons."
+    },
+    "metric_priority_adjustments": {
+      "ACC": -0.332179,
+      "AUPRC": 0.290698,
+      "AUROC": -0.032297,
+      "BalancedAccuracy": 0.003751,
+      "BrierScore": 0.188109,
+      "ECE": 0.171328,
+      "F1-Score": -0.063676,
+      "MCC": 0.208676,
+      "NPV": 0.062909,
+      "Precision": 0.083365,
+      "Recall": 0.168341,
+      "Specificity": -0.046648
+    },
+    "leakage_check": {
+      "model_identity_accessed": false,
+      "model_scores_accessed": false,
+      "model_rankings_accessed": false,
+      "review_inputs": [
+        "anonymous shared metric evidence",
+        "supplied literature-memory consensus",
+        "metric definitions and anonymous prevalence profiles",
+        "three blinded expert proposals"
+      ],
+      "status": "conditional_pass_for_exploratory_review_only",
+      "test_set_adaptation_risk": "Round evidence appears derived from the evaluated benchmark datasets. Adaptive weights therefore cannot support a leakage-free confirmatory ranking without an independent development/validation stage and prospectively frozen weights."
+    },
+    "unresolved_risks": [
+      "The evaluated datasets' independence and homology-leakage gates are unresolved.",
+      "The threshold-selection provenance and whether thresholds were frozen before evaluation are unresolved.",
+      "No project-measured utility ratio quantifies missed AMP candidates versus false candidates sent to wet-lab validation.",
+      "Correlated metrics may double-count the same discrimination or confusion-matrix signal.",
+      "Calibration estimates may be unstable across prevalence shifts, and ECE depends on binning choices.",
+      "Repeated use of benchmark-derived evidence creates post-hoc selection risk even while model identities remain blinded.",
+      "The sampled composition for round 48 (Dataset_C, Dataset_A, Dataset_A) can change prevalence emphasis and must not be interpreted as an independent replication."
+    ],
+    "expert_disagreement_summary": {
+      "largest_disagreements": [
+        {
+          "metric": "Recall",
+          "spread": 0.07065238,
+          "mean_proposal": 0.132839451,
+          "highest_role": "screening_agent",
+          "lowest_role": "statistics_agent",
+          "role_proposals": {
+            "literature_agent": 0.120706732,
+            "statistics_agent": 0.10357962,
+            "screening_agent": 0.174232
+          }
+        },
+        {
+          "metric": "BrierScore",
+          "spread": 0.05237267,
+          "mean_proposal": 0.053091782,
+          "highest_role": "statistics_agent",
+          "lowest_role": "screening_agent",
+          "role_proposals": {
+            "literature_agent": 0.048806675,
+            "statistics_agent": 0.08142067,
+            "screening_agent": 0.029048
+          }
+        },
+        {
+          "metric": "ECE",
+          "spread": 0.03422495,
+          "mean_proposal": 0.044758675,
+          "highest_role": "statistics_agent",
+          "lowest_role": "screening_agent",
+          "role_proposals": {
+            "literature_agent": 0.041375075,
+            "statistics_agent": 0.06356295,
+            "screening_agent": 0.029338
+          }
+        },
+        {
+          "metric": "AUROC",
+          "spread": 0.02862964,
+          "mean_proposal": 0.067012233,
+          "highest_role": "statistics_agent",
+          "lowest_role": "screening_agent",
+          "role_proposals": {
+            "literature_agent": 0.076279058,
+            "statistics_agent": 0.07669364,
+            "screening_agent": 0.048064
+          }
+        }
+      ],
+      "mean_absolute_pairwise_spread": 0.024862309,
+      "reviewer_interpretation": "The largest disagreement is Recall (range 0.0707), followed by BrierScore and ECE. The Chief should resolve these construct-level differences explicitly rather than averaging them silently."
+    }
+  },
+  "chief_audit": {
+    "expert_mean": {
+      "ACC": 0.023245632999999998,
+      "AUPRC": 0.20466591333333337,
+      "AUROC": 0.06701223266666666,
+      "BalancedAccuracy": 0.06194140133333333,
+      "BrierScore": 0.053091781666666664,
+      "ECE": 0.044758675,
+      "F1-Score": 0.05787614566666666,
+      "MCC": 0.16707712733333335,
+      "NPV": 0.03852647466666667,
+      "Precision": 0.10251497366666666,
+      "Recall": 0.13283945066666666,
+      "Specificity": 0.046450191
+    },
+    "expert_standard_deviation": {
+      "ACC": 0.006365891175747875,
+      "AUPRC": 0.012307639760802597,
+      "AUROC": 0.013399492787696136,
+      "BalancedAccuracy": 0.005612382103688554,
+      "BrierScore": 0.0215946867707585,
+      "ECE": 0.014175644896455912,
+      "F1-Score": 0.00345058422394685,
+      "MCC": 0.0018059407361264283,
+      "NPV": 0.0056306854232586,
+      "Precision": 0.009403823201932653,
+      "Recall": 0.030092544443205655,
+      "Specificity": 0.00548344391738884
+    },
+    "reviewer_adjustments": {
+      "ACC": -0.332179,
+      "AUPRC": 0.290698,
+      "AUROC": -0.032297,
+      "BalancedAccuracy": 0.003751,
+      "BrierScore": 0.188109,
+      "ECE": 0.171328,
+      "F1-Score": -0.063676,
+      "MCC": 0.208676,
+      "NPV": 0.062909,
+      "Precision": 0.083365,
+      "Recall": 0.168341,
+      "Specificity": -0.046648
+    },
+    "reviewer_criticisms": [
+      "Literature/llm_prior boundary: the supplied literature consensus supports AUPRC, MCC, Recall and Precision as central constructs, but exact residual allocations and any miss-versus-false-positive cost ratio remain llm_prior rather than measured literature facts.",
+      "Hidden preference check: the reviewed files expose metric-level evidence and role proposals but no model identity, model score or rank. No proposal may be justified by an implied winner.",
+      "Post-hoc tuning risk: resampled benchmark metric evidence is useful for sensitivity analysis but must not be used to claim a leakage-free test ranking; weights require preregistration or an independent development set before confirmatory evaluation.",
+      "Redundancy risk: the proposed mean mass on confusion-matrix summaries is 0.310; ACC, BalancedAccuracy, F1 and MCC partially reuse the same contingency-table information and should not be treated as four independent votes.",
+      "Calibration visibility: BrierScore plus ECE receive mean mass 0.098. BrierScore is a proper scoring rule while ECE is binning-dependent; both must remain visible, with protocol and directionality documented.",
+      "Prevalence/threshold dependence: ACC, predictive values, F1, sensitivity and specificity depend on prevalence and/or a decision threshold. The threshold-selection dataset and freezing point remain unresolved, so round-specific movements in these metrics are provisional.",
+      "Material expert conflict persists for Recall: screening_agent proposes the most and statistics_agent the least. The Chief must record a construct-based rationale for resolving this gap.",
+      "This round's lowest uniqueness occurs for BrierScore, ACC, ECE; increasing all of them together would amplify redundant evidence rather than add independent information."
+    ],
+    "reviewer_required_changes": [
+      "Keep literature-supported claims separate from statements labelled llm_prior; do not present an exact allocation as citation-derived.",
+      "Do not use model identity, score, rank, winner frequency, or downstream ranking stability when adjudicating metric priority.",
+      "Treat these 50 adaptive rounds as exploratory sensitivity analysis and freeze a single rule before any confirmatory test evaluation.",
+      "Audit metric redundancy explicitly, particularly confusion-matrix summaries and the Recall/Specificity-derived composites.",
+      "Retain both discrimination and calibration dimensions; state that lower BrierScore/ECE is better before normalization.",
+      "Document prevalence, threshold-selection source, threshold freezing, homology partitioning, and dataset independence before a formal benchmark claim.",
+      "For round 48, explain why evidence leaders NPV, Recall, Specificity should or should not override construct concerns, and why evidence laggards ECE, ACC, BrierScore remain represented."
+    ],
+    "raw_l1_from_previous": 0.005094383199999993,
+    "chief_blend_fraction": 1.0,
+    "accepted_sum": 1.0,
+    "accepted_min": 0.0222915468,
+    "accepted_max": 0.206963405
+  },
+  "weights_before": {
+    "ACC": 0.0224891902,
+    "AUPRC": 0.2057040129,
+    "AUROC": 0.0664666312,
+    "BalancedAccuracy": 0.0607583608,
+    "BrierScore": 0.0543413962,
+    "ECE": 0.0460664888,
+    "F1-Score": 0.0560161084,
+    "MCC": 0.1673548284,
+    "NPV": 0.0382347443,
+    "Precision": 0.1032712286,
+    "Recall": 0.1325694075,
+    "Specificity": 0.0467276027
+  },
+  "accepted_weights": {
+    "ACC": 0.0222915468,
+    "AUPRC": 0.206963405,
+    "AUROC": 0.066135058,
+    "BalancedAccuracy": 0.0608784991,
+    "BrierScore": 0.0539568792,
+    "ECE": 0.0455929686,
+    "F1-Score": 0.0562639014,
+    "MCC": 0.1678962599,
+    "NPV": 0.0382452362,
+    "Precision": 0.102659938,
+    "Recall": 0.1329373523,
+    "Specificity": 0.0461789555
+  },
+  "l1_from_previous": 0.0050943832,
+  "model_scores": [
+    {
+      "round": 48,
+      "model": "C_AMPs-predict",
+      "score": 0.7731099923,
+      "rank": 1
+    },
+    {
+      "round": 48,
+      "model": "amplify_bal",
+      "score": 0.7589697181,
+      "rank": 2
+    },
+    {
+      "round": 48,
+      "model": "pepnet_standard",
+      "score": 0.7211976011,
+      "rank": 3
+    },
+    {
+      "round": 48,
+      "model": "amplify_imb",
+      "score": 0.6935299744,
+      "rank": 4
+    },
+    {
+      "round": 48,
+      "model": "pepnet_fast",
+      "score": 0.6652992531,
+      "rank": 5
+    },
+    {
+      "round": 48,
+      "model": "macrel",
+      "score": 0.5864769191,
+      "rank": 6
+    },
+    {
+      "round": 48,
+      "model": "HMD-AMP",
+      "score": 0.5475801866,
+      "rank": 7
+    },
+    {
+      "round": 48,
+      "model": "AMPsorter",
+      "score": 0.5419863897,
+      "rank": 8
+    },
+    {
+      "round": 48,
+      "model": "esm-AxP-GDL",
+      "score": 0.5339530023,
+      "rank": 9
+    },
+    {
+      "round": 48,
+      "model": "ascan2",
+      "score": 0.495638089,
+      "rank": 10
+    },
+    {
+      "round": 48,
+      "model": "amPEPpy",
+      "score": 0.4727005665,
+      "rank": 11
+    },
+    {
+      "round": 48,
+      "model": "ai4amp",
+      "score": 0.4342564022,
+      "rank": 12
+    },
+    {
+      "round": 48,
+      "model": "lstm",
+      "score": 0.4083515121,
+      "rank": 13
+    },
+    {
+      "round": 48,
+      "model": "apin",
+      "score": 0.4040367186,
+      "rank": 14
+    },
+    {
+      "round": 48,
+      "model": "ampir",
+      "score": 0.3562803027,
+      "rank": 15
+    },
+    {
+      "round": 48,
+      "model": "iampcn",
+      "score": 0.3344458308,
+      "rank": 16
+    },
+    {
+      "round": 48,
+      "model": "apex1.1",
+      "score": 0.2464423299,
+      "rank": 17
+    },
+    {
+      "round": 48,
+      "model": "iamp-ca2l",
+      "score": 0.0257452114,
+      "rank": 18
+    }
+  ],
+  "top3": [
+    "C_AMPs-predict",
+    "amplify_bal",
+    "pepnet_standard"
+  ]
+}
